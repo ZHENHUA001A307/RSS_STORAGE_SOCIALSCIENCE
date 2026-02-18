@@ -4,7 +4,7 @@ on:
   schedule:
     # 0 0,8,16 分别代表 UTC 时间的 0点, 8点, 16点
     # 对应北京时间为：8:00, 16:00, 0:00 (每8小时一次)
-    - cron: '0 0,8,16 * * *'
+    - cron: '0 0,1 * * *'
   workflow_dispatch:
 
 permissions:
