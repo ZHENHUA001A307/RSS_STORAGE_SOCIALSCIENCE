@@ -36,7 +36,7 @@ jobs:
           from bs4 import BeautifulSoup
 
           # ================= 配置区 =================
-          READING_SPEED = 300 
+          READING_SPEED = 200 
           RSS_SIZE = 15 
           repo_full_name = os.getenv('GITHUB_REPOSITORY')
           # 默认分支名，如果你的仓库是 master 请修改此处
