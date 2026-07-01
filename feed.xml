@@ -4,11 +4,18 @@
   <title>每日更新推送</title>
   <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
   <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Tue, 30 Jun 2026 11:27:34 +0000</lastBuildDate>
+  <lastBuildDate>Wed, 01 Jul 2026 02:02:07 +0000</lastBuildDate>
     <item>
-      <title><![CDATA[Vibe Coding 教程]]></title>
+      <title><![CDATA[Vibe Coding 简介]]></title>
+      <link>https://www.runoob.com/vibe-coding/vibe-coding-intro.html</link>
+      <description><![CDATA[学习时长：约15分钟；学习内容：Vibe Coding的定义、起源、核心理念及其与传统编程的区别；学习目的：快速建立对Vibe Coding的宏观认知，理解其在现代开发中的价值。]]></description>
+      <guid isPermaLink="false">https://www.runoob.com/vibe-coding/vibe-coding-intro.html</guid>
+      <pubDate>Wed, 01 Jul 2026 02:02:07 +0000</pubDate>
+    </item>
+<item>
+      <title>Vibe Coding 教程</title>
       <link>https://www.runoob.com/vibe-coding/vibe-coding-tutorial.html</link>
-      <description><![CDATA[学习时长：约1小时；学习内容：全面讲解Vibe Coding的概念、思维模式、提示词工程以及GitHub Copilot、Claude Code等主流AI编程工具的使用；学习目的：系统掌握利用自然语言驱动AI生成代码的完整工作流，大幅提升开发效率。]]></description>
+      <description>学习时长：约1小时；学习内容：全面讲解Vibe Coding的概念、思维模式、提示词工程以及GitHub Copilot、Claude Code等主流AI编程工具的使用；学习目的：系统掌握利用自然语言驱动AI生成代码的完整工作流，大幅提升开发效率。</description>
       <guid isPermaLink="false">https://www.runoob.com/vibe-coding/vibe-coding-tutorial.html</guid>
       <pubDate>Tue, 30 Jun 2026 11:27:34 +0000</pubDate>
     </item>
