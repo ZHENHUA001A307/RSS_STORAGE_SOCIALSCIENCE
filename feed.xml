@@ -5,6 +5,818 @@
     <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
     <description>从 EPUB 自动生成的 RSS 订阅源</description>
         <item>
+    <title>Basic Python - 005 - 第 5 章 if语句.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：85 分钟 (16826 字)</p><hr><h1 id="nav_point_100">第 5 章　<code>if</code>
+ 语句</h1>
+<blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/5_Image00001.gif" style="width: 16%" width="16%"/>
+ 　编程时经常需要检查一系列条件，并据此决定采取什么措施。在Python中，<code>if</code>
+ 语句让你能够检查程序的当前状态，并采取相应的措施。</p>
+<p>在本章中，你将学习条件测试，以检查所关心的任何条件。你将学习简单的<code>if</code>
+ 语句，以及创建一系列复杂的<code>if</code>
+ 语句来确定当前到底处于什么情形。接下来，你将把学到的知识应用于列表，编写一个<code>for</code>
+ 循环，以一种方式处理列表中的大多数元素，并以另一种方式处理包含特定值的元素。</p>
+</blockquote>
+<h2 id="nav_point_101">5.1　一个简单示例</h2>
+<p>下面是一个简短的示例，演示了如何使用<code>if</code>
+ 语句来正确地处理特殊情形。假设你有一个汽车列表，并想将其中每辆汽车的名称打印出来。对于大多数汽车，应以首字母大写的方式打印其名称，但对于汽车名<code>'bmw'</code>
+ ，应以全大写的方式打印。下面的代码遍历这个列表，并以首字母大写的方式打印其中的汽车名，不过对于<code>'bmw'</code>
+ ，则以全大写的方式打印：</p>
+<p>
+<em>cars.py</em>
+</p>
+<pre class="代码无行号"><code>  cars = ['audi', 'bmw', 'subaru', 'toyota']
+  for car in cars:
+❶     if car == 'bmw':
+          print(car.upper())
+      else:
+          print(car.title())</code>
+</pre>
+<p>这个示例中的循环首先检查当前的汽车名是否是<code>'bmw'</code>
+ （见❶）。如果是，就以全大写方式打印，否则以首字母大写的方式打印：</p>
+<pre class="代码无行号"><code>Audi
+BMW
+Subaru
+Toyota</code>
+</pre>
+<p>这个示例涵盖了本章将介绍的很多概念。下面先来介绍可用来在程序中检查条件的测试。</p>
+<h2 id="nav_point_102">5.2　条件测试</h2>
+<p>每条<code>if</code>
+ 语句的核心都是一个值为<code>True</code>
+ 或<code>False</code>
+ 的表达式，这种表达式称为<strong>条件测试</strong>
+ 。Python根据条件测试的值为<code>True</code>
+ 还是<code>False</code>
+ 来决定是否执行<code>if</code>
+ 语句中的代码。如果条件测试的值为<code>True</code>
+ ，Python就执行紧跟在<code>if</code>
+ 语句后面的代码；如果为<code>False</code>
+ ，Python就忽略这些代码。</p>
+<h3 id="nav_point_103">5.2.1　检查是否相等</h3>
+<p>大多数条件测试将一个变量的当前值同特定值进行比较。最简单的条件测试检查变量的值是否与特定值相等：</p>
+<pre class="代码无行号"><code>❶ &gt;&gt;&gt; car = 'bmw'
+❷ &gt;&gt;&gt; car == 'bmw'
+  True</code>
+</pre>
+<p>首先使用一个等号将<code>car</code>
+ 的值设置为<code>'bmw'</code>
+ （见❶），这种做法你已经见过很多次。接下来，使用两个等号（<code>==</code>
+ ）检查<code>car</code>
+ 的值是否为<code>'bmw'</code>
+ （见❷）。这个<strong>相等运算符</strong>
+ 在两边的值相等时返回<code>True</code>
+ ，否则返回<code>False</code>
+ 。在本例中，两边的值相等，因此Python返回<code>True</code>
+ 。</p>
+<p>如果变量<code>car</code>
+ 的值不是<code>'bmw'</code>
+ ，上述测试将返回<code>False</code>
+ ：</p>
+<pre class="代码无行号"><code>❶ &gt;&gt;&gt; car = 'audi'
+❷ &gt;&gt;&gt; car == 'bmw'
+  False</code>
+</pre>
+<p>一个等号是陈述，于是❶处的代码可解读为：将变量<code>car</code>
+ 的值设置为<code>'audi'</code>
+ 。两个等号则是发问，于是❷处的代码可解读为：变量<code>car</code>
+ 的值是<code>'bmw'</code>
+ 吗？大多数编程语言使用等号的方式与这里演示的相同。</p>
+<h3 id="nav_point_104">5.2.2　检查是否相等时忽略大小写</h3>
+<p>在Python中检查是否相等时区分大小写。例如，两个大小写不同的值被视为不相等：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; car = 'Audi'
+&gt;&gt;&gt; car == 'audi'
+False</code>
+</pre>
+<p>如果大小写很重要，这种行为有其优点。但如果大小写无关紧要，只想检查变量的值，可将变量的值转换为小写，再进行比较：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; car = 'Audi'
+&gt;&gt;&gt; car.lower() == 'audi'
+True</code>
+</pre>
+<p>无论值<code>'Audi'</code>
+ 的大小写如何，上述测试都将返回<code>True</code>
+ ，因为该测试不区分大小写。函数<code>lower()</code>
+ 不会修改最初赋给变量<code>car</code>
+ 的值，因此进行这样的比较时不会影响原来的变量：</p>
+<pre class="代码无行号"><code>❶ &gt;&gt;&gt; car = 'Audi'
+❷ &gt;&gt;&gt; car.lower() == 'audi'
+  True
+❸ &gt;&gt;&gt; car
+  'Audi'</code>
+</pre>
+<p>在❶处，将首字母大写的字符串<code>'Audi'</code>
+ 赋给变量<code>car</code>
+ 。在❷处，获取变量<code>car</code>
+ 的值并将其转换为小写，再将结果与字符串<code>'audi'</code>
+ 进行比较。这两个字符串相同，因此Python返回<code>True</code>
+ 。从❸处的输出可知，方法<code>lower()</code>
+ 并没有影响关联到变量<code>car</code>
+ 的值。</p>
+<p>网站采用类似的方式让用户输入的数据符合特定的格式。例如，网站可能使用类似的测试来确保用户名是独一无二的，而并非只是与另一个用户名的大小写不同。用户提交新的用户名时，将把它转换为小写，并与所有既有用户名的小写版本进行比较。执行这种检查时，如果已经有用户名<code>'john'</code>
+ （不管大小写如何），则用户提交用户名<code>'John'</code>
+ 时将遭到拒绝。</p>
+<h3 id="nav_point_105">5.2.3　检查是否不相等</h3>
+<p>要判断两个值是否不等，可结合使用惊叹号和等号（<code>!=</code>
+ ），其中的惊叹号表示<strong>不</strong>
+ ，其他很多编程语言中也是如此。</p>
+<p>下面再使用一条<code>if</code>
+ 语句来演示如何使用不等运算符。我们将把要求的比萨配料赋给一个变量，再打印一条消息，指出顾客要求的配料是否是意式小银鱼（anchovies）：</p>
+<p>
+<em>toppings.py</em>
+</p>
+<pre class="代码无行号"><code>  requested_topping = 'mushrooms'
+❸ if requested_topping != 'anchovies':
+      print("Hold the anchovies!")</code>
+</pre>
+<p>❸处的代码行将<code>requested_topping</code>
+ 的值与<code>'anchovies'</code>
+ 进行比较。如果这两个值不相等，Python将返回<code>True</code>
+ ，进而执行紧跟在<code>if</code>
+ 语句后面的代码；如果相等，Python将返回<code>False</code>
+ ，因此不执行紧跟在<code>if</code>
+ 语句后面的代码。</p>
+<p>因为<code>requested_topping</code>
+ 的值不是<code>'anchovies'</code>
+ ，所以执行函数调用<code>print()</code>
+ ：</p>
+<pre class="代码无行号"><code>Hold the anchovies!</code>
+</pre>
+<p>你编写的大多数条件表达式检查两个值是否相等，但有时候检查两个值是否不等的效率更高。</p>
+<h3 id="nav_point_106">5.2.4　数值比较</h3>
+<p>检查数值非常简单。例如，下面的代码检查一个人是否是18岁：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; age = 18
+&gt;&gt;&gt; age == 18
+True</code>
+</pre>
+<p>还可检查两个数是否不等。例如，下面的代码在提供的答案不正确时打印一条消息：</p>
+<p>
+<em>magic_number.py</em>
+</p>
+<pre class="代码无行号"><code>  answer = 17
+❶ if answer != 42:
+      print("That is not the correct answer. Please try again!")</code>
+</pre>
+<p>
+<code>answer</code>
+ 的值（<code>17</code>
+ ）不是<code>42</code>
+ ，❶处的条件得到满足，因此缩进的代码块得以执行：</p>
+<pre class="代码无行号"><code>That is not the correct answer. Please try again!</code>
+</pre>
+<p>条件语句中可包含各种数学比较，如小于、小于等于、大于、大于等于：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; age = 19
+&gt;&gt;&gt; age &lt; 21
+True
+&gt;&gt;&gt; age &lt;= 21
+True
+&gt;&gt;&gt; age &gt; 21
+False
+&gt;&gt;&gt; age &gt;= 21
+False</code>
+</pre>
+<p>在<code>if</code>
+ 语句中可使用各种数学比较，这让你能够直接检查关心的条件。</p>
+<h3 id="nav_point_107">5.2.5　检查多个条件</h3>
+<p>你可能想同时检查多个条件。例如，有时候需要在两个条件都为<code>True</code>
+ 时才执行相应的操作，而有时候只要求一个条件为<code>True</code>
+ 。在这些情况下，关键字<code>and</code>
+ 和<code>or</code>
+ 可助你一臂之力。</p>
+<ol>
+<li value="1">
+<p>
+<strong>使用<code>and</code>
+ 检查多个条件</strong>
+</p>
+<p>要检查是否两个条件都为<code>True</code>
+ ，可使用关键字<code>and</code>
+ 将两个条件测试合而为一。如果每个测试都通过了，整个表达式就为<code>True</code>
+ ；如果至少一个测试没有通过，整个表达式就为<code>False</code>
+ 。</p>
+<p>例如，要检查是否两个人都不小于21岁，可使用下面的测试：</p>
+<pre class="代码无行号"><code>❸ &gt;&gt;&gt; age_0 = 22
+  &gt;&gt;&gt; age_1 = 18
+❷ &gt;&gt;&gt; age_0 &gt;= 21 and age_1 &gt;= 21
+  False
+❸ &gt;&gt;&gt; age_1 = 22
+  &gt;&gt;&gt; age_0 &gt;= 21 and age_1 &gt;= 21
+  True</code>
+</pre>
+<p>在❶处，定义两个用于存储年龄的变量：<code>age_0</code>
+ 和<code>age_1</code>
+ 。在❷处，检查这两个变量是否都大于或等于21。左边的测试通过了，但右边的测试没有通过，因此整个条件表达式的结果为<code>False</code>
+ 。在❸处，将<code>age_1</code>
+ 改为22，这样<code>age_1</code>
+ 的值大于21，因此两个测试都通过了，导致整个条件表达式的结果为<code>True</code>
+ 。</p>
+<p>为改善可读性，可将每个测试分别放在一对圆括号内，但并非必须这样做。如果你使用圆括号，测试将类似于下面这样：</p>
+<pre class="代码无行号"><code>(age_0 &gt;= 21) and (age_1 &gt;= 21)</code>
+</pre>
+<p> </p>
+</li>
+<li value="2">
+<p>
+<strong>使用or检查多个条件</strong>
+</p>
+<p>关键字<code>or</code>
+ 也能够让你检查多个条件，但只要至少一个条件满足，就能通过整个测试。仅当两个测试都没有通过时，使用<code>or</code>
+ 的表达式才为<code>False</code>
+ 。</p>
+<p>下面再次检查两个人的年龄，但检查的条件是至少一个人的年龄不小于21岁：</p>
+<pre class="代码无行号"><code>❶ &gt;&gt;&gt; age_0 = 22
+  &gt;&gt;&gt; age_1 = 18
+❷ &gt;&gt;&gt; age_0 &gt;= 21 or age_1 &gt;= 21
+  True
+❸ &gt;&gt;&gt; age_0 = 18
+  &gt;&gt;&gt; age_0 &gt;= 21 or age_1 &gt;= 21
+  False</code>
+</pre>
+<p>同样，首先定义两个用于存储年龄的变量（见❶）。❷处对<code>age_0</code>
+ 的测试通过了，因此整个表达式的结果为<code>True</code>
+ 。接下来，将<code>age_0</code>
+ 减小为18。在❸处的测试中，两个测试都没有通过，因此整个表达式的结果为<code>False</code>
+ 。</p>
+</li>
+</ol>
+<h3 id="nav_point_108">5.2.6　检查特定值是否包含在列表中</h3>
+<p>有时候，执行操作前必须检查列表是否包含特定的值。例如，结束用户的注册过程前，可能需要检查他提供的用户名是否已包含在用户名列表中。在地图程序中，可能需要检查用户提交的位置是否包含在已知位置列表中。</p>
+<p>要判断特定的值是否已包含在列表中，可使用关键字<code>in</code>
+ 。下面来看看你可能为比萨店编写的一些代码。这些代码首先创建一个列表，其中包含用户点的比萨配料，然后检查特定的配料是否包含在该列表中。</p>
+<pre class="代码无行号"><code>  &gt;&gt;&gt; requested_toppings = ['mushrooms', 'onions', 'pineapple']
+❶ &gt;&gt;&gt; 'mushrooms' in requested_toppings
+  True
+❷ &gt;&gt;&gt; 'pepperoni' in requested_toppings
+  False</code>
+</pre>
+<p>在❶处和❷处，关键字<code>in</code>
+ 让<code>Python</code>
+ 检查列表<code>requested_toppings</code>
+ 是否包含<code>'mushrooms'</code>
+ 和<code>'pepperoni'</code>
+ 。这种技术很有用，让你能够在创建一个列表后，轻松地检查其中是否包含特定的值。</p>
+<h3 id="nav_point_109">5.2.7　检查特定值是否不包含在列表中</h3>
+<p>还有些时候，确定特定的值未包含在列表中很重要。在这种情况下，可使用关键字<code>not in</code>
+ 。例如，有一个列表，其中包含被禁止在论坛上发表评论的用户，可以在允许用户提交评论前检查他是否被禁言：</p>
+<p>
+<em>banned_users.py</em>
+</p>
+<pre class="代码无行号"><code>  banned_users = ['andrew', 'carolina', 'david']
+  user = 'marie'
+❶ if user not in banned_users:
+      print(f"{user.title()}, you can post a response if you wish.")</code>
+</pre>
+<p>❶处的代码行明白易懂：如果<code>user</code>
+ 的值未包含在列表<code>banned_users</code>
+ 中，Python将返回<code>True</code>
+ ，进而执行缩进的代码行。</p>
+<p>用户<code>'marie'</code>
+ 未包含在列表<code>banned_users</code>
+ 中，因此她将看到一条邀请她发表评论的消息：</p>
+<pre class="代码无行号"><code>Marie, you can post a response if you wish.</code>
+</pre>
+<h3 id="nav_point_110">5.2.8　布尔表达式</h3>
+<p>随着你对编程的了解越来越深入，将遇到术语<strong>布尔表达式</strong>
+ ，它不过是条件测试的别名。与条件表达式一样，布尔表达式的结果要么为<code>True</code>
+ ，要么为<code>False</code>
+ 。</p>
+<p>布尔值通常用于记录条件，如游戏是否正在运行，或者用户是否可以编辑网站的特定内容：</p>
+<pre class="代码无行号"><code>game_active = True
+can_edit = False</code>
+</pre>
+<p>在跟踪程序状态或程序中重要的条件方面，布尔值提供了一种高效的方式。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习5-1：条件测试</strong>
+ 　编写一系列条件测试，将每个测试以及对其结果的预测和实际结果打印出来。你编写的代码应类似于下面这样：</p>
+<pre class="代码无行号"><code>car = 'subaru'
+print("Is car == 'subaru'? I predict True.")
+print(car == 'subaru')
+print("\nIs car == 'audi'? I predict False.")
+print(car == 'audi')</code>
+</pre>
+<ul>
+<li class="第2级无序列表">详细研究实际结果，直到你明白它为何为<code>True</code>
+ 或<code>False</code>
+ 。</li>
+<li class="第2级无序列表">创建至少10个测试，且其中结果分别为<code>True</code>
+ 和<code>False</code>
+ 的测试都至少有5个。</li>
+</ul>
+<p>
+<strong>练习5-2：更多条件测试</strong>
+ 　你并非只能创建10个测试。如果想尝试做更多比较，可再编写一些测试，并将它们加入conditional_tests.py中。对于下面列出的各种情况，至少编写两个结果分别为<code>True</code>
+ 和<code>False</code>
+ 的测试。</p>
+<ul>
+<li class="第2级无序列表">检查两个字符串相等和不等。</li>
+<li class="第2级无序列表">使用方法<code>lower()</code>
+ 的测试。</li>
+<li class="第2级无序列表">涉及相等、不等、大于、小于、大于等于和小于等于的数值测试。</li>
+<li class="第2级无序列表">使用关键字<code>and</code>
+ 和<code>or</code>
+ 的测试。</li>
+<li class="第2级无序列表">测试特定的值是否包含在列表中。</li>
+<li class="第2级无序列表">测试特定的值是否未包含在列表中。</li>
+</ul>
+</blockquote>
+<h2 id="nav_point_111">5.3　<code>if</code>
+ 语句</h2>
+<p>理解条件测试后，就可以开始编写<code>if</code>
+ 语句了。<code>if</code>
+ 语句有很多种，选择使用哪种取决于要测试的条件数。前面讨论条件测试时，列举了多个<code>if</code>
+ 语句示例，下面更深入地讨论这个主题。</p>
+<h3 id="nav_point_112">5.3.1　简单的<code>if</code>
+ 语句</h3>
+<p>最简单的<code>if</code>
+ 语句只有一个测试和一个操作：</p>
+<pre class="代码无行号"><code>if conditional_test:
+    do something</code>
+</pre>
+<p>第一行可包含任何条件测试，而在紧跟在测试后面的缩进代码块中，可执行任何操作。如果条件测试的结果为<code>True</code>
+ ，Python就会执行紧跟在<code>if</code>
+ 语句后面的代码，否则Python将忽略这些代码。</p>
+<p>假设有一个表示某人年龄的变量，而你想知道这个人是否符合投票的年龄，可使用如下代码：</p>
+<p>
+<em>voting.py</em>
+</p>
+<pre class="代码无行号"><code>  age = 19
+❶ if age &gt;= 18:
+❷     print("You are old enough to vote!")</code>
+</pre>
+<p>在❶处，Python检查变量<code>age</code>
+ 的值是否大于或等于18。答案是肯定的，因此Python执行❷处缩进的函数调用<code>print()</code>
+ ：</p>
+<pre class="代码无行号"><code>You are old enough to vote!</code>
+</pre>
+<p>在<code>if</code>
+ 语句中，缩进的作用与在<code>for</code>
+ 循环中相同。如果测试通过了，将执行<code>if</code>
+ 语句后面所有缩进的代码行，否则将忽略它们。</p>
+<p>在紧跟<code>if</code>
+ 语句后面的代码块中，可根据需要包含任意数量的代码行。下面在一个人符合投票年龄时再打印一行输出，问他是否登记了：</p>
+<pre class="代码无行号"><code>age = 19
+if age &gt;= 18:
+    print("You are old enough to vote!")
+    print("Have you registered to vote yet?")</code>
+</pre>
+<p>条件测试通过了，而且两个函数调用<code>print()</code>
+ 都缩进了，因此它们都将执行：</p>
+<pre class="代码无行号"><code>You are old enough to vote!
+Have you registered to vote yet?</code>
+</pre>
+<p>如果<code>age</code>
+ 的值小于18，这个程序将不会有任何输出。</p>
+<h3 id="nav_point_113">5.3.2　<code>if-else</code>
+ 语句</h3>
+<p>我们经常需要在条件测试通过时执行一个操作，在没有通过时执行另一个操作。在这种情况下，可使用Python提供的<code>if-else</code>
+ 语句。<code>if-else</code>
+ 语句块类似于简单的<code>if</code>
+ 语句，但其中的<code>else</code>
+ 语句让你能够指定条件测试未通过时要执行的操作。</p>
+<p>下面的代码在一个人符合投票年龄时显示与前面相同的消息，在不符合时显示一条新消息：</p>
+<pre class="代码无行号"><code>  age = 17
+❶ if age &gt;= 18:
+      print("You are old enough to vote!")
+      print("Have you registered to vote yet?")
+❷ else:
+      print("Sorry, you are too young to vote.")
+      print("Please register to vote as soon as you turn 18!")</code>
+</pre>
+<p>如果❶处的条件测试通过了，就执行第一组缩进的函数调用<code>print()</code>
+ 。如果测试结果为<code>False</code>
+ ，就执行❷处的<code>else</code>
+ 代码块。这次<code>age</code>
+ 小于18，条件测试未通过，因此执行<code>else</code>
+ 代码块中的代码：</p>
+<pre class="代码无行号"><code>Sorry, you are too young to vote.
+Please register to vote as soon as you turn 18!</code>
+</pre>
+<p>上述代码之所以可行，是因为只存在两种情形：要么符合投票年龄，要么不符合。<code>if-else</code>
+ 结构非常适合用于让Python执行两种操作之一的情形。在这样简单的<code>if-else</code>
+ 结构中，总是会执行两个操作中的一个。</p>
+<h3 id="nav_point_114">5.3.3　<code>if-elif-else</code>
+ 结构</h3>
+<p>我们经常需要检查超过两个的情形，为此可使用Python提供的<code>if-elif-else</code>
+ 结构。Python只执行<code>if-elif-else</code>
+ 结构中的一个代码块。它依次检查每个条件测试，直到遇到通过了的条件测试。测试通过后，Python将执行紧跟在它后面的代码，并跳过余下的测试。</p>
+<p>在现实世界中，很多情况下需要考虑的情形超过两个。例如，来看一个根据年龄段收费的游乐场：</p>
+<ul>
+<li class="第1级无序列表">4岁以下免费；</li>
+<li class="第1级无序列表">4～18岁收费25美元；</li>
+<li class="第1级无序列表">18岁（含）以上收费40美元。</li>
+</ul>
+<p>如果只使用一条<code>if</code>
+ 语句，该如何确定门票价格呢？下面的代码确定一个人所属的年龄段，并打印一条包含门票价格的消息：</p>
+<p>
+<em>amusement_park.py</em>
+</p>
+<pre class="代码无行号"><code>  age = 12
+❶ if age &lt; 4:
+      print("Your admission cost is $0.")
+❷ elif age &lt; 18:
+      print("Your admission cost is $25.")
+❸ else:
+      print("Your admission cost is $40.")</code>
+</pre>
+<p>❶处的<code>if</code>
+ 测试检查一个人是否不满4岁。如果是，Python就打印一条合适的消息，并跳过余下测试。❷处的<code>elif</code>
+ 代码行其实是另一个<code>if</code>
+ 测试，仅在前面的测试未通过时才会运行。在这里，我们知道这个人不小于4岁，因为第一个测试未通过。如果这个人未满18岁，Python将打印相应的消息，并跳过<code>else</code>
+ 代码块。如果<code>if</code>
+ 测试和<code>elif</code>
+ 测试都未通过，Python将运行❸处<code>else</code>
+ 代码块中的代码。</p>
+<p>在本例中，❶处测试的结果为<code>False</code>
+ ，因此不执行其代码块。然而，第二个测试的结果为<code>True</code>
+ （12小于18），因此执行其代码块。输出为一个句子，向用户指出门票价格：</p>
+<pre class="代码无行号"><code>Your admission cost is $25.</code>
+</pre>
+<p>只要年龄超过17岁，前两个测试就都不能通过。在这种情况下，将执行<code>else</code>
+ 代码块，指出门票价格为40美元。</p>
+<p>为了让代码更简洁，可不在<code>if-elif-else</code>
+ 代码块中打印门票价格，而只在其中设置门票价格，并在它后面添加一个简单的函数调用<code>print()</code>
+ ：</p>
+<pre class="代码无行号"><code>  age = 12
+  if age &lt; 4:
+❶     price = 0
+  elif age &lt; 18:
+❷     price = 25
+  else:
+❸     price = 40
+❹ print(f"Your admission cost is ${price}.")</code>
+</pre>
+<p>❶处、❷处和❸处的代码行像前一个示例那样，根据人的年龄设置变量<code>price</code>
+ 的值。在<code>if-elif-else</code>
+ 结构中设置<code>price</code>
+ 的值后，一条未缩进的函数调用<code>print()</code>
+ ❹会根据这个变量的值打印一条消息，指出门票的价格。</p>
+<p>这些代码的输出与前一个示例相同，但<code>if-elif-else</code>
+ 结构的作用更小：它只确定门票价格，而不是在确定门票价格的同时打印一条消息。除效率更高外，这些修订后的代码还更容易修改：要调整输出消息的内容，只需修改一个而不是三个函数调用<code>print()</code>
+ 。</p>
+<h3 id="nav_point_115">5.3.4　使用多个<code>elif</code>
+ 代码块</h3>
+<p>可根据需要使用任意数量的<code>elif</code>
+ 代码块。例如，假设前述游乐场要给老年人打折，可再添加一个条件测试，判断顾客是否符合打折条件。下面假设对于65岁（含）以上的老人，可半价（即20美元）购买门票：</p>
+<pre class="代码无行号"><code>  age = 12
+  if age &lt; 4:
+      price = 0
+  elif age &lt; 18:
+      price = 25
+❶ elif age &lt; 65:
+      price = 40
+❷ else:
+      price = 20
+  print(f"Your admission cost is ${price}.")</code>
+</pre>
+<p>这些代码大多未变。第二个<code>elif</code>
+ 代码块（见❶）通过检查确定年龄不到65岁后，才将门票价格设置为全票价格——40美元。请注意，在<code>else</code>
+ 代码块（见❷）中，必须将所赋的值改为20，因为仅当年龄超过65岁（含）时，才会执行这个代码块。</p>
+<h3 id="nav_point_116">5.3.5　省略<code>else</code>
+ 代码块</h3>
+<p>Python并不要求<code>if-elif</code>
+ 结构后面必须有<code>else</code>
+ 代码块。在有些情况下，<code>else</code>
+ 代码块很有用；而在其他一些情况下，使用一条<code>elif</code>
+ 语句来处理特定的情形更清晰：</p>
+<pre class="代码无行号"><code>  age = 12
+  if age &lt; 4:
+      price = 0
+  elif age &lt; 18:
+      price = 25
+  elif age &lt; 65:
+      price = 40
+❶ elif age &gt;= 65:
+      price = 20
+  print(f"Your admission cost is ${price}.")</code>
+</pre>
+<p>❶处的<code>elif</code>
+ 代码块在顾客的年龄超过65岁（含）时，将价格设置为20美元。这比使用<code>else</code>
+ 代码块更清晰些。经过这样的修改后，每个代码块都仅在通过了相应的测试时才会执行。</p>
+<p>
+<code>else</code>
+ 是一条包罗万象的语句，只要不满足任何<code>if</code>
+ 或<code>elif</code>
+ 中的条件测试，其中的代码就会执行。这可能引入无效甚至恶意的数据。如果知道最终要测试的条件，应考虑使用一个<code>elif</code>
+ 代码块来代替<code>else</code>
+ 代码块。这样就可以肯定，仅当满足相应的条件时，代码才会执行。</p>
+<h3 id="nav_point_117">5.3.6　测试多个条件</h3>
+<p>
+<code>if-elif-else</code>
+ 结构功能强大，但仅适合用于只有一个条件满足的情况：遇到通过了的测试后，Python就跳过余下的测试。这种行为很好，效率很高，让你能够测试一个特定的条件。</p>
+<p>然而，有时候必须检查你关心的所有条件。在这种情况下，应使用一系列不包含<code>elif</code>
+ 和<code>else</code>
+ 代码块的简单<code>if</code>
+ 语句。在可能有多个条件为<code>True</code>
+ 且需要在每个条件为<code>True</code>
+ 时都采取相应措施时，适合使用这种方法。</p>
+<p>下面再来看看前面的比萨店示例。如果顾客点了两种配料，就需要确保在其比萨中包含这些配料：</p>
+<p>
+<em>toppings.py</em>
+</p>
+<pre class="代码无行号"><code>❶ requested_toppings = ['mushrooms', 'extra cheese']
+❷ if 'mushrooms' in requested_toppings:
+      print("Adding mushrooms.")
+❸ if 'pepperoni' in requested_toppings:
+      print("Adding pepperoni.")
+❹ if 'extra cheese' in requested_toppings:
+      print("Adding extra cheese.")
+  print("\nFinished making your pizza!")</code>
+</pre>
+<p>首先创建一个列表，其中包含顾客点的配料（见❶）。❷处的<code>if</code>
+ 语句检查顾客是否点了配料蘑菇（mushrooms）。如果点了，就打印一条确认消息。❸处检查配料辣香肠（pepperoni）的代码也是一个简单的<code>if</code>
+ 语句，而不是<code>elif</code>
+ 或<code>else</code>
+ 语句。因此不管前一个测试是否通过，都将进行这个测试。❹处的代码检查顾客是否要求多加芝士（extra cheese）。不管前两个测试的结果如何，都会执行这些代码。每当这个程序运行时，都会执行这三个独立的测试。</p>
+<p>因为本例检查了每个条件，所以将在比萨中添加蘑菇并多加芝士：</p>
+<pre class="代码无行号"><code>Adding mushrooms.
+Adding extra cheese.
+Finished making your pizza!</code>
+</pre>
+<p>如果像下面这样转而使用<code>if-elif-else</code>
+ 结构，代码将不能正确运行，因为有一个测试通过后，就会跳过余下的测试：</p>
+<pre class="代码无行号"><code>requested_toppings = ['mushrooms', 'extra cheese']
+if 'mushrooms' in requested_toppings:
+    print("Adding mushrooms.")
+elif 'pepperoni' in requested_toppings:
+    print("Adding pepperoni.")
+elif 'extra cheese' in requested_toppings:
+    print("Adding extra cheese.")
+print("\nFinished making your pizza!")</code>
+</pre>
+<p>第一个测试检查列表中是否包含<code>'mushrooms'</code>
+ 。它通过了，因此将在比萨中添加蘑菇。然而，Python将跳过<code>if-elif-else</code>
+ 结构中余下的测试，不再检查列表中是否包含<code>'pepperoni'</code>
+ 和<code>'extra cheese'</code>
+ 。结果是，将添加顾客点的第一种配料，但不会添加其他配料：</p>
+<pre class="代码无行号"><code>Adding mushrooms.
+Finished making your pizza!</code>
+</pre>
+<p>总之，如果只想执行一个代码块，就使用<code>if-elif-else</code>
+ 结构；如果要执行多个代码块，就使用一系列独立的<code>if</code>
+ 语句。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习5-3：外星人颜色</strong>
+ 　假设在游戏中刚射杀了一个外星人，请创建一个名为<code>alien_color</code>
+ 的变量，并将其赋值为<code>'green'</code>
+ 、<code>'yellow'</code>
+ 或<code>'red'</code>
+ 。</p>
+<ul>
+<li class="第2级无序列表">编写一条<code>if</code>
+ 语句，检查外星人是否是绿色的。如果是，就打印一条消息，指出玩家获得了5分。</li>
+<li class="第2级无序列表">编写这个程序的两个版本，在一个版本中上述测试通过了，而在另一个版本中未通过（未通过测试时没有输出）。</li>
+</ul>
+<p>
+<strong>练习5-4：外星人颜色2</strong>
+ 　像练习5-3那样设置外星人的颜色，并编写一个<code>if-else</code>
+ 结构。</p>
+<ul>
+<li class="第2级无序列表">如果外星人是绿色的，就打印一条消息，指出玩家因射杀该外星人获得了5分。</li>
+<li class="第2级无序列表">如果外星人不是绿色的，就打印一条消息，指出玩家获得了10分。</li>
+<li class="第2级无序列表">编写这个程序的两个版本，在一个版本中执行<code>if</code>
+ 代码块，在另一个版本中执行<code>else</code>
+ 代码块。</li>
+</ul>
+<p>
+<strong>练习5-5：外星人颜色3</strong>
+ 　将练习5-4中的<code>if-else</code>
+ 结构改为<code>if-elif-else</code>
+ 结构。</p>
+<ul>
+<li class="第2级无序列表">如果外星人是绿色的，就打印一条消息，指出玩家获得了5分。</li>
+<li class="第2级无序列表">如果外星人是黄色的，就打印一条消息，指出玩家获得了10分。</li>
+<li class="第2级无序列表">如果外星人是红色的，就打印一条消息，指出玩家获得了15分。</li>
+<li class="第2级无序列表">编写这个程序的三个版本，分别在外星人为绿色、黄色和红色时打印一条消息。</li>
+</ul>
+<p>
+<strong>练习5-6：人生的不同阶段</strong>
+ 　设置变量<code>age</code>
+ 的值，再编写一个<code>if-elif-else</code>
+ 结构，根据<code>age</code>
+ 的值判断一个人处于人生的哪个阶段。</p>
+<ul>
+<li class="第2级无序列表">如果年龄小于2岁，就打印一条消息，指出这个人是婴儿。</li>
+<li class="第2级无序列表">如果年龄为2（含）～4岁，就打印一条消息，指出这个人是幼儿。</li>
+<li class="第2级无序列表">如果年龄为4（含）～13岁，就打印一条消息，指出这个人是儿童。</li>
+<li class="第2级无序列表">如果年龄为13（含）～20岁，就打印一条消息，指出这个人是青少年。</li>
+<li class="第2级无序列表">如果年龄为20（含）～65岁，就打印一条消息，指出这个人是成年人。</li>
+<li class="第2级无序列表">如果年龄超过65岁（含），就打印一条消息，指出这个人是老年人。</li>
+</ul>
+<p>
+<strong>练习5-7：喜欢的水果</strong>
+ 　创建一个列表，其中包含你喜欢的水果，再编写一系列独立的<code>if</code>
+ 语句，检查列表中是否包含特定的水果。</p>
+<ul>
+<li class="第2级无序列表">将该列表命名为<code>favorite_fruits</code>
+ ，并在其中包含三种水果。</li>
+<li>
+<p>编写5条<code>if</code>
+ 语句，每条都检查某种水果是否包含在列表中。如果是，就打印一条消息，下面是一个例子。</p>
+<p>You really like bananas!</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="nav_point_118">5.4　使用<code>if</code>
+ 语句处理列表</h2>
+<p>通过结合使用<code>if</code>
+ 语句和列表，可完成一些有趣的任务：对列表中特定的值做特殊处理；高效地管理不断变化的情形，如餐馆是否还有特定的食材；证明代码在各种情形下都将按预期那样运行。</p>
+<h3 id="nav_point_119">5.4.1　检查特殊元素</h3>
+<p>本章开头通过一个简单示例演示了如何处理特殊值<code>'bmw'</code>
+ ——它需要采用不同的格式进行打印。现在你对条件测试和<code>if</code>
+ 语句有了大致的认识，下面就来进一步研究如何检查列表中的特殊值，并对其做合适的处理。</p>
+<p>继续使用前面的比萨店示例。这家比萨店在制作比萨时，每添加一种配料都打印一条消息。通过创建一个列表，在其中包含顾客点的配料，并使用一个循环来指出添加到比萨中的配料，能以极高的效率编写这样的代码：</p>
+<p>
+<em>toppings.py</em>
+</p>
+<pre class="代码无行号"><code>requested_toppings = ['mushrooms', 'green peppers', 'extra cheese']
+for requested_topping in requested_toppings:
+    print(f"Adding {requested_topping}.")
+print("\nFinished making your pizza!")</code>
+</pre>
+<p>输出很简单，因为上述代码不过是一个简单的<code>for</code>
+ 循环：</p>
+<pre class="代码无行号"><code>Adding mushrooms.
+Adding green peppers.
+Adding extra cheese.
+Finished making your pizza!</code>
+</pre>
+<p>然而，如果比萨店的青椒用完了，该如何处理呢？为妥善地处理这种情况，可在<code>for</code>
+ 循环中包含一条<code>if</code>
+ 语句：</p>
+<pre class="代码无行号"><code>  requested_toppings = ['mushrooms', 'green peppers', 'extra cheese']
+  for requested_topping in requested_toppings:
+❶     if requested_topping == 'green peppers':
+          print("Sorry, we are out of green peppers right now.")
+❷     else:
+          print(f"Adding {requested_topping}.")
+  print("\nFinished making your pizza!")</code>
+</pre>
+<p>这里在比萨中添加每种配料前都进行检查。❶处的代码检查顾客是否点了青椒。如果是，就显示一条消息，指出不能点青椒的原因。❷处的<code>else</code>
+ 代码块确保其他配料都将添加到比萨中。</p>
+<p>输出表明，已经妥善地处理了顾客点的每种配料：</p>
+<pre class="代码无行号"><code>Adding mushrooms.
+Sorry, we are out of green peppers right now.
+Adding extra cheese.
+Finished making your pizza!</code>
+</pre>
+<h3 id="nav_point_120">5.4.2　确定列表不是空的</h3>
+<p>到目前为止，我们对于处理的每个列表都做了一个简单的假设——假设它们都至少包含一个元素。因为马上就要让用户来提供存储在列表中的信息，所以不能再假设循环运行时列表不是空的。有鉴于此，在运行<code>for</code>
+ 循环前确定列表是否为空很重要。</p>
+<p>下面在制作比萨前检查顾客点的配料列表是否为空。如果列表为空，就向顾客确认是否要点原味比萨；如果列表不为空，就像前面的示例那样制作比萨：</p>
+<pre class="代码无行号"><code>❶ requested_toppings = []
+❷ if requested_toppings:
+      for requested_topping in requested_toppings:
+          print(f"Adding {requested_topping}.")
+      print("\nFinished making your pizza!")
+❸ else:
+      print("Are you sure you want a plain pizza?")</code>
+</pre>
+<p>首先创建一个空列表，其中不包含任何配料（见❶）。❷处进行简单的检查，而不是直接执行<code>for</code>
+ 循环。在<code>if</code>
+ 语句中将列表名用作条件表达式时，Python将在列表至少包含一个元素时返回<code>True</code>
+ ，并在列表为空时返回<code>False</code>
+ 。如果<code>requested_toppings</code>
+ 不为空，就运行与前一个示例相同的<code>for</code>
+ 循环；否则，就打印一条消息，询问顾客是否确实要点不加任何配料的原味比萨（见❸）。</p>
+<p>在这里，这个列表为空，因此输出如下——询问顾客是否确实要点原味比萨：</p>
+<pre class="代码无行号"><code>Are you sure you want a plain pizza?</code>
+</pre>
+<p>如果这个列表不为空，输出将显示在比萨中添加的各种配料。</p>
+<h3 id="nav_point_121">5.4.3　使用多个列表</h3>
+<p>顾客的要求往往五花八门，在比萨配料方面尤其如此。如果顾客要在比萨中添加炸薯条，该怎么办呢？可使用列表和<code>if</code>
+ 语句来确定能否满足顾客的要求。</p>
+<p>来看看在制作比萨前如何拒绝怪异的配料要求。下面的示例定义了两个列表，其中第一个列表包含比萨店供应的配料，而第二个列表包含顾客点的配料。这次对于<code>requested_toppings</code>
+ 中的每个元素，都检查它是否是比萨店供应的配料，再决定是否在比萨中添加它：</p>
+<pre class="代码无行号"><code>❶ available_toppings = ['mushrooms', 'olives', 'green peppers',
+                        'pepperoni', 'pineapple', 'extra cheese']
+❷ requested_toppings = ['mushrooms', 'french fries', 'extra cheese']
+❸ for requested_topping in requested_toppings:
+❹     if requested_topping in available_toppings:
+          print(f"Adding {requested_topping}.")
+❺     else:
+          print(f"Sorry, we don't have {requested_topping}.")
+  print("\nFinished making your pizza!")</code>
+</pre>
+<p>❶处定义了一个列表，其中包含比萨店供应的配料。请注意，如果比萨店供应的配料是固定的，也可使用一个元组来存储它们。❷处又创建了一个列表，其中包含顾客点的配料。请注意那个不同寻常的配料——<code>'french fries'</code>
+ 。在❸处遍历顾客点的配料列表。在这个循环中，对于顾客点的每种配料，都检查它是否包含在供应的配料列表中（见❹）。如果答案是肯定的，就将其加入比萨中，否则将运行<code>else</code>
+ 代码块（见❺）：打印一条消息，告诉顾客不供应这种配料。</p>
+<p>这些代码的输出整洁而翔实：</p>
+<pre class="代码无行号"><code>Adding mushrooms.
+Sorry, we don't have french fries.
+Adding extra cheese.
+Finished making your pizza!</code>
+</pre>
+<p>通过为数不多的几行代码，我们高效地处理了一种真实的情形！</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习5-8：以特殊方式跟管理员打招呼</strong>
+ 　创建一个至少包含5个用户名的列表，且其中一个用户名为<code>'admin'</code>
+ 。想象你要编写代码，在每位用户登录网站后都打印一条问候消息。遍历用户名列表，并向每位用户打印一条问候消息。</p>
+<ul>
+<li>
+<p>如果用户名为<code>'admin'</code>
+ ，就打印一条特殊的问候消息，如下所示。</p>
+<p>Hello admin, would you like to see a status report?<br/>
+ </p>
+</li>
+<li>
+<p>否则，打印一条普通的问候消息，如下所示。</p>
+<p>Hello Jaden, thank you for logging in again.<br/>
+ </p>
+</li>
+</ul>
+<p>
+<strong>练习5-9：处理没有用户的情形</strong>
+ 　在为完成练习5-8编写的程序中，添加一条<code>if</code>
+ 语句，检查用户名列表是否为空。</p>
+<ul>
+<li>
+<p>如果为空，就打印如下消息。</p>
+<p>We need to find some users!<br/>
+ </p>
+</li>
+<li>
+<p>删除列表中的所有用户名，确定将打印正确的消息。</p>
+</li>
+</ul>
+<p>
+<strong>练习5-10：检查用户名</strong>
+ 　按下面的说明编写一个程序，模拟网站如何确保每位用户的用户名都独一无二。</p>
+<ul>
+<li class="第2级无序列表">创建一个至少包含5个用户名的列表，并将其命名为<code>current_users</code>
+ 。</li>
+<li class="第2级无序列表">再创建一个包含5个用户名的列表，将其命名为<code>new_users</code>
+ ，并确保其中有一两个用户名也包含在列表<code>current_users</code>
+ 中。</li>
+<li class="第2级无序列表">遍历列表<code>new_users</code>
+ ，对于其中的每个用户名，都检查它是否已被使用。如果是，就打印一条消息，指出需要输入别的用户名；否则，打印一条消息，指出这个用户名未被使用。</li>
+<li class="第2级无序列表">确保比较时不区分大小写。换句话说，如果用户名<code>'John'</code>
+ 已被使用，应拒绝用户名<code>'JOHN'</code>
+ 。（为此，需要创建列表<code>current_users</code>
+ 的副本，其中包含当前所有用户名的小写版本。）</li>
+</ul>
+<p>
+<strong>练习5-11：序数</strong>
+ 　序数表示位置，如1st和2nd。序数大多以th结尾，只有1、2和3例外。</p>
+<ul>
+<li class="第2级无序列表">在一个列表中存储数字1～9。</li>
+<li class="第2级无序列表">遍历这个列表。</li>
+<li class="第2级无序列表">在循环中使用一个<code>if-elif-else</code>
+ 结构，以打印每个数字对应的序数。输出内容应为<code>"1st 2nd 3rd 4th 5th 6th 7th 8th 9th"</code>
+ ，但每个序数都独占一行。</li>
+</ul>
+</blockquote>
+<h2 id="nav_point_122">5.5　设置<code>if</code>
+ 语句的格式</h2>
+<p>本章的每个示例都展示了良好的格式设置习惯。在条件测试的格式设置方面，PEP 8提供的唯一建议是，在诸如<code>==</code>
+ 、<code>&gt;=</code>
+ 和<code>&lt;=</code>
+ 等比较运算符两边各添加一个空格。例如：</p>
+<pre class="代码无行号"><code>if age &lt; 4:</code>
+</pre>
+<p>要比</p>
+<pre class="代码无行号"><code>if age&lt;4:</code>
+</pre>
+<p>更好。</p>
+<p>这样的空格不会影响Python对代码的解读，而只是让代码阅读起来更容易。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习5-12：设置<code>if</code>
+ 语句的格式　</strong>
+ 审核你在本章编写的程序，确保正确地设置了条件测试的格式。</p>
+<p>
+<strong>练习5-13：自己的想法</strong>
+ 　与刚拿起本书时相比，现在你是一名能力更强的程序员了。鉴于你对如何在程序中模拟现实情形有了更深入的认识，可以考虑使用程序来解决一些问题了。随着编程技能不断提高，你可能想解决一些问题，请将这方面的想法记录下来。想想你可能想编写的游戏、想研究的数据集以及想创建的Web应用程序。</p>
+</blockquote>
+<h2 id="nav_point_123">5.6　小结</h2>
+<p>在本章中，你学习了：如何编写结果要么为<code>True</code>
+ 要么为<code>False</code>
+ 的条件测试；如何编写简单的<code>if</code>
+ 语句、<code>if-else</code>
+ 语句和<code>if-elif-else</code>
+ 结构，并且在程序中使用这些结构来测试特定的条件，以确定这些条件是否满足；如何在利用高效的<code>for</code>
+ 循环的同时，以不同于其他元素的方式对特定的列表元素进行处理。你还再次学习了Python就代码格式提出的建议，从而确保即便编写的程序越来越复杂，其代码依然易于阅读和理解。</p>
+<p>在第6章，你将学习Python字典。字典类似于列表，但让你能够将不同的信息关联起来。你将学习如何创建和遍历字典，以及如何将字典同列表和<code>if</code>
+ 语句结合起来使用。学习字典让你能够模拟更多现实世界的情形。</p>
+<br style="page-break-after:always"/>
+<div></div>
+]]></description>
+    <pubDate>Wed, 08 Jul 2026 01:44:51 +0000</pubDate>
+    <guid isPermaLink="false">5</guid>
+</item>
+<item>
     <title>Basic Python - 004 - 第 4 章 操作列表.epub</title>
     <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：97 分钟 (19338 字)</p><hr><h1 id="nav_point_69">第 4 章　操作列表</h1>
 <blockquote>
