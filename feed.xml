@@ -5,6 +5,613 @@
     <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
     <description>从 EPUB 自动生成的 RSS 订阅源</description>
         <item>
+    <title>Basic Python - 011 - 第 11 章 测试代码.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：81 分钟 (16187 字)</p><hr><h1 id="nav_point_244">第 11 章　测试代码</h1>
+<blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/11_Image00001.gif" style="width: 16%" width="16%"/>
+ 　编写函数或类时，还可为其编写测试。通过测试，可确定代码面对各种输入都能够按要求的那样工作。测试让你深信，即便有更多人使用你的程序，它也能正确地工作。在程序中添加新代码时，也可以对其进行测试，确认不会破坏程序既有的行为。程序员都会犯错，因此每个程序员都必须经常测试其代码，在用户发现问题前找出它们。</p>
+<p>在本章中，你将学习如何使用Python模块<code>unittest</code>
+ 中的工具来测试代码，还将学习编写测试用例，核实一系列输入都将得到预期的输出。你将看到测试通过了是什么样子，测试未通过又是什么样子，还将知道测试未通过如何有助于改进代码。你将学习如何测试函数和类，并将知道该为项目编写多少个测试。</p>
+</blockquote>
+<h2 id="nav_point_245">11.1　测试函数</h2>
+<p>要学习测试，必须有要测试的代码。下面是一个简单的函数，它接受名和姓并返回整洁的姓名：</p>
+<p>
+<em>name_function.py</em>
+</p>
+<pre class="代码无行号"><code>def get_formatted_name(first, last):
+    """生成整洁的姓名。"""
+    full_name = f"{first} {last}"
+    return full_name.title()</code>
+</pre>
+<p>函数<code>get_formatted_name()</code>
+ 将名和姓合并成姓名：在名和姓之间加上一个空格并将其首字母大写，再返回结果。为核实<code>get_formatted_name()</code>
+ 像期望的那样工作，我们来编写一个使用该函数的程序。程序names.py让用户输入名和姓，并显示整洁的姓名：</p>
+<p>
+<em>names.py</em>
+</p>
+<pre class="代码无行号"><code>from name_function import get_formatted_name
+print("Enter 'q' at any time to quit.")
+while True:
+    first = input("\nPlease give me a first name: ")
+    if first == 'q':
+        break
+    last = input("Please give me a last name: ")
+    if last == 'q':
+        break
+    formatted_name = get_formatted_name(first, last)
+    print(f"\tNeatly formatted name: {formatted_name}.")</code>
+</pre>
+<p>这个程序从name_function.py中导入<code>get_formatted_name()</code>
+ 。用户可输入一系列名和姓，并看到格式整洁的姓名：</p>
+<pre class="代码无行号"><code>Enter 'q' at any time to quit.
+Please give me a first name: janis
+Please give me a last name: joplin
+        Neatly formatted name: Janis Joplin.
+Please give me a first name: bob
+Please give me a last name: dylan
+        Neatly formatted name: Bob Dylan.
+Please give me a first name: q</code>
+</pre>
+<p>从上述输出可知，合并得到的姓名正确无误。现在假设要修改<code>get_formatted_name()</code>
+ ，使其还能够处理中间名。这样做时，要确保不破坏这个函数处理只含有名和姓的姓名的方式。为此，可在每次修改<code>get_formatted_name()</code>
+ 后都进行测试：运行程序names.py，并输入像Janis Joplin这样的姓名。不过这太烦琐了。所幸Python提供了一种自动测试函数输出的高效方式。倘若对<code>get_formatted_name()</code>
+ 进行自动测试，就能始终确信当提供测试过的姓名时，该函数都能正确工作。</p>
+<h3 id="nav_point_246">11.1.1　单元测试和测试用例</h3>
+<p>Python标准库中的模块<code>unittest</code>
+ 提供了代码测试工具。<strong>单元测试</strong>
+ 用于核实函数的某个方面没有问题。<strong>测试用例</strong>
+ 是一组单元测试，它们一道核实函数在各种情形下的行为都符合要求。良好的测试用例考虑到了函数可能收到的各种输入，包含针对所有这些情形的测试。<strong>全覆盖</strong>
+ 的测试用例包含一整套单元测试，涵盖了各种可能的函数使用方式。对于大型项目，要进行全覆盖测试可能很难。通常，最初只要针对代码的重要行为编写测试即可，等项目被广泛使用时再考虑全覆盖。</p>
+<h3 id="nav_point_247">11.1.2　可通过的测试</h3>
+<p>你需要一段时间才能习惯创建测试用例的语法，但创建测试用例之后，再添加针对函数的单元测试就很简单了。要为函数编写测试用例，可先导入模块<code>unittest</code>
+ 和要测试的函数，再创建一个继承<code>unittest.TestCase</code>
+ 的类，并编写一系列方法对函数行为的不同方面进行测试。</p>
+<p>下面的测试用例只包含一个方法，它检查函数<code>get_formatted_name()</code>
+ 在给定名和姓时能否正确工作：</p>
+<p>
+<em>test_name_function.py</em>
+</p>
+<pre class="代码无行号"><code>  import unittest
+  from name_function import get_formatted_name
+❶ class NamesTestCase(unittest.TestCase):
+      """测试name_function.py。"""
+      def test_first_last_name(self):
+          """能够正确地处理像Janis Joplin这样的姓名吗？"""
+❷         formatted_name = get_formatted_name('janis', 'joplin')
+❸         self.assertEqual(formatted_name, 'Janis Joplin')
+❹ if __name__ == '__main__':
+      unittest.main()</code>
+</pre>
+<p>首先，导入了模块<code>unittest</code>
+ 和要测试的函数<code>get_formatted_name()</code>
+ 。在❶处，创建了一个名为<code>NamesTestCase</code>
+ 的类，用于包含一系列针对<code>get_formatted_name()</code>
+ 的单元测试。这个类可以随意命名，但最好让它看起来与要测试的函数相关并包含<code>Test</code>
+ 字样。这个类必须继承<code>unittest.TestCase</code>
+ 类，这样Python才知道如何运行你编写的测试。</p>
+<p>
+<code>NamesTestCase</code>
+ 只包含一个方法，用于测试<code>get_formatted_name()</code>
+ 的一个方面。将该方法命名为<code>test_first_last_name()</code>
+ ，因为要核实的是只有名和姓的姓名能否被正确格式化。运行test_name_function.py时，所有以<code>test_</code>
+ 打头的方法都将自动运行。在这个方法中，调用了要测试的函数。在本例中，使用实参<code>'janis'</code>
+ 和<code>'joplin'</code>
+ 调用<code>get_formatted_name()</code>
+ ，并将结果赋给变量<code>formatted_name</code>
+ （见❷）。</p>
+<p>在❸处，使用了<code>unittest</code>
+ 类最有用的功能之一：<strong>断言</strong>
+ 方法。断言方法核实得到的结果是否与期望的结果一致。在这里，我们知道<code>get_formatted_name()</code>
+ 应返回名和姓首字母大写且之间有一个空格的姓名，因此期望<code>formatted_name</code>
+ 的值为<code>Janis Joplin</code>
+ 。为检查是否确实如此，我们调用<code>unittest</code>
+ 的方法<code>assertEqual()</code>
+ ，并向它传递<code>formatted_name</code>
+ 和<code>'Janis Joplin'</code>
+ 。代码行</p>
+<pre class="代码无行号"><code>self.assertEqual(formatted_name, 'Janis Joplin')</code>
+</pre>
+<p>的意思是：“将<code>formatted_name</code>
+ 的值与字符串<code>'Janis Joplin'</code>
+ 比较。如果它们相等，那么万事大吉；如果它们不相等，就告诉我一声！”</p>
+<p>我们将直接运行这个文件，但需要指出的是，很多测试框架都会先导入测试文件再运行。导入文件时，解释器将在导入的同时执行它。❹处的<code>if</code>
+ 代码块检查特殊变量<code>__name__</code>
+ ，这个变量是在程序执行时设置的。如果这个文件作为主程序执行，变量<code>__name__</code>
+ 将被设置为<code>'__main__'</code>
+ 。在这里，调用<code>unittest.main()</code>
+ 来运行测试用例。如果这个文件被测试框架导入，变量<code>__name__</code>
+ 的值将不是<code>'__main__'</code>
+ ，因此不会调用<code>unittest.main()</code>
+ 。</p>
+<p>运行test_name_function.py时，得到的输出如下：</p>
+<pre class="代码无行号"><code>.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+OK</code>
+</pre>
+<p>第一行的句点表明有一个测试通过了。接下来的一行指出Python运行了一个测试，消耗的时间不到0.001秒。最后的<code>OK</code>
+ 表明该测试用例中的所有单元测试都通过了。</p>
+<p>上述输出表明，给定包含名和姓的姓名时，函数<code>get_formatted_name()</code>
+ 总是能正确地处理。修改<code>get_formatted_name()</code>
+ 后，可再次运行这个测试用例。如果它通过了，就表明给定Janis Joplin这样的姓名时，该函数依然能够正确地处理。</p>
+<h3 id="nav_point_248">11.1.3　未通过的测试</h3>
+<p>测试未通过时结果是什么样的呢？我们来修改<code>get_formatted_name()</code>
+ ，使其能够处理中间名，但同时故意让该函数无法正确处理像Janis Joplin这样只有名和姓的姓名。</p>
+<p>下面是函数<code>get_formatted_name()</code>
+ 的新版本，它要求通过一个实参指定中间名：</p>
+<p>
+<em>name_function.py</em>
+</p>
+<pre class="代码无行号"><code>def get_formatted_name(first, middle, last):
+    """生成整洁的姓名。"""
+    full_name = f"{first} {middle} {last}"
+    return full_name.title()</code>
+</pre>
+<p>这个版本应该能够正确处理包含中间名的姓名，但对其进行测试时，我们发现它不再能正确处理只有名和姓的姓名。这次运行程序test_name_function.py时，输出如下：</p>
+<pre class="代码无行号"><code>❶ E
+  ======================================================================
+❷ ERROR: test_first_last_name (__main__.NamesTestCase)
+  ----------------------------------------------------------------------
+❸ Traceback (most recent call last):
+    File "test_name_function.py", line 8, in test_first_last_name
+      formatted_name = get_formatted_name('janis', 'joplin')
+  TypeError: get_formatted_name() missing 1 required positional argument: 'last'
+  ----------------------------------------------------------------------
+❹ Ran 1 test in 0.000s
+❺ FAILED (errors=1)</code>
+</pre>
+<p>里面包含很多信息，因为测试未通过时，需要让你知道的事情可能有很多。第一行输出只有一个字母<code>E</code>
+ （见❶），指出测试用例中有一个单元测试导致了错误。接下来，我们看到<code>NamesTestCase</code>
+ 中的<code>test_first_last_name()</code>
+ 导致了错误（见❷）。测试用例包含众多单元测试时，知道哪个测试未通过至关重要。在❸处，我们看到了一个标准的traceback，指出函数调用<code>get_formatted_name</code>
+<code>('janis', 'joplin')</code>
+ 有问题，因为缺少一个必不可少的位置实参。</p>
+<p>我们还看到运行了一个单元测试（见❹）。最后是一条消息，指出整个测试用例未通过，因为运行该测试用例时发生了一个错误（见❺）。这条消息位于输出末尾，让你一眼就能看到。你可不希望为获悉有多少测试未通过而翻阅长长的输出。</p>
+<h3 id="nav_point_249">11.1.4　测试未通过时怎么办</h3>
+<p>测试未通过时怎么办呢？如果你检查的条件没错，测试通过意味着函数的行为是对的，而测试未通过意味着编写的新代码有错。因此，测试未通过时，不要修改测试，而应修复导致测试不能通过的代码：检查刚刚对函数所做的修改，找出导致函数行为不符合预期的修改。</p>
+<p>在本例中，<code>get_formatted_name()</code>
+ 以前只需要名和姓两个实参，但现在要求提供名、中间名和姓。新增的中间名参数是必不可少的，这导致<code>get_formatted_name()</code>
+ 的行为不符合预期。就这里而言，最佳的选择是让中间名变为可选的。这样做后，使用类似于Janis Joplin的姓名进行测试时，测试就又能通过了，而且也可以接受中间名。下面来修改<code>get_formatted_name()</code>
+ ，将中间名设置为可选的，然后再次运行这个测试用例。如果通过了，就接着确认该函数能够妥善地处理中间名。</p>
+<p>要将中间名设置为可选的，可在函数定义中将形参<code>middle</code>
+ 移到形参列表末尾，并将其默认值指定为一个空字符串。还需要添加一个<code>if</code>
+ 测试，以便根据是否提供了中间名相应地创建姓名：</p>
+<p>
+<em>name_function.py</em>
+</p>
+<pre class="代码无行号"><code>def get_formatted_name(first, last, middle=''):
+    """生成整洁的姓名。"""
+    if middle:
+        full_name = f"{first} {middle} {last}"
+    else:
+        full_name = f"{first} {last}"
+    return full_name.title()</code>
+</pre>
+<p>在<code>get_formatted_name()</code>
+ 的这个新版本中，中间名是可选的。如果向该函数传递了中间名，姓名将包含名、中间名和姓，否则姓名将只包含名和姓。现在，对于两种不同的姓名，这个函数都应该能够正确地处理。为确定这个函数依然能够正确处理像Janis Joplin这样的姓名，我们再次运行test_name_function.py：</p>
+<pre class="代码无行号"><code>.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+OK</code>
+</pre>
+<p>现在，测试用例通过了。太好了，这意味着这个函数又能正确处理像Janis Joplin这样的姓名了，而且我们无须手工测试这个函数。这个函数之所以很容易修复，是因为未通过的测试让我们得知新代码破坏了函数原来的行为。</p>
+<h3 id="nav_point_250">11.1.5　添加新测试</h3>
+<p>确定<code>get_formatted_name()</code>
+ 又能正确处理简单的姓名后，我们再编写一个测试，用于测试包含中间名的姓名。为此，在<code>NamesTestCase</code>
+ 类中再添加一个方法：</p>
+<p>
+<em>test_name_function.py</em>
+</p>
+<pre class="代码无行号"><code>  --snip--
+  class NamesTestCase(unittest.TestCase):
+      """测试name_function.py。"""
+      def test_first_last_name(self):
+          --snip--
+      def test_first_last_middle_name(self):
+          """能够正确地处理像Wolfgang Amadeus Mozart这样的姓名吗？"""
+❶         formatted_name = get_formatted_name(
+              'wolfgang', 'mozart', 'amadeus')
+          self.assertEqual(formatted_name, 'Wolfgang Amadeus Mozart')
+  if __name__ == '__main__':
+      unittest.main()</code>
+</pre>
+<p>将该方法命名为<code>test_first_last_middle_name()</code>
+ 。方法名必须以<code>test_</code>
+ 打头，这样它才会在我们运行test_name_function.py时自动运行。这个方法名清楚地指出了它测试的是<code>get_formatted_name()</code>
+ 的哪个行为。这样，如果该测试未通过，我们就能马上知道受影响的是哪种类型的姓名。可以在<code>TestCase</code>
+ 类中使用很长的方法名，而且这些方法名必须是描述性的，这样你才能看懂测试未通过时的输出。这些方法由Python自动调用，你根本不用编写调用它们的代码。</p>
+<p>为测试函数<code>get_formatted_name()</code>
+ ，我们使用名、姓和中间名调用它（见❶），再使用<code>assertEqual()</code>
+ 检查返回的姓名是否与预期的姓名（名、中间名和姓）一致。再次运行test_name_function.py时，两个测试都通过了：</p>
+<pre class="代码无行号"><code>..
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+OK</code>
+</pre>
+<p>太好了！现在我们知道，这个函数又能正确地处理像Janis Joplin这样的姓名了，而且深信它也能够正确地处理像Wolfgang Amadeus Mozart这样的姓名。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习11-1：城市和国家</strong>
+ 　编写一个函数，它接受两个形参：一个城市名和一个国家名。这个函数返回一个格式为<code>
+<i>City</i>
+ , <i>Country</i>
+</code>
+ 的字符串，如<code>Santiago, Chile</code>
+ 。将这个函数存储在一个名为city_functions.py的模块中。</p>
+<p>创建一个名为test_cities.py的程序，对刚才编写的函数进行测试（别忘了，需要导入模块<code>unittest</code>
+ 和要测试的函数）。编写一个名为<code>test_city_country()</code>
+ 的方法，核实使用类似于<code>'santiago'</code>
+ 和<code>'chile'</code>
+ 这样的值来调用前述函数时，得到的字符串是正确的。运行test_cities.py，确认测试<code>test_city_country()</code>
+ 通过了。</p>
+<p>
+<strong>练习11-2：人口数量</strong>
+ 　修改前面的函数，加上第三个必不可少的形参<code>population</code>
+ ，并返回一个格式为<code>
+<i>City</i>
+ , <i>Country – population xxx</i>
+</code>
+ 的字符串，如<code>Santiago, Chile – population 5000000</code>
+ 。运行test_cities.py，确认测试<code>test_city_country()</code>
+ 未通过。</p>
+<p>修改上述函数，将形参<code>population</code>
+ 设置为可选的。再次运行test_cities.py，确认测试<code>test_city_country()</code>
+ 又通过了。</p>
+<p>再编写一个名为<code>test_city_country_population()</code>
+ 的测试，核实可以使用类似于<code>'santiago'</code>
+ 、<code>'chile'</code>
+ 和<code>'population=5000000'</code>
+ 这样的值来调用这个函数。再次运行test_cities.py，确认测试<code>test_city_country_population()</code>
+ 通过了。</p>
+</blockquote>
+<h2 id="nav_point_251">11.2　测试类</h2>
+<p>在本章前半部分，你编写了针对单个函数的测试，下面来编写针对类的测试。很多程序中都会用到类，因此证明你的类能够正确工作大有裨益。如果针对类的测试通过了，你就能确信对类所做的改进没有意外地破坏其原有的行为。</p>
+<h3 id="nav_point_252">11.2.1　各种断言方法</h3>
+<p>Python在<code>unittest.TestCase</code>
+ 类中提供了很多断言方法。前面说过，断言方法检查你认为应该满足的条件是否确实满足。如果该条件确实满足，你对程序行为的假设就得到了确认，可以确信其中没有错误。如果你认为应该满足的条件实际上并不满足，Python将引发异常。</p>
+<p>表11-1描述了6个常用的断言方法。使用这些方法可核实返回的值等于或不等于预期的值，返回的值为<code>True</code>
+ 或<code>False</code>
+ ，以及返回的值在列表中或不在列表中。只能在继承<code>unittest.TestCase</code>
+ 的类中使用这些方法，随后来看看如何在测试类时使用其中之一。</p>
+<p>
+<strong>表11-1　unittest模块中的断言方法</strong>
+</p>
+<table border="1" width="90%">
+<thead>
+<tr>
+<th>
+<p class="表头单元格">方法</p>
+</th>
+<th>
+<p class="表头单元格">用途</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p class="表格单元格">
+<code>assertEqual(a, b)</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">核实<code>a == b</code>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>assertNotEqual(a, b)</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">核实<code>a != b</code>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>assertTrue(x)</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">核实<code>x</code>
+ 为<code>True</code>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>assertFalse(x)</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">核实<code>x</code>
+ 为<code>False</code>
+</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>assertIn(<i>item</i>
+ , <i>list</i>
+ )</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">核实<code>
+<i>item</i>
+</code>
+ 在<code>
+<i>list</i>
+</code>
+ 中</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>assertNotIn(<i>item</i>
+ , <i>list</i>
+ )</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">核实<code>
+<i>item</i>
+</code>
+ 不在<code>
+<i>list</i>
+</code>
+ 中</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nav_point_253">11.2.2　一个要测试的类</h3>
+<p>类的测试与函数的测试相似，你所做的大部分工作是测试类中方法的行为。不过还是存在一些不同之处，下面编写一个要测试的类。来看一个帮助管理匿名调查的类：</p>
+<p>
+<em>survey.py</em>
+</p>
+<pre class="代码无行号"><code>  class AnonymousSurvey:
+      """收集匿名调查问卷的答案。"""
+❶     def __init__(self, question):
+          """存储一个问题，并为存储答案做准备。"""
+          self.question = question
+          self.responses = []
+❷     def show_question(self):
+          """显示调查问卷。"""
+          print(self.question)
+❸     def store_response(self, new_response):
+          """存储单份调查答卷。"""
+          self.responses.append(new_response)
+❹     def show_results(self):
+          """显示收集到的所有答卷。"""
+          print("Survey results:")
+          for response in self.responses:
+              print(f"- {response}")</code>
+</pre>
+<p>这个类首先存储了一个调查问题（见❶），并创建了一个空列表，用于存储答案。这个类包含打印调查问题的方法（见❷），在答案列表中添加新答案的方法（见❸），以及将存储在列表中的答案都打印出来的方法（见❹）。要创建该类的实例，只需提供一个问题即可。有了表示调查的实例后，就可使用<code>show_question()</code>
+ 来显示其中的问题，使用<code>store_response()</code>
+ 来存储答案并使用<code>show_results()</code>
+ 来显示调查结果。</p>
+<p>为证明<code>AnonymousSurvey</code>
+ 类能够正确工作，编写一个使用它的程序：</p>
+<p>
+<em>language_survey.py</em>
+</p>
+<pre class="代码无行号"><code>from survey import AnonymousSurvey
+# 定义一个问题，并创建一个调查。
+question = "What language did you first learn to speak?"
+my_survey = AnonymousSurvey(question)
+# 显示问题并存储答案。
+my_survey.show_question()
+print("Enter 'q' at any time to quit.\n")
+while True:
+    response = input("Language: ")
+    if response == 'q':
+        break
+    my_survey.store_response(response)
+# 显示调查结果。
+print("\nThank you to everyone who participated in the survey!")
+my_survey.show_results()</code>
+</pre>
+<p>这个程序定义了一个问题（<code>"What language did you first learn to speak? "</code>
+ ），并使用该问题创建了一个<code>AnonymousSurvey</code>
+ 对象。接下来，这个程序调用<code>show_question()</code>
+ 来显示问题，并提示用户输入答案。在收到每个答案的同时将其存储起来。用户输入所有答案（输入<code>q</code>
+ 要求退出）后，调用<code>show_results()</code>
+ 来打印调查结果：</p>
+<pre class="代码无行号"><code>What language did you first learn to speak?
+Enter 'q' at any time to quit.
+Language: English
+Language: Spanish
+Language: English
+Language: Mandarin
+Language: q
+Thank you to everyone who participated in the survey!
+Survey results:
+- English
+- Spanish
+- English
+- Mandarin</code>
+</pre>
+<p>
+<code>AnonymousSurvey</code>
+ 类可用于进行简单的匿名调查。假设我们将它放在了模块<code>survey</code>
+ 中，并想进行改进：让每位用户都可输入多个答案；编写一个方法，只列出不同的答案并指出每个答案出现了多少次；再编写一个类，用于管理非匿名调查。</p>
+<p>进行上述修改存在风险，可能影响<code>AnonymousSurvey</code>
+ 类的当前行为。例如，允许每位用户输入多个答案时，可能会不小心修改处理单个答案的方式。要确认在开发这个模块时没有破坏既有行为，可以编写针对这个类的测试。</p>
+<h3 id="nav_point_254">11.2.3　测试<code>AnonymousSurvey</code>
+ 类</h3>
+<p>下面来编写一个测试，对<code>AnonymousSurvey</code>
+ 类的行为的一个方面进行验证：如果用户面对调查问题只提供一个答案，这个答案也能被妥善地存储。为此，我们将在这个答案被存储后，使用方法<code>assertIn()</code>
+ 来核实它确实在答案列表中：</p>
+<p>
+<em>test_survey.py</em>
+</p>
+<pre class="代码无行号"><code>  import unittest
+  from survey import AnonymousSurvey
+❶ class TestAnonymousSurvey(unittest.TestCase):
+      """针对AnonymousSurvey类的测试。"""
+❷     def test_store_single_response(self):
+          """测试单个答案会被妥善地存储。"""
+          question = "What language did you first learn to speak?"
+❸         my_survey = AnonymousSurvey(question)
+          my_survey.store_response('English')
+❹         self.assertIn('English', my_survey.responses)
+  if __name__ == '__main__':
+      unittest.main()</code>
+</pre>
+<p>首先导入模块<code>unittest</code>
+ 和要测试的类<code>AnonymousSurvey</code>
+ 。将测试用例命名为<code>TestAnonymousSurvey</code>
+ ，它也继承了<code>unittest.TestCase</code>
+ （见❶）。第一个测试方法验证：调查问题的单个答案被存储后，会包含在调查结果列表中。对于这个方法，一个不错的描述性名称是<code>test_store_single_response()</code>
+ （见❷）。如果这个测试未通过，我们就能通过输出中的方法名得知，在存储单个调查答案方面存在问题。</p>
+<p>要测试类的行为，需要创建其实例。在❸处，使用问题<code>"What language did you first learn to speak?"</code>
+ 创建一个名为<code>my_survey</code>
+ 的实例，然后使用方法<code>store_response()</code>
+ 存储单个答案<code>English</code>
+ 。接下来，检查<code>English</code>
+ 是否包含在列表<code>my_survey.responses</code>
+ 中，以核实这个答案是否被妥善地存储了（见❹）。</p>
+<p>当我们运行test_survey.py时，测试通过了：</p>
+<pre class="代码无行号"><code>.
+----------------------------------------------------------------------
+Ran 1 test in 0.001s
+OK</code>
+</pre>
+<p>这很好，但只能收集一个答案的调查用途不大。下面来核实当用户提供三个答案时，它们也将被妥善地存储。为此，在<code>TestAnonymousSurvey</code>
+ 中再添加一个方法：</p>
+<pre class="代码无行号"><code>  import unittest
+  from survey import AnonymousSurvey
+  class TestAnonymousSurvey(unittest.TestCase):
+      """针对AnonymousSurvey类的测试。"""
+      def test_store_single_response(self):
+          --snip--
+      def test_store_three_responses(self):
+          """测试三个答案会被妥善地存储。"""
+          question = "What language did you first learn to speak?"
+          my_survey = AnonymousSurvey(question)
+❶         responses = ['English', 'Spanish', 'Mandarin']
+          for response in responses:
+              my_survey.store_response(response)
+❷         for response in responses:
+              self.assertIn(response, my_survey.responses)
+  if __name__ == '__main__':
+      unittest.main()</code>
+</pre>
+<p>我们将该方法命名为<code>test_store_three_responses()</code>
+ ，并像对<code>test_store_single_response()</code>
+ 所做的一样，在其中创建一个调查对象。定义一个包含三个不同答案的列表（见❶），再对其中每个答案调用<code>store_response()</code>
+ 。存储这些答案后，使用一个循环来确认每个答案都包含在<code>my_survey.responses</code>
+ 中（见❷）。</p>
+<p>再次运行test_survey.py时，两个测试（针对单个答案的测试和针对三个答案的测试）都通过了：</p>
+<pre class="代码无行号"><code>..
+----------------------------------------------------------------------
+Ran 2 tests in 0.000s
+OK</code>
+</pre>
+<p>前述做法的效果很好，但这些测试有些重复的地方。下面使用<code>unittest</code>
+ 的另一项功能来提高其效率。</p>
+<h3 id="nav_point_255">11.2.4　方法<code>setUp()</code>
+</h3>
+<p>在前面的test_survey.py中，我们在每个测试方法中都创建了一个<code>AnonymousSurvey</code>
+ 实例，并在每个方法中都创建了答案。<code>unittest.TestCase</code>
+ 类包含的方法<code>setUp()</code>
+ 让我们只需创建这些对象一次，就能在每个测试方法中使用。如果在<code>TestCase</code>
+ 类中包含了方法<code>setUp()</code>
+ ，Python将先运行它，再运行各个以<code>test_</code>
+ 打头的方法。这样，在你编写的每个测试方法中，都可使用在方法<code>setUp()</code>
+ 中创建的对象。</p>
+<p>下面使用<code>setUp()</code>
+ 来创建一个调查对象和一组答案，供方法<code>test_store_single_response()</code>
+ 和<code>test_store_three_responses()</code>
+ 使用：</p>
+<pre class="代码无行号"><code>  import unittest
+  from survey import AnonymousSurvey
+  class TestAnonymousSurvey(unittest.TestCase):
+      """针对AnonymousSurvey类的测试。"""
+      def setUp(self):
+          """
+          创建一个调查对象和一组答案，供使用的测试方法使用。
+          """
+          question = "What language did you first learn to speak?"
+❶         self.my_survey = AnonymousSurvey(question)
+❷         self.responses = ['English', 'Spanish', 'Mandarin']
+      def test_store_single_response(self):
+          """测试单个答案会被妥善地存储。"""
+          self.my_survey.store_response(self.responses[0])
+          self.assertIn(self.responses[0], self.my_survey.responses)
+      def test_store_three_responses(self):
+          """测试三个答案会被妥善地存储。"""
+          for response in self.responses:
+              self.my_survey.store_response(response)
+          for response in self.responses:
+              self.assertIn(response, self.my_survey.responses)
+  if __name__ == '__main__':
+      unittest.main()</code>
+</pre>
+<p>方法<code>setUp()</code>
+ 做了两件事情：创建一个调查对象（见❶），以及创建一个答案列表（见❷）。存储这两样东西的变量名包含前缀<code>self</code>
+ （即存储在属性中），因此可在这个类的任何地方使用。这让两个测试方法都更简单，因为它们都不用创建调查对象和答案了。方法<code>test_store_single_response()</code>
+ 核实<code>self.responses</code>
+ 中的第一个答案<code>self.responses[0]</code>
+ 被妥善地存储，而方法<code>test_store_three_response()</code>
+ 核实<code>self.responses</code>
+ 中的全部三个答案都被妥善地存储。</p>
+<p>再次运行test_survey.py时，这两个测试也都通过了。如果要扩展<code>AnonymousSurvey</code>
+ ，使其允许每位用户输入多个答案，这些测试将很有用。修改代码以接受多个答案后，可运行这些测试，确认存储单个答案或一系列答案的行为未受影响。</p>
+<p>测试自己编写的类时，方法<code>setUp()</code>
+ 让测试方法编写起来更容易：可在<code>setUp()</code>
+ 方法中创建一系列实例并设置其属性，再在测试方法中直接使用这些实例。相比于在每个测试方法中都创建实例并设置其属性，这要容易得多。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　运行测试用例时，每完成一个单元测试，Python都打印一个字符：测试通过时打印一个句点，测试引发错误时打印一个<code>E</code>
+ ，而测试导致断言失败时则打印一个<code>F</code>
+ 。这就是你运行测试用例时，在输出的第一行中看到的句点和字符数量各不相同的原因。如果测试用例包含很多单元测试，需要运行很长时间，就可通过观察这些结果来获悉有多少个测试通过了。</p>
+</blockquote>
+<p>　</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习11-3：雇员</strong>
+ 　编写一个名为<code>Employee</code>
+ 的类，其方法<code>__init__()</code>
+ 接受名、姓和年薪，并将它们存储在属性中。编写一个名为<code>give_raise()</code>
+ 的方法，它默认将年薪增加5000美元，但也能够接受其他的年薪增加量。</p>
+<p>为<code>Employee</code>
+ 编写一个测试用例，其中包含两个测试方法：<code>test_give_default_raise()</code>
+ 和<code>test_give_custom_raise()</code>
+ 。使用方法<code>setUp()</code>
+ ，以免在每个测试方法中都新建雇员实例。运行这个测试用例，确认两个测试都通过了。</p>
+</blockquote>
+<h2 id="nav_point_256">11.3　小结</h2>
+<p>在本章中，你学习了：如何使用模块<code>unittest</code>
+ 中的工具来为函数和类编写测试；如何编写继承<code>unittest.TestCase</code>
+ 的类，以及如何编写测试方法，以核实函数和类的行为符合预期；如何使用方法<code>setUp()</code>
+ 来根据类高效地创建实例并设置其属性，以便在类的所有测试方法中使用。</p>
+<p>测试是很多初学者不熟悉的主题。作为初学者，并非必须为你尝试的所有项目编写测试。然而参与工作量较大的项目时，你应该对自己所编写函数和类的重要行为进行测试。这样你就能够更加确定自己所做的工作不会破坏项目的其他部分，从而自由地改进既有代码。如果不小心破坏了原来的功能，你马上就会知道，而且能够轻松地修复问题。比起等到不满意的用户报告bug后再采取措施，在测试未通过时采取措施要容易得多。</p>
+<p>如果你在项目中包含了初步测试，将得到其他程序员的尊敬。他们不仅能够更得心应手地使用你编写的代码，也更愿意与你合作开发项目。如果要跟其他程序员开发的项目共享代码，就必须证明你编写的代码通过了既有测试，通常还需要为你添加的新行为编写测试。</p>
+<p>请通过多开展测试来熟悉代码测试过程。对于自己编写的函数和类，请编写针对其重要行为的测试。不过不要在项目早期试图编写全覆盖的测试用例，除非有充分的理由。</p>
+<br style="page-break-after:always"/>
+<div></div>
+]]></description>
+    <pubDate>Sat, 18 Jul 2026 01:26:28 +0000</pubDate>
+    <guid isPermaLink="false">11</guid>
+</item>
+<item>
     <title>Basic Python - 010 - 第 10 章 文件和异常.epub</title>
     <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：130 分钟 (25970 字)</p><hr><h1 id="nav_point_216">第 10 章　文件和异常</h1>
 <blockquote>
