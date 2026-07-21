@@ -5,6 +5,871 @@
     <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
     <description>从 EPUB 自动生成的 RSS 订阅源</description>
         <item>
+    <title>Basic Python - 013 - 第 13 章 外星人来了.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：113 分钟 (22527 字)</p><hr><h1 id="nav_point_294">第 13 章　外星人来了</h1>
+<blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00001.gif" style="width: 16%" width="16%"/>
+ 　本章将在游戏《外星人入侵》中添加外星人。我们将首先在屏幕上边缘附近添加一个外星人，再生成一群外星人。然后让这群外星人向两边和下面移动，并删除被子弹击中的外星人。最后，显示玩家拥有的飞船数量，并在玩家的飞船用完后结束游戏。</p>
+<p>通过阅读本章，你将更深入地了解Pygame和大型项目管理，还将学习如何检测游戏对象之间的碰撞，如子弹和外星人之间的碰撞。检测碰撞有助于定义游戏元素之间的交互。例如，可以将角色限定在迷宫墙壁之内，或者在两个角色之间传球。我们将不时查看游戏开发计划，确保编程工作不偏离轨道。</p>
+<p>着手编写在屏幕上添加一群外星人的代码前，先来回顾一下这个项目，并更新开发计划。</p>
+</blockquote>
+<h2 id="nav_point_295">13.1　项目回顾</h2>
+<p>开发大型项目时，要在进入每个开发阶段之前回顾一下开发计划，搞清楚接下来要通过编写代码来完成哪些任务。本章涉及以下内容。</p>
+<ul>
+<li class="第1级无序列表">研究既有代码，确定实现新功能前是否要重构。</li>
+<li class="第1级无序列表">在屏幕左上角添加一个外星人，并指定合适的边距。</li>
+<li class="第1级无序列表">根据第一个外星人的边距和屏幕尺寸计算屏幕上可容纳多少个外星人。编写一个循环来创建一系列外星人，使其填满屏幕的上半部分。</li>
+<li class="第1级无序列表">让外星人群向两边和下方移动，直到外星人被全部击落、有外星人撞到飞船或有外星人抵达屏幕底端。如果整群外星人都被击落，将再创建一群外星人。如果有外星人撞到了飞船或抵达屏幕底端，将销毁飞船并再创建一群外星人。</li>
+<li class="第1级无序列表">限制玩家可用的飞船数量。当配给的飞船用完之后，游戏将结束。</li>
+</ul>
+<p>我们将在实现功能的同时完善这个计划，但就目前而言，该计划已足够详尽。</p>
+<p>在项目中添加新功能前，还应审核既有代码。每进入一个新阶段，项目通常会更复杂，因此最好对混乱或低效的代码进行清理。我们一直在不断重构，因此当前没有需要重构的代码。</p>
+<h2 id="nav_point_296">13.2　创建第一个外星人</h2>
+<p>在屏幕上放置外星人与放置飞船类似。每个外星人的行为都由<code>Alien</code>
+ 类控制，我们将像创建<code>Ship</code>
+ 类那样创建这个类。出于简化考虑，也将使用位图来表示外星人。你可以自己寻找表示外星人的图像，也可以使用如图13-1所示的图像，它可在本书配套资源（ituring.cn/book/2784）中找到。这幅图像的背景为灰色，与屏幕背景色一致。请务必将选择的图像文件保存到文件夹images中。</p>
+<p class="图"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00008.gif" style="width: 40%" width="40%"/>
+</p>
+<p>
+<strong>图13-1　用来创建外星人群的外星人图像</strong>
+</p>
+<h3 id="nav_point_297">13.2.1　创建<code>Alien</code>
+ 类</h3>
+<p>下面来编写<code>Alien</code>
+ 类并将其保存为文件alien.py：</p>
+<p>
+<em>alien.py</em>
+</p>
+<pre class="代码无行号"><code>  import pygame
+  from pygame.sprite import Sprite
+  class Alien(Sprite):
+      """表示单个外星人的类。"""
+      def __init__(self, ai_game):
+          """初始化外星人并设置其起始位置。"""
+          super().__init__()
+          self.screen = ai_game.screen
+          # 加载外星人图像并设置其rect属性
+          self.image = pygame.image.load('images/alien.bmp')
+          self.rect = self.image.get_rect()
+          # 每个外星人最初都在屏幕左上角附近。
+❶         self.rect.x = self.rect.width
+          self.rect.y = self.rect.height
+          # 存储外星人的精确水平位置。
+❷         self.x = float(self.rect.x)</code>
+</pre>
+<p>除位置不同外，这个类的大部分代码与<code>Ship</code>
+ 类相似。每个外星人最初都位于屏幕左上角附近。将每个外星人的左边距都设置为外星人的宽度，并将上边距设置为外星人的高度（见❶），这样更容易看清。我们主要关心的是外星人的水平速度，因此精确地记录了每个外星人的水平位置（见❷）。</p>
+<p>
+<code>Alien</code>
+ 类不需要一个在屏幕上绘制外星人的方法，因为我们将使用一个Pygame编组方法，自动在屏幕上绘制编组中的所有元素。</p>
+<h3 id="nav_point_298">13.2.2　创建<code>Alien</code>
+ 实例</h3>
+<p>要让第一个外星人在屏幕上现身，需要创建一个<code>Alien</code>
+ 实例。这属于设置工作，因此将把这些代码放在<code>AlienInvasion</code>
+ 类的方法<code>__init__()</code>
+ 末尾。我们最终会创建一群外星人，涉及的工作量不少，因此将新建一个名为<code>_create_fleet()</code>
+ 的辅助方法。</p>
+<p>在类中，方法的排列顺序无关紧要，只要按统一的标准排列就行。我们将把<code>_create_fleet()</code>
+ 放在<code>_update_screen()</code>
+ 前面，不过放在<code>AlienInvasion</code>
+ 类的任何地方其实都可行。首先，需要导入<code>Alien</code>
+ 类。</p>
+<p>下面是alien_invasion.py中修改后的<code>import</code>
+ 语句：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+from bullet import Bullet
+from alien import Alien</code>
+</pre>
+<p>下面是修改后的方法<code>__init__()</code>
+ ：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>    def __init__(self):
+        --snip--
+        self.ship = Ship(self)
+        self.bullets = pygame.sprite.Group()
+        self.aliens = pygame.sprite.Group()
+        self._create_fleet()</code>
+</pre>
+<p>创建了一个用于存储外星人群的编组，还调用了接下来将编写的方法<code>_create_fleet()</code>
+ 。</p>
+<p>下面是新编写的方法<code>_create_fleet()</code>
+ ：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>    def _create_fleet(self):
+        """创建外星人群。"""
+        # 创建一个外星人。
+        alien = Alien(self)
+        self.aliens.add(alien)</code>
+</pre>
+<p>在这个方法中，创建了一个<code>Alien</code>
+ 实例，再将其添加到用于存储外星人群的编组中。外星人默认放在屏幕左上角附近，对第一个外星人来说，这样的位置非常合适。</p>
+<p>要让外星人现身，需要在<code>_update_screen()</code>
+ 中对外星人编组调用方法<code>draw()</code>
+ ：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>    def _update_screen(self):
+        --snip--
+        for bullet in self.bullets.sprites():
+            bullet.draw_bullet()
+        self.aliens.draw(self.screen)
+        pygame.display.flip()</code>
+</pre>
+<p>对编组调用<code>draw()</code>
+ 时，Pygame将把编组中的每个元素绘制到属性<code>rect</code>
+ 指定的位置。方法<code>draw()</code>
+ 接受一个参数，这个参数指定了要将编组中的元素绘制到哪个surface上。图13-2显示了在屏幕上现身的第一个外星人。</p>
+<p class="图"><img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00009.gif"/>
+</p>
+<p>
+<strong>图13-2　第一个外星人现身</strong>
+</p>
+<p>第一个外星人正确地现身了，下面来编写绘制一群外星人的代码。</p>
+<h2 id="nav_point_299">13.3　创建一群外星人</h2>
+<p>要绘制一群外星人，需要确定一行能容纳多少个外星人以及要绘制多少行。我们将首先计算外星人的水平间距并创建一行外星人，再确定可用的垂直空间并创建整群外星人。</p>
+<h3 id="nav_point_300">13.3.1　确定一行可容纳多少个外星人</h3>
+<p>为确定一行可容纳多少个外星人，来看看可用的水平空间有多大。屏幕宽度存储在<code>settings.screen_width</code>
+ 中，但需要在屏幕两边都留下一定的边距（将其设置为外星人的宽度）。因为有两个边距，所以可用于放置外星人的水平空间为屏幕宽度减去外星人宽度的两倍：</p>
+<pre class="代码无行号"><code>available_space_x = settings.screen_width – (2 * alien_width)</code>
+</pre>
+<p>还需要在外星人之间留出一定的空间，不妨将其定为外星人的宽度。因此，显示一个外星人所需的水平空间为外星人宽度的两倍：一个宽度用于放置外星人，另一个宽度为外星人右边的空白区域。为确定一行可容纳多少个外星人，将可用空间除以外星人宽度的两倍。我们使用<strong>整除</strong>
+ （floor division）运算符<code>//</code>
+ ，它将两个数相除并丢弃余数，让我们得到一个表示外星人个数的整数。</p>
+<pre class="代码无行号"><code>number_aliens_x = available_space_x // (2 * alien_width)</code>
+</pre>
+<p>我们将在创建外星人群时使用这些公式。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　令人欣慰的是，在程序中执行计算时，无须在一开始确定公式是正确的，而是可以尝试运行程序，看看结果是否符合预期。即便是在最坏的情况下，也只是屏幕上显示的外星人太多或太少。随后可根据在屏幕上看到的情况调整计算公式。</p>
+</blockquote>
+<h3 id="nav_point_301">13.3.2　创建一行外星人</h3>
+<p>现在可以创建整行外星人了。由于创建单个外星人的代码管用，我们重写<code>_create_fleet()</code>
+ 使其创建一行外星人：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>      def _create_fleet(self):
+          """创建外星人群。"""
+          # 创建一个外星人并计算一行可容纳多少个外星人。
+          # 外星人的间距为外星人宽度。
+❶         alien = Alien(self)
+❷         alien_width = alien.rect.width
+❸         available_space_x = self.settings.screen_width - (2 * alien_width)
+          number_aliens_x = available_space_x // (2 * alien_width)
+          # 创建第一行外星人。
+❹         for alien_number in range(number_aliens_x):
+              # 创建一个外星人并将其加入当前行。
+              alien = Alien(self)
+❺             alien.x = alien_width + 2 * alien_width * alien_number
+              alien.rect.x = alien.x
+              self.aliens.add(alien)</code>
+</pre>
+<p>这些代码大多在前面详细介绍过。为放置外星人，需要知道外星人的宽度和高度，因此在执行计算前，创建一个外星人（见❶）。这个外星人不是外星人群的成员，因此没有将其加入编组<code>aliens</code>
+ 中。在❷处，从外星人的<code>rect</code>
+ 属性中获取外星人宽度，并将这个值存储到<code>alien_width</code>
+ 中，以免反复访问属性<code>rect</code>
+ 。在❸处，计算可用于放置外星人的水平空间以及其中可容纳多少个外星人。</p>
+<p>接下来，编写一个循环，从零数到要创建的外星人数（见❹）。在这个循环中，创建一个新的外星人，并通过设置<img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00003.gif"/>
+ 坐标将其加入当前行（见❺）。将每个外星人都往右推一个外星人宽度。接下来，将外星人宽度乘以2，得到每个外星人占据的空间（其中包括右边的空白区域），再据此计算当前外星人在当前行的位置。我们使用外星人的属性<code>x</code>
+ 来设置其<code>rect</code>
+ 的位置。最后，将每个新创建的外星人都添加到编组<code>aliens</code>
+ 中。</p>
+<p>如果现在运行这个游戏，将看到第一行外星人，如图13-3所示。</p>
+<p class="图"><img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00010.gif"/>
+</p>
+<p>
+<strong>图13-3　第一行外星人</strong>
+</p>
+<p>这行外星人在屏幕上稍微偏向了左边、这实际上是有好处的，因为后面将让外星人群往右移，触及屏幕边缘后稍微往下移，再往左移，依此类推。就像经典游戏《太空入侵者》，相比于只往下移，这种移动方式更为有趣。我们将让外星人群不断这样移动，直到所有外星人都被击落，或者有外星人撞上飞船或抵达屏幕底端。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　根据所选择的屏幕宽度，在你的系统中，第一个外星人的位置可能稍有不同。</p>
+</blockquote>
+<h3 id="nav_point_302">13.3.3　重构<code>_create_fleet()</code>
+</h3>
+<p>倘若只需使用前面的代码就能创建外星人群，也许应该让<code>_create_fleet()</code>
+ 保持原样，但鉴于创建外星人群的工作还未完成，我们稍微整理一下这个方法。为此，添加辅助方法<code>_create_alien()</code>
+ ，并在<code>_create_fleet()</code>
+ 中调用它：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>    def _create_fleet(self):
+        --snip--
+        # 创建第一行外星人。
+        for alien_number in range(number_aliens_x):
+            self._create_alien(alien_number)
+    def _create_alien(self, alien_number):
+        """创建一个外星人并将其放在当前行。"""
+        alien = Alien(self)
+        alien_width = alien.rect.width
+        alien.x = alien_width + 2 * alien_width * alien_number
+        alien.rect.x = alien.x
+        self.aliens.add(alien)</code>
+</pre>
+<p>除<code>self</code>
+ 外，方法<code>_create_alien()</code>
+ 还接受另一个参数，即要创建的外星人的编号。该方法的代码与<code>_create_fleet()</code>
+ 相同，但在内部获取外星人宽度，而不是将其作为参数传入。这样重构后，添加新行进而创建整群外星人将更容易。</p>
+<h3 id="nav_point_303">13.3.4　添加行</h3>
+<p>要创建外星人群，需要计算屏幕可容纳多少行，并将创建一行外星人的循环重复执行相应的次数。为计算可容纳的行数，要先计算可用的垂直空间：用屏幕高度减去第一行外星人的上边距（外星人高度）、飞船的高度以及外星人群最初与飞船之间的距离（外星人高度的两倍）：</p>
+<pre class="代码无行号"><code>available_space_y = settings.screen_height – (3 * alien_height) – ship_height</code>
+</pre>
+<p>这将在飞船上方留出一定的空白区域，给玩家留出射杀外星人的时间。</p>
+<p>每行下方都要留出一定的空白区域，不妨将其设置为外星人的高度。为计算可容纳的行数，将可用的垂直空间除以外星人高度的两倍。我们使用整除，因为行数只能是整数。（同样，如果这样的计算不对，我们马上就能发现，继而将间距调整为合理的值。）</p>
+<pre class="代码无行号"><code>number_rows = available_space_y // (2 * alien_height)</code>
+</pre>
+<p>知道可容纳多少行之后，便可重复执行创建一行外星人的代码了：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>      def _create_fleet(self):
+          --snip--
+          alien = Alien(self)
+❶         alien_width, alien_height = alien.rect.size
+          available_space_x = self.settings.screen_width - (2 * alien_width)
+          number_aliens_x = available_space_x // (2 * alien_width)
+          #计算屏幕可容纳多少行外星人。
+          ship_height = self.ship.rect.height
+❷         available_space_y = (self.settings.screen_height -
+                                   (3 * alien_height) - ship_height)
+          number_rows = available_space_y // (2 * alien_height)
+          # 创建外星人群。
+❸         for row_number in range(number_rows):
+              for alien_number in range(number_aliens_x):
+                  self._create_alien(alien_number, row_number)
+      def _create_alien(self, alien_number, row_number):
+          """创建一个外星人，并将其放在当前行。"""
+          alien = Alien(self)
+          alien_width, alien_height = alien.rect.size
+          alien.x = alien_width + 2 * alien_width * alien_number
+          alien.rect.x = alien.x
+❹         alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
+          self.aliens.add(alien)</code>
+</pre>
+<p>需要知道外星人的宽度和高度，因此在❶处使用了属性<code>size</code>
+ 。该属性是一个元组，包含<code>rect</code>
+ 对象的宽度和高度。为计算屏幕可容纳多少行外星人，在计算<code>available_space_x</code>
+ 的代码后面添加了计算<code>available_space_y</code>
+ 的代码（见❷）。此处将计算公式用圆括号括起来，以便将代码分成两行，遵循每行不超过79字符的建议。</p>
+<p>为创建多行外星人，使用了两个嵌套在一起的循环：一个外部循环和一个内部循环（见❸）。内部循环创建一行外星人，而外部循环从零数到要创建的外星人行数：Python将重复执行创建单行外星人的代码，重复次数为<code>number_rows</code>
+ 。</p>
+<p>为嵌套循环，编写了一个新的<code>for</code>
+ 循环，并缩进了要重复执行的代码。（在大多数文本编辑器中，缩进代码块和取消缩进都很容易，详情请参阅附录B）。现在调用<code>_create_alien()</code>
+ 时，传递了一个表示行号的实参，将每行都沿屏幕依次向下放置。</p>
+<p>在<code>_create_alien()</code>
+ 的定义中，需要一个用于存储行号的形参。在<code>_create_alien()</code>
+ 中，修改外星人的<img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00004.gif"/>
+ 坐标（见❹）并在第一行外星人上方留出与外星人等高的空白区域。相邻外星人行的<img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00004.gif"/>
+ 坐标相差外星人高度的两倍，因此将外星人高度乘以2，再乘以行号。第一行的行号为0，因此第一行的垂直位置不变，而其他行都沿屏幕依次向下放置。</p>
+<p>如果现在运行这个游戏，将看到一群外星人，如图13-4所示。</p>
+<p class="图"><img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00011.gif"/>
+</p>
+<p>
+<strong>图13-4　整群外星人都现身了</strong>
+</p>
+<p>下一节将让外星人群动起来！</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习13-1：星星</strong>
+ 　找一幅星星图像，并在屏幕上显示一系列整齐排列的星星。</p>
+<p>
+<strong>练习13-2：更逼真的星星</strong>
+ 　为让星星的分布更逼真，可随机地放置星星。本书前面说过，可像下面这样来生成随机数：</p>
+<pre class="代码无行号"><code>from random import randint
+random_number = randint(-10, 10)</code>
+</pre>
+<p>上述代码返回一个-10和10之间的随机整数。在为完成练习13-1而编写的程序中，随机地调整每颗星星的位置。</p>
+</blockquote>
+<h2 id="nav_point_304">13.4　让外星人群移动</h2>
+<p>下面来让外星人群在屏幕上向右移动，撞到屏幕边缘后下移一定的量，再沿相反的方向移动。我们将不断移动所有的外星人，直到外星人被全部消灭，或者有外星人撞上飞船或抵达屏幕底端。下面先让外星人向右移动。</p>
+<h3 id="nav_point_305">13.4.1　向右移动外星人群</h3>
+<p>为移动外星人群，将使用alien.py中的方法<code>update()</code>
+ 。对于外星人群中的每个外星人，都要调用它。首先，添加一个控制外星人速度的设置：</p>
+<p>
+<em>settings.py</em>
+</p>
+<pre class="代码无行号"><code>    def __init__(self):
+        --snip--
+        # 外星人设置
+        self.alien_speed = 1.0</code>
+</pre>
+<p>再使用这个设置来实现<code>update()</code>
+ ：</p>
+<p>
+<em>alien.py</em>
+</p>
+<pre class="代码无行号"><code>      def __init__(self, ai_game):
+          """初始化外星人并设置其初始位置。"""
+          super().__init__()
+          self.screen = ai_game.screen
+          self.settings = ai_game.settings
+          --snip--
+      def update(self):
+          """向右移动外星人。"""
+❶         self.x += self.settings.alien_speed
+❷         self.rect.x = self.x</code>
+</pre>
+<p>在<code>__init__()</code>
+ 中添加了属性<code>settings</code>
+ ，以便能够在<code>update()</code>
+ 中访问外星人的速度。每次更新外星人时，都将它向右移动，移动量为<code>alien_speed</code>
+ 的值。我们使用属性<code>self.x</code>
+ 跟踪每个外星人的准确位置，该属性可存储小数值（见❶）。然后，使用<code>self.x</code>
+ 的值来更新外星人的<code>rect</code>
+ 的位置（见❷）。</p>
+<p>主<code>while</code>
+ 循环中已调用了更新飞船和子弹的方法，现在还需更调用更新每个外星人位置的方法：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>        while True:
+            self._check_events()
+            self.ship.update()
+            self._update_bullets()
+            self._update_aliens()
+            self._update_screen()</code>
+</pre>
+<p>需要编写一些代码来管理外星人群的移动，因此新建一个名为<code>_update_aliens()</code>
+ 的方法。我们在更新子弹后再更新外星人的位置，因为稍后要检查是否有子弹击中了外星人。</p>
+<p>将这个方法放在模块的什么地方都无关紧要，但为确保代码组织有序，我将它放在方法<code>_update_bullets()</code>
+ 的后面，以便与<code>while</code>
+ 循环中的调用顺序一致。下面是<code>_update_aliens()</code>
+ 的第一版：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>    def _update_aliens(self):
+        """更新外星人群中所有外星人的位置。"""
+        self.aliens.update()</code>
+</pre>
+<p>对编组调用方法<code>update()</code>
+ ，这将自动对每个外星人调用方法<code>update()</code>
+ 。如果现在运行这个游戏，你将看到外星人群向右移动，并在屏幕右边缘消失。</p>
+<h3 id="nav_point_306">13.4.2　创建表示外星人移动方向的设置</h3>
+<p>下面来创建让外星人撞到屏幕右边缘后向下移动、再向左移动的设置。实现这种行为的代码如下：</p>
+<p>
+<em>settings.py</em>
+</p>
+<pre class="代码无行号"><code>         # 外星人设置
+         self.alien_speed = 1.0
+         self.fleet_drop_speed = 10
+         # fleet_direction为1表示向右移，为-1表示向左移。
+         self.fleet_direction = 1</code>
+</pre>
+<p>设置<code>fleet_drop_speed</code>
+ 指定有外星人撞到屏幕边缘时，外星人群向下移动的速度。将这个速度与水平速度分开是有好处的，便于分别调整这两个速度。</p>
+<p>要实现设置<code>fleet_direction</code>
+ ，可将其设置为文本值，如<code>'left'</code>
+ 或<code>'right'</code>
+ ，但这样就必须编写<code>if-elif</code>
+ 语句来检查外星人群的移动方向。鉴于只有两个可能的方向，我们使用值1和-1来表示，并在外星人群改变方向时在这两个值之间切换。（向右移时需要增大每个外星人的<img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00003.gif"/>
+ 坐标，而向左移时需要减小每个外星人的<img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00003.gif"/>
+ 坐标，因此使用数字来表示方向十分合理。）</p>
+<h3 id="nav_point_307">13.4.3　检查外星人是否撞到了屏幕边缘</h3>
+<p>现在需要编写一个方法来检查外星人是否撞到了屏幕边缘，还需修改<code>update()</code>
+ 让每个外星人都沿正确的方向移动。这些代码位于<code>Alien</code>
+ 类中：</p>
+<p>
+<em>alien.py</em>
+</p>
+<pre class="代码无行号"><code>      def check_edges(self):
+          """如果外星人位于屏幕边缘，就返回True。"""
+          screen_rect = self.screen.get_rect()
+❶         if self.rect.right &gt;= screen_rect.right or self.rect.left &lt;= 0:
+                return True
+      def update(self):
+          """向左或向右移动外星人。"""
+❷         self.x += (self.settings.alien_speed *
+                          self.settings.fleet_direction)
+          self.rect.x = self.x</code>
+</pre>
+<p>可对任意外星人调用新方法<code>check_edges()</code>
+ ，看其是否位于屏幕左边缘或右边缘。如果外星人的<code>rect</code>
+ 的属性<code>right</code>
+ 大于或等于屏幕的<code>rect</code>
+ 的<code>right</code>
+ 属性，就说明外星人位于屏幕右边缘；如果外星人的<code>rect</code>
+ 的<code>left</code>
+ 属性小于或等于0，就说明外星人位于屏幕左边缘（见❶）。</p>
+<p>我们修改方法<code>update()</code>
+ ，将移动量设置为外星人速度和<code>fleet_direction</code>
+ 的乘积，让外星人向左或向右移动（见❷）。如果<code>fleet_direction</code>
+ 为1，就将外星人的当前<img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00003.gif"/>
+ 坐标增大<code>alien_speed</code>
+ ，从而将外星人向右移；如果<code>fleet_direction</code>
+ 为-1，就将外星人的当前<img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00003.gif"/>
+ 坐标减去<code>alien_speed</code>
+ ，从而将外星人向左移。</p>
+<h3 id="nav_point_308">13.4.4　向下移动外星人群并改变移动方向</h3>
+<p>有外星人到达屏幕边缘时，需要将整群外行星下移，并改变它们的移动方向。为此，需要在<code>AlienInvasion</code>
+ 中添加一些代码，因为要在这里检查是否有外星人到达了左边缘或右边缘。我们编写方法<code>_check_fleet_edges()</code>
+ 和<code>_change_fleet_direction()</code>
+ ，并且修改<code>_update_aliens()</code>
+ 。这些新方法将放在<code>_create_alien()</code>
+ 后面，但其实放在<code>AlienInvasion</code>
+ 类中的什么位置都无关紧要：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>      def _check_fleet_edges(self):
+          """有外星人到达边缘时采取相应的措施。"""
+❶         for alien in self.aliens.sprites():
+              if alien.check_edges():
+❷                 self._change_fleet_direction()
+                  break
+      def _change_fleet_direction(self):
+          """将整群外星人下移，并改变它们的方向。"""
+          for alien in self.aliens.sprites():
+❸             alien.rect.y += self.settings.fleet_drop_speed
+          self.settings.fleet_direction *= -1</code>
+</pre>
+<p>在<code>_check_fleet_edges()</code>
+ 中，遍历外星人群并对其中的每个外星人调用<code>check_edges()</code>
+ （见❶）。如果<code>check_edges()</code>
+ 返回<code>True</code>
+ ，就表明相应的外星人位于屏幕边缘，需要改变外星人群的方向，因此调用<code>_change_fleet_direction()</code>
+ 并退出循环（见❷）。在<code>_change_fleet_direction()</code>
+ 中，遍历所有外星人，将每个外星人下移设置<code>fleet_drop_speed</code>
+ 的值（见❸）。然后，将<code>fleet_direction</code>
+ 的值改为其当前值与-1的乘积。调整外星人群移动方向的代码行没有包含在<code>for</code>
+ 循环中，因为我们要调整每个外星人的垂直位置，但只想调整外星人群移动方向一次。</p>
+<p>下面显示了对<code>_update_aliens()</code>
+ 所做的修改：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>    def _update_aliens(self):
+        """
+        检查是否有外星人位于屏幕边缘，
+        并更新整群外星人的位置。
+        """
+        self._check_fleet_edges()
+        self.aliens.update()</code>
+</pre>
+<p>我们将方法<code>_update_aliens()</code>
+ 修改成了先调用<code>_check_fleet_edges()</code>
+ ，再更新每个外星人的位置。</p>
+<p>如果现在运行这个游戏，外星人群将在屏幕上来回移动，并在抵达屏幕边缘后向下移动。现在可以开始射杀外星人，并检查是否有外星人撞到飞船或抵达了屏幕底端。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习13-3：雨滴</strong>
+ 　寻找一幅雨滴图像，并创建一系列整齐排列的雨滴。让这些雨滴往下落，直到到达屏幕底端后消失。</p>
+<p>
+<strong>练习13-4：连绵细雨</strong>
+ 　修改为完成练习11-3而编写的代码，使得一行雨滴消失在屏幕底端后，屏幕顶端又出现一行新雨滴并开始往下落。</p>
+</blockquote>
+<h2 id="nav_point_309">13.5　射杀外星人</h2>
+<p>我们创建了飞船和外星人群，但子弹击中外星人时将穿过外星人，因为还没有检查碰撞。在游戏编程中，<strong>碰撞</strong>
+ 指的是游戏元素重叠在一起。要让子弹能够击落外星人，我们将使用<code>sprite.groupcollide()</code>
+ 检测两个编组的成员之间的碰撞。</p>
+<h3 id="nav_point_310">13.5.1　检测子弹与外星人的碰撞</h3>
+<p>子弹击中外星人时，我们需要马上知道，以便碰撞发生后让子弹立即消失。为此，我们将在更新子弹的位置后立即检测碰撞。</p>
+<p>函数<code>sprite.groupcollide()</code>
+ 将一个编组中每个元素的<code>rect</code>
+ 同另一个编组中每个元素的<code>rect</code>
+ 进行比较。在这里，是将每颗子弹的<code>rect</code>
+ 同每个外星人的<code>rect</code>
+ 进行比较，并返回一个字典，其中包含发生了碰撞的子弹和外星人。在这个字典中，每个键都是一颗子弹，而关联的值是被该子弹击中的外星人（第14章实现记分系统时，也将使用该字典）。</p>
+<p>在方法<code>_update_bullets()</code>
+ 末尾，添加如下检查子弹和外星人碰撞的代码：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>    def _update_bullets(self):
+        """更新子弹的位置，并删除消失的子弹。"""
+        --snip--
+        # 检查是否有子弹击中了外星人。
+        #  如果是，就删除相应的子弹和外星人。
+        collisions = pygame.sprite.groupcollide(
+                self.bullets, self.aliens, True, True)</code>
+</pre>
+<p>这些新增的代码将<code>self.bullets</code>
+ 中所有的子弹都与<code>self.aliens</code>
+ 中所有的外星人进行比较，看它们是否重叠在一起。每当有子弹和外星人的<code>rect</code>
+ 重叠时，<code>groupcollide()</code>
+ 就在它返回的字典中添加一个键值对。两个实参<code>True</code>
+ 让Pygame删除发生碰撞的子弹和外星人。（要模拟能够飞行到屏幕顶端、消灭击中的每个外星人的高能子弹，可将第一个布尔实参设置为<code>False</code>
+ ，并保留第二个布尔参数为<code>True</code>
+ 。这样被击中的外星人将消失，但所有的子弹都始终有效，直到抵达屏幕顶端后消失。）</p>
+<p>如果此时运行这个游戏，被击中的外星人将消失。如图13-5所示，有些外星人被射杀了。</p>
+<p class="图"><img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00012.gif"/>
+</p>
+<p>
+<strong>图13-5　可以射杀外星人了</strong>
+</p>
+<h3 id="nav_point_311">13.5.2　为测试创建大子弹</h3>
+<p>只需运行这个游戏就可测试很多功能，但有些功能在正常情况下测试起来比较烦琐。例如，要测试代码能否正确处理外星人编组为空的情形，需要花很长时间将屏幕上的外星人全部射杀。</p>
+<p>测试有些功能时，可以修改游戏的某些设置，以便能够专注于游戏的特定方面。例如，可以缩小屏幕以减少需要射杀的外星人数量，也可以提高子弹的速度，以便能够在单位时间内发射大量子弹。</p>
+<p>测试这个游戏时，我喜欢做的一项修改是，增大子弹的尺寸并使其在击中外星人后依然有效，如图13-6所示。请尝试将<code>bullet_width</code>
+ 设置为300乃至3000，看看将所有外星人全部射杀有多快！</p>
+<p class="图"><img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00013.gif"/>
+</p>
+<p>
+<strong>图13-6　威力超强的子弹让游戏的有些方法测试起来更容易</strong>
+</p>
+<p>这样的修改可提高测试效率，还可能激发出如何赋予玩家更大威力的思想火花。（完成测试后，别忘了将设置恢复正常。）</p>
+<h3 id="nav_point_312">13.5.3　生成新的外星人群</h3>
+<p>这个游戏的一个重要特点是，外星人无穷无尽：一群外星人被消灭后，又会出现另一群外星人。</p>
+<p>要在一群外星人被消灭后再显示一群外星人，首先需要检查编组<code>aliens</code>
+ 是否为空。如果是，就调用<code>_create_fleet()</code>
+ 。我们将在<code>_update_bullets()</code>
+ 末尾执行这项任务，因为外星人都是在这里被消灭的：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>      def _update_bullets(self):
+          --snip--
+❶         if not self.aliens:
+              # 删除现有的子弹并新建一群外星人。
+❷             self.bullets.empty()
+              self._create_fleet()</code>
+</pre>
+<p>在❶处，检查编组<code>aliens</code>
+ 是否为空。空编组相当于<code>False</code>
+ ，因此这是一种检查编组是否为空的简单方式。如果编组<code>aliens</code>
+ 为空，就使用方法<code>empty()</code>
+ 删除编组中余下的所有精灵，从而删除现有的所有子弹（见❷）。我们还调用了<code>_create_fleet()</code>
+ ，在屏幕上重新显示一群外星人。</p>
+<p>现在，当前这群外星人被消灭干净后，将立刻出现一群新的外星人。</p>
+<h3 id="nav_point_313">13.5.4　提高子弹的速度</h3>
+<p>如果现在尝试在游戏中射杀外星人，可能会发现子弹的速度不太合适（有点快或有点慢），游戏感不好。当前，可通过修改设置让这款游戏更有意思、更好玩。</p>
+<p>要修改子弹的速度，可调整settings.py中<code>bullet_speed</code>
+ 的值。在我的系统中，我把<code>bullet_speed</code>
+ 的值调整到1.5，让子弹的速度快些：</p>
+<p>
+<em>settings.py</em>
+</p>
+<pre class="代码无行号"><code>         # 子弹设置
+         self.bullet_speed = 1.5
+         self.bullet_width = 3
+         --snip--</code>
+</pre>
+<p>这项设置的最佳值取决于你使用的系统的速度，请找出适合自己的值。你也可以调整其他设置。</p>
+<h3 id="nav_point_314">13.5.5　重构<code>_update_bullets()</code>
+</h3>
+<p>下面来重构<code>_update_bullets()</code>
+ ，使其不再执行那么多任务。为此，将处理子弹和外星人碰撞的代码移到一个独立的方法中：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>    def _update_bullets(self):
+        --snip--
+        # 删除消失的子弹。
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom &lt;= 0:
+                self.bullets.remove(bullet)
+        self._check_bullet_alien_collisions()
+    def _check_bullet_alien_collisions(self):
+        """响应子弹和外星人碰撞。"""
+        # 删除发生碰撞的子弹和外星人。
+        collisions = pygame.sprite.groupcollide(
+                self.bullets, self.aliens, True, True)
+        if not self.aliens:
+            # 删除现有的所有子弹，并创建一群新的外星人。
+            self.bullets.empty()
+            self._create_fleet()</code>
+</pre>
+<p>我们创建了一个新方法<code>_check_bullet_alien_collisions()</code>
+ ，用于检测子弹和外星人之间的碰撞，并在整群外星人被消灭干净时采取相应的措施。这能避免<code>_update_bullets()</code>
+ 过长，简化了后续开发工作。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习13-5：侧面射击2</strong>
+ 　完成练习12-6之后，我们给游戏《外星人入侵》添加了很多功能。在本练习中，请尝试让练习12-6中飞船的功能与当前《外星人入侵》中的类似。在屏幕右侧添加一群外星人（或让外星人的位置随机），并让其向飞船移动。另外，编写代码让被子弹击中的外星人消失。</p>
+</blockquote>
+<h2 id="nav_point_315">13.6　结束游戏</h2>
+<p>如果玩家根本不会输，游戏还有什么趣味和挑战性可言？如果玩家没能在足够短的时间内将整群外星人消灭干净，导致有外星人撞到了飞船或抵达屏幕底端，飞船将被摧毁。与此同时，限制玩家可使用的飞船数，在玩家用光所有的飞船后，游戏将结束。</p>
+<h3 id="nav_point_316">13.6.1　检测外星人和飞船碰撞</h3>
+<p>首先检查外星人和飞船之间的碰撞，以便在外星人撞上飞船时做出合适的响应。为此，在<code>AlienInvasion</code>
+ 中更新每个外星人的位置后，立即检测外星人和飞船之间的碰撞：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>      def _update_aliens(self):
+          --snip--
+           self.aliens.update()
+           # 检测外星人和飞船之间的碰撞。
+❶         if pygame.sprite.spritecollideany(self.ship, self.aliens):
+❷             print("Ship hit!!!")</code>
+</pre>
+<p>函数<code>spritecollideany()</code>
+ 接受两个实参：一个精灵和一个编组。它检查编组是否有成员与精灵发生了碰撞，并在找到与精灵发生碰撞的成员后停止遍历编组。在这里，它遍历编组<code>aliens</code>
+ ，并返回找到的第一个与飞船发生碰撞的外星人。</p>
+<p>如果没有发生碰撞，<code>spritecollideany()</code>
+ 将返回<code>None</code>
+ ，因此❶处的<code>if</code>
+ 代码块不会执行。如果找到了与飞船发生碰撞的外星人，它就返回这个外星人，因此<code>if</code>
+ 代码块将执行：打印“Ship hit!!!”（见❷）。有外星人撞到飞船时，需要执行很多任务：删除余下的外星人和子弹，让飞船重新居中，以及创建一群新的外星人。编写完成这些任务的代码之前，需要确定检测外星人和飞船碰撞的方法是否可行。为此，最简单的方式就是调用函数<code>print()</code>
+ 。</p>
+<p>现在如果运行这个游戏，则每当有外星人撞到飞船时，终端窗口都将显示“Ship hit!!!”。测试这项功能时，请将<code>alien_drop_speed</code>
+ 设置为较大的值，如50或100，这样外星人将更快地撞到飞船。</p>
+<h3 id="nav_point_317">13.6.2　响应外星人和飞船碰撞</h3>
+<p>现在需要确定当外星人与飞船发生碰撞时该做些什么。我们不销毁<code>Ship</code>
+ 实例并创建新的，而是通过跟踪游戏的统计信息来记录飞船被撞了多少次（跟踪统计信息还有助于记分）。</p>
+<p>下面来编写一个用于跟踪游戏统计信息的新类<code>GameStats</code>
+ ，并将其保存为文件game_stats.py：</p>
+<p>
+<em>game_stats.py</em>
+</p>
+<pre class="代码无行号"><code>class GameStats:
+    """跟踪游戏的统计信息。"""
+    def __init__(self, ai_game):
+        """初始化统计信息。"""
+        self.settings = ai_game.settings
+        self.reset_stats()
+    def reset_stats(self):
+        """初始化在游戏运行期间可能变化的统计信息。"""
+        self.ships_left = self.settings.ship_limit</code>
+</pre>
+<p>在游戏运行期间，只创建一个<code>GameStats</code>
+ 实例，但每当玩家开始新游戏时，需要重置一些统计信息。为此，在方法<code>reset_stats()</code>
+ 中初始化大部分统计信息，而不是在<code>__init__()</code>
+ 中直接初始化。我们在<code>__init__()</code>
+ 中调用这个方法，这样创建<code>GameStats</code>
+ 实例时将妥善地设置这些统计信息，在玩家开始新游戏时也能调用<code>reset_stats()</code>
+ 。</p>
+<p>当前，只有一项统计信息<code>ships_left</code>
+ ，其值在游戏运行期间不断变化。一开始玩家拥有的飞船数存储在settings.py的<code>ship_limit</code>
+ 中：</p>
+<p>
+<em>settings.py</em>
+</p>
+<pre class="代码无行号"><code>        # 飞船设置
+        self.ship_speed = 1.5
+        self.ship_limit = 3</code>
+</pre>
+<p>还需对alien_invasion.py做些修改，以创建一个<code>GameStats</code>
+ 实例。首先，更新这个文件开头的<code>import</code>
+ 语句：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>import sys
+from time import sleep
+import pygame
+from settings import Settings
+from game_stats import GameStats
+from ship import Ship
+--snip--</code>
+</pre>
+<p>从Python标准库的模块<code>time</code>
+ 中导入函数<code>sleep()</code>
+ ，以便在飞船被外星人撞到后让游戏暂停片刻。我们还导入了<code>GameStats</code>
+ 。</p>
+<p>接下来，在<code>__init__()</code>
+ 中创建一个<code>GameStats</code>
+ 实例：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>    def __init__(self):
+        --snip--
+        self.screen = pygame.display.set_mode(
+            (self.settings.screen_width, self.settings.screen_height))
+        pygame.display.set_caption("Alien Invasion")
+        # 创建一个用于存储游戏统计信息的实例。
+        self.stats = GameStats(self)
+        self.ship = Ship(self)
+        --snip--</code>
+</pre>
+<p>在创建游戏窗口后、定义诸如飞船等其他游戏元素前，创建一个<code>GameStats</code>
+ 实例。</p>
+<p>有外星人撞到飞船时，将余下的飞船数减1，创建一群新的外星人，并将飞船重新放到屏幕底端的中央。另外，让游戏暂停片刻，让玩家在新外星人群出现前注意到发生了碰撞并将重新创建外星人群。</p>
+<p>下面将实现这些功能的大部分代码放到新方法<code>_ship_hit()</code>
+ 中。在<code>_update_aliens()</code>
+ 中，将在有外星人撞到飞船时调用这个方法：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>      def _ship_hit(self):
+          """响应飞船被外星人撞到。"""
+          # 将ships_left减1。
+❶         self.stats.ships_left -= 1
+          # 清空余下的外星人和子弹。
+❷         self.aliens.empty()
+          self.bullets.empty()
+          # 创建一群新的外星人，并将飞船放到屏幕底端的中央。
+❸         self._create_fleet()
+          self.ship.center_ship()
+          # 暂停。
+❹         sleep(0.5)</code>
+</pre>
+<p>新方法<code>_ship_hit()</code>
+ 在飞船被外星人撞到时做出响应。在这个方法中，将余下的飞船数减1（见❶），再清空编组<code>aliens</code>
+ 和<code>bullets</code>
+ （见❷）。</p>
+<p>接下来，创建一群新的外星人，并将飞船居中（见❸）。（稍后将在<code>Ship</code>
+ 类中添加方法<code>center_ship()</code>
+ 。）最后，在更新所有元素后（但在将修改显示到屏幕前）暂停，让玩家知道飞船被撞到了（见❹）。这里的函数调用<code>sleep()</code>
+ 让游戏暂停半秒钟，让玩家能够看到外星人撞到了飞船。函数<code>sleep()</code>
+ 执行完毕后，将接着执行方法<code>_update_screen()</code>
+ ，将新的外星人群绘制到屏幕上。</p>
+<p>在<code>_update_aliens()</code>
+ 中，当有外星人撞到飞船时，不调用函数<code>print()</code>
+ ，而调用<code>_ship_hit()</code>
+ ：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>    def _update_aliens(self):
+        --snip--
+        if pygame.sprite.spritecollideany(self.ship, self.aliens):
+            self._ship_hit()</code>
+</pre>
+<p>下面是新方法<code>center_ship()</code>
+ ，请将其添加到ship.py的末尾：</p>
+<p>
+<em>ship.py</em>
+</p>
+<pre class="代码无行号"><code>    def center_ship(self):
+        """让飞船在屏幕底端居中。"""
+        self.rect.midbottom = self.screen_rect.midbottom
+        self.x = float(self.rect.x)</code>
+</pre>
+<p>这里像<code>__init__()</code>
+ 中那样让飞船在屏幕底端居中。让飞船在屏幕底端居中后，重置用于跟踪飞船确切位置的属性<code>self.x</code>
+ 。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　我们根本没有创建多艘飞船。在整个游戏运行期间，只创建了一个飞船实例，并在该飞船被撞到时将其居中。统计信息<code>ships_left</code>
+ 指出玩家是否用完了所有的飞船。</p>
+</blockquote>
+<p>请运行这个游戏，射杀几个外星人，并让一个外星人撞到飞船。游戏暂停片刻后，将出现一群新的外星人，而飞船将在屏幕底端居中。</p>
+<h3 id="nav_point_318">13.6.3　有外星人到达屏幕底端</h3>
+<p>如果有外星人到达屏幕底端，我们将像有外星人撞到飞船那样做出响应。为检测这种情况，在alien_invasion.py中添加一个新方法：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>      def _check_aliens_bottom(self):
+          """检查是否有外星人到达了屏幕底端。"""
+          screen_rect = self.screen.get_rect()
+          for alien in self.aliens.sprites():
+❶             if alien.rect.bottom &gt;= screen_rect.bottom:
+                  # 像飞船被撞到一样处理。
+                  self._ship_hit()
+                  break</code>
+</pre>
+<p>方法<code>_check_aliens_bottom()</code>
+ 检查是否有外星人到达了屏幕底端。到达屏幕底端后，外星人的属性<code>rect.bottom</code>
+ 大于或等于屏幕的属性<code>rect.bottom</code>
+ （见❶）。如果有外星人到达屏幕底端，就调用<code>_ship_hit()</code>
+ 。只要检测到一个外星人到达屏幕底端，就无须检查其他外星人了，因此在调用<code>_ship_hit()</code>
+ 后退出循环。</p>
+<p>我们在<code>_update_aliens()</code>
+ 中调用<code>_check_aliens_bottom()</code>
+ ：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>    def _update_aliens(self):
+        --snip--
+        # 检查是否有外星人撞到飞船。
+        if pygame.sprite.spritecollideany(self.ship, self.aliens):
+            self._ship_hit()
+        # 检查是否有外星人到达了屏幕底端。
+        self._check_aliens_bottom()</code>
+</pre>
+<p>在更新所有外星人的位置并检测是否有外星人和飞船发生碰撞后调用<code>_check_aliens_bottom()</code>
+ 。现在，每当有外星人撞到飞船或抵达屏幕底端时，都将出现一群新的外星人。</p>
+<h3 id="nav_point_319">13.6.4　游戏结束</h3>
+<p>现在这个游戏看起来更完整了，但它永远都不会结束，只是<code>ships_left</code>
+ 不断变成越来越小的负数。下面在<code>GameStats</code>
+ 中添加一个作为标志的属性<code>game_active</code>
+ ，以便在玩家的飞船用完后结束游戏。首先，在<code>GameStats</code>
+ 类的方法<code>__init__()</code>
+ 末尾设置这个标志：</p>
+<p>
+<em>game_stats.py</em>
+</p>
+<pre class="代码无行号"><code>    def __init__(self, ai_game):
+        --snip--
+        # 游戏刚启动时处于活动状态。
+        self.game_active = True</code>
+</pre>
+<p>接下来在<code>_ship_hit()</code>
+ 中添加代码，在玩家的飞船用完后将<code>game_active</code>
+ 设置为<code>False</code>
+ ：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>    def _ship_hit(self):
+        """响应飞船被外星人撞到。"""
+        if self.stats.ships_left &gt; 0:
+            # 将ships_left减1。
+            self.stats.ships_left -= 1
+          --snip--
+            # 暂停。
+            sleep(0.5)
+        else:
+            self.stats.game_active = False</code>
+</pre>
+<p>
+<code>_ship_hit()</code>
+ 的大部分代码没有变。我们将原来的代码都移到了一个<code>if</code>
+ 语句块中，它检查玩家是否至少还有一艘飞船。如果是，就创建一群新的外星人，暂停片刻，再接着往下执行。如果玩家没有了飞船，就将<code>game_active</code>
+ 设置为<code>False</code>
+ 。</p>
+<h2 id="nav_point_320">13.7　确定应运行游戏的哪些部分</h2>
+<p>我们需要确定游戏的哪些部分在任何情况下都应运行，哪些部分仅在游戏处于活动状态时才运行：</p>
+<p>
+<em>alien_invasion.py</em>
+</p>
+<pre class="代码无行号"><code>    def run_game(self):
+        """开始游戏主循环。"""
+        while True:
+            self._check_events()
+            if self.stats.game_active:
+                self.ship.update()
+                self._update_bullets()
+                self._update_aliens()
+            self._update_screen()</code>
+</pre>
+<p>在主循环中，在任何情况下都需要调用<code>_check_events()</code>
+ ，即便游戏处于非活动状态。例如，我们需要知道玩家是否按了<code>Q</code>
+ 键以退出游戏，或者是否单击了关闭窗口的按钮。我们还需要不断更新屏幕，以便在等待玩家是否选择开始新游戏时修改屏幕。其他的函数仅在游戏处于活动状态时才需要调用，因为游戏处于非活动状态时，不用更新游戏元素的位置。</p>
+<p>现在运行这个游戏，它将在飞船用完后停止不动。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习13-6：游戏结束</strong>
+ 　在为完成练习13-5而编写的游戏中，记录飞船被撞到了多少次以及有多少外星人被射杀。确定合适的游戏结束条件，并在满足该条件后结束游戏。</p>
+</blockquote>
+<h2 id="nav_point_321">13.8　小结</h2>
+<p>在本章中，你学习了：如何在游戏中添加大量相同的元素，如创建一群外星人；如何使用嵌套循环来创建元素网格，还通过调用每个元素的方法<code>update()</code>
+ 移动了大量元素；如何控制对象在屏幕上移动的方向，以及如何响应事件，如有外星人到达屏幕边缘；如何检测和响应子弹和外星人碰撞以及外星人和飞船碰撞；如何在游戏中跟踪统计信息，以及如何使用标志<code>game_active</code>
+ 来判断游戏是否结束。</p>
+<p>在与这个项目相关的最后一章中，我们将添加一个Play按钮，让玩家能够开始游戏，以及在游戏结束后重玩。每当玩家消灭一群外星人后，我们都将加快游戏的节奏，并添加一个记分系统，得到一个极具可玩性的游戏！</p>
+<br style="page-break-after:always"/>
+<div></div>
+]]></description>
+    <pubDate>Tue, 21 Jul 2026 01:17:00 +0000</pubDate>
+    <guid isPermaLink="false">13</guid>
+</item>
+<item>
     <title>Basic Python - 012 - 第二部分 项目.epub</title>
     <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：146 分钟 (29071 字)</p><hr><h1 id="nav_point_257">第二部分　项目</h1>
 <p>祝贺你！你现在已经对Python有足够的认识，可以开始开发有意思的交互式项目了。通过动手开发项目，你能够学到新技能，并更深入理解第一部分介绍的概念。</p>
