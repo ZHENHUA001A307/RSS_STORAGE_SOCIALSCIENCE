@@ -5,6 +5,973 @@
     <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
     <description>从 EPUB 自动生成的 RSS 订阅源</description>
         <item>
+    <title>Basic Python - 016 - 第 16 章 下载数据.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：112 分钟 (22223 字)</p><hr><h1 id="nav_point_373">第 16 章　下载数据</h1>
+<blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00001.gif" style="width: 16%" width="16%"/>
+ 　本章将从网上下载数据，并对其进行可视化。网上的数据多得令人难以置信，大多未经仔细检查。如果能够对这些数据进行分析，就能发现别人没有发现的规律和关联。</p>
+<p>本章将访问并可视化的数据以两种常见格式存储：CSV和JSON。我们将使用Python模块<code>csv</code>
+ 来处理以CSV格式存储的天气数据，找出两个地区在一段时间内的最高温度和最低温度。然后，使用Matplotlib根据下载的数据创建一个图表，展示两个不同地区的温度变化：阿拉斯加州锡特卡和加利福尼亚州死亡谷。然后，使用模块<code>json</code>
+ 访问以JSON格式存储的地震数据，并使用Plotly绘制一幅散点图，展示这些地震的位置和震级。</p>
+<p>阅读本章后，你将能够处理各种类型和格式的数据集，并对如何创建复杂的图表有深入的认识。要处理各种真实的数据集，必须能够访问并可视化各种类型和格式的在线数据。</p>
+</blockquote>
+<h2 id="nav_point_374">16.1　CSV文件格式</h2>
+<p>要在文本文件中存储数据，一个简单方式是将数据作为一系列<strong>以逗号分隔的值</strong>
+ （comma-separated values）写入文件。这样的文件称为<strong>CSV</strong>
+ 文件。例如，下面是一行CSV格式的天气数据：</p>
+<pre class="代码无行号"><code>"USW00025333","SITKA AIRPORT, AK US","2018-01-01","0.45",,"48","38"</code>
+</pre>
+<p>这是阿拉斯加州锡特卡2018年1月1日的天气数据，其中包含当天的最高温度和最低温度，还有众多其他的数据。CSV文件对人来说阅读起来比较麻烦，但程序可轻松提取并处理其中的值，有助于加快数据分析过程。</p>
+<p>我们将首先处理少量CSV格式的锡特卡天气数据，这些数据可在本书的配套资源（ituring.cn/ book/2784）中找到。请将文件sitka_weather_07-2018_simple.csv复制到存储本章程序的文件夹中。（下载本书的配套资源后，就有了这个项目所需的所有文件。）</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　该项目使用的天气数据来自美国国家海洋与大气管理局（National Oceanic and Atmospheric Administration，NOAA）。</p>
+</blockquote>
+<h3 id="nav_point_375">16.1.1　分析CSV文件头</h3>
+<p>
+<code>csv</code>
+ 模块包含在Python标准库中，可用于分析CSV文件中的数据行，让我们能够快速提取感兴趣的值。先来查看这个文件的第一行，其中的一系列文件头指出了后续各行包含的是什么样的信息：</p>
+<p>
+<em>sitka_highs.py</em>
+</p>
+<pre class="代码无行号"><code>  import csv
+  filename = 'data/sitka_weather_07-2018_simple.csv'
+❶ with open(filename) as f:
+❷     reader = csv.reader(f)
+❸     header_row = next(reader)
+      print(header_row)</code>
+</pre>
+<p>导入模块<code>csv</code>
+ 后，将要使用的文件的名称赋给<code>filename</code>
+ 。接下来，打开这个文件，并将返回的文件对象赋给<code>f</code>
+ （见❶）。然后，调用<code>csv.reader()</code>
+ 并将前面存储的文件对象作为实参传递给它，从而创建一个与该文件相关联的阅读器对象（见❷）。这个阅读器对象被赋给了<code>reader</code>
+ 。</p>
+<p>模块<code>csv</code>
+ 包含函数<code>next()</code>
+ ，调用它并传入阅读器对象时，它将返回文件中的下一行。在上述代码中，只调用了<code>next()</code>
+ 一次，因此得到的是文件的第一行，其中包含文件头（见❸）。将返回的数据存储到<code>header_row</code>
+ 中。如你所见，<code>header_row</code>
+ 包含与天气相关的文件头，指出了每行都包含哪些数据：</p>
+<pre class="代码无行号"><code>['STATION', 'NAME', 'DATE', 'PRCP', 'TAVG', 'TMAX', 'TMIN']</code>
+</pre>
+<p>
+<code>reader</code>
+ 处理文件中以逗号分隔的第一行数据，并将每项数据都作为一个元素存储在列表中。文件头<code>STATION</code>
+ 表示记录数据的气象站的编码。这个文件头的位置表明，每行的第一个值都是气象站编码。文件头<code>NAME</code>
+ 指出每行的第二个值都是记录数据的气象站的名称。其他文件头则指出记录了哪些信息。当前，我们最关心的是日期（<code>DATE</code>
+ ）、最高温度（<code>TMAX</code>
+ ）和最低温度（<code>TMIN</code>
+ ）。这是一个简单的数据集，只包含降水量以及与温度相关的数据。你自己下载天气数据时，可选择涵盖众多测量值，如风速、风向以及详细的降水量数据。</p>
+<h3 id="nav_point_376">16.1.2　打印文件头及其位置</h3>
+<p>为了让文件头数据更容易理解，将列表中的每个文件头及其位置打印出来：</p>
+<p>
+<em>sitka_highs.py</em>
+</p>
+<pre class="代码无行号"><code>  --snip--
+  with open(filename) as f:
+      reader = csv.reader(f)
+      header_row = next(reader)
+❶     for index, column_header in enumerate(header_row):
+          print(index, column_header)</code>
+</pre>
+<p>在循环中，对列表调用了<code>enumerate()</code>
+ （见❶）来获取每个元素的索引及其值。（请注意，我们删除了代码行<code>print(header_row)</code>
+ ，转而显示这个更详细的版本。）</p>
+<p>输出如下，指出了每个文件头的索引：</p>
+<pre class="代码无行号"><code>0 STATION
+1 NAME
+2 DATE
+3 PRCP
+4 TAVG
+5 TMAX
+6 TMIN</code>
+</pre>
+<p>从中可知，日期和最高温度分别存储在第三列和第六列。为研究这些数据，我们将处理sitka_weather_07-2018_simple.csv中的每行数据，并提取其中索引为2和5的值。</p>
+<h3 id="nav_point_377">16.1.3　提取并读取数据</h3>
+<p>知道需要哪些列中的数据后，我们来读取一些数据。首先，读取每天的最高温度：</p>
+<p>
+<em>sitka_highs.py</em>
+</p>
+<pre class="代码无行号"><code>  --snip--
+  with open(filename) as f:
+      reader = csv.reader(f)
+      header_row = next(reader)
+      # 从文件中获取最高温度。
+❶     highs = []
+❷     for row in reader:
+❸         high = int(row[5])
+          highs.append(high)
+  print(highs)</code>
+</pre>
+<p>创建一个名为<code>highs</code>
+ 的空列表（见❶），再遍历文件中余下的各行（见❷）。阅读器对象从其停留的地方继续往下读取CSV文件，每次都自动返回当前所处位置的下一行。由于已经读取了文件头行，这个循环将从第二行开始——从这行开始包含的是实际数据。每次执行循环时，都将索引5处（<code>TMAX</code>
+ 列）的数据附加到<code>highs</code>
+ 末尾（见❸）。在文件中，这项数据是以字符串格式存储的，因此在附加到<code>highs</code>
+ 末尾前，使用函数<code>int()</code>
+ 将其转换为数值格式，以便使用。</p>
+<p>
+<code>highs</code>
+ 现在存储的数据如下：</p>
+<pre class="代码无行号"><code>[62, 58, 70, 70, 67, 59, 58, 62, 66, 59, 56, 63, 65, 58, 56, 59, 64, 60, 60,
+ 61, 65, 65, 63, 59, 64, 65, 68, 66, 64, 67, 65]</code>
+</pre>
+<p>提取每天的最高温度并将其存储到列表中之后，就可以可视化这些数据了。</p>
+<h3 id="nav_point_378">16.1.4　绘制温度图表</h3>
+<p>为可视化这些温度数据，首先使用Matplotlib创建一个显示每日最高温度的简单图形，如下所示：</p>
+<p>
+<em>sitka_highs.py</em>
+</p>
+<pre class="代码无行号"><code>  import csv
+  import matplotlib.pyplot as plt
+  filename = 'data/sitka_weather_07-2018_simple.csv'
+  with open(filename) as f:
+      --_snip_—
+  # 根据最高温度绘制图形。
+  plt.style.use('seaborn')
+  fig, ax = plt.subplots()
+❶ ax.plot(highs, c='red')
+  # 设置图形的格式。
+❷ ax.set_title("2018年7月每日最高温度", fontsize=24)
+❸ ax.set_xlabel('', fontsize=16)
+  ax.set_ylabel("温度 (F)", fontsize=16)
+  ax.tick_params(axis='both', which='major', labelsize=16)
+  plt.show()</code>
+</pre>
+<p>将最高温度列表传给<code>plot()</code>
+ （见❶），并传递<code>c='red'</code>
+ 以便将数据点绘制为红色。（这里使用红色显示最高温度，用蓝色显示最低温度。）接下来，设置了一些其他的格式，如名称和字号（见❷），这些都在第15章介绍过。鉴于还没有添加日期，因此没有给<img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00003.gif"/>
+ 轴添加标签，但<code>ax.set_xlabel()</code>
+ 确实修改了字号，让默认标签更容易看清❸。图16-1显示了绘制的图表：一个简单的折线图，显示了阿拉斯加州锡特卡2018年7月的每日最高温度。</p>
+<p class="图"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00034.gif" style="width: 82%" width="82%"/>
+</p>
+<p>
+<strong>图16-1　阿拉斯加州锡特卡2018年7月每日最高温度折线图</strong>
+</p>
+<h3 id="nav_point_379">16.1.5　模块<code>datetime</code>
+</h3>
+<p>下面在图表中添加日期，使其更有用。在天气数据文件中，第一个日期在第二行：</p>
+<pre class="代码无行号"><code>"USW00025333","SITKA AIRPORT, AK US","2018-07-01","0.25",,"62","50"</code>
+</pre>
+<p>读取该数据时，获得的是一个字符串，因此需要想办法将字符串<code>"2018-7-1"</code>
+ 转换为一个表示相应日期的对象。为创建一个表示2018年7月1日的对象，可使用模块<code>datetime</code>
+ 中的方法<code>strptime()</code>
+ 。我们在终端会话中看看<code>strptime()</code>
+ 的工作原理：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; from datetime import datetime
+&gt;&gt;&gt; first_date = datetime.strptime('2018-07-01', '%Y-%m-%d')
+&gt;&gt;&gt; print(first_date)
+2018-07-01 00:00:00</code>
+</pre>
+<p>首先导入模块<code>datetime</code>
+ 中的<code>datetime</code>
+ 类，再调用方法<code>strptime()</code>
+ ，并将包含所需日期的字符串作为第一个实参。第二个实参告诉Python如何设置日期的格式。在这里，<code>'%Y-'</code>
+ 让Python将字符串中第一个连字符前面的部分视为四位的年份，<code>'%m-'</code>
+ 让Python将第二个连字符前面的部分视为表示月份的数，<code>'%d'</code>
+ 让Python将字符串的最后一部分视为月份中的一天（1～31）。</p>
+<p>方法<code>strptime()</code>
+ 可接受各种实参，并根据它们来决定如何解读日期。表16-1列出了这样的一些实参。</p>
+<p>
+<strong>表16-1　模块<code>datetime</code>
+ 中设置日期和时间格式的实参</strong>
+</p>
+<table border="1" width="90%">
+<thead>
+<tr>
+<th>
+<p class="表头单元格">实参</p>
+</th>
+<th>
+<p class="表头单元格">含义</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p class="表格单元格">
+<code>%A</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">星期几，如Monday</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>%B</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">月份名，如January</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>%m</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">用数表示的月份（01～12）</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>%d</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">用数表示的月份中的一天（01～31）</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>%Y</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">四位的年份，如2019</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>%y</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">两位的年份，如19</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>%H</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">24小时制的小时数（00～23）</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>%I</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">12小时制的小时数（01～12）</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>%p</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">am或pm</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>%M</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">分钟数（00～59）</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">
+<code>%S</code>
+</p>
+</td>
+<td>
+<p class="表格单元格">秒数（00～61）</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nav_point_380">16.1.6　在图表中添加日期</h3>
+<p>现在，可以通过提取日期和最高温度并将其传递给<code>plot()</code>
+ ，对温度图形进行改进，如下所示：</p>
+<p>
+<em>sitka_highs.py</em>
+</p>
+<pre class="代码无行号"><code>  import csv
+  from datetime import datetime
+  import matplotlib.pyplot as plt
+  filename = 'data/sitka_weather_07-2018_simple.csv'
+  with open(filename) as f:
+      reader = csv.reader(f)
+      header_row = next(reader)
+      # 从文件中获取日期和最高温度。
+❶     dates, highs = [], []
+      for row in reader:
+❷         current_date = datetime.strptime(row[2], '%Y-%m-%d')
+          high = int(row[5])
+          dates.append(current_date)
+          highs.append(high)
+  # 根据最高温度绘制图形。
+  plt.style.use('seaborn')
+  fig, ax = plt.subplots()
+❸ ax.plot(dates, highs, c='red')
+  # 设置图形的格式。
+  ax.set_title("2018年7月每日最高温度", fontsize=24)
+  ax.set_xlabel('', fontsize=16)
+❹ fig.autofmt_xdate()
+  ax.set_ylabel("温度 (F)", fontsize=16)
+  ax.tick_params(axis='both', which='major', labelsize=16)
+  plt.show()</code>
+</pre>
+<p>我们创建了两个空列表，用于存储从文件中提取的日期和最高温度（见❶）。然后，将包含日期信息的数据（<code>row[0]</code>
+ ）转换为<code>datetime</code>
+ 对象（见❷），并将其附加到列表<code>dates</code>
+ 末尾。在❸处，将日期和最高温度值传递给<code>plot()</code>
+ 。在❹处，调用<code>fig.autofmt_xdate()</code>
+ 来绘制倾斜的日期标签，以免其彼此重叠。图16-2显示了改进后的图表。</p>
+<p class="图"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00035.gif" style="width: 82%" width="82%"/>
+</p>
+<p>
+<strong>图16-2　现在图表的<img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00003.gif"/>
+ 轴上有日期，含义更丰富</strong>
+</p>
+<h3 id="nav_point_381">16.1.7　涵盖更长的时间</h3>
+<p>设置好图表后，我们来添加更多的数据，生成一幅更复杂的锡特卡天气图。请将文件sitka_weather_2018_simple.csv复制到本章程序所在的文件夹，该文件包含整年的锡特卡天气数据。</p>
+<p>现在可创建覆盖整年的天气图了：</p>
+<p>
+<em>sitka_highs.py</em>
+</p>
+<pre class="代码无行号"><code>  --snip--
+❶ filename = 'data/sitka_weather_2018_simple.csv'
+  with open(filename) as f:
+  --snip--
+  # 设置图形的格式。
+❷ ax.set_title("2018年每日最高温度", fontsize=24)
+  ax.set_xlabel('', fontsize=16)
+  --snip--</code>
+</pre>
+<p>这里修改了文件名，以使用数据文件sitka_weather_2018_simple.csv（见❶），还修改了图表的标题，以反映其内容的变化（见❷）。图16-3显示了生成的图形。</p>
+<p class="图"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00036.gif" style="width: 82%" width="82%"/>
+</p>
+<p>
+<strong>图16-3　一年的天气数据</strong>
+</p>
+<h3 id="nav_point_382">16.1.8　再绘制一个数据系列</h3>
+<p>虽然改进后的图表已经显示了丰富的数据，但是还能再添加最低温度数据，使其更有用。为此，需要从数据文件中提取最低温度，并将它们添加到图表中，如下所示：</p>
+<p>
+<em>sitka_highs_lows.py</em>
+</p>
+<pre class="代码无行号"><code>  --snip--
+  filename = 'sitka_weather_2018_simple.csv'
+  with open(filename) as f:
+      reader = csv.reader(f)
+      header_row = next(reader)
+      # 从文件中获取日期、最高温度和最低温度。
+❶     dates, highs, lows = [], [], []
+      for row in reader:
+          current_date = datetime.strptime(row[2], '%Y-%m-%d')
+          high = int(row[5])
+❷         low = int(row[6])
+          dates.append(current_date)
+          highs.append(high)
+          lows.append(low)
+  # 根据最高温度和最低温度绘制图形。
+  plt.style.use('seaborn')
+  fig, ax = plt.subplots()
+  ax.plot(dates, highs, c='red')
+❸ ax.plot(dates, lows, c='blue')
+  # 设置图形的格式。
+❹ ax.set_title("2018年每日最高温度", fontsize=24)
+  --snip--</code>
+</pre>
+<p>在❶处，添加空列表<code>lows</code>
+ ，用于存储最低温度。接下来，从每行的第七列（<code>row[6]</code>
+ ）提取最低温度并存储（见❷）。在❸处，添加调用<code>plot()</code>
+ 的代码，以使用蓝色绘制最低温度。最后，修改标题（见❹）。图16-4显示了这样绘制出来的图表。</p>
+<p class="图"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00037.gif" style="width: 82%" width="82%"/>
+</p>
+<p>
+<strong>图16-4　在一个图表中包含两个数据系列</strong>
+</p>
+<h3 id="nav_point_383">16.1.9　给图表区域着色</h3>
+<p>添加两个数据系列后，就可以知道每天的温度范围了。下面来给这个图表做最后的修饰，通过着色来呈现每天的温度范围。为此，将使用方法<code>fill_between()</code>
+ 。它接受一个<img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00003.gif"/>
+ 值系列和两个<img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00004.gif"/>
+ 值系列，并填充两个<img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00004.gif"/>
+ 值系列之间的空间：</p>
+<p>
+<em>sitka_highs_lows.py</em>
+</p>
+<pre class="代码无行号"><code>  --snip--
+  # 根据最低温度和最高温度绘制图形。
+  plt.style.use('seaborn')
+  fig, ax = plt.subplots()
+❶ ax.plot(dates, highs, c='red', alpha=0.5)
+  ax.plot(dates, lows, c='blue', alpha=0.5)
+❷ ax.fill_between(dates, highs, lows, facecolor='blue', alpha=0.1)
+  --snip--</code>
+</pre>
+<p>❶处的实参<code>alpha</code>
+ 指定颜色的透明度。<code>alpha</code>
+ 值为0表示完全透明，为1（默认设置）表示完全不透明。通过将<code>alpha</code>
+ 设置为0.5，可让红色和蓝色折线的颜色看起来更浅。</p>
+<p>在❷处，向<code>fill_between()</code>
+ 传递一个<img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00003.gif"/>
+ 值系列（列表<code>dates</code>
+ ），以及两个<img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00004.gif"/>
+ 值系列（<code>highs</code>
+ 和<code>lows</code>
+ ）。实参facecolor指定填充区域的颜色，还将<code>alpha</code>
+ 设置成了较小的值0.1，让填充区域将两个数据系列连接起来的同时不分散观察者的注意力。图16-5显示了最高温度和最低温度之间的区域被填充后的图表。</p>
+<p class="图"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00038.gif" style="width: 82%" width="82%"/>
+</p>
+<p>
+<strong>图16-5　给两个数据集之间的区域着色</strong>
+</p>
+<p>着色让两个数据集之间的区域变得更显眼了。</p>
+<h3 id="nav_point_384">16.1.10　错误检查</h3>
+<p>我们应该能够使用任何地方的天气数据来运行sitka_highs_lows.py中的代码，但有些气象站收集的数据种类不同，有些气象站会偶尔出现故障，未能收集部分或全部应收集的数据。缺失数据可能引发异常，如果不妥善处理，可能导致程序崩溃。</p>
+<p>例如，来看看生成加利福尼亚州死亡谷的温度图时出现的情况。请将文件death_valley_2018_simple.csv复制到本章程序所在的文件夹。</p>
+<p>首先通过编写代码来查看这个数据文件包含的文件头：</p>
+<p>
+<em>death_valley_highs</em>
+</p>
+<pre class="代码无行号"><code>import csvlows.py_
+filename = 'data/death_valley_2018_simple.csv'
+with open(filename) as f:
+    reader = csv.reader(f)
+    header_row = next(reader)
+    for index, column_header in enumerate(header_row):
+        print(index, column_header)</code>
+</pre>
+<p>输出如下：</p>
+<pre class="代码无行号"><code>0 STATION
+1 NAME
+2 DATE
+3 PRCP
+4 TMAX
+5 TMIN
+6 TOBS</code>
+</pre>
+<p>与前面一样，日期也在索引2处，但最高温度和最低温度分别在索引4和索引5处，因此需要修改代码中的索引，以反映这一点。另外，这个气象站没有记录平均温度，而记录了<code>TOBS</code>
+ ，即特定时点的温度。</p>
+<p>为演示缺失数据时将出现的状况，我故意从这个文件中删除了一项温度数据。下面来修改sitka_highs_lows.py，使用前面所说的索引来生成死亡谷的天气图，看看将出现什么状况：</p>
+<p>
+<em>death_valley_highs_lows.py</em>
+</p>
+<pre class="代码无行号"><code>  --snip--
+  filename = 'data/death_valley_2018_simple.csv'
+  with open(filename) as f:
+      --snip--
+      # 从文件中获取日期、最高温度和最低温度。
+      dates, highs, lows = [], [], []
+      for row in reader:
+          current_date = datetime.strptime(row[2], '%Y-%m-%d')
+❶     high = int(row[4])
+      low = int(row[5])
+      dates.append(current_date)
+  --snip--</code>
+</pre>
+<p>在❶处，修改索引，使其对应于这个文件中<code>TMAX</code>
+ 和<code>TMIN</code>
+ 的位置。</p>
+<p>运行这个程序时出现了错误，如下述输出的最后一行所示：</p>
+<pre class="代码无行号"><code>Traceback (most recent call last):
+  File "death_valley_highs_lows.py", line 15, in &lt;module&gt;
+    high = int(row[4])
+ValueError: invalid literal for int() with base 10: ''</code>
+</pre>
+<p>该traceback指出，Python无法处理其中一天的最高温度，因为无法将空字符串（<code>''</code>
+ ）转换为整数。我们只要看一下文件death_valley_2018_simple.csv，就知道缺失了哪项数据，但这里不这样做，而是直接对缺失数据的情形进行处理。</p>
+<p>为此，在从CSV文件中读取值时执行错误检查代码，对可能出现的异常进行处理，如下所示：</p>
+<p>
+<em>death_valley_highs_lows.py</em>
+</p>
+<pre class="代码无行号"><code>  --snip--
+  filename = 'data/death_valley_2018_simple.csv'
+  with open(filename) as f:
+      --snip--
+      for row in reader:
+              current_date = datetime.strptime(row[2], '%Y-%m-%d')
+❶             try:
+                  high = int(row[4])
+                  low = int(row[5])
+              except ValueError:
+❷                 print(f"Missing data for {current_date}")
+❸             else:
+                  dates.append(current_date)
+                  highs.append(high)
+                  lows.append(low)
+  # 根据最高温度和最低温度绘制图形。
+  --snip--
+  # 设置图形的格式。
+❹ title = "2018年每日最高温度和最低温度\n美国加利福尼亚州死亡谷"
+  ax.set_title(title, fontsize=20)
+  ax.set_xlabel('', fontsize=16)
+  --snip--</code>
+</pre>
+<p>对于每一行，都尝试从中提取日期、最高温度和最低温度（见❶）。只要缺失其中一项数据，Python就会引发<code>ValueError</code>
+ 异常。我们这样进行处理：打印一条错误消息，指出缺失数据的日期（见❷）。打印错误消息后，循环将接着处理下一行。如果获取特定日期的所有数据时没有发生错误，就运行<code>else</code>
+ 代码块，将数据附加到相应列表的末尾（见❸）。这里绘图时使用的是有关另一个地方的信息，因此修改标题以指出这个地方。因为标题更长，所以我们缩小了字号（见❹）。</p>
+<p>如果现在运行death_valley_highs_lows.py，将发现缺失数据的日期只有一个：</p>
+<pre class="代码无行号"><code>Missing data for 2018-02-18 00:00:00</code>
+</pre>
+<p>妥善地处理错误后，代码能够生成图形并忽略缺失数据的那天。图16-6显示了绘制出的图形。</p>
+<p class="图"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00039.gif" style="width: 82%" width="82%"/>
+</p>
+<p>
+<strong>图16-6　死亡谷每天的最高温度和最低温度</strong>
+</p>
+<p>将这个图表与锡特卡的图表进行比较可知，总体而言，死亡谷比阿拉斯加东南部暖和，这符合预期。同时，死亡谷沙漠中每天的温差也更大——从着色区域的高度可以看出这一点。</p>
+<p>你使用的很多数据集都可能缺失数据、格式不正确或数据本身不正确。对于这样的情形，可使用本书前半部分介绍的工具来处理。在这里，使用了一个<code>try-except-else</code>
+ 代码块来处理数据缺失的问题。在有些情况下，需要使用<code>continue</code>
+ 来跳过一些数据，或者使用<code>remove()</code>
+ 或<code>del</code>
+ 将已提取的数据删除。只要能进行精确而有意义的可视化，采用任何管用的方法都是可以的。</p>
+<h3 id="nav_point_385">16.1.11　自己动手下载数据</h3>
+<p>如果你想自己下载天气数据，可采取如下步骤。</p>
+<p>(1) 访问网站NOAA Climate Data Online。在Discover Data By部分，单击Search Tool。在下拉列表Select a Dataset中，选择Daily Summaries。</p>
+<p>(2) 选择一个日期范围，在Search For下拉列表中ZIP Codes，输入你感兴趣地区的邮政编码，再单击Search按钮。</p>
+<p>(3) 在下一个页面中，你将看到指定地区的地图和相关信息。单击地区名下方的View Full Details或单击地图再单击Full Details。</p>
+<p>(4) 向下滚动并单击Station List，以显示该地区的气象站，再选择一个气象站并单击Add to Cart。虽然这个网站使用了购物车图标，但提供的数据是免费的。单击右上角的购物车。</p>
+<p>(5) 在Select the Output中选择Custom GHCN-Daily CSV。确认日期范围无误后单击Continue。</p>
+<p>(6) 在下一个页面中，可选择要下载的数据类型。可以只下载一种数据（如气温），也可以下载该气象站提供的所有数据。做出选择后单击Continue。</p>
+<p>(7) 在最后一个页面，你将看到订单小结。请输入你的电子邮箱地址，再单击Submit Order。你将收到一封确认邮件，指出收到了你的订单。几分钟后，你将收到另一封邮件，其中包含用于下载数据的链接。</p>
+<p>你下载的数据与本节处理的数据有类似的结构，但包含的文件头可能不同。然而，只要按本节介绍的步骤做，就能对你感兴趣的数据进行可视化。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习16-1：锡特卡的降雨量</strong>
+ 　锡特卡属于温带雨林，降水量非常丰富。在数据文件sitka_weather_2018_simple.csv中，文件头PRCP表示的是每日降水量。请对这列数据进行可视化。如果你想知道沙漠的降水量有多低，可针对死亡谷完成同样的练习。</p>
+<p>
+<strong>练习16-2：比较锡特卡和死亡谷的温度</strong>
+ 　在有关锡特卡和死亡谷的图表中，温度刻度反映了数据范围的不同。为准确比较锡特卡和死亡谷的温度范围，需要在<img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00004.gif"/>
+ 轴上使用相同的刻度。为此，请修改图16-5和图16-6所示图表的<img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00004.gif"/>
+ 轴设置，对锡特卡和死亡谷的温度范围进行直接比较（也可对任何两个地方的温度范围进行比较）。</p>
+<p>
+<strong>练习16-3：旧金山</strong>
+ 　旧金山的温度更接近锡特卡还是死亡谷呢？为进行比较，可下载一些有关旧金山的温度数据，并据此生成包含最高温度和最低温度的图表。</p>
+<p>
+<strong>练习16-4：自动索引</strong>
+ 　本节以硬编码的方式指定了<code>TMIN</code>
+ 和<code>TMAX</code>
+ 列的索引。请根据文件头行确定这些列的索引，让程序同时适用于锡特卡和死亡谷。另外，请根据气象站的名称自动生成图表的标题。</p>
+<p>
+<strong>练习16-5：探索</strong>
+ 　生成一些图表，对你好奇的任何地方的其他天气数据进行研究。</p>
+</blockquote>
+<h2 id="nav_point_386">16.2　制作全球地震散点图：JSON格式</h2>
+<p>在本节中<span class="注释编号">1</span>
+ ，你将下载一个数据集，其中记录了一个月内全球发生的所有地震，再制作一幅散点图来展示这些地震的位置和震级。这些数据是以JSON格式存储的，因此要使用模块<code>json</code>
+ 来处理。Plotly提供了根据位置数据绘制地图的工具，适合初学者使用。你将使用它来进行可视化并指出全球的地震分布情况。</p>
+<p class="注释内容">
+<span class="注释编号下">1</span>
+ 本节为陶俊杰根据原作编写。——编者注</p>
+<h3 id="nav_point_387">16.2.1　地震数据</h3>
+<p>请将文件eq_data_1_day_m1.json复制到存储本章程序的文件夹中。地震是以里氏震级度量的，而该文件记录了（截至写作本节时）最近24小时内全球发生的所有不低于1级的地震。</p>
+<h3 id="nav_point_388">16.2.2　查看JSON数据</h3>
+<p>如果打开文件eq_data_1_day_m1.json，你将发现其内容密密麻麻，难以阅读：</p>
+<pre class="代码无行号"><code>{"type":"FeatureCollection","metadata":{"generated":1550361461000,...
+{"type":"Feature","properties":{"mag":1.2,"place":"11km NNE of Nor...
+{"type":"Feature","properties":{"mag":4.3,"place":"69km NNW of Ayn...
+{"type":"Feature","properties":{"mag":3.6,"place":"126km SSE of Co...
+{"type":"Feature","properties":{"mag":2.1,"place":"21km NNW of Teh...
+{"type":"Feature","properties":{"mag":4,"place":"57km SSW of Kakto...
+--snip--</code>
+</pre>
+<p>这些数据适合机器而不是人来读取。不过可以看到，这个文件包含一些字典，还有一些我们感兴趣的信息，如震级和位置。</p>
+<p>模块<code>json</code>
+ 提供了各种探索和处理JSON数据的工具，其中一些有助于重新设置这个文件的格式，让我们能够更清楚地查看原始数据，继而决定如何以编程的方式来处理。</p>
+<p>我们先加载这些数据并将其以易于阅读的方式显示出来。这个数据文件很长，因此不打印出来，而是将数据写入另一个文件，再打开该文件并轻松地在数据中导航：</p>
+<p>
+<em>eq_explore_data.py</em>
+</p>
+<pre class="代码无行号"><code>  import json
+  # 探索数据的结构。
+  filename = 'data/eq_data_1_day_m1.json'
+  with open(filename) as f:
+❶     all_eq_data = json.load(f)
+❷ readable_file = 'data/readable_eq_data.json'
+  with open(readable_file, 'w') as f:
+❸     json.dump(all_eq_data, f, indent=4)</code>
+</pre>
+<p>首先导入模块<code>json</code>
+ ，以便恰当地加载文件中的数据，并将其存储到<code>all_eq_data</code>
+ 中（见❶）。函数<code>json.load()</code>
+ 将数据转换为Python能够处理的格式，这里是一个庞大的字典。在❷处，创建一个文件，以便将这些数据以易于阅读的方式写入其中。函数<code>json.dump()</code>
+ 接受一个JSON数据对象和一个文件对象，并将数据写入这个文件中（见❸）。参数<code>indent=4</code>
+ 让<code>dump()</code>
+ 使用与数据结构匹配的缩进量来设置数据的格式。</p>
+<p>如果你现在查看目录data并打开其中的文件readable_eq_data.json，将发现其开头部分像下面这样：</p>
+<p>
+<em>readable_eq_data.json</em>
+</p>
+<pre class="代码无行号"><code>  {
+      "type": "FeatureCollection",
+❶     "metadata": {
+          "generated": 1550361461000,
+          "url": "https://earthquake.usgs.gov/earthquakes/.../1.0_day.geojson",
+          "title": "USGS Magnitude 1.0+ Earthquakes, Past Day",
+          "status": 200,
+          "api": "1.7.0",
+          "count": 158
+      },
+❷     "features": [
+      --snip--</code>
+</pre>
+<p>这个文件的开头是一个键为<code>"metadata"</code>
+ 的片段（见❶），指出了这个数据文件是什么时候生成的，以及能够在网上的什么地方找到。它还包含适合人类阅读的标题以及文件中记录了多少次地震：在过去的24小时内，发生了158次地震。</p>
+<p>这个geoJSON文件的结构适合存储基于位置的数据。数据存储在一个与键<code>"features"</code>
+ 相关联的列表中（见❷）。这个文件包含的是地震数据，因此列表的每个元素都对应一次地震。这种结构可能有点令人迷惑，但很有用，让地质学家能够将有关每次地震的任意数量信息存储在一个字典中，再将这些字典放在一个大型列表中。</p>
+<p>我们来看看表示特定地震的字典：</p>
+<p>
+<em>readable_eq_data.json</em>
+</p>
+<pre class="代码无行号"><code>  --snip--
+      {
+          "type": "Feature",
+❶         "properties": {
+              "mag": 0.96,
+              --snip--
+❷             "title": "M 1.0 - 8km NE of Aguanga, CA"
+           },
+❸          "geometry": {
+               "type": "Point",
+               "coordinates": [
+❹                 -116.7941667,
+❺                 33.4863333,
+                  3.22
+               ]
+          },
+          "id": "ci37532978"
+      },</code>
+</pre>
+<p>键<code>"properties"</code>
+ 关联到了与特定地震相关的大量信息（见❶）。我们关心的主要是与键<code>"mag"</code>
+ 相关联的地震震级以及地震的标题，因为后者很好地概述了地震的震级和位置（见❷）。</p>
+<p>键<code>"geometry"</code>
+ 指出了地震发生在什么地方（见❸），我们需要根据这项信息将地震在散点图上标出来。在与键<code>"coordinates"</code>
+ 相关联的列表中，可找到地震发生位置的经度（见❹）和纬度（见❺）。</p>
+<p>这个文件的嵌套层级比我们编写的代码多。如果这让你感到迷惑，也不用担心，Python将替你处理大部分复杂的工作。我们每次只会处理一两个嵌套层级。我们将首先提取过去24小时内发生的每次地震对应的字典。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　说到位置时，我们通常先说纬度、再说经度，这种习惯形成的原因可能是人类先发现了纬度，很久后才有经度的概念。然而，很多地质学框架都先列出经度、后列出纬度，因为这与数学约定<img alt="(x,y)" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00040.gif"/>
+ 一致。geoJSON格式遵循(经度, 纬度)的约定，但在使用其他框架时，获悉其遵循的约定很重要。</p>
+</blockquote>
+<h3 id="nav_point_389">16.2.3　创建地震列表</h3>
+<p>首先，创建一个列表，其中包含所有地震的各种信息：</p>
+<p>
+<em>eq_explore_data.py</em>
+</p>
+<pre class="代码无行号"><code>import json
+# 探索数据的结构。
+filename = 'data/eq_data_1_day_m1.json'
+with open(filename) as f:
+    all_eq_data = json.load(f)
+all_eq_dicts = all_eq_data['features']
+print(len(all_eq_dicts))</code>
+</pre>
+<p>我们提取与键<code>'features'</code>
+ 相关联的数据，并将其存储到<code>all_eq_dicts</code>
+ 中。我们知道，这个文件记录了158次地震。下面的输出表明，我们提取了这个文件记录的所有地震：</p>
+<pre class="代码无行号"><code>158</code>
+</pre>
+<p>注意，我们编写的代码很短。格式良好的文件readable_eq_data.json包含超过6000行内容，但只需几行代码，就可读取所有的数据并将其存储到一个Python列表中。下面将提取所有地震的震级。</p>
+<h3 id="nav_point_390">16.2.4　提取震级</h3>
+<p>有了包含所有地震数据的列表后，就可遍历这个列表，从中提取所需的数据。下面来提取每次地震的震级：</p>
+<p>
+<em>eq_explore_data.py</em>
+</p>
+<pre class="代码无行号"><code>  --snip--
+  all_eq_dicts = all_eq_data['features']
+❶ mags = []
+  for eq_dict in all_eq_dicts:
+❷     mag = eq_dict['properties']['mag']
+      mags.append(mag)
+  print(mags[:10])</code>
+</pre>
+<p>我们创建了一个空列表，用于存储地震震级，再遍历列表all_eq_dicts（见❶）。每次地震的震级都存储在相应字典的<code>'properties'</code>
+ 部分的<code>'mag'</code>
+ 键下（见❷）。我们依次将地震震级赋给变量<code>mag</code>
+ ，再将这个变量附加到列表<code>mags</code>
+ 末尾。</p>
+<p>为确定提取的数据是否正确，打印前10次地震的震级：</p>
+<pre class="代码无行号"><code>[0.96, 1.2, 4.3, 3.6, 2.1, 4, 1.06, 2.3, 4.9, 1.8]</code>
+</pre>
+<p>接下来，我们将提取每次地震的位置信息，然后就可以绘制地震散点图了。</p>
+<h3 id="nav_point_391">16.2.5　提取位置数据</h3>
+<p>位置数据存储在<code>"geometry"</code>
+ 键下。在<code>"geometry"</code>
+ 键关联的字典中，有一个<code>"coordinates"</code>
+ 键，它关联到一个列表，而列表中的前两个值为经度和纬度。下面演示了如何提取位置数据：</p>
+<p>
+<em>eq_explore_data.py</em>
+</p>
+<pre class="代码无行号"><code>  --snip--
+  all_eq_dicts = all_eq_data['features']
+  mags, titles, lons, lats = [], [], [], []
+  for eq_dict in all_eq_dicts:
+      mag = eq_dict['properties']['mag']
+❶     title = eq_dict['properties']['title']
+❷     lon = eq_dict['geometry']['coordinates'][0]
+      lat = eq_dict['geometry']['coordinates'][1]
+      mags.append(mag)
+      titles.append(title)
+      lons.append(lon)
+      lats.append(lat)
+  print(mags[:10])
+  print(titles[:2])
+  print(lons[:5])
+  print(lats[:5])</code>
+</pre>
+<p>我们创建了用于存储位置标题的列表<code>titles</code>
+ ，来提取字典<code>'properties'</code>
+ 里<code>'title'</code>
+ 键对应的值（见❶），以及用于存储经度和纬度的列表。代码<code>eq_dict['geometry']</code>
+ 访问与<code>"geometry"</code>
+ 键相关联的字典（见❷）。第二个键（<code>'coordinates'</code>
+ ）提取与<code>"coordinates"</code>
+ 相关联的列表，而索引0提取该列表中的第一个值，即地震发生位置的经度。</p>
+<p>打印前5个经度和纬度时，输出表明提取的数据是正确的：</p>
+<pre class="代码无行号"><code>[0.96, 1.2, 4.3, 3.6, 2.1, 4, 1.06, 2.3, 4.9, 1.8]
+['M 1.0 - 8km NE of Aguanga, CA', 'M 1.2 - 11km NNE of North Nenana, Alaska']
+[-116.7941667, -148.9865, -74.2343, -161.6801, -118.5316667]
+[33.4863333, 64.6673, -12.1025, 54.2232, 35.3098333]</code>
+</pre>
+<p>有了这些数据，就可以绘制地震散点图了。</p>
+<h3 id="nav_point_392">16.2.6　绘制震级散点图</h3>
+<p>有了前面提取的数据，就可以绘制可视化图了。首先要实现一个简单的震级散点图，在确保显示的信息正确无误之后，我们再将注意力转向样式和外观方面。绘制初始散点图的代码如下：</p>
+<p>
+<em>eq_world_map.py</em>
+</p>
+<pre class="代码无行号"><code>❶ import plotly.express as px
+  fig = px.scatter(
+      x=lons,
+      y=lats,
+      labels={"x": "经度", "y": "纬度"},
+      range_x=[-200, 200],
+      range_y=[-90, 90],
+      width=800,
+      height=800,
+      title="全球地震散点图",
+❷ )
+❸ fig.write_html("global_earthquakes.html")
+❹ fig.show()</code>
+</pre>
+<p>首先，导入<code>plotly.express</code>
+ ，用别名<code>px</code>
+ 表示。Plotly Express是Plotly的高级接口，简单易用，语法与Matplotlib类似（见❶）。然后，调用<code>px.scatter</code>
+ 函数配置参数创建一个<code>fig</code>
+ 实例，分别设置<img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00003.gif"/>
+ 轴为经度［范围是<code>[-200, 200]</code>
+ （扩大空间，以便完整显示东西经180°附近的地震散点）］、<img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00004.gif"/>
+ 轴为纬度［范围是<code>[-90, 90]</code>
+ ］，设置散点图显示的宽度和高度均为800像素，并设置标题为“全球地震散点图”（见❷）。</p>
+<p>只用14行代码，简单的散点图就配置完成了，这返回了一个<code>fig</code>
+ 对象。<code>fig.write_html</code>
+ 方法可以将可视化图保存为html文件。在文件夹中找到global_earthquakes.html文件，用浏览器打开即可（见❸）。另外，如果使用Jupyter Notebook，可以直接使用<code>fig.show</code>
+ 方法直接在notebook单元格显示散点图（见❹）。</p>
+<p>局部效果如下图所示：</p>
+<p class="图"><img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00041.gif"/>
+</p>
+<p>
+<strong>图16-7　显示24小时内所有地震的简单散点图</strong>
+</p>
+<p>可对这幅散点图做大量修改，使其更有意义、更好懂。下面就来做些这样的修改。</p>
+<h3 id="nav_point_393">16.2.7　另一种指定图表数据的方式</h3>
+<p>配置这个图表前，先来看看另一种稍微不同的指定Plotly 图表数据的方式。当前，经纬度数据是手动配置的：</p>
+<pre class="代码无行号"><code>--snip--
+    x=lons,
+    y=lats,
+    labels={"x": "经度", "y": "纬度"},
+--snip--</code>
+</pre>
+<p>这是在Plotly Express中给图表定义数据的最简单方式之一，但在数据处理中并不是最佳的。下面是另一种给图表定义数据的等效方式，需要使用pandas数据分析工具。首先创建一个<code>DataFrame</code>
+ ，将需要的数据封装起来：</p>
+<pre class="代码无行号"><code>import pandas as pd
+data = pd.DataFrame(
+    data=zip(lons, lats, titles, mags), columns=["经度", "纬度", "位置", "震级"]
+)
+data.head()</code>
+</pre>
+<p>然后，参数配置方式可以变更为：</p>
+<pre class="代码无行号"><code>--snip--
+    data,
+    x="经度",
+    y="纬度",
+--snip--</code>
+</pre>
+<p>在这种方式中，所有有关数据的信息都以键值对的形式放在一个字典中。如果在eq_plot.py中使用这些代码，生成的图表是一样的。相比于前一种格式，这种格式让我们能够无缝衔接数据分析，并且更轻松地进行定制。</p>
+<h3 id="nav_point_394">16.2.8　定制标记的尺寸</h3>
+<p>确定如何改进散点图的样式时，应着重于让要传达的信息更清晰。当前的散点图显示了每次地震的位置，但没有指出震级。我们要让观察者迅速获悉最严重的地震发生在什么地方。</p>
+<p>为此，根据地震的震级设置其标记的尺寸：</p>
+<p>
+<em>eq_world_map.py</em>
+</p>
+<pre class="代码无行号"><code>  fig = px.scatter(
+      data,
+      x="经度",
+      y="纬度",
+      range_x=[-200, 200],
+      range_y=[-90, 90],
+      width=800,
+      height=800,
+      title="全球地震散点图",
+❶     size="震级",
+❷     size_max=10,
+  )
+  fig.write_html("global_earthquakes.html")
+  fig.show()</code>
+</pre>
+<p>Plotly Express支持对数据系列进行定制，这些定制都以参数表示。这里使用了<code>size</code>
+ 参数来指定散点图中每个标记的尺寸，我们只需要将前面<code>data</code>
+ 中的<code>"震级"</code>
+ 字段提供给<code>size</code>
+ 参数即可（见❶）。另外，标记尺寸默认为20像素，还可以通过<code>size_max=10</code>
+ 将最大显示尺寸缩放到10（见❷）。</p>
+<p>如果运行这些代码，将看到类似于图16-8所示的散点图。这比前面的散点图好多了，但还有很大的改进空间。</p>
+<p class="图"><img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00042.gif"/>
+</p>
+<p>
+<strong>图16-8　现在散点图显示了地震的震级</strong>
+</p>
+<h3 id="nav_point_395">16.2.9　定制标记的颜色</h3>
+<p>我们还可以定制标记的颜色，以呈现地震的严重程度。执行这些修改前，将文件eq_data_30_day_m1.json复制到你的数据目录中，它包含30天内的地震数据。通过使用这个更大的数据集，绘制出来的地震散点图将有趣得多。</p>
+<p>下面演示了如何使用渐变来呈现地震震级：</p>
+<p>
+<em>eq_world_map.py</em>
+</p>
+<pre class="代码无行号"><code>❶ filename = 'data/eq_data_30_day_m1.json'
+  --snip--
+  fig = px.scatter(
+      data,
+      x="经度",
+      y="纬度",
+      range_x=[-200, 200],
+      range_y=[-90, 90],
+      width=800,
+      height=800,
+      title="全球地震散点图",
+      size="震级",
+      size_max=10,
+❷     color="震级",
+  )
+  --snip--</code>
+</pre>
+<p>首先修改文件名，以使用30天的数据集（见❶）。为了让标记的震级按照不同的颜色显示，只需要配置<code>color="震级"</code>
+ 即可。默认的视觉映射图例渐变色范围是从蓝到红再到黄，数值越小则标记越蓝，而数值越大则标记越黄（见❷）。</p>
+<p>如果现在运行这个程序，你看到的散点图将漂亮得多。如图16-9所示，渐变的颜色指出了地震的严重程度。通过在散点图上显示大量的地震，可将板块边界大致呈现出来！</p>
+<p class="图"><img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00043.gif"/>
+</p>
+<p>
+<strong>图16-9　使用颜色和尺寸呈现震级的30天地震散点图</strong>
+</p>
+<h3 id="nav_point_396">16.2.10　其他渐变</h3>
+<p>Plotly Express有大量的渐变可供选择。要获悉有哪些渐变可供使用，请使用文件名show_color_scales.py保存下面这个简短的程序：</p>
+<p>
+<em>show_color_scales.py</em>
+</p>
+<pre class="代码无行号"><code>import plotly.express as px
+for key in px.colors.named_colorscales():
+    print(key)</code>
+</pre>
+<p>Plotly Express将渐变存储在模块<code>colors</code>
+ 中。这些渐变是在列表<code>px.colors.named_colorscales()</code>
+ 中定义的。下面的输出列出了可供你使用的所有渐变：</p>
+<pre class="代码无行号"><code>--snip--
+greys
+hot
+inferno
+jet
+magenta
+magma
+--snip--</code>
+</pre>
+<p>请尝试使用这些渐变其实映射到一个颜色列表。使用<code>px.colors.diverging.RdYlGn[::-1]</code>
+ 可以将对应颜色的配色列表反转。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　Plotly除了有<code>px.colors.diverging</code>
+ 表示连续变量的配色方案，还有<code>px.colors.sequential</code>
+ 和<code>px.colors.qualitative</code>
+ 表示离散变量。随便挑一种配色，例如<code>px.colors.qualitative.Alphabet</code>
+ ，你将看到渐变是如何定义的。每个渐变都有起始色和终止色，有些渐变还定义了一个或多个中间色。Plotly会在这些定义好的颜色之间插入颜色。</p>
+</blockquote>
+<h3 id="nav_point_397">16.2.11　添加鼠标指向时显示的文本</h3>
+<p>为完成这幅散点图的绘制，我们将添加一些说明性文本，在你将鼠标指向表示地震的标记时显示出来。除了默认显示的经度和纬度外，还将显示震级以及地震的大致位置：</p>
+<p>
+<em>eq_world_map.py</em>
+</p>
+<pre class="代码无行号"><code>fig = px.scatter(
+    data,
+    x="经度",
+    y="纬度",
+    range_x=[-200, 200],
+    range_y=[-90, 90],
+    width=800,
+    height=800,
+    title="全球地震散点图",
+    size="震级",
+    size_max=10,
+    color="震级",
+   hover_name="位置",
+)
+fig.write_html("global_earthquakes.html")
+fig.show()
+--snip--</code>
+</pre>
+<p>Plotly Express的操作非常简单，只需要将<code>hover_name</code>
+ 参数配置为<code>data</code>
+ 的<code>"位置"</code>
+ 字段即可。</p>
+<p>太令人震惊了！通过编写大约40行代码，我们就绘制了一幅漂亮的全球地震活动散点图，并通过30天地震数据大致展示了地球的板块结构。Plotly Express提供了众多定制可视化外观和行为的方式。使用它提供的众多选项，可让图表和散点图准确地显示你所需的信息。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习16-6：重构</strong>
+ 　在从<code>all_eq_dicts</code>
+ 中提取数据的循环中，使用了变量来指向震级、经度、纬度和标题，再将这些值分别附加到相应列表的末尾。这旨在清晰地演示如何从JSON文件中提取数据，但并非必须这样做。你也可以不使用这些临时变量，而是直接从<code>eq_dict</code>
+ 中提取这些值，并将其附加到相应的列表末尾。这样做将缩短这个循环的循环体，使其只包含4行代码。</p>
+<p>
+<strong>练习16-7：自动生成标题</strong>
+ 　本节定义<code>my_layout</code>
+ 时以手工方式指定标题，这意味着每次变更源文件时，都需要修改标题。你可以不这样做，而是使用JSON文件中元数据（metadata）部分的数据集标题。为此，可提取这个值，将其赋给一个变量，并在定义<code>my_layout</code>
+ 时使用这个变量来指定散点图的标题。</p>
+<p>
+<strong>练习16-8：最近发生的地震</strong>
+ 　请在本书配套资源中找到关于最近1小时、1天、7天和30天内地震信息的数据文件（截至本书出版时，参见文件夹chapter_16/Excercise16-8）。请使用其中一个数据集，绘制一幅散点图来展示最近发生的地震。</p>
+<p>
+<strong>练习16-9：全球火灾</strong>
+ 　在本章的配套资源中，有一个名为world_fires_1_day.csv的文件。它包含了有关全球各地发生的火灾信息，包括经度、纬度和火灾强度（brightness）。使用16.1节介绍的数据处理技术以及16.2节介绍的散点图绘制技术，绘制一幅散点图来展示全球哪些地方发生了火灾。</p>
+</blockquote>
+<h2 id="nav_point_398">16.3　小结</h2>
+<p>在本章中，你学习了：如何使用现实世界中的数据集；如何处理CSV和JSON文件，以及如何提取感兴趣的数据；如何使用Matplotlib来处理以往的天气数据，包括如何使用模块<code>datetime</code>
+ 和如何在同一个图表中绘制多个数据系列；如何使用Plotly绘制呈现地质数据的散点图；以及如何设置Plotly散点图和图表的样式。</p>
+<p>有了使用CSV和JSON文件的经验后，你将能够处理几乎任何要分析的数据。大多数在线数据集能以这两种格式中的一种或两种下载。熟悉了这两种格式，再学习使用其他格式的数据就会更简单。</p>
+<p>在下一章，你将编写自动从网上采集数据并对其进行可视化的程序。如果你只是将编程作为业余爱好，学会这些技能可以增加乐趣；如果你有志于成为专业程序员，就必须掌握这些技能。</p>
+<br style="page-break-after:always"/>
+<div></div>
+]]></description>
+    <pubDate>Mon, 27 Jul 2026 01:26:45 +0000</pubDate>
+    <guid isPermaLink="false">16</guid>
+</item>
+<item>
     <title>Basic Python - 015 - 项目2 数据可视化.epub</title>
     <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：108 分钟 (21413 字)</p><hr><h1 id="nav_point_345">项目2　数据可视化</h1>
 <br style="page-break-after:always"/>
@@ -11606,328 +12573,6 @@ Beautiful is better than ugly.</code>
 ]]></description>
     <pubDate>Fri, 03 Jul 2026 04:14:43 +0000</pubDate>
     <guid isPermaLink="false">2</guid>
-</item>
-<item>
-    <title>Basic Python - 001 - 第一部分 基础知识.epub</title>
-    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：52 分钟 (10219 字)</p><hr><h1 id="nav_point_11">第一部分　基础知识</h1>
-<p>本书的第一部分介绍编写Python程序所需要熟悉的基本概念，其中很多适用于所有编程语言，因此它们在你的整个程序员生涯中都很有用。</p>
-<p>第1章介绍在计算机中安装Python，并运行第一个程序——在屏幕上打印“Hello Python world!”。</p>
-<p>第2章论述如何在变量中存储信息以及如何使用文本和数字。</p>
-<p>第3章和第4章介绍列表。使用列表能够在一个变量中存储任意数量的信息，从而高效地处理数据：只需几行代码，你就能够处理数百、数千乃至数百万个值。</p>
-<p>第5章讲解使用<code>if</code>
- 语句来编写这样的代码：在特定条件满足时采取一种措施，而在该条件不满足时采取另一种措施。</p>
-<p>第6章演示如何使用Python字典，将不同的信息关联起来。与列表一样，你也可以根据需要在字典中存储任意数量的信息。</p>
-<p>第7章讲解如何从用户那里获取输入，让程序变成交互式的。你还将学习<code>while</code>
- 循环，它不断地运行代码块，直到指定的条件不再满足为止。</p>
-<p>第8章介绍编写函数。函数是执行特定任务的被命名的代码块，你可以根据需要随时运行它。</p>
-<p>第9章介绍类，它让你能够模拟实物，如小狗、小猫、人、汽车、火箭等，让你的代码能够表示任何真实或抽象的东西。</p>
-<p>第10章介绍如何使用文件，以及如何处理错误以免程序意外地崩溃。你需要在程序关闭前保存数据，并在程序再次运行时读取它们。你将学习Python异常，它们让你能够未雨绸缪，从而让程序妥善地处理错误。</p>
-<p>第11章讲解为代码编写测试，以核实程序是否像你期望的那样工作。这样，扩展程序时，你就不用担心引入新的bug了。要想脱离初级程序员的阵容，跻身于中级程序员的行列，测试代码是你必须掌握的基本技能之一。</p>
-<br style="page-break-after:always"/>
-<div></div>
-<h1 id="nav_point_12">第 1 章　起步</h1>
-<blockquote>
-<p><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/1_Image00001.gif" style="width: 16%" width="16%"/>
- 　在本章中，你将运行自己的第一个程序——hello_world.py。为此，你首先需要检查自己的计算机是否安装了较新版本的Python；如果没有，就要安装它。你还要安装一个文本编辑器，用于编写和运行Python程序。你输入Python代码时，这个文本编辑器能够识别它们并突出显示不同的部分，让你能够轻松地了解代码的结构。</p>
-</blockquote>
-<h2 id="nav_point_13">1.1　搭建编程环境</h2>
-<p>在不同的操作系统中，Python存在细微的差别，因此有几点你需要牢记在心。本节将确保你的系统正确安装Python。</p>
-<h3 id="nav_point_14">1.1.1　Python版本</h3>
-<p>每种编程语言都会随着新概念和新技术的推出而不断发展，Python开发者也在一直致力于丰富和强化其功能。本书编写期间的最新版本为Python 3.7，但只要你安装了Python 3.6或更高的版本，就能运行本书中的所有代码。在本节中，你将核实系统是否安装了Python，以及是否需要安装更新的版本。附录A提供了详尽的指南，指导你在各种主流操作系统中安装最新版本的Python。</p>
-<p>有些较老的Python项目依然使用Python 2，但你应该使用Python 3。如果你的系统安装了Python 2，很可能是为了支持系统需要的一些旧程序。你应保留它，并安装更新的版本以便学习本书。</p>
-<h3 id="nav_point_15">1.1.2　运行Python代码片段</h3>
-<p>Python自带一个在终端窗口中运行的解释器，让你无须保存并运行整个程序就能尝试运行Python代码片段。</p>
-<p>本书将以如下方式列出代码片段：</p>
-<pre class="代码无行号"><code>❶ &gt;&gt;&gt; print("Hello Python interpreter!")
-  Hello Python interpreter!</code>
-</pre>
-<p>提示符<code>&gt;&gt;&gt;</code>
- 表明正在使用终端窗口，而加粗的文本表示需要你输入之后按回车键来执行的代码。本书的大多数示例是独立的小程序，你将在编辑器中执行它们，因为大多数代码也是这样编写出来的。然而，为高效地演示一些基本概念，需要在Python终端会话中执行一系列代码片段。只要代码清单中包含三个右尖括号（如❶所示），就意味着代码是在终端会话中执行的，而输出也是来自终端会话的。稍后将演示如何在Python解释器中编写代码。</p>
-<p>此外，你还要安装一款文本编辑器，并使用它来完成学习编程的标准操作——编写一个简单的Hello World程序。长期以来，编程界都认为刚接触一门新语言时，如果首先使用它来编写一个在屏幕上显示消息“Hello world!”的程序，将给你带来好运。这种程序虽然简单，却有其用途：如果它能够在你的系统上正确运行，那么你编写的任何Python程序也都将正确运行。</p>
-<h3 id="nav_point_16">1.1.3　Sublime Text简介</h3>
-<p>Sublime Text是一款简单的文本编辑器，可以在任何现代操作系统中安装。你几乎能直接在Sublime Text中执行所有程序。在Sublime Text中执行程序时，代码将在其内嵌的终端会话中运行，让你能够轻松地看到输出。</p>
-<p>Sublime Text是一款适合初学者的编辑器，但很多专业编程人员也在使用它。在学习Python的过程中熟练掌握Sublime Text之后，可继续使用它来编写复杂的大型项目。Sublime Text的许可条件非常宽松，可以一直免费使用，但如果你喜欢它并想长期使用，其开发者会要求你购买许可证。</p>
-<p>附录B介绍了其他几种文本编辑器，如果你想知道还有哪些编辑器可供使用，现在就应该读一读。如果你想马上动手编程，可先使用Sublime Text，等有了一些编程经验后再考虑使用其他编辑器。本章稍后将引导你在当前使用的操作系统中安装Sublime Text。</p>
-<h2 id="nav_point_17">1.2　在不同操作系统中搭建Python编程环境</h2>
-<p>Python是一种跨平台的编程语言，这意味着它能够运行在所有主流操作系统中。在所有安装了Python的现代计算机上，都能够运行你编写的任何Python程序。然而，在不同的操作系统中，安装Python的方法存在细微的差别。</p>
-<p>在本节中，你将学习如何在自己的系统中安装Python。首先要检查系统是否安装了较新的Python版本，如果没有，就进行安装；然后是安装Sublime Text。在不同的操作系统中搭建Python编程环境时，只有这两步存在差别。</p>
-<p>接下来，你将运行Hello World程序，并排除各种故障。我将详细介绍如何在各种操作系统中完成这些任务，让你能够搭建一个对初学者友好的Python编程环境。</p>
-<h3 id="nav_point_18">1.2.1　在Windows系统中搭建Python编程环境</h3>
-<p>Windows系统并非都默认安装了Python，因此你可能需要安装它，再安装Sublime Text。</p>
-<ol>
-<li value="1">
-<p>
-<strong>安装Python</strong>
-</p>
-<p>首先，检查你的系统是否安装了Python。为此，在“开始”菜单中输入<code>command</code>
- 并按回车以打开一个命令窗口；也可以按住Shift键并右击桌面，选择“在此处打开命令窗口”<span class="注释编号">1</span>
- 。在终端窗口中输入<code>python</code>
- （全部小写）并按回车：如果出现了Python提示符（<code>&gt;&gt;&gt;</code>
- ），就说明系统安装了Python；如果出现一条错误消息，指出<code>python</code>
- 是无法识别的命令，就说明没有安装Python。</p>
-<p>如果出现后一种情况或者安装的Python版本低于3.6，就需要下载Windows Python安装程序。为此，请访问Python官方网站主页。将鼠标指向Download链接，你将看到一个用于下载最新版本Python的按钮。单击该按钮，这将根据你的系统自动下载正确的安装程序。下载安装程序后，运行它。请务必选中复选框Add Python（版本号）to PATH（例如图1-1），这让你能够更轻松地配置系统。</p>
-<p class="p-img"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/1_Image00002.gif" style="width: 80%" width="80%"/>
-</p>
-<p>
-<strong>图1-1　确保选中复选框Add Python（版本号） to PATH</strong>
-<br/>
- </p>
-</li>
-<li value="2">
-<p>
-<strong>在终端会话中运行Python</strong>
-</p>
-<p>打开一个命令窗口，并在其中执行命令<code>python</code>
- 。如果出现了Python提示符（<code>&gt;&gt;&gt;</code>
- ），就说明Windows找到了你刚安装的Python版本。</p>
-<pre class="代码无行号"><code>C:\&gt; python
-Python 3.7.2 (v3.7.2:9a3ffc0492, Dec 23 2018, 23:09:28) [MSC v.1916 64 bit
-(AMD64)] on win32
-Type "help", "copyright", "credits" or "license" for more information.
-&gt;&gt;&gt;</code>
-</pre>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　如果没有看到类似的输出，请参阅附录A中更详尽的安装说明。</p>
-</blockquote>
-<p>在Python会话中执行下面的命令，并确认看到了输出“Hello Python interpreter!”。</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; print("Hello Python interpreter!")
-Hello Python interpreter!
-&gt;&gt;&gt;</code>
-</pre>
-<p>每当要运行Python代码片段时，都请打开一个命令窗口并启动Python终端会话。要关闭该终端会话，可按Ctrl + Z、再按回车键，也可执行命令<code>exit()</code>
- 。<br/>
- </p>
-</li>
-<li value="3">
-<p>
-<strong>安装Sublime Text</strong>
-</p>
-<p>要下载Sublime Text安装程序，可访问Sublime Text网站主页，单击Download链接，并查找Windows安装程序。下载安装程序后运行它，并接受所有的默认设置。</p>
-</li>
-</ol>
-<p class="注释内容">
-<span class="注释编号下">1</span>
- 在Windows 10系统中，可如此打开PowerShell窗口。——编者注</p>
-<h3 id="nav_point_19">1.2.2　在macOS系统中搭建Python编程环境</h3>
-<p>大多数macOS系统默认安装了Python。确定安装了Python后，你还需安装Sublime Text，并确保其配置正确无误。</p>
-<ol>
-<li value="1">
-<p>
-<strong>检查是否安装了Python 3</strong>
-</p>
-<p>在文件夹Applications/Utilities中，选择Terminal，打开一个终端窗口；也可以按Command + 空格键，再输入<code>terminal</code>
- 并按回车。为确定是否安装了Python，请执行命令<code>python</code>
- （请注意，其中的<code>p</code>
- 是小写的），这也将在终端窗口中启动Python，让你能够输入Python命令。输出类似于下面这样，它指出了安装的Python版本；最后的<code>&gt;&gt;&gt;</code>
- 是提示符，让你能够输入Python命令。</p>
-<pre class="代码无行号"><code>$ python
-Python 2.7.15 (default, Aug 17 2018, 22:39:05)
-[GCC 4.2.1 Compatible Apple LLVM 9.1.0 (clang-902.0.39.2)] on darwin
-Type "help", "copyright", "credits", or "license" for more information.
-&gt;&gt;&gt;</code>
-</pre>
-<p>上述输出表明，当前计算机默认使用的Python版本为Python 2.7.15。看到上述输出后，如果要退出Python并返回到终端窗口，可按Ctrl + D或执行命令<code>exit()</code>
- 。</p>
-<p>要检查系统是否安装了Python 3，可尝试执行命令<code>python3</code>
- 。可能会出现一条错误消息，这意味着没有安装任何Python 3版本。如果输出指出安装了Python 3.6或更高的版本，可以直接跳过下一小节。如果系统没有安装Python 3，就需要手动安装它。注意，请将本书中所有的命令<code>python</code>
- 都替换为命令<code>python3</code>
- ，这样才能使用Python 3（而不是Python 2）。Python 2和Python 3的差别非常大，如果你使用Python 2来运行本书的代码，肯定会遇到麻烦。</p>
-<p>如果系统默认安装的是低于Python 3.6的版本，请按下一小节的说明安装最新版本。<br/>
- </p>
-</li>
-<li value="2">
-<p>
-<strong>安装最新的Python版本</strong>
-</p>
-<p>要下载Python安装程序，可访问Python网站主页。将鼠标指向Download链接，你将看到一个用于下载最新版本Python的按钮。单击该按钮，这将根据你的系统自动下载正确的安装程序。下载安装程序后，运行它。</p>
-<p>运行安装程序后，在终端提示符下执行如下命令：</p>
-<pre class="代码无行号"><code>$  python3 --version
-Python 3.7.2</code>
-</pre>
-<p>输出应该类似于上面这样。如果确实如此，就可以开始尝试使用Python了，但请务必将本书中的每个命令<code>python</code>
- 都替换为<code>python3</code>
- 。<br/>
- </p>
-</li>
-<li value="3">
-<p>
-<strong>在终端会话中运行Python代码</strong>
-</p>
-<p>现在可以打开终端窗口并执行命令<code>python3</code>
- ，再尝试运行Python代码片段。请在终端会话中输入如下代码行并按回车：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; print("Hello Python interpreter!")
-Hello Python interpreter!
-&gt;&gt;&gt;</code>
-</pre>
-<p>消息将直接输出到当前终端窗口中。别忘了，要关闭Python解释器，可按Ctrl + D或执行命令<code>exit()</code>
- 。<br/>
- </p>
-</li>
-<li value="4">
-<p>
-<strong>安装Sublime Text</strong>
-</p>
-<p>要安装编辑器Sublime Text，需要下载安装程序。为此，可访问Sublime Text网站主页，单击链接Download，并查找macOS安装程序。下载安装程序后运行它，再将Sublime Text图标拖放到文件夹Applications中。</p>
-</li>
-</ol>
-<h3 id="nav_point_20">1.2.3　在Linux系统中搭建Python编程环境</h3>
-<p>Linux系统是为编程而设计的，因此大多数Linux计算机默认安装了Python。编写和维护Linux的人认为，你很可能会使用这种系统进行编程，他们也鼓励你这样做。因此，要在这种系统中编程，你几乎不用安装什么软件，只需要修改一些设置。</p>
-<ol>
-<li value="1">
-<p>
-<strong>检查Python版本</strong>
-</p>
-<p>在你的系统中运行应用程序Terminal（如果你使用的是Ubuntu，可按Ctrl + Alt + T），打开一个终端窗口。为确定安装的是哪个Python版本，请执行命令<code>python3</code>
- （请注意，其中的<code>p</code>
- 是小写的）。如果安装了Python，这个命令将启动Python解释器。输出类似于下面这样，它指出了安装的Python版本；最后的<code>&gt;&gt;&gt;</code>
- 是提示符，让你能够输入Python命令。</p>
-<pre class="代码无行号"><code>$ python3
-Python 3.7.2 (default, Dec 27 2018, 04:01:51)
-[GCC 7.3.0] on linux
-Type "help", "copyright", "credits" or "license" for more information.
-&gt;&gt;&gt;</code>
-</pre>
-<p>上述输出表明，当前计算机默认使用的Python版本为Python 3.7.2。看到上述输出后，如果要退出Python并返回到终端窗口，可按Ctrl + D或执行命令<code>exit()</code>
- 。务必将本书中的每个命令<code>python</code>
- 都替换为<code>python3</code>
- 。</p>
-<p>要运行本书的代码，必须使用Python 3.6或更高的版本。如果系统安装的是低于Python 3.6的版本，请参阅附录A，了解如何安装最新版。</p>
-</li>
-<li value="2">
-<p>
-<strong>在终端会话中运行Python代码</strong>
-</p>
-<p>现在可打开终端窗口并执行命令<code>python3</code>
- ，再尝试运行Python代码片段。检查Python版本时，你就这样做过。下面再次这样做，然后在终端会话中输入如下代码并按回车：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; print("Hello Python interpreter!")
-Hello Python interpreter!
-&gt;&gt;&gt;</code>
-</pre>
-<p>消息将直接打印到当前终端窗口中。别忘了，要关闭Python解释器，可按Ctrl + D或执行命令<code>exit()</code>
- 。</p>
-</li>
-<li value="3">
-<p>
-<strong>安装Sublime Text</strong>
-</p>
-<p>在Linux系统中，可通过Ubuntu Software Center来安装Sublime Text。为此，单击菜单中的Ubuntu Software图标并查找Sublime Text，再通过单击来安装它。</p>
-</li>
-</ol>
-<h2 id="nav_point_21">1.3　运行Hello World程序</h2>
-<p>安装较新版本的Python和Sublime Text后，就可以编写并运行你的第一个Python程序了。这样做之前，需要设置Sublime Text，确保它使用系统中正确的Python版本。然后，就可以编写并运行Hello World程序了。</p>
-<h3 id="nav_point_22">1.3.1　配置Sublime Text以使用正确的Python版本</h3>
-<p>如果在你的系统中执行命令<code>python</code>
- 时启动的是Python 3，就无须做任何配置，直接跳到下一节即可。如果需要执行命令<code>python3</code>
- 来启动Python，就需要配置Sublime Text，使其使用正确的Python版本来运行你编写的程序。</p>
-<p>为此，单击Sublime Text图标以启动它，也可在搜索栏中输入Sublime Text来找到它再启动。选择菜单Tools ▶ Build System ▶ New Build System，新建一个配置文件。删除该文件中的所有内容，再输入如下内容：</p>
-<p>
-<em>Python3</em>
-</p>
-<p>
-<em>.sublime-build</em>
-</p>
-<pre class="代码无行号"><code>{
-    "cmd": ["python3", "-u", "$file"],
-}</code>
-</pre>
-<p>这段代码让Sublime Text使用命令<code>python3</code>
- 来运行Python程序。将这个文件保存到Sublime Text默认打开的文件夹中，并将其命名为Python3.sublime-build。</p>
-<h3 id="nav_point_23">1.3.2　运行程序hello_world.py</h3>
-<p>编写第一个程序前，在系统中创建一个名为python_work的文件夹，用于存储你开发的项目。文件名和文件夹名称最好使用小写字母，并使用下划线代替空格，因为Python采用了这些命名约定。</p>
-<p>启动Sublime Text，再选择菜单File ▶ Save As将Sublime Text创建的空文件存储到文件夹python_work中，并将其命名为hello_world.py。文件扩展名.py告诉Sublime Text，文件中的代码是使用Python编写的，这能让它知道如何运行这个程序，并以有帮助的方式突出其中的代码。</p>
-<p>保存这个文件后，在其中输入如下代码行：</p>
-<p>
-<em>hello_world.py</em>
-</p>
-<pre class="代码无行号"><code>print("Hello Python world!")</code>
-</pre>
-<p>在你的系统中，如果能使用命令<code>python</code>
- 来启动Python 3，可以选择菜单Tools ▶ Build或按Ctrl + B（在macOS系统中为Command + B）来运行程序。如果需要像前一节那样配置Sublime Text，请选择菜单Tools ▶ Build System ▶ Python 3来运行这个程序。从此以后，你就可以选择菜单Tools ▶ Build或按Ctrl + B（或Command + B）来运行程序了。</p>
-<p>在Sublime Text的底部，将出现一个终端窗口，其中包含如下输出：</p>
-<pre class="代码无行号"><code>Hello Python world!
-[Finished in 0.1s]</code>
-</pre>
-<p>如果看不到上述输出，可能是因为这个程序出了点问题。请检查你输入的每个字符。是否不小心将<code>print</code>
- 的首字母大写了？是否遗漏了引号或圆括号？编程语言的语法非常严格，只要不满足要求，就会报错。如果你无法运行这个程序，请参阅下一节的建议。</p>
-<h2 id="nav_point_24">1.4　解决安装问题</h2>
-<p>如果无法运行程序hello_world.py，可尝试如下几个解决方法，这些通用方法适用于所有编程问题。</p>
-<ul>
-<li class="第1级无序列表">程序存在严重错误时，Python将显示traceback，即错误报告。Python会仔细研究文件，试图找出其中的问题。trackback可能会提供线索，让你知道是什么问题让程序无法运行。</li>
-<li class="第1级无序列表">离开计算机，先休息一会儿再尝试。别忘了，语法在编程中非常重要，即便是少一个冒号、引号不匹配或括号不匹配，都可能导致程序无法正确运行。请再次阅读本章的相关内容，并重新审视你编写的代码，看看能否找出错误。</li>
-<li class="第1级无序列表">推倒重来。你也许不需要卸载任何软件，但删除文件hello_world.py并重新创建它也许是合理的选择。</li>
-<li class="第1级无序列表">让别人在你的计算机或其他计算机上按本章的步骤重做一遍，并仔细观察。你可能遗漏了一小步，而别人刚好没有遗漏。</li>
-<li class="第1级无序列表">请懂Python的人帮忙。当你有这样的想法时，可能发现在你认识的人当中就有人使用Python。</li>
-<li class="第1级无序列表">本章的安装说明在本书主页上：ituring.cn/book/2784。对你来说，在线版也许更合适，因为可以复制并粘贴其中的代码。</li>
-<li class="第1级无序列表">到网上寻求帮助。附录C提供了很多在线资源，如论坛或在线聊天网站，你可以在这些地方请求解决过相同问题的人提供解决方案。</li>
-</ul>
-<p>不要担心这会打扰经验丰富的程序员。每个程序员都遇到过问题，大多数程序员很乐意帮助你正确地设置系统。只要能清晰地说明你要做什么、尝试了哪些方法及其结果，就很可能有人能够帮到你。正如前言中指出的，Python社区对初学者非常友好。</p>
-<p>任何现代计算机都能够运行Python。前期的问题可能令人沮丧，但很值得你花时间去解决。能够运行hello_world.py后，你就可以开始学习Python了，而且编程工作会更有趣，也更令人愉快。</p>
-<h2 id="nav_point_25">1.5　从终端运行Python程序</h2>
-<p>你编写的大多数程序将直接在文本编辑器中运行，但有时候从终端运行程序很有用。例如，你可能想直接运行既有的程序。</p>
-<p>在任何安装了Python的系统上都可以这样做，前提是你知道如何进入程序文件所在的目录。为尝试这样做，请确保将文件hello_world.py存储到了桌面的文件夹python_work中。</p>
-<h3 id="nav_point_26">1.5.1　在Windows系统中从终端运行Python程序</h3>
-<p>在命令窗口中，可以使用终端命令<code>cd</code>
- （表示change directory，即<strong>切换目录</strong>
- ）在文件系统中导航。使用命令<code>dir</code>
- （表示directory，即<strong>目录</strong>
- ）可以显示当前目录中的所有文件。</p>
-<p>为运行程序hello_world.py，请打开一个新的终端窗口，并执行下面的命令：</p>
-<pre class="代码无行号"><code>❶ C:\&gt; cd Desktop\python_work
-❷ C:\Desktop\python_work&gt; dir
-  hello_world.py
-❸ C:\Desktop\python_work&gt; python hello_world.py
-  Hello Python world!</code>
-</pre>
-<p>这里使用了命令<code>cd</code>
- 来切换到文件夹Desktop\python_work（见❶）。接下来，使用命令<code>dir</code>
- 来确认这个文件夹中包含文件hello_world.py（见❷）。最后，使用命令<code>python hello_world.py</code>
- 来运行这个文件（见❸）。</p>
-<p>大多数程序可直接从编辑器运行，但待解决的问题比较复杂时，你编写的程序可能需要从终端运行。</p>
-<h3 id="nav_point_27">1.5.2　在Linux和macOS系统中从终端运行Python程序</h3>
-<p>在Linux和macOS系统中，从终端运行Python程序的方式相同。在终端会话中，可以使用终端命令<code>cd</code>
- （表示change directory，即<strong>切换目录</strong>
- ）在文件系统中导航。使用命令<code>ls</code>
- （表示list，即<strong>列表</strong>
- ）可以显示当前目录中所有未隐藏的文件。</p>
-<p>为运行程序hello_world.py，请打开一个新的终端窗口，并执行下面的命令：</p>
-<pre class="代码无行号"><code>❶ ~$ cd Desktop/python_work/
-❷ ~/Desktop/python_work$ ls
-  hello_world.py
-❸ ~/Desktop/python_work$ python hello_world.py
-  Hello Python world!</code>
-</pre>
-<p>这里使用了命令<code>cd</code>
- 来切换到文件夹Desktop/python_work（见❶）。接下来，使用命令<code>ls</code>
- 来确认这个文件夹中包含文件hello_world.py（见❷）。最后，使用命令<code>python hello_world.py</code>
- 来运行这个文件（见❸）。</p>
-<p>就这么简单。要运行Python程序，只需使用命令<code>python</code>
- （或<code>python3</code>
- ）即可。</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>本章的练习都是探索性的，但从第2章开始将要求你用那一章学到的知识来解决问题。</p>
-<p>
-<strong>练习1-1：python.org</strong>
- 　浏览Python主页，寻找你感兴趣的主题。你对Python越熟悉，这个网站对你来说就越有用。</p>
-<p>
-<strong>练习1-2：输入错误</strong>
- 　打开你刚创建的文件hello_world.py，在代码中添加一个输入错误，再运行这个程序。输入错误会引发错误吗？你能理解显示的错误消息吗？你能添加一个不会导致错误的输入错误吗？你凭什么认为它不会导致错误？</p>
-<p>
-<strong>练习1-3：无穷的技艺</strong>
- 　如果你有无穷多种编程技艺，你打算开发什么样的程序呢？你就要开始学习编程了。如果心中有目标，就能立即将新学到的技能付诸应用，现在正是草拟目标的大好时机。将想法记录下来是个不错的习惯，这样每当需要开始新项目时，都可参考它们。现在请花点时间描绘三个你想创建的程序。</p>
-</blockquote>
-<h2 id="nav_point_28">1.6　小结</h2>
-<p>在本章中，你大致了解了Python，并在自己的系统中安装了Python。你还安装了一个文本编辑器，以简化Python代码的编写工作。你学习了如何在终端会话中运行Python代码片段，并运行了第一个程序——hello_world.py。你还大致了解了如何解决安装问题。</p>
-<p>在下一章，你将学习如何在Python程序中使用各种数据和变量。</p>
-<br style="page-break-after:always"/>
-<div></div>
-]]></description>
-    <pubDate>Fri, 03 Jul 2026 04:02:45 +0000</pubDate>
-    <guid isPermaLink="false">1</guid>
 </item>
 </channel>
 </rss>
