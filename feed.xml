@@ -5,6 +5,1042 @@
     <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
     <description>从 EPUB 自动生成的 RSS 订阅源</description>
         <item>
+    <title>Basic Python - 018 - 项目3 Web应用程序.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：145 分钟 (28858 字)</p><hr><h1 id="nav_point_415">项目3　Web应用程序</h1>
+<br style="page-break-after:always"/>
+<div></div>
+<h1 id="nav_point_416">第 18 章　从Django入手</h1>
+<blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/18_Image00001.gif" style="width: 16%" width="16%"/>
+ 　在幕后，当今的网站实际上都是富应用程序（rich application），就像成熟的桌面应用程序一样。Python提供了一组开发Web应用程序的卓越工具。Django是一个<strong>Web框架</strong>
+ ，即一套旨在帮助开发交互式网站的工具。本章将介绍如何使用Django来开发一个名为“学习笔记”的项目，这是一个在线日志系统，让你能够记录学习到的有关特定主题的知识。</p>
+</blockquote>
+<p>我们将为这个项目制定规范，然后为应用程序使用的数据定义模型。我们将使用Django的管理系统来输入一些初始数据，再学习编写视图和模板，让Django能够为我们的网站创建页面。</p>
+<p>Django能够响应页面请求，还让你能够更轻松地读写数据库、管理用户，等等。第19章和第20章将改进“学习笔记”项目，再将其部署到活动的服务器，让你和朋友都能够使用它。</p>
+<h2 id="nav_point_417">18.1　建立项目</h2>
+<p>建立项目时，首先需要以规范的方式对项目进行描述，再建立虚拟环境，以便在其中创建项目。</p>
+<h3 id="nav_point_418">18.1.1　制定规范</h3>
+<p>完整的规范详细说明了项目的目标，阐述了项目的功能，并讨论了项目的外观和用户界面。与任何良好的项目规划和商业计划书一样，规范应突出重点，帮助避免项目偏离轨道。这里不会制定完整的项目规划，只列出一些明确的目标，以突出开发的重点。我们制定的规范如下：</p>
+<blockquote>
+<p>我们要编写一个名为“学习笔记”的Web应用程序，让用户能够记录感兴趣的主题，并在学习每个主题的过程中添加日志条目。“学习笔记”的主页对这个网站进行描述，并邀请用户注册或登录。用户登录后，可以创建新主题、添加新条目以及阅读既有的条目。</p>
+</blockquote>
+<p>学习新的主题时，记录学到的知识可帮助跟踪和复习这些知识。优秀的应用程序让这个记录过程简单易行。</p>
+<h3 id="nav_point_419">18.1.2　建立虚拟环境</h3>
+<p>要使用Django，首先需要建立一个虚拟工作环境。<strong>虚拟环境</strong>
+ 是系统的一个位置，可在其中安装包，并将之与其他Python包隔离。将项目的库与其他项目分离是有益的，并且为了在第20章将“学习笔记”部署到服务器，这也是必需的。</p>
+<p>为项目新建一个目录，将其命名为learning_log，再在终端中切换到这个目录，并执行如下命令创建一个虚拟环境：</p>
+<pre class="代码无行号"><code>learning_log$ python -m venv ll_env
+learning_log$</code>
+</pre>
+<p>这里运行了模块<code>venv</code>
+ ，并使用它创建了一个名为ll_env的虚拟环境。（请注意，ll_env的开头是两个小写字母l，而不是数字1。）如果你运行程序或安装包时使用的是命令<strong>
+<code>python3</code>
+</strong>
+ ，这里也务必使用同样的命令。</p>
+<h3 id="nav_point_420">18.1.3　激活虚拟环境</h3>
+<p>现在需要使用下面的命令激活虚拟环境：</p>
+<pre class="代码无行号"><code>  learning_log$ source ll_env/bin/activate
+❶ (ll_env)learning_log$</code>
+</pre>
+<p>这个命令运行ll_env/bin中的脚本activate。环境处于活动状态时，环境名将包含在圆括号内，如❶处所示。在这种情况下，你可以在环境中安装包，并使用已安装的包。在ll_env中安装的包仅在该环境处于活动状态时才可用。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　如果你使用的是Windows系统，请使用命令<code>ll_env\Scripts\activate</code>
+ （不包含<code>source</code>
+ ）来激活这个虚拟环境。如果你使用的是PowerShell，可能需要将<code>Activate</code>
+ 的首字母大写。</p>
+</blockquote>
+<p>要停止使用虚拟环境，可执行命令<strong>
+<code>deactivate</code>
+</strong>
+ ：</p>
+<pre class="代码无行号"><code>(ll_env)learning_log$ deactivate
+learning_log$</code>
+</pre>
+<p>如果关闭运行虚拟环境的终端，虚拟环境也将不再处于活动状态。</p>
+<h3 id="nav_point_421">18.1.4　安装Django</h3>
+<p>激活虚拟环境后，执行如下命令安装Django：</p>
+<pre class="代码无行号"><code> (ll_env)learning_log$ pip install django
+Collecting django
+--snip--
+Installing collected packages: pytz, django
+Successfully installed django-2.2.0 pytz-2018.9 sqlparse-0.2.4
+(ll_env)learning_log$</code>
+</pre>
+<p>由于是在虚拟环境（独立的环境）中工作，在各种系统中安装Django的命令都相同：不需要指定标志<code>--user</code>
+ ，也不需要使用像<code>python -m pip install package_name</code>
+ 这样较长的命令。</p>
+<p>别忘了，Django仅在虚拟环境ll_env处于活动状态时才可用。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　每隔大约8个月，Django新版本就会发布，因此在你安装Django时，看到的可能是更新的版本。即便你使用的是更新的Django版本，这个项目也可行。如果要使用这里所示的Django版本，请使用命令<code>pip install django==2.2.*</code>
+ 安装Django 2.2的最新版本。如果你在使用更新的版本时遇到麻烦，请参阅本书的在线配套资源。</p>
+</blockquote>
+<h3 id="nav_point_422">18.1.5　在Django中创建项目</h3>
+<p>在虚拟环境依然处于活动状态的情况下（ll_env包含在圆括号内），执行如下命令新建一个项目：</p>
+<pre class="代码无行号"><code>❶ (ll_env)learning_log$ django-admin startproject learning_log .
+❷ (ll_env)learning_log$ ls
+  learning_log ll_env manage.py
+❸ (ll_env)learning_log$ ls learning_log
+  __init__.py settings.py urls.py wsgi.py</code>
+</pre>
+<p>❶处的命令让Django新建一个名为learning_log的项目。这个命令末尾的句点让新项目使用合适的目录结构，这样开发完成后可轻松地将应用程序部署到服务器。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　千万别忘了这个句点，否则部署应用程序时将遭遇一些配置问题。如果忘记了这个句点，要删除已创建的文件和文件夹（ll_env除外），再重新运行这个命令。</p>
+</blockquote>
+<p>在❷处，运行命令<code>ls</code>
+ （在Windows系统上为<code>dir</code>
+ ），结果表明Django新建了一个名为learning_log的目录，还创建了文件manage.py。后者是一个简单的程序，接受命令并将其交给Django的相关部分运行。我们将使用这些命令来管理使用数据库和运行服务器等任务。</p>
+<p>目录learning_log包含4个文件（见❸），最重要的是settings.py、urls.py和wsgi.py。文件settings.py指定Django如何与系统交互以及如何管理项目。在开发项目的过程中，我们将修改其中一些设置，并添加一些设置。文件urls.py告诉Django，应创建哪些页面来响应浏览器请求。文件wsgi.py帮助Django提供它创建的文件，这个文件名是<strong>Web服务器网关接口</strong>
+ （Web server gateway interface）的首字母缩写。</p>
+<h3 id="nav_point_423">18.1.6　创建数据库</h3>
+<p>Django将大部分与项目相关的信息存储在数据库中，因此需要创建一个供Django使用的数据库。为给项目“学习笔记”创建数据库，请在虚拟环境处于活动状态的情况下执行下面的命令：</p>
+<pre class="代码无行号"><code>  (ll_env)learning_log$ python manage.py migrate
+❶ Operations to perform:
+    Apply all migrations: admin, auth, contenttypes, sessions
+  Running migrations:
+    Applying contenttypes.0001_initial... OK
+    Applying auth.0001_initial... OK
+    --snip--
+    Applying sessions.0001_initial... OK
+❷ (ll_env)learning_log$ ls
+  db.sqlite3 learning_log ll_env manage.py</code>
+</pre>
+<p>我们将修改数据库称为<strong>迁移</strong>
+ （migrate）数据库。首次执行命令<code>migrate</code>
+ 时，将让Django确保数据库与项目的当前状态匹配。在使用SQLite（后面将详细介绍）的新项目中首次执行这个命令时，Django将新建一个数据库。在❶处，Django指出它将准备好数据库，用于存储执行管理和身份验证任务所需的信息。</p>
+<p>在❷处运行命令<code>ls</code>
+ ，其输出表明Django又创建了一个文件db.sqlite3。SQLite是一种使用单个文件的数据库，是编写简单应用程序的理想选择，因为它让你不用太关注数据库管理的问题。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　在虚拟环境中运行manage.py时，务必使用命令<code>python</code>
+ ，即便你在运行其他程序时使用的是另外的命令，如<code>python3</code>
+ 。在虚拟环境中，命令<code>python</code>
+ 指的是在虚拟环境中安装的Python版本。</p>
+</blockquote>
+<h3 id="nav_point_424">18.1.7　查看项目</h3>
+<p>下面来核实Django正确地创建了项目。为此，可使用命令<code>runserver</code>
+ 查看项目的状态，如下所示：</p>
+<pre class="代码无行号"><code>  (ll_env)learning_log$ python manage.py runserver
+  Watchman unavailable: pywatchman not installed.
+  Watching for file changes with StatReloader
+  Performing system checks...
+❶ System check identified no issues (0 silenced).
+  February 18, 2019 - 16:26:07
+❷ Django version 2.2.0, using settings 'learning_log.settings'
+❸ Starting development server at http://127.0.0.1:8000/
+  Quit the server with CONTROL-C.</code>
+</pre>
+<p>Django启动了一个名为development server的服务器，让你能够查看系统中的项目，了解其工作情况。如果你在浏览器中输入URL以请求页面，该Django服务器将进行响应：生成合适的页面，并将其发送给浏览器。</p>
+<p>Django在❶处通过检查确认正确地创建了项目，在❷处指出使用的Django版本以及当前使用的设置文件的名称，并在❸处指出项目的URL。URL http://127.0.0.1:8000/表明项目将在你的计算机（即localhost）的端口8000上侦听请求。localhost指的是只处理当前系统发出的请求，而不允许其他任何人查看你正在开发的页面的服务器。</p>
+<p>现在打开一款Web浏览器，并输入URL http://localhost:8000/（如果这不管用，请输入http://127.0.0.1:8000/）。你将看到类似于图18-1所示的页面。这个页面是Django创建的，让你知道到目前为止一切正常。现在暂时不要关闭这个服务器，等你要关闭这个服务器时，可切换到执行命令<code>runserver</code>
+ 时所在的终端窗口，再按Ctrl + C。</p>
+<p class="图"><img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/18_Image00047.gif"/>
+</p>
+<p>
+<strong>图18-1　到目前为止一切正常</strong>
+</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　如果出现错误消息That port is already in use（指定端口被占用），请执行命令<code>python manage.py runserver 8001</code>
+ ，让Diango使用另一个端口。如果这个端口也不可用，请不断执行上述命令，并逐渐增大其中的端口号，直到找到可用的端口。</p>
+</blockquote>
+<p>　</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习18-1：新项目</strong>
+ 　为深入了解Django都做了些什么，可创建两个空项目，看看Django创建了什么。新建一个文件夹，并给它指定简单的名称，如snap_gram或insta_chat（不要在目录learning_log中新建该文件夹）。在终端中切换到该文件夹，并创建一个虚拟环境。在这个虚拟环境中，安装Django，并执行命令<code>django-admin.py startproject snap_gram .</code>
+ （千万不要忘了这个命令末尾的句点）。</p>
+<p>看看这个命令创建了哪些文件和文件夹，并与项目“学习笔记”包含的文件和文件夹进行比较。这样多做几次，直到你对Django新建项目时创建的东西了如指掌。然后，将项目目录删除（如果你想这样做的话）。</p>
+</blockquote>
+<h2 id="nav_point_425">18.2　创建应用程序</h2>
+<p>Django<strong>项目</strong>
+ 由一系列应用程序组成，它们协同工作让项目成为一个整体。本章只创建一个应用程序，它将完成项目的大部分工作。第19章将添加一个管理用户账户的应用程序。</p>
+<p>当前，在前面打开的终端窗口中应该还运行着<code>runserver</code>
+ 。请再打开一个终端窗口（或标签页），并切换到manage.py所在的目录。激活虚拟环境，再执行命令<code>startapp</code>
+ ：</p>
+<pre class="代码无行号"><code>  learning_log$ source ll_env/bin/activate
+  (ll_env)learning_log$ python manage.py startapp learning_logs
+❶ (ll_env)learning_log$ ls
+  db.sqlite3 learning_log learning_logs ll_env manage.py
+❷ (ll_env)learning_log$ ls learning_logs/
+  __init__.py admin.py apps.py migrations models.py tests.py views.py</code>
+</pre>
+<p>命令<code>startapp <i>appname</i>
+</code>
+ 让Django搭建创建应用程序所需的基础设施。如果现在查看项目目录，将看到其中新增了文件夹learning_logs（见❶）。打开这个文件夹，看看Django都创建了什么（见❷），其中最重要的文件是models.py、admin.py和views.py。我们将使用models.py来定义要在应用程序中管理的数据，稍后再介绍admin.py和views.py。</p>
+<h3 id="nav_point_426">18.2.1　定义模型</h3>
+<p>我们来想想涉及的数据。每位用户都需要在学习笔记中创建很多主题。用户输入的每个条目都与特定主题相关联，这些条目将以文本的方式显示。我们还需要存储每个条目的时间戳，以便告诉用户各个条目都是什么时候创建的。</p>
+<p>打开文件models.py，看看它当前包含哪些内容：</p>
+<p>
+<em>models.py</em>
+</p>
+<pre class="代码无行号"><code>from django.db import models
+# 在这里创建模型。</code>
+</pre>
+<p>这里导入了模块<code>models</code>
+ ，并让我们创建自己的模型。模型告诉Django如何处理应用程序中存储的数据。在代码层面，模型就是一个类，就像前面讨论的每个类一样，包含属性和方法。下面是表示用户将存储的主题的模型：</p>
+<pre class="代码无行号"><code>  from django.db import models
+  class Topic(models.Model):
+      """用户学习的主题。"""
+❶     text = models.CharField(max_length=200)
+❷     date_added = models.DateTimeField(auto_now_add=True)
+❸     def __str__(self):
+          """返回模型的字符串表示。"""
+          return self.text</code>
+</pre>
+<p>我们创建了一个名为<code>Topic</code>
+ 的类，它继承<code>Model</code>
+ ，即Django中定义了模型基本功能的类。我们给<code>Topic</code>
+ 类添加了两个属性：<code>text</code>
+ 和<code>date_added</code>
+ 。</p>
+<p>属性<code>text</code>
+ 是一个<code>CharField</code>
+ ——由字符组成的数据，即文本（见❶）。需要存储少量文本，如名称、标题或城市时，可使用<code>CharField</code>
+ 。定义<code>CharField</code>
+ 属性时，必须告诉Django该在数据库中预留多少空间。这里将<code>max_length</code>
+ 设置成了200（即200字符），这对存储大多数主题名来说足够了。</p>
+<p>属性<code>date_added</code>
+ 是一个<code>DateTimeField</code>
+ ——记录日期和时间的数据（见❷）。我们传递了实参<code>auto_now_add=True</code>
+ ，每当用户创建新主题时，Django都会将这个属性自动设置为当前日期和时间。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　要获悉可在模型中使用的各种字段，请参阅<em>Django Model Field Reference</em>
+ 。就当前而言，你无须全面了解其中的所有内容，但自己开发应用程序时，这些内容将提供极大的帮助。</p>
+</blockquote>
+<p>需要告诉Django，默认使用哪个属性来显示有关主题的信息。Django调用方法<code>__str__()</code>
+ 来显示模型的简单表示。这里编写了方法<code>__str__()</code>
+ ，它返回存储在属性<code>text</code>
+ 中的字符串（见❸）。</p>
+<h3 id="nav_point_427">18.2.2　激活模型</h3>
+<p>要使用这些模型，必须让Django将前述应用程序包含到项目中。为此，打开settings.py（它位于目录learning_log/learning_log中），其中有个片段告诉Django哪些应用程序被安装到了项目中并将协同工作：</p>
+<p>
+<em>settings.py</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+--snip--</code>
+</pre>
+<p>请将<code>INSTALLED_APPS</code>
+ 修改成下面这样，将前面的应用程序添加到这个列表中：</p>
+<pre class="代码无行号"><code>--snip--
+INSTALLED_APPS = [
+    # 我的应用程序
+    'learning_logs',
+    # 默认添加的应用程序
+     'django.contrib.admin',
+    --snip--
+]
+--snip--</code>
+</pre>
+<p>通过将应用程序编组，在项目不断增大，包含更多的应用程序时，有助于对应用程序进行跟踪。这里新建了一个名为“我的应用程序”的片段，当前它只包含应用程序<code>learning_logs</code>
+ 。务必将自己创建的应用程序放在默认应用程序前面，这样能够覆盖默认应用程序的行为。</p>
+<p>接下来，需要让Django修改数据库，使其能够存储与模型<code>Topic</code>
+ 相关的信息。为此，在终端窗口中执行下面的命令：</p>
+<pre class="代码无行号"><code>(ll_env)learning_log$ python manage.py makemigrations learning_logs
+Migrations for 'learning_logs':
+  learning_logs/migrations/0001_initial.py
+    - Create model Topic
+(ll_env)learning_log$</code>
+</pre>
+<p>命令<code>makemigrations</code>
+ 让Django确定该如何修改数据库，使其能够存储与前面定义的新模型相关联的数据。输出表明Django创建了一个名为0001_initial.py的迁移文件，这个文件将在数据库中为模型<code>Topic</code>
+ 创建一个表。</p>
+<p>下面应用这种迁移，让Django替我们修改数据库：</p>
+<pre class="代码无行号"><code>  (ll_env)learning_log$ python manage.py migrate
+  Operations to perform:
+    Apply all migrations: admin, auth, contenttypes, learning_logs, sessions
+  Running migrations:
+❶   Applying learning_logs.0001_initial... OK</code>
+</pre>
+<p>这个命令的大部分输出与首次执行命令<code>migrate</code>
+ 的输出相同。需要检查的是❶处的输出行。在这里，Django指出为<code>learning_logs</code>
+ 应用迁移时一切正常。</p>
+<p>每当需要修改“学习笔记”管理的数据时，都采取如下三个步骤：修改models.py，对<code>learning_logs</code>
+ 调用<code>makemigrations</code>
+ ，以及让Django迁移项目。</p>
+<h3 id="nav_point_428">18.2.3　Django管理网站</h3>
+<p>Django提供的<strong>管理网站</strong>
+ （admin site）让你能够轻松地处理模型。网站管理员可以使用管理网站，但普通用户不能使用。本节将建立管理网站，并通过它使用模型<code>Topic</code>
+ 来添加一些主题。</p>
+<ol>
+<li value="1">
+<p>
+<strong>创建超级用户</strong>
+</p>
+<p>Django允许创建具备所有权限的用户，即<strong>超级用户</strong>
+ 。<strong>权限</strong>
+ 决定了用户可执行的操作。最严格的权限设置只允许用户阅读网站的公开信息。注册用户通常可阅读自己的私有数据，还可查看一些只有会员才能查看的信息。为有效地管理Web应用程序，网站所有者通常需要访问网站存储的所有信息。优秀的管理员会小心对待用户的敏感信息，因为用户极其信任自己访问的应用程序。</p>
+<p>为在Django中创建超级用户，请执行下面的命令并按提示做：</p>
+<pre class="代码无行号"><code>  (ll_env)learning_log$ python manage.py createsuperuser
+❶ Username (leave blank to use 'eric'): ll_admin
+❷ Email address:
+❸ Password:
+  Password (again):
+  Superuser created successfully.
+  (ll_env)learning_log$</code>
+</pre>
+<p>你执行命令<code>createsuperuser</code>
+ 时，Django提示输入超级用户的用户名（见❶）。这里输入的是ll_admin，但可输入任何用户名。如果你愿意，可以输入电子邮箱地址，也可让这个字段为空（见❷）。需要输入密码两次（见❸）。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　一些敏感信息可能会向网站管理员隐藏。例如，Django并不存储你输入的密码，而是存储从该密码派生出来的一个字符串，称为<strong>散列值</strong>
+ 。每当你输入密码时，Django都计算其散列值，并将结果与存储的散列值进行比较。如果这两个散列值相同，你就通过了身份验证。由于存储的是散列值，即便黑客获得了网站数据库的访问权，也只能获取其中存储的散列值，无法获得密码。在网站配置正确的情况下，几乎无法根据散列值推导出原始密码。</p>
+</blockquote>
+<p> </p>
+</li>
+<li value="2">
+<p>
+<strong>向管理网站注册模型</strong>
+</p>
+<p>Django自动在管理网站中添加了一些模型，如<code>User</code>
+ 和<code>Group</code>
+ ，但对于我们创建的模型，必须手工进行注册。</p>
+<p>我们创建应用程序<code>learning_logs</code>
+ 时，Django在models.py所在的目录中创建了一个名为admin.py的文件：</p>
+<p>
+<em>admin.py</em>
+</p>
+<pre class="代码无行号"><code>from django.contrib import admin
+# 在这里注册你的模型。</code>
+</pre>
+<p>为向管理网站注册<code>Topic</code>
+ ，请输入下面的代码：</p>
+<pre class="代码无行号"><code>  from django.contrib import admin
+❶ from .models import Topic
+❷ admin.site.register(Topic)</code>
+</pre>
+<p>这些代码首先导入要注册的模型<code>Topic</code>
+ （见❶）。<code>models</code>
+ 前面的句点让Django在admin.py所在的目录中查找models.py。<code>admin.site.register()</code>
+ 让Django通过管理网站管理模型（见❷）。</p>
+<p>现在，使用超级用户账户访问管理网站：访问http://localhost:8000/admin/，并输入刚创建的超级用户的用户名和密码。你将看到类似于图18-2所示的屏幕。这个页面让你能够添加和修改用户和用户组，还可管理与刚才定义的模型<code>Topic</code>
+ 相关的数据。</p>
+<p class="p-img"><img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/18_Image00048.gif"/>
+</p>
+<p>
+<strong>图18-2　包含模型Topic的管理网站</strong>
+</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　如果在浏览器中看到一条消息，指出访问的网页不可用，请确认在终端窗口中运行着Django服务器。如果没有，请激活虚拟环境，并执行命令<code>python manage.py runserver</code>
+ 。在开发过程中，如果无法通过浏览器访问项目，首先应采取的故障排除措施是，关闭所有打开的终端，再打开终端并执行命令<code>runserver</code>
+ 。</p>
+</blockquote>
+<p> </p>
+</li>
+<li value="3">
+<p>
+<strong>添加主题</strong>
+</p>
+<p>向管理网站注册<code>Topic</code>
+ 后，我们来添加第一个主题。为此，单击Topics进入主题页面，它几乎是空的，因为还没有添加任何主题。单击Add，将出现一个用于添加新主题的表单。在第一个方框中输入<code>Chess</code>
+ ，再单击Save回到主题管理页面，其中包含刚创建的主题。</p>
+<p>下面再创建一个主题，以便有更多的数据可供使用。再次单击Add，并输入Rock Climbing，然后单击Save回到主题管理页面。现在，你可以看到其中包含了主题Chess和<code>Rock Climbing</code>
+ 。</p>
+</li>
+</ol>
+<h3 id="nav_point_429">18.2.4　定义模型<code>Entry</code>
+</h3>
+<p>要记录学到的国际象棋和攀岩知识，用户必须能够在学习笔记中添加条目。为此，需要定义相关的模型。每个条目都与特定主题相关联，这种关系称为<strong>多对一关系</strong>
+ ，即多个条目可关联到同一个主题。</p>
+<p>下面是模型<code>Entry</code>
+ 的代码，请将这些代码放在文件models.py中：</p>
+<p>
+<em>models.py</em>
+</p>
+<pre class="代码无行号"><code>  from django.db import models
+  class Topic(models.Model):
+      --snip--
+❶ class Entry(models.Model):
+      """学到的有关某个主题的具体知识。"""
+❷     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+❸     text = models.TextField()
+      date_added = models.DateTimeField(auto_now_add=True)
+❹     class Meta:
+          verbose_name_plural = 'entries'
+      def __str__(self):
+          """"""返回模型的字符串表示。"""
+❺         return f"{self.text[:50]}..."</code>
+</pre>
+<p>像<code>Topic</code>
+ 一样，<code>Entry</code>
+ 也继承了Django基类<code>Model</code>
+ （见❶）。第一个属性<code>topic</code>
+ 是个<code>ForeignKey</code>
+ 实例（见❷）。<strong>外键</strong>
+ （foreign key）是一个数据库术语，它指向数据库中的另一条记录，这里是将每个条目关联到特定主题。创建每个主题时，都分配了一个键（ID）。需要在两项数据之间建立联系时，Django使用与每项信息相关联的键。我们稍后将根据这些联系获取与特定主题相关联的所有条目。实参<code>on_delete=models.CASCADE</code>
+ 让Django在删除主题的同时删除所有与之相关联的条目，这称为<strong>级联删除</strong>
+ （cascading delete）。</p>
+<p>接下来是属性<code>text</code>
+ ，它是一个<code>TextField</code>
+ 实例（见❸）。这种字段的长度不受限制，因为我们不想限制条目的长度。属性<code>date_added</code>
+ 让我们能够按创建顺序呈现条目，并在每个条目旁边放置时间戳。</p>
+<p>在❹处，我们在<code>Entry</code>
+ 类中嵌套了<code>Meta</code>
+ 类。<code>Meta</code>
+ 存储用于管理模型的额外信息。在这里，它让我们能够设置一个特殊属性，让Django在需要时使用<code>Entries</code>
+ 来表示多个条目。如果没有这个类，Django将使用<code>Entrys</code>
+ 来表示多个条目。</p>
+<p>方法<code>__str__()</code>
+ 告诉Django，呈现条目时应显示哪些信息。条目包含的文本可能很长，因此让Django只显示<code>text</code>
+ 的前50字符（见❺）。我们还添加了一个省略号，指出显示的并非整个条目。</p>
+<h3 id="nav_point_430">18.2.5　迁移模型<code>Entry</code>
+</h3>
+<p>添加新模型后，需要再次迁移数据库。你将慢慢地对这个过程了如指掌：修改models.py，执行命令<code>python manage.py makemigrations <i>app_name</i>
+</code>
+ ，再执行命令<code>python manage.py migrate</code>
+ 。</p>
+<p>请使用如下命令迁移数据库并查看输出：</p>
+<pre class="代码无行号"><code>  (ll_env)learning_log$ python manage.py makemigrations learning_logs
+  Migrations for 'learning_logs':
+❶   learning_logs/migrations/0002_entry.py
+      - Create model Entry
+  (ll_env)learning_log$ python manage.py migrate
+  Operations to perform:
+    --snip--
+❷   Applying learning_logs.0002_entry... OK</code>
+</pre>
+<p>生成了一个新的迁移文件0002_entry.py，它告诉Django如何修改数据库，使其能够存储与模型<code>Entry</code>
+ 相关的信息（见❶）。在❷处执行命令<code>migrate</code>
+ ，我们发现Django应用了该迁移且一切顺利。</p>
+<h3 id="nav_point_431">18.2.6　向管理网站注册<code>Entry</code>
+</h3>
+<p>我们还需要注册模型<code>Entry</code>
+ 。为此，需要将admin.py修改成类似于下面这样：</p>
+<p>
+<em>admin.py</em>
+</p>
+<pre class="代码无行号"><code>from django.contrib import admin
+from .models import Topic, Entry
+admin.site.register(Topic)
+admin.site.register(Entry)</code>
+</pre>
+<p>返回到http://localhost/admin/，你将看到Learning_Logs下列出了Entries。单击Entries的Add链接，或者单击Entries再选择Add entry，将看到一个下拉列表，供你选择要为哪个主题创建条目，以及一个用于输入条目的文本框。从下拉列表中选择Chess，并添加一个条目。下面是我添加的第一个条目。</p>
+<blockquote>
+<p>The opening is the first part of the game, roughly the first ten moves or so. In the opening, it's a good idea to do three things— bring out your bishops and knights, try to control the center of the board, and castle your king.（国际象棋的第一个阶段是开局，大致是前10步左右。在开局阶段，最好做三件事情：将象和马调出来，努力控制棋盘的中间区域，以及用车将王护住。）</p>
+<p>Of course, these are just guidelines. It will be important to learn when to follow these guidelines and when to disregard these suggestions.（当然，这些只是指导原则。学习什么情况下遵守这些原则、什么情况下不用遵守很重要。）</p>
+</blockquote>
+<p>当你单击Save时，将返回到主条目管理页面。在这里，你将发现使用<code>text[:50]</code>
+ 作为条目的字符串表示的好处：在管理界面中只显示了条目的开头部分而不是其所有文本，这使得管理多个条目容易得多。</p>
+<p>再来创建一个国际象棋条目，并创建一个攀岩条目，以提供一些初始数据。下面是第二个国际象棋条目。</p>
+<blockquote>
+<p>In the opening phase of the game, it's important to bring out your bishops and knights. These pieces are powerful and maneuverable enough to play a significant role in the beginning moves of a game.（在国际象棋的开局阶段，将象和马调出来很重要。这些棋子威力大，机动性强，在开局阶段扮演着重要角色。）</p>
+</blockquote>
+<p>下面是第一个攀岩条目。</p>
+<blockquote>
+<p>One of the most important concepts in climbing is to keep your weight on your feet as much as possible. There's a myth that climbers can hang all day on their arms. In reality, good climbers have practiced specific ways of keeping their weight over their feet whenever possible.（最重要的攀岩概念之一是尽可能让双脚承受体重。有人误认为攀岩者能依靠手臂的力量坚持一整天。实际上，优秀的攀岩者都经过专门训练，能够尽可能让双脚承受体重。）</p>
+</blockquote>
+<p>接着往下开发“学习笔记”时，这三个条目提供了可供使用的数据。</p>
+<h3 id="nav_point_432">18.2.7　Django shell</h3>
+<p>输入一些数据后，就可通过交互式终端会话以编程方式查看这些数据了。这种交互式环境称为Django <strong>shell</strong>
+ ，是测试项目和排除故障的理想之地。下面是一个交互式shell会话示例：</p>
+<pre class="代码无行号"><code>  (ll_env)learning_log$ python manage.py shell
+❶ &gt;&gt;&gt; from learning_logs.models import Topic
+  &gt;&gt;&gt; Topic.objects.all()
+  &lt;QuerySet [&lt;Topic: Chess&gt;, &lt;Topic: Rock Climbing&gt;]&gt;</code>
+</pre>
+<p>在活动状态的虚拟环境中执行时，命令<code>python manage.py shell</code>
+ 启动Python解释器，让你能够探索存储在项目数据库中的数据。这里导入了模块<code>learning_logs.models</code>
+ 中的模型<code>Topic</code>
+ （见❶），再使用方法<code>Topic.objects.all()</code>
+ 获取模型<code>Topic</code>
+ 的所有实例，这将返回一个称为<strong>查询集</strong>
+ （queryset）的列表。</p>
+<p>可以像遍历列表一样遍历查询集。下面演示了如何查看分配给每个主题对象的ID：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; topics = Topic.objects.all()
+&gt;&gt;&gt; for topic in topics:
+...   print(topic.id, topic)
+...
+1 Chess
+2 Rock Climbing</code>
+</pre>
+<p>将返回的查询集存储在<code>topics</code>
+ 中，再打印每个主题的<code>id</code>
+ 属性和字符串表示。从输出可知，主题Chess的ID为1，而Rock Climbing的ID为2。</p>
+<p>知道主题对象的ID后，就可使用方法<code>Topic.objects.get()</code>
+ 获取该对象并查看其属性。下面来看看主题Chess的属性<code>text</code>
+ 和<code>date_added</code>
+ 的值：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; t = Topic.objects.get(id=1)
+&gt;&gt;&gt; t.text
+'Chess'
+&gt;&gt;&gt; t.date_added
+datetime.datetime(2019, 2, 19, 1, 55, 31, 98500, tzinfo=&lt;UTC&gt;)</code>
+</pre>
+<p>我们还可以查看与主题相关联的条目。前面给模型<code>Entry</code>
+ 定义了属性<code>topic</code>
+ 。这是一个<code>ForeignKey</code>
+ ，将条目与主题关联起来。利用这种关联，Django能够获取与特定主题相关联的所有条目，如下所示：</p>
+<pre class="代码无行号"><code>❶ &gt;&gt;&gt; t.entry_set.all()
+  &lt;QuerySet [&lt;Entry: The opening is the first part of the game, roughly...&gt;,
+  &lt;Entry:
+  In the opening phase of the game, it's important t...&gt;]&gt;</code>
+</pre>
+<p>要通过外键关系获取数据，可使用相关模型的小写名称、下划线和单词<code>set</code>
+ （见❶）。例如，假设有模型<code>Pizza</code>
+ 和<code>Topping</code>
+ ，而<code>Topping</code>
+ 通过一个外键关联到<code>Pizza</code>
+ 。如果有一个名为<code>my_pizza</code>
+ 的<code>Pizza</code>
+ 对象，就可使用代码<code>my_pizza.topping_set.all()</code>
+ 来获取这张比萨的所有配料。</p>
+<p>编写用户可请求的页面时，我们将使用这种语法。确认代码能获取所需的数据时，shell很有帮助。如果代码在shell中的行为符合预期，那么它们在项目文件中也能正确地工作。如果代码引发了错误或获取的数据不符合预期，那么在简单的shell环境中排除故障要比在生成页面的文件中排除故障容易得多。我们不会太多地使用shell，但应继续使用它来熟悉对存储在项目中的数据进行访问的Django语法。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　每次修改模型后，都需要重启shell，这样才能看到修改的效果。要退出shell会话，可按Ctr + D。如果你使用的是Windows系统，应按Ctr + Z，再按回车键。</p>
+</blockquote>
+<p>　</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习18-2：简短的条目</strong>
+ 　当前，Django在管理网站或shell中显示<code>Entry</code>
+ 实例时，模型<code>Entry</code>
+ 的方法<code>__str__()</code>
+ 都在其末尾加上省略号。请在方法<code>__str__()</code>
+ 中添加一条<code>if</code>
+ 语句，以便仅在条目长度超过50字符时才添加省略号。使用管理网站添加一个不超过50字符的条目，并核实显示它时没有省略号。</p>
+<p>
+<strong>练习18-3：Django API</strong>
+ 　当你编写访问项目中数据的代码时，实际上编写的是查询。请浏览Django网站中有关如何查询数据的文档<em>Making queries</em>
+ ，其中大部分内容是你不熟悉的，但等你自己开发项目时，这些内容会很有用。</p>
+<p>
+<strong>练习18-4：比萨店</strong>
+ 　新建一个名为Pizzeria的项目，并在其中添加一个名为<code>pizzas</code>
+ 的应用程序。定义一个名为<code>Pizza</code>
+ 的模型，它包含字段<code>name</code>
+ ，用于存储比萨名称，如<code>Hawaiian</code>
+ 和<code>Meat Lovers</code>
+ 。定义一个名为<code>Topping</code>
+ 的模型，它包含字段<code>pizza</code>
+ 和<code>name</code>
+ ，其中字段<code>pizza</code>
+ 是一个关联到<code>Pizza</code>
+ 的外键，而字段<code>name</code>
+ 用于存储配料，如<code>pineapple</code>
+ 、<code>Canadian bacon</code>
+ 和<code>sausage</code>
+ 。</p>
+<p>向管理网站注册这两个模型，并使用管理网站输入一些比萨名和配料。使用shell来查看你输入的数据。</p>
+</blockquote>
+<h2 id="nav_point_433">18.3　创建页面：学习笔记主页</h2>
+<p>使用Django创建页面的过程分三个阶段：定义URL，编写视图和编写模板。按什么顺序完成这三个阶段无关紧要，但在本项目中，总是先定义URL模式。URL模式描述了URL是如何设计的，让Django知道如何将浏览器请求与网站URL匹配，以确定返回哪个页面。</p>
+<p>每个URL都被映射到特定的<strong>视图</strong>
+ ——视图函数获取并处理页面所需的数据。视图函数通常使用<strong>模板</strong>
+ 来渲染页面，而模板定义页面的总体结构。为明白其中的工作原理，我们来创建学习笔记的主页。这包括定义该主页的URL，编写其视图函数并创建一个简单的模板。</p>
+<p>我们只是要确保“学习笔记”按要求的那样工作，因此暂时让这个页面尽可能简单。Web应用程序能够正常运行后，设置样式可使其更有趣，但中看不中用的应用程序毫无意义。就目前而言，主页只显示标题和简单的描述。</p>
+<h3 id="nav_point_434">18.3.1　映射URL</h3>
+<p>用户通过在浏览器中输入URL以及单击链接来请求页面，因此我们要确定项目需要哪些URL。主页的URL最重要，它是用户用来访问项目的基础URL。当前，基础URL（http://localhost: 8000/）返回默认的Django网站，让我们知道正确地建立了项目。下面修改这一点，将这个基础URL映射到“学习笔记”的主页。</p>
+<p>打开项目主文件夹learning_log中的文件urls.py，你将看到如下代码：</p>
+<p>
+<em>urls.py</em>
+</p>
+<pre class="代码无行号"><code>❶ from django.contrib import admin
+  from django.urls import path
+❷ urlpatterns = [
+❸     path('admin/', admin.site.urls),
+  ]</code>
+</pre>
+<p>前两行导入了一个模块和一个函数，以便对管理网站的URL进行管理（见❶）。这个文件的主体定义了变量<code>urlpatterns</code>
+ （见❷）。在这个针对整个项目的urls.py文件中，变量<code>urlpatterns</code>
+ 包含项目中应用程序的URL。❸处的代码包含模块<code>admin.site.urls</code>
+ ，该模块定义了可在管理网站中请求的所有URL。</p>
+<p>我们需要包含<code>learning_logs</code>
+ 的URL，因此添加如下代码：</p>
+<pre class="代码无行号"><code>  from django.contrib import admin
+  from django.urls import path, include
+  urlpatterns = [
+      path('admin/', admin.site.urls),
+❶     path('', include('learning_logs.urls')),
+  ]</code>
+</pre>
+<p>在❶处，添加一行代码来包含模块<code>learning_logs.urls</code>
+ 。</p>
+<p>默认的urls.py包含在文件夹learning_log中，现在需要在文件夹learning_logs中再创建一个urls.py文件。为此，新建一个文件，使用文件名urls.py将其存储到文件夹learning_logs中，再在这个文件中输入如下代码：</p>
+<p>
+<em>urls.py</em>
+</p>
+<pre class="代码无行号"><code>❶ """定义learning_logs的URL模式。"""
+❷ from django.urls import path
+❸ from . import views
+❹ app_name = 'learning_logs'
+❺ urlpatterns = [
+      # 主页
+❻     path('', views.index, name='index'),
+  ]</code>
+</pre>
+<p>为指出当前位于哪个urls.py文件中，在该文件开头添加一个文档字符串（见❶）。接下来，导入了函数<code>path</code>
+ ，因为需要使用它将URL映射到视图（见❷）。我们还导入了模块<code>views</code>
+ （见❸），其中的句点让Python从当前urls.py模块所在的文件夹导入views.py。变量<code>app_name</code>
+ 让Django能够将这个urls.py文件同项目内其他应用程序中的同名文件区分开来（见❹）。在这个模块中，变量<code>urlpatterns</code>
+ 是一个列表，包含可在应用程序<code>learning_logs</code>
+ 中请求的页面。</p>
+<p>实际的URL模式是对函数<code>path()</code>
+ 的调用，这个函数接受三个实参（见❺）。第一个是一个字符串，帮助Django正确地路由（route）请求。收到请求的URL后，Django力图将请求路由给一个视图。为此，它搜索所有的URL模式，找到与当前请求匹配的那个。Django忽略项目的基础URL（http://localhost:8000/），因此空字符串（<code>''</code>
+ ）与基础URL匹配。其他URL都与这个模式不匹配。如果请求的URL与任何既有的URL模式都不匹配，Django将返回一个错误页面。</p>
+<p>
+<code>path()</code>
+ 的第二个实参（见❻）指定了要调用view.py中的哪个函数。请求的URL与前述正则表达式匹配时，Django将调用view.py中的函数<code>index()</code>
+ （这个视图函数将在下一节编写）。第三个实参将这个URL模式的名称指定为<code>index</code>
+ ，让我们能够在代码的其他地方引用它。每当需要提供到这个主页的链接时，都将使用这个名称，而不编写URL。</p>
+<h3 id="nav_point_435">18.3.2　编写视图</h3>
+<p>视图函数接受请求中的信息，准备好生成页面所需的数据，再将这些数据发送给浏览器——这通常是使用定义页面外观的模板实现的。</p>
+<p>learning_logs中的文件views.py是执行命令<code>python manage.py startapp</code>
+ 时自动生成的，当前其内容如下：</p>
+<p>
+<em>views.py</em>
+</p>
+<pre class="代码无行号"><code>from django.shortcuts import render
+# 在这里创建视图。</code>
+</pre>
+<p>当前，这个文件只导入了函数<code>render()</code>
+ ，它根据视图提供的数据渲染响应。请在这个文件中添加为主页编写视图的代码，如下所示：</p>
+<pre class="代码无行号"><code>from django.shortcuts import render
+def index(request):
+    """学习笔记的主页。"""
+    return render(request, 'learning_logs/index.html')</code>
+</pre>
+<p>URL请求与刚才定义的模式匹配时，Django将在文件views.py中查找函数<code>index()</code>
+ ，再将对象<code>request</code>
+ 传递给这个视图函数。这里不需要处理任何数据，因此这个函数只包含调用<code>render()</code>
+ 的代码。这里向函数<code>render()</code>
+ 提供了两个实参：对象<code>request</code>
+ 以及一个可用于创建页面的模板。下面来编写这个模板。</p>
+<h3 id="nav_point_436">18.3.3　编写模板</h3>
+<p>模板定义页面的外观，而每当页面被请求时，Django将填入相关的数据。模板让你能够访问视图提供的任何数据。我们的主页视图没有提供任何数据，因此相应的模板非常简单。</p>
+<p>在文件夹learning_logs中新建一个文件夹，并将其命名为templates。在文件夹templates中，再新建一个文件夹，并将其命名为learning_logs。这好像有点多余（在文件夹learning_logs中创建文件夹templates，又在这个文件夹中创建文件夹learning_logs），但是建立了Django能够明确解读的结构，即便项目很大、包含很多应用程序亦如此。在最里面的文件夹learning_logs中，新建一个文件，并将其命名为index.html（这个文件的路径为learning_log/learning_logs/templates/ learning_logs/index.html），再在其中编写如下代码：</p>
+<p>
+<em>index.html</em>
+</p>
+<pre class="代码无行号"><code>&lt;p&gt;Learning Log&lt;/p&gt;
+&lt;p&gt;Learning Log helps you keep track of your learning, for any topic you're
+learning about.&lt;/p&gt;</code>
+</pre>
+<p>这个文件非常简单。这里向不熟悉HTML的读者解释一下：标签<code>&lt;p&gt;&lt;/p&gt;</code>
+ 标识段落。标签<code>&lt;p&gt;</code>
+ 指出段落的开头位置，而标签<code>&lt;/p&gt;</code>
+ 指出段落的结束位置。这里定义了两个段落：第一个充当标题，第二个阐述了用户可使用“学习笔记”来做什么。</p>
+<p>现在，如果请求这个项目的基础URL http://localhost:8000/，将看到刚才创建的页面，而不是默认的Django页面。Django接受请求的URL，发现该URL与模式<code>''</code>
+ 匹配，因此调用函数<code>views.index()</code>
+ 。这将使用index.html包含的模板来渲染页面，结果如图18-3所示。</p>
+<p class="图"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/18_Image00049.gif" style="width: 85%" width="85%"/>
+</p>
+<p>
+<strong>图18-3　学习笔记的主页</strong>
+</p>
+<p>创建页面的过程看起来可能很复杂，但将URL、视图和模板分离的效果很好。这让我们能够分别考虑项目的不同方面，在项目很大时，可让各个参与者专注于最擅长的方面。例如，数据库专家专注于模型，程序员专注于视图代码，而Web设计人员专注于模板。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　可能出现如下错误消息：</p>
+<pre class="代码无行号"><code>ModuleNotFoundError: No module named 'learning_logs.urls'</code>
+</pre>
+<p>如果确实如此，请在执行命令<code>python manage.py runserver</code>
+ 的终端窗口中按Ctrl + C停用服务器，再重新执行这个命令。这样做后，应该能够看到主页。每当遇到类似的错误时，都尝试停用并重启服务器，看看是否管用。</p>
+</blockquote>
+<p>　</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习18-5：膳食规划程序</strong>
+ 　假设你要创建一个应用程序，帮助用户规划一周的膳食。为此，新建一个文件夹，并将其命名为meal_planner，再在这个文件夹中新建一个Django项目。然后，新建一个名为<code>meal_plans</code>
+ 的应用程序，并为这个项目创建一个简单的主页。</p>
+<p>
+<strong>练习18-6：比萨店主页</strong>
+ 　在为完成练习18-4而创建的项目Pizzeria中，添加一个主页。</p>
+</blockquote>
+<h2 id="nav_point_437">18.4　创建其他页面</h2>
+<p>制定创建页面的流程后，可以开始扩充“学习笔记”项目了。我们将创建两个显示数据的页面，其中一个列出所有的主题，另一个显示特定主题的所有条目。对于每个页面，我们都将指定URL模式、编写一个视图函数并编写一个模板。但这样做之前，我们先创建一个父模板，项目中的其他模板都将继承它。</p>
+<h3 id="nav_point_438">18.4.1　模板继承</h3>
+<p>创建网站时，一些通用元素几乎会在所有页面中出现。在这种情况下，可编写一个包含通用元素的父模板，并让每个页面都继承这个模板，而不必在每个页面中重复定义这些通用元素。这种方法能让你专注于开发每个页面的独特方面，还能让修改项目的整体外观容易得多。</p>
+<ol>
+<li value="1">
+<p>
+<strong>父模板</strong>
+</p>
+<p>下面创建一个名为base.html的模板，并将其存储在index.html所在的目录中。这个模板包含所有页面都有的元素，而其他模板都继承它。当前，所有页面都包含的元素只有顶端的标题。因为每个页面都包含这个模板，所以将这个标题设置为到主页的链接：</p>
+<p>
+<em>base.html</em>
+</p>
+<pre class="代码无行号"><code>  &lt;p&gt;
+❶   &lt;a href="{% url 'learning_logs:index' %}"&gt;Learning Log&lt;/a&gt;
+  &lt;/p&gt;
+❷ {% block content %}{% endblock content %}</code>
+</pre>
+<p>这个文件的第一部分创建一个包含项目名的段落，该段落也是到主页的链接。为创建链接，使用了一个<strong>模板标签</strong>
+ ，它是用花括号和百分号（<code>{% %}</code>
+ ）表示的。模板标签是一小段代码，生成要在页面中显示的信息。这里的模板标签<code>{% url 'learning_logs:index' %}</code>
+ 生成一个URL，该URL与在learning_logs/urls.py中定义的名为<code>'index'</code>
+ 的URL模式匹配（见❶）。在本例中，<code>learning_logs</code>
+ 是一个<strong>命名空间</strong>
+ ，而<code>index</code>
+ 是该命名空间中一个名称独特的URL模式。这个命名空间来自在文件learning_logs/urls.py中赋给<code>app_name</code>
+ 的值。</p>
+<p>在简单的HTML页面中，链接是使用<strong>锚</strong>
+ 标签<code>&lt;a&gt;</code>
+ 定义的：</p>
+<pre class="代码无行号"><code>&lt;a href="link_url"&gt;link text&lt;/a&gt;</code>
+</pre>
+<p>通过使用模板标签来生成URL，能很容易地确保链接是最新的：只需修改urls.py中的URL模式，Django就会在页面下次被请求时自动插入修改后的URL。在本项目中，每个页面都将继承base.html，因此从现在开始，每个页面都包含到主页的链接。</p>
+<p>在❷处，我们插入了一对<strong>块</strong>
+ 标签。这个块名为<code>content</code>
+ ，是一个占位符，其中包含的信息由子模板指定。</p>
+<p>子模板并非必须定义父模板中的每个块，因此在父模板中，可使用任意多个块来预留空间，而子模板可根据需要定义相应数量的块。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　在Python代码中，几乎总是缩进四个空格。相比于Python文件，模板文件的缩进层级更多，因此每个层级通常只缩进两个空格。每个层级缩进多少个空格无关紧要，只需确保一致即可。</p>
+</blockquote>
+<p> </p>
+</li>
+<li value="2">
+<p>
+<strong>子模板</strong>
+</p>
+<p>现在需要重写index.html，使其继承base.html。为此，向index.html添加如下代码：</p>
+<p>
+<em>index.html</em>
+</p>
+<pre class="代码无行号"><code>❶ {% extends "learning_logs/base.html" %}
+❷ {% block content %}
+  &lt;p&gt;Learning Log helps you keep track of your learning, for any topic you're
+  learning about.&lt;/p&gt;
+❸ {% endblock content %}</code>
+</pre>
+<p>如果将这些代码与原来的index.html进行比较，将发现标题Learning Log没有了，取而代之的是指定要继承哪个模板的代码（见❶）。子模板的第一行必须包含标签<code>{% extends %}</code>
+ ，让Django知道它继承了哪个父模板。文件base.html位于文件夹learning_logs中，因此父模板路径中包含learning_logs。这行代码导入模板base.html的所有内容，让index.html能够指定要在<code>content</code>
+ 块预留的空间中添加的内容。</p>
+<p>在❷处，插入了一个名为<code>content</code>
+ 的<code>{% block %}</code>
+ 标签，以定义<code>content</code>
+ 块。不是从父模板继承的内容都包含在<code>content</code>
+ 块中，在这里是一个描述项目“学习笔记”的段落。在❸处，使用标签<code>{% endblock content %}</code>
+ 指出了内容定义的结束位置。在标签<code>{% endblock %}</code>
+ 中，并非必须指定块名，但如果模板包含多个块，指定块名有助于确定结束的是哪个块。</p>
+<p>模板继承的优点开始显现出来了：在子模板中，只需包含当前页面特有的内容。这不仅简化了每个模板，还使得网站修改起来容易得多。要修改很多页面都包含的元素，只需修改父模板即可，所做的修改将传导到继承该父模板的每个页面。在包含数十乃至数百个页面的项目中，这种结构使得网站改进起来更容易、更快捷。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　在大型项目中，通常有一个用于整个网站的父模板base.html，且网站的每个主要部分都有一个父模板。每个部分的父模板都继承base.html，而网站的每个页面都继承相应部分的父模板。这让你能够轻松地修改整个网站的外观、网站任何一部分的外观以及任何一个页面的外观。这种配置提供了一种效率极高的工作方式，让你乐意不断地去改进网站。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="nav_point_439">18.4.2　显示所有主题的页面</h3>
+<p>有了高效的页面创建方法，就能专注于另外两个页面了：显示所有主题的页面和显示特定主题中条目的页面。前者显示用户创建的所有主题，它是第一个需要使用数据的页面。</p>
+<ol>
+<li value="1">
+<p>
+<strong>URL模式</strong>
+</p>
+<p>首先，定义显示所有主题的页面的URL。我们通常使用一个简单的URL片段来指出页面显示的信息，这里使用单词topics，因此URL http://localhost:8000/topics/将返回显示所有主题的页面。下面演示了该如何修改learning_logs/urls.py：</p>
+<p>
+<em>urls.py</em>
+</p>
+<pre class="代码无行号"><code>  """为learning_logs定义URL模式。"""
+  --snip--
+  urlpatterns = [
+      # 主页
+      path('', views.index, name='index'),
+      # 显示所有的主题。
+❶     path('topics/', views.topics, name='topics'),
+  ]</code>
+</pre>
+<p>这里在用于主页URL的字符串参数中添加了<code>topics/</code>
+ （见❶）。Django检查请求的URL时，这个模式与如下URL匹配：基础URL后面跟着topics。可在末尾包含斜杠，也可省略，但单词topics后面不能有任何东西，否则就与该模式不匹配。URL与该模式匹配的请求都将交给views.py中的函数<code>topics()</code>
+ 处理。<br/>
+ </p>
+</li>
+<li value="2">
+<p>
+<strong>视图</strong>
+</p>
+<p>函数<code>topics()</code>
+ 需要从数据库中获取一些数据，并将其交给给模板。需要在views.py中添加的代码如下：</p>
+<p>
+<em>views.py</em>
+</p>
+<pre class="代码无行号"><code>  from django.shortcuts import render
+❶ from .models import Topic
+  def index(request):
+      --snip--
+❷ def topics(request):
+      """显示所有的主题。"""
+❸     topics = Topic.objects.order_by('date_added')
+❹     context = {'topics': topics}
+❺     return render(request, 'learning_logs/topics.html', context)</code>
+</pre>
+<p>首先导入与所需数据相关联的模型（见❶）。函数<code>topics()</code>
+ 包含一个形参：Django从服务器那里收到的<code>request</code>
+ 对象（见❷）。在❸处，查询数据库——请求提供<code>Topic</code>
+ 对象，并根据属性<code>date_added</code>
+ 进行排序。返回的查询集被存储在<code>topics</code>
+ 中。</p>
+<p>在❹处，定义一个将发送给模板的上下文。<strong>上下文</strong>
+ 是一个字典，其中的键是将在模板中用来访问数据的名称，而值是要发送给模板的数据。这里只有一个键值对，包含一组将在页面中显示的主题。创建使用数据的页面时，除了对象<code>request</code>
+ 和模板的路径外，还将变量<code>context</code>
+ 传递给<code>render()</code>
+ （见❺）。<br/>
+ </p>
+</li>
+<li value="3">
+<p>
+<strong>模板</strong>
+</p>
+<p>显示所有主题的页面的模板接受字典<code>context</code>
+ ，以便使用<code>topics()</code>
+ 提供的数据。请创建一个文件，将其命名为topics.html，并存储到index.html所在的目录中。下面演示了如何在这个模板中显示主题：</p>
+<p>
+<em>topics.html</em>
+</p>
+<pre class="代码无行号"><code>  {% extends "learning_logs/base.html" %}
+  {% block content %}
+    &lt;p&gt;Topics&lt;/p&gt;
+❶   &lt;ul&gt;
+❷     {% for topic in topics %}
+❸       &lt;li&gt;{{ topic }}&lt;/li&gt;
+❹     {% empty %}
+        &lt;li&gt;No topics have been added yet.&lt;/li&gt;
+❺     {% endfor %}
+❻   &lt;/ul&gt;
+  {% endblock content %}</code>
+</pre>
+<p>就像模板index.html中一样，首先使用标签<code>{% extends %}</code>
+ 来继承base.html，再开始定义<code>content</code>
+ 块。这个页面的主体是一个项目列表，其中列出了用户输入的主题。在标准HTML中，项目列表称为<strong>无序列表</strong>
+ ，用标签<code>&lt;ul&gt;&lt;/ul&gt;</code>
+ 表示。包含所有主题的项目列表始于❶处。</p>
+<p>在❷处，使用一个相当于<code>for</code>
+ 循环的模板标签，它遍历字典<code>context</code>
+ 中的列表<code>topics</code>
+ 。模板中使用的代码与Python代码存在一些重要差别：Python使用缩进来指出哪些代码行是<code>for</code>
+ 循环的组成部分；而在模板中，每个<code>for</code>
+ 循环都必须使用<code>{% endfor %}</code>
+ 标签来显式地指出其结束位置。因此在模板中，循环类似于下面这样：</p>
+<pre class="代码无行号"><code>{% for item in list %}
+    do something with each item
+{% endfor %}</code>
+</pre>
+<p>在循环中，要将每个主题转换为项目列表中的一项。要在模板中打印变量，需要将变量名用双花括号括起。这些花括号不会出现在页面中，只是用于告诉Django我们使用了一个模板变量。因此每次循环时，❸处的代码<code>{{ topic }}</code>
+ 都被替换为<code>topic</code>
+ 的当前值。HTML标签<code>&lt;li&gt;&lt;/li&gt;</code>
+ 表示一个<strong>项目列表项</strong>
+ 。在标签对<code>&lt;ul&gt;&lt;/ul&gt;</code>
+ 内部，位于标签<code>&lt;li&gt;</code>
+ 和<code>&lt;/li&gt;</code>
+ 之间的内容都是一个项目列表项。</p>
+<p>在❹处，使用模板标签<code>{% empty %}</code>
+ ，它告诉Django在列表<code>topics</code>
+ 为空时该如何办。这里是打印一条消息，告诉用户还没有添加任何主题。最后两行分别结束<code>for</code>
+ 循环（见❺）和项目列表（见❻）。</p>
+<p>现在需要修改父模板，使其包含到显示所有主题的页面的链接。为此，在其中添加如下代码：</p>
+<p>
+<em>base.html</em>
+</p>
+<pre class="代码无行号"><code>  &lt;p&gt;
+❶   &lt;a href="{% url 'learning_logs:index' %}"&gt;Learning Log&lt;/a&gt; -
+❷   &lt;a href="{% url 'learning_logs:topics' %}"&gt;Topics&lt;/a&gt;
+  &lt;/p&gt;
+  {% block content %}{% endblock content %}</code>
+</pre>
+<p>在到主页的链接后面添加一个连字符（见❶），再添加一个到显示所有主题的页面的链接——使用的也是模板标签<code>{% url %}</code>
+ （见❷）。这行让Django生成一个链接，它与learning_logs/urls.py中名为<code>'topics'</code>
+ 的URL模式匹配。</p>
+<p>现在如果刷新浏览器中的主页，将看到链接Topics。如果单击这个链接，将看到类似于图18-4所示的页面。</p>
+<p class="p-img"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/18_Image00050.gif" style="width: 90%" width="90%"/>
+</p>
+<p>
+<strong>图18-4　显示所有主题的页面</strong>
+</p>
+</li>
+</ol>
+<h3 id="nav_point_440">18.4.3　显示特定主题的页面</h3>
+<p>接下来，需要创建一个专注于特定主题的页面，它显示该主题的名称以及所有条目。我们同样将定义一个新的URL模式，编写一个视图并创建一个模板。此外，还将修改显示所有主题的页面，让每个项目列表项都变为到相应主题页面的链接。</p>
+<ol>
+<li value="1">
+<p>
+<strong>URL模式</strong>
+</p>
+<p>显示特定主题的页面的URL模式与前面的所有URL模式都稍有不同，因为它使用主题的<code>id</code>
+ 属性来指出请求的是哪个主题。例如，如果用户要查看主题Chess（其<code>id</code>
+ 为1）的详细页面，URL将为http://localhost:8000/topics/1/。下面是与这个URL匹配的模式，应将其放在learning_logs/ urls.py中：</p>
+<p>
+<em>urls.py</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+urlpatterns = [
+    --snip--
+    # 特定主题的详细页面。
+    path('topics/&lt;int:topic_id&gt;/', views.topic, name='topic'),
+]</code>
+</pre>
+<p>我们来详细研究这个URL模式中的字符串<code>'topics/&lt;int:topic_id&gt;/'</code>
+ 。这个字符串的第一部分让Django查找在基础URL后包含单词topics的URL，第二部分（<code>/&lt;int:topic_id&gt;/</code>
+ ）与包含在两个斜杠内的整数匹配，并将这个整数存储在一个名为<code>topic_id</code>
+ 的实参中。</p>
+<p>发现URL与这个模式匹配时，Django将调用视图函数<code>topic()</code>
+ ，并将存储在<code>topic_id</code>
+ 中的值作为实参传递给它。在这个函数中，将使用<code>topic_id</code>
+ 的值来获取相应的主题。<br/>
+ </p>
+</li>
+<li value="2">
+<p>
+<strong>视图</strong>
+</p>
+<p>函数<code>topic()</code>
+ 需要从数据库中获取指定的主题以及与之相关联的所有条目，如下所示：</p>
+<p>
+<em>views.py</em>
+</p>
+<pre class="代码无行号"><code>  --snip--
+❶ def topic(request, topic_id):
+      """显示单个主题及其所有的条目。"""
+❷     topic = Topic.objects.get(id=topic_id)
+❸     entries = topic.entry_set.order_by('-date_added')
+❹     context = {'topic': topic, 'entries': entries}
+❺     return render(request, 'learning_logs/topic.html', context)</code>
+</pre>
+<p>这是除<code>request</code>
+ 对象外，第一个还包含另一个形参的视图函数。这个函数接受表达式<code>/&lt;int:topic_id&gt;/</code>
+ 捕获的值，并将其存储到<code>topic_id</code>
+ 中（见❶）。在❷处，使用<code>get()</code>
+ 来获取指定的主题，就像前面在Django shell中所做的那样。在❸处，获取与该主题相关联的条目，并根据<code>date_added</code>
+ 进行排序：<code>date_added</code>
+ 前面的减号指定按降序排列，即先显示最近的条目。将主题和条目都存储在字典<code>context</code>
+ 中（见❹），再将这个字典发送给模板topic.html（见❺）。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　❷处和❸处的代码称为<strong>查询</strong>
+ ，因为它们向数据库查询了特定的信息。在自己的项目中编写这样的查询时，先在Django shell中进行尝试大有裨益。比起先编写视图和模板、再在浏览器中检查结果，在shell中执行代码可更快获得反馈。</p>
+</blockquote>
+<p> </p>
+</li>
+<li value="3">
+<p>
+<strong>模板</strong>
+</p>
+<p>这个模板需要显示主题的名称和条目的内容。如果当前主题不包含任何条目，还需向用户指出这一点：</p>
+<p>
+<em>topic.html</em>
+</p>
+<pre class="代码无行号"><code>  {% extends 'learning_logs/base.html' %}
+  {% block content %}
+❶   &lt;p&gt;Topic: {{ topic }}&lt;/p&gt;
+    &lt;p&gt;Entries:&lt;/p&gt;
+❷   &lt;ul&gt;
+❸   {% for entry in entries %}
+      &lt;li&gt;
+❹       &lt;p&gt;{{ entry.date_added|date:'M d, Y H:i' }}&lt;/p&gt;
+❺       &lt;p&gt;{{ entry.text|linebreaks }}&lt;/p&gt;
+      &lt;/li&gt;
+❻   {% empty %}
+      &lt;li&gt;There are no entries for this topic yet.&lt;/li&gt;
+    {% endfor %}
+    &lt;/ul&gt;
+  {% endblock content %}</code>
+</pre>
+<p>像这个项目的其他页面一样，这里也继承了base.html。接下来，显示当前的主题（见❶），它存储在模板变量<code>{{ topic }}</code>
+ 中。为什么可以使用变量<code>topic</code>
+ 呢？因为它包含在字典<code>context</code>
+ 中。接下来，定义一个显示每个条目的项目列表（见❷），并像前面显示所有主题一样遍历条目（见❸）。</p>
+<p>每个项目列表项都将列出两项信息：条目的时间戳和完整的文本。为列出时间戳（见❹），我们显示属性<code>date_added</code>
+ 的值。在Django模板中，竖线（<code>|</code>
+ ）表示模板<strong>过滤器</strong>
+ ，即对模板变量的值进行修改的函数。过滤器<code>date: 'M d, Y H:i'</code>
+ 以类似于这样的格式显示时间戳：January 1, 2018 23:00。接下来的一行显示<code>text</code>
+ 的完整值，而不仅仅是前50字符。过滤器<code>linebreaks</code>
+ （见❺）将包含换行符的长条目转换为浏览器能够理解的格式，以免显示为不间断的文本块。在❻处，使用模板标签<code>{% empty %}</code>
+ 打印一条消息，告诉用户当前主题还没有条目。<br/>
+ </p>
+</li>
+<li value="4">
+<p>
+<strong>将显示所有主题的页面中的主题设置为链接</strong>
+</p>
+<p>在浏览器中查看显示特定主题的页面前，需要修改模板topics.html，让每个主题都链接到相应的页面，如下所示：</p>
+<p>
+<em>topics.html</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+   {% for topic in topics %}
+     &lt;li&gt;
+       &lt;a href="{% url 'learning_logs:topic' topic.id %}"&gt;{{ topic }}&lt;/a&gt;
+     &lt;/li&gt;
+  {% empty %}
+--snip--</code>
+</pre>
+<p>我们使用模板标签<code>url</code>
+ 根据<code>learning_logs</code>
+ 中名为<code>'topic'</code>
+ 的URL模式生成了合适的链接。这个URL模式要求提供实参<code>topic_id</code>
+ ，因此在模板标签<code>url</code>
+ 中添加了属性<code>topic.id</code>
+ 。现在，主题列表中的每个主题都是链接了，链接到显示相应主题的页面，如http://localhost:8000/ topics/1/。</p>
+<p>如果现在刷新显示所有主题的页面，再单击其中的一个主题，将看到类似于图18-5所示的页面。</p>
+<p class="p-img"><img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/18_Image00051.jpg"/>
+</p>
+<p>
+<strong>图18-5　特定主题的详细页面，其中显示了该主题的所有条目</strong>
+</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　topic.id和topic_id之间存在细微而重要的差别。表达式topic.id检查主题并获取其ID值，而在代码中，变量topic_id是指向该ID的引用。使用ID时如果出现错误，请确保正确地使用了这两个表达式。</p>
+</blockquote>
+</li>
+</ol>
+<p>　</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习18-7：模板文档</strong>
+ 　请浏览Django模板文档。自己开发项目时，你可再回过头来参考该文档。</p>
+<p>
+<strong>练习18-8：比萨店页面</strong>
+ 　在练习18-6中开发的项目Pizzeria中，添加一个页面来显示供应的比萨的名称。然后，将每个比萨名都设置成链接，可通过单击来显示一个列出相应配料的页面。请务必使用模板继承来高效地创建页面。</p>
+</blockquote>
+<h2 id="nav_point_441">18.5　小结</h2>
+<p>在本章中，你学习了：如何使用Django框架来创建Web应用程序；制定简要的项目规范，在虚拟环境中安装Django，创建一个项目，并核实该项目已被正确地创建；如何创建应用程序，以及如何定义表示应用程序数据的模型。你了解了数据库，以及在修改模型后，Django可为迁移数据库提供什么帮助。你创建了可访问管理网站的超级用户，并使用管理网站输入了一些初始数据。</p>
+<p>你还探索了Django shell，它让你能够在终端会话中处理项目的数据。你学习了如何定义URL、创建视图函数以及编写为网站创建页面的模板。最后，你使用模板继承简化了各个模板的结构，使修改网站变得更容易。</p>
+<p>第19章将创建对用户友好而直观的页面，让用户无须通过管理网站就能添加新的主题和条目，以及编辑既有条目。我们还将添加一个用户注册系统，让用户能够创建账户并记录自己的学习笔记。Web应用程序的核心就是，让任意数量的用户都能与之交互。</p>
+<br style="page-break-after:always"/>
+<div></div>
+]]></description>
+    <pubDate>Thu, 30 Jul 2026 01:10:08 +0000</pubDate>
+    <guid isPermaLink="false">18</guid>
+</item>
+<item>
     <title>Basic Python - 017 - 第 17 章 使用API.epub</title>
     <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：87 分钟 (17348 字)</p><hr><h1 id="nav_point_399">第 17 章　使用API</h1>
 <blockquote>
@@ -12073,563 +13109,6 @@ Modified dimensions:
 ]]></description>
     <pubDate>Mon, 06 Jul 2026 02:08:22 +0000</pubDate>
     <guid isPermaLink="false">4</guid>
-</item>
-<item>
-    <title>Basic Python - 003 - 第 3 章 列表简介.epub</title>
-    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：60 分钟 (11982 字)</p><hr><h1 id="nav_point_53">第 3 章　列表简介</h1>
-<blockquote>
-<p><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/3_Image00001.gif" style="width: 16%" width="16%"/>
- 　在本章和下一章中，你将学习列表是什么以及如何使用列表元素。列表让你能够在一个地方存储成组的信息，其中可以只包含几个元素，也可以包含数百万个元素。列表是新手可直接使用的最强大的Python功能之一，它融合了众多重要的编程概念。</p>
-</blockquote>
-<h2 id="nav_point_54">3.1　列表是什么</h2>
-<p>
-<strong>列表</strong>
- 由一系列按特定顺序排列的元素组成。你可以创建包含字母表中所有字母、数字0～9或所有家庭成员姓名的列表；也可以将任何东西加入列表中，其中的元素之间可以没有任何关系。列表通常包含多个元素，因此给列表指定一个表示复数的名称（如<code>letters</code>
- 、<code>digits</code>
- 或<code>names</code>
- ）是个不错的主意。</p>
-<p>在Python中，用方括号（<code>[]</code>
- ）表示列表，并用逗号分隔其中的元素。下面是一个简单的列表示例，其中包含几种自行车：</p>
-<p>
-<em>bicycles.py</em>
-</p>
-<pre class="代码无行号"><code>bicycles = ['trek', 'cannondale', 'redline', 'specialized']
-print(bicycles)</code>
-</pre>
-<p>如果让Python将列表打印出来，Python将打印列表的内部表示，包括方括号：</p>
-<pre class="代码无行号"><code>['trek', 'cannondale', 'redline', 'specialized']</code>
-</pre>
-<p>鉴于这不是你要让用户看到的输出，下面来学习如何访问列表元素。</p>
-<h3 id="nav_point_55">3.1.1　访问列表元素</h3>
-<p>列表是有序集合，因此要访问列表的任意元素，只需将该元素的位置（<strong>索引</strong>
- ）告诉Python即可。要访问列表元素，可指出列表的名称，再指出元素的索引，并将后者放在方括号内。</p>
-<p>例如，下面的代码从列表<code>bicycles</code>
- 中提取第一款自行车：</p>
-<pre class="代码无行号"><code>  bicycles = ['trek', 'cannondale', 'redline', 'specialized']
-❶ print(bicycles[0])</code>
-</pre>
-<p>❶处演示了访问列表元素的语法。当你请求获取列表元素时，Python只返回该元素，而不包括方括号：</p>
-<pre class="代码无行号"><code>trek</code>
-</pre>
-<p>这正是你要让用户看到的结果——整洁、干净的输出。</p>
-<p>你还可以对任意列表元素调用第2章介绍的字符串方法。例如，可使用方法<code>title()</code>
- 让元素<code>'trek'</code>
- 的格式更整洁：</p>
-<pre class="代码无行号"><code>bicycles = ['trek', 'cannondale', 'redline', 'specialized']
-print(bicycles[0].title())</code>
-</pre>
-<p>这个示例的输出与前一个示例相同，只是首字母T是大写的。</p>
-<h3 id="nav_point_56">3.1.2　索引从0而不是1开始</h3>
-<p>在Python中，第一个列表元素的索引为0，而不是1。多数编程语言是如此规定的，这与列表操作的底层实现相关。如果结果出乎意料，请看看你是否犯了简单的差一错误。</p>
-<p>第二个列表元素的索引为1。根据这种简单的计数方式，要访问列表的任何元素，都可将其位置减1，并将结果作为索引。例如，要访问第四个列表元素，可使用索引3。</p>
-<p>下面的代码访问索引<code>1</code>
- 和索引<code>3</code>
- 处的自行车：</p>
-<pre class="代码无行号"><code>bicycles = ['trek', 'cannondale', 'redline', 'specialized']
-print(bicycles[1])
-print(bicycles[3])</code>
-</pre>
-<p>这些代码返回列表中的第二个和第四个元素：</p>
-<pre class="代码无行号"><code>cannondale
-specialized</code>
-</pre>
-<p>Python为访问最后一个列表元素提供了一种特殊语法。通过将索引指定为<code>-1</code>
- ，可让Python返回最后一个列表元素：</p>
-<pre class="代码无行号"><code>bicycles = ['trek', 'cannondale', 'redline', 'specialized']
-print(bicycles[-1])</code>
-</pre>
-<p>这段代码返回<code>'specialized'</code>
- 。这种语法很有用，因为你经常需要在不知道列表长度的情况下访问最后的元素。这种约定也适用于其他负数索引。例如，索引<code>-2</code>
- 返回倒数第二个列表元素，索引<code>-3</code>
- 返回倒数第三个列表元素，依此类推。</p>
-<h3 id="nav_point_57">3.1.3　使用列表中的各个值</h3>
-<p>你可以像使用其他变量一样使用列表中的各个值。例如，可以使用f字符串根据列表中的值来创建消息。</p>
-<p>下面尝试从列表中提取第一款自行车，并使用这个值创建一条消息：</p>
-<pre class="代码无行号"><code>  bicycles = ['trek', 'cannondale', 'redline', 'specialized']
-❶ message = f"My first bicycle was a {bicycles[0].title()}."
-  print(message)</code>
-</pre>
-<p>我们使用<code>bicycles[0]</code>
- 的值生成了一个句子，并将其赋给变量<code>message</code>
- （见❶）。输出是一个简单的句子，其中包含列表中的第一款自行车：</p>
-<pre class="代码无行号"><code>My first bicycle was a Trek.</code>
-</pre>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>请尝试编写一些简短的程序来完成下面的练习，以获得一些使用Python列表的第一手经验。你可能需要为每章创建一个文件夹，以整洁有序的方式存储为完成各章的练习而编写的程序。</p>
-<p>
-<strong>练习3-1：姓名</strong>
- 　将一些朋友的姓名存储在一个列表中，并将其命名为<code>names</code>
- 。依次访问该列表中的每个元素，从而将每个朋友的姓名打印出来。</p>
-<p>
-<strong>练习3-2：问候语</strong>
- 　继续使用练习3-1中的列表，但不打印每个朋友的姓名，而为每人打印一条消息。每条消息都包含相同的问候语，但抬头为相应朋友的姓名。</p>
-<p>
-<strong>练习3-3：自己的列表</strong>
- 　想想你喜欢的通勤方式，如骑摩托车或开汽车，并创建一个包含多种通勤方式的列表。根据该列表打印一系列有关这些通勤方式的宣言，下面是一个例子。</p>
-<blockquote>
-<p>I would like to own a Honda motorcycle.</p>
-</blockquote>
-</blockquote>
-<h2 id="nav_point_58">3.2　修改、添加和删除元素</h2>
-<p>你创建的大多数列表将是动态的，这意味着列表创建后，将随着程序的运行增删元素。例如，你创建一个游戏，要求玩家射杀从天而降的外星人。为此，可在开始时将一些外星人存储在列表中，然后每当有外星人被射杀时，都将其从列表中删除，而每次有新的外星人出现在屏幕上时，都将其添加到列表中。在整个游戏运行期间，外星人列表的长度将不断变化。</p>
-<h3 id="nav_point_59">3.2.1　修改列表元素</h3>
-<p>修改列表元素的语法与访问列表元素的语法类似。要修改列表元素，可指定列表名和要修改的元素的索引，再指定该元素的新值。</p>
-<p>例如，假设有一个摩托车列表，其中的第一个元素为<code>'honda'</code>
- ，如何修改它的值呢？</p>
-<p>
-<em>motorcycles.py</em>
-</p>
-<pre class="代码无行号"><code>❶ motorcycles = ['honda', 'yamaha', 'suzuki']
-  print(motorcycles)
-❷ motorcycles[0] = 'ducati'
-  print(motorcycles)</code>
-</pre>
-<p>首先定义一个摩托车列表，其中的第一个元素为<code>'honda'</code>
- （见❶）。接下来，将第一个元素的值改为<code>'ducati'</code>
- （见❷）。输出表明，第一个元素的值确实变了，但其他列表元素的值没变：</p>
-<pre class="代码无行号"><code>['honda', 'yamaha', 'suzuki']
-['ducati', 'yamaha', 'suzuki']</code>
-</pre>
-<p>你可以修改任意列表元素的值，而不仅仅是第一个元素的值。</p>
-<h3 id="nav_point_60">3.2.2　在列表中添加元素</h3>
-<p>你可能出于众多原因要在列表中添加新元素。例如，你可能希望游戏中出现新的外星人、添加可视化数据或给网站添加新注册的用户。Python提供了多种在既有列表中添加新数据的方式。</p>
-<ol>
-<li value="1">
-<p>
-<strong>在列表末尾添加元素</strong>
-</p>
-<p>在列表中添加新元素时，最简单的方式是将元素<strong>附加</strong>
- （append）到列表。给列表附加元素时，它将添加到列表末尾。继续使用前一个示例中的列表，在其末尾添加新元素<code>'ducati'</code>
- ：</p>
-<pre class="代码无行号"><code>  motorcycles = ['honda', 'yamaha', 'suzuki']
-  print(motorcycles)
-❶ motorcycles.append('ducati')
-  print(motorcycles)</code>
-</pre>
-<p>方法<code>append()</code>
- 将元素<code>'ducati'</code>
- 添加到列表末尾（见❶），而不影响列表中的其他所有元素：</p>
-<pre class="代码无行号"><code>['honda', 'yamaha', 'suzuki']
-['honda', 'yamaha', 'suzuki', 'ducati']</code>
-</pre>
-<p>方法<code>append()</code>
- 让动态地创建列表易如反掌。例如，你可以先创建一个空列表，再使用一系列函数调用<code>append()</code>
- 来添加元素。下面来创建一个空列表，再在其中添加元素<code>'honda'</code>
- 、<code>'yamaha'</code>
- 和<code>'suzuki'</code>
- ：</p>
-<pre class="代码无行号"><code>motorcycles = []
-motorcycles.append('honda')
-motorcycles.append('yamaha')
-motorcycles.append('suzuki')
-print(motorcycles)</code>
-</pre>
-<p>最终的列表与前述示例中的列表完全相同：</p>
-<pre class="代码无行号"><code>['honda', 'yamaha', 'suzuki']</code>
-</pre>
-<p>这种创建列表的方式极其常见，因为经常要等程序运行后，你才知道用户要在程序中存储哪些数据。为控制用户，可首先创建一个空列表，用于存储用户将要输入的值，然后将用户提供的每个新值附加到列表中。<br/>
- </p>
-</li>
-<li value="2">
-<p>
-<strong>在列表中插入元素</strong>
-</p>
-<p>使用方法<code>insert()</code>
- 可在列表的任何位置添加新元素。为此，你需要指定新元素的索引和值。</p>
-<pre class="代码无行号"><code>  motorcycles = ['honda', 'yamaha', 'suzuki']
-❶ motorcycles.insert(0, 'ducati')
-  print(motorcycles)</code>
-</pre>
-<p>在这个示例中，值<code>'ducati'</code>
- 被插入到了列表开头（见❶）。方法<code>insert()</code>
- 在索引<code>0</code>
- 处添加空间，并将值<code>'ducati'</code>
- 存储到这个地方。这种操作将列表中既有的每个元素都右移一个位置：</p>
-<pre class="代码无行号"><code>['ducati', 'honda', 'yamaha', 'suzuki']</code>
-</pre>
-</li>
-</ol>
-<h3 id="nav_point_61">3.2.3　从列表中删除元素</h3>
-<p>你经常需要从列表中删除一个或多个元素。例如，玩家将空中的一个外星人射杀后，你很可能要将其从存活的外星人列表中删除；当用户在你创建的Web应用中注销账户时，你就需要将该用户从活动用户列表中删除。你可以根据位置或值来删除列表中的元素。</p>
-<ol>
-<li value="1">
-<p>
-<strong>使用<code>del</code>
- 语句删除元素</strong>
-</p>
-<p>如果知道要删除的元素在列表中的位置，可使用<code>del</code>
- 语句。</p>
-<pre class="代码无行号"><code>  motorcycles = ['honda', 'yamaha', 'suzuki']
-  print(motorcycles)
-❶ del motorcycles[0]
-  print(motorcycles)</code>
-</pre>
-<p>❶处的代码使用<code>del</code>
- 删除了列表<code>motorcycles</code>
- 中的第一个元素<code>'honda'</code>
- ：</p>
-<pre class="代码无行号"><code>['honda', 'yamaha', 'suzuki']
-['yamaha', 'suzuki']</code>
-</pre>
-<p>使用<code>del</code>
- 可删除任意位置处的列表元素，条件是知道其索引。例如，下面演示了如何删除前述列表中的第二个元素<code>'yamaha'</code>
- ：</p>
-<pre class="代码无行号"><code>motorcycles = ['honda', 'yamaha', 'suzuki']
-print(motorcycles)
-del motorcycles[1]
-print(motorcycles)</code>
-</pre>
-<p>下面的输出表明，已经将第二款摩托车从列表中删除了：</p>
-<pre class="代码无行号"><code>['honda', 'yamaha', 'suzuki']
-['honda', 'suzuki']</code>
-</pre>
-<p>在这两个示例中，使用<code>del</code>
- 语句将值从列表中删除后，你就无法再访问它了。</p>
-</li>
-<li value="2">
-<p>
-<strong>使用方法<code>pop()</code>
- 删除元素</strong>
-</p>
-<p>有时候，你要将元素从列表中删除，并接着使用它的值。例如，你可能需要获取刚被射杀的外星人的<img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/3_Image00003.gif"/>
- 坐标和<img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/3_Image00004.gif"/>
- 坐标，以便在相应的位置显示爆炸效果；在Web应用程序中，你可能要将用户从活跃成员列表中删除，并将其加入到非活跃成员列表中。</p>
-<p>方法<code>pop()</code>
- 删除列表末尾的元素，并让你能够接着使用它。术语<strong>弹出</strong>
- （pop）源自这样的类比：列表就像一个栈，而删除列表末尾的元素相当于弹出栈顶元素。</p>
-<p>下面来从列表<code>motorcycles</code>
- 中弹出一款摩托车：</p>
-<pre class="代码无行号"><code>❶ motorcycles = ['honda', 'yamaha', 'suzuki']
-  print(motorcycles)
-❷ popped_motorcycle = motorcycles.pop()
-❸ print(motorcycles)
-❹ print(popped_motorcycle)</code>
-</pre>
-<p>首先定义并打印列表<code>motorcycles</code>
- （见❶）。接下来，从这个列表中弹出一个值，并将其赋给变量<code>popped_motorcycle</code>
- 中（见❷）。然后打印这个列表，以核实从中删除了一个值（见❸）。最后打印弹出的值，以证明我们依然能够访问被删除的值（见❹）。</p>
-<p>输出表明，列表末尾的值<code>'suzuki'</code>
- 已删除，它现在被赋给了变量<code>popped_motorcycle</code>
- ：</p>
-<pre class="代码无行号"><code>['honda', 'yamaha', 'suzuki']
-['honda', 'yamaha']
-suzuki</code>
-</pre>
-<p>方法<code>pop()</code>
- 有什么用处呢？假设列表中的摩托车是按购买时间存储的，就可使用方法<code>pop()</code>
- 打印一条消息，指出最后购买的是哪款摩托车：</p>
-<pre class="代码无行号"><code>motorcycles = ['honda', 'yamaha', 'suzuki']
-last_owned = motorcycles.pop()
-print(f"The last motorcycle I owned was a {last_owned.title()}.")</code>
-</pre>
-<p>输出是一个简单的句子，指出了最新购买的是哪款摩托车：</p>
-<pre class="代码无行号"><code>The last motorcycle I owned was a Suzuki.</code>
-</pre>
-<p> </p>
-</li>
-<li value="3">
-<p>
-<strong>弹出列表中任何位置处的元素</strong>
-</p>
-<p>实际上，可以使用<code>pop()</code>
- 来删除列表中任意位置的元素，只需在圆括号中指定要删除元素的索引即可。</p>
-<pre class="代码无行号"><code>  motorcycles = ['honda', 'yamaha', 'suzuki']
-❶ first_owned = motorcycles.pop(0)
-❷ print(f"The first motorcycle I owned was a {first_owned.title()}.")</code>
-</pre>
-<p>首先弹出列表中的第一款摩托车（见❶），然后打印一条有关这辆摩托车的消息（见❷）。输出是一个简单的句子，描述了我购买的第一辆摩托车：</p>
-<pre class="代码无行号"><code>The first motorcycle I owned was a Honda.</code>
-</pre>
-<p>别忘了，每当你使用<code>pop()</code>
- 时，被弹出的元素就不再在列表中了。</p>
-<p>如果你不确定该使用<code>del</code>
- 语句还是<code>pop()</code>
- 方法，下面是一个简单的判断标准：如果你要从列表中删除一个元素，且不再以任何方式使用它，就使用<code>del</code>
- 语句；如果你要在删除元素后还能继续使用它，就使用方法<code>pop()</code>
- 。<br/>
- </p>
-</li>
-<li value="4">
-<p>
-<strong>根据值删除元素</strong>
-</p>
-<p>有时候，你不知道要从列表中删除的值所处的位置。如果只知道要删除的元素的值，可使用方法<code>remove()</code>
- 。</p>
-<p>例如，假设要从列表<code>motorcycles</code>
- 中删除值<code>'ducati'</code>
- 。</p>
-<pre class="代码无行号"><code>  motorcycles = ['honda', 'yamaha', 'suzuki', 'ducati']
-  print(motorcycles)
-❶ motorcycles.remove('ducati')
-  print(motorcycles)</code>
-</pre>
-<p>❶处的代码让Python确定<code>'ducati'</code>
- 出现在列表的什么地方，并将该元素删除：</p>
-<pre class="代码无行号"><code>['honda', 'yamaha', 'suzuki', 'ducati']
-['honda', 'yamaha', 'suzuki']</code>
-</pre>
-<p>使用<code>remove()</code>
- 从列表中删除元素时，也可接着使用它的值。下面删除值<code>'ducati'</code>
- 并打印一条消息，指出要将其从列表中删除的原因：</p>
-<pre class="代码无行号"><code>❶ motorcycles = ['honda', 'yamaha', 'suzuki', 'ducati']
-  print(motorcycles)
-❷ too_expensive = 'ducati'
-❸ motorcycles.remove(too_expensive)
-  print(motorcycles)
-❹ print(f"\nA {too_expensive.title()} is too expensive for me.")</code>
-</pre>
-<p>定义列表（见❶）后，将值<code>'ducati'</code>
- 赋给变量<code>too_expensive</code>
- （见❷）。接下来，使用这个变量来告诉Python将哪个值从列表中删除（见❸）。最后，值<code>'ducati'</code>
- 已经从列表中删除，但可通过变量<code>too_expensive</code>
- 来访问它（见❹）。这让我们能够打印一条消息，指出将<code>'ducati'</code>
- 从列表<code>motorcycles</code>
- 中删除的原因：</p>
-<pre class="代码无行号"><code>['honda', 'yamaha', 'suzuki', 'ducati']
-['honda', 'yamaha', 'suzuki']
-A Ducati is too expensive for me.</code>
-</pre>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　方法<code>remove()</code>
- 只删除第一个指定的值。如果要删除的值可能在列表中出现多次，就需要使用循环来确保将每个值都删除。这将在第7章中介绍。</p>
-</blockquote>
-<p>　</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>下面的练习比第2章的练习要复杂些，但让你有机会以前面介绍过的各种方式使用列表。</p>
-<p>
-<strong>练习3-4：嘉宾名单</strong>
- 　如果你可以邀请任何人一起共进晚餐（无论是在世的还是故去的），你会邀请哪些人？请创建一个列表，其中包含至少三个你想邀请的人，然后使用这个列表打印消息，邀请这些人来与你共进晚餐。</p>
-<p>
-<strong>练习3-5：修改嘉宾名单</strong>
- 　你刚得知有位嘉宾无法赴约，因此需要另外邀请一位嘉宾。</p>
-<ul>
-<li class="第3级无序列表">以完成练习3-4时编写的程序为基础，在程序末尾添加一条<code>print</code>
- 语句，指出哪位嘉宾无法赴约。</li>
-<li class="第3级无序列表">修改嘉宾名单，将无法赴约的嘉宾的姓名替换为新邀请的嘉宾的姓名。</li>
-<li class="第3级无序列表">再次打印一系列消息，向名单中的每位嘉宾发出邀请。</li>
-</ul>
-<p>
-<strong>练习3-6：添加嘉宾</strong>
- 　你刚找到了一个更大的餐桌，可容纳更多的嘉宾。请想想你还想邀请哪三位嘉宾。</p>
-<ul>
-<li class="第3级无序列表">以完成练习3-4或练习3-5时编写的程序为基础，在程序末尾添加一条<code>print</code>
- 语句，指出你找到了一个更大的餐桌。</li>
-<li class="第3级无序列表">使用<code>insert()</code>
- 将一位新嘉宾添加到名单开头。</li>
-<li class="第3级无序列表">使用<code>insert()</code>
- 将另一位新嘉宾添加到名单中间。</li>
-<li class="第3级无序列表">使用<code>append()</code>
- 将最后一位新嘉宾添加到名单末尾。</li>
-<li class="第3级无序列表">打印一系列消息，向名单中的每位嘉宾发出邀请。</li>
-</ul>
-<p>
-<strong>练习3-7：缩减名单</strong>
- 　你刚得知新购买的餐桌无法及时送达，因此只能邀请两位嘉宾。</p>
-<ul>
-<li class="第3级无序列表">以完成练习3-6时编写的程序为基础，在程序末尾添加一行代码，打印一条你只能邀请两位嘉宾共进晚餐的消息。</li>
-<li class="第3级无序列表">使用<code>pop()</code>
- 不断地删除名单中的嘉宾，直到只有两位嘉宾为止。每次从名单中弹出一位嘉宾时，都打印一条消息，让该嘉宾知悉你很抱歉，无法邀请他来共进晚餐。</li>
-<li class="第3级无序列表">对于余下两位嘉宾中的每一位，都打印一条消息，指出他依然在受邀人之列。</li>
-<li class="第3级无序列表">使用<code>del</code>
- 将最后两位嘉宾从名单中删除，让名单变成空的。打印该名单，核实程序结束时名单确实是空的。</li>
-</ul>
-</blockquote>
-</li>
-</ol>
-<h2 id="nav_point_62">3.3　组织列表</h2>
-<p>在你创建的列表中，元素的排列顺序常常是无法预测的，因为你并非总能控制用户提供数据的顺序。这虽然在大多数情况下是不可避免的，但你经常需要以特定的顺序呈现信息。有时候，你希望保留列表元素最初的排列顺序，而有时候又需要调整排列顺序。Python提供了很多组织列表的方式，可根据具体情况选用。</p>
-<h3 id="nav_point_63">3.3.1　使用方法<code>sort()</code>
- 对列表永久排序</h3>
-<p>Python方法<code>sort()</code>
- 让你能够较为轻松地对列表进行排序。假设你有一个汽车列表，并要让其中的汽车按字母顺序排列。为简化这项任务，假设该列表中的所有值都是小写的。</p>
-<p>
-<em>cars.py</em>
-</p>
-<pre class="代码无行号"><code>  cars = ['bmw', 'audi', 'toyota', 'subaru']
-❶ cars.sort()
-  print(cars)</code>
-</pre>
-<p>方法<code>sort()</code>
- （见❶）永久性地修改列表元素的排列顺序。现在，汽车是按字母顺序排列的，再也无法恢复到原来的排列顺序：</p>
-<pre class="代码无行号"><code>['audi', 'bmw', 'subaru', 'toyota']</code>
-</pre>
-<p>还可以按与字母顺序相反的顺序排列列表元素，只需向<code>sort()</code>
- 方法传递参数<code>reverse=True</code>
- 即可。下面的示例将汽车列表按与字母顺序相反的顺序排列：</p>
-<pre class="代码无行号"><code>cars = ['bmw', 'audi', 'toyota', 'subaru']
-cars.sort(reverse=True)
-print(cars)</code>
-</pre>
-<p>同样，对列表元素排列顺序的修改是永久性的：</p>
-<pre class="代码无行号"><code>['toyota', 'subaru', 'bmw', 'audi']</code>
-</pre>
-<h3 id="nav_point_64">3.3.2　使用函数<code>sorted()</code>
- 对列表临时排序</h3>
-<p>要保留列表元素原来的排列顺序，同时以特定的顺序呈现它们，可使用函数<code>sorted()</code>
- 。函数<code>sorted()</code>
- 让你能够按特定顺序显示列表元素，同时不影响它们在列表中的原始排列顺序。</p>
-<p>下面尝试来对汽车列表调用这个函数。</p>
-<pre class="代码无行号"><code>  cars = ['bmw', 'audi', 'toyota', 'subaru']
-❶ print("Here is the original list:")
-  print(cars)
-❷ print("\nHere is the sorted list:")
-  print(sorted(cars))
-❸ print("\nHere is the original list again:")
-  print(cars)</code>
-</pre>
-<p>首先按原始顺序打印列表（见❶），再按字母顺序显示该列表（见❷）。以特定顺序显示列表后，我们进行核实，确认列表元素的排列顺序与以前相同（见❸）。</p>
-<pre class="代码无行号"><code>  Here is the original list:
-  ['bmw', 'audi', 'toyota', 'subaru']
-  Here is the sorted list:
-  ['audi', 'bmw', 'subaru', 'toyota']
-❹ Here is the original list again:
-  ['bmw', 'audi', 'toyota', 'subaru']</code>
-</pre>
-<p>注意，调用函数<code>sorted()</code>
- 后，列表元素的排列顺序并没有变（见❹）。如果要按与字母顺序相反的顺序显示列表，也可向函数<code>sorted()</code>
- 传递参数<code>reverse=True</code>
- 。</p>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　在并非所有的值都是小写时，按字母顺序排列列表要复杂些。决定排列顺序时，有多种解读大写字母的方式，要指定准确的排列顺序，可能比我们这里所做的要复杂。然而，大多数排序方式是以本节介绍的知识为基础的。</p>
-</blockquote>
-<h3 id="nav_point_65">3.3.3　倒着打印列表</h3>
-<p>要反转列表元素的排列顺序，可使用方法<code>reverse()</code>
- 。假设汽车列表是按购买时间排列的，可轻松地按相反的顺序排列其中的汽车：</p>
-<pre class="代码无行号"><code>cars = ['bmw', 'audi', 'toyota', 'subaru']
-print(cars)
-cars.reverse()
-print(cars)</code>
-</pre>
-<p>注意，<code>reverse()</code>
- 不是按与字母顺序相反的顺序排列列表元素，而只是反转列表元素的排列顺序：</p>
-<pre class="代码无行号"><code>['bmw', 'audi', 'toyota', 'subaru']
-['subaru', 'toyota', 'audi', 'bmw']</code>
-</pre>
-<p>方法<code>reverse()</code>
- 永久性地修改列表元素的排列顺序，但可随时恢复到原来的排列顺序，只需对列表再次调用<code>reverse()</code>
- 即可。</p>
-<h3 id="nav_point_66">3.3.4　确定列表的长度</h3>
-<p>使用函数<code>len()</code>
- 可快速获悉列表的长度。在下面的示例中，列表包含四个元素，因此其长度为<code>4</code>
- ：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; cars = ['bmw', 'audi', 'toyota', 'subaru']
-&gt;&gt;&gt; len(cars)
-4</code>
-</pre>
-<p>需要完成如下任务时，<code>len()</code>
- 很有用：明确还有多少个外星人未被射杀，确定需要管理多少项可视化数据，计算网站有多少注册用户，等等。</p>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　Python计算列表元素数时从1开始，因此确定列表长度时，你应该不会遇到差一错误。</p>
-</blockquote>
-<p>　</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>
-<strong>练习3-8：放眼世界</strong>
- 　想出至少5个你渴望去旅游的地方。</p>
-<p>将这些地方存储在一个列表中，并确保其中的元素不是按字母顺序排列的。</p>
-<p>按原始排列顺序打印该列表。不要考虑输出是否整洁的问题，只管打印原始Python列表。</p>
-<ul>
-<li class="第2级无序列表">使用<code>sorted()</code>
- 按字母顺序打印这个列表，同时不要修改它。</li>
-<li class="第2级无序列表">再次打印该列表，核实排列顺序未变。</li>
-<li class="第2级无序列表">使用<code>sorted()</code>
- 按与字母顺序相反的顺序打印这个列表，同时不要修改它。</li>
-<li class="第2级无序列表">再次打印该列表，核实排列顺序未变。</li>
-<li class="第2级无序列表">使用<code>reverse()</code>
- 修改列表元素的排列顺序。打印该列表，核实排列顺序确实变了。</li>
-<li class="第2级无序列表">使用<code>reverse()</code>
- 再次修改列表元素的排列顺序。打印该列表，核实已恢复到原来的排列顺序。</li>
-<li class="第2级无序列表">使用<code>sort()</code>
- 修改该列表，使其元素按字母顺序排列。打印该列表，核实排列顺序确实变了。</li>
-<li class="第2级无序列表">使用<code>sort()</code>
- 修改该列表，使其元素按与字母顺序相反的顺序排列。打印该列表，核实排列顺序确实变了。</li>
-</ul>
-<p>
-<strong>练习3-9：晚餐嘉宾</strong>
- 　在完成练习3-4~练习3-7时编写的程序之一中，使用<code>len()</code>
- 打印一条消息，指出你邀请了多少位嘉宾来共进晚餐。</p>
-<p>
-<strong>练习3-10：尝试使用各个函数</strong>
- 　想想可存储到列表中的东西，如山川、河流、国家、城市、语言或你喜欢的任何东西。编写一个程序，在其中创建一个包含这些元素的列表，然后，对于本章介绍的每个函数，都至少使用一次来处理这个列表。</p>
-</blockquote>
-<h2 id="nav_point_67">3.4　使用列表时避免索引错误</h2>
-<p>刚开始使用列表时，经常会遇到一种错误。假设你有一个包含三个元素的列表，却要求获取第四个元素：</p>
-<p>
-<em>motorcycles.py</em>
-</p>
-<pre class="代码无行号"><code>motorcycles = ['honda', 'yamaha', 'suzuki']
-print(motorcycles[3])</code>
-</pre>
-<p>这将导致<strong>索引错误</strong>
- ：</p>
-<pre class="代码无行号"><code>Traceback (most recent call last):
-  File "motorcycles.py", line 2, in &lt;module&gt;
-    print(motorcycles[3])
-IndexError: list index out of range</code>
-</pre>
-<p>Python试图向你提供位于索引<code>3</code>
- 处的元素，但它搜索列表<code>motorcycles</code>
- 时，却发现索引<code>3</code>
- 处没有元素。鉴于列表索引差一的特征，这种错误很常见。有些人从1开始数，因此以为第三个元素的索引为3。然而在Python中，第三个元素的索引为2，因为索引是从0开始的。</p>
-<p>索引错误意味着Python在指定索引处找不到元素。程序发生索引错误时，请尝试将指定的索引减1，然后再次运行程序，看看结果是否正确。</p>
-<p>别忘了，每当需要访问最后一个列表元素时，都可使用索引<code>-1</code>
- 。这在任何情况下都行之有效，即便你最后一次访问列表后，其长度发生了变化：</p>
-<pre class="代码无行号"><code>motorcycles = ['honda', 'yamaha', 'suzuki']
-print(motorcycles[-1])</code>
-</pre>
-<p>索引<code>-1</code>
- 总是返回最后一个列表元素，这里为值<code>'suzuki'</code>
- ：</p>
-<pre class="代码无行号"><code>'suzuki'</code>
-</pre>
-<p>仅当列表为空时，这种访问最后一个元素的方式才会导致错误：</p>
-<pre class="代码无行号"><code>motorcycles = []
-print(motorcycles[-1])</code>
-</pre>
-<p>列表<code>motorcycles</code>
- 不包含任何元素，因此Python返回一条索引错误消息：</p>
-<pre class="代码无行号"><code>Traceback (most recent call last):
-  File "motorcyles.py", line 3, in &lt;module&gt;
-    print(motorcycles[-1])
-IndexError: list index out of range</code>
-</pre>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　发生索引错误却找不到解决办法时，请尝试将列表或其长度打印出来。列表可能与你以为的截然不同，在程序对其进行了动态处理时尤其如此。通过查看列表或其包含的元素数，可帮助你找出这种逻辑错误。</p>
-</blockquote>
-<p>　</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>
-<strong>练习3-11：有意引发错误</strong>
- 　如果你还没有在程序中遇到过索引错误，就尝试引发一个这种错误。在你的一个程序中，修改其中的索引，以引发索引错误。关闭程序前，务必消除这个错误。</p>
-</blockquote>
-<h2 id="nav_point_68">3.5　小结</h2>
-<p>在本章中，你学习了：列表是什么以及如何使用其中的元素；如何定义列表以及如何增删元素；如何对列表进行永久性排序，以及如何为展示列表而进行临时排序；如何确定列表的长度，以及在使用列表时如何避免索引错误。</p>
-<p>在第4章，你将学习如何以更高效的方式处理列表元素。通过使用为数不多的几行代码来遍历列表元素，你就能高效地处理它们，即便列表包含数千乃至数百万个元素。</p>
-<br style="page-break-after:always"/>
-<div></div>
-]]></description>
-    <pubDate>Sat, 04 Jul 2026 01:55:23 +0000</pubDate>
-    <guid isPermaLink="false">3</guid>
 </item>
 </channel>
 </rss>
