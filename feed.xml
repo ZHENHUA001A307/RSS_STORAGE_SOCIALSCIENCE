@@ -5,6 +5,1213 @@
     <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
     <description>从 EPUB 自动生成的 RSS 订阅源</description>
         <item>
+    <title>Basic Python - 019 - 第 19 章 用户账户.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：142 分钟 (28371 字)</p><hr><h1 id="nav_point_442">第 19 章　用户账户</h1>
+<blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/19_Image00001.gif" style="width: 16%" width="16%"/>
+ 　Web应用程序的核心是让任何用户都能够注册账户并能够使用它，不管用户身处何方。在本章中，我们将创建一些表单，让用户能够添加主题和条目，以及编辑既有的条目。我们还将学习Django如何防范对基于表单的页面发起的常见攻击，从而无须花太多时间考虑确保应用程序安全的问题。</p>
+</blockquote>
+<p>然后，我们将实现一个用户身份验证系统。首先创建一个注册页面，供用户创建账户，并让有些页面只能供已登录的用户访问。接下来，修改一些视图函数，使得用户只能看到自己的数据。我们还将学习如何确保用户数据的安全。</p>
+<h2 id="nav_point_443">19.1　让用户输入数据</h2>
+<p>建立用于创建用户账户的身份验证系统之前，我们先来添加几个页面，让用户能够输入数据。我们将让用户添加新主题，添加新条目以及编辑既有条目。</p>
+<p>当前，只有超级用户能够通过管理网站输入数据。我们不想让用户与管理网站交互，因此我们将使用Django的表单创建工具来创建让用户能够输入数据的页面。</p>
+<h3 id="nav_point_444">19.1.1　添加新主题</h3>
+<p>首先来让用户能够添加新主题。创建基于表单的页面的方法几乎与前面创建页面一样：定义URL，编写视图函数并编写一个模板。一个主要差别是，需要导入包含表单的模块forms.py。</p>
+<ol>
+<li value="1">
+<p>
+<strong>用于添加主题的表单</strong>
+</p>
+<p>让用户输入并提交信息的页面都是表单，那怕看起来不像。用户输入信息时，我们需要进行验证，确认提供的信息是正确的数据类型，而不是恶意的信息，如中断服务器的代码。然后，对这些有效信息进行处理，并将其保存到数据库的合适地方。这些工作很多都是由Django自动完成的。</p>
+<p>在Diango中，创建表单的最简单方式是使用<code>ModelForm</code>
+ ，它根据我们在第18章定义的模型中的信息自动创建表单。请创建一个名为forms.py的文件，将其存储到models.py所在的目录，并在其中编写你的第一个表单：</p>
+<p>
+<em>forms.py</em>
+</p>
+<pre class="代码无行号"><code>  from django import forms
+  from .models import Topic
+❶ class TopicForm(forms.ModelForm):
+      class Meta:
+❷         model = Topic
+❸         fields = ['text']
+❹         labels = {'text': ''}</code>
+</pre>
+<p>首先导入模块<code>forms</code>
+ 以及要使用的模型<code>Topic</code>
+ 。在❶处，定义一个名为<code>TopicForm</code>
+ 的类，它继承了<code>forms.ModelForm</code>
+ 。</p>
+<p>最简单的<code>ModelForm</code>
+ 版本只包含一个内嵌的<code>Meta</code>
+ 类，让Django根据哪个模型创建表单以及在表单中包含哪些字段。在❷处，根据模型<code>Topic</code>
+ 创建表单，其中只包含字段<code>text</code>
+ （见❸）。❹处的代码让Django不要为字段<code>text</code>
+ 生成标签。<br/>
+ </p>
+</li>
+<li value="2">
+<p>
+<strong>URL模式<code>new_topic</code>
+</strong>
+</p>
+<p>新页面的URL应简短且具有描述性，因此当用户要添加新主题时，我们切换到http://localhost:8000/new_topic/。下面是页面<code>new_topic</code>
+ 的URL模式，请将其添加到learning_logs/ urls.py中：</p>
+<p>
+<em>urls.py</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+urlpatterns = [
+    --snip--
+    # 用于添加新主题的页面。
+    path('new_topic/', views.new_topic, name='new_topic'),
+]</code>
+</pre>
+<p>这个URL模式将请求交给视图函数<code>new_topic()</code>
+ ，下面来编写这个函数。<br/>
+ </p>
+</li>
+<li value="3">
+<p>
+<strong>视图函数<code>new_topic()</code>
+</strong>
+</p>
+<p>函数<code>new_topic()</code>
+ 需要处理两种情形。一是刚进入<code>new_topic</code>
+ 页面（在这种情况下应显示空表单）；二是对提交的表单数据进行处理，并将用户重定向到页面<code>topics</code>
+ ：</p>
+<p>
+<em>views.py</em>
+</p>
+<pre class="代码无行号"><code>  from django.shortcuts import render, redirect
+  from .models import Topic
+  from .forms import TopicForm
+  --snip--
+  def new_topic(request):
+      """添加新主题。"""
+❶     if request.method != 'POST':
+          # 未提交数据：创建一个新表单。
+❷         form = TopicForm()
+      else:
+          # POST提交的数据：对数据进行处理。
+❸         form = TopicForm(data=request.POST)
+❹         if form.is_valid():
+❺             form.save()
+❻             return redirect('learning_logs:topics')
+      # 显示空表单或指出表单数据无效。
+❼     context = {'form': form}
+      return render(request, 'learning_logs/new_topic.html', context)</code>
+</pre>
+<p>我们导入了函数<code>redirect</code>
+ ，用户提交主题后将使用这个函数重定向到页面<code>topics</code>
+ 。函数<code>redirect</code>
+ 将视图名作为参数，并将用户重定向到这个视图。我们还导入了刚创建的表单<code>TopicForm</code>
+ 。<br/>
+ </p>
+</li>
+<li value="4">
+<p>
+<strong>GET请求和POST请求</strong>
+</p>
+<p>创建Web应用程序时，将用到的两种主要请求类型是GET请求和POST请求。对于只是从服务器读取数据的页面，使用<strong>GET</strong>
+ 请求；在用户需要通过表单提交信息时，通常使用<strong>POST</strong>
+ 请求。处理所有表单时，都将指定使用POST方法。还有一些其他类型的请求，但本项目没有使用。</p>
+<p>函数<code>new_topic()</code>
+ 将请求对象作为参数。用户初次请求该页面时，其浏览器将发送GET请求；用户填写并提交表单时，其浏览器将发送POST请求。根据请求的类型，可确定用户请求的是空表单（GET请求）还是要求对填写好的表单进行处理（POST请求）。</p>
+<p>❶处的测试确定请求方法是GET还是POST。如果请求方法不是POST，请求就可能是GET，因此需要返回一个空表单。（即便请求是其他类型的，返回空表单也不会有任何问题。）❷处创建一个<code>TopicForm</code>
+ 实例，将其赋给变量<code>form</code>
+ ，再通过上下文字典将这个表单发送给模板（见❼）。由于实例化<code>TopicForm</code>
+ 时没有指定任何实参，Django将创建一个空表单，供用户填写。</p>
+<p>如果请求方法为POST，将执行<code>else</code>
+ 代码块，对提交的表单数据进行处理。我们使用用户输入的数据（存储在<code>request.POST</code>
+ 中）创建一个<code>TopicForm</code>
+ 实例（见❸），这样对象<code>form</code>
+ 将包含用户提交的信息。</p>
+<p>要将提交的信息保存到数据库，必须先通过检查确定它们是有效的（见❹）。方法<code>is_valid()</code>
+ 核实用户填写了所有必不可少的字段（表单字段默认都是必不可少的），且输入的数据与要求的字段类型一致（例如，字段<code>text</code>
+ 少于200字符，这是第18章在models.py中指定的）。这种自动验证避免了我们去做大量的工作。如果所有字段都有效，就可调用<code>save()</code>
+ （见❺），将表单中的数据写入数据库。</p>
+<p>保存数据后，就可离开这个页面了。为此，使用<code>redirect()</code>
+ 将用户的浏览器重定向到页面<code>topics</code>
+ （见❻）。在页面<code>topics</code>
+ 中，用户将在主题列表中看到他刚输入的主题。</p>
+<p>我们在这个视图函数的末尾定义了变量<code>context</code>
+ ，并使用稍后将创建的模板new_topic.html来渲染页面。这些代码不在<code>if</code>
+ 代码块内，因此无论是用户刚进入<code>new_topic</code>
+ 页面还是提交的表单数据无效，这些代码都将执行。用户提交的表单数据无效时，将显示一些默认的错误消息，帮助用户提供有效的数据。<br/>
+ </p>
+</li>
+<li value="5">
+<p>
+<strong>模板<code>new_topic</code>
+</strong>
+</p>
+<p>下面来创建新模板new_topic.html，用于显示刚创建的表单：</p>
+<p>
+<em>new_topic.html</em>
+</p>
+<pre class="代码无行号"><code>  {% extends "learning_logs/base.html" %}
+  {% block content %}
+    &lt;p&gt;Add a new topic:&lt;/p&gt;
+❶   &lt;form action="{% url 'learning_logs:new_topic' %}" method='post'&gt;
+❷     {% csrf_token %}
+❸     {{ form.as_p }}
+❹     &lt;button name="submit"&gt;Add topic&lt;/button&gt;
+    &lt;/form&gt;
+  {% endblock content %}</code>
+</pre>
+<p>这个模板继承了base.html，因此其基本结构与项目“学习笔记”的其他页面相同。在❶处，定义了一个HTML表单。实参<code>action</code>
+ 告诉服务器将提交的表单数据发送到哪里。这里将它发回给视图函数<code>new_topic()</code>
+ 。实参<code>method</code>
+ 让浏览器以POST请求的方式提交数据。</p>
+<p>Django使用模板标签<code>{% csrf_token %}</code>
+ （见❷）来防止攻击者利用表单来获得对服务器未经授权的访问（这种攻击称为<strong>跨站请求伪造</strong>
+ ）。❸处显示表单，从中可知Django使得完成显示表单等任务有多简单：只需包含模板变量<code>{{ form.as_p }}</code>
+ ，就可让Django自动创建显示表单所需的全部字段。修饰符<code>as_p</code>
+ 让Django以段落格式渲染所有表单元素，这是一种整洁地显示表单的简单方式。</p>
+<p>Django不会为表单创建提交按钮，因此我们在❹处定义了一个。<br/>
+ </p>
+</li>
+<li value="6">
+<p>
+<strong>链接到页面<code>new_topic</code>
+</strong>
+</p>
+<p>下面在页面<code>topics</code>
+ 中添加到页面<code>new_topic</code>
+ 的链接：</p>
+<p>
+<em>topics.html</em>
+</p>
+<pre class="代码无行号"><code>{% extends "learning_logs/base.html" %}
+{% block content %}
+  &lt;p&gt;Topics&lt;/p&gt;
+  &lt;ul&gt;
+    --snip--
+  &lt;/ul&gt;
+  &lt;a href="{% url 'learning_logs:new_topic' %}"&gt;Add a new topic&lt;/a&gt;
+{% endblock content %}</code>
+</pre>
+<p>这个链接放在既有主题列表的后面。图19-1显示了生成的表单。请使用这个表单来添加几个新主题。</p>
+<p class="p-img"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/19_Image00052.gif" style="width: 90%" width="90%"/>
+</p>
+<p>
+<strong>图19-1　用于添加新主题的页面</strong>
+</p>
+</li>
+</ol>
+<h3 id="nav_point_445">19.1.2　添加新条目</h3>
+<p>可以添加新主题之后，用户还会想添加几个新条目。我们将再次定义URL，编写视图函数和模板，并且链接到添加新条目的页面。但在此之前，需要在forms.py中再添加一个类。</p>
+<ol>
+<li value="1">
+<p>
+<strong>用于添加新条目的表单</strong>
+</p>
+<p>我们需要创建一个与模型<code>Entry</code>
+ 相关联的表单，但这个表单的定制程度比<code>TopicForm</code>
+ 更高一些：</p>
+<p>
+<em>forms.py</em>
+</p>
+<pre class="代码无行号"><code>  from django import forms
+  from .models import Topic, Entry
+  class TopicForm(forms.ModelForm):
+      --snip--
+  class EntryForm(forms.ModelForm):
+      class Meta:
+          model = Entry
+          fields = ['text']
+❶         labels = {'text': ' '}
+❷         widgets = {'text': forms.Textarea(attrs={'cols': 80})}</code>
+</pre>
+<p>首先修改<code>import</code>
+ 语句，使其除导入<code>Topic</code>
+ 外，还导入<code>Entry</code>
+ 。新类<code>EntryForm</code>
+ 继承了<code>forms.ModelForm</code>
+ ，它包含的<code>Meta</code>
+ 类指出了表单基于的模型以及要在表单中包含哪些字段。这里给字段<code>'text'</code>
+ 指定了标签<code>'Entry:'</code>
+ （见❶）。</p>
+<p>在❷处，我们定义了属性<code>widgets</code>
+ 。<strong>小部件</strong>
+ （widget）是一个HTML表单元素，如单行文本框、多行文本区域或下拉列表。通过设置属性<code>widgets</code>
+ ，可覆盖Django选择的默认小部件。通过让Django使用<code>forms.Textarea</code>
+ ，我们定制了字段<code>'text'</code>
+ 的输入小部件，将文本区域的宽度设置为80列，而不是默认的40列。这给用户提供了足够的空间来编写有意义的条目。<br/>
+ </p>
+</li>
+<li value="2">
+<p>
+<strong>URL模式<code>new_entry</code>
+</strong>
+</p>
+<p>在用于添加新条目的页面的URL模式中，需要包含实参<code>topic_id</code>
+ ，因为条目必须与特定的主题相关联。该URL模式如下，请将它添加到learning_logs/urls.py中：</p>
+<p>
+<em>urls.py</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+urlpatterns = [
+    --snip--
+    # 用于添加新条目的页面。
+    path('new_entry/&lt;int:topic_id&gt;/', views.new_entry, name='new_entry'),
+]</code>
+</pre>
+<p>这个URL模式与形如<code>http://localhost:8000/new_entry/<i>id</i>
+ /</code>
+ 的URL匹配，其中的<code>
+<i>id</i>
+</code>
+ 是一个与主题ID匹配的数。代码<code>&lt;int:topic_id&gt;</code>
+ 捕获一个数值，并将其赋给变量<code>topic_id</code>
+ 。请求的URL与这个模式匹配时，Django将请求和主题ID发送给函数<code>new_entry()</code>
+ 。<br/>
+ </p>
+</li>
+<li value="3">
+<p>
+<strong>视图函数<code>new_entry()</code>
+</strong>
+</p>
+<p>视图函数<code>new_entry()</code>
+ 与函数<code>new_topic()</code>
+ 很像，请在views.py中添加如下代码：</p>
+<p>
+<em>views.py</em>
+</p>
+<pre class="代码无行号"><code>  from django.shortcuts import render, redirect
+  from .models import Topic
+  from .forms import TopicForm, EntryForm
+  --snip--
+  def new_entry(request, topic_id):
+      """在特定主题中添加新条目。"""
+❶     topic = Topic.objects.get(id=topic_id)
+❷     if request.method != 'POST':
+          # 未提交数据：创建一个空表单。
+❸         form = EntryForm()
+      else:
+          # POST提交的数据：对数据进行处理。
+❹         form = EntryForm(data=request.POST)
+          if form.is_valid():
+❺             new_entry = form.save(commit=False)
+❻             new_entry.topic = topic
+              new_entry.save()
+❼             return redirect('learning_logs:topic', topic_id=topic_id)
+      # 显示空表单或指出表单数据无效。
+      context = {'topic': topic, 'form': form}
+      return render(request, 'learning_logs/new_entry.html', context)</code>
+</pre>
+<p>我们修改<code>import</code>
+ 语句，在其中包含刚创建的<code>EntryForm</code>
+ 。<code>new_entry()</code>
+ 的定义包含形参<code>topic_id</code>
+ ，用于存储从URL中获得的值。渲染页面和处理表单数据时，都需要知道针对的是哪个主题，因此使用<code>topic_id</code>
+ 来获得正确的主题（见❶）。</p>
+<p>在❷处，检查请求方法是POST还是GET。如果是GET请求，就执行<code>if</code>
+ 代码块，创建一个空的<code>EntryForm</code>
+ 实例（见❸）。如果请求方法为POST，就对数据进行处理：创建一个<code>EntryForm</code>
+ 实例，使用<code>request</code>
+ 对象中的POST数据来填充它（见❹）。然后检查表单是否有效。如果有效，就设置条目对象的属性<code>topic</code>
+ ，再将条目对象保存到数据库。</p>
+<p>调用<code>save()</code>
+ 时，传递实参<code>commit=False</code>
+ （见❺），让Django创建一个新的条目对象，并将其赋给<code>new_entry</code>
+ ，但不保存到数据库中。将<code>new_entry</code>
+ 的属性<code>topic</code>
+ 设置为在这个函数开头从数据库中获取的主题（见❻），再调用<code>save()</code>
+ 且不指定任何实参。这将把条目保存到数据库，并将其与正确的主题相关联。</p>
+<p>在❼处，调用<code>redirect()</code>
+ ，它要求提供两个参数：要重定向到的视图和要给视图函数提供的参数。这里重定向到<code>topic()</code>
+ ，而这个视图函数需要参数<code>topic_id</code>
+ 。视图函数<code>topic()</code>
+ 渲染新增条目所属主题的页面，其中的条目列表包含新增的条目。</p>
+<p>在视图函数<code>new_entry()</code>
+ 的末尾，我们创建了一个上下文字典，并使用模板new_entry.html渲染页面。这些代码将在用户刚进入页面或提交的表单数据无效时执行。<br/>
+ </p>
+</li>
+<li value="4">
+<p>
+<strong>模板<code>new_entry</code>
+</strong>
+</p>
+<p>模板<code>new_entry</code>
+ 类似于模板<code>new_topic</code>
+ ，如下面的代码所示：</p>
+<p>
+<em>new_entry.html</em>
+</p>
+<pre class="代码无行号"><code>  {% extends "learning_logs/base.html" %}
+  {% block content %}
+❶   &lt;p&gt;&lt;a href="{% url 'learning_logs:topic' topic.id %}"&gt;{{ topic }}&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;Add a new entry:&lt;/p&gt;
+❷   &lt;form action="{% url 'learning_logs:new_entry' topic.id %}" method='post'&gt;
+      {% csrf_token %}
+      {{ form.as_p }}
+      &lt;button name='submit'&gt;Add entry&lt;/button&gt;
+    &lt;/form&gt;
+  {% endblock content %}</code>
+</pre>
+<p>在页面顶端显示主题（见❶），让用户知道自己是在哪个主题中添加条目。该主题名也是一个链接，可用于返回到该主题的主页面。</p>
+<p>表单的实参<code>action</code>
+ 包含URL中的<code>topic_id</code>
+ 值，让视图函数能够将新条目关联到正确的主题（见❷）。除此之外，这个模板与模板new_topic.html完全相同。<br/>
+ </p>
+</li>
+<li value="5">
+<p>
+<strong>链接到页面<code>new_entry</code>
+</strong>
+</p>
+<p>接下来，需要在显示特定主题的页面中添加到页面<code>new_entry</code>
+ 的链接：</p>
+<p>
+<em>topic.html</em>
+</p>
+<pre class="代码无行号"><code>{% extends "learning_logs/base.html" %}
+{% block content %}
+  &lt;p&gt;Topic: {{ topic }}&lt;/p&gt;
+  &lt;p&gt;Entries:&lt;/p&gt;
+  &lt;p&gt;
+    &lt;a href="{% url 'learning_logs:new_entry' topic.id %}"&gt;Add new entry&lt;/a&gt;
+  &lt;/p&gt;
+  &lt;ul&gt;
+  --snip--
+  &lt;/ul&gt;
+{% endblock content %}</code>
+</pre>
+<p>我们将这个链接放在条目列表前面，因为在这种页面中，执行的最常见的操作是添加新条目。图19-2显示了页面<code>new_entry</code>
+ 。现在用户可添加新主题，还可在每个主题中添加任意数量的条目。请在一些主题中添加新条目，尝试使用一下页面<code>new_entry</code>
+ 。</p>
+<p class="p-img"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/19_Image00053.gif" style="width: 90%" width="90%"/>
+</p>
+<p>
+<strong>图19-2　页面<code>new_entry</code>
+</strong>
+</p>
+</li>
+</ol>
+<h3 id="nav_point_446">19.1.3　编辑条目</h3>
+<p>下面来创建让用户能够编辑既有条目的页面。</p>
+<ol>
+<li value="1">
+<p>
+<strong>URL模式<code>edit_entry</code>
+</strong>
+</p>
+<p>这个页面的URL需要传递要编辑的条目的ID。修改后的learning_logs/urls.py如下：</p>
+<p>
+<em>urls.py</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+urlpatterns = [
+    --snip--
+    # 用于编辑条目的页面。
+    path('edit_entry/&lt;int:entry_id&gt;/', views.edit_entry, name='edit_entry'),
+]</code>
+</pre>
+<p>在URL（如http://localhost:8000/edit_entry/1/）中传递的ID存储在形参<code>entry_id</code>
+ 中。这个URL模式将与其匹配的请求发送给视图函数<code>edit_entry()</code>
+ 。<br/>
+ </p>
+</li>
+<li value="2">
+<p>
+<strong>视图函数<code>edit_entry()</code>
+</strong>
+</p>
+<p>页面<code>edit_entry</code>
+ 收到GET请求时，<code>edit_entry()</code>
+ 将返回一个表单，让用户能够对条目进行编辑；收到POST请求（条目文本经过修订）时，则将修改后的文本保存到数据库：</p>
+<p>
+<em>views.py</em>
+</p>
+<pre class="代码无行号"><code>  from django.shortcuts import render, redirect
+  from .models import Topic, Entry
+  from .forms import TopicForm, EntryForm
+  --snip--
+  def edit_entry(request, entry_id):
+      """编辑既有条目。"""
+❶     entry = Entry.objects.get(id=entry_id)
+      topic = entry.topic
+      if request.method != 'POST':
+          # 初次请求：使用当前条目填充表单。
+❷         form = EntryForm(instance=entry)
+      else:
+          # POST提交的数据：对数据进行处理。
+❸         form = EntryForm(instance=entry, data=request.POST)
+          if form.is_valid():
+❹             form.save()
+❺             return redirect('learning_logs:topic', topic_id=topic.id)
+      context = {'entry': entry, 'topic': topic, 'form': form}
+      return render(request, 'learning_logs/edit_entry.html', context)</code>
+</pre>
+<p>首先导入模型<code>Entry</code>
+ 。在❶处，获取用户要修改的条目对象以及与其相关联的主题。在请求方法为GET时将执行的<code>if</code>
+ 代码块中，使用实参<code>instance=entry</code>
+ 创建一个<code>EntryForm</code>
+ 实例（见❷）。这个实参让Django创建一个表单，并使用既有条目对象中的信息填充它。用户将看到既有的数据，并且能够编辑。</p>
+<p>处理POST请求时，传递实参<code>instance=entry</code>
+ 和<code>data=request.POST</code>
+ （见❸），让Django根据既有条目对象创建一个表单实例，并根据<code>request.POST</code>
+ 中的相关数据对其进行修改。然后，检查表单是否有效。如果有效，就调用<code>save()</code>
+ 且不指定任何实参（见❹），因为条目已关联到特定的主题。然后，重定向到显示条目所属主题的页面（见❺），用户将在其中看到其编辑的条目的新版本。</p>
+<p>如果要显示表单让用户编辑条目或者用户提交的表单无效，就创建上下文字典并使用模板edit_entry.html渲染页面。<br/>
+ </p>
+</li>
+<li value="3">
+<p>
+<strong>模板<code>edit_entry</code>
+</strong>
+</p>
+<p>下面来创建模板edit_entry.html，它与模板new_entry.html类似：</p>
+<p>
+<em>edit_entry.html</em>
+</p>
+<pre class="代码无行号"><code>  {% extends "learning_logs/base.html" %}
+  {% block content %}
+    &lt;p&gt;&lt;a href="{% url 'learning_logs:topic' topic.id %}"&gt;{{ topic }}&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;Edit entry:&lt;/p&gt;
+❶   &lt;form action="{% url 'learning_logs:edit_entry' entry.id %}" method='post'&gt;
+      {% csrf_token %}
+      {{ form.as_p }}
+❷     &lt;button name="submit"&gt;Save changes&lt;/button&gt;
+    &lt;/form&gt;
+  {% endblock content %}</code>
+</pre>
+<p>在❶处，实参<code>action</code>
+ 将表单发送给函数<code>edit_entry()</code>
+ 处理。在标签<code>{% url %}</code>
+ 中，将条目ID作为一个实参，让视图函数<code>edit_entry()</code>
+ 能够修改正确的条目对象。在❷处，将提交按钮的标签设置成Save changes，旨在提醒用户：单击该按钮将保存所做的编辑，而不是创建一个新条目。<br/>
+ </p>
+</li>
+<li value="4">
+<p>
+<strong>链接到页面<code>edit_entry</code>
+</strong>
+</p>
+<p>现在，需要在显示特定主题的页面中给每个条目添加到页面<code>edit_entry</code>
+ 的链接：</p>
+<p>
+<em>topic.html</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+  {% for entry in entries %}
+    &lt;li&gt;
+      &lt;p&gt;{{ entry.date_added|date:'M d, Y H:i' }}&lt;/p&gt;
+      &lt;p&gt;{{ entry.text|linebreaks }}&lt;/p&gt;
+      &lt;p&gt;
+        &lt;a href="{% url 'learning_logs:edit_entry' entry.id %}"&gt;Edit entry&lt;/a&gt;
+      &lt;/p&gt;
+    &lt;/li&gt;
+--snip--</code>
+</pre>
+<p>将编辑链接放在了每个条目的日期和文本后面。在循环中，使用模板标签<code>{% url %}</code>
+ 根据URL模式<code>edit_entry</code>
+ 和当前条目的ID属性（<code>entry.id</code>
+ ）来确定URL。链接文本为Edit entry，它出现在页面中每个条目的后面。图19-3显示了包含这些链接时，显示特定主题的页面是什么样的。</p>
+<p class="p-img"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/19_Image00054.jpg" style="width: 90%" width="90%"/>
+</p>
+<p>
+<strong>图19-3　每个条目都有一个用于编辑的链接</strong>
+</p>
+<p>至此，“学习笔记”已具备了需要的大部分功能。用户可添加主题和条目，还可根据需要查看任何条目。在下一节，我们将实现一个用户注册系统，让任何人都可向“学习笔记”申请账户，并创建自己的主题和条目。</p>
+</li>
+</ol>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习19-1：博客</strong>
+ 　新建一个Django项目，将其命名为Blog。在这个项目中，创建一个名为<code>blogs</code>
+ 的应用程序，并在其中创建一个名为<code>BlogPost</code>
+ 的模型。这个模型应包含<code>title</code>
+ 、<code>text</code>
+ 和<code>date_added</code>
+ 等字段。为这个项目创建一个超级用户，并使用管理网站创建几个简短的帖子。创建一个主页，在其中按时间顺序显示所有的帖子。</p>
+<p>创建两个表单，其中一个用于发布新帖子，另一个用于编辑既有的帖子。尝试填写这些表单，确认它们能够正确工作。</p>
+</blockquote>
+<h2 id="nav_point_447">19.2　创建用户账户</h2>
+<p>本节将建立用户注册和身份验证系统，让用户能够注册账户，进而登录和注销。为此，我们将新建一个应用程序，其中包含与处理用户账户相关的所有功能。这个应用程序将尽可能使用Django自带的用户身份验证系统来完成工作。本节还将对模型<code>Topic</code>
+ 稍做修改，让每个主题都归属于特定用户。</p>
+<h3 id="nav_point_448">19.2.1　应用程序<code>users</code>
+</h3>
+<p>首先使用命令<code>startapp</code>
+ 创建一个名为<code>users</code>
+ 的应用程序：</p>
+<pre class="代码无行号"><code>  (ll_env)learning_log$ python manage.py startapp users
+  (ll_env)learning_log$ ls
+❶ db.sqlite3 learning_log learning_logs ll_env manage.py users
+  (ll_env)learning_log$ ls users
+❷ __init__.py admin.py apps.py migrations models.py tests.py views.py</code>
+</pre>
+<p>这个命令新建一个名为users的目录（见❶），其结构与应用程序<code>learning_logs</code>
+ 相同（见❷）。</p>
+<h3 id="nav_point_449">19.2.2　将<code>users</code>
+ 添加到settings.py中</h3>
+<p>在settings.py中，需要将这个新的应用程序添加到<code>INSTALLED_APPS</code>
+ 中，如下所示：</p>
+<p>
+<em>settings.py</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+INSTALLED_APPS = [
+    # 我的应用程序
+    'learning_logs',
+    'users',
+    # Django默认创建的应用程序
+    --snip--
+]
+--snip--</code>
+</pre>
+<p>这样，Django将把应用程序<code>users</code>
+ 包含到项目中。</p>
+<h3 id="nav_point_450">19.2.3　包含<code>users</code>
+ 的URL</h3>
+<p>接下来，需要修改项目根目录中的urls.py，使其包含将为应用程序<code>users</code>
+ 定义的URL：</p>
+<p>
+<em>urls.py</em>
+</p>
+<pre class="代码无行号"><code>from django.contrib import admin
+from django.urls import path, include
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('users/', include('users.urls')),
+    path('', include('learning_logs.urls')),
+]</code>
+</pre>
+<p>我们添加了一行代码，以包含应用程序<code>users</code>
+ 中的文件urls.py。这行代码与任何以单词users打头的URL（如http://localhost:8000/users/login/）都匹配。</p>
+<h3 id="nav_point_451">19.2.4　登录页面</h3>
+<p>首先来实现登录页面。我们将使用Django提供的默认视图<code>login</code>
+ ，因此这个应用程序的URL模式稍有不同。在目录learning_log/users/中，新建一个名为urls.py的文件，并在其中添加如下代码：</p>
+<p>
+<em>urls.py</em>
+</p>
+<pre class="代码无行号"><code>  """为应用程序users定义URL模式。"""
+  from django.urls import path, include
+❶ app_name = 'users'
+  urlpatterns = [
+      # 包含默认的身份验证URL。
+❷     path('', include('django.contrib.auth.urls')),
+  ]</code>
+</pre>
+<p>导入函数<code>path</code>
+ 和<code>include</code>
+ ，以便包含Django定义的一些默认的身份验证URL。这些默认的URL包含具名的URL模式，如<code>'login'</code>
+ 和<code>'logout'</code>
+ 。我们将变量<code>app_name</code>
+ 设置成<code>'users'</code>
+ ，让Django能够将这些URL与其他应用程序的URL区分开来（见❶）。即便是Django提供的默认URL，将其包含在应用程序<code>users</code>
+ 的文件中后，也可通过命名空间<code>users</code>
+ 进行访问。</p>
+<p>登录页面的URL模式与URL http://localhost:8000/users/login/匹配（见❷）。这个URL中的单词users让Django在users/urls.py中查找，而单词login让它将请求发送给Django的默认视图<code>login</code>
+ 。</p>
+<ol>
+<li value="1">
+<p>
+<strong>模板login.html</strong>
+</p>
+<p>用户请求登录页面时，Django将使用一个默认的视图函数，但我们依然需要为这个页面提供模板。默认的身份验证视图在文件夹registration中查找模板，因此我们需要创建这个文件夹。为此，在目录learning_log/users/中新建一个名为templates的目录，再在这个目录中新建一个名为registration的目录。下面是模板login.html，应将其存储到目录learning_log/users/templates/ registration中：</p>
+<p>
+<em>login.html</em>
+</p>
+<pre class="代码无行号"><code>  {% extends "learning_logs/base.html" %}
+  {% block content %}
+❶   {% if form.errors %}
+      &lt;p&gt;Your username and password didn't match. Please try again.&lt;/p&gt;
+    {% endif %}
+❷   &lt;form method="post" action="{% url 'users:login' %}"&gt;
+      {% csrf_token %}
+❸     {{ form.as_p }}
+❹     &lt;button name="submit"&gt;Log in&lt;/button&gt;
+❺     &lt;input type="hidden" name="next"
+        value="{% url 'learning_logs:index' %}" /&gt;
+    &lt;/form&gt;
+  {% endblock content %}</code>
+</pre>
+<p>这个模板继承了base.html，旨在确保登录页面的外观与网站的其他页面相同。请注意，一个应用程序中的模板可继承另一个应用程序中的模板。</p>
+<p>如果设置表单的<code>errors</code>
+ 属性，就显示一条错误消息（见❶），指出输入的用户名密码对与数据库中存储的任何用户名密码对都不匹配。</p>
+<p>我们要让登录视图对表单进行处理，因此将实参<code>action</code>
+ 设置为登录页面的URL（见❷）。登录视图将一个表单发送给模板。在模板中，我们显示这个表单（见❸）并添加一个提交按钮（见❹）。在❺处，包含了一个隐藏的表单元素<code>'next'</code>
+ ，其中的实参<code>value</code>
+ 告诉Django在用户成功登录后将其重定向到什么地方。在本例中，用户将返回主页。<br/>
+ </p>
+</li>
+<li value="2">
+<p>
+<strong>链接到登录页面</strong>
+</p>
+<p>下面在base.html中添加到登录页面的链接，让所有页面都包含它。用户已登录时，我们不想显示这个链接，因此将它嵌套在一个<code>{% if %}</code>
+ 标签中：</p>
+<p>
+<em>base.html</em>
+</p>
+<pre class="代码无行号"><code>  &lt;p&gt;
+    &lt;a href="{% url 'learning_logs:index' %}"&gt;Learning Log&lt;/a&gt; -
+    &lt;a href="{% url 'learning_logs:topics' %}"&gt;Topics&lt;/a&gt; -
+❶   {% if user.is_authenticated %}
+❷     Hello, {{ user.username }}.
+    {% else %}
+❸     &lt;a href="{% url 'users:login' %}"&gt;Log in&lt;/a&gt;
+    {% endif %}
+  &lt;/p&gt;
+  {% block content %}{% endblock content %}</code>
+</pre>
+<p>在Django身份验证系统中，每个模板都可使用变量<code>user</code>
+ 。这个变量有一个<code>is_authenticated</code>
+ 属性：如果用户已登录，该属性将为<code>True</code>
+ ，否则为<code>False</code>
+ 。这让你能够向已通过身份验证的用户显示一条消息，而向未通过身份验证的用户显示另一条消息。</p>
+<p>这里向已登录的用户显示问候语（见❶）。对于已通过身份验证的用户，还设置了属性<code>username</code>
+ 。这里使用该属性来个性化问候语，让用户知道自己已登录（见❷）。在❸处，对于尚未通过身份验证的用户，显示到登录页面的链接。<br/>
+ </p>
+</li>
+<li value="3">
+<p>
+<strong>使用登录页面</strong>
+</p>
+<p>前面建立了一个用户账户，下面来登录一下，看看登录页面是否管用。请访问http://localhost:8000/admin/，如果你依然是以管理员身份登录的，请在页眉上找到注销链接并单击它。</p>
+<p>注销后，访问http://localhost:8000/users/login/将看到类似于图19-4所示的登录页面。输入你在前面设置的用户名和密码，将进入索引页面。在这个主页的页眉中，显示了一条个性化问候语，其中包含你的用户名。</p>
+<p class="p-img"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/19_Image00055.gif" style="width: 85%" width="85%"/>
+</p>
+<p>
+<strong>图19-4　登录页面</strong>
+</p>
+</li>
+</ol>
+<h3 id="nav_point_452">19.2.5　注销</h3>
+<p>现在需要提供一个让用户注销的途径。为此，我们将在base.html中添加一个注销链接。用户单击这个链接时，将进入一个确认其已注销的页面。</p>
+<ol>
+<li value="1">
+<p>
+<strong>在base.html中添加注销链接</strong>
+</p>
+<p>下面在base.html中添加注销链接，让每个页面都包含它。将注销链接放在<code>{% if user.is_authenticated %}</code>
+ 部分中，这样只有已登录的用户才能看到它：</p>
+<p>
+<em>base.html</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+  {% if user.is_authenticated %}
+    Hello, {{ user.username }}.
+    &lt;a href="{% url 'users:logout' %}"&gt;Log out&lt;/a&gt;
+  {% else %}
+    --snip--</code>
+</pre>
+<p>默认的具名注销URL模式为<code>'logout'</code>
+ 。<br/>
+ </p>
+</li>
+<li value="2">
+<p>
+<strong>注销确认页面</strong>
+</p>
+<p>成功注销后，用户希望获悉这一点。因此默认的注销视图使用模板logged_out.html渲染注销确认页面，我们现在就来创建该模板。下面这个简单的页面确认用户已注销，请将其存储到目录templates/registration（login.html所在的目录）中：</p>
+<p>
+<em>logged_out.html</em>
+</p>
+<pre class="代码无行号"><code>{% extends "learning_logs/base.html" %}
+{% block content %}
+  &lt;p&gt;You have been logged out. Thank you for visiting!&lt;/p&gt;
+{% endblock content %}</code>
+</pre>
+<p>在这个页面中，不需要提供其他内容，因为base.html提供了到主页和登录页面的链接。</p>
+<p>图19-5显示了用户单击Log out链接后出现的注销确认页面。这里的重点是创建能够正确工作的网站，因此几乎没有设置样式。确定所需的功能都能正确运行后，我们将设置这个网站的样式，使其看起来更专业。</p>
+<p class="p-img"><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/19_Image00056.gif" style="width: 85%" width="85%"/>
+</p>
+<p>
+<strong>图19-5　注销确认页面指出用户已成功注销</strong>
+</p>
+</li>
+</ol>
+<h3 id="nav_point_453">19.2.6　注册页面</h3>
+<p>下面来创建一个页面供新用户注册。我们将使用Django提供的表单<code>UserCreationForm</code>
+ ，但编写自己的视图函数和模板。</p>
+<ol>
+<li value="1">
+<p>
+<strong>注册页面的URL模式</strong>
+</p>
+<p>下面的代码定义了注册页面的URL模式，它也包含在users/urls.py中：</p>
+<p>
+<em>urls.py</em>
+</p>
+<pre class="代码无行号"><code>"""为应用程序users定义URL模式。"""
+from django.urls import path, include
+from . import views
+app_name = 'users'
+urlpatterns = [
+    # 包含默认的身份验证URL。
+    path('', include('django.contrib.auth.urls')),
+    # 注册页面
+    path('register/', views.register, name='register'),
+]</code>
+</pre>
+<p>我们从<code>users</code>
+ 中导入模块<code>views</code>
+ 。为何需要这样做呢？因为我们将为注册页面编写视图函数。注册页面的URL模式与URL http://localhost:8000/users/register/匹配，并将请求发送给即将编写的函数<code>register()</code>
+ 。<br/>
+ </p>
+</li>
+<li value="2">
+<p>
+<strong>视图函数<code>register()</code>
+</strong>
+</p>
+<p>在注册页面首次被请求时，视图函数<code>register()</code>
+ 需要显示一个空的注册表单，并在用户提交填写好的注册表单时对其进行处理。如果注册成功，这个函数还需让用户自动登录。请在users/views.py中添加如下代码：</p>
+<p>
+<em>views.py</em>
+</p>
+<pre class="代码无行号"><code>  from django.shortcuts import render, redirect
+  from django.contrib.auth import login
+  from django.contrib.auth.forms import UserCreationForm
+  def register(request):
+      """注册新用户。"""
+      if request.method != 'POST':
+          # 显示空的注册表单。
+❶         form = UserCreationForm()
+      else:
+          # 处理填写好的表单。
+❷         form = UserCreationForm(data=request.POST)
+❸         if form.is_valid():
+❹             new_user = form.save()
+              # 让用户自动登录，再重定向到主页。
+❺         login(request, new_user)
+❻         return redirect('learning_logs:index')
+      # 显示空表单或指出表单无效。
+      context = {'form': form}
+      return render(request, 'registration/register.html', context)</code>
+</pre>
+<p>首先导入函数<code>render()</code>
+ 和<code>redirect()</code>
+ ，然后导入函数<code>login()</code>
+ ，以便在用户正确填写了注册信息时让其自动登录。我们还导入了默认表单<code>UserCreationForm</code>
+ 。在函数<code>register()</code>
+ 中，检查要响应的是否是POST请求。如果不是，就创建一个<code>UserCreationForm</code>
+ 实例，且不给它提供任何初始数据（见❶）。</p>
+<p>如果响应的是POST请求，就根据提交的数据创建一个<code>UserCreationForm</code>
+ 实例（见❷），并检查这些数据是否有效（见❸）。就本例而言，有效是指用户名未包含非法字符，输入的两个密码相同，以及用户没有试图做恶意的事情。</p>
+<p>如果提交的数据有效，就调用表单的方法<code>save()</code>
+ ，将用户名和密码的散列值保存到数据库中（见❹）。方法<code>save()</code>
+ 返回新创建的用户对象，我们将它赋给了<code>new_user</code>
+ 。保存用户的信息后，调用函数<code>login()</code>
+ 并传入对象<code>request</code>
+ 和<code>new_user</code>
+ ，为用户创建有效的会话，从而让其自动登录（见❺）。最后，将用户重定向到主页（见❻），而主页的页眉中显示了一条个性化的问候语，让用户知道注册成功了。</p>
+<p>在这个函数的末尾，我们渲染了注册页面：它要么显示一个空表单，要么显示提交的无效表单。<br/>
+ </p>
+</li>
+<li value="3">
+<p>
+<strong>注册模板</strong>
+</p>
+<p>下面来创建注册页面的模板，它与登录页面的模板类似。请务必将其保存到login.html所在的目录中：</p>
+<p>
+<em>register.html</em>
+</p>
+<pre class="代码无行号"><code>{% extends "learning_logs/base.html" %}
+{% block content %}
+  &lt;form method="post" action="{% url 'users:register' %}"&gt;
+    {% csrf_token %}
+    {{ form.as_p }}
+    &lt;button name="submit"&gt;Register&lt;/button&gt;
+    &lt;input type="hidden" name="next" value="{% url 'learning_logs:index' %}" /&gt;
+  &lt;/form&gt;
+{% endblock content %}</code>
+</pre>
+<p>这里也使用了方法<code>as_p</code>
+ ，让Django在表单中正确地显示所有的字段，包括错误消息——如果用户没有正确地填写表单。<br/>
+ </p>
+</li>
+<li value="4">
+<p>
+<strong>链接到注册页面</strong>
+</p>
+<p>下面来添加一些代码，在用户没有登录时显示到注册页面的链接：</p>
+<p>
+<em>base.html</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+  {% if user.is_authenticated %}
+    Hello, {{ user.username }}.
+    &lt;a href="{% url 'users:logout' %}"&gt;Log out&lt;/a&gt;
+  {% else %}
+    &lt;a href="{% url 'users:register' %}"&gt;Register&lt;/a&gt; -
+    &lt;a href="{% url 'users:login' %}"&gt;Log in&lt;/a&gt;
+  {% endif %}
+--snip--</code>
+</pre>
+<p>现在，已登录的用户看到的是个性化的问候语和注销链接，而未登录的用户看到的是注册链接和登录链接。请尝试使用注册页面创建几个用户名各不相同的用户账户。</p>
+<p>下一节会将一些页面限制为仅让已登录的用户访问，还将确保每个主题都归属于特定用户。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　这里的注册系统允许用户创建任意数量的账户。有些系统要求用户确认其身份：发送一封确认邮件，用户回复后账户才生效。通过这样做，这些系统会比本例的简单系统生成更少的垃圾账户。然而，学习创建应用程序时，完全可以像这里所做的那样，使用简单的用户注册系统。</p>
+</blockquote>
+</li>
+</ol>
+<p>　</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习19-2：博客账户</strong>
+ 　在为完成练习19-1而开发的项目Blog中，添加用户身份验证和注册系统。向已登录的用户显示其用户名，向未注册的用户显示到注册页面的链接。</p>
+</blockquote>
+<h2 id="nav_point_454">19.3　让用户拥有自己的数据</h2>
+<p>用户应该能够输入其专有的数据，因此我们将创建一个系统，确定各项数据所属的用户，再限制对页面的访问，让用户只能使用自己的数据。</p>
+<p>本节将修改模型<code>Topic</code>
+ ，让每个主题都归属于特定用户。这也将影响条目，因为每个条目都属于特定的主题。我们先来限制对一些页面的访问。</p>
+<h3 id="nav_point_455">19.3.1　使用<code>@login_required</code>
+ 限制访问</h3>
+<p>Django提供了装饰器<code>@login_required</code>
+ ，让你能够轻松地只允许已登录用户访问某些页面。<strong>装饰器</strong>
+ （decorator）是放在函数定义前面的指令，Python在函数运行前根据它来修改函数代码的行为。下面来看一个示例。</p>
+<ol>
+<li value="1">
+<p>
+<strong>限制访问显示所有主题的页面</strong>
+</p>
+<p>每个主题都归特定用户所有，因此应只允许已登录的用户请求显示所有主题的页面。为此，在learning_logs/views.py中添加如下代码：</p>
+<p>
+<em>views.py</em>
+</p>
+<pre class="代码无行号"><code>from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from .models import Topic, Entry
+--snip--
+@login_required
+def topics(request):
+    """显示所有的主题。"""
+    --snip--</code>
+</pre>
+<p>首先导入函数<code>login_required()</code>
+ 。将<code>login_required()</code>
+ 作为装饰器应用于视图函数<code>topics()</code>
+ ——在它前面加上符号<code>@</code>
+ 和<code>login_required</code>
+ ，让Python在运行<code>topics()</code>
+ 的代码之前运行<code>login_required()</code>
+ 的代码。</p>
+<p>
+<code>login_required()</code>
+ 的代码检查用户是否已登录，仅当用户已登录时，Django才运行<code>topics()</code>
+ 的代码。如果用户未登录，就重定向到登录页面。</p>
+<p>为实现这种重定向，需要修改settings.py，让Django知道到哪里去查找登录页面。请在settings.py末尾添加如下代码：</p>
+<p>
+<em>settings.py</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+# 我的设置
+LOGIN_URL = 'users:login'</code>
+</pre>
+<p>现在，如果未登录的用户请求装饰器<code>@login_required</code>
+ 保护的页面，Django将重定向到settings.py中的<code>LOGIN_URL</code>
+ 指定的URL。</p>
+<p>要测试这个设置，可注销并进入主页，再单击链接Topics，这将重定向到登录页面。然后，使用你的账户登录，并再次单击主页中的Topics链接，你将看到显示所有主题的页面。<br/>
+ </p>
+</li>
+<li value="2">
+<p>
+<strong>全面限制对项目“学习笔记”的访问</strong>
+</p>
+<p>Django让你能够轻松地限制对页面的访问，但你必须确定要保护哪些页面。最好先确定项目的哪些页面不需要保护，再限制对其他所有页面的访问。你可轻松地修改过于严格的访问限制。比起不限制对敏感页面的访问，这样做的风险更低。</p>
+<p>在项目“学习笔记”中，将不限制对主页和注册页面的访问，并限制对其他所有页面的访问。</p>
+<p>在下面的learning_logs/views.py中，对除<code>index()</code>
+ 外的每个视图都应用了装饰器<code>@login_required</code>
+ ：</p>
+<p>
+<em>views.py</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+@login_required
+def topics(request):
+    --snip--
+@login_required
+def topic(request, topic_id):
+    --snip--
+@login_required
+def new_topic(request):
+    --snip--
+@login_required
+def new_entry(request, topic_id):
+    --snip--
+@login_required
+def edit_entry(request, entry_id):
+    --snip--</code>
+</pre>
+<p>如果你在未登录的情况下尝试访问这些页面，将被重定向到登录页面。另外，你还不能单击到<code>new_topic</code>
+ 等页面的链接。如果你输入URL http://localhost:8000/new_topic/，将被重定向到登录页面。对于所有与私有用户数据相关的URL，都应限制访问。</p>
+</li>
+</ol>
+<h3 id="nav_point_456">19.3.2　将数据关联到用户</h3>
+<p>现在，需要将数据关联到提交它们的用户。只需将最高层的数据关联到用户，更低层的数据就会自动关联到用户。例如，在项目“学习笔记”中，应用程序的最高层数据是主题，而所有条目都与特定主题相关联。只要每个主题都归属于特定用户，就能确定数据库中每个条目的所有者。</p>
+<p>下面来修改模型<code>Topic</code>
+ ，在其中添加一个关联到用户的外键。这样做之后，必须对数据库进行迁移。最后，必须修改某些视图，使其只显示与当前登录的用户相关联的数据。</p>
+<ol>
+<li value="1">
+<p>
+<strong>修改模型<code>Topic</code>
+</strong>
+</p>
+<p>对models.py的修改只涉及两行代码：</p>
+<p>
+<em>models.py</em>
+</p>
+<pre class="代码无行号"><code>from django.db import models
+from django.contrib.auth.models import User
+class Topic(models.Model):
+   """用户学习的主题。"""
+    text = models.CharField(max_length=200)
+    date_added = models.DateTimeField(auto_now_add=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE)
+    def __str__(self):
+        """返回模型的字符串表示。"""
+        return self.text
+class Entry(models.Model):
+  --snip--</code>
+</pre>
+<p>首先导入<code>django.contrib.auth</code>
+ 中的模型<code>User</code>
+ ，然后在<code>Topic</code>
+ 中添加字段<code>owner</code>
+ ，它建立到模型<code>User</code>
+ 的外键关系。用户被删除时，所有与之相关联的主题也会被删除。<br/>
+ </p>
+</li>
+<li value="2">
+<p>
+<strong>确定当前有哪些用户</strong>
+</p>
+<p>迁移数据库时，Django将对数据库进行修改，使其能够存储主题和用户之间的关联。为执行迁移，Django需要知道该将各个既有主题关联到哪个用户。最简单的办法是，将既有主题都关联到同一个用户，如超级用户。为此，需要知道该用户的ID。</p>
+<p>下面来查看已创建的所有用户的ID。为此，启动一个Django shell会话，并执行如下命令：</p>
+<pre class="代码无行号"><code>   (ll_env)learning_log$ python manage.py shell
+❶ &gt;&gt;&gt; from django.contrib.auth.models import User
+❷ &gt;&gt;&gt; User.objects.all()
+  &lt;QuerySet [&lt;User: ll_admin&gt;, &lt;User: eric&gt;, &lt;User: willie&gt;]&gt;
+❸ &gt;&gt;&gt; for user in User.objects.all():
+  ...     print(user.username, user.id)
+  ...
+  ll_admin 1
+  eric 2
+  willie 3
+  &gt;&gt;&gt;</code>
+</pre>
+<p>在❶处，在shell会话中导入模型<code>User</code>
+ 。然后，查看到目前为止都创建了哪些用户（见❷）。输出中列出了三个用户：ll_admin、eric和willie。</p>
+<p>在❸处，遍历用户列表并打印每位用户的用户名和ID。Django询问要将既有主题关联到哪个用户时，我们将指定其中一个ID值。<br/>
+ </p>
+</li>
+<li value="3">
+<p>
+<strong>迁移数据库</strong>
+</p>
+<p>知道用户ID后，就可迁移数据库了。这样做时，Python将询问你是要暂时将模型<code>Topic</code>
+ 关联到特定用户，还是在文件models.py中指定默认用户。请选择第一个选项。</p>
+<pre class="代码无行号"><code>❶ (ll_env)learning_log$ python manage.py makemigrations learning_logs
+❷ You are trying to add a non-nullable field 'owner' to topic without a default;
+  we can't do that (the database needs something to populate existing rows).
+❸ Please select a fix:
+    1) Provide a one-off default now (will be set on all existing rows with a
+      null value for this column)
+    2) Quit, and let me add a default in models.py
+❹ Select an option: 1
+❺ Please enter the default value now, as valid Python
+  The datetime and django.utils.timezone modules are available, so you can do
+  e.g. timezone.now
+  Type 'exit' to exit this prompt
+❻ &gt;&gt;&gt; 1
+  Migrations for 'learning_logs':
+    learning_logs/migrations/0003_topic_owner.py
+  - Add field owner to topic
+  (ll_env)learning_log$</code>
+</pre>
+<p>首先执行命令<code>makemigrations</code>
+ （见❶）。在❷处的输出中，Django指出你试图给既有模型<code>Topic</code>
+ 添加一个必不可少（不可为空）的字段，而该字段没有默认值。在❸处，Django提供了两种选择：要么现在提供默认值，要么退出并在models.py中添加默认值。在❹处，我们选择了第一个选项，因此Django让我们输入默认值（见❺）。</p>
+<p>为将所有既有主题都关联到管理用户ll_admin，我们输入用户ID值1（见❻）。可以使用已创建的任何用户的ID，而非必须是超级用户。接下来，Django使用这个值来迁移数据库，并生成了迁移文件0003_topic_owner.py，它在模型<code>Topic</code>
+ 中添加字段<code>owner</code>
+ 。</p>
+<p>现在可以执行迁移了。为此，在活动状态的虚拟环境中执行如下命令：</p>
+<pre class="代码无行号"><code>  (ll_env)learning_log$ python manage.py migrate
+  Operations to perform:
+    Apply all migrations: admin, auth, contenttypes, learning_logs, sessions
+  Running migrations:
+❶   Applying learning_logs.0003_topic_owner... OK
+  (ll_env)learning_log$</code>
+</pre>
+<p>Django应用新的迁移，结果一切顺利（见❶）。</p>
+<p>为验证迁移符合预期，可在shell会话中像下面这样做：</p>
+<pre class="代码无行号"><code>❶ &gt;&gt;&gt; from learning_logs.models import Topic
+❷ &gt;&gt;&gt; for topic in Topic.objects.all():
+  ...     print(topic, topic.owner)
+  ...
+  Chess ll_admin
+  Rock Climbing ll_admin
+  &gt;&gt;&gt;</code>
+</pre>
+<p>我们从<code>learning_logs.models</code>
+ 中导入<code>Topic</code>
+ （见❶），再遍历所有的既有主题，并打印每个主题及其所属的用户（见❷）。如你所见，现在每个主题都属于用户ll_admin。如果你在运行这些代码时出错，请尝试退出并重启shell。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　你可以重置数据库而不是迁移它，但如果这样做，既有的数据都将丢失。一种不错的做法是，学习如何在迁移数据库的同时确保用户数据的完整性。如果你确实想要一个全新的数据库，可执行命令<code>python manage.py flush</code>
+ ，这将重建数据库的结构。如果这样做，就必须重新创建超级用户，且原来的所有数据都将丢失。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="nav_point_457">19.3.3　只允许用户访问自己的主题</h3>
+<p>当前，不管以哪个用户的身份登录，都能够看到所有的主题。下面改变这一点，只向用户显示属于其自己的主题。</p>
+<p>在views.py中，对函数<code>topics()</code>
+ 做如下修改：</p>
+<p>
+<em>views.py</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+@login_required
+def topics(request):
+    """显示所有的主题。"""
+    topics = Topic.objects.filter(owner=request.user).order_by('date_added')
+    context = {'topics': topics}
+    return render(request, 'learning_logs/topics.html', context)
+--snip--</code>
+</pre>
+<p>用户登录后，<code>request</code>
+ 对象将有一个user属性，其中存储了有关该用户的信息。查询<code>Topic.objects.filter(owner=request.user)</code>
+ 让Django只从数据库中获取<code>owner</code>
+ 属性为当前用户的<code>Topic</code>
+ 对象。由于没有修改主题的显示方式，无须对显示所有主题的页面的模板做任何修改。</p>
+<p>要查看结果，以所有既有主题关联到的用户的身份登录，并访问显示所有主题的页面，你将看到所有的主题。然后，注销并以另一个用户的身份登录，该页面将不列出任何主题。</p>
+<h3 id="nav_point_458">19.3.4　保护用户的主题</h3>
+<p>我们还没有限制对显示单个主题的页面的访问，因此任何已登录的用户都可输入类似于http://localhost:8000/topics/1/的URL，来访问显示相应主题的页面。</p>
+<p>你自己试一试就明白了。以拥有所有主题的用户的身份登录，访问特定的主题，并复制该页面的URL或将其中的ID记录下来。然后，注销并以另一个用户的身份登录，再输入显示前述主题的页面的URL。虽然你是作为另一个用户登录的，但依然能够查看该主题中的条目。</p>
+<p>为修复这种问题，我们在视图函数<code>topic()</code>
+ 获取请求的条目前执行检查：</p>
+<p>
+<em>views.py</em>
+</p>
+<pre class="代码无行号"><code>  from django.shortcuts import render, redirect
+  from django.contrib.auth.decorators import login_required
+❶ from django.http import Http404
+  --snip--
+  @login_required
+  def topic(request, topic_id):
+      """显示单个主题及其所有的条目。"""
+      topic = Topic.objects.get(id=topic_id)
+      # 确认请求的主题属于当前用户。
+❷     if topic.owner != request.user:
+          raise Http404
+      entries = topic.entry_set.order_by('-date_added')
+      context = {'topic': topic, 'entries': entries}
+      return render(request, 'learning_logs/topic.html', context)
+  --snip--</code>
+</pre>
+<p>服务器上没有请求的资源时，标准的做法是返回404响应。这里导入了异常<code>Http404</code>
+ （见❶），并在用户请求其不应查看的主题时引发这个异常。收到主题请求后，在渲染页面前检查该主题是否属于当前登录的用户。如果请求的主题不归当前用户所有，就引发<code>Http404</code>
+ 异常（见❷），让Django返回一个404错误页面。</p>
+<p>现在，如果你试图查看其他用户的主题条目，将看到Django发送的消息Page Not Found。第20章将对这个项目进行配置，让用户看到更合适的错误页面。</p>
+<h3 id="nav_point_459">19.3.5　保护页面<code>edit_entry</code>
+</h3>
+<p>页面<code>edit_entry</code>
+ 的URL形式为<code>http://localhost:8000/edit_entry/<i>entry_id</i>
+ /</code>
+ ，其中<code>
+<i>entry_id</i>
+</code>
+ 是一个数。下面来保护这种页面，禁止用户通过输入类似于前面的URL来访问其他用户的条目：</p>
+<p>
+<em>views.py</em>
+</p>
+<pre class="代码无行号"><code>--snip--
+@login_required
+def edit_entry(request, entry_id):
+    """编辑既有条目。"""
+    entry = Entry.objects.get(id=entry_id)
+    topic = entry.topic
+    if topic.owner != request.user:
+        raise Http404
+    if request.method != 'POST':
+        --snip--</code>
+</pre>
+<p>我们首先获取指定的条目以及与之相关联的主题，再检查主题的所有者是否是当前登录的用户。如果不是，就引发<code>Http404</code>
+ 异常。</p>
+<h3 id="nav_point_460">19.3.6　将新主题关联到当前用户</h3>
+<p>当前，用于添加新主题的页面存在问题——没有将新主题关联到特定用户。如果你尝试添加新主题，将看到错误消息<code>IntegrityError</code>
+ ，指出<code>learning_logs_topic.user_id</code>
+ 不能为<code>NULL</code>
+ （<code>NOT NULL constraint failed: learning_logs_topic.owner_id</code>
+ ）。Django的意思是说，创建新主题时，必须给<code>owner</code>
+ 字段指定值。</p>
+<p>我们可通过<code>request</code>
+ 对象获悉当前用户，因此有一个修复该问题的简单方案。请添加下面的代码，将新主题关联到当前用户：</p>
+<p>
+<em>views.py</em>
+</p>
+<pre class="代码无行号"><code>  --snip--
+  @login_required
+  def new_topic(request):
+      """添加新主题。"""
+      if request.method != 'POST':
+          # 没有提交的数据：创建一个空表单。
+          form = TopicForm()
+      else:
+          # POST提交的数据：对数据进行处理。
+          form = TopicForm(data=request.POST)
+          if form.is_valid():
+❶             new_topic = form.save(commit=False)
+❷             new_topic.owner = request.user
+❸             new_topic.save()
+              return redirect('learning_logs:topics')
+      # 显示一个空表单或指出表单无效。
+      context = {'form': form}
+      return render(request, 'learning_logs/new_topic.html', context)
+  --snip--</code>
+</pre>
+<p>首先调用<code>form.save()</code>
+ 并传递实参<code>commit=False</code>
+ （见❶），因为要先修改新主题，再将其保存到数据库。接下来，将新主题的<code>owner</code>
+ 属性设置为当前用户（见❷）。最后，对刚定义的主题实例调用<code>save()</code>
+ （见❸）。现在，主题包含所有必不可少的数据，将被成功保存。</p>
+<p>这个项目现在允许任何用户注册，而每个用户想添加多少新主题都可以。每个用户都只能访问自己的数据，无论是查看数据、输入新数据还是修改旧数据时都如此。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习19-3：重构</strong>
+ 　在views.py中，我们在两个地方核实了主题关联到的用户为当前登录的用户。请将执行这种检查的代码放在函数<code>check_topic_owner()</code>
+ 中，并在这两个地方调用该函数。</p>
+<p>
+<strong>练习19-4：保护页面<code>new_entry</code>
+</strong>
+ 　一个用户可在另一个用户的学习笔记中添加条目，方法是在URL中指定属于另一个用户的主题的ID。为防范这种攻击，请在保存新条目之前，核实它所属的主题归属于当前用户。</p>
+<p>
+<strong>练习19-5：受保护的博客</strong>
+ 　在你创建的项目Blog中，确保每篇博文都与特定用户相关联。确保任何用户都可访问所有的博文，但只有已登录的用户能够发表博文和编辑既有博文。在让用户编辑博文的视图中，在处理表单前确认用户编辑的是其自己发表的博文。</p>
+</blockquote>
+<h2 id="nav_point_461">19.4　小结</h2>
+<p>在本章中，你学习了：如何使用表单来让用户添加新主题、添加新条目以及编辑既有条目；如何实现用户账户，让老用户能够登录和注销，并且使用Django提供的表单<code>UserCreationForm</code>
+ 让用户创建新账户。</p>
+<p>建立简单的用户身份验证和注册系统后，你使用装饰器<code>@login_required</code>
+ 禁止未登录的用户访问特定页面。然后，你通过使用外键将数据关联到特定用户，还迁移了要求指定默认数据的数据库。</p>
+<p>最后，你学习了如何修改视图函数，让用户只能看到属于自己的数据。你使用方法<code>filter()</code>
+ 来获取合适的数据，并学习了如何将被请求数据的所有者同当前登录的用户进行比较。</p>
+<p>该让哪些数据可随便访问，又该对哪些数据进行保护呢？这可能并非总是那么显而易见，但通过不断地练习就能掌握这种技能。我们在本章中就该如何保护用户数据所做的决策表明，与人合作开发项目是个不错的主意：在有人对项目进行检查的情况下，更容易发现其薄弱环节。</p>
+<p>至此，我们创建了一个功能齐备的项目，它运行在本地计算机上。在本书的最后一章，我们将设置这个项目的样式，使其更漂亮，还将把它部署到一台服务器上，让任何人都可通过互联网注册并创建账户。</p>
+<br style="page-break-after:always"/>
+<div></div>
+]]></description>
+    <pubDate>Fri, 31 Jul 2026 01:23:01 +0000</pubDate>
+    <guid isPermaLink="false">19</guid>
+</item>
+<item>
     <title>Basic Python - 018 - 项目3 Web应用程序.epub</title>
     <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：145 分钟 (28858 字)</p><hr><h1 id="nav_point_415">项目3　Web应用程序</h1>
 <br style="page-break-after:always"/>
@@ -12336,779 +13543,6 @@ Finished making your pizza!</code>
 ]]></description>
     <pubDate>Wed, 08 Jul 2026 01:44:51 +0000</pubDate>
     <guid isPermaLink="false">5</guid>
-</item>
-<item>
-    <title>Basic Python - 004 - 第 4 章 操作列表.epub</title>
-    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：97 分钟 (19338 字)</p><hr><h1 id="nav_point_69">第 4 章　操作列表</h1>
-<blockquote>
-<p><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/4_Image00001.gif" style="width: 16%" width="16%"/>
- 　在第3章，你学习了如何创建简单的列表，还学习了如何操作列表元素。在本章中，你将学习如何<strong>遍历</strong>
- 整个列表，这只需要几行代码，无论列表有多长。循环让你能够对列表的每个元素都采取一个或一系列相同的措施，从而高效地处理任何长度的列表，包括包含数千乃至数百万个元素的列表。</p>
-</blockquote>
-<h2 id="nav_point_70">4.1　遍历整个列表</h2>
-<p>你经常需要遍历列表的所有元素，对每个元素执行相同的操作。例如，在游戏中，可能需要将每个界面元素平移相同的距离；对于包含数字的列表，可能需要对每个元素执行相同的统计运算；在网站中，可能需要显示文章列表中的每个标题。需要对列表中的每个元素都执行相同的操作时，可使用Python中的<code>for</code>
- 循环。</p>
-<p>假设我们有一个魔术师名单，需要将其中每个魔术师的名字都打印出来。为此，可以分别获取名单中的每个名字，但这种做法会导致多个问题。例如，如果名单很长，将包含大量重复的代码。另外，每当名单的长度发生变化时，都必须修改代码。通过使用<code>for</code>
- 循环，可以让Python去处理这些问题。</p>
-<p>下面使用<code>for</code>
- 循环来打印魔术师名单中的所有名字：</p>
-<p>
-<em>magicians.py</em>
-</p>
-<pre class="代码无行号"><code>❶ magicians = ['alice', 'david', 'carolina']
-❷ for magician in magicians:
-❸     print(magician)</code>
-</pre>
-<p>首先，像第3章那样定义一个列表（见❶）。接下来，定义一个<code>for</code>
- 循环（见❷）。这行代码让Python从列表<code>magicians</code>
- 中取出一个名字，并将其与变量<code>magician</code>
- 相关联。最后，让Python打印前面赋给变量<code>magician</code>
- 的名字（见❸）。这样，对于列表中的每个名字，Python都将重复执行❷处和❸处的代码行。你可以这样解读这些代码：对于列表<code>magicians</code>
- 中的每位魔术师，都将其名字打印出来。输出很简单，就是列表中所有的名字：</p>
-<pre class="代码无行号"><code>alice
-david
-carolina</code>
-</pre>
-<h3 id="nav_point_71">4.1.1　深入研究循环</h3>
-<p>循环这种概念很重要，因为它是让计算机自动完成重复工作的常见方式之一。例如，在前面magicians.py中使用的简单循环里，Python将首先读取其中的第一行代码：</p>
-<pre class="代码无行号"><code>for magician in magicians:</code>
-</pre>
-<p>这行代码让Python获取列表<code>magicians</code>
- 中的第一个值<code>'alice'</code>
- ，并将其与变量<code>magician</code>
- 相关联。接下来，Python读取下一行代码：</p>
-<pre class="代码无行号"><code>    print(magician)</code>
-</pre>
-<p>它让Python打印<code>magician</code>
- 的值，依然是<code>'alice'</code>
- 。鉴于该列表还包含其他值，Python返回到循环的第一行：</p>
-<pre class="代码无行号"><code>for magician in magicians:</code>
-</pre>
-<p>Python获取列表中的下一个名字'david'，并将其与变量magician相关联，再执行下面这行代码：</p>
-<pre class="代码无行号"><code>    print(magician)</code>
-</pre>
-<p>Python再次打印变量<code>magician</code>
- 的值，当前为<code>'david'</code>
- 。接下来，Python再次执行整个循环，对列表中的最后一个值<code>'carolina'</code>
- 进行处理。至此，列表中没有其他的值了，因此Python接着执行程序的下一行代码。在这个示例中，<code>for</code>
- 循环后面没有其他代码，因此程序就此结束。</p>
-<p>刚开始使用循环时请牢记，对列表中的每个元素，都将执行循环指定的步骤，而不管列表包含多少个元素。如果列表包含一百万个元素，Python就重复执行指定的步骤一百万次，且通常速度非常快。</p>
-<p>另外，编写<code>for</code>
- 循环时，可以给依次与列表中每个值相关联的临时变量指定任意名称。然而，选择描述单个列表元素的有意义名称大有裨益。例如，对于小猫列表、小狗列表和一般性列表，像下面这样编写<code>for</code>
- 循环的第一行代码是不错的选择：</p>
-<pre class="代码无行号"><code>for cat in cats:
-for dog in dogs:
-for item in list_of_items:</code>
-</pre>
-<p>这些命名约定有助于你明白<code>for</code>
- 循环中将对每个元素执行的操作。使用单数和复数式名称，可帮助你判断代码段处理的是单个列表元素还是整个列表。</p>
-<h3 id="nav_point_72">4.1.2　在<code>for</code>
- 循环中执行更多操作</h3>
-<p>在<code>for</code>
- 循环中，可对每个元素执行任何操作。下面来扩展前面的示例，对于每位魔术师，都打印一条消息，指出他的表演太精彩了。</p>
-<p>
-<em>magicians.py</em>
-</p>
-<pre class="代码无行号"><code>  magicians = ['alice', 'david', 'carolina']
-  for magician in magicians:
-❶     print(f"{magician.title()}, that was a great trick!")</code>
-</pre>
-<p>相比于前一个示例，唯一的不同是为每位魔术师打印了一条以其名字为抬头的消息（见❶）。这个循环第一次迭代时，变量<code>magician</code>
- 的值为<code>'alice'</code>
- ，因此Python打印的第一条消息的抬头为<code>'Alice'</code>
- ；第二次迭代时，消息的抬头为<code>'David'</code>
- ；第三次迭代时，抬头为<code>'Carolina'</code>
- 。</p>
-<p>下面的输出表明，对于列表中的每位魔术师，都打印了一条个性化消息：</p>
-<pre class="代码无行号"><code>Alice, that was a great trick!
-David, that was a great trick!
-Carolina, that was a great trick!</code>
-</pre>
-<p>在<code>for</code>
- 循环中，想包含多少行代码都可以。在代码行<code>for magician in magicians</code>
- 后面，每个缩进的代码行都是循环的一部分，将针对列表中的每个值都执行一次。因此，可对列表中的每个值执行任意次数的操作。</p>
-<p>下面再添加一行代码，告诉每位魔术师，我们期待他的下一次表演：</p>
-<pre class="代码无行号"><code>  magicians = ['alice', 'david', 'carolina']
-  for magician in magicians:
-      print(f"{magician.title()}, that was a great trick!")
-❶     print(f"I can't wait to see your next trick, {magician.title()}.\n")</code>
-</pre>
-<p>两个函数调用<code>print()</code>
- 都缩进了，因此它们都将针对列表中的每位魔术师执行一次。第二个函数调用<code>print()</code>
- 中的换行符<code>"\n"</code>
- （见❶）在每次迭代结束后都插入一个空行，从而整洁地将针对各位魔术师的消息编组：</p>
-<pre class="代码无行号"><code>Alice, that was a great trick!
-I can't wait to see your next trick, Alice.
-David, that was a great trick!
-I can't wait to see your next trick, David.
-Carolina, that was a great trick!
-I can't wait to see your next trick, Carolina.</code>
-</pre>
-<p>在<code>for</code>
- 循环中，想包含多少行代码都可以。实际上，你会发现使用<code>for</code>
- 循环对每个元素执行众多不同的操作很有用。</p>
-<h3 id="nav_point_73">4.1.3　在<code>for</code>
- 循环结束后执行一些操作</h3>
-<p>
-<code>for</code>
- 循环结束后怎么办呢？通常，你需要提供总结性输出或接着执行程序必须完成的其他任务。</p>
-<p>在<code>for</code>
- 循环后面，没有缩进的代码都只执行一次，不会重复执行。下面来打印一条向全体魔术师致谢的消息，感谢他们的精彩表演。想要在打印给各位魔术师的消息后面打印一条给全体魔术师的致谢消息，需要将相应的代码放在<code>for</code>
- 循环后面，且不缩进：</p>
-<pre class="代码无行号"><code>  magicians = ['alice', 'david', 'carolina']
-  for magician in magicians:
-      print(f"{magician.title()}, that was a great trick!")
-      print(f"I can't wait to see your next trick, {magician.title()}.\n")
-❶ print("Thank you, everyone. That was a great magic show!")</code>
-</pre>
-<p>你在前面看到了，开头两个函数调用<code>print()</code>
- 针对列表中的每位魔术师重复执行。然而，第三个函数调用<code>print()</code>
- 没有缩进（见❶），因此只执行一次：</p>
-<pre class="代码无行号"><code>Alice, that was a great trick!
-I can't wait to see your next trick, Alice.
-David, that was a great trick!
-I can't wait to see your next trick, David.
-Carolina, that was a great trick!
-I can't wait to see your next trick, Carolina.
-Thank you, everyone. That was a great magic show!</code>
-</pre>
-<p>使用<code>for</code>
- 循环处理数据是一种对数据集执行整体操作的不错方式。例如，你可能使用<code>for</code>
- 循环来初始化游戏：遍历角色列表，将每个角色显示到屏幕上。然后在循环后面添加一个不缩进的代码块，在屏幕上绘制所有角色后显示一个Play Now按钮。</p>
-<h2 id="nav_point_74">4.2　避免缩进错误</h2>
-<p>Python根据缩进来判断代码行与前一个代码行的关系。在前面的示例中，向各位魔术师显示消息的代码行是<code>for</code>
- 循环的一部分，因为它们缩进了。Python通过使用缩进让代码更易读。简单地说，它要求你使用缩进让代码整洁而结构清晰。在较长的Python程序中，你将看到缩进程度各不相同的代码块，从而对程序的组织结构有大致的认识。</p>
-<p>开始编写必须正确缩进的代码时，需要注意一些常见的<strong>缩进错误</strong>
- 。例如，程序员有时候会将不需要缩进的代码块缩进，而对于必须缩进的代码块却忘了缩进。查看这样的错误示例有助于你以后避开它们，以及在它们出现在程序中时进行修复。</p>
-<p>下面来看一些较为常见的缩进错误。</p>
-<h3 id="nav_point_75">4.2.1　忘记缩进</h3>
-<p>对于位于<code>for</code>
- 语句后面且属于循环组成部分的代码行，一定要缩进。如果忘记缩进， Python会提醒你：</p>
-<p>
-<em>magicians.py</em>
-</p>
-<pre class="代码无行号"><code>  magicians = ['alice', 'david', 'carolina']
-  for magician in magicians:
-❶ print(magician)</code>
-</pre>
-<p>函数调用<code>print()</code>
- （见❶）应缩进却没有缩进。Python没有找到期望缩进的代码块时，会让你知道哪行代码有问题。</p>
-<pre class="代码无行号"><code>File "magicians.py", line 3
-  print(magician)
-      ^
-IndentationError: expected an indented block</code>
-</pre>
-<p>通常，将紧跟在<code>for</code>
- 语句后面的代码行缩进，可消除这种缩进错误。</p>
-<h3 id="nav_point_76">4.2.2　忘记缩进额外的代码行</h3>
-<p>有时候，循环能够运行且不会报告错误，但结果可能出人意料。试图在循环中执行多项任务，却忘记缩进其中的一些代码行时，就会出现这种情况。</p>
-<p>例如，如果忘记缩进循环中的第二行代码（它告诉每位魔术师，我们期待其下次表演），就会出现这种情况：</p>
-<pre class="代码无行号"><code>  magicians = ['alice', 'david', 'carolina']
-  for magician in magicians:
-      print(f"{magician.title()}, that was a great trick!")
-❶ print(f"I can't wait to see your next trick, {magician.title()}.\n")</code>
-</pre>
-<p>第二个函数调用<code>print()</code>
- （见❶）原本需要缩进，但Python发现<code>for</code>
- 语句后面有一行代码是缩进的，因此没有报告错误。最终的结果是，对于列表中的每位魔术师，都执行了第一个函数调用<code>print()</code>
- ，因为它缩进了；而第二个函数调用<code>print()</code>
- 没有缩进，因此只在循环结束后执行一次。由于变量<code>magician</code>
- 的终值为<code>'carolina'</code>
- ，结果只有她收到了消息“looking forward to the next trick”：</p>
-<pre class="代码无行号"><code>Alice, that was a great trick!
-David, that was a great trick!
-Carolina, that was a great trick!
-I can't wait to see your next trick, Carolina.</code>
-</pre>
-<p>这是一个<strong>逻辑错误</strong>
- 。从语法上看，这些Python代码是合法的，但由于存在逻辑错误，结果并不符合预期。如果你预期某项操作将针对每个列表元素都执行一次，但它总共只执行了一次，请确定需要将一行还是多行代码缩进。</p>
-<h3 id="nav_point_77">4.2.3　不必要的缩进</h3>
-<p>如果你不小心缩进了无须缩进的代码行，Python将指出这一点：</p>
-<p>
-<em>hello_world.py</em>
-</p>
-<pre class="代码无行号"><code>  message = "Hello Python world!"
-❶     print(message)</code>
-</pre>
-<p>函数调用<code>print()</code>
- （见❶）无须缩进，因为它并非循环的组成部分。因此Python将指出这种错误：</p>
-<pre class="代码无行号"><code>  File "hello_world.py", line 2
-    print(message)
-    ^
-IndentationError: unexpected indent</code>
-</pre>
-<p>为避免意外缩进错误，请只缩进需要缩进的代码。在前面编写的程序中，只有要在<code>for</code>
- 循环中对每个元素执行的代码需要缩进。</p>
-<h3 id="nav_point_78">4.2.4　循环后不必要的缩进</h3>
-<p>如果不小心缩进了应在循环结束后执行的代码，这些代码将针对每个列表元素重复执行。在有些情况下，这可能导致Python报告语法错误，但在大多数情况下，这只会导致逻辑错误。</p>
-<p>例如，如果不小心缩进了感谢全体魔术师精彩表演的代码行，结果将如何呢？</p>
-<p>
-<em>magicians.py</em>
-</p>
-<pre class="代码无行号"><code>  magicians = ['alice', 'david', 'carolina']
-  for magician in magicians:
-      print(f"{magician.title()}, that was a great trick!")
-      print(f"I can't wait to see your next trick, {magician.title()}.\n")
-❶ print("Thank you everyone, that was a great magic show!")</code>
-</pre>
-<p>由于❶处的代码行缩进了，它将针对列表中的每位魔术师执行一次，如下所示：</p>
-<pre class="代码无行号"><code>Alice, that was a great trick!
-I can't wait to see your next trick, Alice.
-Thank you everyone, that was a great magic show!
-David, that was a great trick!
-I can't wait to see your next trick, David.
-Thank you everyone, that was a great magic show!
-Carolina, that was a great trick!
-I can't wait to see your next trick, Carolina.
-Thank you everyone, that was a great magic show!</code>
-</pre>
-<p>这也是一个逻辑错误，与4.2.2节的错误类似。Python不知道你的本意，只要代码符合语法，它就会运行。如果原本只应执行一次的操作执行了多次，可能要对执行该操作的代码取消缩进。</p>
-<h3 id="nav_point_79">4.2.5　遗漏了冒号</h3>
-<p>
-<code>for</code>
- 语句末尾的冒号告诉Python，下一行是循环的第一行。</p>
-<pre class="代码无行号"><code>  magicians = ['alice', 'david', 'carolina']
-❶ for magician in magicians
-      print(magician)</code>
-</pre>
-<p>如果不小心遗漏了冒号，如❶所示，将导致语法错误，因为Python不知道你意欲何为。这种错误虽然易于消除，但并不那么容易发现。程序员为找出这样的单字符错误，花费的时间多得令人惊讶。此类错误之所以难以发现，是因为通常在人们的意料之外。</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>
-<strong>练习4-1：比萨</strong>
- 　想出至少三种你喜欢的比萨，将其名称存储在一个列表中，再使用<code>for</code>
- 循环将每种比萨的名称打印出来。</p>
-<ul>
-<li>
-<p>修改这个<code>for</code>
- 循环，使其打印包含比萨名称的句子，而不仅仅是比萨的名称。对于每种比萨，都显示一行输出，下面是一个例子。</p>
-<p>I like pepperoni pizza.<br/>
- </p>
-</li>
-<li>
-<p>在程序末尾添加一行代码，它不在<code>for</code>
- 循环中，指出你有多喜欢比萨。输出应包含针对每种比萨的消息，还有一个总结性句子，下面是一个例子。</p>
-<p>I really love pizza!<br/>
- </p>
-</li>
-</ul>
-<p>
-<strong>练习4-2：动物</strong>
- 　想出至少三种有共同特征的动物，将其名称存储在一个列表中，再使用<code>for</code>
- 循环将每种动物的名称打印出来。</p>
-<ul>
-<li>
-<p>修改这个程序，使其针对每种动物都打印一个句子，下面是一个例子。</p>
-<p>A dog would make a great pet.<br/>
- </p>
-</li>
-<li>
-<p>在程序末尾添加一行代码，指出这些动物的共同之处，如打印下面这样的句子。</p>
-<p>Any of these animals would make a great pet!</p>
-</li>
-</ul>
-</blockquote>
-<h2 id="nav_point_80">4.3　创建数值列表</h2>
-<p>需要存储一组数的原因有很多。例如，在游戏中，需要跟踪每个角色的位置，还可能需要跟踪玩家的几个最高得分；在数据可视化中，处理的几乎都是由数（如温度、距离、人口数量、经度和纬度等）组成的集合。</p>
-<p>列表非常适合用于存储数字集合，而Python提供了很多工具，可帮助你高效地处理数字列表。明白如何有效地使用这些工具后，即便列表包含数百万个元素，你编写的代码也能运行得很好。</p>
-<h3 id="nav_point_81">4.3.1　使用函数<code>range()</code>
-</h3>
-<p>Python函数<code>range()</code>
- 让你能够轻松地生成一系列数。例如，可以像下面这样使用函数<code>range()</code>
- 来打印一系列数：</p>
-<p>
-<em>first_numbers.py</em>
-</p>
-<pre class="代码无行号"><code>for value in range(1, 5):
-    print(value)</code>
-</pre>
-<p>上述代码好像应该打印数1～5，但实际上不会打印5：</p>
-<pre class="代码无行号"><code>1
-2
-3
-4</code>
-</pre>
-<p>在这个示例中，<code>range()</code>
- 只打印数1～4。这是编程语言中常见的差一行为的结果。函数<code>range()</code>
- 让Python从指定的第一个值开始数，并在到达你指定的第二个值时停止。因为它在第二个值处停止，所以输出不包含该值（这里为5）。</p>
-<p>要打印数1～5，需要使用<code>range(1,6)</code>
- ：</p>
-<pre class="代码无行号"><code>for value in range(1, 6):
-    print(value)</code>
-</pre>
-<p>这样，输出将从1开始、到5结束：</p>
-<pre class="代码无行号"><code>1
-2
-3
-4
-5</code>
-</pre>
-<p>使用<code>range()</code>
- 时，如果输出不符合预期，请尝试将指定的值加1或减1。</p>
-<p>调用函数<code>range()</code>
- 时，也可只指定一个参数，这样它将从0开始。例如，<code>range(6)</code>
- 返回数0～5。</p>
-<h3 id="nav_point_82">4.3.2　使用<code>range()</code>
- 创建数字列表</h3>
-<p>要创建数字列表，可使用函数<code>list()</code>
- 将<code>range()</code>
- 的结果直接转换为列表。如果将<code>range()</code>
- 作为<code>list()</code>
- 的参数，输出将是一个数字列表。</p>
-<p>在前一节的示例中，只是将一系列数打印出来。要将这组数转换为列表，可使用<code>list()</code>
- ：</p>
-<pre class="代码无行号"><code>numbers = list(range(1, 6))
-print(numbers)</code>
-</pre>
-<p>结果如下：</p>
-<pre class="代码无行号"><code>[1, 2, 3, 4, 5]</code>
-</pre>
-<p>使用函数<code>range()</code>
- 时，还可指定步长。为此，可给这个函数指定第三个参数，Python将根据这个步长来生成数。</p>
-<p>例如，下面的代码打印1～10的偶数：</p>
-<p>
-<em>even_numbers.py</em>
-</p>
-<pre class="代码无行号"><code>even_numbers = list(range(2, 11, 2))
-print(even_numbers)</code>
-</pre>
-<p>在这个示例中，函数<code>range()</code>
- 从2开始数，然后不断加2，直到达到或超过终值（11），因此输出如下：</p>
-<pre class="代码无行号"><code>[2, 4, 6, 8, 10]</code>
-</pre>
-<p>使用函数<code>range()</code>
- 几乎能够创建任何需要的数集。例如，如何创建一个列表，其中包含前10个整数（1～10）的平方呢？在Python中，用两个星号（<code>**</code>
- ）表示乘方运算。下面的代码演示了如何将前10个整数的平方加入一个列表中：</p>
-<p>
-<em>squares.py</em>
-</p>
-<pre class="代码无行号"><code>❶ squares = []
-❷ for value in range(1, 11):
-❸     square = value ** 2
-❹     squares.append(square)
-❺ print(squares)</code>
-</pre>
-<p>首先，创建一个名为<code>squares</code>
- 的空列表（见❶）。接下来，使用函数<code>range()</code>
- 让Python遍历1～10的值（见❷）。在循环中，计算当前值的平方，并将结果赋给变量<code>square</code>
- （见❸）。然后，将新计算得到的平方值附加到列表<code>squares</code>
- 末尾（见❹）。最后，循环结束后，打印列表<code>squares</code>
- （见❺）：</p>
-<pre class="代码无行号"><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</code>
-</pre>
-<p>为了让代码更简洁，可不使用临时变量<code>square</code>
- ，而直接将每个计算得到的值附加到列表末尾：</p>
-<pre class="代码无行号"><code>  squares = []
-  for value in range(1,11):
-❶     squares.append(value**2)
-  print(squares)</code>
-</pre>
-<p>❶处的代码与squares.py中❸处和❹处的代码等效。在循环中，计算每个值的平方，并立即将结果附加到列表<code>squares</code>
- 的末尾。</p>
-<p>创建更复杂的列表时，可使用上述两种方法中的任何一种。有时候，使用临时变量会让代码更易读；而在其他情况下，这样做只会让代码无谓地变长。你首先应该考虑的是，编写清晰易懂且能完成所需功能的代码，等到审核代码时，再考虑采用更高效的方法。</p>
-<h3 id="nav_point_83">4.3.3　对数字列表执行简单的统计计算</h3>
-<p>有几个专门用于处理数字列表的Python函数。例如，你可以轻松地找出数字列表的最大值、最小值和总和：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
-&gt;&gt;&gt; min(digits)
-0
-&gt;&gt;&gt; max(digits)
-9
-&gt;&gt;&gt; sum(digits)
-45</code>
-</pre>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　考虑到版面，本节使用的数字列表都很短，但这里介绍的知识也适用于包含数百万个数的列表。</p>
-</blockquote>
-<h3 id="nav_point_84">4.3.4　列表解析</h3>
-<p>前面介绍的生成列表<code>squares</code>
- 的方式包含三四行代码，而列表解析让你只需编写一行代码就能生成这样的列表。<strong>列表解析</strong>
- 将<code>for</code>
- 循环和创建新元素的代码合并成一行，并自动附加新元素。面向初学者的书并非都会介绍列表解析，这里之所以介绍列表解析，是因为等你开始阅读他人编写的代码时，很可能会遇到它。</p>
-<p>下面的示例使用列表解析创建你在前面看到的平方数列表：</p>
-<p>
-<em>squares.py</em>
-</p>
-<pre class="代码无行号"><code>squares = [value**2 for value in range(1, 11)]
-print(squares)</code>
-</pre>
-<p>要使用这种语法，首先指定一个描述性的列表名，如<code>squares</code>
- 。然后，指定一个左方括号，并定义一个表达式，用于生成要存储到列表中的值。在这个示例中，表达式为<code>value**2</code>
- ，它计算平方值。接下来，编写一个<code>for</code>
- 循环，用于给表达式提供值，再加上右方括号。在这个示例中，<code>for</code>
- 循环为<code>for value in range(1,11)</code>
- ，它将值1～10提供给表达式<code>value**2</code>
- 。请注意，这里的<code>for</code>
- 语句末尾没有冒号。</p>
-<p>结果与前面的平方数列表相同：</p>
-<pre class="代码无行号"><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</code>
-</pre>
-<p>要创建自己的列表解析，需要经过一定的练习，但能够熟练地创建常规列表后，你会发现这样做是完全值得的。当你觉得编写三四行代码来生成列表有点繁复时，就应考虑创建列表解析了。</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>
-<strong>练习4-3：数到20</strong>
- 　使用一个<code>for</code>
- 循环打印数1～20（含）。</p>
-<p>
-<strong>练习4-4：一百万</strong>
- 　创建一个包含数1～1 000 000的列表，再使用一个<code>for</code>
- 循环将这些数打印出来。（如果输出的时间太长，按Ctrl + C停止输出或关闭输出窗口。）</p>
-<p>
-<strong>练习4-5：一百万求和</strong>
- 　创建一个包含数1～1 000 000的列表，再使用<code>min()</code>
- 和<code>max()</code>
- 核实该列表确实是从1开始、到1 000 000结束的。另外，对这个列表调用函数<code>sum()</code>
- ，看看Python将一百万个数相加需要多长时间。</p>
-<p>
-<strong>练习4-6：奇数</strong>
- 　通过给函数<code>range()</code>
- 指定第三个参数来创建一个列表，其中包含1～20的奇数，再使用一个<code>for</code>
- 循环将这些数打印出来。</p>
-<p>
-<strong>练习4-7：3的倍数</strong>
- 　创建一个列表，其中包含3～30能被3整除的数，再使用一个<code>for</code>
- 循环将这个列表中的数打印出来。</p>
-<p>
-<strong>练习4-8：立方</strong>
- 　将同一个数乘三次称为<strong>立方</strong>
- 。例如，在Python中，2的立方用<code>2**3</code>
- 表示。请创建一个列表，其中包含前10个整数（1～10）的立方，再使用一个<code>for</code>
- 循环将这些立方数打印出来。</p>
-<p>
-<strong>练习4-9：立方解析</strong>
- 　使用列表解析生成一个列表，其中包含前10个整数的立方。</p>
-</blockquote>
-<h2 id="nav_point_85">4.4　使用列表的一部分</h2>
-<p>在第3章中，你学习了如何访问单个列表元素。在本章中，你一直在学习如何处理列表的所有元素。你还可以处理列表的部分元素，Python称之为<strong>切片</strong>
- 。</p>
-<h3 id="nav_point_86">4.4.1　切片</h3>
-<p>要创建切片，可指定要使用的第一个元素和最后一个元素的索引。与函数<code>range()</code>
- 一样，Python在到达第二个索引之前的元素后停止。要输出列表中的前三个元素，需要指定索引0和3，这将返回索引为0、1和2的元素。</p>
-<p>下面的示例处理的是一个运动队成员列表：</p>
-<p>
-<em>players.py</em>
-</p>
-<pre class="代码无行号"><code>  players = ['charles', 'martina', 'michael', 'florence', 'eli']
-❶ print(players[0:3])</code>
-</pre>
-<p>❶处的代码打印该列表的一个切片，其中只包含三名队员。输出也是一个列表，其中包含前三名队员：</p>
-<pre class="代码无行号"><code>['charles', 'martina', 'michael']</code>
-</pre>
-<p>你可以生成列表的任意子集。例如，如果要提取列表的第二、第三和第四个元素，可将起始索引指定为<code>1</code>
- ，并将终止索引指定为<code>4</code>
- ：</p>
-<pre class="代码无行号"><code>players = ['charles', 'martina', 'michael', 'florence', 'eli']
-print(players[1:4])</code>
-</pre>
-<p>此时，切片始于<code>'martina'</code>
- 、终于<code>'florence'</code>
- 。</p>
-<pre class="代码无行号"><code>['martina', 'michael', 'florence']</code>
-</pre>
-<p>如果没有指定第一个索引，Python将自动从列表开头开始：</p>
-<pre class="代码无行号"><code>players = ['charles', 'martina', 'michael', 'florence', 'eli']
-print(players[:4])</code>
-</pre>
-<p>由于没有指定起始索引，Python从列表开头开始提取：</p>
-<pre class="代码无行号"><code>['charles', 'martina', 'michael', 'florence']</code>
-</pre>
-<p>要让切片终止于列表末尾，也可使用类似的语法。例如，如果要提取从第三个元素到列表末尾的所有元素，可将起始索引指定为<code>2</code>
- ，并省略终止索引：</p>
-<pre class="代码无行号"><code>players = ['charles', 'martina', 'michael', 'florence', 'eli']
-print(players[2:])</code>
-</pre>
-<p>Python将返回从第三个元素到列表末尾的所有元素：</p>
-<pre class="代码无行号"><code>['michael', 'florence', 'eli']</code>
-</pre>
-<p>无论列表多长，这种语法都能够让你输出从特定位置到列表末尾的所有元素。上一章说过，负数索引返回离列表末尾相应距离的元素，因此你可以输出列表末尾的任意切片。例如，如果要输出名单上的最后三名队员，可使用切片<code>players[-3:]</code>
- ：</p>
-<pre class="代码无行号"><code>players = ['charles', 'martina', 'michael', 'florence', 'eli']
-print(players[-3:])</code>
-</pre>
-<p>上述代码打印最后三名队员的名字，即便队员名单长度发生变化，也依然如此。</p>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　可在表示切片的方括号内指定第三个值。这个值告诉Python在指定范围内每隔多少元素提取一个。</p>
-</blockquote>
-<h3 id="nav_point_87">4.4.2　遍历切片</h3>
-<p>如果要遍历列表的部分元素，可在<code>for</code>
- 循环中使用切片。下面的示例遍历前三名队员，并打印他们的名字：</p>
-<pre class="代码无行号"><code>  players = ['charles', 'martina', 'michael', 'florence', 'eli']
-  print("Here are the first three players on my team:")
-❶ for player in players[:3]:
-      print(player.title())</code>
-</pre>
-<p>❶处的代码没有遍历整个队员列表，而只遍历前三名队员：</p>
-<pre class="代码无行号"><code>Here are the first three players on my team:
-Charles
-Martina
-Michael</code>
-</pre>
-<p>在很多情况下，切片都很有用。例如，编写游戏时，你可以在玩家退出游戏时将其最终得分加入一个列表中，然后将该列表按降序排列以获取三个最高得分，再创建一个只包含前三个得分的切片；处理数据时，可使用切片来进行批量处理；编写Web应用程序时，可使用切片来分页显示信息，并在每页显示数量合适的信息。</p>
-<h3 id="nav_point_88">4.4.3　复制列表</h3>
-<p>我们经常需要根据既有列表创建全新的列表。下面来介绍复制列表的工作原理，以及复制列表可提供极大帮助的一种情形。</p>
-<p>要复制列表，可创建一个包含整个列表的切片，方法是同时省略起始索引和终止索引（<code>[:]</code>
- ）。这让Python创建一个始于第一个元素、终止于最后一个元素的切片，即整个列表的副本。</p>
-<p>例如，假设有一个列表包含你最喜欢的四种食品，而你想再创建一个列表，并在其中包含一位朋友喜欢的所有食品。不过，你喜欢的食品，这位朋友也都喜欢，因此可通过复制来创建这个列表：</p>
-<p>
-<em>foods.py</em>
-</p>
-<pre class="代码无行号"><code>❶ my_foods = ['pizza', 'falafel', 'carrot cake']
-❷ friend_foods = my_foods[:]
-  print("My favorite foods are:")
-  print(my_foods)
-  print("\nMy friend's favorite foods are:")
-  print(friend_foods)</code>
-</pre>
-<p>首先，创建一个你喜欢的食品列表，名为<code>my_foods</code>
- （见❶）。然后创建一个名为<code>friend_foods</code>
- 的新列表（见❷）。在不指定任何索引的情况下从列表<code>my_foods</code>
- 中提取一个切片，从而创建这个列表的副本，并将该副本赋给变量<code>friend_foods</code>
- 。打印这两个列表后，我们发现其包含的食品相同：</p>
-<pre class="代码无行号"><code>My favorite foods are:
-['pizza', 'falafel', 'carrot cake']
-My friend's favorite foods are:
-['pizza', 'falafel', 'carrot cake']</code>
-</pre>
-<p>为核实确实有两个列表，下面在每个列表中都添加一种食品，并核实每个列表都记录了相应人员喜欢的食品：</p>
-<pre class="代码无行号"><code>  my_foods = ['pizza', 'falafel', 'carrot cake']
-❶ friend_foods = my_foods[:]
-❷ my_foods.append('cannoli')
-❸ friend_foods.append('ice cream')
-  print("My favorite foods are:")
-  print(my_foods)
-  print("\nMy friend's favorite foods are:")
-  print(friend_foods)</code>
-</pre>
-<p>与前一个示例一样，首先将<code>my_foods</code>
- 的元素复制到新列表<code>friend_foods</code>
- 中（见❶）。接下来，在每个列表中都添加一种食品：在列表<code>my_foods</code>
- 中添加<code>'cannoli'</code>
- （见❷），而在<code>friend_foods</code>
- 中添加<code>'ice cream'</code>
- （见❸）。最后，打印这两个列表，核实这两种食品分别包含在正确的列表中。</p>
-<pre class="代码无行号"><code>  My favorite foods are:
-❹ ['pizza', 'falafel', 'carrot cake', 'cannoli']
-  My friend's favorite foods are:
-❺ ['pizza', 'falafel', 'carrot cake', 'ice cream']</code>
-</pre>
-<p>❹处的输出表明，<code>'cannoli'</code>
- 包含在你喜欢的食品列表中，而<code>'ice cream'</code>
- 不在。❺处的输出表明，<code>'ice cream'</code>
- 包含在你朋友喜欢的食品列表中，而<code>'cannoli'</code>
- 不在。如果只是将<code>my_foods</code>
- 赋给<code>friend_foods</code>
- ，就不能得到两个列表。例如，下面演示了在不使用切片的情况下复制列表的情况：</p>
-<pre class="代码无行号"><code>  my_foods = ['pizza', 'falafel', 'carrot cake']
-  # 这行不通:
-❶ friend_foods = my_foods
-  my_foods.append('cannoli')
-  friend_foods.append('ice cream')
-  print("My favorite foods are:")
-  print(my_foods)
-  print("\nMy friend's favorite foods are:")
-  print(friend_foods)</code>
-</pre>
-<p>这里将<code>my_foods</code>
- 赋给<code>friend_foods</code>
- ，而不是将<code>my_foods</code>
- 的副本赋给<code>friend_foods</code>
- （见❶）。这种语法实际上是让Python将新变量<code>friend_foods</code>
- 关联到已与<code>my_foods</code>
- 相关联的列表，因此这两个变量指向同一个列表。有鉴于此，当我们将<code>'cannoli'</code>
- 添加到<code>my_foods</code>
- 中时，它也将出现在<code>friend_foods</code>
- 中。同样，虽然<code>'ice cream'</code>
- 好像只被加入到了<code>friend_foods</code>
- 中，但它也将出现在这两个列表中。</p>
-<p>输出表明，两个列表是相同的，这并非我们想要的结果：</p>
-<pre class="代码无行号"><code>My favorite foods are:
-['pizza', 'falafel', 'carrot cake', 'cannoli', 'ice cream']
-My friend's favorite foods are:
-['pizza', 'falafel', 'carrot cake', 'cannoli', 'ice cream']</code>
-</pre>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　暂时不要考虑这个示例中的细节。当试图使用列表的副本时结果出乎意料，基本上都要确认你是否像第一个示例那样使用切片复制了列表。</p>
-</blockquote>
-<p>　</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>
-<strong>练习4-10：切片</strong>
- 　选择你在本章编写的一个程序，在末尾添加几行代码，以完成如下任务。</p>
-<ul>
-<li class="第2级无序列表">打印消息“The first three items in the list are:”，再使用切片来打印列表的前三个元素。</li>
-<li class="第2级无序列表">打印消息“Three items from the middle of the list are:”，再使用切片来打印列表的中间三个元素。</li>
-<li class="第2级无序列表">打印消息“The last three items in the list are:”，再使用切片来打印列表的末尾三个元素。</li>
-</ul>
-<p>
-<strong>练习4-11：你的比萨，我的比萨</strong>
- 　在你为完成练习4-1而编写的程序中，创建比萨列表的副本，并将其赋给变量<code>friend_pizzas</code>
- ，再完成如下任务。</p>
-<ul>
-<li class="第2级无序列表">在原来的比萨列表中添加一种比萨。</li>
-<li class="第2级无序列表">在列表<code>friend_pizzas</code>
- 中添加另一种比萨。</li>
-<li class="第2级无序列表">核实有两个不同的列表。为此，打印消息“My favorite pizzas are:”，再使用一个<code>for</code>
- 循环来打印第一个列表；打印消息“My friend's favorite pizzas are:”，再使用一个<code>for</code>
- 循环来打印第二个列表。核实新增的比萨被添加到了正确的列表中。</li>
-</ul>
-<p>
-<strong>练习4-12：使用多个循环</strong>
- 　在本节中，为节省篇幅，程序foods.py的每个版本都没有使用<code>for</code>
- 循环来打印列表。请选择一个版本的foods.py，在其中编写两个<code>for</code>
- 循环，将各个食品列表打印出来。</p>
-</blockquote>
-<h2 id="nav_point_89">4.5　元组</h2>
-<p>列表非常适合用于存储在程序运行期间可能变化的数据集。列表是可以修改的，这对处理网站的用户列表或游戏中的角色列表至关重要。然而，有时候你需要创建一系列不可修改的元素，元组可以满足这种需求。Python将不能修改的值称为<strong>不可变的</strong>
- ，而不可变的列表被称为<strong>元组</strong>
- 。</p>
-<h3 id="nav_point_90">4.5.1　定义元组</h3>
-<p>元组看起来很像列表，但使用圆括号而非中括号来标识。定义元组后，就可使用索引来访问其元素，就像访问列表元素一样。</p>
-<p>例如，如果有一个大小不应改变的矩形，可将其长度和宽度存储在一个元组中，从而确保它们是不能修改的：</p>
-<p>
-<em>dimensions.py</em>
-</p>
-<pre class="代码无行号"><code>❶ dimensions = (200, 50)
-❷ print(dimensions[0])
-  print(dimensions[1])</code>
-</pre>
-<p>首先定义元组<code>dimensions</code>
- （见❶），为此使用了圆括号而不是方括号。接下来，分别打印该元组的各个元素，使用的语法与访问列表元素时使用的语法相同（见❷）：</p>
-<pre class="代码无行号"><code>200
-50</code>
-</pre>
-<p>下面来尝试修改元组<code>dimensions</code>
- 的一个元素，看看结果如何：</p>
-<pre class="代码无行号"><code>  dimensions = (200, 50)
-❶ dimensions[0] = 250</code>
-</pre>
-<p>❶处的代码试图修改第一个元素的值，导致Python返回类型错误消息。由于试图修改元组的操作是被禁止的，因此Python指出不能给元组的元素赋值：</p>
-<pre class="代码无行号"><code>Traceback (most recent call last):
-  File "dimensions.py", line 2, in &lt;module&gt;
-    dimensions[0] = 250
-TypeError: 'tuple' object does not support item assignment</code>
-</pre>
-<p>这很好，因为我们希望Python在代码试图修改矩形的尺寸时引发错误。</p>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　严格地说，元组是由逗号标识的，圆括号只是让元组看起来更整洁、更清晰。如果你要定义只包含一个元素的元组，必须在这个元素后面加上逗号：</p>
-<pre class="代码无行号"><code>my_t = (3,)</code>
-</pre>
-<p>创建只包含一个元素的元组通常没有意义，但自动生成的元组有可能只有一个元素。</p>
-</blockquote>
-<h3 id="nav_point_91">4.5.2　遍历元组中的所有值</h3>
-<p>像列表一样，也可以使用<code>for</code>
- 循环来遍历元组中的所有值：</p>
-<pre class="代码无行号"><code>dimensions = (200, 50)
-for dimension in dimensions:
-    print(dimension)</code>
-</pre>
-<p>就像遍历列表时一样，Python返回元组中所有的元素：</p>
-<pre class="代码无行号"><code>200
-50</code>
-</pre>
-<h3 id="nav_point_92">4.5.3　修改元组变量</h3>
-<p>虽然不能修改元组的元素，但可以给存储元组的变量赋值。因此，如果要修改前述矩形的尺寸，可重新定义整个元组：</p>
-<pre class="代码无行号"><code>❶ dimensions = (200, 50)
-  print("Original dimensions:")
-  for dimension in dimensions:
-      print(dimension)
-❷ dimensions = (400, 100)
-❸ print("\nModified dimensions:")
-  for dimension in dimensions:
-      print(dimension)</code>
-</pre>
-<p>首先定义一个元组，并将其存储的尺寸打印出来（见❶）。接下来，将一个新元组关联到变量<code>dimensions</code>
- （见❷）。然后，打印新的尺寸（见❸）。这次，Python不会引发任何错误，因为给元组变量重新赋值是合法的：</p>
-<pre class="代码无行号"><code>Original dimensions:
-200
-50
-Modified dimensions:
-400
-100</code>
-</pre>
-<p>相比于列表，元组是更简单的数据结构。如果需要存储的一组值在程序的整个生命周期内都不变，就可以使用元组。</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>
-<strong>练习4-13：自助餐</strong>
- 　有一家自助式餐馆，只提供五种简单的食品。请想出五种简单的食品，并将其存储在一个元组中。</p>
-<ul>
-<li class="第2级无序列表">使用一个<code>for</code>
- 循环将该餐馆提供的五种食品都打印出来。</li>
-<li class="第2级无序列表">尝试修改其中的一个元素，核实Python确实会拒绝你这样做。</li>
-<li class="第2级无序列表">餐馆调整了菜单，替换了它提供的其中两种食品。请编写一个这样的代码块：给元组变量赋值，并使用一个<code>for</code>
- 循环将新元组的每个元素都打印出来。</li>
-</ul>
-</blockquote>
-<h2 id="nav_point_93">4.6　设置代码格式</h2>
-<p>随着你编写的程序越来越长，有必要了解一些代码格式设置约定。请花时间让你的代码尽可能易于阅读。这有助于你掌握程序是做什么的，也可以帮助他人理解你编写的代码。</p>
-<p>为确保所有人编写的代码结构都大致一致，Python程序员会遵循一些格式设置约定。学会编写整洁的Python后，就能明白他人编写的Python代码的整体结构——只要他们和你遵循相同的指南。要成为专业程序员，应从现在开始就遵循这些指南，以养成良好的习惯。</p>
-<h3 id="nav_point_94">4.6.1　格式设置指南</h3>
-<p>要提出Python语言修改建议，需要编写<strong>Python改进提案</strong>
- （Python Enhancement Proposal，PEP）。<strong>PEP 8</strong>
- 是最古老的PEP之一，向Python程序员提供了代码格式设置指南。PEP 8的篇幅很长，但基本上与复杂的编码结构相关。</p>
-<p>Python格式设置指南的编写者深知，代码被阅读的次数比编写的次数多。代码编写出来后，调试时需要阅读；给程序添加新功能时，需要花很长的时间阅读；与其他程序员分享代码时，这些程序员也会阅读。</p>
-<p>如果一定要在让代码易于编写和易于阅读之间做出选择，Python程序员几乎总是选择后者。下面的指南可帮助你从一开始就编写出清晰的代码。</p>
-<h3 id="nav_point_95">4.6.2　缩进</h3>
-<p>PEP 8建议每级缩进都使用四个空格。这既可提高可读性，又留下了足够的多级缩进空间。</p>
-<p>在字处理文档中，大家常常使用制表符而不是空格来缩进。对于字处理文档来说，这样做的效果很好，但混合使用制表符和空格会让Python解释器感到迷惑。每款文本编辑器都提供了一种设置，可将你输入的制表符转换为指定数量的空格。你在编写代码时绝对应该使用制表符键，但一定要对编辑器进行设置，使其在文档中插入空格而不是制表符。</p>
-<p>在程序中混合使用制表符和空格可能导致极难排查的问题。如果混合使用了制表符和空格，可将文件中的所有制表符都转换为空格，大多数编辑器提供了这样的功能。</p>
-<h3 id="nav_point_96">4.6.3　行长</h3>
-<p>很多Python程序员建议每行不超过80字符。最初制定这样的指南时，在大多数计算机中，终端窗口每行只能容纳79字符。当前，计算机屏幕每行可容纳的字符数多得多，为何还要使用79字符的标准行长呢？这里有别的原因。专业程序员通常会在同一个屏幕上打开多个文件，使用标准行长可以让他们在屏幕上并排打开两三个文件时同时看到各个文件的完整行。PEP 8还建议注释的行长不应超过72字符，因为有些工具为大型项目自动生成文档时，会在每行注释开头添加格式化字符。</p>
-<p>PEP 8中有关行长的指南并非不可逾越的红线，有些小组将最大行长设置为99字符。在学习期间，你不用过多考虑代码的行长，但别忘了，协作编写程序时，大家几乎都遵守PEP 8指南。在大多数编辑器中，可以设置一个视觉标志（通常是一条竖线），让你知道不能越过的界线在什么地方。</p>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　附录B介绍了如何配置文本编辑器，使其在你按制表符键时插入四个空格，并且显示一条垂直参考线，帮助你遵守行长不超过79字符的约定。</p>
-</blockquote>
-<h3 id="nav_point_97">4.6.4　空行</h3>
-<p>要将程序的不同部分分开，可使用空行。你应该使用空行来组织程序文件，但也不能滥用。只要按本书的示例展示的那样做，就能掌握其中的平衡。例如，如果你有五行创建列表的代码，还有三行处理该列表的代码，那么用一个空行将这两部分隔开是合适的。然而，你不应使用三四个空行将其隔开。</p>
-<p>空行不会影响代码的运行，但会影响代码的可读性。Python解释器根据水平缩进情况来解读代码，但不关心垂直间距。</p>
-<h3 id="nav_point_98">4.6.5　其他格式设置指南</h3>
-<p>PEP 8还有很多其他的格式设置建议，但这些指南针对的程序大多比目前为止本书提到的程序复杂。等介绍更复杂的Python结构时，我们再来分享相关的PEP 8指南。</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>
-<strong>练习4-14：PEP 8</strong>
- 　请访问Python网站并搜索“PEP 8 — Style Guide for Python Code”，阅读PEP 8格式设置指南。当前，这些指南适用的情况不多，但可以大致浏览一下。</p>
-<p>
-<strong>练习4-15：代码审核</strong>
- 　从本章编写的程序中选择三个，根据PEP 8指南对它们进行修改。</p>
-<ul>
-<li class="第2级无序列表">每级缩进都使用四个空格。对你使用的文本编辑器进行设置，使其在你按Tab键时插入四个空格。如果你还没有这样做，现在就去做吧（有关如何设置，请参阅附录B）。</li>
-<li class="第2级无序列表">每行都不要超过80字符。对你使用的编辑器进行设置，使其在第80个字符处显示一条垂直参考线。</li>
-<li class="第2级无序列表">不要在程序文件中过多使用空行。</li>
-</ul>
-</blockquote>
-<h2 id="nav_point_99">4.7　小结</h2>
-<p>在本章中，你学习了：如何高效地处理列表中的元素；如何使用<code>for</code>
- 循环遍历列表，Python如何根据缩进来确定程序的结构，以及如何避免一些常见的缩进错误；如何创建简单的数字列表，以及可对数字列表执行的一些操作；如何通过切片来使用列表的一部分和复制列表。你还学习了元组（它对不应变化的值提供了一定程度的保护），以及在代码变得越来越复杂时如何设置格式，使其易于阅读。</p>
-<p>在第5章中，你将学习如何使用<code>if</code>
- 语句在不同的条件下采取不同的措施；如何将一组较复杂的条件测试组合起来，并在满足特定条件时采取相应的措施。你还将学习如何在遍历列表时，通过使用<code>if</code>
- 语句对特定元素采取特定的措施。</p>
-<br style="page-break-after:always"/>
-<div></div>
-]]></description>
-    <pubDate>Mon, 06 Jul 2026 02:08:22 +0000</pubDate>
-    <guid isPermaLink="false">4</guid>
 </item>
 </channel>
 </rss>
