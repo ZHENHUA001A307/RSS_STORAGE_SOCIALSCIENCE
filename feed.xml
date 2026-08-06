@@ -5,6 +5,69 @@
     <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
     <description>从 EPUB 自动生成的 RSS 订阅源</description>
         <item>
+    <title>Basic Python - 022 - 附录 B 文本编辑器与IDE.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：19 分钟 (3735 字)</p><hr><h1 id="nav_point_503">附录 B　文本编辑器与IDE</h1>
+<blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/22_Image00001.gif" style="width: 16%" width="16%"/>
+ 　程序员要花费大量时间编写、阅读和编辑代码，因此必须使用文本编辑器或<strong>集成开发环境</strong>
+ （IDE）来尽可能提高效率。好的编辑器会做些简单的工作，如突出代码结构，帮助你在编程期间发现常见的bug，但是又不会做得太多，以免打断你的思路。编辑器还提供了一些很有用的功能，如自动缩进、标识出合适的行长以及提供常用操作的快捷键。</p>
+</blockquote>
+<p>IDE是一种提供了大量其他工具（如交互式调试器和代码检视器）的文本编辑器。IDE在你输入代码时对其进行检查，力图弄清你创建的项目是什么样的。例如，当你输入函数名时，IDE可能显示该函数接受的所有参数。在一切顺利且你明白显示的内容时，这可能很有帮助。不过对初学者来说，这可能是极大的负担，因为他们可能不明白为何在IDE中输入的代码不可行。</p>
+<p>我建议你在学习编程期间使用简单的文本编辑器。文本编辑器给系统带来的负担轻得多，因此如果你使用的计算机较旧或配置的资源有限，文本编辑器运行起来将比IDE顺畅得多。如果你熟悉IDE或者周围有人在使用IDE而你也想在这样的环境中编程，则完全可以尝试使用IDE。</p>
+<p>就目前而言，不用太操心工具选择的问题，还不如将时间花在深入了解Python语言和开发感兴趣的项目上。掌握基础知识后，就会更清楚什么样的工具适合你。</p>
+<p>本附录介绍如何配置文本编辑器Sublime Text，以提高工作效率。最后还将简单介绍众多其他编辑器，你可能会考虑使用它们或者看到其他Python程序员使用它们。</p>
+<h2 id="nav_point_504">B.1　自定义Sublime Text设置</h2>
+<p>在第1章，你配置了Sublime Text，使其使用所需的Python版本来运行程序。下面来配置其他方面，让Sublime Text完成本附录开头提到的一些工作。</p>
+<h3 id="nav_point_505">B.1.1　将制表符转换为空格</h3>
+<p>如果在代码中混用制表符和空格键，可能导致程序出现难以调试的问题。为避免这种情况发生，可配置Sublime Text，使其总是使用空格来缩进，即便你按下Tab键亦如此。为此，打开菜单View ▶ Indentation，核实选择了Indent Using Spaces。如果没有，现在选择就它，并确保将Tab Width设置为4个空格。</p>
+<p>如果你已经在程序中混用了制表符和空格，可将所有制表符都转换为空格，方法是选择菜单View ▶ Indentation ▶ Convert Tabs to Spaces。也可通过单击Sublime Text窗口右下角的Spaces字样来访问这些设置。</p>
+<p>现在如果按Tab键来缩进代码行，Sublime Text将自动将制表符转换为指定数量的空格。</p>
+<h3 id="nav_point_506">B.1.2　设置行长标志</h3>
+<p>大多数编辑器允许你设置视觉线索（通常是竖线），指出代码行应在哪里结束。在Python社区，这方面的约定是行长不要超过79字符。要设置这种标志，可打开菜单View ▶ Ruler，再选择80。Sublime Text将在第80字符标志处放置一条竖线，帮助确保代码行的长度是合适的。</p>
+<h3 id="nav_point_507">B.1.3　缩进和取消缩进代码块</h3>
+<p>要缩进代码块，可选择它，再选择菜单Edit ▶ Line ▶ Indent或按Ctrl + ]（macOS系统中为Command + ]）。要取消缩进代码块，可选择菜单Edit ▶ Line ▶ Unindent或按Ctrl + [（macOS系统中为Command + [）。</p>
+<h3 id="nav_point_508">B.1.4　将代码块注释掉</h3>
+<p>要暂时禁用代码块，可选中它并注释掉，从而让Python忽略它。通过选择菜单Edit ▶ Comment ▶ Toggle Comment或按Ctrl + /（macOS系统中为Command + /），可将选定的代码行注释掉：在行首添加井号（#），并保持缩进程度不变，以指出这不是常规注释。要对代码块取消注释，可选中它，并再次选择前述菜单项。</p>
+<h3 id="nav_point_509">B.1.5　保存配置</h3>
+<p>前面提到的一些设置只影响当前文件，要让设置影响所有在Sublime Text中打开的文件，需要定义用户设置。为此选择菜单Preferences ▶ Settings，找到文件Preferences.sublime-settings – User，并在其中输入如下内容：</p>
+<pre class="代码无行号"><code>{
+    "rulers": [80],
+    "translate_tabs_to_spaces": true
+}</code>
+</pre>
+<p>保存这个文件，则指定的标尺和制表符设置将被应用于在Sublime Text中打开的所有文件。在这个文件中添加设置时，确保每行都以逗号结尾，但最后一行例外。你可以在网上查看其他用户的设置文件，进而自定义编辑器，以最大限度地提高工作效率。</p>
+<h3 id="nav_point_510">B.1.6　进一步自定义</h3>
+<p>你能以众多方式自定义Sublime Text，进一步提高工作效率。探索菜单时，要留意最常用的菜单项的键盘快捷键。通过使用键盘快捷键而不是鼠标或触摸板来执行操作，可提高效率。不要试图一次性记住所有的快捷键，只需记住最常执行的操作的快捷键就行，同时看看有没有其他功能可帮助你改善工作流程。</p>
+<h2 id="nav_point_511">B.2　其他文本编辑器和IDE</h2>
+<p>你肯定会听说众多其他的文本编辑器，或者看到有人使用这些编辑器。对于这些编辑器，通常可像自定义Sublime Text那样进行配置。下面介绍你可能听人说到的一些文本编辑器。</p>
+<h3 id="nav_point_512">B.2.1　IDLE</h3>
+<p>IDLE是Python自带的文本编辑器。相比于Sublime Text，它不那么直观，但有些初学者教程可能会提到它，因此你可能想试一试。</p>
+<h3 id="nav_point_513">B.2.2　Geany</h3>
+<p>Geany是一款简单的编辑器，你可在其中直接运行所有的程序。它在终端窗口中显示所有输出，有助于你逐渐习惯使用终端。Geany的界面非常简单，但功能强大，因此很多经验丰富的程序员也在使用它。</p>
+<h3 id="nav_point_514">B.2.3　Emacs和Vim</h3>
+<p>Emacs和Vim是两款流行的编辑器，深受众多经验丰富的程序员喜爱，因为使用它们时，用户的手根本不用离开键盘。因此学会使用这些编辑器后，编写、阅读和编辑代码的效率将获得极大提高。不过这也意味着学会使用它们的难度极大。大多数Linux和macOS计算机自带Vim，而且Emacs和Vim都可完全在终端中运行，因此它们常被用来通过远程终端会话在服务器上编写代码。</p>
+<p>程序员通常会推荐你试一试它们，但很多编程老手忘了编程新手要学习的东西实在太多了。知道这些编辑器是有益的，但请先使用简单编辑器，以便专注于学习编程，而不是费时间去学习如何使用编辑器。等你能够熟悉地编写和编辑代码后，再去使用这些编辑器吧。</p>
+<h3 id="nav_point_515">B.2.4　Atom</h3>
+<p>Atom是一款文本编辑器，但提供了一些通常只有IDE才提供的功能。在Atom中，可以打开单个文件，也可打开项目文件夹并轻松地访问项目中所有的文件。Atom集成了Git和GitHub，在需要使用版本控制时，这让你在编辑器中就能使用本地仓库和远程仓库，无须切换到另一个终端窗口。</p>
+<p>Atom还允许你安装包，从而以众多方式扩展其功能。可安装的包有很多，这让Atom更像一个IDE。</p>
+<h3 id="nav_point_516">B.2.5　Visual Studio Code</h3>
+<p>Visual Studio Code（VS Code）也是一款类似于IDE的编辑器，让你能够高效地使用调试器，还集成了版本控制功能并提供了代码补全工具。</p>
+<h3 id="nav_point_517">B.2.6　PyCharm</h3>
+<p>PyCharm是一款深受Python程序员欢迎的IDE，因为它是专门为使用Python编程而开发的。完整版需要付费订阅，但很多开发人员觉得免费的社区版（PyCharm Community Edition）也很有用。</p>
+<p>PyCharm提供了一个<strong>linter</strong>
+ ，它检查编码是否遵循了普遍接受的Python编程约定，并在代码不符合Python代码格式设置时提出修改建议。它集成了调试器，旨在帮助你高效消除错误，还支持各种模式，让你能够高效地使用众多流行的Python库。</p>
+<h3 id="nav_point_518">B.2.7　Jupyter Notebook</h3>
+<p>Jupyter Notebook不属于传统的文本编辑器或IDE，而是一款主要由块组成的Web应用程序。每个块都要么是代码块，要么是文本块，其中的文本块采用Markdown格式，让你能够设置简单的文本格式。</p>
+<p>最初开发时，Jupyter Notebook旨在支持在科学应用程序中使用Python，但经过不断的扩展后，它在很多情形下都很有用。在Jupyter Notebook中，不仅可在.py文件中添加注释，还可编写带简单格式的文本，如标题、带项目符号的列表和在不同代码片段之间导航的超链接。每个代码块都可独立运行，让你能够测试程序的一小部分或同时运行所有的代码块。每个代码块都有独立的输出区域，可根据需要显示或隐藏。</p>
+<p>Jupyter Notebook不同单元格（cell）之间的交互有时可能会令你迷惑。例如，如果在一个单元格中定义了一个函数，在其他单元格中也可使用。这在大多数情况下是有益的，但如果Notebook很长，而你又对Notebook环境的工作原理没有全面的认识，就会感到迷惑。</p>
+<p>如果你使用Python进行科学编程或以数据为核心的编程，肯定会遇到Jupyter Notebook。</p>
+<br style="page-break-after:always"/>
+<div></div>
+]]></description>
+    <pubDate>Thu, 06 Aug 2026 01:13:12 +0000</pubDate>
+    <guid isPermaLink="false">22</guid>
+</item>
+<item>
     <title>Basic Python - 021 - 附录 A 安装与故障排除.epub</title>
     <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：23 分钟 (4485 字)</p><hr><h1 id="nav_point_491">附录 A　安装与故障排除</h1>
 <blockquote>
@@ -12390,645 +12453,6 @@ from module_name import *</code>
 ]]></description>
     <pubDate>Mon, 13 Jul 2026 01:48:30 +0000</pubDate>
     <guid isPermaLink="false">8</guid>
-</item>
-<item>
-    <title>Basic Python - 007 - 第 7 章 用户输入和while循环.epub</title>
-    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：74 分钟 (14702 字)</p><hr><h1 id="nav_point_144">第 7 章　用户输入和<code>while</code>
- 循环</h1>
-<blockquote>
-<p><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/7_Image00001.gif" style="width: 16%" width="16%"/>
- 　大多数程序旨在解决最终用户的问题，为此通常需要从用户那里获取一些信息。例如，假设有人要判断自己是否到了投票年龄。要编写回答这个问题的程序，就需要知道用户的年龄，才能给出答案。因此，这种程序需要让用户<strong>输入</strong>
- 年龄，再将其与投票年龄进行比较，以判断用户是否到了投票年龄，从而给出结果。</p>
-<p>在本章中，你将学习如何接受用户输入，以便程序进行处理。程序需要一个名字时，你需要提示用户输入该名字；程序需要一个名单时，你需要提示用户输入一系列名字。为此，你将使用函数<code>input()</code>
- 。</p>
-<p>你还将学习如何让程序不断地运行，以便用户根据需要输入信息，并在程序中使用这些信息。为此，你将使用<code>while</code>
- 循环让程序不断运行，直到指定的条件不满足为止。</p>
-<p>通过获取用户输入并学会控制程序的运行时间，你就能编写出交互式程序。</p>
-</blockquote>
-<h2 id="nav_point_145">7.1　函数<code>input()</code>
- 的工作原理</h2>
-<p>函数<code>input()</code>
- 让程序暂停运行，等待用户输入一些文本。获取用户输入后，Python将其赋给一个变量，以方便你使用。</p>
-<p>例如，下面的程序让用户输入一些文本，再将这些文本呈现给用户：</p>
-<p>
-<em>parrot.py</em>
-</p>
-<pre class="代码无行号"><code>message = input("Tell me something, and I will repeat it back to you: ")
-print(message)</code>
-</pre>
-<p>函数<code>input()</code>
- 接受一个参数——要向用户显示的<strong>提示</strong>
- （prompt）或说明，让用户知道该如何做。在本例中，Python运行第一行代码时，用户将看到提示<code>Tell me something, and I will repeat it back to you:</code>
- 。程序等待用户输入，并在用户按回车键后继续运行。输入被赋给变量<code>message</code>
- ，接下来的<code>print(message)</code>
- 将输入呈现给用户：</p>
-<pre class="代码无行号"><code>Tell me something, and I will repeat it back to you: Hello everyone!
-Hello everyone!</code>
-</pre>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　Sublime Text等众多编辑器不能运行提示用户输入的程序。你可以使用Sublime Text来编写提示用户输入的程序，但必须从终端运行它们。详情请参阅1.5节。</p>
-</blockquote>
-<h3 id="nav_point_146">7.1.1　编写清晰的程序</h3>
-<p>每当使用函数<code>input()</code>
- 时，都应指定清晰易懂的提示，准确地指出希望用户提供什么样的信息——指出用户应该输入何种信息的任何提示都行，如下所示：</p>
-<p>
-<em>greeter.py</em>
-</p>
-<pre class="代码无行号"><code>name = input("Please enter your name: ")
-print(f"\nHello, {name}!")</code>
-</pre>
-<p>通过在提示末尾（这里是冒号后面）包含一个空格，可将提示与用户输入分开，让用户清楚地知道其输入始于何处，如下所示：</p>
-<pre class="代码无行号"><code>Please enter your name: Eric
-Hello, Eric!</code>
-</pre>
-<p>有时候，提示可能超过一行。例如，你可能需要指出获取特定输入的原因。在这种情况下，可将提示赋给一个变量，再将该变量传递给函数<code>input()</code>
- 。这样，即便提示超过一行，<code>input()</code>
- 语句也会非常清晰。</p>
-<p>
-<em>greeter.py</em>
-</p>
-<pre class="代码无行号"><code>prompt = "If you tell us who you are, we can personalize the messages you see."
-prompt += "\nWhat is your first name? "
-name = input(prompt)
-print(f"\nHello, {name}!")</code>
-</pre>
-<p>本例演示了一种创建多行字符串的方式。第一行将消息的前半部分赋给变量<code>prompt</code>
- 中。在第二行中，运算符<code>+=</code>
- 在前面赋给变量<code>prompt</code>
- 的字符串末尾附加一个字符串。</p>
-<p>最终的提示占据两行，且问号后面有一个空格，这也是为了使其更加清晰：</p>
-<pre class="代码无行号"><code>If you tell us who you are, we can personalize the messages you see.
-What is your first name? Eric
-Hello, Eric!</code>
-</pre>
-<h3 id="nav_point_147">7.1.2　使用<code>int()</code>
- 来获取数值输入</h3>
-<p>使用函数<code>input()</code>
- 时，Python将用户输入解读为字符串。请看下面让用户输入年龄的解释器会话：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; age = input("How old are you? ")
-How old are you? 21
-&gt;&gt;&gt; age
-'21'</code>
-</pre>
-<p>用户输入的是数21，但我们请求Python提供变量<code>age</code>
- 的值时，它返回的是<code>'21'</code>
- ——用户输入数值的字符串表示。我们怎么知道Python将输入解读成了字符串呢？因为这个数用引号括起了。如果只想打印输入，这一点问题都没有；但如果试图将输入作为数来使用，就会引发错误：</p>
-<pre class="代码无行号"><code>  &gt;&gt;&gt; age = input("How old are you? ")
-  How old are you? 21
-❶ &gt;&gt;&gt; age &gt;= 18
-  Traceback (most recent call last):
-    File "&lt;stdin&gt;", line 1, in &lt;module&gt;
-❷ TypeError: unorderable types: str() &gt;= int()</code>
-</pre>
-<p>试图将输入用于数值比较时（见❶），Python会引发错误，因为它无法将字符串和整数进行比较：不能将赋给<code>age</code>
- 的字符串<code>'21'</code>
- 与数值<code>18</code>
- 进行比较（见❷）。</p>
-<p>为解决这个问题，可使用函数<code>int()</code>
- ，它让Python将输入视为数值。函数<code>int()</code>
- 将数的字符串表示转换为数值表示，如下所示：</p>
-<pre class="代码无行号"><code>  &gt;&gt;&gt; age = input("How old are you? ")
-  How old are you? 21
-❶ &gt;&gt;&gt; age = int(age)
-  &gt;&gt;&gt; age &gt;= 18
-  True</code>
-</pre>
-<p>在本例中，用户根据提示输入<code>21</code>
- 后，Python将这个数解读为字符串，但随后<code>int()</code>
- 将这个字符串转换成了数值表示（见❶）。这样Python就能运行条件测试了：将变量<code>age</code>
- （它现在表示的是数值21）同<code>18</code>
- 进行比较，看它是否大于或等于18。测试结果为<code>True</code>
- 。</p>
-<p>如何在实际程序中使用函数<code>int()</code>
- 呢？请看下面的程序，它判断一个人是否满足坐过山车的身高要求：</p>
-<p>
-<em>rollercoaster.py</em>
-</p>
-<pre class="代码无行号"><code>height = input("How tall are you, in inches? ")
-height = int(height)
-if height &gt;= 48:
-    print("\nYou're tall enough to ride!")
-else:
-    print("\nYou'll be able to ride when you're a little older.")</code>
-</pre>
-<p>在此程序中，为何可以将<code>height</code>
- 同<code>48</code>
- 进行比较呢？因为在比较前，<code>height = int(height)</code>
- 将输入转换成了数值表示。如果输入的数大于或等于48，就指出用户满足身高条件：</p>
-<pre class="代码无行号"><code>How tall are you, in inches? 71
-You're tall enough to ride!</code>
-</pre>
-<p>将数值输入用于计算和比较前，务必将其转换为数值表示。</p>
-<h3 id="nav_point_148">7.1.3　求模运算符</h3>
-<p>处理数值信息时，<strong>求模运算符</strong>
- （%）是个很有用的工具，它将两个数相除并返回余数：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; 4 % 3
-1
-&gt;&gt;&gt; 5 % 3
-2
-&gt;&gt;&gt; 6 % 3
-0
-&gt;&gt;&gt; 7 % 3
-1</code>
-</pre>
-<p>求模运算符不会指出一个数是另一个数的多少倍，只指出余数是多少。</p>
-<p>如果一个数可被另一个数整除，余数就为0，因此求模运算将返回0。可利用这一点来判断一个数是奇数还是偶数：</p>
-<p>
-<em>even_or_odd.py</em>
-</p>
-<pre class="代码无行号"><code>number = input("Enter a number, and I'll tell you if it's even or odd: ")
-number = int(number)
-if number % 2 == 0:
-    print(f"\nThe number {number} is even.")
-else:
-    print(f"\nThe number {number} is odd.")</code>
-</pre>
-<p>偶数都能被2整除，因此如果对一个数和2执行求模运算的结果为0，即<code>number % 2 == 0</code>
- ，那么这个数就是偶数；否则就是奇数。</p>
-<pre class="代码无行号"><code>Enter a number, and I'll tell you if it's even or odd: 42
-The number 42 is even.</code>
-</pre>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>
-<strong>练习7-1：汽车租赁</strong>
- 　编写一个程序，询问用户要租赁什么样的汽车，并打印一条消息，下面是一个例子。</p>
-<p>Let me see if I can find you a Subaru.</p>
-<p>
-<strong>练习7-2：餐馆订位</strong>
- 　编写一个程序，询问用户有多少人用餐。如果超过8位，就打印一条消息，指出没有空桌；否则指出有空桌。</p>
-<p>
-<strong>练习7-3：10的整数倍</strong>
- 　让用户输入一个数，并指出该数是否是10的整数倍。</p>
-</blockquote>
-<h2 id="nav_point_149">7.2　<code>while</code>
- 循环简介</h2>
-<p>
-<code>for</code>
- 循环用于针对集合中的每个元素都执行一个代码块，而<code>while</code>
- 循环则不断运行，直到指定的条件不满足为止。</p>
-<h3 id="nav_point_150">7.2.1　使用<code>while</code>
- 循环</h3>
-<p>可使用<code>while</code>
- 循环来数数。例如，下面的<code>while</code>
- 循环从1数到5：</p>
-<p>
-<em>counting.py</em>
-</p>
-<pre class="代码无行号"><code>current_number = 1
-while current_number &lt;= 5:
-    print(current_number)
-    current_number += 1</code>
-</pre>
-<p>在第一行，将<code>1</code>
- 赋给变量<code>current_number</code>
- ，从而指定从1开始数。将接下来的<code>while</code>
- 循环设置成：只要<code>current_number</code>
- 小于或等于5，就接着运行这个循环。循环中的代码打印<code>current_number</code>
- 的值，再使用代码<code>current_number += 1</code>
- （代码<code>current_number = current_number + 1</code>
- 的简写）将其值加1。</p>
-<p>只要满足条件<code>current_number &lt;= 5</code>
- ，Python就接着运行这个循环。因为1小于5，所以Python打印<code>1</code>
- 并将<code>current_number</code>
- 加1，使其为2；因为2小于5，所以Python打印<code>2</code>
- 并将<code>current_number</code>
- 加1，使其为3；依此类推。一旦<code>current_number</code>
- 大于5，循环就将停止，整个程序也将结束：</p>
-<pre class="代码无行号"><code>1
-2
-3
-4
-5</code>
-</pre>
-<p>你每天使用的程序很可能就包含<code>while</code>
- 循环。例如，游戏使用<code>while</code>
- 循环，确保在玩家想玩时不断运行，并在玩家想退出时停止运行。如果程序在用户没有让它停止时停止运行，或者在用户要退出时还继续运行，那就太没有意思了。因此，<code>while</code>
- 循环很有用。</p>
-<h3 id="nav_point_151">7.2.2　让用户选择何时退出</h3>
-<p>可以使用<code>while</code>
- 循环让程序在用户愿意时不断运行，如下面的程序parrot.py所示。我们在其中定义了一个<strong>退出值</strong>
- ，只要用户输入的不是这个值，程序就将接着运行：</p>
-<p>
-<em>parrot.py</em>
-</p>
-<pre class="代码无行号"><code>❶ prompt = "\nTell me something, and I will repeat it back to you:"
-  prompt += "\nEnter 'quit' to end the program. "
-❷ message = ""
-❸ while message != 'quit':
-      message = input(prompt)
-      print(message)</code>
-</pre>
-<p>❶处定义了一条提示消息，告诉用户有两个选择：要么输入一条消息，要么输入退出值（这里为<code>'quit'</code>
- ）。接下来，创建变量<code>message</code>
- （见❷），用于记录用户输入的值。我们将变量<code>message</code>
- 的初始值设置为空字符串<code>""</code>
- ，让Python首次执行<code>while</code>
- 代码行时有可供检查的东西。Python首次执行<code>while</code>
- 语句时，需要将<code>message</code>
- 的值与<code>'quit'</code>
- 进行比较，但此时用户还没有输入。如果没有可供比较的东西，Python将无法继续运行程序。为解决这个问题，必须给变量<code>message</code>
- 指定初始值。虽然这个初始值只是一个空字符串，但符合要求，能够让Python执行<code>while</code>
- 循环所需的比较。只要<code>message</code>
- 的值不是<code>'quit'</code>
- ，这个循环（见❸）就会不断运行。</p>
-<p>首次遇到这个循环时，<code>message</code>
- 是一个空字符串，因此Python进入该循环。执行到代码行<code>message = input(prompt)</code>
- 时，Python显示提示消息，并等待用户输入。不管用户输入是什么，都将赋给变量<code>message</code>
- 并打印出来。接下来，Python重新检查<code>while</code>
- 语句中的条件。只要用户输入的不是单词<code>'quit'</code>
- ，Python就会再次显示提示消息并等待用户输入。等到用户终于输入<code>'quit'</code>
- 后，Python停止执行<code>while</code>
- 循环，整个程序也到此结束：</p>
-<pre class="代码无行号"><code>Tell me something, and I will repeat it back to you:
-Enter 'quit' to end the program. Hello everyone!
-Hello everyone!
-Tell me something, and I will repeat it back to you:
-Enter 'quit' to end the program. Hello again.
-Hello again.
-Tell me something, and I will repeat it back to you:
-Enter 'quit' to end the program. quit
-quit</code>
-</pre>
-<p>这个程序很好，唯一美中不足的是，它将单词<code>'quit'</code>
- 也作为一条消息打印了出来。为修复这种问题，只需使用一个简单的<code>if</code>
- 测试：</p>
-<pre class="代码无行号"><code>prompt = "\nTell me something, and I will repeat it back to you:"
-prompt += "\nEnter 'quit' to end the program. "
-message = ""
-while message != 'quit':
-    message = input(prompt)
-    if message != 'quit':
-        print(message)</code>
-</pre>
-<p>现在，程序在显示消息前将做简单的检查，仅在消息不是退出值时才打印它：</p>
-<pre class="代码无行号"><code>Tell me something, and I will repeat it back to you:
-Enter 'quit' to end the program. Hello everyone!
-Hello everyone!
-Tell me something, and I will repeat it back to you:
-Enter 'quit' to end the program. Hello again.
-Hello again.
-Tell me something, and I will repeat it back to you:
-Enter 'quit' to end the program. quit</code>
-</pre>
-<h3 id="nav_point_152">7.2.3　使用标志</h3>
-<p>在前一个示例中，我们让程序在满足指定条件时执行特定的任务。但在更复杂的程序中，很多不同的事件会导致程序停止运行。在这种情况下，该怎么办呢？</p>
-<p>例如，有多种事件可能导致游戏结束，如玩家失去所有飞船、时间已用完，或者要保护的城市被全部摧毁。导致程序结束的事件有很多时，如果在一条<code>while</code>
- 语句中检查所有这些条件，将既复杂又困难。</p>
-<p>在要求很多条件都满足才继续运行的程序中，可定义一个变量，用于判断整个程序是否处于活动状态。这个变量称为<strong>标志</strong>
- （flag），充当程序的交通信号灯。可以让程序在标志为<code>True</code>
- 时继续运行，并在任何事件导致标志的值为<code>False</code>
- 时让程序停止运行。这样，在<code>while</code>
- 语句中就只需检查一个条件：标志的当前值是否为<code>True</code>
- 。然后将所有其他测试（是否发生了应将标志设置为<code>False</code>
- 的事件）都放在其他地方，从而让程序更整洁。</p>
-<p>下面在前一节的程序parrot.py中添加一个标志。将其命名为<code>active</code>
- （你可给它指定任何名称），用于判断程序是否应继续运行：</p>
-<pre class="代码无行号"><code>  prompt = "\nTell me something, and I will repeat it back to you:"
-  prompt += "\nEnter 'quit' to end the program. "
-❶ active = True
-❷ while active:
-      message = input(prompt)
-❸     if message == 'quit':
-          active = False
-❹     else:
-          print(message)</code>
-</pre>
-<p>将变量<code>active</code>
- 设置为<code>True</code>
- （见❶），让程序最初处于活动状态。这样做简化了<code>while</code>
- 语句，因为不需要在其中做任何比较——相关的逻辑由程序的其他部分处理。只要变量<code>active</code>
- 为<code>True</code>
- ，循环就将继续运行（见❷）。</p>
-<p>在<code>while</code>
- 循环中，在用户输入后使用一条<code>if</code>
- 语句来检查变量<code>message</code>
- 的值。如果用户输入的是<code>'quit'</code>
- （见❸），就将变量<code>active</code>
- 设置为<code>False</code>
- 。这将导致<code>while</code>
- 循环不再继续执行。如果用户输入的不是<code>'quit'</code>
- （见❹），就将输入作为一条消息打印出来。</p>
-<p>这个程序的输出与前一个示例相同。前一个示例将条件测试直接放在了<code>while</code>
- 语句中，而这个程序则使用一个标志来指出程序是否处于活动状态。这样，如果要添加测试（如<code>elif</code>
- 语句）以检查是否发生了其他导致<code>active</code>
- 变为<code>False</code>
- 的事件，就会很容易。在复杂的程序（如很多事件会导致程序停止运行的游戏）中，标志很有用：在任意一个事件导致活动标志变成<code>False</code>
- 时，主游戏循环将退出，此时可显示一条游戏结束消息，并让用户选择是否要重新玩。</p>
-<h3 id="nav_point_153">7.2.4　使用<code>break</code>
- 退出循环</h3>
-<p>要立即退出<code>while</code>
- 循环，不再运行循环中余下的代码，也不管条件测试的结果如何，可使用<code>break</code>
- 语句。<code>break</code>
- 语句用于控制程序流程，可用来控制哪些代码行将执行、哪些代码行不执行，从而让程序按你的要求执行你要执行的代码。</p>
-<p>例如，来看一个让用户指出他到过哪些地方的程序。在这个程序中，可在用户输入<code>'quit'</code>
- 后使用<code>break</code>
- 语句立即退出<code>while</code>
- 循环：</p>
-<p>
-<em>cities.py</em>
-</p>
-<pre class="代码无行号"><code>  prompt = "\nPlease enter the name of a city you have visited:"
-  prompt += "\n(Enter 'quit' when you are finished.) "
-❶ while True:
-      city = input(prompt)
-      if city == 'quit':
-          break
-      else:
-          print(f"I'd love to go to {city.title()}!")</code>
-</pre>
-<p>以<code>while True</code>
- （见❶）打头的循环将不断运行，直到遇到<code>break</code>
- 语句。这个程序中的循环不断让用户输入他到过的城市的名字，直到用户输入<code>'quit'</code>
- 为止。用户输入<code>'quit'</code>
- 后，将执行<code>break</code>
- 语句，导致Python退出循环：</p>
-<pre class="代码无行号"><code>Please enter the name of a city you have visited:
-(Enter 'quit' when you are finished.) New York
-I'd love to go to New York!
-Please enter the name of a city you have visited:
-(Enter 'quit' when you are finished.) San Francisco
-I'd love to go to San Francisco!
-Please enter the name of a city you have visited:
-(Enter 'quit' when you are finished.) quit</code>
-</pre>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　在任何Python循环中都可使用<code>break</code>
- 语句。例如，可使用<code>break</code>
- 语句来退出遍历列表或字典的<code>for</code>
- 循环。</p>
-</blockquote>
-<h3 id="nav_point_154">7.2.5　在循环中使用<code>continue</code>
-</h3>
-<p>要返回循环开头，并根据条件测试结果决定是否继续执行循环，可使用<code>continue</code>
- 语句，它不像<code>break</code>
- 语句那样不再执行余下的代码并退出整个循环。例如，来看一个从1数到10但只打印其中奇数的循环：</p>
-<p>
-<em>counting.py</em>
-</p>
-<pre class="代码无行号"><code>  current_number = 0
-  while current_number &lt; 10:
-❶     current_number += 1
-      if current_number % 2 == 0:
-          continue
-      print(current_number)</code>
-</pre>
-<p>首先将<code>current_number</code>
- 设置为0，由于它小于10，Python进入<code>while</code>
- 循环。进入循环后，以步长1的方式往上数（见❶），因此<code>current_number</code>
- 为1。接下来，<code>if</code>
- 语句检查<code>current_number</code>
- 与2的求模运算结果。如果结果为0（意味着<code>current_number</code>
- 可被2整除），就执行<code>continue</code>
- 语句，让Python忽略余下的代码，并返回循环的开头。如果当前的数不能被2整除，就执行循环中余下的代码，将这个数打印出来：</p>
-<pre class="代码无行号"><code>1
-3
-5
-7
-9</code>
-</pre>
-<h3 id="nav_point_155">7.2.6　避免无限循环</h3>
-<p>每个<code>while</code>
- 循环都必须有停止运行的途径，这样才不会没完没了地执行下去。例如，下面的循环从1数到5：</p>
-<p>
-<em>counting.py</em>
-</p>
-<pre class="代码无行号"><code>x = 1
-while x &lt;= 5:
-    print(x)
-    x += 1</code>
-</pre>
-<p>但如果像下面这样不小心遗漏了代码行<code>x += 1</code>
- ，这个循环将没完没了地运行：</p>
-<pre class="代码无行号"><code># 这个循环将没完没了地运行！
-x = 1
-while x &lt;= 5:
-    print(x)</code>
-</pre>
-<p>在这里，<code>x</code>
- 的初始值为<code>1</code>
- ，但根本不会变。因此条件测试<code>x &lt;= 5</code>
- 始终为<code>True</code>
- ，导致<code>while</code>
- 循环没完没了地打印<code>1</code>
- ，如下所示：</p>
-<pre class="代码无行号"><code>1
-1
-1
-1
---snip--</code>
-</pre>
-<p>每个程序员都会偶尔因不小心而编写出无限循环，在循环的退出条件比较微妙时尤其如此。如果程序陷入无限循环，可按Ctrl + C，也可关闭显示程序输出的终端窗口。</p>
-<p>要避免编写无限循环，务必对每个<code>while</code>
- 循环进行测试，确保其按预期那样结束。如果你希望程序在用户输入特定值时结束，可运行程序并输入这样的值。如果在这种情况下程序没有结束，请检查程序处理这个值的方式，确认程序至少有一个这样的地方能让循环条件为<code>False</code>
- ，或者让<code>break</code>
- 语句得以执行。</p>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　Sublime Text等一些编辑器内嵌了输出窗口，这可能导致难以结束无限循环，不得不通过关闭编辑器来结束。在这种情况下，可在输出窗口中单击鼠标，再按Ctrl + C，这样应该能够结束无限循环。</p>
-</blockquote>
-<p>　</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>
-<strong>练习7-4：比萨配料</strong>
- 　编写一个循环，提示用户输入一系列比萨配料，并在用户输入<code>'quit'</code>
- 时结束循环。每当用户输入一种配料后，都打印一条消息，指出我们会在比萨中添加这种配料。</p>
-<p>
-<strong>练习7-5：电影票</strong>
- 　有家电影院根据观众的年龄收取不同的票价：不到3岁的观众免费；3～12岁的观众收费10美元；超过12岁的观众收费15美元。请编写一个循环，在其中询问用户的年龄，并指出其票价。</p>
-<p>
-<strong>练习7-6：三种出路</strong>
- 　以不同的方式完成练习7-4或练习7-5，在程序中采取如下做法。</p>
-<ul>
-<li class="第2级无序列表">在<code>while</code>
- 循环中使用条件测试来结束循环。</li>
-<li class="第2级无序列表">使用变量<code>active</code>
- 来控制循环结束的时机。</li>
-<li class="第2级无序列表">使用<code>break</code>
- 语句在用户输入<code>'quit'</code>
- 时退出循环。</li>
-</ul>
-<p>
-<strong>练习7-7：无限循环</strong>
- 　编写一个没完没了的循环，并运行它（要结束该循环，可按Ctrl + C，也可关闭显示输出的窗口）。</p>
-</blockquote>
-<h2 id="nav_point_156">7.3　使用<code>while</code>
- 循环处理列表和字典</h2>
-<p>到目前为止，我们每次都只处理了一项用户信息：获取用户的输入，再将输入打印出来或做出应答；循环再次运行时，获悉另一个输入值并做出响应。然而，要记录大量的用户和信息，需要在<code>while</code>
- 循环中使用列表和字典。</p>
-<p>
-<code>for</code>
- 循环是一种遍历列表的有效方式，但不应在<code>for</code>
- 循环中修改列表，否则将导致Python难以跟踪其中的元素。要在遍历列表的同时对其进行修改，可使用<code>while</code>
- 循环。通过将<code>while</code>
- 循环同列表和字典结合起来使用，可收集、存储并组织大量输入，供以后查看和显示。</p>
-<h3 id="nav_point_157">7.3.1　在列表之间移动元素</h3>
-<p>假设有一个列表包含新注册但还未验证的网站用户。验证这些用户后，如何将他们移到另一个已验证用户列表中呢？一种办法是使用一个<code>while</code>
- 循环，在验证用户的同时将其从未验证用户列表中提取出来，再将其加入另一个已验证用户列表中。代码可能类似于下面这样：</p>
-<p>
-<em>confirmed_users.py</em>
-</p>
-<pre class="代码无行号"><code>  # 首先，创建一个待验证用户列表
-  # 和一个用于存储已验证用户的空列表。
-❶ unconfirmed_users = ['alice', 'brian', 'candace']
-  confirmed_users = []
-  # 验证每个用户，直到没有未验证用户为止。
-  # 将每个经过验证的用户都移到已验证用户列表中。
-❷ while unconfirmed_users:
-❸     current_user = unconfirmed_users.pop()
-      print(f"Verifying user: {current_user.title()}")
-❹     confirmed_users.append(current_user)
-  # 显示所有已验证的用户。
-  print("\nThe following users have been confirmed:")
-  for confirmed_user in confirmed_users:
-      print(confirmed_user.title())</code>
-</pre>
-<p>首先创建一个未验证用户列表（见❶），其中包含用户Alice、Brian和Candace，还创建了一个空列表，用于存储已验证的用户。❷处的<code>while</code>
- 循环将不断运行，直到列表<code>unconfirmed_users</code>
- 变成空的。在此循环中，❸处的方法<code>pop()</code>
- 以每次一个的方式从列表<code>unconfirmed_users</code>
- 末尾删除未验证的用户。由于Candace位于列表<code>unconfirmed_users</code>
- 末尾，其名字将首先被删除、赋给变量<code>current_user</code>
- 并加入列表<code>confirmed_users</code>
- 中（见❹）。接下来是Brian，然后是Alice。</p>
-<p>为模拟用户验证过程，我们打印一条验证消息并将用户加入已验证用户列表中。未验证用户列表越来越短，而已验证用户列表越来越长。未验证用户列表为空后结束循环，再打印已验证用户列表：</p>
-<pre class="代码无行号"><code>Verifying user: Candace
-Verifying user: Brian
-Verifying user: Alice
-The following users have been confirmed:
-Candace
-Brian
-Alice</code>
-</pre>
-<h3 id="nav_point_158">7.3.2　删除为特定值的所有列表元素</h3>
-<p>在第3章中，我们使用函数<code>remove()</code>
- 来删除列表中的特定值。这之所以可行，是因为要删除的值只在列表中出现一次。如果要删除列表中所有为特定值的元素，该怎么办呢？</p>
-<p>假设你有一个宠物列表，其中包含多个值为<code>'cat'</code>
- 的元素。要删除所有这些元素，可不断运行一个<code>while</code>
- 循环，直到列表中不再包含值<code>'cat'</code>
- ，如下所示：</p>
-<p>
-<em>pets.py</em>
-</p>
-<pre class="代码无行号"><code>pets = ['dog', 'cat', 'dog', 'goldfish', 'cat', 'rabbit', 'cat']
-print(pets)
-while 'cat' in pets:
-    pets.remove('cat')
-print(pets)</code>
-</pre>
-<p>首先创建一个列表，其中包含多个值为<code>'cat'</code>
- 的元素。打印这个列表后，Python进入<code>while</code>
- 循环，因为它发现<code>'cat'</code>
- 在列表中至少出现了一次。进入该循环后，Python删除第一个<code>'cat'</code>
- 并返回到<code>while</code>
- 代码行，然后发现<code>'cat'</code>
- 还包含在列表中，因此再次进入循环。它不断删除<code>'cat'</code>
- ，直到这个值不再包含在列表中，然后退出循环并再次打印列表：</p>
-<pre class="代码无行号"><code>['dog', 'cat', 'dog', 'goldfish', 'cat', 'rabbit', 'cat']
-['dog', 'dog', 'goldfish', 'rabbit']</code>
-</pre>
-<h3 id="nav_point_159">7.3.3　使用用户输入来填充字典</h3>
-<p>可使用<code>while</code>
- 循环提示用户输入任意多的信息。下面创建一个调查程序，其中的循环每次执行时都提示输入被调查者的名字和回答。我们将收集的数据存储在一个字典中，以便将回答同被调查者关联起来：</p>
-<p>
-<em>mountain_poll.py</em>
-</p>
-<pre class="代码无行号"><code>  responses = {}
-  # 设置一个标志，指出调查是否继续。
-  polling_active = True
-  while polling_active:
-      # 提示输入被调查者的名字和回答。
-❶     name = input("\nWhat is your name? ")
-      response = input("Which mountain would you like to climb someday? ")
-      # 将回答存储在字典中。
-❷     responses[name] = response
-      # 看看是否还有人要参与调查。
-❸     repeat = input("Would you like to let another person respond? (yes/ no) ")
-      if repeat == 'no':
-          polling_active = False
-  # 调查结束，显示结果。
-  print("\n--- Poll Results ---")
-❹ for name, response in responses.items():
-      print(f"{name} would like to climb {response}.")</code>
-</pre>
-<p>这个程序首先定义了一个空字典（<code>responses</code>
- ），并设置了一个标志（<code>polling_active</code>
- ）用于指出调查是否继续。只要<code>polling_active</code>
- 为<code>True</code>
- ，Python就运行<code>while</code>
- 循环中的代码。</p>
-<p>在这个循环中，提示用户输入其名字及其喜欢爬哪座山（见❶）。将这些信息存储在字典<code>responses</code>
- 中（见❷），然后询问用户是否继续调查（见❸）。如果用户输入<code>yes</code>
- ，程序将再次进入<code>while</code>
- 循环；如果用户输入<code>no</code>
- ，标志<code>polling_active</code>
- 将被设置为<code>False</code>
- ，而<code>while</code>
- 循环将就此结束。最后一个代码块（见❹）显示调查结果。</p>
-<p>如果运行这个程序，并输入一些名字和回答，输出将类似于下面这样：</p>
-<pre class="代码无行号"><code>What is your name? Eric
-Which mountain would you like to climb someday? Denali
-Would you like to let another person respond? (yes/ no) yes
-What is your name? Lynn
-Which mountain would you like to climb someday? Devil's Thumb
-Would you like to let another person respond? (yes/ no) no
---- Poll Results ---
-Eric would like to climb Denali.
-Lynn would like to climb Devil's Thumb.</code>
-</pre>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>
-<strong>练习7-8：熟食店</strong>
- 　创建一个名为<code>sandwich_orders</code>
- 的列表，在其中包含各种三明治的名字，再创建一个名为<code>finished_sandwiches</code>
- 的空列表。遍历列表<code>sandwich_orders</code>
- ，对于其中的每种三明治，都打印一条消息，如<code>I made your tuna sandwich</code>
- ，并将其移到列表<code>finished_sandwiches</code>
- 中。所有三明治都制作好后，打印一条消息，将这些三明治列出来。</p>
-<p>
-<strong>练习7-9：五香烟熏牛肉卖完了</strong>
- 　使用为完成练习7-8而创建的列表<code>sandwich_orders</code>
- ，并确保<code>'pastrami'</code>
- 在其中至少出现了三次。在程序开头附近添加这样的代码：打印一条消息，指出熟食店的五香烟熏牛肉（pastrami）卖完了；再使用一个<code>while</code>
- 循环将列表<code>sandwich_orders</code>
- 中的<code>'pastrami'</code>
- 都删除。确认最终的列表<code>finished_sandwiches</code>
- 未包含<code>'pastrami'</code>
- 。</p>
-<p>
-<strong>练习7-10：梦想的度假胜地</strong>
- 　编写一个程序，调查用户梦想的度假胜地。使用类似于下面的提示，并编写一个打印调查结果的代码块。</p>
-<p>If you could visit one place in the world, where would you go?</p>
-</blockquote>
-<h2 id="nav_point_160">7.4　小结</h2>
-<p>在本章中，你学习了：如何在程序中使用<code>input()</code>
- 来让用户提供信息；如何处理文本和数的输入，以及如何使用<code>while</code>
- 循环让程序按用户的要求不断运行；多种控制<code>while</code>
- 循环流程的方式：设置活动标志、使用<code>break</code>
- 语句以及使用<code>continue</code>
- 语句；如何使用<code>while</code>
- 循环在列表之间移动元素，以及如何从列表中删除所有包含特定值的元素；如何结合使用<code>while</code>
- 循环和字典。</p>
-<p>在第8章中，你将学习<strong>函数</strong>
- 。函数让你能够将程序分成多个很小的部分，每部分都负责完成一项具体任务。你可以根据需要调用同一个函数任意次，还可将函数存储在独立的文件中。使用函数可让你编写的代码效率更高、更容易维护和排除故障，还可在众多不同的程序中重用。</p>
-<br style="page-break-after:always"/>
-<div></div>
-]]></description>
-    <pubDate>Sat, 11 Jul 2026 01:43:48 +0000</pubDate>
-    <guid isPermaLink="false">7</guid>
 </item>
 </channel>
 </rss>
