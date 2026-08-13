@@ -1,557 +1,565 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-    <title>我的每日小说</title>
-    <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
-    <description>从 EPUB 自动生成的 RSS 订阅源</description>
-        <item>
+  <title>每日更新推送</title>
+  <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
+  <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
+  <lastBuildDate>Thu, 13 Aug 2026 02:30:38 +0000</lastBuildDate>
+    <item>
+      <title><![CDATA[WorkBuddyGuide-第 2 章 WorkBuddy的下载、安装、登录与更新]]></title>
+      <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%202%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E3%80%81%E7%99%BB%E5%BD%95%E4%B8%8E%E6%9B%B4%E6%96%B0/</link>
+      <description><![CDATA[学习时长：约1小时；学习内容：WorkBuddy的下载渠道、Windows/macOS安装步骤、登录方式（微信/手机号）、更新方法及常见问题处理[reference:1]；学习目的：顺利完成WorkBuddy的安装与登录，进入可用状态]]></description>
+      <guid isPermaLink="false">https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%202%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E3%80%81%E7%99%BB%E5%BD%95%E4%B8%8E%E6%9B%B4%E6%96%B0/</guid>
+      <pubDate>Thu, 13 Aug 2026 02:30:38 +0000</pubDate>
+    </item>
+<item>
     <title>Basic Python - 002 - 第 2 章 变量和简单数据类型.epub</title>
-    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：67 分钟 (13277 字)</p><hr><h1 id="nav_point_29">第 2 章　变量和简单数据类型</h1>
-<blockquote>
-<p><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/2_Image00001.gif" style="width: 16%" width="16%"/>
- 　在本章中，你将学习可在Python程序中使用的各种数据，还将学习如何在程序中使用变量来表示这些数据。</p>
-</blockquote>
-<h2 id="nav_point_30">2.1　运行hello_world.py时发生的情况</h2>
-<p>运行hello_world.py时，Python都做了些什么呢？下面来深入研究一下。实际上，即便是运行简单的程序，Python所做的工作也相当多：</p>
-<p>
-<em>hello_world.py</em>
-</p>
-<pre class="代码无行号"><code>print("Hello Python world!")</code>
-</pre>
-<p>运行上述代码时，你将看到如下输出：</p>
-<pre class="代码无行号"><code>Hello Python world!</code>
-</pre>
-<p>运行文件hello_world.py时，末尾的.py指出这是一个Python程序，因此编辑器将使用<strong>Python解释器</strong>
- 来运行它。Python解释器读取整个程序，确定其中每个单词的含义。例如，看到后面跟着圆括号的单词<code>print</code>
- 时，解释器就将圆括号中的内容打印到屏幕。</p>
-<p>编写程序时，编辑器会以各种方式突出程序的不同部分。例如，它知道<code>print()</code>
- 是一个函数的名称，因此将其显示为某种颜色；它知道<code>"Hello Python world!"</code>
- 不是Python代码，因此将其显示为另一种颜色。这种功能称为<strong>语法高亮</strong>
- ，在你刚开始编写程序时很有帮助。</p>
-<h2 id="nav_point_31">2.2　变量</h2>
-<p>下面来尝试在hello_world.py中使用一个变量。在这个文件开头添加一行代码，并对第二行代码进行修改，如下所示：</p>
-<p>
-<em>hello_world.py</em>
-</p>
-<pre class="代码无行号"><code>message = "Hello Python world!"
-print(message)</code>
-</pre>
-<p>运行这个程序，看看结果如何。你会发现，输出与以前相同：</p>
-<pre class="代码无行号"><code>Hello Python world!</code>
-</pre>
-<p>我们添加了一个名为<code>message</code>
- 的<strong>变量</strong>
- 。每个变量都指向一个<strong>值</strong>
- ——与该变量相关联的信息。在这里，指向的值为文本<code>"Hello Python world!"</code>
- 。</p>
-<p>添加变量导致Python解释器需要做更多工作。处理第一行代码时，它将变量<code>message</code>
- 与文本<code>"Hello Python world!"</code>
- 关联起来；处理第二行代码时，它将与变量<code>message</code>
- 关联的值打印到屏幕。</p>
-<p>下面来进一步扩展这个程序：修改hello_world.py，使其再打印一条消息。为此，在hello_world.py中添加一个空行，再添加下面两行代码：</p>
-<pre class="代码无行号"><code>message = "Hello Python world!"
+    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：67 分钟 (13277 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_29"&gt;第 2 章　变量和简单数据类型&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/2_Image00001.gif" style="width: 16%" width="16%"/&gt;
+ 　在本章中，你将学习可在Python程序中使用的各种数据，还将学习如何在程序中使用变量来表示这些数据。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="nav_point_30"&gt;2.1　运行hello_world.py时发生的情况&lt;/h2&gt;
+&lt;p&gt;运行hello_world.py时，Python都做了些什么呢？下面来深入研究一下。实际上，即便是运行简单的程序，Python所做的工作也相当多：&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;hello_world.py&lt;/em&gt;
+&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;print("Hello Python world!")&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;运行上述代码时，你将看到如下输出：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Hello Python world!&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;运行文件hello_world.py时，末尾的.py指出这是一个Python程序，因此编辑器将使用&lt;strong&gt;Python解释器&lt;/strong&gt;
+ 来运行它。Python解释器读取整个程序，确定其中每个单词的含义。例如，看到后面跟着圆括号的单词&lt;code&gt;print&lt;/code&gt;
+ 时，解释器就将圆括号中的内容打印到屏幕。&lt;/p&gt;
+&lt;p&gt;编写程序时，编辑器会以各种方式突出程序的不同部分。例如，它知道&lt;code&gt;print()&lt;/code&gt;
+ 是一个函数的名称，因此将其显示为某种颜色；它知道&lt;code&gt;"Hello Python world!"&lt;/code&gt;
+ 不是Python代码，因此将其显示为另一种颜色。这种功能称为&lt;strong&gt;语法高亮&lt;/strong&gt;
+ ，在你刚开始编写程序时很有帮助。&lt;/p&gt;
+&lt;h2 id="nav_point_31"&gt;2.2　变量&lt;/h2&gt;
+&lt;p&gt;下面来尝试在hello_world.py中使用一个变量。在这个文件开头添加一行代码，并对第二行代码进行修改，如下所示：&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;hello_world.py&lt;/em&gt;
+&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;message = "Hello Python world!"
+print(message)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;运行这个程序，看看结果如何。你会发现，输出与以前相同：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Hello Python world!&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;我们添加了一个名为&lt;code&gt;message&lt;/code&gt;
+ 的&lt;strong&gt;变量&lt;/strong&gt;
+ 。每个变量都指向一个&lt;strong&gt;值&lt;/strong&gt;
+ ——与该变量相关联的信息。在这里，指向的值为文本&lt;code&gt;"Hello Python world!"&lt;/code&gt;
+ 。&lt;/p&gt;
+&lt;p&gt;添加变量导致Python解释器需要做更多工作。处理第一行代码时，它将变量&lt;code&gt;message&lt;/code&gt;
+ 与文本&lt;code&gt;"Hello Python world!"&lt;/code&gt;
+ 关联起来；处理第二行代码时，它将与变量&lt;code&gt;message&lt;/code&gt;
+ 关联的值打印到屏幕。&lt;/p&gt;
+&lt;p&gt;下面来进一步扩展这个程序：修改hello_world.py，使其再打印一条消息。为此，在hello_world.py中添加一个空行，再添加下面两行代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;message = "Hello Python world!"
 print(message)
 message = "Hello Python Crash Course world!"
-print(message)</code>
-</pre>
-<p>现在如果运行这个程序，将看到两行输出：</p>
-<pre class="代码无行号"><code>Hello Python world!
-Hello Python Crash Course world!</code>
-</pre>
-<p>在程序中可随时修改变量的值，而Python将始终记录变量的最新值。</p>
-<h3 id="nav_point_32">2.2.1　变量的命名和使用</h3>
-<p>在Python中使用变量时，需要遵守一些规则和指南。违反这些规则将引发错误，而指南旨在让你编写的代码更容易阅读和理解。请务必牢记下述有关变量的规则。</p>
-<ul>
-<li class="第1级无序列表">变量名只能包含字母、数字和下划线。变量名能以字母或下划线打头，但不能以数字打头。例如，可将变量命名为<code>message_1</code>
- ，但不能将其命名为<code>1_message</code>
- 。</li>
-<li class="第1级无序列表">变量名不能包含空格，但能使用下划线来分隔其中的单词。例如，变量名<code>greeting_message</code>
- 可行，但变量名<code>greeting message</code>
- 会引发错误。</li>
-<li class="第1级无序列表">不要将Python关键字和函数名用作变量名，即不要使用Python保留用于特殊用途的单词，如<code>print</code>
- （请参见附录A.4）。</li>
-<li class="第1级无序列表">变量名应既简短又具有描述性。例如，<code>name</code>
- 比<code>n</code>
- 好，<code>student_name</code>
- 比<code>s_n</code>
- 好，<code>name_length</code>
- 比<code>length_of_persons_name</code>
- 好。</li>
-<li class="第1级无序列表">慎用小写字母<code>l</code>
- 和大写字母<code>O</code>
- ，因为它们可能被人错看成数字<code>1</code>
- 和<code>0</code>
- 。</li>
-</ul>
-<p>要创建良好的变量名，需要经过一定的实践，在程序复杂而有趣时尤其如此。随着编写的程序越来越多，并开始阅读别人编写的代码，你将越来越善于创建有意义的变量名。</p>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　就目前而言，应使用小写的Python变量名。虽然在变量名中使用大写字母不会导致错误，但是大写字母在变量名中有特殊含义，这将在本书后面讨论。</p>
-</blockquote>
-<h3 id="nav_point_33">2.2.2　使用变量时避免命名错误</h3>
-<p>程序员都会犯错，而且大多数程序员每天都会犯错。虽然优秀的程序员也会犯错，但他们也知道如何高效地消除错误。下面来看一种你可能犯的错误，并学习如何消除它。</p>
-<p>我们将有意地编写一些引发错误的代码。请输入下面的代码，包括其中拼写不正确、以粗体显示的单词<code>mesage</code>
- ：</p>
-<pre class="代码无行号"><code>message = "Hello Python Crash Course reader!"
-print(mesage)</code>
-</pre>
-<p>程序存在错误时，Python解释器将竭尽所能地帮助你找出问题所在。程序无法成功运行时，解释器将提供一个traceback。traceback是一条记录，指出了解释器尝试运行代码时，在什么地方陷入了困境。下面是你不小心错误地拼写了变量名时，Python解释器提供的traceback：</p>
-<pre class="代码无行号"><code>  Traceback (most recent call last):
-❶   File "hello_world.py", line 2, in &lt;module&gt;
+print(message)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;现在如果运行这个程序，将看到两行输出：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Hello Python world!
+Hello Python Crash Course world!&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;在程序中可随时修改变量的值，而Python将始终记录变量的最新值。&lt;/p&gt;
+&lt;h3 id="nav_point_32"&gt;2.2.1　变量的命名和使用&lt;/h3&gt;
+&lt;p&gt;在Python中使用变量时，需要遵守一些规则和指南。违反这些规则将引发错误，而指南旨在让你编写的代码更容易阅读和理解。请务必牢记下述有关变量的规则。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;变量名只能包含字母、数字和下划线。变量名能以字母或下划线打头，但不能以数字打头。例如，可将变量命名为&lt;code&gt;message_1&lt;/code&gt;
+ ，但不能将其命名为&lt;code&gt;1_message&lt;/code&gt;
+ 。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;变量名不能包含空格，但能使用下划线来分隔其中的单词。例如，变量名&lt;code&gt;greeting_message&lt;/code&gt;
+ 可行，但变量名&lt;code&gt;greeting message&lt;/code&gt;
+ 会引发错误。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;不要将Python关键字和函数名用作变量名，即不要使用Python保留用于特殊用途的单词，如&lt;code&gt;print&lt;/code&gt;
+ （请参见附录A.4）。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;变量名应既简短又具有描述性。例如，&lt;code&gt;name&lt;/code&gt;
+ 比&lt;code&gt;n&lt;/code&gt;
+ 好，&lt;code&gt;student_name&lt;/code&gt;
+ 比&lt;code&gt;s_n&lt;/code&gt;
+ 好，&lt;code&gt;name_length&lt;/code&gt;
+ 比&lt;code&gt;length_of_persons_name&lt;/code&gt;
+ 好。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;慎用小写字母&lt;code&gt;l&lt;/code&gt;
+ 和大写字母&lt;code&gt;O&lt;/code&gt;
+ ，因为它们可能被人错看成数字&lt;code&gt;1&lt;/code&gt;
+ 和&lt;code&gt;0&lt;/code&gt;
+ 。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;要创建良好的变量名，需要经过一定的实践，在程序复杂而有趣时尤其如此。随着编写的程序越来越多，并开始阅读别人编写的代码，你将越来越善于创建有意义的变量名。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+&lt;strong&gt;注意&lt;/strong&gt;
+ 　就目前而言，应使用小写的Python变量名。虽然在变量名中使用大写字母不会导致错误，但是大写字母在变量名中有特殊含义，这将在本书后面讨论。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="nav_point_33"&gt;2.2.2　使用变量时避免命名错误&lt;/h3&gt;
+&lt;p&gt;程序员都会犯错，而且大多数程序员每天都会犯错。虽然优秀的程序员也会犯错，但他们也知道如何高效地消除错误。下面来看一种你可能犯的错误，并学习如何消除它。&lt;/p&gt;
+&lt;p&gt;我们将有意地编写一些引发错误的代码。请输入下面的代码，包括其中拼写不正确、以粗体显示的单词&lt;code&gt;mesage&lt;/code&gt;
+ ：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;message = "Hello Python Crash Course reader!"
+print(mesage)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;程序存在错误时，Python解释器将竭尽所能地帮助你找出问题所在。程序无法成功运行时，解释器将提供一个traceback。traceback是一条记录，指出了解释器尝试运行代码时，在什么地方陷入了困境。下面是你不小心错误地拼写了变量名时，Python解释器提供的traceback：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;  Traceback (most recent call last):
+❶   File "hello_world.py", line 2, in &amp;lt;module&amp;gt;
 ❷     print(mesage)
-❸ NameError: name 'mesage' is not defined</code>
-</pre>
-<p>解释器指出，文件hello_world.py的第二行存在错误（见❶）。它列出了这行代码，旨在帮助你快速找出错误（见❷），还指出了它发现的是什么样的错误（见❸）。在这里，解释器发现了一个<strong>名称错误</strong>
- ，并报告打印的变量<code>mesage</code>
- 未定义：Python无法识别你提供的变量名。名称错误通常意味着两种情况：要么是使用变量前忘记给它赋值，要么是输入变量名时拼写不正确。</p>
-<p>在这个示例中，第二行的变量名<code>message</code>
- 遗漏了字母s。Python解释器不会对代码做拼写检查，但要求变量名的拼写一致。例如，如果在代码的另一个地方也将<code>message</code>
- 错误地拼写成了<code>mesage</code>
- ，结果将如何呢？</p>
-<pre class="代码无行号"><code>mesage = "Hello Python Crash Course reader!"
-print(mesage)</code>
-</pre>
-<p>在这种情况下，程序将成功运行！</p>
-<pre class="代码无行号"><code>Hello Python Crash Course reader!</code>
-</pre>
-<p>编程语言要求严格，但并不关心拼写是否正确。因此，创建变量名和编写代码时，无须考虑英语中的拼写和语法规则。</p>
-<p>很多编程错误都简单，只是在程序的某一行输错了一个字符。为找出这种错误而花费很长时间的大有人在。很多程序员天资聪颖、经验丰富，却为找出这种细微的错误花费数小时。你可能觉得这很好笑，但别忘了，在你的编程生涯中，经常会有同样的遭遇。</p>
-<h3 id="nav_point_34">2.2.3　变量是标签</h3>
-<p>变量常被描述为可用于存储值的盒子。在你刚接触变量时，这种定义可能很有帮助，但它并没有准确描述Python内部表示变量的方式。一种好得多的定义是，变量是可以赋给值的标签，也可以说变量指向特定的值。</p>
-<p>刚学习编程时，这种差别可能意义不大，但越早知道越好。你迟早会遇到变量的行为出乎意料的情形，此时如果对变量的工作原理有准确的认识，将有助于搞清楚代码是如何运行的。</p>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　要理解新的编程概念，最佳的方式是尝试在程序中使用它们。如果你在完成本书的练习时陷入了困境，请尝试做点其他的事情。如果这样做后依然无法摆脱困境，请复习相关内容。如果这样做后情况依然如故，请参阅附录C的建议。</p>
-</blockquote>
-<p>　</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>在完成下面的每个练习时，都编写一个独立的程序。保存每个程序时，使用符合标准Python约定的文件名：使用小写字母和下划线，如simple_message.py和simple_messages.py。</p>
-<p>
-<strong>练习2-1：简单消息</strong>
- 　将一条消息赋给变量，并将其打印出来。</p>
-<p>
-<strong>练习2-2：多条简单消息</strong>
- 　将一条消息赋给变量，并将其打印出来；再将变量的值修改为一条新消息，并将其打印出来。</p>
-</blockquote>
-<h2 id="nav_point_35">2.3　字符串</h2>
-<p>大多数程序定义并收集某种数据，然后使用它们来做些有意义的事情。有鉴于此，对数据进行分类大有裨益。我们将介绍的第一种数据类型是字符串。字符串虽然看似简单，但能够以很多不同的方式使用。</p>
-<p>
-<strong>字符串</strong>
- 就是一系列字符。在Python中，用引号括起的都是字符串，其中的引号可以是单引号，也可以是双引号，如下所示：</p>
-<pre class="代码无行号"><code>"This is a string."
-'This is also a string.'</code>
-</pre>
-<p>这种灵活性让你能够在字符串中包含引号和撇号：</p>
-<pre class="代码无行号"><code>'I told my friend, "Python is my favorite language!"'
+❸ NameError: name 'mesage' is not defined&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;解释器指出，文件hello_world.py的第二行存在错误（见❶）。它列出了这行代码，旨在帮助你快速找出错误（见❷），还指出了它发现的是什么样的错误（见❸）。在这里，解释器发现了一个&lt;strong&gt;名称错误&lt;/strong&gt;
+ ，并报告打印的变量&lt;code&gt;mesage&lt;/code&gt;
+ 未定义：Python无法识别你提供的变量名。名称错误通常意味着两种情况：要么是使用变量前忘记给它赋值，要么是输入变量名时拼写不正确。&lt;/p&gt;
+&lt;p&gt;在这个示例中，第二行的变量名&lt;code&gt;message&lt;/code&gt;
+ 遗漏了字母s。Python解释器不会对代码做拼写检查，但要求变量名的拼写一致。例如，如果在代码的另一个地方也将&lt;code&gt;message&lt;/code&gt;
+ 错误地拼写成了&lt;code&gt;mesage&lt;/code&gt;
+ ，结果将如何呢？&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;mesage = "Hello Python Crash Course reader!"
+print(mesage)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;在这种情况下，程序将成功运行！&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Hello Python Crash Course reader!&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;编程语言要求严格，但并不关心拼写是否正确。因此，创建变量名和编写代码时，无须考虑英语中的拼写和语法规则。&lt;/p&gt;
+&lt;p&gt;很多编程错误都简单，只是在程序的某一行输错了一个字符。为找出这种错误而花费很长时间的大有人在。很多程序员天资聪颖、经验丰富，却为找出这种细微的错误花费数小时。你可能觉得这很好笑，但别忘了，在你的编程生涯中，经常会有同样的遭遇。&lt;/p&gt;
+&lt;h3 id="nav_point_34"&gt;2.2.3　变量是标签&lt;/h3&gt;
+&lt;p&gt;变量常被描述为可用于存储值的盒子。在你刚接触变量时，这种定义可能很有帮助，但它并没有准确描述Python内部表示变量的方式。一种好得多的定义是，变量是可以赋给值的标签，也可以说变量指向特定的值。&lt;/p&gt;
+&lt;p&gt;刚学习编程时，这种差别可能意义不大，但越早知道越好。你迟早会遇到变量的行为出乎意料的情形，此时如果对变量的工作原理有准确的认识，将有助于搞清楚代码是如何运行的。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+&lt;strong&gt;注意&lt;/strong&gt;
+ 　要理解新的编程概念，最佳的方式是尝试在程序中使用它们。如果你在完成本书的练习时陷入了困境，请尝试做点其他的事情。如果这样做后依然无法摆脱困境，请复习相关内容。如果这样做后情况依然如故，请参阅附录C的建议。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;　&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+&lt;strong&gt;动手试一试&lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;在完成下面的每个练习时，都编写一个独立的程序。保存每个程序时，使用符合标准Python约定的文件名：使用小写字母和下划线，如simple_message.py和simple_messages.py。&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;练习2-1：简单消息&lt;/strong&gt;
+ 　将一条消息赋给变量，并将其打印出来。&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;练习2-2：多条简单消息&lt;/strong&gt;
+ 　将一条消息赋给变量，并将其打印出来；再将变量的值修改为一条新消息，并将其打印出来。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="nav_point_35"&gt;2.3　字符串&lt;/h2&gt;
+&lt;p&gt;大多数程序定义并收集某种数据，然后使用它们来做些有意义的事情。有鉴于此，对数据进行分类大有裨益。我们将介绍的第一种数据类型是字符串。字符串虽然看似简单，但能够以很多不同的方式使用。&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;字符串&lt;/strong&gt;
+ 就是一系列字符。在Python中，用引号括起的都是字符串，其中的引号可以是单引号，也可以是双引号，如下所示：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;"This is a string."
+'This is also a string.'&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;这种灵活性让你能够在字符串中包含引号和撇号：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;'I told my friend, "Python is my favorite language!"'
 "The language 'Python' is named after Monty Python, not the snake."
-"One of Python's strengths is its diverse and supportive community."</code>
-</pre>
-<p>下面来看一些使用字符串的方式。</p>
-<h3 id="nav_point_36">2.3.1　使用方法修改字符串的大小写</h3>
-<p>对于字符串，可执行的最简单的操作之一是修改其中单词的大小写。请看下面的代码，并尝试判断其作用：</p>
-<p>
-<em>name.py</em>
-</p>
-<pre class="代码无行号"><code>name = "ada lovelace"
-print(name.title())</code>
-</pre>
-<p>将这个文件保存为name.py，再运行它。你将看到如下输出：</p>
-<pre class="代码无行号"><code>Ada Lovelace</code>
-</pre>
-<p>在这个示例中，变量<code>name</code>
- 指向小写的字符串<code>"ada lovelace"</code>
- 。在函数调用<code>print()</code>
- 中，方法<code>title()</code>
- 出现在这个变量的后面。<strong>方法</strong>
- 是Python可对数据执行的操作。在<code>name.title()</code>
- 中，<code>name</code>
- 后面的句点（<code>.</code>
- ）让Python对变量<code>name</code>
- 执行方法<code>title()</code>
- 指定的操作。每个方法后面都跟着一对圆括号，这是因为方法通常需要额外的信息来完成其工作。这种信息是在圆括号内提供的。函数<code>title()</code>
- 不需要额外的信息，因此它后面的圆括号是空的。</p>
-<p>方法<code>title()</code>
- 以首字母大写的方式显示每个单词，即将每个单词的首字母都改为大写。这很有用，因为你经常需要将名字视为信息。例如，你可能希望程序将值<code>Ada</code>
- 、<code>ADA</code>
- 和<code>ada</code>
- 视为同一个名字，并将它们都显示为<code>Ada</code>
- 。</p>
-<p>还有其他几个很有用的大小写处理方法。例如，要将字符串改为全部大写或全部小写，可以像下面这样做：</p>
-<pre class="代码无行号"><code>name = "Ada Lovelace"
+"One of Python's strengths is its diverse and supportive community."&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;下面来看一些使用字符串的方式。&lt;/p&gt;
+&lt;h3 id="nav_point_36"&gt;2.3.1　使用方法修改字符串的大小写&lt;/h3&gt;
+&lt;p&gt;对于字符串，可执行的最简单的操作之一是修改其中单词的大小写。请看下面的代码，并尝试判断其作用：&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;name.py&lt;/em&gt;
+&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;name = "ada lovelace"
+print(name.title())&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;将这个文件保存为name.py，再运行它。你将看到如下输出：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Ada Lovelace&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;在这个示例中，变量&lt;code&gt;name&lt;/code&gt;
+ 指向小写的字符串&lt;code&gt;"ada lovelace"&lt;/code&gt;
+ 。在函数调用&lt;code&gt;print()&lt;/code&gt;
+ 中，方法&lt;code&gt;title()&lt;/code&gt;
+ 出现在这个变量的后面。&lt;strong&gt;方法&lt;/strong&gt;
+ 是Python可对数据执行的操作。在&lt;code&gt;name.title()&lt;/code&gt;
+ 中，&lt;code&gt;name&lt;/code&gt;
+ 后面的句点（&lt;code&gt;.&lt;/code&gt;
+ ）让Python对变量&lt;code&gt;name&lt;/code&gt;
+ 执行方法&lt;code&gt;title()&lt;/code&gt;
+ 指定的操作。每个方法后面都跟着一对圆括号，这是因为方法通常需要额外的信息来完成其工作。这种信息是在圆括号内提供的。函数&lt;code&gt;title()&lt;/code&gt;
+ 不需要额外的信息，因此它后面的圆括号是空的。&lt;/p&gt;
+&lt;p&gt;方法&lt;code&gt;title()&lt;/code&gt;
+ 以首字母大写的方式显示每个单词，即将每个单词的首字母都改为大写。这很有用，因为你经常需要将名字视为信息。例如，你可能希望程序将值&lt;code&gt;Ada&lt;/code&gt;
+ 、&lt;code&gt;ADA&lt;/code&gt;
+ 和&lt;code&gt;ada&lt;/code&gt;
+ 视为同一个名字，并将它们都显示为&lt;code&gt;Ada&lt;/code&gt;
+ 。&lt;/p&gt;
+&lt;p&gt;还有其他几个很有用的大小写处理方法。例如，要将字符串改为全部大写或全部小写，可以像下面这样做：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;name = "Ada Lovelace"
 print(name.upper())
-print(name.lower())</code>
-</pre>
-<p>这些代码的输出如下：</p>
-<pre class="代码无行号"><code>ADA LOVELACE
-ada lovelace</code>
-</pre>
-<p>存储数据时，方法<code>lower()</code>
- 很有用。很多时候，你无法依靠用户来提供正确的大小写，因此需要将字符串先转换为小写，再存储它们。以后需要显示这些信息时，再将其转换为最合适的大小写方式。</p>
-<h3 id="nav_point_37">2.3.2　在字符串中使用变量</h3>
-<p>在有些情况下，你可能想在字符串中使用变量的值。例如，你可能想使用两个变量分别表示名和姓，然后合并这两个值以显示姓名：</p>
-<p>
-<em>full_name.py</em>
-</p>
-<pre class="代码无行号"><code>  first_name = "ada"
+print(name.lower())&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;这些代码的输出如下：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;ADA LOVELACE
+ada lovelace&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;存储数据时，方法&lt;code&gt;lower()&lt;/code&gt;
+ 很有用。很多时候，你无法依靠用户来提供正确的大小写，因此需要将字符串先转换为小写，再存储它们。以后需要显示这些信息时，再将其转换为最合适的大小写方式。&lt;/p&gt;
+&lt;h3 id="nav_point_37"&gt;2.3.2　在字符串中使用变量&lt;/h3&gt;
+&lt;p&gt;在有些情况下，你可能想在字符串中使用变量的值。例如，你可能想使用两个变量分别表示名和姓，然后合并这两个值以显示姓名：&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;full_name.py&lt;/em&gt;
+&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;  first_name = "ada"
   last_name = "lovelace"
 ❶ full_name = f"{first_name} {last_name}"
-  print(full_name)</code>
-</pre>
-<p>要在字符串中插入变量的值，可在前引号前加上字母<code>f</code>
- （见❶），再将要插入的变量放在花括号内。这样，当Python显示字符串时，将把每个变量都替换为其值。</p>
-<p>这种字符串名为<strong>f字符串</strong>
- 。f是format（设置格式）的简写，因为Python通过把花括号内的变量替换为其值来设置字符串的格式。上述代码的输出如下：</p>
-<pre class="代码无行号"><code>ada lovelace</code>
-</pre>
-<p>使用f字符串可完成很多任务，如利用与变量关联的信息来创建完整的消息，如下所示：</p>
-<pre class="代码无行号"><code>  first_name = "ada"
+  print(full_name)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;要在字符串中插入变量的值，可在前引号前加上字母&lt;code&gt;f&lt;/code&gt;
+ （见❶），再将要插入的变量放在花括号内。这样，当Python显示字符串时，将把每个变量都替换为其值。&lt;/p&gt;
+&lt;p&gt;这种字符串名为&lt;strong&gt;f字符串&lt;/strong&gt;
+ 。f是format（设置格式）的简写，因为Python通过把花括号内的变量替换为其值来设置字符串的格式。上述代码的输出如下：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;ada lovelace&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;使用f字符串可完成很多任务，如利用与变量关联的信息来创建完整的消息，如下所示：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;  first_name = "ada"
   last_name = "lovelace"
   full_name = f"{first_name} {last_name}"
-❶ print(f"Hello, {full_name.title()}!")</code>
-</pre>
-<p>在这里，一个问候用户的句子中使用了完整的姓名（见❶），并使用方法<code>title()</code>
- 来将姓名设置为合适的格式。这些代码显示一条格式良好的简单问候语：</p>
-<pre class="代码无行号"><code>Hello, Ada Lovelace!</code>
-</pre>
-<p>还可以使用f字符串来创建消息，再把整条消息赋给变量：</p>
-<pre class="代码无行号"><code>  first_name = "ada"
+❶ print(f"Hello, {full_name.title()}!")&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;在这里，一个问候用户的句子中使用了完整的姓名（见❶），并使用方法&lt;code&gt;title()&lt;/code&gt;
+ 来将姓名设置为合适的格式。这些代码显示一条格式良好的简单问候语：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Hello, Ada Lovelace!&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;还可以使用f字符串来创建消息，再把整条消息赋给变量：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;  first_name = "ada"
   last_name = "lovelace"
   full_name = f"{first_name} {last_name}"
 ❶ message = f"Hello, {full_name.title()}!"
-❷ print(message)</code>
-</pre>
-<p>上述代码也显示消息<code>Hello, Ada Lovelace!</code>
- ，但将这条消息赋给了一个变量（见❶），这让最后的函数调用<code>print()</code>
- 变得简单得多（见❷）。</p>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　f字符串是Python 3.6引入的。如果你使用的是Python 3.5或更早的版本，需要使用<code>format()</code>
- 方法，而非这种f语法。要使用方法<code>format()</code>
- ，可在圆括号内列出要在字符串中使用的变量。对于每个变量，都通过一对花括号来引用。这样将按顺序将这些花括号替换为圆括号内列出的变量的值，如下所示：</p>
-<pre class="代码无行号"><code>full_name = "{} {}".format(first_name, last_name)</code>
-</pre>
-</blockquote>
-<h3 id="nav_point_38">2.3.3　使用制表符或换行符来添加空白</h3>
-<p>在编程中，<strong>空白</strong>
- 泛指任何非打印字符，如空格、制表符和换行符。你可以使用空白来组织输出，让用户阅读起来更容易。</p>
-<p>要在字符串中添加制表符，可使用字符组合<code>\t</code>
- ，如下述代码的❶处所示：</p>
-<pre class="代码无行号"><code>  &gt;&gt;&gt; print("Python")
+❷ print(message)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;上述代码也显示消息&lt;code&gt;Hello, Ada Lovelace!&lt;/code&gt;
+ ，但将这条消息赋给了一个变量（见❶），这让最后的函数调用&lt;code&gt;print()&lt;/code&gt;
+ 变得简单得多（见❷）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+&lt;strong&gt;注意&lt;/strong&gt;
+ 　f字符串是Python 3.6引入的。如果你使用的是Python 3.5或更早的版本，需要使用&lt;code&gt;format()&lt;/code&gt;
+ 方法，而非这种f语法。要使用方法&lt;code&gt;format()&lt;/code&gt;
+ ，可在圆括号内列出要在字符串中使用的变量。对于每个变量，都通过一对花括号来引用。这样将按顺序将这些花括号替换为圆括号内列出的变量的值，如下所示：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;full_name = "{} {}".format(first_name, last_name)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="nav_point_38"&gt;2.3.3　使用制表符或换行符来添加空白&lt;/h3&gt;
+&lt;p&gt;在编程中，&lt;strong&gt;空白&lt;/strong&gt;
+ 泛指任何非打印字符，如空格、制表符和换行符。你可以使用空白来组织输出，让用户阅读起来更容易。&lt;/p&gt;
+&lt;p&gt;要在字符串中添加制表符，可使用字符组合&lt;code&gt;\t&lt;/code&gt;
+ ，如下述代码的❶处所示：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;  &amp;gt;&amp;gt;&amp;gt; print("Python")
   Python
-❶ &gt;&gt;&gt; print("\tPython")
-      Python</code>
-</pre>
-<p>要在字符串中添加换行符，可使用字符组合<code>\n</code>
- ：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; print("Languages:\nPython\nC\nJavaScript")
+❶ &amp;gt;&amp;gt;&amp;gt; print("\tPython")
+      Python&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;要在字符串中添加换行符，可使用字符组合&lt;code&gt;\n&lt;/code&gt;
+ ：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; print("Languages:\nPython\nC\nJavaScript")
 Languages:
 Python
 C
-JavaScript</code>
-</pre>
-<p>还可在同一个字符串中同时包含制表符和换行符。字符串<code>"\n\t"</code>
- 让Python换到下一行，并在下一行开头添加一个制表符。下面的示例演示了如何使用一个单行字符串来生成四行输出：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; print("Languages:\n\tPython\n\tC\n\tJavaScript")
+JavaScript&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;还可在同一个字符串中同时包含制表符和换行符。字符串&lt;code&gt;"\n\t"&lt;/code&gt;
+ 让Python换到下一行，并在下一行开头添加一个制表符。下面的示例演示了如何使用一个单行字符串来生成四行输出：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; print("Languages:\n\tPython\n\tC\n\tJavaScript")
 Languages:
     Python
     C
-    JavaScript</code>
-</pre>
-<p>在接下来的两章中，你将使用为数不多的几行代码来生成很多行输出，届时制表符和换行符将提供极大的帮助。</p>
-<h3 id="nav_point_39">2.3.4　删除空白</h3>
-<p>在程序中，额外的空白可能令人迷惑。对程序员来说，<code>'python'</code>
- 和<code>'python '</code>
- 看起来几乎没什么两样，但对程序来说，它们却是两个不同的字符串。Python能够发现<code>'python '</code>
- 中额外的空白，并认为它意义重大——除非你告诉它不是这样的。</p>
-<p>空白很重要，因为你经常需要比较两个字符串是否相同。一个重要的示例是，在用户登录网站时检查其用户名。不过在非常简单的情形下，额外的空格也可能令人迷惑。所幸，在Python中删除用户输入数据中的多余空白易如反掌。</p>
-<p>Python能够找出字符串开头和末尾多余的空白。要确保字符串末尾没有空白，可使用方法<code>rstrip()</code>
- 。</p>
-<pre class="代码无行号"><code>❶ &gt;&gt;&gt; favorite_language = 'python '
-❷ &gt;&gt;&gt; favorite_language
+    JavaScript&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;在接下来的两章中，你将使用为数不多的几行代码来生成很多行输出，届时制表符和换行符将提供极大的帮助。&lt;/p&gt;
+&lt;h3 id="nav_point_39"&gt;2.3.4　删除空白&lt;/h3&gt;
+&lt;p&gt;在程序中，额外的空白可能令人迷惑。对程序员来说，&lt;code&gt;'python'&lt;/code&gt;
+ 和&lt;code&gt;'python '&lt;/code&gt;
+ 看起来几乎没什么两样，但对程序来说，它们却是两个不同的字符串。Python能够发现&lt;code&gt;'python '&lt;/code&gt;
+ 中额外的空白，并认为它意义重大——除非你告诉它不是这样的。&lt;/p&gt;
+&lt;p&gt;空白很重要，因为你经常需要比较两个字符串是否相同。一个重要的示例是，在用户登录网站时检查其用户名。不过在非常简单的情形下，额外的空格也可能令人迷惑。所幸，在Python中删除用户输入数据中的多余空白易如反掌。&lt;/p&gt;
+&lt;p&gt;Python能够找出字符串开头和末尾多余的空白。要确保字符串末尾没有空白，可使用方法&lt;code&gt;rstrip()&lt;/code&gt;
+ 。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ &amp;gt;&amp;gt;&amp;gt; favorite_language = 'python '
+❷ &amp;gt;&amp;gt;&amp;gt; favorite_language
   'python '
-❸ &gt;&gt;&gt; favorite_language.rstrip()
+❸ &amp;gt;&amp;gt;&amp;gt; favorite_language.rstrip()
   'python'
-❹ &gt;&gt;&gt; favorite_language
-  'python '</code>
-</pre>
-<p>与变量<code>favorite_language</code>
- 相关联的字符串末尾有多余的空白（见❶）。你在终端会话中向Python询问这个变量的值时，可看到末尾的空格（见❷）。对变量<code>favorite_language</code>
- 调用方法<code>rstrip()</code>
- 后（见❸），这个多余的空格被删除了。然而，这种删除只是暂时的，接下来再次询问<code>favorite_language</code>
- 的值时，你会发现这个字符串与输入时一样，依然包含多余的空白（见❹）。</p>
-<p>要永久删除这个字符串中的空白，必须将删除操作的结果关联到变量：</p>
-<pre class="代码无行号"><code>  &gt;&gt;&gt; favorite_language = 'python '
-❶ &gt;&gt;&gt; favorite_language = favorite_language.rstrip()
-  &gt;&gt;&gt; favorite_language
-  'python'</code>
-</pre>
-<p>为删除这个字符串中的空白，要将其末尾的空白剔除，再将结果关联到原来的变量（见❶）。在编程中，经常需要修改变量的值，再将新值关联到原来的变量。这就是变量的值可能随程序的运行或用户输入数据而发生变化的原因所在。</p>
-<p>你还可以剔除字符串开头的空白，或者同时剔除字符串两边的空白。为此，可分别使用方法<code>lstrip()</code>
- 和<code>strip()</code>
- ：</p>
-<pre class="代码无行号"><code>❶ &gt;&gt;&gt; favorite_language = ' python '
-❷ &gt;&gt;&gt; favorite_language.rstrip()
+❹ &amp;gt;&amp;gt;&amp;gt; favorite_language
+  'python '&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;与变量&lt;code&gt;favorite_language&lt;/code&gt;
+ 相关联的字符串末尾有多余的空白（见❶）。你在终端会话中向Python询问这个变量的值时，可看到末尾的空格（见❷）。对变量&lt;code&gt;favorite_language&lt;/code&gt;
+ 调用方法&lt;code&gt;rstrip()&lt;/code&gt;
+ 后（见❸），这个多余的空格被删除了。然而，这种删除只是暂时的，接下来再次询问&lt;code&gt;favorite_language&lt;/code&gt;
+ 的值时，你会发现这个字符串与输入时一样，依然包含多余的空白（见❹）。&lt;/p&gt;
+&lt;p&gt;要永久删除这个字符串中的空白，必须将删除操作的结果关联到变量：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;  &amp;gt;&amp;gt;&amp;gt; favorite_language = 'python '
+❶ &amp;gt;&amp;gt;&amp;gt; favorite_language = favorite_language.rstrip()
+  &amp;gt;&amp;gt;&amp;gt; favorite_language
+  'python'&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;为删除这个字符串中的空白，要将其末尾的空白剔除，再将结果关联到原来的变量（见❶）。在编程中，经常需要修改变量的值，再将新值关联到原来的变量。这就是变量的值可能随程序的运行或用户输入数据而发生变化的原因所在。&lt;/p&gt;
+&lt;p&gt;你还可以剔除字符串开头的空白，或者同时剔除字符串两边的空白。为此，可分别使用方法&lt;code&gt;lstrip()&lt;/code&gt;
+ 和&lt;code&gt;strip()&lt;/code&gt;
+ ：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ &amp;gt;&amp;gt;&amp;gt; favorite_language = ' python '
+❷ &amp;gt;&amp;gt;&amp;gt; favorite_language.rstrip()
   ' python'
-❸ &gt;&gt;&gt; favorite_language.lstrip()
+❸ &amp;gt;&amp;gt;&amp;gt; favorite_language.lstrip()
   'python '
-❹ &gt;&gt;&gt; favorite_language.strip()
-  'python'</code>
-</pre>
-<p>在这个示例中，我们首先创建了一个开头和末尾都有空白的字符串（见❶）。接下来，分别删除末尾（见❷）、开头（见❸）和两边（见❹）的空白。尝试使用这些剥除函数有助于你熟悉字符串操作。在实际程序中，这些剥除函数最常用于在存储用户输入前对其进行清理。</p>
-<h3 id="nav_point_40">2.3.5　使用字符串时避免语法错误</h3>
-<p>
-<strong>语法错误</strong>
- 是一种你时不时会遇到的错误。程序中包含非法的Python代码时，就会导致语法错误。例如，在用单引号括起的字符串中，如果包含撇号，就将导致错误。这是因为这会导致Python将第一个单引号和撇号之间的内容视为一个字符串，进而将余下的文本视为Python代码，从而引发错误。</p>
-<p>下面演示了如何正确地使用单引号和双引号。请将该程序保存为apostrophe.py，再运行它：</p>
-<p>
-<em>apostrophe.py</em>
-</p>
-<pre class="代码无行号"><code>message = "One of Python's strengths is its diverse community."
-print(message)</code>
-</pre>
-<p>撇号位于两个双引号之间，因此Python解释器能够正确地理解这个字符串：</p>
-<pre class="代码无行号"><code>One of Python's strengths is its diverse community.</code>
-</pre>
-<p>然而，如果使用单引号，Python将无法正确地确定字符串的结束位置：</p>
-<pre class="代码无行号"><code>message = 'One of Python's strengths is its diverse community.'
-print(message)</code>
-</pre>
-<p>你将看到如下输出：</p>
-<pre class="代码无行号"><code>  File "apostrophe.py", line 1
+❹ &amp;gt;&amp;gt;&amp;gt; favorite_language.strip()
+  'python'&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;在这个示例中，我们首先创建了一个开头和末尾都有空白的字符串（见❶）。接下来，分别删除末尾（见❷）、开头（见❸）和两边（见❹）的空白。尝试使用这些剥除函数有助于你熟悉字符串操作。在实际程序中，这些剥除函数最常用于在存储用户输入前对其进行清理。&lt;/p&gt;
+&lt;h3 id="nav_point_40"&gt;2.3.5　使用字符串时避免语法错误&lt;/h3&gt;
+&lt;p&gt;
+&lt;strong&gt;语法错误&lt;/strong&gt;
+ 是一种你时不时会遇到的错误。程序中包含非法的Python代码时，就会导致语法错误。例如，在用单引号括起的字符串中，如果包含撇号，就将导致错误。这是因为这会导致Python将第一个单引号和撇号之间的内容视为一个字符串，进而将余下的文本视为Python代码，从而引发错误。&lt;/p&gt;
+&lt;p&gt;下面演示了如何正确地使用单引号和双引号。请将该程序保存为apostrophe.py，再运行它：&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;apostrophe.py&lt;/em&gt;
+&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;message = "One of Python's strengths is its diverse community."
+print(message)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;撇号位于两个双引号之间，因此Python解释器能够正确地理解这个字符串：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;One of Python's strengths is its diverse community.&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;然而，如果使用单引号，Python将无法正确地确定字符串的结束位置：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;message = 'One of Python's strengths is its diverse community.'
+print(message)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;你将看到如下输出：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;  File "apostrophe.py", line 1
     message = 'One of Python's strengths is its diverse community.'
                             ^❶
-SyntaxError: invalid syntax</code>
-</pre>
-<p>从上述输出可知，错误发生在第二个单引号后面（见❶）。这种语法错误表明，在解释器看来，其中的有些内容不是有效的Python代码。错误的原因各种各样，我将指出一些常见的原因。学习编写Python代码时，你可能会经常遇到语法错误。语法错误也是最不具体的错误类型，因此可能难以找出并修复。受困于非常棘手的错误时，请参阅附录C提供的建议。</p>
-<blockquote>
-<p>
-<strong>注意</strong>
- 　编写程序时，编辑器的语法高亮功能可帮助你快速找出某些语法错误。看到Python代码以普通句子的颜色显示，或者普通句子以Python代码的颜色显示时，就可能意味着文件中存在引号不匹配的情况。</p>
-</blockquote>
-<p>　</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>完成下面的每个练习时，都编写一个独立的程序，并将其保存为名称类似于name_cases.py的文件。如果遇到了困难，请休息一会儿或参阅附录C提供的建议。</p>
-<p>
-<strong>练习2-3：个性化消息</strong>
- 　用变量表示一个人的名字，并向其显示一条消息。显示的消息应非常简单，下面是一个例子。</p>
-<p>Hello Eric, would you like to learn some Python today?</p>
-<p>
-<strong>练习2-4：调整名字的大小写</strong>
- 　用变量表示一个人的名字，再以小写、大写和首字母大写的方式显示这个人名。</p>
-<p>
-<strong>练习2-5：名言</strong>
- 　找一句你钦佩的名人说的名言，将其姓名和名言打印出来。输出应类似于下面这样（包括引号）。</p>
-<blockquote>
-<p>Albert Einstein once said, “A person who never made a mistake never tried anything new.”</p>
-</blockquote>
-<p>
-<strong>练习2-6：名言2</strong>
- 　重复练习2-5，但用变量<code>famous_person</code>
- 表示名人的姓名，再创建要显示的消息并将其赋给变量<code>message</code>
- ，然后打印这条消息。</p>
-<p>
-<strong>练习2-7：剔除人名中的空白</strong>
- 　用变量表示一个人的名字，并在其开头和末尾都包含一些空白字符。务必至少使用字符组合<code>"\t"</code>
- 和<code>"\n"</code>
- 各一次。</p>
-<p>打印这个人名，显示其开头和末尾的空白。然后，分别使用剔除函数<code>lstrip()</code>
- 、<code>rstrip()</code>
- 和<code>strip()</code>
- 对人名进行处理，并将结果打印出来。</p>
-</blockquote>
-<h2 id="nav_point_41">2.4　数</h2>
-<p>在编程中，经常使用数来记录得分、表示可视化数据、存储Web应用信息，等等。Python能根据数的用法以不同的方式处理它们。鉴于整数使用起来最简单，下面就先来看看Python是如何管理它们的。</p>
-<h3 id="nav_point_42">2.4.1　整数</h3>
-<p>在Python中，可对整数执行加（<code>+</code>
- ）减（<code>-</code>
- ）乘（<code>*</code>
- ）除（<code>/</code>
- ）运算。</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; 2 + 3
+SyntaxError: invalid syntax&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;从上述输出可知，错误发生在第二个单引号后面（见❶）。这种语法错误表明，在解释器看来，其中的有些内容不是有效的Python代码。错误的原因各种各样，我将指出一些常见的原因。学习编写Python代码时，你可能会经常遇到语法错误。语法错误也是最不具体的错误类型，因此可能难以找出并修复。受困于非常棘手的错误时，请参阅附录C提供的建议。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+&lt;strong&gt;注意&lt;/strong&gt;
+ 　编写程序时，编辑器的语法高亮功能可帮助你快速找出某些语法错误。看到Python代码以普通句子的颜色显示，或者普通句子以Python代码的颜色显示时，就可能意味着文件中存在引号不匹配的情况。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;　&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+&lt;strong&gt;动手试一试&lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;完成下面的每个练习时，都编写一个独立的程序，并将其保存为名称类似于name_cases.py的文件。如果遇到了困难，请休息一会儿或参阅附录C提供的建议。&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;练习2-3：个性化消息&lt;/strong&gt;
+ 　用变量表示一个人的名字，并向其显示一条消息。显示的消息应非常简单，下面是一个例子。&lt;/p&gt;
+&lt;p&gt;Hello Eric, would you like to learn some Python today?&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;练习2-4：调整名字的大小写&lt;/strong&gt;
+ 　用变量表示一个人的名字，再以小写、大写和首字母大写的方式显示这个人名。&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;练习2-5：名言&lt;/strong&gt;
+ 　找一句你钦佩的名人说的名言，将其姓名和名言打印出来。输出应类似于下面这样（包括引号）。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Albert Einstein once said, “A person who never made a mistake never tried anything new.”&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;
+&lt;strong&gt;练习2-6：名言2&lt;/strong&gt;
+ 　重复练习2-5，但用变量&lt;code&gt;famous_person&lt;/code&gt;
+ 表示名人的姓名，再创建要显示的消息并将其赋给变量&lt;code&gt;message&lt;/code&gt;
+ ，然后打印这条消息。&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;练习2-7：剔除人名中的空白&lt;/strong&gt;
+ 　用变量表示一个人的名字，并在其开头和末尾都包含一些空白字符。务必至少使用字符组合&lt;code&gt;"\t"&lt;/code&gt;
+ 和&lt;code&gt;"\n"&lt;/code&gt;
+ 各一次。&lt;/p&gt;
+&lt;p&gt;打印这个人名，显示其开头和末尾的空白。然后，分别使用剔除函数&lt;code&gt;lstrip()&lt;/code&gt;
+ 、&lt;code&gt;rstrip()&lt;/code&gt;
+ 和&lt;code&gt;strip()&lt;/code&gt;
+ 对人名进行处理，并将结果打印出来。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="nav_point_41"&gt;2.4　数&lt;/h2&gt;
+&lt;p&gt;在编程中，经常使用数来记录得分、表示可视化数据、存储Web应用信息，等等。Python能根据数的用法以不同的方式处理它们。鉴于整数使用起来最简单，下面就先来看看Python是如何管理它们的。&lt;/p&gt;
+&lt;h3 id="nav_point_42"&gt;2.4.1　整数&lt;/h3&gt;
+&lt;p&gt;在Python中，可对整数执行加（&lt;code&gt;+&lt;/code&gt;
+ ）减（&lt;code&gt;-&lt;/code&gt;
+ ）乘（&lt;code&gt;*&lt;/code&gt;
+ ）除（&lt;code&gt;/&lt;/code&gt;
+ ）运算。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; 2 + 3
 5
-&gt;&gt;&gt; 3 - 2
+&amp;gt;&amp;gt;&amp;gt; 3 - 2
 1
-&gt;&gt;&gt; 2 * 3
+&amp;gt;&amp;gt;&amp;gt; 2 * 3
 6
-&gt;&gt;&gt; 3 / 2
-1.5</code>
-</pre>
-<p>在终端会话中，Python直接返回运算结果。Python使用两个乘号表示乘方运算：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; 3 ** 2
+&amp;gt;&amp;gt;&amp;gt; 3 / 2
+1.5&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;在终端会话中，Python直接返回运算结果。Python使用两个乘号表示乘方运算：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; 3 ** 2
 9
-&gt;&gt;&gt; 3 ** 3
+&amp;gt;&amp;gt;&amp;gt; 3 ** 3
 27
-&gt;&gt;&gt; 10 ** 6
-1000000</code>
-</pre>
-<p>Python还支持运算次序，因此可在同一个表达式中使用多种运算。还可以使用圆括号来修改运算次序，让Python按你指定的次序执行运算，如下所示：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; 2 + 3*4
+&amp;gt;&amp;gt;&amp;gt; 10 ** 6
+1000000&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;Python还支持运算次序，因此可在同一个表达式中使用多种运算。还可以使用圆括号来修改运算次序，让Python按你指定的次序执行运算，如下所示：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; 2 + 3*4
 14
-&gt;&gt;&gt; (2 + 3) * 4
-20</code>
-</pre>
-<p>在这些示例中，空格不影响Python计算表达式的方式。它们的存在旨在让你在阅读代码时能迅速确定先执行哪些运算。</p>
-<h3 id="nav_point_43">2.4.2　浮点数</h3>
-<p>Python将所有带小数点的数称为<strong>浮点数</strong>
- 。大多数编程语言使用了这个术语，它指出了这样一个事实：小数点可出现在数的任何位置。每种编程语言都必须细心设计，以妥善地处理浮点数，确保不管小数点出现在什么位置，数的行为都是正常的。</p>
-<p>从很大程度上说，使用浮点数时无须考虑其行为。你只需输入要使用的数，Python通常会按你期望的方式处理它们：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; 0.1 + 0.1
+&amp;gt;&amp;gt;&amp;gt; (2 + 3) * 4
+20&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;在这些示例中，空格不影响Python计算表达式的方式。它们的存在旨在让你在阅读代码时能迅速确定先执行哪些运算。&lt;/p&gt;
+&lt;h3 id="nav_point_43"&gt;2.4.2　浮点数&lt;/h3&gt;
+&lt;p&gt;Python将所有带小数点的数称为&lt;strong&gt;浮点数&lt;/strong&gt;
+ 。大多数编程语言使用了这个术语，它指出了这样一个事实：小数点可出现在数的任何位置。每种编程语言都必须细心设计，以妥善地处理浮点数，确保不管小数点出现在什么位置，数的行为都是正常的。&lt;/p&gt;
+&lt;p&gt;从很大程度上说，使用浮点数时无须考虑其行为。你只需输入要使用的数，Python通常会按你期望的方式处理它们：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; 0.1 + 0.1
 0.2
-&gt;&gt;&gt; 0.2 + 0.2
+&amp;gt;&amp;gt;&amp;gt; 0.2 + 0.2
 0.4
-&gt;&gt;&gt; 2 * 0.1
+&amp;gt;&amp;gt;&amp;gt; 2 * 0.1
 0.2
-&gt;&gt;&gt; 2 * 0.2
-0.4</code>
-</pre>
-<p>但需要注意的是，结果包含的小数位数可能是不确定的：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; 0.2 + 0.1
+&amp;gt;&amp;gt;&amp;gt; 2 * 0.2
+0.4&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;但需要注意的是，结果包含的小数位数可能是不确定的：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; 0.2 + 0.1
 0.30000000000000004
-&gt;&gt;&gt; 3 * 0.1
-0.30000000000000004</code>
-</pre>
-<p>所有语言都存在这种问题，没有什么可担心的。Python会尽力找到一种精确表示结果的方法，但鉴于计算机内部表示数的方式，这在有些情况下很难。就现在而言，暂时忽略多余的小数位数即可。在第二部分的项目中，你将在需要时学习处理多余小数位的方式。</p>
-<h3 id="nav_point_44">2.4.3　整数和浮点数</h3>
-<p>将任意两个数相除时，结果总是浮点数，即便这两个数都是整数且能整除：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; 4/2
-2.0</code>
-</pre>
-<p>在其他任何运算中，如果一个操作数是整数，另一个操作数是浮点数，结果也总是浮点数：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; 1 + 2.0
+&amp;gt;&amp;gt;&amp;gt; 3 * 0.1
+0.30000000000000004&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;所有语言都存在这种问题，没有什么可担心的。Python会尽力找到一种精确表示结果的方法，但鉴于计算机内部表示数的方式，这在有些情况下很难。就现在而言，暂时忽略多余的小数位数即可。在第二部分的项目中，你将在需要时学习处理多余小数位的方式。&lt;/p&gt;
+&lt;h3 id="nav_point_44"&gt;2.4.3　整数和浮点数&lt;/h3&gt;
+&lt;p&gt;将任意两个数相除时，结果总是浮点数，即便这两个数都是整数且能整除：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; 4/2
+2.0&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;在其他任何运算中，如果一个操作数是整数，另一个操作数是浮点数，结果也总是浮点数：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; 1 + 2.0
 3.0
-&gt;&gt;&gt; 2 * 3.0
+&amp;gt;&amp;gt;&amp;gt; 2 * 3.0
 6.0
-&gt;&gt;&gt; 3.0 ** 2
-9.0</code>
-</pre>
-<p>无论是哪种运算，只要有操作数是浮点数，Python默认得到的总是浮点数，即便结果原本为整数也是如此。</p>
-<h3 id="nav_point_45">2.4.4　数中的下划线</h3>
-<p>书写很大的数时，可使用下划线将其中的数字分组，使其更清晰易读：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; universe_age = 14_000_000_000</code>
-</pre>
-<p>当你打印这种使用下划线定义的数时，Python不会打印其中的下划线：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; print(universe_age)
-14000000000</code>
-</pre>
-<p>这是因为存储这种数时，Python会忽略其中的下划线。将数字分组时，即便不是将每三位分成一组，也不会影响最终的值。在Python看来，<code>1000</code>
- 与<code>1_000</code>
- 没什么不同，<code>1_000</code>
- 与<code>10_00</code>
- 也没什么不同。这种表示法适用于整数和浮点数，但只有Python 3.6和更高的版本支持。</p>
-<h3 id="nav_point_46">2.4.5　同时给多个变量赋值</h3>
-<p>可在一行代码中给多个变量赋值，这有助于缩短程序并提高其可读性。这种做法最常用于将一系列数赋给一组变量。</p>
-<p>例如，下面演示了如何将变量<code>x</code>
- 、<code>y</code>
- 和<code>z</code>
- 都初始化为零：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; x, y, z = 0, 0, 0</code>
-</pre>
-<p>这样做时，需要用逗号将变量名分开；对于要赋给变量的值，也需同样处理。Python将按顺序将每个值赋给对应的变量。只要变量和值的个数相同，Python就能正确地将它们关联起来。</p>
-<h3 id="nav_point_47">2.4.6　常量</h3>
-<p>
-<strong>常量</strong>
- 类似于变量，但其值在程序的整个生命周期内保持不变。Python没有内置的常量类型，但Python程序员会使用全大写来指出应将某个变量视为常量，其值应始终不变：</p>
-<pre class="代码无行号"><code>MAX_CONNECTIONS = 5000</code>
-</pre>
-<p>在代码中，要指出应将特定的变量视为常量，可将其字母全部大写。</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>
-<strong>练习2-8：数字8</strong>
- 　编写四个表达式，分别使用加法、减法、乘法和除法运算，但结果都是数字8。为使用函数调用<code>print()</code>
- 来显示结果，务必将这些表达式用圆括号括起来。也就是说，你应该编写四行类似于下面的代码：</p>
-<pre class="代码无行号"><code>print(5+3)</code>
-</pre>
-<p>输出应为四行，其中每行都只包含数字8。</p>
-<p>
-<strong>练习2-9：最喜欢的数</strong>
- 　用一个变量来表示你最喜欢的数，再使用这个变量创建一条消息，指出你最喜欢的数是什么，然后将这条消息打印出来。</p>
-</blockquote>
-<h2 id="nav_point_48">2.5　注释</h2>
-<p>在大多数编程语言中，注释是一项很有用的功能。本书前面编写的程序中都只包含Python代码，但随着程序越来越大、越来越复杂，就应在其中添加说明，对你解决问题的方法进行大致的阐述。<strong>注释</strong>
- 让你能够使用自然语言在程序中添加说明。</p>
-<h3 id="nav_point_49">2.5.1　如何编写注释</h3>
-<p>在Python中，注释用井号（<code>#</code>
- ）标识。井号后面的内容都会被Python解释器忽略，如下所示：</p>
-<p>
-<em>comment.py</em>
-</p>
-<pre class="代码无行号"><code># 向大家问好。
-print("Hello Python people!")</code>
-</pre>
-<p>Python解释器将忽略第一行，只执行第二行。</p>
-<pre class="代码无行号"><code>Hello Python people!</code>
-</pre>
-<h3 id="nav_point_50">2.5.2　该编写什么样的注释</h3>
-<p>编写注释的主要目的是阐述代码要做什么，以及是如何做的。在开发项目期间，你对各个部分如何协同工作了如指掌，但过段时间后，有些细节你可能不记得了。当然，你总是可以通过研究代码来确定各个部分的工作原理，但通过编写注释以清晰的自然语言对解决方案进行概述，可节省很多时间。</p>
-<p>要成为专业程序员或与其他程序员合作，就必须编写有意义的注释。当前，大多数软件是合作编写的，编写者可能是同一家公司的多名员工，也可能是众多致力于同一个开源项目的人员。训练有素的程序员都希望代码中包含注释，因此你最好从现在开始就在程序中添加描述性注释。作为新手，最值得养成的习惯之一就是在代码中编写清晰、简洁的注释。</p>
-<p>如果不确定是否要编写注释，就问问自己：在找到合理的解决方案之前，考虑了多个解决方案吗？如果答案是肯定的，就编写注释对你的解决方案进行说明吧。相比回过头去再添加注释，删除多余的注释要容易得多。从现在开始，本书的示例都将使用注释来阐述代码的工作原理。</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>
-<strong>练习2-10：添加注释</strong>
- 　选择你编写的两个程序，在每个程序中至少添加一条注释。如果程序太简单，实在没有什么需要说明的，就在程序文件开头加上你的姓名和当前日期，再用一句话阐述程序的功能。</p>
-</blockquote>
-<h2 id="nav_point_51">2.6　Python之禅</h2>
-<p>经验丰富的程序员倡导尽可能避繁就简。Python社区的理念都包含在Tim Peters撰写的“Python之禅”中。要获悉这些有关编写优秀Python代码的指导原则，只需在解释器中执行命令<code>import this</code>
- 。这里不打算赘述整个“Python之禅”，而只与大家分享其中的几条原则，让你明白为何它们对Python新手来说至关重要。</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; import this
+&amp;gt;&amp;gt;&amp;gt; 3.0 ** 2
+9.0&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;无论是哪种运算，只要有操作数是浮点数，Python默认得到的总是浮点数，即便结果原本为整数也是如此。&lt;/p&gt;
+&lt;h3 id="nav_point_45"&gt;2.4.4　数中的下划线&lt;/h3&gt;
+&lt;p&gt;书写很大的数时，可使用下划线将其中的数字分组，使其更清晰易读：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; universe_age = 14_000_000_000&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;当你打印这种使用下划线定义的数时，Python不会打印其中的下划线：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; print(universe_age)
+14000000000&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;这是因为存储这种数时，Python会忽略其中的下划线。将数字分组时，即便不是将每三位分成一组，也不会影响最终的值。在Python看来，&lt;code&gt;1000&lt;/code&gt;
+ 与&lt;code&gt;1_000&lt;/code&gt;
+ 没什么不同，&lt;code&gt;1_000&lt;/code&gt;
+ 与&lt;code&gt;10_00&lt;/code&gt;
+ 也没什么不同。这种表示法适用于整数和浮点数，但只有Python 3.6和更高的版本支持。&lt;/p&gt;
+&lt;h3 id="nav_point_46"&gt;2.4.5　同时给多个变量赋值&lt;/h3&gt;
+&lt;p&gt;可在一行代码中给多个变量赋值，这有助于缩短程序并提高其可读性。这种做法最常用于将一系列数赋给一组变量。&lt;/p&gt;
+&lt;p&gt;例如，下面演示了如何将变量&lt;code&gt;x&lt;/code&gt;
+ 、&lt;code&gt;y&lt;/code&gt;
+ 和&lt;code&gt;z&lt;/code&gt;
+ 都初始化为零：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; x, y, z = 0, 0, 0&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;这样做时，需要用逗号将变量名分开；对于要赋给变量的值，也需同样处理。Python将按顺序将每个值赋给对应的变量。只要变量和值的个数相同，Python就能正确地将它们关联起来。&lt;/p&gt;
+&lt;h3 id="nav_point_47"&gt;2.4.6　常量&lt;/h3&gt;
+&lt;p&gt;
+&lt;strong&gt;常量&lt;/strong&gt;
+ 类似于变量，但其值在程序的整个生命周期内保持不变。Python没有内置的常量类型，但Python程序员会使用全大写来指出应将某个变量视为常量，其值应始终不变：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;MAX_CONNECTIONS = 5000&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;在代码中，要指出应将特定的变量视为常量，可将其字母全部大写。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+&lt;strong&gt;动手试一试&lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;练习2-8：数字8&lt;/strong&gt;
+ 　编写四个表达式，分别使用加法、减法、乘法和除法运算，但结果都是数字8。为使用函数调用&lt;code&gt;print()&lt;/code&gt;
+ 来显示结果，务必将这些表达式用圆括号括起来。也就是说，你应该编写四行类似于下面的代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;print(5+3)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;输出应为四行，其中每行都只包含数字8。&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;练习2-9：最喜欢的数&lt;/strong&gt;
+ 　用一个变量来表示你最喜欢的数，再使用这个变量创建一条消息，指出你最喜欢的数是什么，然后将这条消息打印出来。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="nav_point_48"&gt;2.5　注释&lt;/h2&gt;
+&lt;p&gt;在大多数编程语言中，注释是一项很有用的功能。本书前面编写的程序中都只包含Python代码，但随着程序越来越大、越来越复杂，就应在其中添加说明，对你解决问题的方法进行大致的阐述。&lt;strong&gt;注释&lt;/strong&gt;
+ 让你能够使用自然语言在程序中添加说明。&lt;/p&gt;
+&lt;h3 id="nav_point_49"&gt;2.5.1　如何编写注释&lt;/h3&gt;
+&lt;p&gt;在Python中，注释用井号（&lt;code&gt;#&lt;/code&gt;
+ ）标识。井号后面的内容都会被Python解释器忽略，如下所示：&lt;/p&gt;
+&lt;p&gt;
+&lt;em&gt;comment.py&lt;/em&gt;
+&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;# 向大家问好。
+print("Hello Python people!")&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;Python解释器将忽略第一行，只执行第二行。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Hello Python people!&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_50"&gt;2.5.2　该编写什么样的注释&lt;/h3&gt;
+&lt;p&gt;编写注释的主要目的是阐述代码要做什么，以及是如何做的。在开发项目期间，你对各个部分如何协同工作了如指掌，但过段时间后，有些细节你可能不记得了。当然，你总是可以通过研究代码来确定各个部分的工作原理，但通过编写注释以清晰的自然语言对解决方案进行概述，可节省很多时间。&lt;/p&gt;
+&lt;p&gt;要成为专业程序员或与其他程序员合作，就必须编写有意义的注释。当前，大多数软件是合作编写的，编写者可能是同一家公司的多名员工，也可能是众多致力于同一个开源项目的人员。训练有素的程序员都希望代码中包含注释，因此你最好从现在开始就在程序中添加描述性注释。作为新手，最值得养成的习惯之一就是在代码中编写清晰、简洁的注释。&lt;/p&gt;
+&lt;p&gt;如果不确定是否要编写注释，就问问自己：在找到合理的解决方案之前，考虑了多个解决方案吗？如果答案是肯定的，就编写注释对你的解决方案进行说明吧。相比回过头去再添加注释，删除多余的注释要容易得多。从现在开始，本书的示例都将使用注释来阐述代码的工作原理。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+&lt;strong&gt;动手试一试&lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;练习2-10：添加注释&lt;/strong&gt;
+ 　选择你编写的两个程序，在每个程序中至少添加一条注释。如果程序太简单，实在没有什么需要说明的，就在程序文件开头加上你的姓名和当前日期，再用一句话阐述程序的功能。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="nav_point_51"&gt;2.6　Python之禅&lt;/h2&gt;
+&lt;p&gt;经验丰富的程序员倡导尽可能避繁就简。Python社区的理念都包含在Tim Peters撰写的“Python之禅”中。要获悉这些有关编写优秀Python代码的指导原则，只需在解释器中执行命令&lt;code&gt;import this&lt;/code&gt;
+ 。这里不打算赘述整个“Python之禅”，而只与大家分享其中的几条原则，让你明白为何它们对Python新手来说至关重要。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import this
 The Zen of Python, by Tim Peters
-Beautiful is better than ugly.</code>
-</pre>
-<p>Python程序员笃信代码可以编写得漂亮而优雅。编程是要解决问题的，设计良好、高效而漂亮的解决方案都会让程序员心生敬意。随着你对Python的认识越来越深入，并使用它来编写越来越多的代码，有一天也许会有人站在你后面惊呼：“哇，代码编写得真是漂亮！”</p>
-<pre class="代码无行号"><code>Simple is better than complex.</code>
-</pre>
-<p>如果有两个解决方案，一个简单、一个复杂，但都行之有效，就选择简单的解决方案吧。这样，你编写的代码将更容易维护，你或他人以后改进这些代码时也会更容易。</p>
-<pre class="代码无行号"><code>Complex is better than complicated.</code>
-</pre>
-<p>现实是复杂的，有时候可能没有简单的解决方案。在这种情况下，就选择最简单可行的解决方案吧。</p>
-<pre class="代码无行号"><code>Readability counts.</code>
-</pre>
-<p>即便是复杂的代码，也要让它易于理解。开发的项目涉及复杂代码时，一定要为这些代码编写有益的注释。</p>
-<pre class="代码无行号"><code>There should be one-- and preferably only one --obvious way to do it.</code>
-</pre>
-<p>如果让两名Python程序员去解决同一个问题，他们提供的解决方案应大致相同。这并不是说编程没有创意空间，而是恰恰相反！然而，大部分编程工作是使用常见解决方案来解决简单的小问题，但这些小问题都包含在更庞大、更有创意空间的项目中。在你的程序中，各种具体细节对其他Python程序员来说都应易于理解。</p>
-<pre class="代码无行号"><code>Now is better than never.</code>
-</pre>
-<p>你可以用余生来学习Python和编程的纷繁难懂之处，但这样你什么项目都完不成。不要企图编写完美无缺的代码，而是要先编写行之有效的代码，再决定是对其做进一步改进，还是转而去编写新代码。</p>
-<p>等你进入下一章，开始研究更复杂的主题时，务必牢记这种简约而清晰的理念。如此，经验丰富的程序员定将对你编写的代码心生敬意，进而乐意向你提供反馈，并与你合作开发有趣的项目。</p>
-<blockquote>
-<p>
-<strong>动手试一试</strong>
-</p>
-<p>
-<strong>练习2-11：Python之禅</strong>
- 　在Python终端会话中执行命令<code>import this</code>
- ，并粗略地浏览一下其他的指导原则。</p>
-</blockquote>
-<h2 id="nav_point_52">2.7　小结</h2>
-<p>在本章中，你学习了：如何使用变量；如何创建描述性变量名以及如何消除名称错误和语法错误；字符串是什么，以及如何使用小写、大写和首字母大写方式显示字符串；使用空白来显示整洁的输出，以及如何剔除字符串中多余的空白；如何使用整数和浮点数；一些使用数值数据的方式。你还学习了如何编写说明性注释，让代码对你和其他人来说更容易理解。最后，你了解了让代码尽可能简单的理念。</p>
-<p>在第3章，你将学习如何在被称为<strong>列表</strong>
- 的变量中存储一系列信息，以及如何通过遍历列表来操作其中的信息。</p>
-<br style="page-break-after:always"/>
-<div></div>
-]]></description>
+Beautiful is better than ugly.&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;Python程序员笃信代码可以编写得漂亮而优雅。编程是要解决问题的，设计良好、高效而漂亮的解决方案都会让程序员心生敬意。随着你对Python的认识越来越深入，并使用它来编写越来越多的代码，有一天也许会有人站在你后面惊呼：“哇，代码编写得真是漂亮！”&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Simple is better than complex.&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;如果有两个解决方案，一个简单、一个复杂，但都行之有效，就选择简单的解决方案吧。这样，你编写的代码将更容易维护，你或他人以后改进这些代码时也会更容易。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Complex is better than complicated.&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;现实是复杂的，有时候可能没有简单的解决方案。在这种情况下，就选择最简单可行的解决方案吧。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Readability counts.&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;即便是复杂的代码，也要让它易于理解。开发的项目涉及复杂代码时，一定要为这些代码编写有益的注释。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;There should be one-- and preferably only one --obvious way to do it.&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;如果让两名Python程序员去解决同一个问题，他们提供的解决方案应大致相同。这并不是说编程没有创意空间，而是恰恰相反！然而，大部分编程工作是使用常见解决方案来解决简单的小问题，但这些小问题都包含在更庞大、更有创意空间的项目中。在你的程序中，各种具体细节对其他Python程序员来说都应易于理解。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Now is better than never.&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p&gt;你可以用余生来学习Python和编程的纷繁难懂之处，但这样你什么项目都完不成。不要企图编写完美无缺的代码，而是要先编写行之有效的代码，再决定是对其做进一步改进，还是转而去编写新代码。&lt;/p&gt;
+&lt;p&gt;等你进入下一章，开始研究更复杂的主题时，务必牢记这种简约而清晰的理念。如此，经验丰富的程序员定将对你编写的代码心生敬意，进而乐意向你提供反馈，并与你合作开发有趣的项目。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;
+&lt;strong&gt;动手试一试&lt;/strong&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;strong&gt;练习2-11：Python之禅&lt;/strong&gt;
+ 　在Python终端会话中执行命令&lt;code&gt;import this&lt;/code&gt;
+ ，并粗略地浏览一下其他的指导原则。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="nav_point_52"&gt;2.7　小结&lt;/h2&gt;
+&lt;p&gt;在本章中，你学习了：如何使用变量；如何创建描述性变量名以及如何消除名称错误和语法错误；字符串是什么，以及如何使用小写、大写和首字母大写方式显示字符串；使用空白来显示整洁的输出，以及如何剔除字符串中多余的空白；如何使用整数和浮点数；一些使用数值数据的方式。你还学习了如何编写说明性注释，让代码对你和其他人来说更容易理解。最后，你了解了让代码尽可能简单的理念。&lt;/p&gt;
+&lt;p&gt;在第3章，你将学习如何在被称为&lt;strong&gt;列表&lt;/strong&gt;
+ 的变量中存储一系列信息，以及如何通过遍历列表来操作其中的信息。&lt;/p&gt;
+&lt;br style="page-break-after:always"/&gt;
+&lt;div&gt;&lt;/div&gt;
+</description>
     <pubDate>Thu, 13 Aug 2026 00:51:18 +0000</pubDate>
     <guid isPermaLink="false">2</guid>
 </item>
 <item>
-      <title><![CDATA[WorkBuddyGuide-本篇导读]]></title>
+      <title>WorkBuddyGuide-本篇导读</title>
       <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/</link>
-      <description><![CDATA[学习时长：约0.5小时；学习内容：第一篇的整体导览，了解从入门到基础功能的学习路径；学习目的：明确第一篇的学习框架，为后续章节学习做好准备]]></description>
+      <description>学习时长：约0.5小时；学习内容：第一篇的整体导览，了解从入门到基础功能的学习路径；学习目的：明确第一篇的学习框架，为后续章节学习做好准备</description>
       <guid isPermaLink="false">https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/</guid>
       <pubDate>Wed, 12 Aug 2026 07:16:14 +0000</pubDate>
     </item>
@@ -8637,871 +8645,6 @@ from ship import Ship&lt;/code&gt;
 </description>
     <pubDate>Thu, 23 Jul 2026 01:22:56 +0000</pubDate>
     <guid isPermaLink="false">14</guid>
-</item>
-<item>
-    <title>Basic Python - 013 - 第 13 章 外星人来了.epub</title>
-    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：113 分钟 (22527 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_294"&gt;第 13 章　外星人来了&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00001.gif" style="width: 16%" width="16%"/&gt;
- 　本章将在游戏《外星人入侵》中添加外星人。我们将首先在屏幕上边缘附近添加一个外星人，再生成一群外星人。然后让这群外星人向两边和下面移动，并删除被子弹击中的外星人。最后，显示玩家拥有的飞船数量，并在玩家的飞船用完后结束游戏。&lt;/p&gt;
-&lt;p&gt;通过阅读本章，你将更深入地了解Pygame和大型项目管理，还将学习如何检测游戏对象之间的碰撞，如子弹和外星人之间的碰撞。检测碰撞有助于定义游戏元素之间的交互。例如，可以将角色限定在迷宫墙壁之内，或者在两个角色之间传球。我们将不时查看游戏开发计划，确保编程工作不偏离轨道。&lt;/p&gt;
-&lt;p&gt;着手编写在屏幕上添加一群外星人的代码前，先来回顾一下这个项目，并更新开发计划。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_295"&gt;13.1　项目回顾&lt;/h2&gt;
-&lt;p&gt;开发大型项目时，要在进入每个开发阶段之前回顾一下开发计划，搞清楚接下来要通过编写代码来完成哪些任务。本章涉及以下内容。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li class="第1级无序列表"&gt;研究既有代码，确定实现新功能前是否要重构。&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;在屏幕左上角添加一个外星人，并指定合适的边距。&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;根据第一个外星人的边距和屏幕尺寸计算屏幕上可容纳多少个外星人。编写一个循环来创建一系列外星人，使其填满屏幕的上半部分。&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;让外星人群向两边和下方移动，直到外星人被全部击落、有外星人撞到飞船或有外星人抵达屏幕底端。如果整群外星人都被击落，将再创建一群外星人。如果有外星人撞到了飞船或抵达屏幕底端，将销毁飞船并再创建一群外星人。&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;限制玩家可用的飞船数量。当配给的飞船用完之后，游戏将结束。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;我们将在实现功能的同时完善这个计划，但就目前而言，该计划已足够详尽。&lt;/p&gt;
-&lt;p&gt;在项目中添加新功能前，还应审核既有代码。每进入一个新阶段，项目通常会更复杂，因此最好对混乱或低效的代码进行清理。我们一直在不断重构，因此当前没有需要重构的代码。&lt;/p&gt;
-&lt;h2 id="nav_point_296"&gt;13.2　创建第一个外星人&lt;/h2&gt;
-&lt;p&gt;在屏幕上放置外星人与放置飞船类似。每个外星人的行为都由&lt;code&gt;Alien&lt;/code&gt;
- 类控制，我们将像创建&lt;code&gt;Ship&lt;/code&gt;
- 类那样创建这个类。出于简化考虑，也将使用位图来表示外星人。你可以自己寻找表示外星人的图像，也可以使用如图13-1所示的图像，它可在本书配套资源（ituring.cn/book/2784）中找到。这幅图像的背景为灰色，与屏幕背景色一致。请务必将选择的图像文件保存到文件夹images中。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00008.gif" style="width: 40%" width="40%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图13-1　用来创建外星人群的外星人图像&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_297"&gt;13.2.1　创建&lt;code&gt;Alien&lt;/code&gt;
- 类&lt;/h3&gt;
-&lt;p&gt;下面来编写&lt;code&gt;Alien&lt;/code&gt;
- 类并将其保存为文件alien.py：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  import pygame
-  from pygame.sprite import Sprite
-  class Alien(Sprite):
-      """表示单个外星人的类。"""
-      def __init__(self, ai_game):
-          """初始化外星人并设置其起始位置。"""
-          super().__init__()
-          self.screen = ai_game.screen
-          # 加载外星人图像并设置其rect属性
-          self.image = pygame.image.load('images/alien.bmp')
-          self.rect = self.image.get_rect()
-          # 每个外星人最初都在屏幕左上角附近。
-❶         self.rect.x = self.rect.width
-          self.rect.y = self.rect.height
-          # 存储外星人的精确水平位置。
-❷         self.x = float(self.rect.x)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;除位置不同外，这个类的大部分代码与&lt;code&gt;Ship&lt;/code&gt;
- 类相似。每个外星人最初都位于屏幕左上角附近。将每个外星人的左边距都设置为外星人的宽度，并将上边距设置为外星人的高度（见❶），这样更容易看清。我们主要关心的是外星人的水平速度，因此精确地记录了每个外星人的水平位置（见❷）。&lt;/p&gt;
-&lt;p&gt;
-&lt;code&gt;Alien&lt;/code&gt;
- 类不需要一个在屏幕上绘制外星人的方法，因为我们将使用一个Pygame编组方法，自动在屏幕上绘制编组中的所有元素。&lt;/p&gt;
-&lt;h3 id="nav_point_298"&gt;13.2.2　创建&lt;code&gt;Alien&lt;/code&gt;
- 实例&lt;/h3&gt;
-&lt;p&gt;要让第一个外星人在屏幕上现身，需要创建一个&lt;code&gt;Alien&lt;/code&gt;
- 实例。这属于设置工作，因此将把这些代码放在&lt;code&gt;AlienInvasion&lt;/code&gt;
- 类的方法&lt;code&gt;__init__()&lt;/code&gt;
- 末尾。我们最终会创建一群外星人，涉及的工作量不少，因此将新建一个名为&lt;code&gt;_create_fleet()&lt;/code&gt;
- 的辅助方法。&lt;/p&gt;
-&lt;p&gt;在类中，方法的排列顺序无关紧要，只要按统一的标准排列就行。我们将把&lt;code&gt;_create_fleet()&lt;/code&gt;
- 放在&lt;code&gt;_update_screen()&lt;/code&gt;
- 前面，不过放在&lt;code&gt;AlienInvasion&lt;/code&gt;
- 类的任何地方其实都可行。首先，需要导入&lt;code&gt;Alien&lt;/code&gt;
- 类。&lt;/p&gt;
-&lt;p&gt;下面是alien_invasion.py中修改后的&lt;code&gt;import&lt;/code&gt;
- 语句：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-from bullet import Bullet
-from alien import Alien&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;下面是修改后的方法&lt;code&gt;__init__()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def __init__(self):
-        --snip--
-        self.ship = Ship(self)
-        self.bullets = pygame.sprite.Group()
-        self.aliens = pygame.sprite.Group()
-        self._create_fleet()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;创建了一个用于存储外星人群的编组，还调用了接下来将编写的方法&lt;code&gt;_create_fleet()&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;下面是新编写的方法&lt;code&gt;_create_fleet()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _create_fleet(self):
-        """创建外星人群。"""
-        # 创建一个外星人。
-        alien = Alien(self)
-        self.aliens.add(alien)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在这个方法中，创建了一个&lt;code&gt;Alien&lt;/code&gt;
- 实例，再将其添加到用于存储外星人群的编组中。外星人默认放在屏幕左上角附近，对第一个外星人来说，这样的位置非常合适。&lt;/p&gt;
-&lt;p&gt;要让外星人现身，需要在&lt;code&gt;_update_screen()&lt;/code&gt;
- 中对外星人编组调用方法&lt;code&gt;draw()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _update_screen(self):
-        --snip--
-        for bullet in self.bullets.sprites():
-            bullet.draw_bullet()
-        self.aliens.draw(self.screen)
-        pygame.display.flip()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;对编组调用&lt;code&gt;draw()&lt;/code&gt;
- 时，Pygame将把编组中的每个元素绘制到属性&lt;code&gt;rect&lt;/code&gt;
- 指定的位置。方法&lt;code&gt;draw()&lt;/code&gt;
- 接受一个参数，这个参数指定了要将编组中的元素绘制到哪个surface上。图13-2显示了在屏幕上现身的第一个外星人。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00009.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图13-2　第一个外星人现身&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;第一个外星人正确地现身了，下面来编写绘制一群外星人的代码。&lt;/p&gt;
-&lt;h2 id="nav_point_299"&gt;13.3　创建一群外星人&lt;/h2&gt;
-&lt;p&gt;要绘制一群外星人，需要确定一行能容纳多少个外星人以及要绘制多少行。我们将首先计算外星人的水平间距并创建一行外星人，再确定可用的垂直空间并创建整群外星人。&lt;/p&gt;
-&lt;h3 id="nav_point_300"&gt;13.3.1　确定一行可容纳多少个外星人&lt;/h3&gt;
-&lt;p&gt;为确定一行可容纳多少个外星人，来看看可用的水平空间有多大。屏幕宽度存储在&lt;code&gt;settings.screen_width&lt;/code&gt;
- 中，但需要在屏幕两边都留下一定的边距（将其设置为外星人的宽度）。因为有两个边距，所以可用于放置外星人的水平空间为屏幕宽度减去外星人宽度的两倍：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;available_space_x = settings.screen_width – (2 * alien_width)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;还需要在外星人之间留出一定的空间，不妨将其定为外星人的宽度。因此，显示一个外星人所需的水平空间为外星人宽度的两倍：一个宽度用于放置外星人，另一个宽度为外星人右边的空白区域。为确定一行可容纳多少个外星人，将可用空间除以外星人宽度的两倍。我们使用&lt;strong&gt;整除&lt;/strong&gt;
- （floor division）运算符&lt;code&gt;//&lt;/code&gt;
- ，它将两个数相除并丢弃余数，让我们得到一个表示外星人个数的整数。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;number_aliens_x = available_space_x // (2 * alien_width)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们将在创建外星人群时使用这些公式。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　令人欣慰的是，在程序中执行计算时，无须在一开始确定公式是正确的，而是可以尝试运行程序，看看结果是否符合预期。即便是在最坏的情况下，也只是屏幕上显示的外星人太多或太少。随后可根据在屏幕上看到的情况调整计算公式。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_301"&gt;13.3.2　创建一行外星人&lt;/h3&gt;
-&lt;p&gt;现在可以创建整行外星人了。由于创建单个外星人的代码管用，我们重写&lt;code&gt;_create_fleet()&lt;/code&gt;
- 使其创建一行外星人：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def _create_fleet(self):
-          """创建外星人群。"""
-          # 创建一个外星人并计算一行可容纳多少个外星人。
-          # 外星人的间距为外星人宽度。
-❶         alien = Alien(self)
-❷         alien_width = alien.rect.width
-❸         available_space_x = self.settings.screen_width - (2 * alien_width)
-          number_aliens_x = available_space_x // (2 * alien_width)
-          # 创建第一行外星人。
-❹         for alien_number in range(number_aliens_x):
-              # 创建一个外星人并将其加入当前行。
-              alien = Alien(self)
-❺             alien.x = alien_width + 2 * alien_width * alien_number
-              alien.rect.x = alien.x
-              self.aliens.add(alien)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这些代码大多在前面详细介绍过。为放置外星人，需要知道外星人的宽度和高度，因此在执行计算前，创建一个外星人（见❶）。这个外星人不是外星人群的成员，因此没有将其加入编组&lt;code&gt;aliens&lt;/code&gt;
- 中。在❷处，从外星人的&lt;code&gt;rect&lt;/code&gt;
- 属性中获取外星人宽度，并将这个值存储到&lt;code&gt;alien_width&lt;/code&gt;
- 中，以免反复访问属性&lt;code&gt;rect&lt;/code&gt;
- 。在❸处，计算可用于放置外星人的水平空间以及其中可容纳多少个外星人。&lt;/p&gt;
-&lt;p&gt;接下来，编写一个循环，从零数到要创建的外星人数（见❹）。在这个循环中，创建一个新的外星人，并通过设置&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00003.gif"/&gt;
- 坐标将其加入当前行（见❺）。将每个外星人都往右推一个外星人宽度。接下来，将外星人宽度乘以2，得到每个外星人占据的空间（其中包括右边的空白区域），再据此计算当前外星人在当前行的位置。我们使用外星人的属性&lt;code&gt;x&lt;/code&gt;
- 来设置其&lt;code&gt;rect&lt;/code&gt;
- 的位置。最后，将每个新创建的外星人都添加到编组&lt;code&gt;aliens&lt;/code&gt;
- 中。&lt;/p&gt;
-&lt;p&gt;如果现在运行这个游戏，将看到第一行外星人，如图13-3所示。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00010.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图13-3　第一行外星人&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;这行外星人在屏幕上稍微偏向了左边、这实际上是有好处的，因为后面将让外星人群往右移，触及屏幕边缘后稍微往下移，再往左移，依此类推。就像经典游戏《太空入侵者》，相比于只往下移，这种移动方式更为有趣。我们将让外星人群不断这样移动，直到所有外星人都被击落，或者有外星人撞上飞船或抵达屏幕底端。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　根据所选择的屏幕宽度，在你的系统中，第一个外星人的位置可能稍有不同。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_302"&gt;13.3.3　重构&lt;code&gt;_create_fleet()&lt;/code&gt;
-&lt;/h3&gt;
-&lt;p&gt;倘若只需使用前面的代码就能创建外星人群，也许应该让&lt;code&gt;_create_fleet()&lt;/code&gt;
- 保持原样，但鉴于创建外星人群的工作还未完成，我们稍微整理一下这个方法。为此，添加辅助方法&lt;code&gt;_create_alien()&lt;/code&gt;
- ，并在&lt;code&gt;_create_fleet()&lt;/code&gt;
- 中调用它：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _create_fleet(self):
-        --snip--
-        # 创建第一行外星人。
-        for alien_number in range(number_aliens_x):
-            self._create_alien(alien_number)
-    def _create_alien(self, alien_number):
-        """创建一个外星人并将其放在当前行。"""
-        alien = Alien(self)
-        alien_width = alien.rect.width
-        alien.x = alien_width + 2 * alien_width * alien_number
-        alien.rect.x = alien.x
-        self.aliens.add(alien)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;除&lt;code&gt;self&lt;/code&gt;
- 外，方法&lt;code&gt;_create_alien()&lt;/code&gt;
- 还接受另一个参数，即要创建的外星人的编号。该方法的代码与&lt;code&gt;_create_fleet()&lt;/code&gt;
- 相同，但在内部获取外星人宽度，而不是将其作为参数传入。这样重构后，添加新行进而创建整群外星人将更容易。&lt;/p&gt;
-&lt;h3 id="nav_point_303"&gt;13.3.4　添加行&lt;/h3&gt;
-&lt;p&gt;要创建外星人群，需要计算屏幕可容纳多少行，并将创建一行外星人的循环重复执行相应的次数。为计算可容纳的行数，要先计算可用的垂直空间：用屏幕高度减去第一行外星人的上边距（外星人高度）、飞船的高度以及外星人群最初与飞船之间的距离（外星人高度的两倍）：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;available_space_y = settings.screen_height – (3 * alien_height) – ship_height&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这将在飞船上方留出一定的空白区域，给玩家留出射杀外星人的时间。&lt;/p&gt;
-&lt;p&gt;每行下方都要留出一定的空白区域，不妨将其设置为外星人的高度。为计算可容纳的行数，将可用的垂直空间除以外星人高度的两倍。我们使用整除，因为行数只能是整数。（同样，如果这样的计算不对，我们马上就能发现，继而将间距调整为合理的值。）&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;number_rows = available_space_y // (2 * alien_height)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;知道可容纳多少行之后，便可重复执行创建一行外星人的代码了：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def _create_fleet(self):
-          --snip--
-          alien = Alien(self)
-❶         alien_width, alien_height = alien.rect.size
-          available_space_x = self.settings.screen_width - (2 * alien_width)
-          number_aliens_x = available_space_x // (2 * alien_width)
-          #计算屏幕可容纳多少行外星人。
-          ship_height = self.ship.rect.height
-❷         available_space_y = (self.settings.screen_height -
-                                   (3 * alien_height) - ship_height)
-          number_rows = available_space_y // (2 * alien_height)
-          # 创建外星人群。
-❸         for row_number in range(number_rows):
-              for alien_number in range(number_aliens_x):
-                  self._create_alien(alien_number, row_number)
-      def _create_alien(self, alien_number, row_number):
-          """创建一个外星人，并将其放在当前行。"""
-          alien = Alien(self)
-          alien_width, alien_height = alien.rect.size
-          alien.x = alien_width + 2 * alien_width * alien_number
-          alien.rect.x = alien.x
-❹         alien.rect.y = alien.rect.height + 2 * alien.rect.height * row_number
-          self.aliens.add(alien)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;需要知道外星人的宽度和高度，因此在❶处使用了属性&lt;code&gt;size&lt;/code&gt;
- 。该属性是一个元组，包含&lt;code&gt;rect&lt;/code&gt;
- 对象的宽度和高度。为计算屏幕可容纳多少行外星人，在计算&lt;code&gt;available_space_x&lt;/code&gt;
- 的代码后面添加了计算&lt;code&gt;available_space_y&lt;/code&gt;
- 的代码（见❷）。此处将计算公式用圆括号括起来，以便将代码分成两行，遵循每行不超过79字符的建议。&lt;/p&gt;
-&lt;p&gt;为创建多行外星人，使用了两个嵌套在一起的循环：一个外部循环和一个内部循环（见❸）。内部循环创建一行外星人，而外部循环从零数到要创建的外星人行数：Python将重复执行创建单行外星人的代码，重复次数为&lt;code&gt;number_rows&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;为嵌套循环，编写了一个新的&lt;code&gt;for&lt;/code&gt;
- 循环，并缩进了要重复执行的代码。（在大多数文本编辑器中，缩进代码块和取消缩进都很容易，详情请参阅附录B）。现在调用&lt;code&gt;_create_alien()&lt;/code&gt;
- 时，传递了一个表示行号的实参，将每行都沿屏幕依次向下放置。&lt;/p&gt;
-&lt;p&gt;在&lt;code&gt;_create_alien()&lt;/code&gt;
- 的定义中，需要一个用于存储行号的形参。在&lt;code&gt;_create_alien()&lt;/code&gt;
- 中，修改外星人的&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00004.gif"/&gt;
- 坐标（见❹）并在第一行外星人上方留出与外星人等高的空白区域。相邻外星人行的&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00004.gif"/&gt;
- 坐标相差外星人高度的两倍，因此将外星人高度乘以2，再乘以行号。第一行的行号为0，因此第一行的垂直位置不变，而其他行都沿屏幕依次向下放置。&lt;/p&gt;
-&lt;p&gt;如果现在运行这个游戏，将看到一群外星人，如图13-4所示。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00011.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图13-4　整群外星人都现身了&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;下一节将让外星人群动起来！&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习13-1：星星&lt;/strong&gt;
- 　找一幅星星图像，并在屏幕上显示一系列整齐排列的星星。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习13-2：更逼真的星星&lt;/strong&gt;
- 　为让星星的分布更逼真，可随机地放置星星。本书前面说过，可像下面这样来生成随机数：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;from random import randint
-random_number = randint(-10, 10)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;上述代码返回一个-10和10之间的随机整数。在为完成练习13-1而编写的程序中，随机地调整每颗星星的位置。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_304"&gt;13.4　让外星人群移动&lt;/h2&gt;
-&lt;p&gt;下面来让外星人群在屏幕上向右移动，撞到屏幕边缘后下移一定的量，再沿相反的方向移动。我们将不断移动所有的外星人，直到外星人被全部消灭，或者有外星人撞上飞船或抵达屏幕底端。下面先让外星人向右移动。&lt;/p&gt;
-&lt;h3 id="nav_point_305"&gt;13.4.1　向右移动外星人群&lt;/h3&gt;
-&lt;p&gt;为移动外星人群，将使用alien.py中的方法&lt;code&gt;update()&lt;/code&gt;
- 。对于外星人群中的每个外星人，都要调用它。首先，添加一个控制外星人速度的设置：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def __init__(self):
-        --snip--
-        # 外星人设置
-        self.alien_speed = 1.0&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;再使用这个设置来实现&lt;code&gt;update()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def __init__(self, ai_game):
-          """初始化外星人并设置其初始位置。"""
-          super().__init__()
-          self.screen = ai_game.screen
-          self.settings = ai_game.settings
-          --snip--
-      def update(self):
-          """向右移动外星人。"""
-❶         self.x += self.settings.alien_speed
-❷         self.rect.x = self.x&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在&lt;code&gt;__init__()&lt;/code&gt;
- 中添加了属性&lt;code&gt;settings&lt;/code&gt;
- ，以便能够在&lt;code&gt;update()&lt;/code&gt;
- 中访问外星人的速度。每次更新外星人时，都将它向右移动，移动量为&lt;code&gt;alien_speed&lt;/code&gt;
- 的值。我们使用属性&lt;code&gt;self.x&lt;/code&gt;
- 跟踪每个外星人的准确位置，该属性可存储小数值（见❶）。然后，使用&lt;code&gt;self.x&lt;/code&gt;
- 的值来更新外星人的&lt;code&gt;rect&lt;/code&gt;
- 的位置（见❷）。&lt;/p&gt;
-&lt;p&gt;主&lt;code&gt;while&lt;/code&gt;
- 循环中已调用了更新飞船和子弹的方法，现在还需更调用更新每个外星人位置的方法：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;        while True:
-            self._check_events()
-            self.ship.update()
-            self._update_bullets()
-            self._update_aliens()
-            self._update_screen()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;需要编写一些代码来管理外星人群的移动，因此新建一个名为&lt;code&gt;_update_aliens()&lt;/code&gt;
- 的方法。我们在更新子弹后再更新外星人的位置，因为稍后要检查是否有子弹击中了外星人。&lt;/p&gt;
-&lt;p&gt;将这个方法放在模块的什么地方都无关紧要，但为确保代码组织有序，我将它放在方法&lt;code&gt;_update_bullets()&lt;/code&gt;
- 的后面，以便与&lt;code&gt;while&lt;/code&gt;
- 循环中的调用顺序一致。下面是&lt;code&gt;_update_aliens()&lt;/code&gt;
- 的第一版：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _update_aliens(self):
-        """更新外星人群中所有外星人的位置。"""
-        self.aliens.update()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;对编组调用方法&lt;code&gt;update()&lt;/code&gt;
- ，这将自动对每个外星人调用方法&lt;code&gt;update()&lt;/code&gt;
- 。如果现在运行这个游戏，你将看到外星人群向右移动，并在屏幕右边缘消失。&lt;/p&gt;
-&lt;h3 id="nav_point_306"&gt;13.4.2　创建表示外星人移动方向的设置&lt;/h3&gt;
-&lt;p&gt;下面来创建让外星人撞到屏幕右边缘后向下移动、再向左移动的设置。实现这种行为的代码如下：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;         # 外星人设置
-         self.alien_speed = 1.0
-         self.fleet_drop_speed = 10
-         # fleet_direction为1表示向右移，为-1表示向左移。
-         self.fleet_direction = 1&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;设置&lt;code&gt;fleet_drop_speed&lt;/code&gt;
- 指定有外星人撞到屏幕边缘时，外星人群向下移动的速度。将这个速度与水平速度分开是有好处的，便于分别调整这两个速度。&lt;/p&gt;
-&lt;p&gt;要实现设置&lt;code&gt;fleet_direction&lt;/code&gt;
- ，可将其设置为文本值，如&lt;code&gt;'left'&lt;/code&gt;
- 或&lt;code&gt;'right'&lt;/code&gt;
- ，但这样就必须编写&lt;code&gt;if-elif&lt;/code&gt;
- 语句来检查外星人群的移动方向。鉴于只有两个可能的方向，我们使用值1和-1来表示，并在外星人群改变方向时在这两个值之间切换。（向右移时需要增大每个外星人的&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00003.gif"/&gt;
- 坐标，而向左移时需要减小每个外星人的&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00003.gif"/&gt;
- 坐标，因此使用数字来表示方向十分合理。）&lt;/p&gt;
-&lt;h3 id="nav_point_307"&gt;13.4.3　检查外星人是否撞到了屏幕边缘&lt;/h3&gt;
-&lt;p&gt;现在需要编写一个方法来检查外星人是否撞到了屏幕边缘，还需修改&lt;code&gt;update()&lt;/code&gt;
- 让每个外星人都沿正确的方向移动。这些代码位于&lt;code&gt;Alien&lt;/code&gt;
- 类中：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def check_edges(self):
-          """如果外星人位于屏幕边缘，就返回True。"""
-          screen_rect = self.screen.get_rect()
-❶         if self.rect.right &amp;gt;= screen_rect.right or self.rect.left &amp;lt;= 0:
-                return True
-      def update(self):
-          """向左或向右移动外星人。"""
-❷         self.x += (self.settings.alien_speed *
-                          self.settings.fleet_direction)
-          self.rect.x = self.x&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;可对任意外星人调用新方法&lt;code&gt;check_edges()&lt;/code&gt;
- ，看其是否位于屏幕左边缘或右边缘。如果外星人的&lt;code&gt;rect&lt;/code&gt;
- 的属性&lt;code&gt;right&lt;/code&gt;
- 大于或等于屏幕的&lt;code&gt;rect&lt;/code&gt;
- 的&lt;code&gt;right&lt;/code&gt;
- 属性，就说明外星人位于屏幕右边缘；如果外星人的&lt;code&gt;rect&lt;/code&gt;
- 的&lt;code&gt;left&lt;/code&gt;
- 属性小于或等于0，就说明外星人位于屏幕左边缘（见❶）。&lt;/p&gt;
-&lt;p&gt;我们修改方法&lt;code&gt;update()&lt;/code&gt;
- ，将移动量设置为外星人速度和&lt;code&gt;fleet_direction&lt;/code&gt;
- 的乘积，让外星人向左或向右移动（见❷）。如果&lt;code&gt;fleet_direction&lt;/code&gt;
- 为1，就将外星人的当前&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00003.gif"/&gt;
- 坐标增大&lt;code&gt;alien_speed&lt;/code&gt;
- ，从而将外星人向右移；如果&lt;code&gt;fleet_direction&lt;/code&gt;
- 为-1，就将外星人的当前&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00003.gif"/&gt;
- 坐标减去&lt;code&gt;alien_speed&lt;/code&gt;
- ，从而将外星人向左移。&lt;/p&gt;
-&lt;h3 id="nav_point_308"&gt;13.4.4　向下移动外星人群并改变移动方向&lt;/h3&gt;
-&lt;p&gt;有外星人到达屏幕边缘时，需要将整群外行星下移，并改变它们的移动方向。为此，需要在&lt;code&gt;AlienInvasion&lt;/code&gt;
- 中添加一些代码，因为要在这里检查是否有外星人到达了左边缘或右边缘。我们编写方法&lt;code&gt;_check_fleet_edges()&lt;/code&gt;
- 和&lt;code&gt;_change_fleet_direction()&lt;/code&gt;
- ，并且修改&lt;code&gt;_update_aliens()&lt;/code&gt;
- 。这些新方法将放在&lt;code&gt;_create_alien()&lt;/code&gt;
- 后面，但其实放在&lt;code&gt;AlienInvasion&lt;/code&gt;
- 类中的什么位置都无关紧要：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def _check_fleet_edges(self):
-          """有外星人到达边缘时采取相应的措施。"""
-❶         for alien in self.aliens.sprites():
-              if alien.check_edges():
-❷                 self._change_fleet_direction()
-                  break
-      def _change_fleet_direction(self):
-          """将整群外星人下移，并改变它们的方向。"""
-          for alien in self.aliens.sprites():
-❸             alien.rect.y += self.settings.fleet_drop_speed
-          self.settings.fleet_direction *= -1&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在&lt;code&gt;_check_fleet_edges()&lt;/code&gt;
- 中，遍历外星人群并对其中的每个外星人调用&lt;code&gt;check_edges()&lt;/code&gt;
- （见❶）。如果&lt;code&gt;check_edges()&lt;/code&gt;
- 返回&lt;code&gt;True&lt;/code&gt;
- ，就表明相应的外星人位于屏幕边缘，需要改变外星人群的方向，因此调用&lt;code&gt;_change_fleet_direction()&lt;/code&gt;
- 并退出循环（见❷）。在&lt;code&gt;_change_fleet_direction()&lt;/code&gt;
- 中，遍历所有外星人，将每个外星人下移设置&lt;code&gt;fleet_drop_speed&lt;/code&gt;
- 的值（见❸）。然后，将&lt;code&gt;fleet_direction&lt;/code&gt;
- 的值改为其当前值与-1的乘积。调整外星人群移动方向的代码行没有包含在&lt;code&gt;for&lt;/code&gt;
- 循环中，因为我们要调整每个外星人的垂直位置，但只想调整外星人群移动方向一次。&lt;/p&gt;
-&lt;p&gt;下面显示了对&lt;code&gt;_update_aliens()&lt;/code&gt;
- 所做的修改：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _update_aliens(self):
-        """
-        检查是否有外星人位于屏幕边缘，
-        并更新整群外星人的位置。
-        """
-        self._check_fleet_edges()
-        self.aliens.update()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们将方法&lt;code&gt;_update_aliens()&lt;/code&gt;
- 修改成了先调用&lt;code&gt;_check_fleet_edges()&lt;/code&gt;
- ，再更新每个外星人的位置。&lt;/p&gt;
-&lt;p&gt;如果现在运行这个游戏，外星人群将在屏幕上来回移动，并在抵达屏幕边缘后向下移动。现在可以开始射杀外星人，并检查是否有外星人撞到飞船或抵达了屏幕底端。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习13-3：雨滴&lt;/strong&gt;
- 　寻找一幅雨滴图像，并创建一系列整齐排列的雨滴。让这些雨滴往下落，直到到达屏幕底端后消失。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习13-4：连绵细雨&lt;/strong&gt;
- 　修改为完成练习11-3而编写的代码，使得一行雨滴消失在屏幕底端后，屏幕顶端又出现一行新雨滴并开始往下落。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_309"&gt;13.5　射杀外星人&lt;/h2&gt;
-&lt;p&gt;我们创建了飞船和外星人群，但子弹击中外星人时将穿过外星人，因为还没有检查碰撞。在游戏编程中，&lt;strong&gt;碰撞&lt;/strong&gt;
- 指的是游戏元素重叠在一起。要让子弹能够击落外星人，我们将使用&lt;code&gt;sprite.groupcollide()&lt;/code&gt;
- 检测两个编组的成员之间的碰撞。&lt;/p&gt;
-&lt;h3 id="nav_point_310"&gt;13.5.1　检测子弹与外星人的碰撞&lt;/h3&gt;
-&lt;p&gt;子弹击中外星人时，我们需要马上知道，以便碰撞发生后让子弹立即消失。为此，我们将在更新子弹的位置后立即检测碰撞。&lt;/p&gt;
-&lt;p&gt;函数&lt;code&gt;sprite.groupcollide()&lt;/code&gt;
- 将一个编组中每个元素的&lt;code&gt;rect&lt;/code&gt;
- 同另一个编组中每个元素的&lt;code&gt;rect&lt;/code&gt;
- 进行比较。在这里，是将每颗子弹的&lt;code&gt;rect&lt;/code&gt;
- 同每个外星人的&lt;code&gt;rect&lt;/code&gt;
- 进行比较，并返回一个字典，其中包含发生了碰撞的子弹和外星人。在这个字典中，每个键都是一颗子弹，而关联的值是被该子弹击中的外星人（第14章实现记分系统时，也将使用该字典）。&lt;/p&gt;
-&lt;p&gt;在方法&lt;code&gt;_update_bullets()&lt;/code&gt;
- 末尾，添加如下检查子弹和外星人碰撞的代码：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _update_bullets(self):
-        """更新子弹的位置，并删除消失的子弹。"""
-        --snip--
-        # 检查是否有子弹击中了外星人。
-        #  如果是，就删除相应的子弹和外星人。
-        collisions = pygame.sprite.groupcollide(
-                self.bullets, self.aliens, True, True)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这些新增的代码将&lt;code&gt;self.bullets&lt;/code&gt;
- 中所有的子弹都与&lt;code&gt;self.aliens&lt;/code&gt;
- 中所有的外星人进行比较，看它们是否重叠在一起。每当有子弹和外星人的&lt;code&gt;rect&lt;/code&gt;
- 重叠时，&lt;code&gt;groupcollide()&lt;/code&gt;
- 就在它返回的字典中添加一个键值对。两个实参&lt;code&gt;True&lt;/code&gt;
- 让Pygame删除发生碰撞的子弹和外星人。（要模拟能够飞行到屏幕顶端、消灭击中的每个外星人的高能子弹，可将第一个布尔实参设置为&lt;code&gt;False&lt;/code&gt;
- ，并保留第二个布尔参数为&lt;code&gt;True&lt;/code&gt;
- 。这样被击中的外星人将消失，但所有的子弹都始终有效，直到抵达屏幕顶端后消失。）&lt;/p&gt;
-&lt;p&gt;如果此时运行这个游戏，被击中的外星人将消失。如图13-5所示，有些外星人被射杀了。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00012.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图13-5　可以射杀外星人了&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_311"&gt;13.5.2　为测试创建大子弹&lt;/h3&gt;
-&lt;p&gt;只需运行这个游戏就可测试很多功能，但有些功能在正常情况下测试起来比较烦琐。例如，要测试代码能否正确处理外星人编组为空的情形，需要花很长时间将屏幕上的外星人全部射杀。&lt;/p&gt;
-&lt;p&gt;测试有些功能时，可以修改游戏的某些设置，以便能够专注于游戏的特定方面。例如，可以缩小屏幕以减少需要射杀的外星人数量，也可以提高子弹的速度，以便能够在单位时间内发射大量子弹。&lt;/p&gt;
-&lt;p&gt;测试这个游戏时，我喜欢做的一项修改是，增大子弹的尺寸并使其在击中外星人后依然有效，如图13-6所示。请尝试将&lt;code&gt;bullet_width&lt;/code&gt;
- 设置为300乃至3000，看看将所有外星人全部射杀有多快！&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/13_Image00013.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图13-6　威力超强的子弹让游戏的有些方法测试起来更容易&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;这样的修改可提高测试效率，还可能激发出如何赋予玩家更大威力的思想火花。（完成测试后，别忘了将设置恢复正常。）&lt;/p&gt;
-&lt;h3 id="nav_point_312"&gt;13.5.3　生成新的外星人群&lt;/h3&gt;
-&lt;p&gt;这个游戏的一个重要特点是，外星人无穷无尽：一群外星人被消灭后，又会出现另一群外星人。&lt;/p&gt;
-&lt;p&gt;要在一群外星人被消灭后再显示一群外星人，首先需要检查编组&lt;code&gt;aliens&lt;/code&gt;
- 是否为空。如果是，就调用&lt;code&gt;_create_fleet()&lt;/code&gt;
- 。我们将在&lt;code&gt;_update_bullets()&lt;/code&gt;
- 末尾执行这项任务，因为外星人都是在这里被消灭的：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def _update_bullets(self):
-          --snip--
-❶         if not self.aliens:
-              # 删除现有的子弹并新建一群外星人。
-❷             self.bullets.empty()
-              self._create_fleet()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，检查编组&lt;code&gt;aliens&lt;/code&gt;
- 是否为空。空编组相当于&lt;code&gt;False&lt;/code&gt;
- ，因此这是一种检查编组是否为空的简单方式。如果编组&lt;code&gt;aliens&lt;/code&gt;
- 为空，就使用方法&lt;code&gt;empty()&lt;/code&gt;
- 删除编组中余下的所有精灵，从而删除现有的所有子弹（见❷）。我们还调用了&lt;code&gt;_create_fleet()&lt;/code&gt;
- ，在屏幕上重新显示一群外星人。&lt;/p&gt;
-&lt;p&gt;现在，当前这群外星人被消灭干净后，将立刻出现一群新的外星人。&lt;/p&gt;
-&lt;h3 id="nav_point_313"&gt;13.5.4　提高子弹的速度&lt;/h3&gt;
-&lt;p&gt;如果现在尝试在游戏中射杀外星人，可能会发现子弹的速度不太合适（有点快或有点慢），游戏感不好。当前，可通过修改设置让这款游戏更有意思、更好玩。&lt;/p&gt;
-&lt;p&gt;要修改子弹的速度，可调整settings.py中&lt;code&gt;bullet_speed&lt;/code&gt;
- 的值。在我的系统中，我把&lt;code&gt;bullet_speed&lt;/code&gt;
- 的值调整到1.5，让子弹的速度快些：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;         # 子弹设置
-         self.bullet_speed = 1.5
-         self.bullet_width = 3
-         --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这项设置的最佳值取决于你使用的系统的速度，请找出适合自己的值。你也可以调整其他设置。&lt;/p&gt;
-&lt;h3 id="nav_point_314"&gt;13.5.5　重构&lt;code&gt;_update_bullets()&lt;/code&gt;
-&lt;/h3&gt;
-&lt;p&gt;下面来重构&lt;code&gt;_update_bullets()&lt;/code&gt;
- ，使其不再执行那么多任务。为此，将处理子弹和外星人碰撞的代码移到一个独立的方法中：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _update_bullets(self):
-        --snip--
-        # 删除消失的子弹。
-        for bullet in self.bullets.copy():
-            if bullet.rect.bottom &amp;lt;= 0:
-                self.bullets.remove(bullet)
-        self._check_bullet_alien_collisions()
-    def _check_bullet_alien_collisions(self):
-        """响应子弹和外星人碰撞。"""
-        # 删除发生碰撞的子弹和外星人。
-        collisions = pygame.sprite.groupcollide(
-                self.bullets, self.aliens, True, True)
-        if not self.aliens:
-            # 删除现有的所有子弹，并创建一群新的外星人。
-            self.bullets.empty()
-            self._create_fleet()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们创建了一个新方法&lt;code&gt;_check_bullet_alien_collisions()&lt;/code&gt;
- ，用于检测子弹和外星人之间的碰撞，并在整群外星人被消灭干净时采取相应的措施。这能避免&lt;code&gt;_update_bullets()&lt;/code&gt;
- 过长，简化了后续开发工作。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习13-5：侧面射击2&lt;/strong&gt;
- 　完成练习12-6之后，我们给游戏《外星人入侵》添加了很多功能。在本练习中，请尝试让练习12-6中飞船的功能与当前《外星人入侵》中的类似。在屏幕右侧添加一群外星人（或让外星人的位置随机），并让其向飞船移动。另外，编写代码让被子弹击中的外星人消失。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_315"&gt;13.6　结束游戏&lt;/h2&gt;
-&lt;p&gt;如果玩家根本不会输，游戏还有什么趣味和挑战性可言？如果玩家没能在足够短的时间内将整群外星人消灭干净，导致有外星人撞到了飞船或抵达屏幕底端，飞船将被摧毁。与此同时，限制玩家可使用的飞船数，在玩家用光所有的飞船后，游戏将结束。&lt;/p&gt;
-&lt;h3 id="nav_point_316"&gt;13.6.1　检测外星人和飞船碰撞&lt;/h3&gt;
-&lt;p&gt;首先检查外星人和飞船之间的碰撞，以便在外星人撞上飞船时做出合适的响应。为此，在&lt;code&gt;AlienInvasion&lt;/code&gt;
- 中更新每个外星人的位置后，立即检测外星人和飞船之间的碰撞：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def _update_aliens(self):
-          --snip--
-           self.aliens.update()
-           # 检测外星人和飞船之间的碰撞。
-❶         if pygame.sprite.spritecollideany(self.ship, self.aliens):
-❷             print("Ship hit!!!")&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;函数&lt;code&gt;spritecollideany()&lt;/code&gt;
- 接受两个实参：一个精灵和一个编组。它检查编组是否有成员与精灵发生了碰撞，并在找到与精灵发生碰撞的成员后停止遍历编组。在这里，它遍历编组&lt;code&gt;aliens&lt;/code&gt;
- ，并返回找到的第一个与飞船发生碰撞的外星人。&lt;/p&gt;
-&lt;p&gt;如果没有发生碰撞，&lt;code&gt;spritecollideany()&lt;/code&gt;
- 将返回&lt;code&gt;None&lt;/code&gt;
- ，因此❶处的&lt;code&gt;if&lt;/code&gt;
- 代码块不会执行。如果找到了与飞船发生碰撞的外星人，它就返回这个外星人，因此&lt;code&gt;if&lt;/code&gt;
- 代码块将执行：打印“Ship hit!!!”（见❷）。有外星人撞到飞船时，需要执行很多任务：删除余下的外星人和子弹，让飞船重新居中，以及创建一群新的外星人。编写完成这些任务的代码之前，需要确定检测外星人和飞船碰撞的方法是否可行。为此，最简单的方式就是调用函数&lt;code&gt;print()&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;现在如果运行这个游戏，则每当有外星人撞到飞船时，终端窗口都将显示“Ship hit!!!”。测试这项功能时，请将&lt;code&gt;alien_drop_speed&lt;/code&gt;
- 设置为较大的值，如50或100，这样外星人将更快地撞到飞船。&lt;/p&gt;
-&lt;h3 id="nav_point_317"&gt;13.6.2　响应外星人和飞船碰撞&lt;/h3&gt;
-&lt;p&gt;现在需要确定当外星人与飞船发生碰撞时该做些什么。我们不销毁&lt;code&gt;Ship&lt;/code&gt;
- 实例并创建新的，而是通过跟踪游戏的统计信息来记录飞船被撞了多少次（跟踪统计信息还有助于记分）。&lt;/p&gt;
-&lt;p&gt;下面来编写一个用于跟踪游戏统计信息的新类&lt;code&gt;GameStats&lt;/code&gt;
- ，并将其保存为文件game_stats.py：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;game_stats.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;class GameStats:
-    """跟踪游戏的统计信息。"""
-    def __init__(self, ai_game):
-        """初始化统计信息。"""
-        self.settings = ai_game.settings
-        self.reset_stats()
-    def reset_stats(self):
-        """初始化在游戏运行期间可能变化的统计信息。"""
-        self.ships_left = self.settings.ship_limit&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在游戏运行期间，只创建一个&lt;code&gt;GameStats&lt;/code&gt;
- 实例，但每当玩家开始新游戏时，需要重置一些统计信息。为此，在方法&lt;code&gt;reset_stats()&lt;/code&gt;
- 中初始化大部分统计信息，而不是在&lt;code&gt;__init__()&lt;/code&gt;
- 中直接初始化。我们在&lt;code&gt;__init__()&lt;/code&gt;
- 中调用这个方法，这样创建&lt;code&gt;GameStats&lt;/code&gt;
- 实例时将妥善地设置这些统计信息，在玩家开始新游戏时也能调用&lt;code&gt;reset_stats()&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;当前，只有一项统计信息&lt;code&gt;ships_left&lt;/code&gt;
- ，其值在游戏运行期间不断变化。一开始玩家拥有的飞船数存储在settings.py的&lt;code&gt;ship_limit&lt;/code&gt;
- 中：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;        # 飞船设置
-        self.ship_speed = 1.5
-        self.ship_limit = 3&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;还需对alien_invasion.py做些修改，以创建一个&lt;code&gt;GameStats&lt;/code&gt;
- 实例。首先，更新这个文件开头的&lt;code&gt;import&lt;/code&gt;
- 语句：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;import sys
-from time import sleep
-import pygame
-from settings import Settings
-from game_stats import GameStats
-from ship import Ship
---snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;从Python标准库的模块&lt;code&gt;time&lt;/code&gt;
- 中导入函数&lt;code&gt;sleep()&lt;/code&gt;
- ，以便在飞船被外星人撞到后让游戏暂停片刻。我们还导入了&lt;code&gt;GameStats&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;接下来，在&lt;code&gt;__init__()&lt;/code&gt;
- 中创建一个&lt;code&gt;GameStats&lt;/code&gt;
- 实例：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def __init__(self):
-        --snip--
-        self.screen = pygame.display.set_mode(
-            (self.settings.screen_width, self.settings.screen_height))
-        pygame.display.set_caption("Alien Invasion")
-        # 创建一个用于存储游戏统计信息的实例。
-        self.stats = GameStats(self)
-        self.ship = Ship(self)
-        --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在创建游戏窗口后、定义诸如飞船等其他游戏元素前，创建一个&lt;code&gt;GameStats&lt;/code&gt;
- 实例。&lt;/p&gt;
-&lt;p&gt;有外星人撞到飞船时，将余下的飞船数减1，创建一群新的外星人，并将飞船重新放到屏幕底端的中央。另外，让游戏暂停片刻，让玩家在新外星人群出现前注意到发生了碰撞并将重新创建外星人群。&lt;/p&gt;
-&lt;p&gt;下面将实现这些功能的大部分代码放到新方法&lt;code&gt;_ship_hit()&lt;/code&gt;
- 中。在&lt;code&gt;_update_aliens()&lt;/code&gt;
- 中，将在有外星人撞到飞船时调用这个方法：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def _ship_hit(self):
-          """响应飞船被外星人撞到。"""
-          # 将ships_left减1。
-❶         self.stats.ships_left -= 1
-          # 清空余下的外星人和子弹。
-❷         self.aliens.empty()
-          self.bullets.empty()
-          # 创建一群新的外星人，并将飞船放到屏幕底端的中央。
-❸         self._create_fleet()
-          self.ship.center_ship()
-          # 暂停。
-❹         sleep(0.5)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;新方法&lt;code&gt;_ship_hit()&lt;/code&gt;
- 在飞船被外星人撞到时做出响应。在这个方法中，将余下的飞船数减1（见❶），再清空编组&lt;code&gt;aliens&lt;/code&gt;
- 和&lt;code&gt;bullets&lt;/code&gt;
- （见❷）。&lt;/p&gt;
-&lt;p&gt;接下来，创建一群新的外星人，并将飞船居中（见❸）。（稍后将在&lt;code&gt;Ship&lt;/code&gt;
- 类中添加方法&lt;code&gt;center_ship()&lt;/code&gt;
- 。）最后，在更新所有元素后（但在将修改显示到屏幕前）暂停，让玩家知道飞船被撞到了（见❹）。这里的函数调用&lt;code&gt;sleep()&lt;/code&gt;
- 让游戏暂停半秒钟，让玩家能够看到外星人撞到了飞船。函数&lt;code&gt;sleep()&lt;/code&gt;
- 执行完毕后，将接着执行方法&lt;code&gt;_update_screen()&lt;/code&gt;
- ，将新的外星人群绘制到屏幕上。&lt;/p&gt;
-&lt;p&gt;在&lt;code&gt;_update_aliens()&lt;/code&gt;
- 中，当有外星人撞到飞船时，不调用函数&lt;code&gt;print()&lt;/code&gt;
- ，而调用&lt;code&gt;_ship_hit()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _update_aliens(self):
-        --snip--
-        if pygame.sprite.spritecollideany(self.ship, self.aliens):
-            self._ship_hit()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;下面是新方法&lt;code&gt;center_ship()&lt;/code&gt;
- ，请将其添加到ship.py的末尾：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;ship.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def center_ship(self):
-        """让飞船在屏幕底端居中。"""
-        self.rect.midbottom = self.screen_rect.midbottom
-        self.x = float(self.rect.x)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这里像&lt;code&gt;__init__()&lt;/code&gt;
- 中那样让飞船在屏幕底端居中。让飞船在屏幕底端居中后，重置用于跟踪飞船确切位置的属性&lt;code&gt;self.x&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　我们根本没有创建多艘飞船。在整个游戏运行期间，只创建了一个飞船实例，并在该飞船被撞到时将其居中。统计信息&lt;code&gt;ships_left&lt;/code&gt;
- 指出玩家是否用完了所有的飞船。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;请运行这个游戏，射杀几个外星人，并让一个外星人撞到飞船。游戏暂停片刻后，将出现一群新的外星人，而飞船将在屏幕底端居中。&lt;/p&gt;
-&lt;h3 id="nav_point_318"&gt;13.6.3　有外星人到达屏幕底端&lt;/h3&gt;
-&lt;p&gt;如果有外星人到达屏幕底端，我们将像有外星人撞到飞船那样做出响应。为检测这种情况，在alien_invasion.py中添加一个新方法：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def _check_aliens_bottom(self):
-          """检查是否有外星人到达了屏幕底端。"""
-          screen_rect = self.screen.get_rect()
-          for alien in self.aliens.sprites():
-❶             if alien.rect.bottom &amp;gt;= screen_rect.bottom:
-                  # 像飞船被撞到一样处理。
-                  self._ship_hit()
-                  break&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;方法&lt;code&gt;_check_aliens_bottom()&lt;/code&gt;
- 检查是否有外星人到达了屏幕底端。到达屏幕底端后，外星人的属性&lt;code&gt;rect.bottom&lt;/code&gt;
- 大于或等于屏幕的属性&lt;code&gt;rect.bottom&lt;/code&gt;
- （见❶）。如果有外星人到达屏幕底端，就调用&lt;code&gt;_ship_hit()&lt;/code&gt;
- 。只要检测到一个外星人到达屏幕底端，就无须检查其他外星人了，因此在调用&lt;code&gt;_ship_hit()&lt;/code&gt;
- 后退出循环。&lt;/p&gt;
-&lt;p&gt;我们在&lt;code&gt;_update_aliens()&lt;/code&gt;
- 中调用&lt;code&gt;_check_aliens_bottom()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _update_aliens(self):
-        --snip--
-        # 检查是否有外星人撞到飞船。
-        if pygame.sprite.spritecollideany(self.ship, self.aliens):
-            self._ship_hit()
-        # 检查是否有外星人到达了屏幕底端。
-        self._check_aliens_bottom()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在更新所有外星人的位置并检测是否有外星人和飞船发生碰撞后调用&lt;code&gt;_check_aliens_bottom()&lt;/code&gt;
- 。现在，每当有外星人撞到飞船或抵达屏幕底端时，都将出现一群新的外星人。&lt;/p&gt;
-&lt;h3 id="nav_point_319"&gt;13.6.4　游戏结束&lt;/h3&gt;
-&lt;p&gt;现在这个游戏看起来更完整了，但它永远都不会结束，只是&lt;code&gt;ships_left&lt;/code&gt;
- 不断变成越来越小的负数。下面在&lt;code&gt;GameStats&lt;/code&gt;
- 中添加一个作为标志的属性&lt;code&gt;game_active&lt;/code&gt;
- ，以便在玩家的飞船用完后结束游戏。首先，在&lt;code&gt;GameStats&lt;/code&gt;
- 类的方法&lt;code&gt;__init__()&lt;/code&gt;
- 末尾设置这个标志：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;game_stats.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def __init__(self, ai_game):
-        --snip--
-        # 游戏刚启动时处于活动状态。
-        self.game_active = True&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;接下来在&lt;code&gt;_ship_hit()&lt;/code&gt;
- 中添加代码，在玩家的飞船用完后将&lt;code&gt;game_active&lt;/code&gt;
- 设置为&lt;code&gt;False&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _ship_hit(self):
-        """响应飞船被外星人撞到。"""
-        if self.stats.ships_left &amp;gt; 0:
-            # 将ships_left减1。
-            self.stats.ships_left -= 1
-          --snip--
-            # 暂停。
-            sleep(0.5)
-        else:
-            self.stats.game_active = False&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;
-&lt;code&gt;_ship_hit()&lt;/code&gt;
- 的大部分代码没有变。我们将原来的代码都移到了一个&lt;code&gt;if&lt;/code&gt;
- 语句块中，它检查玩家是否至少还有一艘飞船。如果是，就创建一群新的外星人，暂停片刻，再接着往下执行。如果玩家没有了飞船，就将&lt;code&gt;game_active&lt;/code&gt;
- 设置为&lt;code&gt;False&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;h2 id="nav_point_320"&gt;13.7　确定应运行游戏的哪些部分&lt;/h2&gt;
-&lt;p&gt;我们需要确定游戏的哪些部分在任何情况下都应运行，哪些部分仅在游戏处于活动状态时才运行：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def run_game(self):
-        """开始游戏主循环。"""
-        while True:
-            self._check_events()
-            if self.stats.game_active:
-                self.ship.update()
-                self._update_bullets()
-                self._update_aliens()
-            self._update_screen()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在主循环中，在任何情况下都需要调用&lt;code&gt;_check_events()&lt;/code&gt;
- ，即便游戏处于非活动状态。例如，我们需要知道玩家是否按了&lt;code&gt;Q&lt;/code&gt;
- 键以退出游戏，或者是否单击了关闭窗口的按钮。我们还需要不断更新屏幕，以便在等待玩家是否选择开始新游戏时修改屏幕。其他的函数仅在游戏处于活动状态时才需要调用，因为游戏处于非活动状态时，不用更新游戏元素的位置。&lt;/p&gt;
-&lt;p&gt;现在运行这个游戏，它将在飞船用完后停止不动。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习13-6：游戏结束&lt;/strong&gt;
- 　在为完成练习13-5而编写的游戏中，记录飞船被撞到了多少次以及有多少外星人被射杀。确定合适的游戏结束条件，并在满足该条件后结束游戏。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_321"&gt;13.8　小结&lt;/h2&gt;
-&lt;p&gt;在本章中，你学习了：如何在游戏中添加大量相同的元素，如创建一群外星人；如何使用嵌套循环来创建元素网格，还通过调用每个元素的方法&lt;code&gt;update()&lt;/code&gt;
- 移动了大量元素；如何控制对象在屏幕上移动的方向，以及如何响应事件，如有外星人到达屏幕边缘；如何检测和响应子弹和外星人碰撞以及外星人和飞船碰撞；如何在游戏中跟踪统计信息，以及如何使用标志&lt;code&gt;game_active&lt;/code&gt;
- 来判断游戏是否结束。&lt;/p&gt;
-&lt;p&gt;在与这个项目相关的最后一章中，我们将添加一个Play按钮，让玩家能够开始游戏，以及在游戏结束后重玩。每当玩家消灭一群外星人后，我们都将加快游戏的节奏，并添加一个记分系统，得到一个极具可玩性的游戏！&lt;/p&gt;
-&lt;br style="page-break-after:always"/&gt;
-&lt;div&gt;&lt;/div&gt;
-</description>
-    <pubDate>Tue, 21 Jul 2026 01:17:00 +0000</pubDate>
-    <guid isPermaLink="false">13</guid>
 </item>
 </channel>
 </rss>
