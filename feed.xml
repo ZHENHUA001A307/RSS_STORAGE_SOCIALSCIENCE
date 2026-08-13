@@ -1,11 +1,554 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-  <title>每日更新推送</title>
-  <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
-  <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Wed, 12 Aug 2026 07:16:14 +0000</lastBuildDate>
-    <item>
+    <title>我的每日小说</title>
+    <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
+    <description>从 EPUB 自动生成的 RSS 订阅源</description>
+        <item>
+    <title>Basic Python - 002 - 第 2 章 变量和简单数据类型.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：67 分钟 (13277 字)</p><hr><h1 id="nav_point_29">第 2 章　变量和简单数据类型</h1>
+<blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/2_Image00001.gif" style="width: 16%" width="16%"/>
+ 　在本章中，你将学习可在Python程序中使用的各种数据，还将学习如何在程序中使用变量来表示这些数据。</p>
+</blockquote>
+<h2 id="nav_point_30">2.1　运行hello_world.py时发生的情况</h2>
+<p>运行hello_world.py时，Python都做了些什么呢？下面来深入研究一下。实际上，即便是运行简单的程序，Python所做的工作也相当多：</p>
+<p>
+<em>hello_world.py</em>
+</p>
+<pre class="代码无行号"><code>print("Hello Python world!")</code>
+</pre>
+<p>运行上述代码时，你将看到如下输出：</p>
+<pre class="代码无行号"><code>Hello Python world!</code>
+</pre>
+<p>运行文件hello_world.py时，末尾的.py指出这是一个Python程序，因此编辑器将使用<strong>Python解释器</strong>
+ 来运行它。Python解释器读取整个程序，确定其中每个单词的含义。例如，看到后面跟着圆括号的单词<code>print</code>
+ 时，解释器就将圆括号中的内容打印到屏幕。</p>
+<p>编写程序时，编辑器会以各种方式突出程序的不同部分。例如，它知道<code>print()</code>
+ 是一个函数的名称，因此将其显示为某种颜色；它知道<code>"Hello Python world!"</code>
+ 不是Python代码，因此将其显示为另一种颜色。这种功能称为<strong>语法高亮</strong>
+ ，在你刚开始编写程序时很有帮助。</p>
+<h2 id="nav_point_31">2.2　变量</h2>
+<p>下面来尝试在hello_world.py中使用一个变量。在这个文件开头添加一行代码，并对第二行代码进行修改，如下所示：</p>
+<p>
+<em>hello_world.py</em>
+</p>
+<pre class="代码无行号"><code>message = "Hello Python world!"
+print(message)</code>
+</pre>
+<p>运行这个程序，看看结果如何。你会发现，输出与以前相同：</p>
+<pre class="代码无行号"><code>Hello Python world!</code>
+</pre>
+<p>我们添加了一个名为<code>message</code>
+ 的<strong>变量</strong>
+ 。每个变量都指向一个<strong>值</strong>
+ ——与该变量相关联的信息。在这里，指向的值为文本<code>"Hello Python world!"</code>
+ 。</p>
+<p>添加变量导致Python解释器需要做更多工作。处理第一行代码时，它将变量<code>message</code>
+ 与文本<code>"Hello Python world!"</code>
+ 关联起来；处理第二行代码时，它将与变量<code>message</code>
+ 关联的值打印到屏幕。</p>
+<p>下面来进一步扩展这个程序：修改hello_world.py，使其再打印一条消息。为此，在hello_world.py中添加一个空行，再添加下面两行代码：</p>
+<pre class="代码无行号"><code>message = "Hello Python world!"
+print(message)
+message = "Hello Python Crash Course world!"
+print(message)</code>
+</pre>
+<p>现在如果运行这个程序，将看到两行输出：</p>
+<pre class="代码无行号"><code>Hello Python world!
+Hello Python Crash Course world!</code>
+</pre>
+<p>在程序中可随时修改变量的值，而Python将始终记录变量的最新值。</p>
+<h3 id="nav_point_32">2.2.1　变量的命名和使用</h3>
+<p>在Python中使用变量时，需要遵守一些规则和指南。违反这些规则将引发错误，而指南旨在让你编写的代码更容易阅读和理解。请务必牢记下述有关变量的规则。</p>
+<ul>
+<li class="第1级无序列表">变量名只能包含字母、数字和下划线。变量名能以字母或下划线打头，但不能以数字打头。例如，可将变量命名为<code>message_1</code>
+ ，但不能将其命名为<code>1_message</code>
+ 。</li>
+<li class="第1级无序列表">变量名不能包含空格，但能使用下划线来分隔其中的单词。例如，变量名<code>greeting_message</code>
+ 可行，但变量名<code>greeting message</code>
+ 会引发错误。</li>
+<li class="第1级无序列表">不要将Python关键字和函数名用作变量名，即不要使用Python保留用于特殊用途的单词，如<code>print</code>
+ （请参见附录A.4）。</li>
+<li class="第1级无序列表">变量名应既简短又具有描述性。例如，<code>name</code>
+ 比<code>n</code>
+ 好，<code>student_name</code>
+ 比<code>s_n</code>
+ 好，<code>name_length</code>
+ 比<code>length_of_persons_name</code>
+ 好。</li>
+<li class="第1级无序列表">慎用小写字母<code>l</code>
+ 和大写字母<code>O</code>
+ ，因为它们可能被人错看成数字<code>1</code>
+ 和<code>0</code>
+ 。</li>
+</ul>
+<p>要创建良好的变量名，需要经过一定的实践，在程序复杂而有趣时尤其如此。随着编写的程序越来越多，并开始阅读别人编写的代码，你将越来越善于创建有意义的变量名。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　就目前而言，应使用小写的Python变量名。虽然在变量名中使用大写字母不会导致错误，但是大写字母在变量名中有特殊含义，这将在本书后面讨论。</p>
+</blockquote>
+<h3 id="nav_point_33">2.2.2　使用变量时避免命名错误</h3>
+<p>程序员都会犯错，而且大多数程序员每天都会犯错。虽然优秀的程序员也会犯错，但他们也知道如何高效地消除错误。下面来看一种你可能犯的错误，并学习如何消除它。</p>
+<p>我们将有意地编写一些引发错误的代码。请输入下面的代码，包括其中拼写不正确、以粗体显示的单词<code>mesage</code>
+ ：</p>
+<pre class="代码无行号"><code>message = "Hello Python Crash Course reader!"
+print(mesage)</code>
+</pre>
+<p>程序存在错误时，Python解释器将竭尽所能地帮助你找出问题所在。程序无法成功运行时，解释器将提供一个traceback。traceback是一条记录，指出了解释器尝试运行代码时，在什么地方陷入了困境。下面是你不小心错误地拼写了变量名时，Python解释器提供的traceback：</p>
+<pre class="代码无行号"><code>  Traceback (most recent call last):
+❶   File "hello_world.py", line 2, in &lt;module&gt;
+❷     print(mesage)
+❸ NameError: name 'mesage' is not defined</code>
+</pre>
+<p>解释器指出，文件hello_world.py的第二行存在错误（见❶）。它列出了这行代码，旨在帮助你快速找出错误（见❷），还指出了它发现的是什么样的错误（见❸）。在这里，解释器发现了一个<strong>名称错误</strong>
+ ，并报告打印的变量<code>mesage</code>
+ 未定义：Python无法识别你提供的变量名。名称错误通常意味着两种情况：要么是使用变量前忘记给它赋值，要么是输入变量名时拼写不正确。</p>
+<p>在这个示例中，第二行的变量名<code>message</code>
+ 遗漏了字母s。Python解释器不会对代码做拼写检查，但要求变量名的拼写一致。例如，如果在代码的另一个地方也将<code>message</code>
+ 错误地拼写成了<code>mesage</code>
+ ，结果将如何呢？</p>
+<pre class="代码无行号"><code>mesage = "Hello Python Crash Course reader!"
+print(mesage)</code>
+</pre>
+<p>在这种情况下，程序将成功运行！</p>
+<pre class="代码无行号"><code>Hello Python Crash Course reader!</code>
+</pre>
+<p>编程语言要求严格，但并不关心拼写是否正确。因此，创建变量名和编写代码时，无须考虑英语中的拼写和语法规则。</p>
+<p>很多编程错误都简单，只是在程序的某一行输错了一个字符。为找出这种错误而花费很长时间的大有人在。很多程序员天资聪颖、经验丰富，却为找出这种细微的错误花费数小时。你可能觉得这很好笑，但别忘了，在你的编程生涯中，经常会有同样的遭遇。</p>
+<h3 id="nav_point_34">2.2.3　变量是标签</h3>
+<p>变量常被描述为可用于存储值的盒子。在你刚接触变量时，这种定义可能很有帮助，但它并没有准确描述Python内部表示变量的方式。一种好得多的定义是，变量是可以赋给值的标签，也可以说变量指向特定的值。</p>
+<p>刚学习编程时，这种差别可能意义不大，但越早知道越好。你迟早会遇到变量的行为出乎意料的情形，此时如果对变量的工作原理有准确的认识，将有助于搞清楚代码是如何运行的。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　要理解新的编程概念，最佳的方式是尝试在程序中使用它们。如果你在完成本书的练习时陷入了困境，请尝试做点其他的事情。如果这样做后依然无法摆脱困境，请复习相关内容。如果这样做后情况依然如故，请参阅附录C的建议。</p>
+</blockquote>
+<p>　</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>在完成下面的每个练习时，都编写一个独立的程序。保存每个程序时，使用符合标准Python约定的文件名：使用小写字母和下划线，如simple_message.py和simple_messages.py。</p>
+<p>
+<strong>练习2-1：简单消息</strong>
+ 　将一条消息赋给变量，并将其打印出来。</p>
+<p>
+<strong>练习2-2：多条简单消息</strong>
+ 　将一条消息赋给变量，并将其打印出来；再将变量的值修改为一条新消息，并将其打印出来。</p>
+</blockquote>
+<h2 id="nav_point_35">2.3　字符串</h2>
+<p>大多数程序定义并收集某种数据，然后使用它们来做些有意义的事情。有鉴于此，对数据进行分类大有裨益。我们将介绍的第一种数据类型是字符串。字符串虽然看似简单，但能够以很多不同的方式使用。</p>
+<p>
+<strong>字符串</strong>
+ 就是一系列字符。在Python中，用引号括起的都是字符串，其中的引号可以是单引号，也可以是双引号，如下所示：</p>
+<pre class="代码无行号"><code>"This is a string."
+'This is also a string.'</code>
+</pre>
+<p>这种灵活性让你能够在字符串中包含引号和撇号：</p>
+<pre class="代码无行号"><code>'I told my friend, "Python is my favorite language!"'
+"The language 'Python' is named after Monty Python, not the snake."
+"One of Python's strengths is its diverse and supportive community."</code>
+</pre>
+<p>下面来看一些使用字符串的方式。</p>
+<h3 id="nav_point_36">2.3.1　使用方法修改字符串的大小写</h3>
+<p>对于字符串，可执行的最简单的操作之一是修改其中单词的大小写。请看下面的代码，并尝试判断其作用：</p>
+<p>
+<em>name.py</em>
+</p>
+<pre class="代码无行号"><code>name = "ada lovelace"
+print(name.title())</code>
+</pre>
+<p>将这个文件保存为name.py，再运行它。你将看到如下输出：</p>
+<pre class="代码无行号"><code>Ada Lovelace</code>
+</pre>
+<p>在这个示例中，变量<code>name</code>
+ 指向小写的字符串<code>"ada lovelace"</code>
+ 。在函数调用<code>print()</code>
+ 中，方法<code>title()</code>
+ 出现在这个变量的后面。<strong>方法</strong>
+ 是Python可对数据执行的操作。在<code>name.title()</code>
+ 中，<code>name</code>
+ 后面的句点（<code>.</code>
+ ）让Python对变量<code>name</code>
+ 执行方法<code>title()</code>
+ 指定的操作。每个方法后面都跟着一对圆括号，这是因为方法通常需要额外的信息来完成其工作。这种信息是在圆括号内提供的。函数<code>title()</code>
+ 不需要额外的信息，因此它后面的圆括号是空的。</p>
+<p>方法<code>title()</code>
+ 以首字母大写的方式显示每个单词，即将每个单词的首字母都改为大写。这很有用，因为你经常需要将名字视为信息。例如，你可能希望程序将值<code>Ada</code>
+ 、<code>ADA</code>
+ 和<code>ada</code>
+ 视为同一个名字，并将它们都显示为<code>Ada</code>
+ 。</p>
+<p>还有其他几个很有用的大小写处理方法。例如，要将字符串改为全部大写或全部小写，可以像下面这样做：</p>
+<pre class="代码无行号"><code>name = "Ada Lovelace"
+print(name.upper())
+print(name.lower())</code>
+</pre>
+<p>这些代码的输出如下：</p>
+<pre class="代码无行号"><code>ADA LOVELACE
+ada lovelace</code>
+</pre>
+<p>存储数据时，方法<code>lower()</code>
+ 很有用。很多时候，你无法依靠用户来提供正确的大小写，因此需要将字符串先转换为小写，再存储它们。以后需要显示这些信息时，再将其转换为最合适的大小写方式。</p>
+<h3 id="nav_point_37">2.3.2　在字符串中使用变量</h3>
+<p>在有些情况下，你可能想在字符串中使用变量的值。例如，你可能想使用两个变量分别表示名和姓，然后合并这两个值以显示姓名：</p>
+<p>
+<em>full_name.py</em>
+</p>
+<pre class="代码无行号"><code>  first_name = "ada"
+  last_name = "lovelace"
+❶ full_name = f"{first_name} {last_name}"
+  print(full_name)</code>
+</pre>
+<p>要在字符串中插入变量的值，可在前引号前加上字母<code>f</code>
+ （见❶），再将要插入的变量放在花括号内。这样，当Python显示字符串时，将把每个变量都替换为其值。</p>
+<p>这种字符串名为<strong>f字符串</strong>
+ 。f是format（设置格式）的简写，因为Python通过把花括号内的变量替换为其值来设置字符串的格式。上述代码的输出如下：</p>
+<pre class="代码无行号"><code>ada lovelace</code>
+</pre>
+<p>使用f字符串可完成很多任务，如利用与变量关联的信息来创建完整的消息，如下所示：</p>
+<pre class="代码无行号"><code>  first_name = "ada"
+  last_name = "lovelace"
+  full_name = f"{first_name} {last_name}"
+❶ print(f"Hello, {full_name.title()}!")</code>
+</pre>
+<p>在这里，一个问候用户的句子中使用了完整的姓名（见❶），并使用方法<code>title()</code>
+ 来将姓名设置为合适的格式。这些代码显示一条格式良好的简单问候语：</p>
+<pre class="代码无行号"><code>Hello, Ada Lovelace!</code>
+</pre>
+<p>还可以使用f字符串来创建消息，再把整条消息赋给变量：</p>
+<pre class="代码无行号"><code>  first_name = "ada"
+  last_name = "lovelace"
+  full_name = f"{first_name} {last_name}"
+❶ message = f"Hello, {full_name.title()}!"
+❷ print(message)</code>
+</pre>
+<p>上述代码也显示消息<code>Hello, Ada Lovelace!</code>
+ ，但将这条消息赋给了一个变量（见❶），这让最后的函数调用<code>print()</code>
+ 变得简单得多（见❷）。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　f字符串是Python 3.6引入的。如果你使用的是Python 3.5或更早的版本，需要使用<code>format()</code>
+ 方法，而非这种f语法。要使用方法<code>format()</code>
+ ，可在圆括号内列出要在字符串中使用的变量。对于每个变量，都通过一对花括号来引用。这样将按顺序将这些花括号替换为圆括号内列出的变量的值，如下所示：</p>
+<pre class="代码无行号"><code>full_name = "{} {}".format(first_name, last_name)</code>
+</pre>
+</blockquote>
+<h3 id="nav_point_38">2.3.3　使用制表符或换行符来添加空白</h3>
+<p>在编程中，<strong>空白</strong>
+ 泛指任何非打印字符，如空格、制表符和换行符。你可以使用空白来组织输出，让用户阅读起来更容易。</p>
+<p>要在字符串中添加制表符，可使用字符组合<code>\t</code>
+ ，如下述代码的❶处所示：</p>
+<pre class="代码无行号"><code>  &gt;&gt;&gt; print("Python")
+  Python
+❶ &gt;&gt;&gt; print("\tPython")
+      Python</code>
+</pre>
+<p>要在字符串中添加换行符，可使用字符组合<code>\n</code>
+ ：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; print("Languages:\nPython\nC\nJavaScript")
+Languages:
+Python
+C
+JavaScript</code>
+</pre>
+<p>还可在同一个字符串中同时包含制表符和换行符。字符串<code>"\n\t"</code>
+ 让Python换到下一行，并在下一行开头添加一个制表符。下面的示例演示了如何使用一个单行字符串来生成四行输出：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; print("Languages:\n\tPython\n\tC\n\tJavaScript")
+Languages:
+    Python
+    C
+    JavaScript</code>
+</pre>
+<p>在接下来的两章中，你将使用为数不多的几行代码来生成很多行输出，届时制表符和换行符将提供极大的帮助。</p>
+<h3 id="nav_point_39">2.3.4　删除空白</h3>
+<p>在程序中，额外的空白可能令人迷惑。对程序员来说，<code>'python'</code>
+ 和<code>'python '</code>
+ 看起来几乎没什么两样，但对程序来说，它们却是两个不同的字符串。Python能够发现<code>'python '</code>
+ 中额外的空白，并认为它意义重大——除非你告诉它不是这样的。</p>
+<p>空白很重要，因为你经常需要比较两个字符串是否相同。一个重要的示例是，在用户登录网站时检查其用户名。不过在非常简单的情形下，额外的空格也可能令人迷惑。所幸，在Python中删除用户输入数据中的多余空白易如反掌。</p>
+<p>Python能够找出字符串开头和末尾多余的空白。要确保字符串末尾没有空白，可使用方法<code>rstrip()</code>
+ 。</p>
+<pre class="代码无行号"><code>❶ &gt;&gt;&gt; favorite_language = 'python '
+❷ &gt;&gt;&gt; favorite_language
+  'python '
+❸ &gt;&gt;&gt; favorite_language.rstrip()
+  'python'
+❹ &gt;&gt;&gt; favorite_language
+  'python '</code>
+</pre>
+<p>与变量<code>favorite_language</code>
+ 相关联的字符串末尾有多余的空白（见❶）。你在终端会话中向Python询问这个变量的值时，可看到末尾的空格（见❷）。对变量<code>favorite_language</code>
+ 调用方法<code>rstrip()</code>
+ 后（见❸），这个多余的空格被删除了。然而，这种删除只是暂时的，接下来再次询问<code>favorite_language</code>
+ 的值时，你会发现这个字符串与输入时一样，依然包含多余的空白（见❹）。</p>
+<p>要永久删除这个字符串中的空白，必须将删除操作的结果关联到变量：</p>
+<pre class="代码无行号"><code>  &gt;&gt;&gt; favorite_language = 'python '
+❶ &gt;&gt;&gt; favorite_language = favorite_language.rstrip()
+  &gt;&gt;&gt; favorite_language
+  'python'</code>
+</pre>
+<p>为删除这个字符串中的空白，要将其末尾的空白剔除，再将结果关联到原来的变量（见❶）。在编程中，经常需要修改变量的值，再将新值关联到原来的变量。这就是变量的值可能随程序的运行或用户输入数据而发生变化的原因所在。</p>
+<p>你还可以剔除字符串开头的空白，或者同时剔除字符串两边的空白。为此，可分别使用方法<code>lstrip()</code>
+ 和<code>strip()</code>
+ ：</p>
+<pre class="代码无行号"><code>❶ &gt;&gt;&gt; favorite_language = ' python '
+❷ &gt;&gt;&gt; favorite_language.rstrip()
+  ' python'
+❸ &gt;&gt;&gt; favorite_language.lstrip()
+  'python '
+❹ &gt;&gt;&gt; favorite_language.strip()
+  'python'</code>
+</pre>
+<p>在这个示例中，我们首先创建了一个开头和末尾都有空白的字符串（见❶）。接下来，分别删除末尾（见❷）、开头（见❸）和两边（见❹）的空白。尝试使用这些剥除函数有助于你熟悉字符串操作。在实际程序中，这些剥除函数最常用于在存储用户输入前对其进行清理。</p>
+<h3 id="nav_point_40">2.3.5　使用字符串时避免语法错误</h3>
+<p>
+<strong>语法错误</strong>
+ 是一种你时不时会遇到的错误。程序中包含非法的Python代码时，就会导致语法错误。例如，在用单引号括起的字符串中，如果包含撇号，就将导致错误。这是因为这会导致Python将第一个单引号和撇号之间的内容视为一个字符串，进而将余下的文本视为Python代码，从而引发错误。</p>
+<p>下面演示了如何正确地使用单引号和双引号。请将该程序保存为apostrophe.py，再运行它：</p>
+<p>
+<em>apostrophe.py</em>
+</p>
+<pre class="代码无行号"><code>message = "One of Python's strengths is its diverse community."
+print(message)</code>
+</pre>
+<p>撇号位于两个双引号之间，因此Python解释器能够正确地理解这个字符串：</p>
+<pre class="代码无行号"><code>One of Python's strengths is its diverse community.</code>
+</pre>
+<p>然而，如果使用单引号，Python将无法正确地确定字符串的结束位置：</p>
+<pre class="代码无行号"><code>message = 'One of Python's strengths is its diverse community.'
+print(message)</code>
+</pre>
+<p>你将看到如下输出：</p>
+<pre class="代码无行号"><code>  File "apostrophe.py", line 1
+    message = 'One of Python's strengths is its diverse community.'
+                            ^❶
+SyntaxError: invalid syntax</code>
+</pre>
+<p>从上述输出可知，错误发生在第二个单引号后面（见❶）。这种语法错误表明，在解释器看来，其中的有些内容不是有效的Python代码。错误的原因各种各样，我将指出一些常见的原因。学习编写Python代码时，你可能会经常遇到语法错误。语法错误也是最不具体的错误类型，因此可能难以找出并修复。受困于非常棘手的错误时，请参阅附录C提供的建议。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　编写程序时，编辑器的语法高亮功能可帮助你快速找出某些语法错误。看到Python代码以普通句子的颜色显示，或者普通句子以Python代码的颜色显示时，就可能意味着文件中存在引号不匹配的情况。</p>
+</blockquote>
+<p>　</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>完成下面的每个练习时，都编写一个独立的程序，并将其保存为名称类似于name_cases.py的文件。如果遇到了困难，请休息一会儿或参阅附录C提供的建议。</p>
+<p>
+<strong>练习2-3：个性化消息</strong>
+ 　用变量表示一个人的名字，并向其显示一条消息。显示的消息应非常简单，下面是一个例子。</p>
+<p>Hello Eric, would you like to learn some Python today?</p>
+<p>
+<strong>练习2-4：调整名字的大小写</strong>
+ 　用变量表示一个人的名字，再以小写、大写和首字母大写的方式显示这个人名。</p>
+<p>
+<strong>练习2-5：名言</strong>
+ 　找一句你钦佩的名人说的名言，将其姓名和名言打印出来。输出应类似于下面这样（包括引号）。</p>
+<blockquote>
+<p>Albert Einstein once said, “A person who never made a mistake never tried anything new.”</p>
+</blockquote>
+<p>
+<strong>练习2-6：名言2</strong>
+ 　重复练习2-5，但用变量<code>famous_person</code>
+ 表示名人的姓名，再创建要显示的消息并将其赋给变量<code>message</code>
+ ，然后打印这条消息。</p>
+<p>
+<strong>练习2-7：剔除人名中的空白</strong>
+ 　用变量表示一个人的名字，并在其开头和末尾都包含一些空白字符。务必至少使用字符组合<code>"\t"</code>
+ 和<code>"\n"</code>
+ 各一次。</p>
+<p>打印这个人名，显示其开头和末尾的空白。然后，分别使用剔除函数<code>lstrip()</code>
+ 、<code>rstrip()</code>
+ 和<code>strip()</code>
+ 对人名进行处理，并将结果打印出来。</p>
+</blockquote>
+<h2 id="nav_point_41">2.4　数</h2>
+<p>在编程中，经常使用数来记录得分、表示可视化数据、存储Web应用信息，等等。Python能根据数的用法以不同的方式处理它们。鉴于整数使用起来最简单，下面就先来看看Python是如何管理它们的。</p>
+<h3 id="nav_point_42">2.4.1　整数</h3>
+<p>在Python中，可对整数执行加（<code>+</code>
+ ）减（<code>-</code>
+ ）乘（<code>*</code>
+ ）除（<code>/</code>
+ ）运算。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; 2 + 3
+5
+&gt;&gt;&gt; 3 - 2
+1
+&gt;&gt;&gt; 2 * 3
+6
+&gt;&gt;&gt; 3 / 2
+1.5</code>
+</pre>
+<p>在终端会话中，Python直接返回运算结果。Python使用两个乘号表示乘方运算：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; 3 ** 2
+9
+&gt;&gt;&gt; 3 ** 3
+27
+&gt;&gt;&gt; 10 ** 6
+1000000</code>
+</pre>
+<p>Python还支持运算次序，因此可在同一个表达式中使用多种运算。还可以使用圆括号来修改运算次序，让Python按你指定的次序执行运算，如下所示：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; 2 + 3*4
+14
+&gt;&gt;&gt; (2 + 3) * 4
+20</code>
+</pre>
+<p>在这些示例中，空格不影响Python计算表达式的方式。它们的存在旨在让你在阅读代码时能迅速确定先执行哪些运算。</p>
+<h3 id="nav_point_43">2.4.2　浮点数</h3>
+<p>Python将所有带小数点的数称为<strong>浮点数</strong>
+ 。大多数编程语言使用了这个术语，它指出了这样一个事实：小数点可出现在数的任何位置。每种编程语言都必须细心设计，以妥善地处理浮点数，确保不管小数点出现在什么位置，数的行为都是正常的。</p>
+<p>从很大程度上说，使用浮点数时无须考虑其行为。你只需输入要使用的数，Python通常会按你期望的方式处理它们：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; 0.1 + 0.1
+0.2
+&gt;&gt;&gt; 0.2 + 0.2
+0.4
+&gt;&gt;&gt; 2 * 0.1
+0.2
+&gt;&gt;&gt; 2 * 0.2
+0.4</code>
+</pre>
+<p>但需要注意的是，结果包含的小数位数可能是不确定的：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; 0.2 + 0.1
+0.30000000000000004
+&gt;&gt;&gt; 3 * 0.1
+0.30000000000000004</code>
+</pre>
+<p>所有语言都存在这种问题，没有什么可担心的。Python会尽力找到一种精确表示结果的方法，但鉴于计算机内部表示数的方式，这在有些情况下很难。就现在而言，暂时忽略多余的小数位数即可。在第二部分的项目中，你将在需要时学习处理多余小数位的方式。</p>
+<h3 id="nav_point_44">2.4.3　整数和浮点数</h3>
+<p>将任意两个数相除时，结果总是浮点数，即便这两个数都是整数且能整除：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; 4/2
+2.0</code>
+</pre>
+<p>在其他任何运算中，如果一个操作数是整数，另一个操作数是浮点数，结果也总是浮点数：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; 1 + 2.0
+3.0
+&gt;&gt;&gt; 2 * 3.0
+6.0
+&gt;&gt;&gt; 3.0 ** 2
+9.0</code>
+</pre>
+<p>无论是哪种运算，只要有操作数是浮点数，Python默认得到的总是浮点数，即便结果原本为整数也是如此。</p>
+<h3 id="nav_point_45">2.4.4　数中的下划线</h3>
+<p>书写很大的数时，可使用下划线将其中的数字分组，使其更清晰易读：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; universe_age = 14_000_000_000</code>
+</pre>
+<p>当你打印这种使用下划线定义的数时，Python不会打印其中的下划线：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; print(universe_age)
+14000000000</code>
+</pre>
+<p>这是因为存储这种数时，Python会忽略其中的下划线。将数字分组时，即便不是将每三位分成一组，也不会影响最终的值。在Python看来，<code>1000</code>
+ 与<code>1_000</code>
+ 没什么不同，<code>1_000</code>
+ 与<code>10_00</code>
+ 也没什么不同。这种表示法适用于整数和浮点数，但只有Python 3.6和更高的版本支持。</p>
+<h3 id="nav_point_46">2.4.5　同时给多个变量赋值</h3>
+<p>可在一行代码中给多个变量赋值，这有助于缩短程序并提高其可读性。这种做法最常用于将一系列数赋给一组变量。</p>
+<p>例如，下面演示了如何将变量<code>x</code>
+ 、<code>y</code>
+ 和<code>z</code>
+ 都初始化为零：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; x, y, z = 0, 0, 0</code>
+</pre>
+<p>这样做时，需要用逗号将变量名分开；对于要赋给变量的值，也需同样处理。Python将按顺序将每个值赋给对应的变量。只要变量和值的个数相同，Python就能正确地将它们关联起来。</p>
+<h3 id="nav_point_47">2.4.6　常量</h3>
+<p>
+<strong>常量</strong>
+ 类似于变量，但其值在程序的整个生命周期内保持不变。Python没有内置的常量类型，但Python程序员会使用全大写来指出应将某个变量视为常量，其值应始终不变：</p>
+<pre class="代码无行号"><code>MAX_CONNECTIONS = 5000</code>
+</pre>
+<p>在代码中，要指出应将特定的变量视为常量，可将其字母全部大写。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习2-8：数字8</strong>
+ 　编写四个表达式，分别使用加法、减法、乘法和除法运算，但结果都是数字8。为使用函数调用<code>print()</code>
+ 来显示结果，务必将这些表达式用圆括号括起来。也就是说，你应该编写四行类似于下面的代码：</p>
+<pre class="代码无行号"><code>print(5+3)</code>
+</pre>
+<p>输出应为四行，其中每行都只包含数字8。</p>
+<p>
+<strong>练习2-9：最喜欢的数</strong>
+ 　用一个变量来表示你最喜欢的数，再使用这个变量创建一条消息，指出你最喜欢的数是什么，然后将这条消息打印出来。</p>
+</blockquote>
+<h2 id="nav_point_48">2.5　注释</h2>
+<p>在大多数编程语言中，注释是一项很有用的功能。本书前面编写的程序中都只包含Python代码，但随着程序越来越大、越来越复杂，就应在其中添加说明，对你解决问题的方法进行大致的阐述。<strong>注释</strong>
+ 让你能够使用自然语言在程序中添加说明。</p>
+<h3 id="nav_point_49">2.5.1　如何编写注释</h3>
+<p>在Python中，注释用井号（<code>#</code>
+ ）标识。井号后面的内容都会被Python解释器忽略，如下所示：</p>
+<p>
+<em>comment.py</em>
+</p>
+<pre class="代码无行号"><code># 向大家问好。
+print("Hello Python people!")</code>
+</pre>
+<p>Python解释器将忽略第一行，只执行第二行。</p>
+<pre class="代码无行号"><code>Hello Python people!</code>
+</pre>
+<h3 id="nav_point_50">2.5.2　该编写什么样的注释</h3>
+<p>编写注释的主要目的是阐述代码要做什么，以及是如何做的。在开发项目期间，你对各个部分如何协同工作了如指掌，但过段时间后，有些细节你可能不记得了。当然，你总是可以通过研究代码来确定各个部分的工作原理，但通过编写注释以清晰的自然语言对解决方案进行概述，可节省很多时间。</p>
+<p>要成为专业程序员或与其他程序员合作，就必须编写有意义的注释。当前，大多数软件是合作编写的，编写者可能是同一家公司的多名员工，也可能是众多致力于同一个开源项目的人员。训练有素的程序员都希望代码中包含注释，因此你最好从现在开始就在程序中添加描述性注释。作为新手，最值得养成的习惯之一就是在代码中编写清晰、简洁的注释。</p>
+<p>如果不确定是否要编写注释，就问问自己：在找到合理的解决方案之前，考虑了多个解决方案吗？如果答案是肯定的，就编写注释对你的解决方案进行说明吧。相比回过头去再添加注释，删除多余的注释要容易得多。从现在开始，本书的示例都将使用注释来阐述代码的工作原理。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习2-10：添加注释</strong>
+ 　选择你编写的两个程序，在每个程序中至少添加一条注释。如果程序太简单，实在没有什么需要说明的，就在程序文件开头加上你的姓名和当前日期，再用一句话阐述程序的功能。</p>
+</blockquote>
+<h2 id="nav_point_51">2.6　Python之禅</h2>
+<p>经验丰富的程序员倡导尽可能避繁就简。Python社区的理念都包含在Tim Peters撰写的“Python之禅”中。要获悉这些有关编写优秀Python代码的指导原则，只需在解释器中执行命令<code>import this</code>
+ 。这里不打算赘述整个“Python之禅”，而只与大家分享其中的几条原则，让你明白为何它们对Python新手来说至关重要。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; import this
+The Zen of Python, by Tim Peters
+Beautiful is better than ugly.</code>
+</pre>
+<p>Python程序员笃信代码可以编写得漂亮而优雅。编程是要解决问题的，设计良好、高效而漂亮的解决方案都会让程序员心生敬意。随着你对Python的认识越来越深入，并使用它来编写越来越多的代码，有一天也许会有人站在你后面惊呼：“哇，代码编写得真是漂亮！”</p>
+<pre class="代码无行号"><code>Simple is better than complex.</code>
+</pre>
+<p>如果有两个解决方案，一个简单、一个复杂，但都行之有效，就选择简单的解决方案吧。这样，你编写的代码将更容易维护，你或他人以后改进这些代码时也会更容易。</p>
+<pre class="代码无行号"><code>Complex is better than complicated.</code>
+</pre>
+<p>现实是复杂的，有时候可能没有简单的解决方案。在这种情况下，就选择最简单可行的解决方案吧。</p>
+<pre class="代码无行号"><code>Readability counts.</code>
+</pre>
+<p>即便是复杂的代码，也要让它易于理解。开发的项目涉及复杂代码时，一定要为这些代码编写有益的注释。</p>
+<pre class="代码无行号"><code>There should be one-- and preferably only one --obvious way to do it.</code>
+</pre>
+<p>如果让两名Python程序员去解决同一个问题，他们提供的解决方案应大致相同。这并不是说编程没有创意空间，而是恰恰相反！然而，大部分编程工作是使用常见解决方案来解决简单的小问题，但这些小问题都包含在更庞大、更有创意空间的项目中。在你的程序中，各种具体细节对其他Python程序员来说都应易于理解。</p>
+<pre class="代码无行号"><code>Now is better than never.</code>
+</pre>
+<p>你可以用余生来学习Python和编程的纷繁难懂之处，但这样你什么项目都完不成。不要企图编写完美无缺的代码，而是要先编写行之有效的代码，再决定是对其做进一步改进，还是转而去编写新代码。</p>
+<p>等你进入下一章，开始研究更复杂的主题时，务必牢记这种简约而清晰的理念。如此，经验丰富的程序员定将对你编写的代码心生敬意，进而乐意向你提供反馈，并与你合作开发有趣的项目。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习2-11：Python之禅</strong>
+ 　在Python终端会话中执行命令<code>import this</code>
+ ，并粗略地浏览一下其他的指导原则。</p>
+</blockquote>
+<h2 id="nav_point_52">2.7　小结</h2>
+<p>在本章中，你学习了：如何使用变量；如何创建描述性变量名以及如何消除名称错误和语法错误；字符串是什么，以及如何使用小写、大写和首字母大写方式显示字符串；使用空白来显示整洁的输出，以及如何剔除字符串中多余的空白；如何使用整数和浮点数；一些使用数值数据的方式。你还学习了如何编写说明性注释，让代码对你和其他人来说更容易理解。最后，你了解了让代码尽可能简单的理念。</p>
+<p>在第3章，你将学习如何在被称为<strong>列表</strong>
+ 的变量中存储一系列信息，以及如何通过遍历列表来操作其中的信息。</p>
+<br style="page-break-after:always"/>
+<div></div>
+]]></description>
+    <pubDate>Thu, 13 Aug 2026 00:51:18 +0000</pubDate>
+    <guid isPermaLink="false">2</guid>
+</item>
+<item>
       <title><![CDATA[WorkBuddyGuide-本篇导读]]></title>
       <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/</link>
       <description><![CDATA[学习时长：约0.5小时；学习内容：第一篇的整体导览，了解从入门到基础功能的学习路径；学习目的：明确第一篇的学习框架，为后续章节学习做好准备]]></description>
@@ -8959,1130 +9502,6 @@ from ship import Ship
 </description>
     <pubDate>Tue, 21 Jul 2026 01:17:00 +0000</pubDate>
     <guid isPermaLink="false">13</guid>
-</item>
-<item>
-    <title>Basic Python - 012 - 第二部分 项目.epub</title>
-    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：146 分钟 (29071 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_257"&gt;第二部分　项目&lt;/h1&gt;
-&lt;p&gt;祝贺你！你现在已经对Python有足够的认识，可以开始开发有意思的交互式项目了。通过动手开发项目，你能够学到新技能，并更深入理解第一部分介绍的概念。&lt;/p&gt;
-&lt;p&gt;第二部分包含三个不同类型的项目，你可以选择完成其中的任意或全部项目，完成的顺序无关紧要。下面简要描述每个项目，帮助你决定先去完成哪个。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;外星人入侵：使用Python开发游戏&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;在项目“外星人入侵”（第12章～第14章）中，你将使用Pygame包来开发一款2D游戏。它在玩家每消灭一群向下移动的外星人后，将玩家提高一个等级。等级越高，游戏的节奏越快，难度越大。完成这个项目后，你将获得自己动手使用Pygame开发2D游戏所需的技能。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;数据可视化&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;“数据可视化”项目始于第15章，你将在这一章学习如何使用Matplotlib和Plotly来生成数据，以及根据这些数据创建实用而漂亮的图表。第16章介绍如何从网上获取数据，并将其提供给可视化包以创建天气图和世界地震活动散点图。最后，第17章介绍如何编写自动下载数据并对其进行可视化的程序。学习可视化让你能够探索数据挖掘领域，这是当前在全球都非常热门的技能。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;Web应用程序&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;在“Web应用程序”项目（第18章～第20章）中，你将使用Django包来创建一个简单的Web应用程序，让用户能够记录任意数量的学习主题。用户将通过指定用户名和密码来创建账户，输入主题，并编写条目来记录学习的内容。你还将学习如何部署应用程序，让任何人都能够访问它。&lt;/p&gt;
-&lt;p&gt;完成这个项目后，你将能够自己动手创建简单的Web应用程序，并能够深入学习其他有关如何使用Django开发应用程序的资料。&lt;/p&gt;
-&lt;br style="page-break-after:always"/&gt;
-&lt;div&gt;&lt;/div&gt;
-&lt;h1 id="nav_point_258"&gt;项目1　外星人入侵&lt;/h1&gt;
-&lt;br style="page-break-after:always"/&gt;
-&lt;div&gt;&lt;/div&gt;
-&lt;h1 id="nav_point_259"&gt;第 12 章　武装飞船&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00001.gif" style="width: 16%" width="16%"/&gt;
- 　我们来开发一个名为《外星人入侵》的游戏吧！为此将使用Pygame，这是一组功能强大而有趣的模块，可用于管理图形、动画乃至声音，让你能够更轻松地开发复杂的游戏。通过使用Pygame来处理在屏幕上绘制图像等任务，可将重点放在程序的高级逻辑上。&lt;/p&gt;
-&lt;p&gt;在本章中，你将安装Pygame，再创建一艘能够根据用户输入左右移动和射击的飞船。在接下来的两章，你将创建一群作为射杀目标的外星人，并改进该游戏：限制可供玩家使用的飞船数，并且添加记分牌。&lt;/p&gt;
-&lt;p&gt;在开发这款游戏的过程中，你还将学习如何管理包含多个文件的项目。你将重构很多代码并管理文件的内容，以确保项目组织有序以及提高效率。&lt;/p&gt;
-&lt;p&gt;开发游戏是趣学语言的理想方式。看别人玩你编写的游戏能获得满足感，而编写简单的游戏有助于你明白专业级游戏是怎么编写出来的。在阅读本章的过程中，请动手输入并运行代码，以明白各个代码块对整个游戏所做的贡献，并且尝试不同的值和设置，以对如何改进游戏的交互性有更深入的认识。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;　&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　游戏《外星人入侵》将包含很多不同的文件，因此请在系统中新建一个名为alien_invasion的文件夹，并将该项目的所有文件都存储到该文件夹中，这样相关的&lt;code&gt;import&lt;/code&gt;
- 语句才能正确工作。&lt;/p&gt;
-&lt;p&gt;另外，如果你熟悉版本控制，可能想将其用于这个项目；如果你没有使用过版本控制，请参阅附录D的概述。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_260"&gt;12.1　规划项目&lt;/h2&gt;
-&lt;p&gt;开发大型项目时，制定好规划后再动手编写代码很重要。规划可确保你不偏离轨道，从而提高项目成功的可能性。&lt;/p&gt;
-&lt;p&gt;下面来编写有关游戏《外星人入侵》的描述，其中虽然没有涵盖这款游戏的所有细节，但能让你清楚地知道该如何动手开发。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;在游戏《外星人入侵》中，玩家控制一艘最初出现在屏幕底部中央的飞船。玩家可以使用箭头键左右移动飞船，还可使用空格键射击。游戏开始时，一群外星人出现在天空中，并向屏幕下方移动。玩家的任务是射杀这些外星人。玩家将所有外星人都消灭干净后，将出现一群新的外星人，其移动速度更快。只要有外星人撞到玩家的飞船或到达屏幕底部，玩家就损失一艘飞船。玩家损失三艘飞船后，游戏结束。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;开发的第一个阶段将创建一艘飞船，它可左右移动，并且能在用户按空格键时开火。设置好这种行为后，就可以创建外星人并提高游戏的可玩性了。&lt;/p&gt;
-&lt;h2 id="nav_point_261"&gt;12.2　安装Pygame&lt;/h2&gt;
-&lt;p&gt;开始编码前，先来安装Pygame。可使用&lt;code&gt;pip&lt;/code&gt;
- 模块来帮助下载并安装Python包。要安装Pygame，在终端提示符下执行如下命令：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;$ python -m pip install --user pygame&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这个命令让Python运行&lt;code&gt;pip&lt;/code&gt;
- 模块，将&lt;code&gt;pygame&lt;/code&gt;
- 包添加到当前用户的Python安装中。如果你运行程序或启动终端会话时使用的命令不是&lt;code&gt;python&lt;/code&gt;
- ，而是&lt;code&gt;python3&lt;/code&gt;
- ，请执行如下命令来安装Pygame：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;$ python3 -m pip install --user pygame&lt;/code&gt;
-&lt;/pre&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　如果该命令在macOS系统中不管用，请尝试在不指定标志&lt;code&gt;--user&lt;/code&gt;
- 的情况下再次执行。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_262"&gt;12.3　开始游戏项目&lt;/h2&gt;
-&lt;p&gt;开始开发游戏《外星人入侵》吧。首先要创建一个空的Pygame窗口，供之后用来绘制游戏元素，如飞船和外星人。我们还将让这个游戏响应用户输入，设置背景色，以及加载飞船图像。&lt;/p&gt;
-&lt;h3 id="nav_point_263"&gt;12.3.1　创建Pygame窗口及响应用户输入&lt;/h3&gt;
-&lt;p&gt;下面创建一个表示游戏的类，以创建空的Pygame窗口。为此，在文本编辑器中新建一个文件，将其保存为alien_invasion.py，再在其中输入如下代码：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  import sys
-  import pygame
-  class AlienInvasion:
-      """管理游戏资源和行为的类"""
-      def __init__(self):
-          """初始化游戏并创建游戏资源。"""
-❶         pygame.init()
-❷         self.screen = pygame.display.set_mode((1200, 800))
-          pygame.display.set_caption("Alien Invasion")
-      def run_game(self):
-          """开始游戏的主循环"""
-❸         while True:
-              # 监视键盘和鼠标事件。
-❹             for event in pygame.event.get():
-❺                 if event.type == pygame.QUIT:
-                      sys.exit()
-              # 让最近绘制的屏幕可见。
-❻             pygame.display.flip()
-  if __name__ == '__main__':
-      # 创建游戏实例并运行游戏。
-      ai = AlienInvasion()
-      ai.run_game()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;首先，导入模块&lt;code&gt;sys&lt;/code&gt;
- 和&lt;code&gt;pygame&lt;/code&gt;
- 。模块&lt;code&gt;pygame&lt;/code&gt;
- 包含开发游戏所需的功能。玩家退出时，我们将使用模块&lt;code&gt;sys&lt;/code&gt;
- 中的工具来退出游戏。&lt;/p&gt;
-&lt;p&gt;为开发游戏《外星人入侵》，我们创建了一个表示它的类，名为&lt;code&gt;AlienInvasion&lt;/code&gt;
- 。在这个类的方法&lt;code&gt;__init__()&lt;/code&gt;
- 中，调用函数&lt;code&gt;pygame.init()&lt;/code&gt;
- 来初始化背景设置，让Pygame能够正确地工作（见❶）。在❷处，调用&lt;code&gt;pygame.display.set_mode()&lt;/code&gt;
- 来创建一个显示窗口，游戏的所有图形元素都将在其中绘制。实参&lt;code&gt;(1200, 800)&lt;/code&gt;
- 是一个元组，指定了游戏窗口的尺寸——宽1200像素、高800像素（你可以根据自己的显示器尺寸调整这些值）。将这个显示窗口赋给属性&lt;code&gt;self.screen&lt;/code&gt;
- ，让这个类中的所有方法都能够使用它。&lt;/p&gt;
-&lt;p&gt;赋给属性&lt;code&gt;self.screen&lt;/code&gt;
- 的对象是一个&lt;strong&gt;surface&lt;/strong&gt;
- 。在Pygame中，surface是屏幕的一部分，用于显示游戏元素。在这个游戏中，每个元素（如外星人或飞船）都是一个surface。&lt;code&gt;display.set_mode()&lt;/code&gt;
- 返回的surface表示整个游戏窗口。激活游戏的动画循环后，每经过一次循环都将自动重绘这个surface，将用户输入触发的所有变化都反映出来。&lt;/p&gt;
-&lt;p&gt;这个游戏由方法&lt;code&gt;run_game()&lt;/code&gt;
- 控制。该方法包含一个不断运行的&lt;code&gt;while&lt;/code&gt;
- 循环（见❸），而这个循环包含一个事件循环以及管理屏幕更新的代码。&lt;strong&gt;事件&lt;/strong&gt;
- 是用户玩游戏时执行的操作，如按键或移动鼠标。为程序响应事件，可编写一个&lt;strong&gt;事件循环&lt;/strong&gt;
- ，以&lt;strong&gt;侦听&lt;/strong&gt;
- 事件并根据发生的事件类型执行合适的任务。❹处的&lt;code&gt;for&lt;/code&gt;
- 循环就是一个事件循环。&lt;/p&gt;
-&lt;p&gt;为访问Pygame检测到的事件，我们使用了函数&lt;code&gt;pygame.event.get()&lt;/code&gt;
- 。这个函数返回一个列表，其中包含它在上一次被调用后发生的所有事件。所有键盘和鼠标事件都将导致这个&lt;code&gt;for&lt;/code&gt;
- 循环运行。在这个循环中，我们将编写一系列&lt;code&gt;if&lt;/code&gt;
- 语句来检测并响应特定的事件。例如，当玩家单击游戏窗口的关闭按钮时，将检测到&lt;code&gt;pygame.QUIT&lt;/code&gt;
- 事件，进而调用&lt;code&gt;sys.exit()&lt;/code&gt;
- 来退出游戏（见❺）。&lt;/p&gt;
-&lt;p&gt;❻处调用了&lt;code&gt;pygame.display.flip()&lt;/code&gt;
- ，命令Pygame让最近绘制的屏幕可见。在这里，它在每次执行&lt;code&gt;while&lt;/code&gt;
- 循环时都绘制一个空屏幕，并擦去旧屏幕，使得只有新屏幕可见。我们移动游戏元素时，&lt;code&gt;pygame.display.flip()&lt;/code&gt;
- 将不断更新屏幕，以显示元素的新位置，并且在原来的位置隐藏元素，从而营造平滑移动的效果。&lt;/p&gt;
-&lt;p&gt;在这个文件末尾，创建一个游戏实例并调用&lt;code&gt;run_game()&lt;/code&gt;
- 。这些代码放在一个&lt;code&gt;if&lt;/code&gt;
- 代码块中，仅当直接运行该文件时，它们才会执行。如果此时运行alien_invasion.py，将看到一个空的Pygame窗口。&lt;/p&gt;
-&lt;h3 id="nav_point_264"&gt;12.3.2　设置背景色&lt;/h3&gt;
-&lt;p&gt;Pygame默认创建一个黑色屏幕，这太乏味了。下面来将背景设置为另一种颜色，这是在方法&lt;code&gt;__init__()&lt;/code&gt;
- 末尾进行的：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def __init__(self):
-          --snip--
-          pygame.display.set_caption("Alien Invasion")
-          # 设置背景色。
-❶         self.bg_color = (230, 230, 230)
-      def run_game(self):
-          --snip--
-              for event in pygame.event.get():
-                  if event.type == pygame.QUIT:
-                      sys.exit()
-              # 每次循环时都重绘屏幕。
-❷             self.screen.fill(self.bg_color)
-              # 让最近绘制的屏幕可见。
-              pygame.display.flip()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在Pygame中，颜色是以RGB值指定的。这种颜色由红色、绿色和蓝色值组成，其中每个值的可能取值范围都是0～255。颜色值(255, 0, 0)表示红色，(0, 255, 0)表示绿色，而(0, 0, 255)表示蓝色。通过组合不同的RGB值，可创建1600万种颜色。在颜色值(230, 230, 230)中，红色、绿色和蓝色的量相同，它生成一种浅灰色。我们将这种颜色赋给了&lt;code&gt;self.bg_color&lt;/code&gt;
- （见❶）。&lt;/p&gt;
-&lt;p&gt;在❷处，调用方法&lt;code&gt;fill()&lt;/code&gt;
- 用这种背景色填充屏幕。方法&lt;code&gt;fill()&lt;/code&gt;
- 用于处理surface，只接受一个实参：一种颜色。&lt;/p&gt;
-&lt;h3 id="nav_point_265"&gt;12.3.3　创建设置类&lt;/h3&gt;
-&lt;p&gt;每次给游戏添加新功能时，通常也将引入一些新设置。下面来编写一个名为&lt;code&gt;settings&lt;/code&gt;
- 的模块，在其中包含一个名为&lt;code&gt;Settings&lt;/code&gt;
- 的类，用于将所有设置都存储在一个地方，以免在代码中到处添加设置。这样，每当需要访问设置时，只需使用一个设置对象。另外，在项目增大时，这使得修改游戏的外观和行为更容易：要修改游戏，只需修改（接下来将创建的）settings.py中的一些值，而无须查找散布在项目中的各种设置。&lt;/p&gt;
-&lt;p&gt;在文件夹alien_invasion中，新建一个名为settings.py的文件，并在其中添加如下&lt;code&gt;Settings&lt;/code&gt;
- 类：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;class Settings:
-    """存储游戏《外星人入侵》中所有设置的类"""
-    def __init__(self):
-        """初始化游戏的设置。"""
-        # 屏幕设置
-        self.screen_width = 1200
-        self.screen_height = 800
-        self.bg_color = (230, 230, 230)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;为在项目中创建&lt;code&gt;Settings&lt;/code&gt;
- 实例并用它来访问设置，需要将alien_invasion.py修改成下面这样：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  import pygame
-  from settings import Settings
-  class AlienInvasion:
-      """管理游戏资源和行为的类"""
-      def __init__(self):
-          """初始化游戏并创建游戏资源。"""
-          pygame.init()
-❶         self.settings = Settings()
-❷         self.screen = pygame.display.set_mode(
-              (self.settings.screen_width, self.settings.screen_height))
-          pygame.display.set_caption("Alien Invasion")
-      def run_game(self):
-              --snip--
-              # 每次循环时都重绘屏幕。
-❸             self.screen.fill(self.settings.bg_color)
-              # 让最近绘制的屏幕可见。
-              pygame.display.flip()
-  --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在主程序文件中，导入&lt;code&gt;Settings&lt;/code&gt;
- 类，调用&lt;code&gt;pygame.init()&lt;/code&gt;
- ，再创建一个&lt;code&gt;Settings&lt;/code&gt;
- 实例并将其赋给&lt;code&gt;self.settings&lt;/code&gt;
- （见❶）。创建屏幕时（见❷），使用了&lt;code&gt;self.settings&lt;/code&gt;
- 的属性&lt;code&gt;screen_width&lt;/code&gt;
- 和&lt;code&gt;screen_height&lt;/code&gt;
- 。接下来填充屏幕时，也使用了&lt;code&gt;self.settings&lt;/code&gt;
- 来访问背景色（见❸）。&lt;/p&gt;
-&lt;p&gt;如果此时运行alien_invasion.py，结果不会有任何不同，因为我们只是将设置移到了不同的地方。现在可以在屏幕上添加新元素了。&lt;/p&gt;
-&lt;h2 id="nav_point_266"&gt;12.4　添加飞船图像&lt;/h2&gt;
-&lt;p&gt;下面将飞船加入游戏中。为了在屏幕上绘制玩家的飞船，我们将加载一幅图像，再使用Pygame方法&lt;code&gt;blit()&lt;/code&gt;
- 绘制它。&lt;/p&gt;
-&lt;p&gt;为游戏选择素材时，务必要注意许可。最安全、最不费钱的方式是使用Pixabay等网站提供的免费图形，无须授权许可即可使用并修改。&lt;/p&gt;
-&lt;p&gt;在游戏中几乎可以使用任何类型的图像文件，但使用位图（.bmp）文件最为简单，因为Pygame默认加载位图。虽然可配置Pygame以使用其他文件类型，但有些文件类型要求你在计算机上安装相应的图像库。大多数图像为.jpg、.png或.gif格式，但可使用Photoshop、GIMP和Paint等工具将其转换为位图。&lt;/p&gt;
-&lt;p&gt;选择图像时，要特别注意背景色。请尽可能选择背景为透明或纯色的图像，便于使用图像编辑器将其背景替换为任意颜色。图像的背景色与游戏的背景色匹配时，游戏看起来最漂亮。你也可以将游戏的背景色设置成图像的背景色。&lt;/p&gt;
-&lt;p&gt;就游戏《外星人入侵》而言，可使用文件ship.bmp（如图12-1所示），该文件可在本书主页（ituring.cn/book/2784）的“随书下载”中找到。这个文件的背景色与项目使用的设置相同。请在项目文件夹（alien_invasion）中新建一个名为images的文件夹，并将文件ship.bmp保存在其中。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00005.gif" style="width: 50%" width="50%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图12-1　游戏《外星人入侵》中的飞船&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_267"&gt;12.4.1　创建&lt;code&gt;Ship&lt;/code&gt;
- 类&lt;/h3&gt;
-&lt;p&gt;选择用于表示飞船的图像后，需要将其显示到屏幕上。我们创建一个名为&lt;code&gt;ship&lt;/code&gt;
- 的模块，其中包含&lt;code&gt;Ship&lt;/code&gt;
- 类，负责管理飞船的大部分行为。&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;ship.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  import pygame
-  class Ship:
-      """管理飞船的类"""
-      def __init__(self, ai_game):
-          """初始化飞船并设置其初始位置。"""
-❶         self.screen = ai_game.screen
-❷         self.screen_rect = ai_game.screen.get_rect()
-          # 加载飞船图像并获取其外接矩形。
-❸         self.image = pygame.image.load('images/ship.bmp')
-          self.rect = self.image.get_rect()
-          # 对于每艘新飞船，都将其放在屏幕底部的中央。
-❹         self.rect.midbottom = self.screen_rect.midbottom
-❺     def blitme(self):
-          """在指定位置绘制飞船。"""
-          self.screen.blit(self.image, self.rect)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;Pygame之所以高效，是因为它让你能够像处理矩形（&lt;code&gt;rect&lt;/code&gt;
- 对象）一样处理所有的游戏元素，即便其形状并非矩形。像处理矩形一样处理游戏元素之所以高效，是因为矩形是简单的几何形状。例如，通过将游戏元素视为矩形，Pygame能够更快地判断出它们是否发生了碰撞。这种做法的效果通常很好，游戏玩家几乎注意不到我们处理的并不是游戏元素的实际形状。在这个类中，我们将把飞船和屏幕作为矩形进行处理。&lt;/p&gt;
-&lt;p&gt;定义这个类之前，导入了模块&lt;code&gt;pygame&lt;/code&gt;
- 。&lt;code&gt;Ship&lt;/code&gt;
- 的方法&lt;code&gt;__init__()&lt;/code&gt;
- 接受两个参数：引用&lt;code&gt;self&lt;/code&gt;
- 和指向当前&lt;code&gt;AlienInvasion&lt;/code&gt;
- 实例的引用。这让&lt;code&gt;Ship&lt;/code&gt;
- 能够访问&lt;code&gt;AlienInvasion&lt;/code&gt;
- 中定义的所有游戏资源。在❶处，将屏幕赋给了&lt;code&gt;Ship&lt;/code&gt;
- 的一个属性，以便在这个类的所有方法中轻松访问。在❷处，使用方法&lt;code&gt;get_rect()&lt;/code&gt;
- 访问屏幕的属性&lt;code&gt;rect&lt;/code&gt;
- ，并将其赋给了&lt;code&gt;self.screen_rect&lt;/code&gt;
- ，这让我们能够将飞船放到屏幕的正确位置。&lt;/p&gt;
-&lt;p&gt;调用&lt;code&gt;pygame.image.load()&lt;/code&gt;
- 加载图像，并将飞船图像的位置传递给它（见❸）。该函数返回一个表示飞船的surface，而我们将这个surface赋给了&lt;code&gt;self.image&lt;/code&gt;
- 。加载图像后，使用&lt;code&gt;get_rect()&lt;/code&gt;
- 获取相应surface的属性&lt;code&gt;rect&lt;/code&gt;
- ，以便后面能够使用它来指定飞船的位置。&lt;/p&gt;
-&lt;p&gt;处理&lt;code&gt;rect&lt;/code&gt;
- 对象时，可使用矩形四角和中心的&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00003.gif"/&gt;
- 坐标和&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00004.gif"/&gt;
- 坐标。可通过设置这些值来指定矩形的位置。要让游戏元素居中，可设置相应&lt;code&gt;rect&lt;/code&gt;
- 对象的属性&lt;code&gt;center&lt;/code&gt;
- 、&lt;code&gt;centerx&lt;/code&gt;
- 或&lt;code&gt;centery&lt;/code&gt;
- ；要让游戏元素与屏幕边缘对齐，可使用属性&lt;code&gt;top&lt;/code&gt;
- 、&lt;code&gt;bottom&lt;/code&gt;
- 、&lt;code&gt;left&lt;/code&gt;
- 或&lt;code&gt;right&lt;/code&gt;
- 。除此之外，还有一些组合属性，如&lt;code&gt;midbottom&lt;/code&gt;
- 、&lt;code&gt;midtop&lt;/code&gt;
- 、&lt;code&gt;midleft&lt;/code&gt;
- 和&lt;code&gt;midright&lt;/code&gt;
- 。要调整游戏元素的水平或垂直位置，可使用属性&lt;code&gt;x&lt;/code&gt;
- 和&lt;code&gt;y&lt;/code&gt;
- ，分别是相应矩形左上角的&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00003.gif"/&gt;
- 坐标和&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00004.gif"/&gt;
- 坐标。这些属性让你无须做游戏开发人员原本需要手工完成的计算，因此会经常用到。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　在Pygame中，原点(0, 0)位于屏幕左上角，向右下方移动时，坐标值将增大。在1200 × 800的屏幕上，原点位于左上角，而右下角的坐标为(1200, 800)。这些坐标对应的是游戏窗口，而不是物理屏幕。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我们要将飞船放在屏幕底部的中央。为此，将&lt;code&gt;self.rect.midbottom&lt;/code&gt;
- 设置为表示屏幕的矩形的属性&lt;code&gt;midbottom&lt;/code&gt;
- （见❹）。Pygame使用这些&lt;code&gt;rect&lt;/code&gt;
- 属性来放置飞船图像，使其与屏幕下边缘对齐并水平居中。&lt;/p&gt;
-&lt;p&gt;在❺处，定义了方法&lt;code&gt;blitme()&lt;/code&gt;
- ，它将图像绘制到&lt;code&gt;self.rect&lt;/code&gt;
- 指定的位置。&lt;/p&gt;
-&lt;h3 id="nav_point_268"&gt;12.4.2　在屏幕上绘制飞船&lt;/h3&gt;
-&lt;p&gt;下面更新alien_invasion.py，创建一艘飞船并调用其方法&lt;code&gt;blitme()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  from settings import Settings
-  from ship import Ship
-  class AlienInvasion:
-      """管理游戏资源和行为的类"""
-      def __init__(self):
-          --snip--
-          pygame.display.set_caption("Alien Invasion")
-❶         self.ship = Ship(self)
-      def run_game(self):
-              --snip--
-              # 每次循环时都重绘屏幕。
-              self.screen.fill(self.settings.bg_color)
-❷             self.ship.blitme()
-              # 让最近绘制的屏幕可见。
-              pygame.display.flip()
-  --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;导入&lt;code&gt;Ship&lt;/code&gt;
- 类，并在创建屏幕后创建一个&lt;code&gt;Ship&lt;/code&gt;
- 实例（见❶）。调用&lt;code&gt;Ship()&lt;/code&gt;
- 时，必须提供一个参数：一个&lt;code&gt;AlienInvasion&lt;/code&gt;
- 实例。在这里，&lt;code&gt;self&lt;/code&gt;
- 指向的是当前&lt;code&gt;AlienInvasion&lt;/code&gt;
- 实例。这个参数让&lt;code&gt;Ship&lt;/code&gt;
- 能够访问游戏资源，如对象&lt;code&gt;screen&lt;/code&gt;
- 。我们将这个&lt;code&gt;Ship&lt;/code&gt;
- 实例赋给了&lt;code&gt;self.ship&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;填充背景后，调用&lt;code&gt;ship.blitme()&lt;/code&gt;
- 将飞船绘制到屏幕上，确保它出现在背景前面（见❷）。&lt;/p&gt;
-&lt;p&gt;现在如果运行alien_invasion.py，将看到飞船位于空游戏屏幕底部的中央，如图12-2所示。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00006.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图12-2　游戏《外星人入侵》屏幕底部的中央有一艘飞船&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h2 id="nav_point_269"&gt;12.5　重构：方法&lt;code&gt;_check_events()&lt;/code&gt;
- 和&lt;code&gt;__update_screen()&lt;/code&gt;
-&lt;/h2&gt;
-&lt;p&gt;在大型项目中，经常需要在添加新代码前重构既有代码。重构旨在简化既有代码的结构，使其更容易扩展。本节将把越来越长的方法&lt;code&gt;run_game()&lt;/code&gt;
- 拆分成两个辅助方法（helper method）。&lt;strong&gt;辅助方法&lt;/strong&gt;
- 在类中执行任务，但并非是通过实例调用的。在Python中，辅助方法的名称以单个下划线打头。&lt;/p&gt;
-&lt;h3 id="nav_point_270"&gt;12.5.1　方法&lt;code&gt;_check_events()&lt;/code&gt;
-&lt;/h3&gt;
-&lt;p&gt;我们将把管理事件的代码移到一个名为&lt;code&gt;_check_events()&lt;/code&gt;
- 的方法中，以简化&lt;code&gt;run_game()&lt;/code&gt;
- 并隔离事件管理循环。通过隔离事件循环，可将事件管理与游戏的其他方面（如更新屏幕）分离。&lt;/p&gt;
-&lt;p&gt;下面是新增方法&lt;code&gt;_check_events()&lt;/code&gt;
- 后的&lt;code&gt;AlienInvasion&lt;/code&gt;
- 类，只有&lt;code&gt;run_game()&lt;/code&gt;
- 的代码受到影响：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def run_game(self):
-          """开始游戏主循环。"""
-          while True:
-❶             self._check_events()
-              # 每次循环时都重绘屏幕。
-              --snip--
-❷     def _check_events(self):
-          """响应按键和鼠标事件。"""
-          for event in pygame.event.get():
-              if event.type == pygame.QUIT:
-                  sys.exit()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;新增方法&lt;code&gt;_check_events()&lt;/code&gt;
- （见❷），并将检查玩家是否单击了关闭窗口按钮的代码移到该方法中。&lt;/p&gt;
-&lt;p&gt;要调用当前类的方法，可使用句点表示法，并指定变量名&lt;code&gt;self&lt;/code&gt;
- 和要调用的方法的名称（见❶）。我们在&lt;code&gt;run_game()&lt;/code&gt;
- 的&lt;code&gt;while&lt;/code&gt;
- 循环中调用这个新增的方法。&lt;/p&gt;
-&lt;h3 id="nav_point_271"&gt;12.5.2　方法&lt;code&gt;_update_screen()&lt;/code&gt;
-&lt;/h3&gt;
-&lt;p&gt;为进一步简化&lt;code&gt;run_game()&lt;/code&gt;
- ，将更新屏幕的代码移到一个名为&lt;code&gt;_update_screen()&lt;/code&gt;
- 的方法中：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def run_game(self):
-          """开始游戏主循环。"""
-          while True:
-              self._check_events()
-              self._update_screen()
-      def _check_events(self):
-          --snip--
-      def _update_screen(self):
-          """更新屏幕上的图像，并切换到新屏幕。"""
-          self.screen.fill(self.settings.bg_color)
-          self.ship.blitme()
-          pygame.display.flip()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们将绘制背景和飞船以及切换屏幕的代码移到了方法&lt;code&gt;_update_screen()&lt;/code&gt;
- 中。现在，&lt;code&gt;run_game()&lt;/code&gt;
- 中的主循环简单多了，很容易看出在每次循环中都检测了新发生的事件并更新了屏幕。&lt;/p&gt;
-&lt;p&gt;如果你开发过大量的游戏，可能早就开始像这样将代码放到不同的方法中了。不过如果你从未开发过这样的项目，可能不知道如何组织代码。这里采用的做法是，先编写可行的代码，等代码越来越复杂时再进行重构，以向你展示真正的开发过程：先编写尽可能简单的代码，等项目越来越复杂后对其进行重构。&lt;/p&gt;
-&lt;p&gt;对代码进行重构使其更容易扩展后，可以开始处理游戏的动态方面了！&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习12-1：蓝色天空&lt;/strong&gt;
- 　创建一个背景为蓝色的Pygame窗口。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习12-2：游戏角色&lt;/strong&gt;
- 　找一幅你喜欢的游戏角色位图图像或将一幅图像转换为位图。创建一个类，将该角色绘制到屏幕中央，并将该图像的背景色设置为屏幕背景色，或者将屏幕背景色设置为该图像的背景色。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_272"&gt;12.6　驾驶飞船&lt;/h2&gt;
-&lt;p&gt;下面来让玩家能够左右移动飞船。我们将编写代码，在用户按左或右箭头键时做出响应。我们将首先专注于向右移动，再使用同样的原理来控制向左移动。通过这样做，你将学会如何控制屏幕图像的移动。&lt;/p&gt;
-&lt;h3 id="nav_point_273"&gt;12.6.1　响应按键&lt;/h3&gt;
-&lt;p&gt;每当用户按键时，都将在Pygame中注册一个事件。事件都是通过方法&lt;code&gt;pygame.event.get()&lt;/code&gt;
- 获取的，因此需要在方法&lt;code&gt;_check_events()&lt;/code&gt;
- 中指定要检查哪些类型的事件。每次按键都被注册为一个&lt;code&gt;KEYDOWN&lt;/code&gt;
- 事件。&lt;/p&gt;
-&lt;p&gt;Pygame检测到&lt;code&gt;KEYDOWN&lt;/code&gt;
- 事件时，需要检查按下的是否是触发行动的键。例如，如果玩家按下的是右箭头键，就增大飞船的&lt;code&gt;rect.centerx&lt;/code&gt;
- 值，将飞船向右移动：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def _check_events(self):
-          """响应按键和鼠标事件。"""
-          for event in pygame.event.get():
-              if event.type == pygame.QUIT:
-                  sys.exit()
-❶             elif event.type == pygame.KEYDOWN:
-❷                 if event.key == pygame.K_RIGHT:
-                      # 向右移动飞船。
-❸                     self.ship.rect.x += 1&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在方法&lt;code&gt;_check_events()&lt;/code&gt;
- 中，为事件循环添加一个&lt;code&gt;elif&lt;/code&gt;
- 代码块，以便在Pygame检测到&lt;code&gt;KEYDOWN&lt;/code&gt;
- 事件时做出响应（见❶）。我们检查按下键（&lt;code&gt;event.key&lt;/code&gt;
- ）是否是右箭头键（&lt;code&gt;pygame.K_RIGHT&lt;/code&gt;
- ）（见❷）。如果是，就将&lt;code&gt;self.ship.rect.centerx&lt;/code&gt;
- 的值加1，从而将飞船向右移动（见❸）。&lt;/p&gt;
-&lt;p&gt;如果现在运行alien_invasion.py，则每按右箭头键一次，飞船都将向右移动1像素。这是一个开端，但并非控制飞船的高效方式。下面来改进控制方式，允许持续移动。&lt;/p&gt;
-&lt;h3 id="nav_point_274"&gt;12.6.2　允许持续移动&lt;/h3&gt;
-&lt;p&gt;玩家按住右箭头键不放时，我们希望飞船不断向右移动，直到玩家松开为止。我们将让游戏检测&lt;code&gt;pygame.KEYUP&lt;/code&gt;
- 事件，以便知道玩家何时松开右箭头键。然后，结合使用&lt;code&gt;KEYDOWN&lt;/code&gt;
- 和&lt;code&gt;KEYUP&lt;/code&gt;
- 事件以及一个名为&lt;code&gt;moving_right&lt;/code&gt;
- 的标志来实现持续移动。&lt;/p&gt;
-&lt;p&gt;当标志&lt;code&gt;moving_right&lt;/code&gt;
- 为&lt;code&gt;False&lt;/code&gt;
- 时，飞船不会移动。玩家按下右箭头键时，我们将该标志设置为&lt;code&gt;True&lt;/code&gt;
- ，在玩家松开时将该标志重新设置为&lt;code&gt;False&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;飞船的属性都由&lt;code&gt;Ship&lt;/code&gt;
- 类控制，因此要给这个类添加一个名为&lt;code&gt;moving_right&lt;/code&gt;
- 的属性和一个名为&lt;code&gt;update()&lt;/code&gt;
- 的方法。方法&lt;code&gt;update()&lt;/code&gt;
- 检查标志&lt;code&gt;moving_right&lt;/code&gt;
- 的状态。如果该标志为&lt;code&gt;True&lt;/code&gt;
- ，就调整飞船的位置。我们将在&lt;code&gt;while&lt;/code&gt;
- 循环中调用这个方法，以调整飞船的位置。&lt;/p&gt;
-&lt;p&gt;下面是对&lt;code&gt;Ship&lt;/code&gt;
- 类所做的修改：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;ship.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  class Ship:
-      """管理飞船的类"""
-      def __init__(self, ai_game):
-          --snip--
-          # 对于每艘新飞船，都将其放在屏幕底部的中央。
-          self.rect.midbottom = self.screen_rect.midbottom
-          # 移动标志。
-❶         self.moving_right = False
-❷     def update(self):
-          """根据移动标志调整飞船的位置。"""
-          if self.moving_right:
-              self.rect.x += 1
-      def blitme(self):
-          --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在方法&lt;code&gt;__init__()&lt;/code&gt;
- 中，添加属性&lt;code&gt;self.moving_right&lt;/code&gt;
- ，并将其初始值设置为&lt;code&gt;False&lt;/code&gt;
- （见❶）。接下来，添加方法&lt;code&gt;update()&lt;/code&gt;
- ，在前述标志为&lt;code&gt;True&lt;/code&gt;
- 时向右移动飞船（见❷）。方法&lt;code&gt;update()&lt;/code&gt;
- 将通过&lt;code&gt;Ship&lt;/code&gt;
- 实例来调用，因此不是辅助方法。&lt;/p&gt;
-&lt;p&gt;接下来，需要修改&lt;code&gt;_check_events()&lt;/code&gt;
- ，使其在玩家按下右箭头键时将&lt;code&gt;moving_right&lt;/code&gt;
- 设置为&lt;code&gt;True&lt;/code&gt;
- ，并在玩家松开时将&lt;code&gt;moving_right&lt;/code&gt;
- 设置为&lt;code&gt;False&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def _check_events(self):
-          """响应按键和鼠标事件。"""
-          for event in pygame.event.get():
-              --snip--
-              elif event.type == pygame.KEYDOWN:
-                  if event.key == pygame.K_RIGHT:
-❶                     self.ship.moving_right = True
-❷             elif event.type == pygame.KEYUP:
-                  if event.key == pygame.K_RIGHT:
-                      self.ship.moving_right = False&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，修改游戏在玩家按下右箭头键时响应的方式：不直接调整飞船的位置，而只是将&lt;code&gt;moving_right&lt;/code&gt;
- 设置为&lt;code&gt;True&lt;/code&gt;
- 。在❷处，添加一个新的&lt;code&gt;elif&lt;/code&gt;
- 代码块，用于响应&lt;code&gt;KEYUP&lt;/code&gt;
- 事件：玩家松开右箭头键（&lt;code&gt;K_RIGHT&lt;/code&gt;
- ）时，将&lt;code&gt;moving_right&lt;/code&gt;
- 设置为&lt;code&gt;False&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;最后，需要修改&lt;code&gt;run_game()&lt;/code&gt;
- 中的&lt;code&gt;while&lt;/code&gt;
- 循环，以便每次执行循环时都调用飞船的方法&lt;code&gt;update()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def run_game(self):
-        """开始游戏主循环。"""
-        while True:
-            self._check_events()
-            self.ship.update()
-            self._update_screen()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;飞船的位置将在检测到键盘事件后（但在更新屏幕前）更新。这样，玩家输入时，飞船的位置将更新，从而确保使用更新后的位置将飞船绘制到屏幕上。&lt;/p&gt;
-&lt;p&gt;如果现在运行alien_invasion.py并按住右箭头键，飞船将持续向右移动，直到松开为止。&lt;/p&gt;
-&lt;h3 id="nav_point_275"&gt;12.6.3　左右移动&lt;/h3&gt;
-&lt;p&gt;现在飞船能够持续向右移动了，添加向左移动的逻辑也很容易。我们将再次修改&lt;code&gt;Ship&lt;/code&gt;
- 类和方法&lt;code&gt;_check_events()&lt;/code&gt;
- 。下面显示了对&lt;code&gt;Ship&lt;/code&gt;
- 类的方法&lt;code&gt;__init__()&lt;/code&gt;
- 和&lt;code&gt;update()&lt;/code&gt;
- 所做的相关修改：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;ship.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def __init__(self, ai_game):
-        --snip--
-        # 移动标志
-        self.moving_right = False
-        self.moving_left = False
-    def update(self):
-        """根据移动标志调整飞船的位置。"""
-        if self.moving_right:
-            self.rect.x += 1
-        if self.moving_left:
-            self.rect.x -= 1&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在方法&lt;code&gt;__init__()&lt;/code&gt;
- 中，添加标志&lt;code&gt;self.moving_left&lt;/code&gt;
- 。在方法&lt;code&gt;update()&lt;/code&gt;
- 中，添加一个&lt;code&gt;if&lt;/code&gt;
- 代码块而不是&lt;code&gt;elif&lt;/code&gt;
- 代码块，这样如果玩家同时按下了左右箭头键，将先增加再减少飞船的&lt;code&gt;rect.x&lt;/code&gt;
- 值，即飞船的位置保持不变。如果使用一个&lt;code&gt;elif&lt;/code&gt;
- 代码块来处理向左移动的情况，右箭头键将始终处于优先地位。从向左移动切换到向右移动时，玩家可能同时按住左右箭头键，此时前面的做法让移动更准确。&lt;/p&gt;
-&lt;p&gt;还需对&lt;code&gt;_check_events()&lt;/code&gt;
- 做两方面的调整：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _check_events(self):
-        """响应按键和鼠标事件。"""
-        for event in pygame.event.get():
-            --snip--
-            elif event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_RIGHT:
-                    self.ship.moving_right = True
-                elif event.key == pygame.K_LEFT:
-                    self.ship.moving_left = True
-            elif event.type == pygame.KEYUP:
-                if event.key == pygame.K_RIGHT:
-                    self.ship.moving_right = False
-                elif event.key == pygame.K_LEFT:
-                    self.ship.moving_left = False&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;如果因玩家按下&lt;code&gt;K_LEFT&lt;/code&gt;
- 键而触发了&lt;code&gt;KEYDOWN&lt;/code&gt;
- 事件，就将&lt;code&gt;moving_left&lt;/code&gt;
- 设置为&lt;code&gt;True&lt;/code&gt;
- 。如果因玩家松开&lt;code&gt;K_LEFT&lt;/code&gt;
- 而触发了&lt;code&gt;KEYUP&lt;/code&gt;
- 事件，就将&lt;code&gt;moving_left&lt;/code&gt;
- 设置为&lt;code&gt;False&lt;/code&gt;
- 。这里之所以可以使用&lt;code&gt;elif&lt;/code&gt;
- 代码块，是因为每个事件都只与一个键相关联。如果玩家同时按下左右箭头键，将检测到两个不同的事件。&lt;/p&gt;
-&lt;p&gt;如果此时运行alien_invasion.py，将能够持续左右移动飞船。如果同时按下左右箭头键，飞船将纹丝不动。&lt;/p&gt;
-&lt;p&gt;下面来进一步优化飞船的移动方式：调整飞船的速度，以及限制飞船的移动距离，以免其消失在屏幕之外。&lt;/p&gt;
-&lt;h3 id="nav_point_276"&gt;12.6.4　调整飞船的速度&lt;/h3&gt;
-&lt;p&gt;当前，每次执行&lt;code&gt;while&lt;/code&gt;
- 循环时，飞船最多移动1像素，但可在&lt;code&gt;Settings&lt;/code&gt;
- 类中添加属性&lt;code&gt;ship_speed&lt;/code&gt;
- ，用于控制飞船的速度。我们将根据这个属性决定飞船在每次循环时最多移动多远。下面演示了如何在settings.py中添加这个新属性：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;class Settings:
-    """存储游戏《外星人入侵》中所有设置的类。"""
-    def __init__(self):
-        --snip--
-        # 飞船设置
-        self.ship_speed = 1.5&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;将&lt;code&gt;ship_speed&lt;/code&gt;
- 的初始值设置为&lt;code&gt;1.5&lt;/code&gt;
- 。现在需要移动飞船时，每次循环将移动1.5像素而不是1像素。&lt;/p&gt;
-&lt;p&gt;通过将速度设置指定为小数值，可在后面加快游戏节奏时更细致地控制飞船的速度。然而，&lt;code&gt;rect&lt;/code&gt;
- 的&lt;code&gt;x&lt;/code&gt;
- 等属性只能存储整数值，因此需要对&lt;code&gt;Ship&lt;/code&gt;
- 类做些修改：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;ship.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  class Ship:
-      """管理飞船的类"""
-❶     def __init__(self, ai_game):
-          """初始化飞船并设置其初始位置。"""
-          self.screen = ai_game.screen
-          self.settings = ai_game.settings
-          --snip--
-          # 对于每艘新飞船，都将其放在屏幕底部的中央。
-          --snip--
-          # 在飞船的属性x中存储小数值。
-❷         self.x = float(self.rect.x)
-          # 移动标志
-          self.moving_right = False
-          self.moving_left = False
-      def update(self):
-          """根据移动标志调整飞船的位置。"""
-          # 更新飞船而不是rect对象的x值。
-          if self.moving_right:
-❸             self.x += self.settings.ship_speed
-          if self.moving_left:
-              self.x -= self.settings.ship_speed
-          # 根据self.x更新rect对象。
-❹         self.rect.x = self.x
-      def blitme(self):
-          --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，给&lt;code&gt;Ship&lt;/code&gt;
- 类添加属性&lt;code&gt;settings&lt;/code&gt;
- ，以便能够在&lt;code&gt;update()&lt;/code&gt;
- 中使用它。鉴于现在调整飞船的位置时，将增减一个单位为像素的小数值，因此需要将位置赋给一个能够存储小数值的变量。可使用小数来设置&lt;code&gt;rect&lt;/code&gt;
- 的属性，但&lt;code&gt;rect&lt;/code&gt;
- 将只存储这个值的整数部分。为准确存储飞船的位置，定义一个可存储小数值的新属性&lt;code&gt;self.x&lt;/code&gt;
- （见❷）。使用函数&lt;code&gt;float()&lt;/code&gt;
- 将&lt;code&gt;self.rect.x&lt;/code&gt;
- 的值转换为小数，并将结果赋给&lt;code&gt;self.x&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;现在在&lt;code&gt;update()&lt;/code&gt;
- 中调整飞船的位置时，将&lt;code&gt;self.x&lt;/code&gt;
- 的值增减&lt;code&gt;settings.ship_speed&lt;/code&gt;
- 的值（见❸）。更新&lt;code&gt;self.x&lt;/code&gt;
- 后，再根据它来更新控制飞船位置的&lt;code&gt;self.rect.x&lt;/code&gt;
- （见❹）。&lt;code&gt;self.rect.x&lt;/code&gt;
- 只存储&lt;code&gt;self.x&lt;/code&gt;
- 的整数部分，但对显示飞船而言，这问题不大。&lt;/p&gt;
-&lt;p&gt;现在可以修改&lt;code&gt;ship_speed&lt;/code&gt;
- 的值了。只要它的值大于1，飞船的移动速度就会比以前更快。这有助于让飞船的反应速度足够快，以便射杀外星人，还让我们能够随着游戏的进行加快游戏的节奏。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　如果你使用的是macOS，可能发现即便&lt;code&gt;ship_speed&lt;/code&gt;
- 的值很大，飞船的移动速度还是很慢。要修复这种问题，可在全屏模式下运行游戏，我们稍后就将实现这种功能。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_277"&gt;12.6.5　限制飞船的活动范围&lt;/h3&gt;
-&lt;p&gt;当前，如果玩家按住箭头键的时间足够长，飞船将飞到屏幕之外，消失得无影无踪。下面来修复这种问题，让飞船到达屏幕边缘后停止移动。为此，将修改&lt;code&gt;Ship&lt;/code&gt;
- 类的方法&lt;code&gt;update()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;ship.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def update(self):
-          """根据移动标志调整飞船的位置。"""
-          # 更新飞船而不是rect对象的x值。
-❶         if self.moving_right and self.rect.right &amp;lt; self.screen_rect.right:
-              self.x += self.settings.ship_speed
-❷         if self.moving_left and self.rect.left &amp;gt; 0:
-              self.x -= self.settings.ship_speed
-          # 根据self.x更新rect对象。
-          self.rect.x = self.x&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;上述代码在修改&lt;code&gt;self.x&lt;/code&gt;
- 的值之前检查飞船的位置。&lt;code&gt;self.rect.right&lt;/code&gt;
- 返回飞船外接矩形右边缘的&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00003.gif"/&gt;
- 坐标。如果这个值小于&lt;code&gt;self.screen_rect.right&lt;/code&gt;
- 的值，就说明飞船未触及屏幕右边缘（见❶）。左边缘的情况与此类似：如果&lt;code&gt;rect&lt;/code&gt;
- 左边缘的&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00003.gif"/&gt;
- 坐标大于零，就说明飞船未触及屏幕左边缘（见❷）。这确保仅当飞船在屏幕内时，才调整&lt;code&gt;self.x&lt;/code&gt;
- 的值。&lt;/p&gt;
-&lt;p&gt;如果此时运行alien_invasion.py，飞船将在触及屏幕左边缘或右边缘后停止移动。真是太神奇了！只在&lt;code&gt;if&lt;/code&gt;
- 语句中添加一个条件测试，就让飞船在到达屏幕左右边缘时像被墙挡住了一样。&lt;/p&gt;
-&lt;h3 id="nav_point_278"&gt;12.6.6　重构&lt;code&gt;_check_events()&lt;/code&gt;
-&lt;/h3&gt;
-&lt;p&gt;随着游戏的开发，方法&lt;code&gt;_check_events()&lt;/code&gt;
- 将越来越长。因此将其部分代码放在两个方法中，其中一个处理&lt;code&gt;KEYDOWN&lt;/code&gt;
- 事件，另一个处理&lt;code&gt;KEYUP&lt;/code&gt;
- 事件：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _check_events(self):
-        """响应鼠标和按键事件。"""
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                sys.exit()
-            elif event.type == pygame.KEYDOWN:
-                self._check_keydown_events(event)
-            elif event.type == pygame.KEYUP:
-                self._check_keyup_events(event)
-    def _check_keydown_events(self, event):
-        """响应按键。"""
-        if event.key == pygame.K_RIGHT:
-            self.ship.moving_right = True
-        elif event.key == pygame.K_LEFT:
-            self.ship.moving_left = True
-    def _check_keyup_events(self, event):
-        """响应松开。"""
-        if event.key == pygame.K_RIGHT:
-            self.ship.moving_right = False
-        elif event.key == pygame.K_LEFT:
-            self.ship.moving_left = False&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们创建了两个新的辅助方法：&lt;code&gt;_check_keydown_events()&lt;/code&gt;
- 和&lt;code&gt;_check_keyup_events()&lt;/code&gt;
- 。它们都包含形参&lt;code&gt;self&lt;/code&gt;
- 和&lt;code&gt;event&lt;/code&gt;
- 。这两个方法的代码是从&lt;code&gt;_check_events()&lt;/code&gt;
- 中复制而来的，因此将方法&lt;code&gt;_check_events()&lt;/code&gt;
- 中相应的代码替换成了对这两个新方法的调用。现在，方法&lt;code&gt;_check_events()&lt;/code&gt;
- 更简单，代码结构也更清晰，在其中响应玩家输入时将更容易。&lt;/p&gt;
-&lt;h3 id="nav_point_279"&gt;12.6.7　按Q键退出&lt;/h3&gt;
-&lt;p&gt;能够高效地响应按键后，我们来添加另一种退出游戏的方式。当前，每次测试新功能时，都需要单击游戏窗口顶部的X按钮来结束游戏，实在是太麻烦了。因此，我们来添加一个结束游戏的键盘快捷键—— Q键：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _check_keydown_events(self, event):
-        --snip--
-        elif event.key == pygame.K_LEFT:
-            self.ship.moving_left = True
-        elif event.key == pygame.K_q:
-            sys.exit()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在&lt;code&gt;_check_keydown_events()&lt;/code&gt;
- 中，添加一个代码块，用于在玩家按Q键时结束游戏。现在测试该游戏时，你可按Q键来结束游戏，而无须使用鼠标将窗口关闭。&lt;/p&gt;
-&lt;h3 id="nav_point_280"&gt;12.6.8　在全屏模式下运行游戏&lt;/h3&gt;
-&lt;p&gt;Pygame支持全屏模式，你可能会更喜欢在这种模式下而非常规窗口中运行游戏。有些游戏在全屏模式下看起来更舒服，而在macOS系统中用全屏模式运行会提升性能。&lt;/p&gt;
-&lt;p&gt;要在全屏模式下运行该游戏，可在&lt;code&gt;__init__()&lt;/code&gt;
- 中做如下修改：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def __init__(self):
-          """初始化游戏并创建游戏资源。"""
-          pygame.init()
-          self.settings = Settings()
-❶         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
-❷         self.settings.screen_width = self.screen.get_rect().width
-          self.settings.screen_height = self.screen.get_rect().height
-          pygame.display.set_caption("Alien Invasion")&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;创建屏幕时，传入了尺寸&lt;code&gt;(0, 0)&lt;/code&gt;
- 以及参数&lt;code&gt;pygame.FULLSCREEN&lt;/code&gt;
- （见❶）。这让Pygame生成一个覆盖整个显示器的屏幕。由于无法预先知道屏幕的宽度和高度，要在创建屏幕后更新这些设置（见❷）：使用屏幕的&lt;code&gt;rect&lt;/code&gt;
- 的属性&lt;code&gt;width&lt;/code&gt;
- 和&lt;code&gt;height&lt;/code&gt;
- 来更新对象&lt;code&gt;settings&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;如果你喜欢这款游戏在全屏模式下的外观和行为，请保留这些设置。如果你更喜欢这款游戏在独立的窗口中运行，可恢复到原来采用的方法——将屏幕尺寸设置为特定的值。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　在全屏模式下运行这款游戏之前，请确认能够按Q键退出，因为Pygame默认不提供在全屏模式下退出游戏的方式。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_281"&gt;12.7　简单回顾&lt;/h2&gt;
-&lt;p&gt;下一节将添加射击功能，为此需要新增一个名为bullet.py的文件，并修改一些既有文件。当前有三个文件，其中包含很多类和方法。添加其他功能之前，先来回顾一下这些文件，让你清楚这个项目的组织结构。&lt;/p&gt;
-&lt;h3 id="nav_point_282"&gt;12.7.1　alien_invasion.py&lt;/h3&gt;
-&lt;p&gt;主文件alien_invasion.py包含&lt;code&gt;AlienInvasion&lt;/code&gt;
- 类。这个类创建一系列贯穿整个游戏都要用到的属性：赋给&lt;code&gt;self.settings&lt;/code&gt;
- 的设置，赋给&lt;code&gt;screen&lt;/code&gt;
- 中的主显示surface，以及一个飞船实例。这个模块还包含游戏的主循环，即一个调用&lt;code&gt;_check_events()&lt;/code&gt;
- 、&lt;code&gt;ship.update()&lt;/code&gt;
- 和&lt;code&gt;_update_screen()&lt;/code&gt;
- 的&lt;code&gt;while&lt;/code&gt;
- 循环。&lt;/p&gt;
-&lt;p&gt;方法&lt;code&gt;_check_events()&lt;/code&gt;
- 检测相关的事件（如按下和松开键盘），并通过调用方法&lt;code&gt;_check_keydown_events()&lt;/code&gt;
- 和&lt;code&gt;_check_keyup_events()&lt;/code&gt;
- 处理这些事件。当前，这些方法负责管理飞船的移动。&lt;code&gt;AlienInvasion&lt;/code&gt;
- 类还包含方法&lt;code&gt;_update_screen()&lt;/code&gt;
- ，该方法在每次主循环中重绘屏幕。&lt;/p&gt;
-&lt;p&gt;要玩游戏《外星人入侵》，只需运行文件alien_invasion.py，其他文件（settings.py和ship.py）包含的代码会被导入这个文件中。&lt;/p&gt;
-&lt;h3 id="nav_point_283"&gt;12.7.2　settings.py&lt;/h3&gt;
-&lt;p&gt;文件settings.py包含&lt;code&gt;Settings&lt;/code&gt;
- 类，这个类只包含方法&lt;code&gt;__init__()&lt;/code&gt;
- ，用于初始化控制游戏外观和飞船速度的属性。&lt;/p&gt;
-&lt;h3 id="nav_point_284"&gt;12.7.3　ship.py&lt;/h3&gt;
-&lt;p&gt;文件ship.py包含&lt;code&gt;Ship&lt;/code&gt;
- 类，这个类包含方法&lt;code&gt;__init__()&lt;/code&gt;
- 、管理飞船位置的方法&lt;code&gt;update()&lt;/code&gt;
- 和在屏幕上绘制飞船的方法&lt;code&gt;blitme()&lt;/code&gt;
- 。表示飞船的图像存储在文件夹images下的文件ship.bmp中。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习12-3：Pygame文档&lt;/strong&gt;
- 　你在编写游戏的道路上走了很远，可能想看看Pygame文档。目前，只需大致浏览一下文档即可。在完成本章项目的过程中，不需要参阅这些文档，但如果你想修改游戏《外星人入侵》或编写自己的游戏，这些文档将会有所帮助。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习12-4：火箭&lt;/strong&gt;
- 　编写一个游戏，它在屏幕中央显示一个火箭，而玩家可使用四个方向键上下左右移动火箭。请务必确保火箭不会移到屏幕外面。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习12-5：按键&lt;/strong&gt;
- 　创建一个程序，它显示一个空屏幕。在事件循环中，每当检测到&lt;code&gt;pygame.KEYDOWN&lt;/code&gt;
- 事件时都打印属性&lt;code&gt;event.key&lt;/code&gt;
- 。运行这个程序并按各种键，看看Pygame如何响应。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_285"&gt;12.8　射击&lt;/h2&gt;
-&lt;p&gt;下面来添加射击功能。我们将编写在玩家按空格键时发射子弹（用小矩形表示）的代码。子弹将在屏幕中向上飞行，抵达屏幕上边缘后消失。&lt;/p&gt;
-&lt;h3 id="nav_point_286"&gt;12.8.1　添加子弹设置&lt;/h3&gt;
-&lt;p&gt;首先，更新settings.py，在方法&lt;code&gt;__init__()&lt;/code&gt;
- 末尾存储新类&lt;code&gt;Bullet&lt;/code&gt;
- 所需的值：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def __init__(self):
-        --snip--
-        # 子弹设置
-        self.bullet_speed = 1.0
-        self.bullet_width = 3
-        self.bullet_height = 15
-        self.bullet_color = (60, 60, 60)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这些设置创建宽3像素、高15像素的深灰色子弹。子弹的速度比飞船稍低。&lt;/p&gt;
-&lt;h3 id="nav_point_287"&gt;12.8.2　创建&lt;code&gt;Bullet&lt;/code&gt;
- 类&lt;/h3&gt;
-&lt;p&gt;下面来创建存储&lt;code&gt;Bullet&lt;/code&gt;
- 类的文件bullet.py，其前半部分如下：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;bullet.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  import pygame
-  from pygame.sprite import Sprite
-  class Bullet(Sprite):
-      """管理飞船所发射子弹的类"""
-      def __init__(self, ai_game):
-          """在飞船当前位置创建一个子弹对象。"""
-          super().__init__()
-          self.screen = ai_game.screen
-          self.settings = ai_game.settings
-          self.color = self.settings.bullet_color
-          #在(0,0)处创建一个表示子弹的矩形，再设置正确的位置。
-❶         self.rect = pygame.Rect(0, 0, self.settings.bullet_width,
-              self.settings.bullet_height)
-❷         self.rect.midtop = ai_game.ship.rect.midtop
-          # 存储用小数表示的子弹位置。
-❸         self.y = float(self.rect.y)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;
-&lt;code&gt;Bullet&lt;/code&gt;
- 类继承了从模块&lt;code&gt;pygame.sprite&lt;/code&gt;
- 导入的&lt;code&gt;Sprite&lt;/code&gt;
- 类。通过使用精灵（sprite），可将游戏中相关的元素编组，进而同时操作编组中的所有元素。为创建子弹实例，&lt;code&gt;__init__()&lt;/code&gt;
- 需要当前的&lt;code&gt;AlienInvasion&lt;/code&gt;
- 实例，我们还调用了&lt;code&gt;super()&lt;/code&gt;
- 来继承&lt;code&gt;Sprite&lt;/code&gt;
- 。另外，我们还定义了用于存储屏幕以及设置对象和子弹颜色的属性。&lt;/p&gt;
-&lt;p&gt;在❶处，创建子弹的属性&lt;code&gt;rect&lt;/code&gt;
- 。子弹并非基于图像，因此必须使用&lt;code&gt;pygame.Rect()&lt;/code&gt;
- 类从头开始创建一个矩形。创建这个类的实例时，必须提供矩形左上角的&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00003.gif"/&gt;
- 坐标和&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00004.gif"/&gt;
- 坐标，以及矩形的宽度和高度。我们在(0, 0)处创建这个矩形，但下一行代码将其移到了正确的位置，因为子弹的初始位置取决于飞船当前的位置。子弹的宽度和高度是从&lt;code&gt;self.settings&lt;/code&gt;
- 中获取的。&lt;/p&gt;
-&lt;p&gt;在❷处，将子弹的&lt;code&gt;rect.midtop&lt;/code&gt;
- 设置为飞船的&lt;code&gt;rect.midtop&lt;/code&gt;
- 。这样子弹将从飞船顶部出发，看起来像是从飞船中射出的。我们将子弹的&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00004.gif"/&gt;
- 坐标存储为小数值，以便能够微调子弹的速度（见❸）。&lt;/p&gt;
-&lt;p&gt;下面是bullet.py的第二部分，包括方法&lt;code&gt;update()&lt;/code&gt;
- 和&lt;code&gt;draw_bullet()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;bullet.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def update(self):
-          """向上移动子弹。"""
-          #更新表示子弹位置的小数值。
-❶         self.y -= self.settings.bullet_speed
-          # 更新表示子弹的rect的位置。
-❷         self.rect.y = self.y
-      def draw_bullet(self):
-          """在屏幕上绘制子弹。"""
-❸         pygame.draw.rect(self.screen, self.color, self.rect)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;方法&lt;code&gt;update()&lt;/code&gt;
- 管理子弹的位置。发射出去后，子弹向上移动，意味着其&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00004.gif"/&gt;
- 坐标将不断减小。为更新子弹的位置，从&lt;code&gt;self.y&lt;/code&gt;
- 中减去&lt;code&gt;settings .bullet_speed&lt;/code&gt;
- 的值（见❶）。接下来，将&lt;code&gt;self.rect.y&lt;/code&gt;
- 设置为&lt;code&gt;self.y&lt;/code&gt;
- 的值（见❷）。&lt;/p&gt;
-&lt;p&gt;属性&lt;code&gt;bullet_speed&lt;/code&gt;
- 让我们能够随着游戏的进行或根据需要提高子弹的速度，以调整游戏的行为。子弹发射后，其&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00003.gif"/&gt;
- 坐标始终不变，因此子弹将沿直线垂直向上飞行。&lt;/p&gt;
-&lt;p&gt;需要绘制子弹时，我们调用&lt;code&gt;draw_bullet()&lt;/code&gt;
- 。&lt;code&gt;draw.rect()&lt;/code&gt;
- 函数使用存储在&lt;code&gt;self.color&lt;/code&gt;
- 中的颜色填充表示子弹的&lt;code&gt;rect&lt;/code&gt;
- 占据的屏幕部分（见❸）。&lt;/p&gt;
-&lt;h3 id="nav_point_288"&gt;12.8.3　将子弹存储到编组中&lt;/h3&gt;
-&lt;p&gt;定义&lt;code&gt;Bullet&lt;/code&gt;
- 类和必要的设置后，便可编写代码在玩家每次按空格键时都射出一发子弹了。我们将在&lt;code&gt;AlienInvasion&lt;/code&gt;
- 中创建一个编组（group），用于存储所有有效的子弹，以便管理发射出去的所有子弹。这个编组是&lt;code&gt;pygame.sprite.Group&lt;/code&gt;
- 类的一个实例。&lt;code&gt;pygame.sprite.Group&lt;/code&gt;
- 类似于列表，但提供了有助于开发游戏的额外功能。在主循环中，将使用这个编组在屏幕上绘制子弹以及更新每颗子弹的位置。&lt;/p&gt;
-&lt;p&gt;首先，在&lt;code&gt;__init__()&lt;/code&gt;
- 中创建用于存储子弹的编组：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def __init__(self):
-        --snip--
-        self.ship = Ship(self)
-        self.bullets = pygame.sprite.Group()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;然后在&lt;code&gt;while&lt;/code&gt;
- 循环中更新子弹的位置：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def run_game(self):
-          """开始游戏主循环。"""
-          while True:
-              self._check_events()
-              self.ship.update()
-❶             self.bullets.update()
-              self._update_screen()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;对编组调用&lt;code&gt;update()&lt;/code&gt;
- 时（见❶），编组自动对其中的每个精灵调用&lt;code&gt;update()&lt;/code&gt;
- 。因此代码行&lt;code&gt;bullets.update()&lt;/code&gt;
- 将为编组&lt;code&gt;bullets&lt;/code&gt;
- 中的每颗子弹调用&lt;code&gt;bullet.update()&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;h3 id="nav_point_289"&gt;12.8.4　开火&lt;/h3&gt;
-&lt;p&gt;在&lt;code&gt;AlienInvasion&lt;/code&gt;
- 中，需要修改&lt;code&gt;_check_keydown_events()&lt;/code&gt;
- ，以便在玩家按空格键时发射一颗子弹。无须修改&lt;code&gt;_check_keyup_events()&lt;/code&gt;
- ，因为玩家松开空格键时什么都不会发生。还需要修改&lt;code&gt;_update_screen()&lt;/code&gt;
- ，确保在调用&lt;code&gt;flip()&lt;/code&gt;
- 前在屏幕上重绘每颗子弹。&lt;/p&gt;
-&lt;p&gt;为发射子弹，需要做的工作不少，因此编写一个新方法&lt;code&gt;_fire_bullet()&lt;/code&gt;
- 来完成这项任务：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  from ship import Ship
-❶ from bullet import Bullet
-  class AlienInvasion:
-      --snip--
-      def _check_keydown_events(self, event):
-          --snip--
-          elif event.key == pygame.K_q:
-              sys.exit()
-❷         elif event.key == pygame.K_SPACE:
-              self._fire_bullet()
-      def _check_keyup_events(self, event):
-          --snip--
-      def _fire_bullet(self):
-          """创建一颗子弹，并将其加入编组bullets中。"""
-❸         new_bullet = Bullet(self)
-❹         self.bullets.add(new_bullet)
-      def _update_screen(self):
-          """更新屏幕上的图像，并切换到新屏幕。"""
-          self.screen.fill(self.settings.bg_color)
-          self.ship.blitme()
-❺         for bullet in self.bullets.sprites():
-              bullet.draw_bullet()
-          pygame.display.flip()
-  --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;首先导入&lt;code&gt;Bullet&lt;/code&gt;
- 类（见❶），再在玩家按空格键时调用&lt;code&gt;_fire_bullet()&lt;/code&gt;
- （见❷）。在&lt;code&gt;_fire_bullet()&lt;/code&gt;
- 中，创建一个&lt;code&gt;Bullet&lt;/code&gt;
- 实例并将其赋给&lt;code&gt;new_bullet&lt;/code&gt;
- （见❸），再使用方法&lt;code&gt;add()&lt;/code&gt;
- 将其加入编组&lt;code&gt;bullets&lt;/code&gt;
- 中（见❹）。方法&lt;code&gt;add()&lt;/code&gt;
- 类似于&lt;code&gt;append()&lt;/code&gt;
- ，不过是专门为Pygame编组编写的。&lt;/p&gt;
-&lt;p&gt;方法&lt;code&gt;bullets.sprites()&lt;/code&gt;
- 返回一个列表，其中包含编组&lt;code&gt;bullets&lt;/code&gt;
- 中的所有精灵。为在屏幕上绘制发射的所有子弹，遍历编组&lt;code&gt;bullets&lt;/code&gt;
- 中的精灵，并对每个精灵调用&lt;code&gt;draw_bullet()&lt;/code&gt;
- （见❺）。&lt;/p&gt;
-&lt;p&gt;如果此时运行alien_invasion.py，将能够左右移动飞船，并发射任意数量的子弹。子弹在屏幕上向上飞行，抵达屏幕顶部后消失得无影无踪，如图12-3所示。你可在settings.py中修改子弹的尺寸、颜色和速度。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00007.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图12-3　飞船发射一系列子弹后的《外星人入侵》游戏&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_290"&gt;12.8.5　删除消失的子弹&lt;/h3&gt;
-&lt;p&gt;当前，子弹在抵达屏幕顶端后消失，但这仅仅是因为Pygame无法在屏幕外面绘制它们。这些子弹实际上依然存在，其&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/12_Image00004.gif"/&gt;
- 坐标为负数且越来越小。这是个问题，因为它们将继续消耗内存和处理能力。&lt;/p&gt;
-&lt;p&gt;需要将这些消失的子弹删除，否则游戏所做的无谓工作将越来越多，进而变得越来越慢。为此，需要检测表示子弹的&lt;code&gt;rect&lt;/code&gt;
- 的&lt;code&gt;bottom&lt;/code&gt;
- 属性是否为零。如果是，则表明子弹已飞过屏幕顶端：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def run_game(self):
-          """开始游戏主循环。"""
-          while True:
-              self._check_events()
-              self.ship.update()
-              self.bullets.update()
-              # 删除消失的子弹。
-❶             for bullet in self.bullets.copy():
-❷               if bullet.rect.bottom &amp;lt;= 0:
-❸                     self.bullets.remove(bullet)
-❹             print(len(self.bullets))
-              self._update_screen()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;使用&lt;code&gt;for&lt;/code&gt;
- 循环遍历列表（或Pygame编组）时，Python要求该列表的长度在整个循环中保持不变。因为不能从&lt;code&gt;for&lt;/code&gt;
- 循环遍历的列表或编组中删除元素，所以必须遍历编组的副本。我们使用方法&lt;code&gt;copy()&lt;/code&gt;
- 来设置&lt;code&gt;for&lt;/code&gt;
- 循环（见❶），从而能够在循环中修改&lt;code&gt;bullets&lt;/code&gt;
- 。我们检查每颗子弹，看看它是否从屏幕顶端消失（见❷）。如果是，就将其从&lt;code&gt;bullets&lt;/code&gt;
- 中删除（见❸）。在❹处，使用函数调用&lt;code&gt;print()&lt;/code&gt;
- 显示当前还有多少颗子弹，以核实确实删除了消失的子弹。&lt;/p&gt;
-&lt;p&gt;如果这些代码没有问题，我们发射子弹后查看终端窗口时，将发现随着子弹一颗颗地在屏幕顶端消失，子弹数将逐渐降为零。运行该游戏并确认子弹被正确删除后，请将这个函数调用&lt;code&gt;print()&lt;/code&gt;
- 删除。如果不删除，游戏的速度将大大降低，因为将输出写入终端花费的时间比将图形绘制到游戏窗口花费的时间还要多。&lt;/p&gt;
-&lt;h3 id="nav_point_291"&gt;12.8.6　限制子弹数量&lt;/h3&gt;
-&lt;p&gt;很多射击游戏对可同时出现在屏幕上的子弹数量进行了限制，以鼓励玩家有目标地射击。下面在游戏《外星人入侵》中做这样的限制。&lt;/p&gt;
-&lt;p&gt;首先，在settings.py中存储最大子弹数：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;        # 子弹设置
-        --snip--
-        self.bullet_color = (60, 60, 60)
-        self.bullets_allowed = 3&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这将未消失的子弹数限制为三颗。在&lt;code&gt;AlienInvasion&lt;/code&gt;
- 的&lt;code&gt;_fire_bullet()&lt;/code&gt;
- 中，在创建新子弹前检查未消失的子弹数是否小于该设置：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _fire_bullet(self):
-        """创建新子弹并将其加入编组bullets中。"""
-        if len(self.bullets) &amp;lt; self.settings.bullets_allowed:
-            new_bullet = Bullet(self)
-            self.bullets.add(new_bullet)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;玩家按空格键时，我们检查&lt;code&gt;bullets&lt;/code&gt;
- 的长度。如果&lt;code&gt;len(bullets)&lt;/code&gt;
- 小于3，就创建一颗新子弹；但如果有三颗未消失的子弹，则玩家按空格键时什么都不会发生。如果现在运行这个游戏，屏幕上最多只能有三颗子弹。&lt;/p&gt;
-&lt;h3 id="nav_point_292"&gt;12.8.7　创建方法&lt;code&gt;_update_bullets()&lt;/code&gt;
-&lt;/h3&gt;
-&lt;p&gt;编写并检查子弹管理代码后，可将其移到一个独立的方法中，确保&lt;code&gt;AlienInvasion&lt;/code&gt;
- 类组织有序。为此，创建一个名为&lt;code&gt;_update_bullets()&lt;/code&gt;
- 的新方法，并将其放在&lt;code&gt;_update_screen()&lt;/code&gt;
- 前面：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _update_bullets(self):
-        """更新子弹的位置并删除消失的子弹。"""
-        # 更新子弹的位置。
-        self.bullets.update()
-        # 删除消失的子弹。
-        for bullet in self.bullets.copy():
-            if bullet.rect.bottom &amp;lt;= 0:
-                 self.bullets.remove(bullet)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;
-&lt;code&gt;_update_bullets()&lt;/code&gt;
- 的代码是从&lt;code&gt;run_game()&lt;/code&gt;
- 剪切并粘贴而来的，这里只是让注释更清晰了。&lt;/p&gt;
-&lt;p&gt;
-&lt;code&gt;run_game()&lt;/code&gt;
- 中的&lt;code&gt;while&lt;/code&gt;
- 循环又变得简单了：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      while True:
-          self._check_events()
-          self.ship.update()
-          self._update_bullets()
-          self._update_screen()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们让主循环包含尽可能少的代码，这样只要看方法名就能迅速知道游戏中发生的情况。主循环检查玩家的输入，并更新飞船的位置和所有未消失子弹的位置。然后，使用更新后的位置来绘制新屏幕。&lt;/p&gt;
-&lt;p&gt;请再次运行alien_invasion.py，确认发射子弹时没有错误。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习12-6：侧面射击&lt;/strong&gt;
- 　编写一个游戏，将一艘飞船放在屏幕左侧，并允许玩家上下移动飞船。在玩家按空格键时，让飞船发射一颗在屏幕中向右飞行的子弹，并在子弹从屏幕中消失后将其删除。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_293"&gt;12.9　小结&lt;/h2&gt;
-&lt;p&gt;在本章中，你学习了：游戏开发计划的制定，以及使用Pygame编写的游戏的基本结构；如何设置背景色，以及如何将设置存储在独立的类中，以便轻松调整；如何在屏幕上绘制图像，以及如何让玩家控制游戏元素的移动；创建自动移动的元素，如在屏幕中向上飞行的子弹，以及删除不再需要的对象；如何定期重构项目的代码，为后续开发提供便利。&lt;/p&gt;
-&lt;p&gt;在第13章中，我们将在游戏《外星人入侵》中添加外星人。到第13章结束时，你将能够击落外星人——但愿是在其撞到飞船之前！&lt;/p&gt;
-&lt;br style="page-break-after:always"/&gt;
-&lt;div&gt;&lt;/div&gt;
-</description>
-    <pubDate>Mon, 20 Jul 2026 03:11:34 +0000</pubDate>
-    <guid isPermaLink="false">12</guid>
 </item>
 </channel>
 </rss>
