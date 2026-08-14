@@ -1,11 +1,783 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-  <title>每日更新推送</title>
-  <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
-  <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Thu, 13 Aug 2026 02:30:38 +0000</lastBuildDate>
-    <item>
+    <title>我的每日小说</title>
+    <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
+    <description>从 EPUB 自动生成的 RSS 订阅源</description>
+        <item>
+    <title>Basic Python - 004 - 第 4 章 操作列表.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：97 分钟 (19338 字)</p><hr><h1 id="nav_point_69">第 4 章　操作列表</h1>
+<blockquote>
+<p><img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/4_Image00001.gif" style="width: 16%" width="16%"/>
+ 　在第3章，你学习了如何创建简单的列表，还学习了如何操作列表元素。在本章中，你将学习如何<strong>遍历</strong>
+ 整个列表，这只需要几行代码，无论列表有多长。循环让你能够对列表的每个元素都采取一个或一系列相同的措施，从而高效地处理任何长度的列表，包括包含数千乃至数百万个元素的列表。</p>
+</blockquote>
+<h2 id="nav_point_70">4.1　遍历整个列表</h2>
+<p>你经常需要遍历列表的所有元素，对每个元素执行相同的操作。例如，在游戏中，可能需要将每个界面元素平移相同的距离；对于包含数字的列表，可能需要对每个元素执行相同的统计运算；在网站中，可能需要显示文章列表中的每个标题。需要对列表中的每个元素都执行相同的操作时，可使用Python中的<code>for</code>
+ 循环。</p>
+<p>假设我们有一个魔术师名单，需要将其中每个魔术师的名字都打印出来。为此，可以分别获取名单中的每个名字，但这种做法会导致多个问题。例如，如果名单很长，将包含大量重复的代码。另外，每当名单的长度发生变化时，都必须修改代码。通过使用<code>for</code>
+ 循环，可以让Python去处理这些问题。</p>
+<p>下面使用<code>for</code>
+ 循环来打印魔术师名单中的所有名字：</p>
+<p>
+<em>magicians.py</em>
+</p>
+<pre class="代码无行号"><code>❶ magicians = ['alice', 'david', 'carolina']
+❷ for magician in magicians:
+❸     print(magician)</code>
+</pre>
+<p>首先，像第3章那样定义一个列表（见❶）。接下来，定义一个<code>for</code>
+ 循环（见❷）。这行代码让Python从列表<code>magicians</code>
+ 中取出一个名字，并将其与变量<code>magician</code>
+ 相关联。最后，让Python打印前面赋给变量<code>magician</code>
+ 的名字（见❸）。这样，对于列表中的每个名字，Python都将重复执行❷处和❸处的代码行。你可以这样解读这些代码：对于列表<code>magicians</code>
+ 中的每位魔术师，都将其名字打印出来。输出很简单，就是列表中所有的名字：</p>
+<pre class="代码无行号"><code>alice
+david
+carolina</code>
+</pre>
+<h3 id="nav_point_71">4.1.1　深入研究循环</h3>
+<p>循环这种概念很重要，因为它是让计算机自动完成重复工作的常见方式之一。例如，在前面magicians.py中使用的简单循环里，Python将首先读取其中的第一行代码：</p>
+<pre class="代码无行号"><code>for magician in magicians:</code>
+</pre>
+<p>这行代码让Python获取列表<code>magicians</code>
+ 中的第一个值<code>'alice'</code>
+ ，并将其与变量<code>magician</code>
+ 相关联。接下来，Python读取下一行代码：</p>
+<pre class="代码无行号"><code>    print(magician)</code>
+</pre>
+<p>它让Python打印<code>magician</code>
+ 的值，依然是<code>'alice'</code>
+ 。鉴于该列表还包含其他值，Python返回到循环的第一行：</p>
+<pre class="代码无行号"><code>for magician in magicians:</code>
+</pre>
+<p>Python获取列表中的下一个名字'david'，并将其与变量magician相关联，再执行下面这行代码：</p>
+<pre class="代码无行号"><code>    print(magician)</code>
+</pre>
+<p>Python再次打印变量<code>magician</code>
+ 的值，当前为<code>'david'</code>
+ 。接下来，Python再次执行整个循环，对列表中的最后一个值<code>'carolina'</code>
+ 进行处理。至此，列表中没有其他的值了，因此Python接着执行程序的下一行代码。在这个示例中，<code>for</code>
+ 循环后面没有其他代码，因此程序就此结束。</p>
+<p>刚开始使用循环时请牢记，对列表中的每个元素，都将执行循环指定的步骤，而不管列表包含多少个元素。如果列表包含一百万个元素，Python就重复执行指定的步骤一百万次，且通常速度非常快。</p>
+<p>另外，编写<code>for</code>
+ 循环时，可以给依次与列表中每个值相关联的临时变量指定任意名称。然而，选择描述单个列表元素的有意义名称大有裨益。例如，对于小猫列表、小狗列表和一般性列表，像下面这样编写<code>for</code>
+ 循环的第一行代码是不错的选择：</p>
+<pre class="代码无行号"><code>for cat in cats:
+for dog in dogs:
+for item in list_of_items:</code>
+</pre>
+<p>这些命名约定有助于你明白<code>for</code>
+ 循环中将对每个元素执行的操作。使用单数和复数式名称，可帮助你判断代码段处理的是单个列表元素还是整个列表。</p>
+<h3 id="nav_point_72">4.1.2　在<code>for</code>
+ 循环中执行更多操作</h3>
+<p>在<code>for</code>
+ 循环中，可对每个元素执行任何操作。下面来扩展前面的示例，对于每位魔术师，都打印一条消息，指出他的表演太精彩了。</p>
+<p>
+<em>magicians.py</em>
+</p>
+<pre class="代码无行号"><code>  magicians = ['alice', 'david', 'carolina']
+  for magician in magicians:
+❶     print(f"{magician.title()}, that was a great trick!")</code>
+</pre>
+<p>相比于前一个示例，唯一的不同是为每位魔术师打印了一条以其名字为抬头的消息（见❶）。这个循环第一次迭代时，变量<code>magician</code>
+ 的值为<code>'alice'</code>
+ ，因此Python打印的第一条消息的抬头为<code>'Alice'</code>
+ ；第二次迭代时，消息的抬头为<code>'David'</code>
+ ；第三次迭代时，抬头为<code>'Carolina'</code>
+ 。</p>
+<p>下面的输出表明，对于列表中的每位魔术师，都打印了一条个性化消息：</p>
+<pre class="代码无行号"><code>Alice, that was a great trick!
+David, that was a great trick!
+Carolina, that was a great trick!</code>
+</pre>
+<p>在<code>for</code>
+ 循环中，想包含多少行代码都可以。在代码行<code>for magician in magicians</code>
+ 后面，每个缩进的代码行都是循环的一部分，将针对列表中的每个值都执行一次。因此，可对列表中的每个值执行任意次数的操作。</p>
+<p>下面再添加一行代码，告诉每位魔术师，我们期待他的下一次表演：</p>
+<pre class="代码无行号"><code>  magicians = ['alice', 'david', 'carolina']
+  for magician in magicians:
+      print(f"{magician.title()}, that was a great trick!")
+❶     print(f"I can't wait to see your next trick, {magician.title()}.\n")</code>
+</pre>
+<p>两个函数调用<code>print()</code>
+ 都缩进了，因此它们都将针对列表中的每位魔术师执行一次。第二个函数调用<code>print()</code>
+ 中的换行符<code>"\n"</code>
+ （见❶）在每次迭代结束后都插入一个空行，从而整洁地将针对各位魔术师的消息编组：</p>
+<pre class="代码无行号"><code>Alice, that was a great trick!
+I can't wait to see your next trick, Alice.
+David, that was a great trick!
+I can't wait to see your next trick, David.
+Carolina, that was a great trick!
+I can't wait to see your next trick, Carolina.</code>
+</pre>
+<p>在<code>for</code>
+ 循环中，想包含多少行代码都可以。实际上，你会发现使用<code>for</code>
+ 循环对每个元素执行众多不同的操作很有用。</p>
+<h3 id="nav_point_73">4.1.3　在<code>for</code>
+ 循环结束后执行一些操作</h3>
+<p>
+<code>for</code>
+ 循环结束后怎么办呢？通常，你需要提供总结性输出或接着执行程序必须完成的其他任务。</p>
+<p>在<code>for</code>
+ 循环后面，没有缩进的代码都只执行一次，不会重复执行。下面来打印一条向全体魔术师致谢的消息，感谢他们的精彩表演。想要在打印给各位魔术师的消息后面打印一条给全体魔术师的致谢消息，需要将相应的代码放在<code>for</code>
+ 循环后面，且不缩进：</p>
+<pre class="代码无行号"><code>  magicians = ['alice', 'david', 'carolina']
+  for magician in magicians:
+      print(f"{magician.title()}, that was a great trick!")
+      print(f"I can't wait to see your next trick, {magician.title()}.\n")
+❶ print("Thank you, everyone. That was a great magic show!")</code>
+</pre>
+<p>你在前面看到了，开头两个函数调用<code>print()</code>
+ 针对列表中的每位魔术师重复执行。然而，第三个函数调用<code>print()</code>
+ 没有缩进（见❶），因此只执行一次：</p>
+<pre class="代码无行号"><code>Alice, that was a great trick!
+I can't wait to see your next trick, Alice.
+David, that was a great trick!
+I can't wait to see your next trick, David.
+Carolina, that was a great trick!
+I can't wait to see your next trick, Carolina.
+Thank you, everyone. That was a great magic show!</code>
+</pre>
+<p>使用<code>for</code>
+ 循环处理数据是一种对数据集执行整体操作的不错方式。例如，你可能使用<code>for</code>
+ 循环来初始化游戏：遍历角色列表，将每个角色显示到屏幕上。然后在循环后面添加一个不缩进的代码块，在屏幕上绘制所有角色后显示一个Play Now按钮。</p>
+<h2 id="nav_point_74">4.2　避免缩进错误</h2>
+<p>Python根据缩进来判断代码行与前一个代码行的关系。在前面的示例中，向各位魔术师显示消息的代码行是<code>for</code>
+ 循环的一部分，因为它们缩进了。Python通过使用缩进让代码更易读。简单地说，它要求你使用缩进让代码整洁而结构清晰。在较长的Python程序中，你将看到缩进程度各不相同的代码块，从而对程序的组织结构有大致的认识。</p>
+<p>开始编写必须正确缩进的代码时，需要注意一些常见的<strong>缩进错误</strong>
+ 。例如，程序员有时候会将不需要缩进的代码块缩进，而对于必须缩进的代码块却忘了缩进。查看这样的错误示例有助于你以后避开它们，以及在它们出现在程序中时进行修复。</p>
+<p>下面来看一些较为常见的缩进错误。</p>
+<h3 id="nav_point_75">4.2.1　忘记缩进</h3>
+<p>对于位于<code>for</code>
+ 语句后面且属于循环组成部分的代码行，一定要缩进。如果忘记缩进， Python会提醒你：</p>
+<p>
+<em>magicians.py</em>
+</p>
+<pre class="代码无行号"><code>  magicians = ['alice', 'david', 'carolina']
+  for magician in magicians:
+❶ print(magician)</code>
+</pre>
+<p>函数调用<code>print()</code>
+ （见❶）应缩进却没有缩进。Python没有找到期望缩进的代码块时，会让你知道哪行代码有问题。</p>
+<pre class="代码无行号"><code>File "magicians.py", line 3
+  print(magician)
+      ^
+IndentationError: expected an indented block</code>
+</pre>
+<p>通常，将紧跟在<code>for</code>
+ 语句后面的代码行缩进，可消除这种缩进错误。</p>
+<h3 id="nav_point_76">4.2.2　忘记缩进额外的代码行</h3>
+<p>有时候，循环能够运行且不会报告错误，但结果可能出人意料。试图在循环中执行多项任务，却忘记缩进其中的一些代码行时，就会出现这种情况。</p>
+<p>例如，如果忘记缩进循环中的第二行代码（它告诉每位魔术师，我们期待其下次表演），就会出现这种情况：</p>
+<pre class="代码无行号"><code>  magicians = ['alice', 'david', 'carolina']
+  for magician in magicians:
+      print(f"{magician.title()}, that was a great trick!")
+❶ print(f"I can't wait to see your next trick, {magician.title()}.\n")</code>
+</pre>
+<p>第二个函数调用<code>print()</code>
+ （见❶）原本需要缩进，但Python发现<code>for</code>
+ 语句后面有一行代码是缩进的，因此没有报告错误。最终的结果是，对于列表中的每位魔术师，都执行了第一个函数调用<code>print()</code>
+ ，因为它缩进了；而第二个函数调用<code>print()</code>
+ 没有缩进，因此只在循环结束后执行一次。由于变量<code>magician</code>
+ 的终值为<code>'carolina'</code>
+ ，结果只有她收到了消息“looking forward to the next trick”：</p>
+<pre class="代码无行号"><code>Alice, that was a great trick!
+David, that was a great trick!
+Carolina, that was a great trick!
+I can't wait to see your next trick, Carolina.</code>
+</pre>
+<p>这是一个<strong>逻辑错误</strong>
+ 。从语法上看，这些Python代码是合法的，但由于存在逻辑错误，结果并不符合预期。如果你预期某项操作将针对每个列表元素都执行一次，但它总共只执行了一次，请确定需要将一行还是多行代码缩进。</p>
+<h3 id="nav_point_77">4.2.3　不必要的缩进</h3>
+<p>如果你不小心缩进了无须缩进的代码行，Python将指出这一点：</p>
+<p>
+<em>hello_world.py</em>
+</p>
+<pre class="代码无行号"><code>  message = "Hello Python world!"
+❶     print(message)</code>
+</pre>
+<p>函数调用<code>print()</code>
+ （见❶）无须缩进，因为它并非循环的组成部分。因此Python将指出这种错误：</p>
+<pre class="代码无行号"><code>  File "hello_world.py", line 2
+    print(message)
+    ^
+IndentationError: unexpected indent</code>
+</pre>
+<p>为避免意外缩进错误，请只缩进需要缩进的代码。在前面编写的程序中，只有要在<code>for</code>
+ 循环中对每个元素执行的代码需要缩进。</p>
+<h3 id="nav_point_78">4.2.4　循环后不必要的缩进</h3>
+<p>如果不小心缩进了应在循环结束后执行的代码，这些代码将针对每个列表元素重复执行。在有些情况下，这可能导致Python报告语法错误，但在大多数情况下，这只会导致逻辑错误。</p>
+<p>例如，如果不小心缩进了感谢全体魔术师精彩表演的代码行，结果将如何呢？</p>
+<p>
+<em>magicians.py</em>
+</p>
+<pre class="代码无行号"><code>  magicians = ['alice', 'david', 'carolina']
+  for magician in magicians:
+      print(f"{magician.title()}, that was a great trick!")
+      print(f"I can't wait to see your next trick, {magician.title()}.\n")
+❶ print("Thank you everyone, that was a great magic show!")</code>
+</pre>
+<p>由于❶处的代码行缩进了，它将针对列表中的每位魔术师执行一次，如下所示：</p>
+<pre class="代码无行号"><code>Alice, that was a great trick!
+I can't wait to see your next trick, Alice.
+Thank you everyone, that was a great magic show!
+David, that was a great trick!
+I can't wait to see your next trick, David.
+Thank you everyone, that was a great magic show!
+Carolina, that was a great trick!
+I can't wait to see your next trick, Carolina.
+Thank you everyone, that was a great magic show!</code>
+</pre>
+<p>这也是一个逻辑错误，与4.2.2节的错误类似。Python不知道你的本意，只要代码符合语法，它就会运行。如果原本只应执行一次的操作执行了多次，可能要对执行该操作的代码取消缩进。</p>
+<h3 id="nav_point_79">4.2.5　遗漏了冒号</h3>
+<p>
+<code>for</code>
+ 语句末尾的冒号告诉Python，下一行是循环的第一行。</p>
+<pre class="代码无行号"><code>  magicians = ['alice', 'david', 'carolina']
+❶ for magician in magicians
+      print(magician)</code>
+</pre>
+<p>如果不小心遗漏了冒号，如❶所示，将导致语法错误，因为Python不知道你意欲何为。这种错误虽然易于消除，但并不那么容易发现。程序员为找出这样的单字符错误，花费的时间多得令人惊讶。此类错误之所以难以发现，是因为通常在人们的意料之外。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习4-1：比萨</strong>
+ 　想出至少三种你喜欢的比萨，将其名称存储在一个列表中，再使用<code>for</code>
+ 循环将每种比萨的名称打印出来。</p>
+<ul>
+<li>
+<p>修改这个<code>for</code>
+ 循环，使其打印包含比萨名称的句子，而不仅仅是比萨的名称。对于每种比萨，都显示一行输出，下面是一个例子。</p>
+<p>I like pepperoni pizza.<br/>
+ </p>
+</li>
+<li>
+<p>在程序末尾添加一行代码，它不在<code>for</code>
+ 循环中，指出你有多喜欢比萨。输出应包含针对每种比萨的消息，还有一个总结性句子，下面是一个例子。</p>
+<p>I really love pizza!<br/>
+ </p>
+</li>
+</ul>
+<p>
+<strong>练习4-2：动物</strong>
+ 　想出至少三种有共同特征的动物，将其名称存储在一个列表中，再使用<code>for</code>
+ 循环将每种动物的名称打印出来。</p>
+<ul>
+<li>
+<p>修改这个程序，使其针对每种动物都打印一个句子，下面是一个例子。</p>
+<p>A dog would make a great pet.<br/>
+ </p>
+</li>
+<li>
+<p>在程序末尾添加一行代码，指出这些动物的共同之处，如打印下面这样的句子。</p>
+<p>Any of these animals would make a great pet!</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="nav_point_80">4.3　创建数值列表</h2>
+<p>需要存储一组数的原因有很多。例如，在游戏中，需要跟踪每个角色的位置，还可能需要跟踪玩家的几个最高得分；在数据可视化中，处理的几乎都是由数（如温度、距离、人口数量、经度和纬度等）组成的集合。</p>
+<p>列表非常适合用于存储数字集合，而Python提供了很多工具，可帮助你高效地处理数字列表。明白如何有效地使用这些工具后，即便列表包含数百万个元素，你编写的代码也能运行得很好。</p>
+<h3 id="nav_point_81">4.3.1　使用函数<code>range()</code>
+</h3>
+<p>Python函数<code>range()</code>
+ 让你能够轻松地生成一系列数。例如，可以像下面这样使用函数<code>range()</code>
+ 来打印一系列数：</p>
+<p>
+<em>first_numbers.py</em>
+</p>
+<pre class="代码无行号"><code>for value in range(1, 5):
+    print(value)</code>
+</pre>
+<p>上述代码好像应该打印数1～5，但实际上不会打印5：</p>
+<pre class="代码无行号"><code>1
+2
+3
+4</code>
+</pre>
+<p>在这个示例中，<code>range()</code>
+ 只打印数1～4。这是编程语言中常见的差一行为的结果。函数<code>range()</code>
+ 让Python从指定的第一个值开始数，并在到达你指定的第二个值时停止。因为它在第二个值处停止，所以输出不包含该值（这里为5）。</p>
+<p>要打印数1～5，需要使用<code>range(1,6)</code>
+ ：</p>
+<pre class="代码无行号"><code>for value in range(1, 6):
+    print(value)</code>
+</pre>
+<p>这样，输出将从1开始、到5结束：</p>
+<pre class="代码无行号"><code>1
+2
+3
+4
+5</code>
+</pre>
+<p>使用<code>range()</code>
+ 时，如果输出不符合预期，请尝试将指定的值加1或减1。</p>
+<p>调用函数<code>range()</code>
+ 时，也可只指定一个参数，这样它将从0开始。例如，<code>range(6)</code>
+ 返回数0～5。</p>
+<h3 id="nav_point_82">4.3.2　使用<code>range()</code>
+ 创建数字列表</h3>
+<p>要创建数字列表，可使用函数<code>list()</code>
+ 将<code>range()</code>
+ 的结果直接转换为列表。如果将<code>range()</code>
+ 作为<code>list()</code>
+ 的参数，输出将是一个数字列表。</p>
+<p>在前一节的示例中，只是将一系列数打印出来。要将这组数转换为列表，可使用<code>list()</code>
+ ：</p>
+<pre class="代码无行号"><code>numbers = list(range(1, 6))
+print(numbers)</code>
+</pre>
+<p>结果如下：</p>
+<pre class="代码无行号"><code>[1, 2, 3, 4, 5]</code>
+</pre>
+<p>使用函数<code>range()</code>
+ 时，还可指定步长。为此，可给这个函数指定第三个参数，Python将根据这个步长来生成数。</p>
+<p>例如，下面的代码打印1～10的偶数：</p>
+<p>
+<em>even_numbers.py</em>
+</p>
+<pre class="代码无行号"><code>even_numbers = list(range(2, 11, 2))
+print(even_numbers)</code>
+</pre>
+<p>在这个示例中，函数<code>range()</code>
+ 从2开始数，然后不断加2，直到达到或超过终值（11），因此输出如下：</p>
+<pre class="代码无行号"><code>[2, 4, 6, 8, 10]</code>
+</pre>
+<p>使用函数<code>range()</code>
+ 几乎能够创建任何需要的数集。例如，如何创建一个列表，其中包含前10个整数（1～10）的平方呢？在Python中，用两个星号（<code>**</code>
+ ）表示乘方运算。下面的代码演示了如何将前10个整数的平方加入一个列表中：</p>
+<p>
+<em>squares.py</em>
+</p>
+<pre class="代码无行号"><code>❶ squares = []
+❷ for value in range(1, 11):
+❸     square = value ** 2
+❹     squares.append(square)
+❺ print(squares)</code>
+</pre>
+<p>首先，创建一个名为<code>squares</code>
+ 的空列表（见❶）。接下来，使用函数<code>range()</code>
+ 让Python遍历1～10的值（见❷）。在循环中，计算当前值的平方，并将结果赋给变量<code>square</code>
+ （见❸）。然后，将新计算得到的平方值附加到列表<code>squares</code>
+ 末尾（见❹）。最后，循环结束后，打印列表<code>squares</code>
+ （见❺）：</p>
+<pre class="代码无行号"><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</code>
+</pre>
+<p>为了让代码更简洁，可不使用临时变量<code>square</code>
+ ，而直接将每个计算得到的值附加到列表末尾：</p>
+<pre class="代码无行号"><code>  squares = []
+  for value in range(1,11):
+❶     squares.append(value**2)
+  print(squares)</code>
+</pre>
+<p>❶处的代码与squares.py中❸处和❹处的代码等效。在循环中，计算每个值的平方，并立即将结果附加到列表<code>squares</code>
+ 的末尾。</p>
+<p>创建更复杂的列表时，可使用上述两种方法中的任何一种。有时候，使用临时变量会让代码更易读；而在其他情况下，这样做只会让代码无谓地变长。你首先应该考虑的是，编写清晰易懂且能完成所需功能的代码，等到审核代码时，再考虑采用更高效的方法。</p>
+<h3 id="nav_point_83">4.3.3　对数字列表执行简单的统计计算</h3>
+<p>有几个专门用于处理数字列表的Python函数。例如，你可以轻松地找出数字列表的最大值、最小值和总和：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; digits = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+&gt;&gt;&gt; min(digits)
+0
+&gt;&gt;&gt; max(digits)
+9
+&gt;&gt;&gt; sum(digits)
+45</code>
+</pre>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　考虑到版面，本节使用的数字列表都很短，但这里介绍的知识也适用于包含数百万个数的列表。</p>
+</blockquote>
+<h3 id="nav_point_84">4.3.4　列表解析</h3>
+<p>前面介绍的生成列表<code>squares</code>
+ 的方式包含三四行代码，而列表解析让你只需编写一行代码就能生成这样的列表。<strong>列表解析</strong>
+ 将<code>for</code>
+ 循环和创建新元素的代码合并成一行，并自动附加新元素。面向初学者的书并非都会介绍列表解析，这里之所以介绍列表解析，是因为等你开始阅读他人编写的代码时，很可能会遇到它。</p>
+<p>下面的示例使用列表解析创建你在前面看到的平方数列表：</p>
+<p>
+<em>squares.py</em>
+</p>
+<pre class="代码无行号"><code>squares = [value**2 for value in range(1, 11)]
+print(squares)</code>
+</pre>
+<p>要使用这种语法，首先指定一个描述性的列表名，如<code>squares</code>
+ 。然后，指定一个左方括号，并定义一个表达式，用于生成要存储到列表中的值。在这个示例中，表达式为<code>value**2</code>
+ ，它计算平方值。接下来，编写一个<code>for</code>
+ 循环，用于给表达式提供值，再加上右方括号。在这个示例中，<code>for</code>
+ 循环为<code>for value in range(1,11)</code>
+ ，它将值1～10提供给表达式<code>value**2</code>
+ 。请注意，这里的<code>for</code>
+ 语句末尾没有冒号。</p>
+<p>结果与前面的平方数列表相同：</p>
+<pre class="代码无行号"><code>[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</code>
+</pre>
+<p>要创建自己的列表解析，需要经过一定的练习，但能够熟练地创建常规列表后，你会发现这样做是完全值得的。当你觉得编写三四行代码来生成列表有点繁复时，就应考虑创建列表解析了。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习4-3：数到20</strong>
+ 　使用一个<code>for</code>
+ 循环打印数1～20（含）。</p>
+<p>
+<strong>练习4-4：一百万</strong>
+ 　创建一个包含数1～1 000 000的列表，再使用一个<code>for</code>
+ 循环将这些数打印出来。（如果输出的时间太长，按Ctrl + C停止输出或关闭输出窗口。）</p>
+<p>
+<strong>练习4-5：一百万求和</strong>
+ 　创建一个包含数1～1 000 000的列表，再使用<code>min()</code>
+ 和<code>max()</code>
+ 核实该列表确实是从1开始、到1 000 000结束的。另外，对这个列表调用函数<code>sum()</code>
+ ，看看Python将一百万个数相加需要多长时间。</p>
+<p>
+<strong>练习4-6：奇数</strong>
+ 　通过给函数<code>range()</code>
+ 指定第三个参数来创建一个列表，其中包含1～20的奇数，再使用一个<code>for</code>
+ 循环将这些数打印出来。</p>
+<p>
+<strong>练习4-7：3的倍数</strong>
+ 　创建一个列表，其中包含3～30能被3整除的数，再使用一个<code>for</code>
+ 循环将这个列表中的数打印出来。</p>
+<p>
+<strong>练习4-8：立方</strong>
+ 　将同一个数乘三次称为<strong>立方</strong>
+ 。例如，在Python中，2的立方用<code>2**3</code>
+ 表示。请创建一个列表，其中包含前10个整数（1～10）的立方，再使用一个<code>for</code>
+ 循环将这些立方数打印出来。</p>
+<p>
+<strong>练习4-9：立方解析</strong>
+ 　使用列表解析生成一个列表，其中包含前10个整数的立方。</p>
+</blockquote>
+<h2 id="nav_point_85">4.4　使用列表的一部分</h2>
+<p>在第3章中，你学习了如何访问单个列表元素。在本章中，你一直在学习如何处理列表的所有元素。你还可以处理列表的部分元素，Python称之为<strong>切片</strong>
+ 。</p>
+<h3 id="nav_point_86">4.4.1　切片</h3>
+<p>要创建切片，可指定要使用的第一个元素和最后一个元素的索引。与函数<code>range()</code>
+ 一样，Python在到达第二个索引之前的元素后停止。要输出列表中的前三个元素，需要指定索引0和3，这将返回索引为0、1和2的元素。</p>
+<p>下面的示例处理的是一个运动队成员列表：</p>
+<p>
+<em>players.py</em>
+</p>
+<pre class="代码无行号"><code>  players = ['charles', 'martina', 'michael', 'florence', 'eli']
+❶ print(players[0:3])</code>
+</pre>
+<p>❶处的代码打印该列表的一个切片，其中只包含三名队员。输出也是一个列表，其中包含前三名队员：</p>
+<pre class="代码无行号"><code>['charles', 'martina', 'michael']</code>
+</pre>
+<p>你可以生成列表的任意子集。例如，如果要提取列表的第二、第三和第四个元素，可将起始索引指定为<code>1</code>
+ ，并将终止索引指定为<code>4</code>
+ ：</p>
+<pre class="代码无行号"><code>players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[1:4])</code>
+</pre>
+<p>此时，切片始于<code>'martina'</code>
+ 、终于<code>'florence'</code>
+ 。</p>
+<pre class="代码无行号"><code>['martina', 'michael', 'florence']</code>
+</pre>
+<p>如果没有指定第一个索引，Python将自动从列表开头开始：</p>
+<pre class="代码无行号"><code>players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[:4])</code>
+</pre>
+<p>由于没有指定起始索引，Python从列表开头开始提取：</p>
+<pre class="代码无行号"><code>['charles', 'martina', 'michael', 'florence']</code>
+</pre>
+<p>要让切片终止于列表末尾，也可使用类似的语法。例如，如果要提取从第三个元素到列表末尾的所有元素，可将起始索引指定为<code>2</code>
+ ，并省略终止索引：</p>
+<pre class="代码无行号"><code>players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[2:])</code>
+</pre>
+<p>Python将返回从第三个元素到列表末尾的所有元素：</p>
+<pre class="代码无行号"><code>['michael', 'florence', 'eli']</code>
+</pre>
+<p>无论列表多长，这种语法都能够让你输出从特定位置到列表末尾的所有元素。上一章说过，负数索引返回离列表末尾相应距离的元素，因此你可以输出列表末尾的任意切片。例如，如果要输出名单上的最后三名队员，可使用切片<code>players[-3:]</code>
+ ：</p>
+<pre class="代码无行号"><code>players = ['charles', 'martina', 'michael', 'florence', 'eli']
+print(players[-3:])</code>
+</pre>
+<p>上述代码打印最后三名队员的名字，即便队员名单长度发生变化，也依然如此。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　可在表示切片的方括号内指定第三个值。这个值告诉Python在指定范围内每隔多少元素提取一个。</p>
+</blockquote>
+<h3 id="nav_point_87">4.4.2　遍历切片</h3>
+<p>如果要遍历列表的部分元素，可在<code>for</code>
+ 循环中使用切片。下面的示例遍历前三名队员，并打印他们的名字：</p>
+<pre class="代码无行号"><code>  players = ['charles', 'martina', 'michael', 'florence', 'eli']
+  print("Here are the first three players on my team:")
+❶ for player in players[:3]:
+      print(player.title())</code>
+</pre>
+<p>❶处的代码没有遍历整个队员列表，而只遍历前三名队员：</p>
+<pre class="代码无行号"><code>Here are the first three players on my team:
+Charles
+Martina
+Michael</code>
+</pre>
+<p>在很多情况下，切片都很有用。例如，编写游戏时，你可以在玩家退出游戏时将其最终得分加入一个列表中，然后将该列表按降序排列以获取三个最高得分，再创建一个只包含前三个得分的切片；处理数据时，可使用切片来进行批量处理；编写Web应用程序时，可使用切片来分页显示信息，并在每页显示数量合适的信息。</p>
+<h3 id="nav_point_88">4.4.3　复制列表</h3>
+<p>我们经常需要根据既有列表创建全新的列表。下面来介绍复制列表的工作原理，以及复制列表可提供极大帮助的一种情形。</p>
+<p>要复制列表，可创建一个包含整个列表的切片，方法是同时省略起始索引和终止索引（<code>[:]</code>
+ ）。这让Python创建一个始于第一个元素、终止于最后一个元素的切片，即整个列表的副本。</p>
+<p>例如，假设有一个列表包含你最喜欢的四种食品，而你想再创建一个列表，并在其中包含一位朋友喜欢的所有食品。不过，你喜欢的食品，这位朋友也都喜欢，因此可通过复制来创建这个列表：</p>
+<p>
+<em>foods.py</em>
+</p>
+<pre class="代码无行号"><code>❶ my_foods = ['pizza', 'falafel', 'carrot cake']
+❷ friend_foods = my_foods[:]
+  print("My favorite foods are:")
+  print(my_foods)
+  print("\nMy friend's favorite foods are:")
+  print(friend_foods)</code>
+</pre>
+<p>首先，创建一个你喜欢的食品列表，名为<code>my_foods</code>
+ （见❶）。然后创建一个名为<code>friend_foods</code>
+ 的新列表（见❷）。在不指定任何索引的情况下从列表<code>my_foods</code>
+ 中提取一个切片，从而创建这个列表的副本，并将该副本赋给变量<code>friend_foods</code>
+ 。打印这两个列表后，我们发现其包含的食品相同：</p>
+<pre class="代码无行号"><code>My favorite foods are:
+['pizza', 'falafel', 'carrot cake']
+My friend's favorite foods are:
+['pizza', 'falafel', 'carrot cake']</code>
+</pre>
+<p>为核实确实有两个列表，下面在每个列表中都添加一种食品，并核实每个列表都记录了相应人员喜欢的食品：</p>
+<pre class="代码无行号"><code>  my_foods = ['pizza', 'falafel', 'carrot cake']
+❶ friend_foods = my_foods[:]
+❷ my_foods.append('cannoli')
+❸ friend_foods.append('ice cream')
+  print("My favorite foods are:")
+  print(my_foods)
+  print("\nMy friend's favorite foods are:")
+  print(friend_foods)</code>
+</pre>
+<p>与前一个示例一样，首先将<code>my_foods</code>
+ 的元素复制到新列表<code>friend_foods</code>
+ 中（见❶）。接下来，在每个列表中都添加一种食品：在列表<code>my_foods</code>
+ 中添加<code>'cannoli'</code>
+ （见❷），而在<code>friend_foods</code>
+ 中添加<code>'ice cream'</code>
+ （见❸）。最后，打印这两个列表，核实这两种食品分别包含在正确的列表中。</p>
+<pre class="代码无行号"><code>  My favorite foods are:
+❹ ['pizza', 'falafel', 'carrot cake', 'cannoli']
+  My friend's favorite foods are:
+❺ ['pizza', 'falafel', 'carrot cake', 'ice cream']</code>
+</pre>
+<p>❹处的输出表明，<code>'cannoli'</code>
+ 包含在你喜欢的食品列表中，而<code>'ice cream'</code>
+ 不在。❺处的输出表明，<code>'ice cream'</code>
+ 包含在你朋友喜欢的食品列表中，而<code>'cannoli'</code>
+ 不在。如果只是将<code>my_foods</code>
+ 赋给<code>friend_foods</code>
+ ，就不能得到两个列表。例如，下面演示了在不使用切片的情况下复制列表的情况：</p>
+<pre class="代码无行号"><code>  my_foods = ['pizza', 'falafel', 'carrot cake']
+  # 这行不通:
+❶ friend_foods = my_foods
+  my_foods.append('cannoli')
+  friend_foods.append('ice cream')
+  print("My favorite foods are:")
+  print(my_foods)
+  print("\nMy friend's favorite foods are:")
+  print(friend_foods)</code>
+</pre>
+<p>这里将<code>my_foods</code>
+ 赋给<code>friend_foods</code>
+ ，而不是将<code>my_foods</code>
+ 的副本赋给<code>friend_foods</code>
+ （见❶）。这种语法实际上是让Python将新变量<code>friend_foods</code>
+ 关联到已与<code>my_foods</code>
+ 相关联的列表，因此这两个变量指向同一个列表。有鉴于此，当我们将<code>'cannoli'</code>
+ 添加到<code>my_foods</code>
+ 中时，它也将出现在<code>friend_foods</code>
+ 中。同样，虽然<code>'ice cream'</code>
+ 好像只被加入到了<code>friend_foods</code>
+ 中，但它也将出现在这两个列表中。</p>
+<p>输出表明，两个列表是相同的，这并非我们想要的结果：</p>
+<pre class="代码无行号"><code>My favorite foods are:
+['pizza', 'falafel', 'carrot cake', 'cannoli', 'ice cream']
+My friend's favorite foods are:
+['pizza', 'falafel', 'carrot cake', 'cannoli', 'ice cream']</code>
+</pre>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　暂时不要考虑这个示例中的细节。当试图使用列表的副本时结果出乎意料，基本上都要确认你是否像第一个示例那样使用切片复制了列表。</p>
+</blockquote>
+<p>　</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习4-10：切片</strong>
+ 　选择你在本章编写的一个程序，在末尾添加几行代码，以完成如下任务。</p>
+<ul>
+<li class="第2级无序列表">打印消息“The first three items in the list are:”，再使用切片来打印列表的前三个元素。</li>
+<li class="第2级无序列表">打印消息“Three items from the middle of the list are:”，再使用切片来打印列表的中间三个元素。</li>
+<li class="第2级无序列表">打印消息“The last three items in the list are:”，再使用切片来打印列表的末尾三个元素。</li>
+</ul>
+<p>
+<strong>练习4-11：你的比萨，我的比萨</strong>
+ 　在你为完成练习4-1而编写的程序中，创建比萨列表的副本，并将其赋给变量<code>friend_pizzas</code>
+ ，再完成如下任务。</p>
+<ul>
+<li class="第2级无序列表">在原来的比萨列表中添加一种比萨。</li>
+<li class="第2级无序列表">在列表<code>friend_pizzas</code>
+ 中添加另一种比萨。</li>
+<li class="第2级无序列表">核实有两个不同的列表。为此，打印消息“My favorite pizzas are:”，再使用一个<code>for</code>
+ 循环来打印第一个列表；打印消息“My friend's favorite pizzas are:”，再使用一个<code>for</code>
+ 循环来打印第二个列表。核实新增的比萨被添加到了正确的列表中。</li>
+</ul>
+<p>
+<strong>练习4-12：使用多个循环</strong>
+ 　在本节中，为节省篇幅，程序foods.py的每个版本都没有使用<code>for</code>
+ 循环来打印列表。请选择一个版本的foods.py，在其中编写两个<code>for</code>
+ 循环，将各个食品列表打印出来。</p>
+</blockquote>
+<h2 id="nav_point_89">4.5　元组</h2>
+<p>列表非常适合用于存储在程序运行期间可能变化的数据集。列表是可以修改的，这对处理网站的用户列表或游戏中的角色列表至关重要。然而，有时候你需要创建一系列不可修改的元素，元组可以满足这种需求。Python将不能修改的值称为<strong>不可变的</strong>
+ ，而不可变的列表被称为<strong>元组</strong>
+ 。</p>
+<h3 id="nav_point_90">4.5.1　定义元组</h3>
+<p>元组看起来很像列表，但使用圆括号而非中括号来标识。定义元组后，就可使用索引来访问其元素，就像访问列表元素一样。</p>
+<p>例如，如果有一个大小不应改变的矩形，可将其长度和宽度存储在一个元组中，从而确保它们是不能修改的：</p>
+<p>
+<em>dimensions.py</em>
+</p>
+<pre class="代码无行号"><code>❶ dimensions = (200, 50)
+❷ print(dimensions[0])
+  print(dimensions[1])</code>
+</pre>
+<p>首先定义元组<code>dimensions</code>
+ （见❶），为此使用了圆括号而不是方括号。接下来，分别打印该元组的各个元素，使用的语法与访问列表元素时使用的语法相同（见❷）：</p>
+<pre class="代码无行号"><code>200
+50</code>
+</pre>
+<p>下面来尝试修改元组<code>dimensions</code>
+ 的一个元素，看看结果如何：</p>
+<pre class="代码无行号"><code>  dimensions = (200, 50)
+❶ dimensions[0] = 250</code>
+</pre>
+<p>❶处的代码试图修改第一个元素的值，导致Python返回类型错误消息。由于试图修改元组的操作是被禁止的，因此Python指出不能给元组的元素赋值：</p>
+<pre class="代码无行号"><code>Traceback (most recent call last):
+  File "dimensions.py", line 2, in &lt;module&gt;
+    dimensions[0] = 250
+TypeError: 'tuple' object does not support item assignment</code>
+</pre>
+<p>这很好，因为我们希望Python在代码试图修改矩形的尺寸时引发错误。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　严格地说，元组是由逗号标识的，圆括号只是让元组看起来更整洁、更清晰。如果你要定义只包含一个元素的元组，必须在这个元素后面加上逗号：</p>
+<pre class="代码无行号"><code>my_t = (3,)</code>
+</pre>
+<p>创建只包含一个元素的元组通常没有意义，但自动生成的元组有可能只有一个元素。</p>
+</blockquote>
+<h3 id="nav_point_91">4.5.2　遍历元组中的所有值</h3>
+<p>像列表一样，也可以使用<code>for</code>
+ 循环来遍历元组中的所有值：</p>
+<pre class="代码无行号"><code>dimensions = (200, 50)
+for dimension in dimensions:
+    print(dimension)</code>
+</pre>
+<p>就像遍历列表时一样，Python返回元组中所有的元素：</p>
+<pre class="代码无行号"><code>200
+50</code>
+</pre>
+<h3 id="nav_point_92">4.5.3　修改元组变量</h3>
+<p>虽然不能修改元组的元素，但可以给存储元组的变量赋值。因此，如果要修改前述矩形的尺寸，可重新定义整个元组：</p>
+<pre class="代码无行号"><code>❶ dimensions = (200, 50)
+  print("Original dimensions:")
+  for dimension in dimensions:
+      print(dimension)
+❷ dimensions = (400, 100)
+❸ print("\nModified dimensions:")
+  for dimension in dimensions:
+      print(dimension)</code>
+</pre>
+<p>首先定义一个元组，并将其存储的尺寸打印出来（见❶）。接下来，将一个新元组关联到变量<code>dimensions</code>
+ （见❷）。然后，打印新的尺寸（见❸）。这次，Python不会引发任何错误，因为给元组变量重新赋值是合法的：</p>
+<pre class="代码无行号"><code>Original dimensions:
+200
+50
+Modified dimensions:
+400
+100</code>
+</pre>
+<p>相比于列表，元组是更简单的数据结构。如果需要存储的一组值在程序的整个生命周期内都不变，就可以使用元组。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习4-13：自助餐</strong>
+ 　有一家自助式餐馆，只提供五种简单的食品。请想出五种简单的食品，并将其存储在一个元组中。</p>
+<ul>
+<li class="第2级无序列表">使用一个<code>for</code>
+ 循环将该餐馆提供的五种食品都打印出来。</li>
+<li class="第2级无序列表">尝试修改其中的一个元素，核实Python确实会拒绝你这样做。</li>
+<li class="第2级无序列表">餐馆调整了菜单，替换了它提供的其中两种食品。请编写一个这样的代码块：给元组变量赋值，并使用一个<code>for</code>
+ 循环将新元组的每个元素都打印出来。</li>
+</ul>
+</blockquote>
+<h2 id="nav_point_93">4.6　设置代码格式</h2>
+<p>随着你编写的程序越来越长，有必要了解一些代码格式设置约定。请花时间让你的代码尽可能易于阅读。这有助于你掌握程序是做什么的，也可以帮助他人理解你编写的代码。</p>
+<p>为确保所有人编写的代码结构都大致一致，Python程序员会遵循一些格式设置约定。学会编写整洁的Python后，就能明白他人编写的Python代码的整体结构——只要他们和你遵循相同的指南。要成为专业程序员，应从现在开始就遵循这些指南，以养成良好的习惯。</p>
+<h3 id="nav_point_94">4.6.1　格式设置指南</h3>
+<p>要提出Python语言修改建议，需要编写<strong>Python改进提案</strong>
+ （Python Enhancement Proposal，PEP）。<strong>PEP 8</strong>
+ 是最古老的PEP之一，向Python程序员提供了代码格式设置指南。PEP 8的篇幅很长，但基本上与复杂的编码结构相关。</p>
+<p>Python格式设置指南的编写者深知，代码被阅读的次数比编写的次数多。代码编写出来后，调试时需要阅读；给程序添加新功能时，需要花很长的时间阅读；与其他程序员分享代码时，这些程序员也会阅读。</p>
+<p>如果一定要在让代码易于编写和易于阅读之间做出选择，Python程序员几乎总是选择后者。下面的指南可帮助你从一开始就编写出清晰的代码。</p>
+<h3 id="nav_point_95">4.6.2　缩进</h3>
+<p>PEP 8建议每级缩进都使用四个空格。这既可提高可读性，又留下了足够的多级缩进空间。</p>
+<p>在字处理文档中，大家常常使用制表符而不是空格来缩进。对于字处理文档来说，这样做的效果很好，但混合使用制表符和空格会让Python解释器感到迷惑。每款文本编辑器都提供了一种设置，可将你输入的制表符转换为指定数量的空格。你在编写代码时绝对应该使用制表符键，但一定要对编辑器进行设置，使其在文档中插入空格而不是制表符。</p>
+<p>在程序中混合使用制表符和空格可能导致极难排查的问题。如果混合使用了制表符和空格，可将文件中的所有制表符都转换为空格，大多数编辑器提供了这样的功能。</p>
+<h3 id="nav_point_96">4.6.3　行长</h3>
+<p>很多Python程序员建议每行不超过80字符。最初制定这样的指南时，在大多数计算机中，终端窗口每行只能容纳79字符。当前，计算机屏幕每行可容纳的字符数多得多，为何还要使用79字符的标准行长呢？这里有别的原因。专业程序员通常会在同一个屏幕上打开多个文件，使用标准行长可以让他们在屏幕上并排打开两三个文件时同时看到各个文件的完整行。PEP 8还建议注释的行长不应超过72字符，因为有些工具为大型项目自动生成文档时，会在每行注释开头添加格式化字符。</p>
+<p>PEP 8中有关行长的指南并非不可逾越的红线，有些小组将最大行长设置为99字符。在学习期间，你不用过多考虑代码的行长，但别忘了，协作编写程序时，大家几乎都遵守PEP 8指南。在大多数编辑器中，可以设置一个视觉标志（通常是一条竖线），让你知道不能越过的界线在什么地方。</p>
+<blockquote>
+<p>
+<strong>注意</strong>
+ 　附录B介绍了如何配置文本编辑器，使其在你按制表符键时插入四个空格，并且显示一条垂直参考线，帮助你遵守行长不超过79字符的约定。</p>
+</blockquote>
+<h3 id="nav_point_97">4.6.4　空行</h3>
+<p>要将程序的不同部分分开，可使用空行。你应该使用空行来组织程序文件，但也不能滥用。只要按本书的示例展示的那样做，就能掌握其中的平衡。例如，如果你有五行创建列表的代码，还有三行处理该列表的代码，那么用一个空行将这两部分隔开是合适的。然而，你不应使用三四个空行将其隔开。</p>
+<p>空行不会影响代码的运行，但会影响代码的可读性。Python解释器根据水平缩进情况来解读代码，但不关心垂直间距。</p>
+<h3 id="nav_point_98">4.6.5　其他格式设置指南</h3>
+<p>PEP 8还有很多其他的格式设置建议，但这些指南针对的程序大多比目前为止本书提到的程序复杂。等介绍更复杂的Python结构时，我们再来分享相关的PEP 8指南。</p>
+<blockquote>
+<p>
+<strong>动手试一试</strong>
+</p>
+<p>
+<strong>练习4-14：PEP 8</strong>
+ 　请访问Python网站并搜索“PEP 8 — Style Guide for Python Code”，阅读PEP 8格式设置指南。当前，这些指南适用的情况不多，但可以大致浏览一下。</p>
+<p>
+<strong>练习4-15：代码审核</strong>
+ 　从本章编写的程序中选择三个，根据PEP 8指南对它们进行修改。</p>
+<ul>
+<li class="第2级无序列表">每级缩进都使用四个空格。对你使用的文本编辑器进行设置，使其在你按Tab键时插入四个空格。如果你还没有这样做，现在就去做吧（有关如何设置，请参阅附录B）。</li>
+<li class="第2级无序列表">每行都不要超过80字符。对你使用的编辑器进行设置，使其在第80个字符处显示一条垂直参考线。</li>
+<li class="第2级无序列表">不要在程序文件中过多使用空行。</li>
+</ul>
+</blockquote>
+<h2 id="nav_point_99">4.7　小结</h2>
+<p>在本章中，你学习了：如何高效地处理列表中的元素；如何使用<code>for</code>
+ 循环遍历列表，Python如何根据缩进来确定程序的结构，以及如何避免一些常见的缩进错误；如何创建简单的数字列表，以及可对数字列表执行的一些操作；如何通过切片来使用列表的一部分和复制列表。你还学习了元组（它对不应变化的值提供了一定程度的保护），以及在代码变得越来越复杂时如何设置格式，使其易于阅读。</p>
+<p>在第5章中，你将学习如何使用<code>if</code>
+ 语句在不同的条件下采取不同的措施；如何将一组较复杂的条件测试组合起来，并在满足特定条件时采取相应的措施。你还将学习如何在遍历列表时，通过使用<code>if</code>
+ 语句对特定元素采取特定的措施。</p>
+<br style="page-break-after:always"/>
+<div></div>
+]]></description>
+    <pubDate>Fri, 14 Aug 2026 00:50:16 +0000</pubDate>
+    <guid isPermaLink="false">4</guid>
+</item>
+<item>
       <title><![CDATA[WorkBuddyGuide-第 2 章 WorkBuddy的下载、安装、登录与更新]]></title>
       <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%202%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E3%80%81%E7%99%BB%E5%BD%95%E4%B8%8E%E6%9B%B4%E6%96%B0/</link>
       <description><![CDATA[学习时长：约1小时；学习内容：WorkBuddy的下载渠道、Windows/macOS安装步骤、登录方式（微信/手机号）、更新方法及常见问题处理[reference:1]；学习目的：顺利完成WorkBuddy的安装与登录，进入可用状态]]></description>
@@ -7601,1050 +8373,6 @@ y_step = self.get_step()&lt;/code&gt;
 </description>
     <pubDate>Fri, 24 Jul 2026 01:18:57 +0000</pubDate>
     <guid isPermaLink="false">15</guid>
-</item>
-<item>
-    <title>Basic Python - 014 - 第 14 章 记分.epub</title>
-    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：125 分钟 (24959 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_322"&gt;第 14 章　记分&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/14_Image00001.gif" style="width: 16%" width="16%"/&gt;
- 　本章将结束游戏《外星人入侵》的开发。我们会添加一个Play按钮，用于根据需要启动游戏以及在游戏结束后重启游戏，还会修改这个游戏，使其随玩家等级提高而加快节奏，并实现一个记分系统。阅读本章后，你将掌握足够多的知识，能够开始编写随玩家等级提高而加大难度以及显示得分的游戏。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_323"&gt;14.1　添加Play按钮&lt;/h2&gt;
-&lt;p&gt;本节将添加一个Play按钮，它在游戏开始前出现，并在游戏结束后再次出现，让玩家能够开始新游戏。&lt;/p&gt;
-&lt;p&gt;当前，这个游戏在玩家运行alien_invasion.py时就开始了。下面让游戏一开始处于非活动状态，并提示玩家单击Play按钮来开始游戏。为此，像下面这样修改&lt;code&gt;GameStats&lt;/code&gt;
- 类的方法&lt;code&gt;__init__()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;game_stats.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def __init__(self, ai_game):
-        """初始化统计信息。"""
-        self.settings = ai_game.settings
-        self.reset_stats()
-        # 让游戏一开始处于非活动状态。
-        self.game_active = False&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;现在，游戏一开始将处于非活动状态，待创建Play按钮后，玩家才能开始游戏。&lt;/p&gt;
-&lt;h3 id="nav_point_324"&gt;14.1.1　创建&lt;code&gt;Button&lt;/code&gt;
- 类&lt;/h3&gt;
-&lt;p&gt;由于Pygame没有内置创建按钮的方法，我们将编写一个&lt;code&gt;Button&lt;/code&gt;
- 类，用于创建带标签的实心矩形。你可在游戏中使用这些代码来创建任何按钮。下面是&lt;code&gt;Button&lt;/code&gt;
- 类的第一部分，请将这个类保存为文件button.py：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;button.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  import pygame.font
-  class Button:
-❶     def __init__(self, ai_game, msg):
-          """初始化按钮的属性。"""
-          self.screen = ai_game.screen
-          self.screen_rect = self.screen.get_rect()
-          # 设置按钮的尺寸和其他属性。
-❷         self.width, self.height = 200, 50
-          self.button_color = (0, 255, 0)
-          self.text_color = (255, 255, 255)
-❸         self.font = pygame.font.SysFont(None, 48)
-          # 创建按钮的rect对象，并使其居中。
-❹         self.rect = pygame.Rect(0, 0, self.width, self.height)
-          self.rect.center = self.screen_rect.center
-          # 按钮的标签只需创建一次。
-❺         self._prep_msg(msg)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;首先，导入模块&lt;code&gt;pygame.font&lt;/code&gt;
- ，它让Pygame能够将文本渲染到屏幕上。方法&lt;code&gt;__init__()&lt;/code&gt;
- 接受参数&lt;code&gt;self&lt;/code&gt;
- 、对象&lt;code&gt;ai_game&lt;/code&gt;
- 和&lt;code&gt;msg&lt;/code&gt;
- ，其中&lt;code&gt;msg&lt;/code&gt;
- 是要在按钮中显示的文本（见❶）。设置按钮的尺寸（见❷），再通过设置&lt;code&gt;button_color&lt;/code&gt;
- ，让按钮的&lt;code&gt;rect&lt;/code&gt;
- 对象为亮绿色，并通过设置&lt;code&gt;text_color&lt;/code&gt;
- 让文本为白色。&lt;/p&gt;
-&lt;p&gt;在❸处，指定使用什么字体来渲染文本。实参&lt;code&gt;None&lt;/code&gt;
- 让Pygame使用默认字体，而&lt;code&gt;48&lt;/code&gt;
- 指定了文本的字号。为让按钮在屏幕上居中，创建一个表示按钮的&lt;code&gt;rect&lt;/code&gt;
- 对象（见❹），并将其&lt;code&gt;center&lt;/code&gt;
- 属性设置为屏幕的&lt;code&gt;center&lt;/code&gt;
- 属性。&lt;/p&gt;
-&lt;p&gt;Pygame处理文本的方式是，将要显示的字符串渲染为图像。在❺处，调用了&lt;code&gt;_prep_msg()&lt;/code&gt;
- 来处理这样的渲染。&lt;/p&gt;
-&lt;p&gt;
-&lt;code&gt;_prep_msg()&lt;/code&gt;
- 的代码如下：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;button.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def _prep_msg(self, msg):
-          """将msg渲染为图像，并使其在按钮上居中。"""
-❶         self.msg_image = self.font.render(msg, True, self.text_color,
-                  self.button_color)
-❷         self.msg_image_rect = self.msg_image.get_rect()
-          self.msg_image_rect.center = self.rect.center&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;方法&lt;code&gt;_prep_msg()&lt;/code&gt;
- 接受实参&lt;code&gt;self&lt;/code&gt;
- 以及要渲染为图像的文本（&lt;code&gt;msg&lt;/code&gt;
- ）。调用&lt;code&gt;font.render()&lt;/code&gt;
- 将存储在&lt;code&gt;msg&lt;/code&gt;
- 中的文本转换为图像，再将该图像存储在&lt;code&gt;self.msg_image&lt;/code&gt;
- 中（见❶）。方法&lt;code&gt;font.render()&lt;/code&gt;
- 还接受一个布尔实参，该实参指定开启还是关闭反锯齿功能（反锯齿让文本的边缘更平滑）。余下的两个实参分别是文本颜色和背景色。我们启用了反锯齿功能，并将文本的背景色设置为按钮的颜色。（如果没有指定背景色，Pygame渲染文本时将使用透明背景。）&lt;/p&gt;
-&lt;p&gt;在❷处，让文本图像在按钮上居中：根据文本图像创建一个&lt;code&gt;rect&lt;/code&gt;
- ，并将其&lt;code&gt;center&lt;/code&gt;
- 属性设置为按钮的&lt;code&gt;center&lt;/code&gt;
- 属性。&lt;/p&gt;
-&lt;p&gt;最后，创建方法&lt;code&gt;draw_button()&lt;/code&gt;
- ，用于将这个按钮显示到屏幕上：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;button.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def draw_button(self):
-        # 绘制一个用颜色填充的按钮，再绘制文本。
-        self.screen.fill(self.button_color, self.rect)
-        self.screen.blit(self.msg_image, self.msg_image_rect)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们调用&lt;code&gt;screen.fill()&lt;/code&gt;
- 来绘制表示按钮的矩形，再调用&lt;code&gt;screen.blit()&lt;/code&gt;
- 并向它传递一幅图像以及与该图像相关联的&lt;code&gt;rect&lt;/code&gt;
- ，从而在屏幕上绘制文本图像。至此，&lt;code&gt;Button&lt;/code&gt;
- 类便创建好了。&lt;/p&gt;
-&lt;h3 id="nav_point_325"&gt;14.1.2　在屏幕上绘制按钮&lt;/h3&gt;
-&lt;p&gt;我们将在&lt;code&gt;AlienInvasion&lt;/code&gt;
- 中使用&lt;code&gt;Button&lt;/code&gt;
- 类来创建一个Play按钮。首先，更新&lt;code&gt;import&lt;/code&gt;
- 语句：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-from game_stats import GameStats
-from button import Button&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;只需要一个Play按钮，因此在&lt;code&gt;AlienInvasion&lt;/code&gt;
- 类的方法&lt;code&gt;__init__()&lt;/code&gt;
- 中创建它。可将这些代码放在方法&lt;code&gt;__init__()&lt;/code&gt;
- 的末尾：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def __init__(self):
-        --snip--
-        self._create_fleet()
-        # 创建Play按钮。
-        self.play_button = Button(self, "Play")&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这些代码创建一个标签为Play的&lt;code&gt;Button&lt;/code&gt;
- 实例，但没有将它显示到屏幕上。为显示该按钮，在&lt;code&gt;_update_screen()&lt;/code&gt;
- 对其调用方法&lt;code&gt;draw_button()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _update_screen(self):
-        --snip--
-        self.aliens.draw(self.screen)
-        # 如果游戏处于非活动状态，就绘制Play按钮。
-        if not self.stats.game_active:
-            self.play_button.draw_button()
-        pygame.display.flip()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;为让Play按钮位于其他所有屏幕元素上面，在绘制其他所有游戏元素后再绘制这个按钮，然后切换到新屏幕。将这些代码放在一个&lt;code&gt;if&lt;/code&gt;
- 代码块中，让按钮仅在游戏出于非活动状态时才出现。&lt;/p&gt;
-&lt;p&gt;如果现在运行这个游戏，将在屏幕中央看到一个Play按钮，如图14-1所示。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/14_Image00014.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图14-1　游戏处于非活动状态时出现的Play按钮&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_326"&gt;14.1.3　开始游戏&lt;/h3&gt;
-&lt;p&gt;为在玩家单击Play按钮时开始新游戏，在&lt;code&gt;_check_events()&lt;/code&gt;
- 末尾添加如下&lt;code&gt;elif&lt;/code&gt;
- 代码块，以监视与该按钮相关的鼠标事件：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def _check_events(self):
-          """响应按键和鼠标事件。"""
-          for event in pygame.event.get():
-              if event.type == pygame.QUIT:
-                  --snip--
-❶             elif event.type == pygame.MOUSEBUTTONDOWN:
-❷                 mouse_pos = pygame.mouse.get_pos()
-❸                 self._check_play_button(mouse_pos)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;无论玩家单击屏幕的什么地方，Pygame都将检测到一个&lt;code&gt;MOUSEBUTTONDOWN&lt;/code&gt;
- 事件（见❶），但我们只想让这个游戏在玩家用鼠标单击Play按钮时做出响应。为此，使用了&lt;code&gt;pygame.mouse.get_pos()&lt;/code&gt;
- ，它返回一个元组，其中包含玩家单击时鼠标的&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/14_Image00003.gif"/&gt;
- 坐标和&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/14_Image00004.gif"/&gt;
- 坐标（见❷）。我们将这些值传递给新方法&lt;code&gt;_check_play_button()&lt;/code&gt;
- （见❸）。&lt;/p&gt;
-&lt;p&gt;方法&lt;code&gt;_check_play_button()&lt;/code&gt;
- 的代码如下，将它放在&lt;code&gt;_check_events()&lt;/code&gt;
- 后面：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def _check_play_button(self, mouse_pos):
-          """在玩家单击Play按钮时开始新游戏。"""
-❶         if self.play_button.rect.collidepoint(mouse_pos):
-              self.stats.game_active = True&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这里使用了&lt;code&gt;rect&lt;/code&gt;
- 的方法&lt;code&gt;collidepoint()&lt;/code&gt;
- 检查鼠标单击位置是否在Play按钮的&lt;code&gt;rect&lt;/code&gt;
- 内（见❶）。如果是，就将&lt;code&gt;game_active&lt;/code&gt;
- 设置为&lt;code&gt;True&lt;/code&gt;
- ，让游戏开始！&lt;/p&gt;
-&lt;p&gt;至此，现在应该能够开始这个游戏了。游戏结束时，应将&lt;code&gt;game_active&lt;/code&gt;
- 设置为&lt;code&gt;False&lt;/code&gt;
- ，并重新显示Play按钮。&lt;/p&gt;
-&lt;h3 id="nav_point_327"&gt;14.1.4　重置游戏&lt;/h3&gt;
-&lt;p&gt;前面编写的代码只处理了玩家第一次单击Play按钮的情况，而没有处理游戏结束的情况，因为没有重置导致游戏结束的条件。&lt;/p&gt;
-&lt;p&gt;为在玩家每次单击Play按钮时都重置游戏，需要重置统计信息、删除现有的外星人和子弹、创建一群新的外星人并让飞船居中，如下所示：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def _check_play_button(self, mouse_pos):
-          """在玩家单击Play按钮时开始新游戏。"""
-          if self.play_button.rect.collidepoint(mouse_pos):
-              # 重置游戏统计信息。
-❶             self.stats.reset_stats()
-              self.stats.game_active = True
-              # 清空余下的外星人和子弹。
-❷             self.aliens.empty()
-              self.bullets.empty()
-              # 创建一群新的外星人并让飞船居中。
-❸             self._create_fleet()
-              self.ship.center_ship()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，重置游戏统计信息，给玩家提供三艘新飞船。接下来，将&lt;code&gt;game_active&lt;/code&gt;
- 设置为&lt;code&gt;True&lt;/code&gt;
- 。这样，这个方法的代码执行完毕后，游戏就将开始。清空编组&lt;code&gt;aliens&lt;/code&gt;
- 和&lt;code&gt;bullets&lt;/code&gt;
- （见❷），然后创建一群新的外星人并将飞船居中（见❸）。&lt;/p&gt;
-&lt;p&gt;现在，每当玩家单击Play按钮时，这个游戏都将正确地重置，让玩家想玩多少次就玩多少次！&lt;/p&gt;
-&lt;h3 id="nav_point_328"&gt;14.1.5　将Play按钮切换到非活动状态&lt;/h3&gt;
-&lt;p&gt;当前存在一个问题：即便Play按钮不可见，玩家单击其所在的区域时，游戏依然会做出响应。游戏开始后，如果玩家不小心单击了Play按钮所处的区域，游戏将重新开始！&lt;/p&gt;
-&lt;p&gt;为修复这个问题，可让游戏仅在&lt;code&gt;game_active&lt;/code&gt;
- 为&lt;code&gt;False&lt;/code&gt;
- 时才开始：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def _check_play_button(self, mouse_pos):
-          """玩家单击Play按钮时开始新游戏。"""
-❶         button_clicked = self.play_button.rect.collidepoint(mouse_pos)
-❷         if button_clicked and not self.stats.game_active:
-              # 重置游戏统计信息。
-              self.stats.reset_stats()
-              --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;标志&lt;code&gt;button_clicked&lt;/code&gt;
- 的值为&lt;code&gt;True&lt;/code&gt;
- 或&lt;code&gt;False&lt;/code&gt;
- （见❶）。仅当玩家单击了Play按钮&lt;strong&gt;且&lt;/strong&gt;
- 游戏当前处于非活动状态时，游戏才重新开始（见❷）。要测试这种行为，可开始新游戏，并不断单击Play按钮所在的区域。如果一切都像预期的那样工作，单击Play按钮所处的区域应该没有任何影响。&lt;/p&gt;
-&lt;h3 id="nav_point_329"&gt;14.1.6　隐藏鼠标光标&lt;/h3&gt;
-&lt;p&gt;为让玩家能够开始游戏，要让鼠标光标可见，但游戏开始后，光标只会添乱。为修复这种问题，需要在游戏处于活动状态时让光标不可见。可在方法&lt;code&gt;_check_play_button()&lt;/code&gt;
- 末尾的&lt;code&gt;if&lt;/code&gt;
- 代码块中完成这项任务：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _check_play_button(self, mouse_pos):
-        """在玩家单击Play按钮时开始新游戏。"""
-        button_clicked = self.play_button.rect.collidepoint(mouse_pos)
-        if button_clicked and not self.stats.game_active:
-            --snip--
-            # 隐藏鼠标光标。
-            pygame.mouse.set_visible(False)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;通过向&lt;code&gt;set_visible()&lt;/code&gt;
- 传递&lt;code&gt;False&lt;/code&gt;
- ，让Pygame在光标位于游戏窗口内时将其隐藏起来。&lt;/p&gt;
-&lt;p&gt;游戏结束后，将重新显示光标，让玩家能够单击Play按钮来开始新游戏。相关的代码如下：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _ship_hit(self):
-        """响应飞船被外星人撞到。"""
-        if self.stats.ships_left &amp;gt; 0:
-            --snip--
-        else:
-            self.stats.game_active = False
-            pygame.mouse.set_visible(True)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在&lt;code&gt;_ship_hit()&lt;/code&gt;
- 中，在游戏进入非活动状态后，立即让光标可见。关注这样的细节让游戏显得更专业，也让玩家能够专注于玩游戏而不是去费力理解用户界面。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习14-1：按P键开始新游戏&lt;/strong&gt;
- 　鉴于游戏《外星人入侵》使用键盘来控制飞船，最好也能够让玩家通过按键来开始游戏。请添加在玩家按P键时开始游戏的代码。也许这样做会有所帮助：将&lt;code&gt;_check_play_button()&lt;/code&gt;
- 的一些代码提取出来，放到一个名为&lt;code&gt;_start_game()&lt;/code&gt;
- 的方法中，并在&lt;code&gt;_check_play_button()&lt;/code&gt;
- 和&lt;code&gt;_check_keydown_events()&lt;/code&gt;
- 中调用这个方法。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习14-2：射击练习&lt;/strong&gt;
- 　创建一个矩形，让它在屏幕右边缘以固定的速度上下移动。然后，在屏幕左边缘创建一艘飞船，玩家可上下移动它来射击前述矩形标靶。添加一个用于开始游戏的Play按钮，在玩家三次未击中目标时结束游戏，并重新显示Play按钮，让玩家能够单击该按钮来重新开始游戏。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_330"&gt;14.2　提高等级&lt;/h2&gt;
-&lt;p&gt;当前，将整群外星人消灭干净后，玩家将提高一个等级，但游戏的难度没变。下面来增加一点趣味性：每当玩家将屏幕上的外星人消灭干净后，都加快游戏的节奏，让游戏玩起来更难。&lt;/p&gt;
-&lt;h3 id="nav_point_331"&gt;14.2.1　修改速度设置&lt;/h3&gt;
-&lt;p&gt;首先重新组织&lt;code&gt;Settings&lt;/code&gt;
- 类，将游戏设置划分成静态和动态两组。对于随着游戏进行而变化的设置，还要确保在开始新游戏时进行重置。settings.py的方法&lt;code&gt;__init__()&lt;/code&gt;
- 如下：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def __init__(self):
-          """初始化游戏的静态设置。"""
-          #屏幕设置
-          self.screen_width = 1200
-          self.screen_height = 800
-          self.bg_color = (230, 230, 230)
-          # 飞船设置
-          self.ship_limit = 3
-          # 子弹设置
-          self.bullet_width = 3
-          self.bullet_height = 15
-          self.bullet_color = 60, 60, 60
-          self.bullets_allowed = 3
-          # 外星人设置
-          self.fleet_drop_speed = 10
-          # 加快游戏节奏的速度。
-❶         self.speedup_scale = 1.1
-❷         self.initialize_dynamic_settings()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;依然在&lt;code&gt;__init__()&lt;/code&gt;
- 中初始化静态设置。在❶处，添加设置&lt;code&gt;speedup_scale&lt;/code&gt;
- ，用于控制游戏节奏的加快速度：2表示玩家每提高一个等级，游戏的节奏就翻一倍；1表示游戏节奏始终不变。将其设置为1.1能够将游戏节奏提高到足够快，让游戏既有难度又并非不可完成。最后，调用&lt;code&gt;initialize_dynamic_settings()&lt;/code&gt;
- 初始化随游戏进行而变化的属性（见❷）。&lt;/p&gt;
-&lt;p&gt;
-&lt;code&gt;initialize_dynamic_settings()&lt;/code&gt;
- 的代码如下：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def initialize_dynamic_settings(self):
-        """初始化随游戏进行而变化的设置。"""
-        self.ship_speed = 1.5
-        self.bullet_speed = 3.0
-        self.alien_speed = 1.0
-        # fleet_direction为1表示向右，为-1表示向左。
-        self.fleet_direction = 1&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这个方法设置飞船、子弹和外星人的初始速度。随着游戏的进行，将提高这些速度。每当玩家开始新游戏时，都将重置这些速度。在这个方法中，还设置了&lt;code&gt;fleet_direction&lt;/code&gt;
- ，使得游戏刚开始时，外星人总是向右移动。不需要增大&lt;code&gt;fleet_drop_speed&lt;/code&gt;
- 的值，因为外星人移动的速度越快，到达屏幕底端所需的时间越短。&lt;/p&gt;
-&lt;p&gt;为在玩家的等级提高时提高飞船、子弹和外星人的速度，编写一个名为&lt;code&gt;increase_speed()&lt;/code&gt;
- 的新方法：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def increase_speed(self):
-        """提高速度设置"""
-        self.ship_speed *= self.speedup_scale
-        self.bullet_speed *= self.speedup_scale
-        self.alien_speed *= self.speedup_scale&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;为提高这些游戏元素的速度，将每个速度设置都乘以&lt;code&gt;speedup_scale&lt;/code&gt;
- 的值。&lt;/p&gt;
-&lt;p&gt;在&lt;code&gt;_check_bullet_alien_collisions()&lt;/code&gt;
- 中，在整群外星人都被消灭后调用&lt;code&gt;increase_speed()&lt;/code&gt;
- 来加快游戏的节奏：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _check_bullet_alien_collisions(self):
-        --snip--
-        if not self.aliens:
-            # 删除现有的子弹并创建一群新的外星人。
-            self.bullets.empty()
-            self._create_fleet()
-            self.settings.increase_speed()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;通过修改速度设置&lt;code&gt;ship_speed&lt;/code&gt;
- 、&lt;code&gt;alien_speed&lt;/code&gt;
- 和&lt;code&gt;bullet_speed&lt;/code&gt;
- 的值，足以加快整个游戏的节奏！&lt;/p&gt;
-&lt;h3 id="nav_point_332"&gt;14.2.2　重置速度&lt;/h3&gt;
-&lt;p&gt;每当玩家开始新游戏时，都需要将发生了变化的设置重置为初始值，否则新游戏开始时，速度设置将为前一次提高后的值：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _check_play_button(self, mouse_pos):
-        """在玩家单击Play按钮时开始新游戏。"""
-        button_clicked = self.play_button.rect.collidepoint(mouse_pos)
-        if button_clicked and not self.stats.game_active:
-            # 重置游戏设置。
-            self.settings.initialize_dynamic_settings()
-            --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;现在，游戏《外星人入侵》玩起来更有趣，也更有挑战性了。每当玩家将屏幕上的外星人消灭干净后，游戏都将加快节奏，因此难度更大。如果游戏的难度提高得太快，可降低&lt;code&gt;settings.speedup_scale&lt;/code&gt;
- 的值；如果游戏的挑战性不足，可稍微提高这个设置的值。找出这个设置的最佳值，让难度的提高速度相对合理：一开始的几群外星人很容易消灭干净，接下来的几群消灭起来有一定难度，但也不是不可能，而要将之后的外星人群消灭干净几乎不可能。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习14-3：有一定难度的射击练习&lt;/strong&gt;
- 　以你为完成练习14-2而做的工作为基础，让标靶的移动速度随游戏进行而加快，并在玩家单击Play按钮时将其重置为初始值。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习14-4：难度等级&lt;/strong&gt;
- 　在游戏《外星人入侵》中创建一组按钮，让玩家选择起始难度等级。每个按钮都给&lt;code&gt;Settings&lt;/code&gt;
- 中的属性指定合适的值，以实现相应的难度等级。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_333"&gt;14.3　记分&lt;/h2&gt;
-&lt;p&gt;下面来实现一个记分系统，以实时跟踪玩家的得分，并显示最高得分、等级和余下的飞船数。&lt;/p&gt;
-&lt;p&gt;得分是游戏的一项统计信息，因此在&lt;code&gt;GameStats&lt;/code&gt;
- 中添加一个&lt;code&gt;score&lt;/code&gt;
- 属性：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;game_stats.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;class GameStats:
-    --snip--
-    def reset_stats(self):
-        """初始化随游戏进行可能变化的统计信息。"""
-        self.ships_left = self.ai_settings.ship_limit
-        self.score = 0&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;为在每次开始游戏时都重置得分，我们在&lt;code&gt;reset_stats()&lt;/code&gt;
- 而不是&lt;code&gt;__init__()&lt;/code&gt;
- 中初始化&lt;code&gt;score&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;h3 id="nav_point_334"&gt;14.3.1　显示得分&lt;/h3&gt;
-&lt;p&gt;为在屏幕上显示得分，首先创建一个新类&lt;code&gt;Scoreboard&lt;/code&gt;
- 。当前，这个类只显示当前得分，但后面也将使用它来显示最高得分、等级和余下的飞船数。下面是这个类的前半部分，被保存为文件scoreboard.py：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  import pygame.font
-  class Scoreboard:
-      """显示得分信息的类。"""
-❶     def __init__(self, ai_game):
-          """初始化显示得分涉及的属性。"""
-          self.screen = ai_game.screen
-          self.screen_rect = self.screen.get_rect()
-          self.settings = ai_game.settings
-          self.stats = ai_game.stats
-          # 显示得分信息时使用的字体设置。
-❷         self.text_color = (30, 30, 30)
-❸         self.font = pygame.font.SysFont(None, 48)
-          # 准备初始得分图像。
-❹         self.prep_score()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;由于&lt;code&gt;Scoreboard&lt;/code&gt;
- 在屏幕上显示文本，首先导入模块&lt;code&gt;pygame.font&lt;/code&gt;
- 。接下来，在&lt;code&gt;__init__()&lt;/code&gt;
- 中包含形参&lt;code&gt;ai_game&lt;/code&gt;
- ，以便访问报告跟踪的值所需的对象&lt;code&gt;settings&lt;/code&gt;
- 、&lt;code&gt;screen&lt;/code&gt;
- 和&lt;code&gt;stats&lt;/code&gt;
- （见❶）。然后，设置文本颜色（见❷）并实例化一个字体对象（见❸）。&lt;/p&gt;
-&lt;p&gt;为将要显示的文本转换为图像，调用&lt;code&gt;prep_score()&lt;/code&gt;
- （见❹），其定义如下：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def prep_score(self):
-           """将得分转换为一幅渲染的图像。"""
-❶         score_str = str(self.stats.score)
-❷         self.score_image = self.font.render(score_str, True,
-                  self.text_color, self.settings.bg_color)
-          # 在屏幕右上角显示得分。
-❸         self.score_rect = self.score_image.get_rect()
-❹         self.score_rect.right = self.screen_rect.right - 20
-❺         self.score_rect.top = 20&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在&lt;code&gt;prep_score()&lt;/code&gt;
- 中，将数值&lt;code&gt;stats.score&lt;/code&gt;
- 转换为字符串（见❶），再将这个字符串传递给创建图像的&lt;code&gt;render()&lt;/code&gt;
- （见❷）。为在屏幕上清晰地显示得分，向&lt;code&gt;render()&lt;/code&gt;
- 传递屏幕背景色和文本颜色。&lt;/p&gt;
-&lt;p&gt;将得分放在屏幕右上角，并在得分增大导致数变宽时让其向左延伸。为确保得分始终锚定在屏幕右边，创建一个名为&lt;code&gt;score_rect&lt;/code&gt;
- 的&lt;code&gt;rect&lt;/code&gt;
- （见❸），让其右边缘与屏幕右边缘相距20像素（见❹），并让其上边缘与屏幕上边缘也相距20像素（见❺）。&lt;/p&gt;
-&lt;p&gt;接下来，创建方法&lt;code&gt;show_score()&lt;/code&gt;
- ，用于显示渲染好的得分图像：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def show_score(self):
-         """在屏幕上显示得分。"""
-         self.screen.blit(self.score_image, self.score_rect)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这个方法在屏幕上显示得分图像，并将其放在&lt;code&gt;score_rect&lt;/code&gt;
- 指定的位置。&lt;/p&gt;
-&lt;h3 id="nav_point_335"&gt;14.3.2　创建记分牌&lt;/h3&gt;
-&lt;p&gt;为显示得分，在&lt;code&gt;AlienInvasion&lt;/code&gt;
- 中创建一个&lt;code&gt;Scoreboard&lt;/code&gt;
- 实例。先来更新&lt;code&gt;import&lt;/code&gt;
- 语句：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-from game_stats import GameStats
-from scoreboard import Scoreboard
---snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;接下来，在方法&lt;code&gt;__init__()&lt;/code&gt;
- 中创建一个&lt;code&gt;Scoreboard&lt;/code&gt;
- 实例：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def __init__(self):
-        --snip--
-        pygame.display.set_caption("Alien Invasion")
-        # 创建存储游戏统计信息的实例，
-        #    并创建记分牌。
-        self.stats = GameStats(self)
-        self.sb = Scoreboard(self)
-        --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;然后，在&lt;code&gt;_update_screen()&lt;/code&gt;
- 中将记分牌绘制到屏幕上：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _update_screen(self):
-        --snip--
-        self.aliens.draw(self.screen)
-        #显示得分。
-        self.sb.show_score()
-        # 如果游戏处于非活动状态，就显示Play按钮。
-        --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在显示Play按钮前调用&lt;code&gt;show_score()&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;如果现在运行这个游戏，将在屏幕右上角看到0。（当前，我们只想在进一步开发记分系统前确认得分出现在正确的地方。）图14-2显示了游戏开始前的得分。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/14_Image00015.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图14-2　得分出现在屏幕右上角&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;下面来指定每个外星人值多少分！&lt;/p&gt;
-&lt;h3 id="nav_point_336"&gt;14.3.3　在外星人被消灭时更新得分&lt;/h3&gt;
-&lt;p&gt;为在屏幕上实时显示得分，每当有外星人被击中时，都更新&lt;code&gt;stats.score&lt;/code&gt;
- 的值，再调用&lt;code&gt;prep_score()&lt;/code&gt;
- 更新得分图像。但在此之前，需要指定玩家每击落一个外星人将得到多少分：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def initialize_dynamic_settings(self):
-        --snip--
-        # 记分
-        self.alien_points = 50&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;随着游戏的进行，将提高每个外星人的分数。为确保每次开始新游戏时这个值都会被重置，我们在&lt;code&gt;initialize_dynamic_settings()&lt;/code&gt;
- 中设置它。&lt;/p&gt;
-&lt;p&gt;在&lt;code&gt;_check_bullet_alien_collisions()&lt;/code&gt;
- 中，每当有外星人被击落时，都更新得分：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _check_bullet_alien_collisions(self):
-        """响应子弹和外星人发生碰撞。"""
-        # 删除彼此碰撞的子弹和外星人。
-        collisions = pygame.sprite.groupcollide(
-                self.bullets, self.aliens, True, True)
-        if collisions:
-            self.stats.score += self.settings.alien_points
-            self.sb.prep_score()
-        --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;有子弹击中外星人时，Pygame返回一个字典（&lt;code&gt;collisions&lt;/code&gt;
- ）。我们检查这个字典是否存在，如果存在，就将得分加上一个外星人的分数（见❶）。接下来，调用&lt;code&gt;prep_score()&lt;/code&gt;
- 来创建一幅包含最新得分的新图像。&lt;/p&gt;
-&lt;p&gt;如果现在运行这个游戏，得分将不断增加！&lt;/p&gt;
-&lt;h3 id="nav_point_337"&gt;14.3.4　重置得分&lt;/h3&gt;
-&lt;p&gt;当前，仅在有外星人被射杀&lt;strong&gt;之后&lt;/strong&gt;
- 生成得分。这在大多数情况下可行，但从开始新游戏到有外星人被射杀之间，显示的是上一次的得分。&lt;/p&gt;
-&lt;p&gt;为修复这个问题，可在开始新游戏时生成得分：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _check_play_button(self, mouse_pos):
-        --snip--
-        if button_clicked and not self.stats.game_active:
-            --snip--
-            # 重置游戏统计信息。
-            self.stats.reset_stats()
-            self.stats.game_active = True
-            self.sb.prep_score()
-            --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;开始新游戏时，我们重置游戏统计信息再调用&lt;code&gt;prep_score()&lt;/code&gt;
- 。此时生成的记分牌上显示的得分为零。&lt;/p&gt;
-&lt;h3 id="nav_point_338"&gt;14.3.5　将消灭的每个外星人都计入得分&lt;/h3&gt;
-&lt;p&gt;当前的代码可能会遗漏一些被消灭的外星人。例如，如果在一次循环中，有两颗子弹击中了外星人，或者因子弹较宽而同时击中了多个外星人，玩家将只能得到一个外星人的分数。为修复这种问题，我们来调整检测子弹和外星人碰撞的方式。&lt;/p&gt;
-&lt;p&gt;在&lt;code&gt;_check_bullet_alien_collisions()&lt;/code&gt;
- 中，与外星人碰撞的子弹都是字典&lt;code&gt;collisions&lt;/code&gt;
- 中的一个键，而与每颗子弹相关的值都是一个列表，其中包含该子弹击中的外星人。我们遍历字典&lt;code&gt;collisions&lt;/code&gt;
- ，确保将消灭的每个外星人都计入得分：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  def _check_bullet_alien_collisions(self):
-      --snip--
-      if collisions:
-❶         for aliens in collisions.values():
-              self.stats.score += self.settings.alien_points * len(aliens)
-          self.sb.prep_score()
-      --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;如果字典&lt;code&gt;collisions&lt;/code&gt;
- 存在，就遍历其中的所有值。别忘了，每个值都是一个列表，包含被同一颗子弹击中的所有外星人。对于每个列表，都将其包含的外星人数量乘以一个外星人的分数，并将结果加入当前得分。为测试这一点，请将子弹宽度改为300像素，并核实得到了其击中的每个外星人的分数，再将子弹宽度恢复正常值。&lt;/p&gt;
-&lt;h3 id="nav_point_339"&gt;14.3.6　提高分数&lt;/h3&gt;
-&lt;p&gt;鉴于玩家每提高一个等级，游戏都变得更难，因此处于较高的等级时，外星人的分数应更高。为实现这种功能，需要编写在游戏节奏加快时提高分数的代码：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  class Settings:
-      """存储游戏《外星人入侵》的所有设置的类。"""
-      def __init__(self):
-          --snip--
-          # 加快游戏节奏的速度。
-          self.speedup_scale = 1.1
-          # 外星人分数的提高速度。
-❶         self.score_scale = 1.5
-          self.initialize_dynamic_settings()
-      def initialize_dynamic_settings(self):
-          --snip--
-      def increase_speed(self):
-          """提高速度设置和外星人分数。"""
-          self.ship_speed *= self.speedup_scale
-          self.bullet_speed *= self.speedup_scale
-          self.alien_speed *= self.speedup_scale
-❷         self.alien_points = int(self.alien_points * self.score_scale)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们定义了分数的提高速度，并称之为&lt;code&gt;score_scale&lt;/code&gt;
- （见❶）。较低的节奏加快速度（1.1）让游戏很快变得极具挑战性，但为了让记分发生显著的变化，需要将分数的提高速度设置为更大的值（1.5）。现在，在加快游戏节奏的同时，提高了每个外星人的分数（见❷）。为让分数为整数，使用了函数&lt;code&gt;int()&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;为显示外星人的分数，在&lt;code&gt;Settings&lt;/code&gt;
- 的方法&lt;code&gt;increase_speed()&lt;/code&gt;
- 中调用函数&lt;code&gt;print()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def increase_speed(self):
-        --snip--
-        self.alien_points = int(self.alien_points * self.score_scale)
-        print(self.alien_points)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;现在每当提高一个等级时，你都将在终端窗口看到新的分数值。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　确认分数在不断增加后，一定要删除调用函数&lt;code&gt;print()&lt;/code&gt;
- 的代码，否则可能影响游戏的性能，分散玩家的注意力。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_340"&gt;14.3.7　舍入得分&lt;/h3&gt;
-&lt;p&gt;大多数街机风格的射击游戏将得分显示为10的整数倍，下面让记分系统遵循这个原则。我们还将设置得分的格式，在大数中添加用逗号表示的千位分隔符。在&lt;code&gt;Scoreboard&lt;/code&gt;
- 中执行这种修改：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def prep_score(self):
-          """将得分转换为渲染的图像。"""
-❶         rounded_score = round(self.stats.score, -1)
-❷         score_str = "{:,}".format(rounded_score)
-          self.score_image = self.font.render(score_str, True,
-                  self.text_color, self.settings.bg_color)
-          --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;函数&lt;code&gt;round()&lt;/code&gt;
- 通常让小数精确到小数点后某一位，其中小数位数是由第二个实参指定的。然而，如果将第二个实参指定为负数，&lt;code&gt;round()&lt;/code&gt;
- 将舍入到最近的10的整数倍，如10、100、1000等。❶处的代码让Python将&lt;code&gt;stats.score&lt;/code&gt;
- 的值舍入到最近的10的整数倍，并将结果存储到&lt;code&gt;rounded_score&lt;/code&gt;
- 中。&lt;/p&gt;
-&lt;p&gt;在❷处，使用一个字符串格式设置指令，让Python将数值转换为字符串时在其中插入逗号。例如，输出为&lt;code&gt;1,000,000&lt;/code&gt;
- 而不是&lt;code&gt;1000000&lt;/code&gt;
- 。如果现在运行这个游戏，看到的得分将是10的整数倍，即便得分很高亦如此，如图14-3所示。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/14_Image00016.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图14-3　得分为10的整数倍，并将逗号用作千分位分隔符&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_341"&gt;14.3.8　最高得分&lt;/h3&gt;
-&lt;p&gt;每个玩家都想超过游戏的最高得分纪录。下面来跟踪并显示最高得分，给玩家提供要超越的目标。我们将最高得分存储在&lt;code&gt;GameStats&lt;/code&gt;
- 中：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;game_stats.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def __init__(self, ai_game):
-        --snip--
-        # 任何情况下都不应重置最高得分。
-        self.high_score = 0&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;因为在任何情况下都不会重置最高得分，所以在&lt;code&gt;__init__()&lt;/code&gt;
- 而不是&lt;code&gt;reset_stats()&lt;/code&gt;
- 中初始化&lt;code&gt;high_score&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;下面来修改&lt;code&gt;Scoreboard&lt;/code&gt;
- 以显示最高得分。先来修改方法&lt;code&gt;__init__()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def __init__(self, ai_game):
-          --snip--
-          # 准备包含最高得分和当前得分的图像。
-          self.prep_score()
-❶         self.prep_high_score()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;最高得分将与当前得分分开显示，因此需要编写一个新方法&lt;code&gt;prep_high_score()&lt;/code&gt;
- ，用于准备包含最高得分的图像（见❶）。&lt;/p&gt;
-&lt;p&gt;方法&lt;code&gt;prep_high_score()&lt;/code&gt;
- 的代码如下：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def prep_high_score(self):
-          """将最高得分转换为渲染的图像。"""
-❶         high_score = round(self.stats.high_score, -1)
-          high_score_str = "{:,}".format(high_score)
-❷         self.high_score_image = self.font.render(high_score_str, True,
-                   self.text_color, self.settings.bg_color)
-           # 将最高得分放在屏幕顶部中央。
-           self.high_score_rect = self.high_score_image.get_rect()
-❸          self.high_score_rect.centerx = self.screen_rect.centerx
-❹          self.high_score_rect.top = self.score_rect.top&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;将最高得分舍入到最近的10的整数倍，并添加用逗号表示的千分位分隔符（见❶）。然后，根据最高得分生成一幅图像（见❷），使其水平居中（见❸），并将其&lt;code&gt;top&lt;/code&gt;
- 属性设置为当前得分图像的&lt;code&gt;top&lt;/code&gt;
- 属性（见❹）。&lt;/p&gt;
-&lt;p&gt;现在，方法&lt;code&gt;show_score()&lt;/code&gt;
- 需要在屏幕右上角显示当前得分，并在屏幕顶部中央显示最高得分：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def show_score(self):
-        """在屏幕上显示得分。"""
-        self.screen.blit(self.score_image, self.score_rect)
-        self.screen.blit(self.high_score_image, self.high_score_rect)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;为检查是否诞生了新的最高得分，在&lt;code&gt;Scoreboard&lt;/code&gt;
- 中添加一个新方法&lt;code&gt;check_high_score()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def check_high_score(self):
-        """检查是否诞生了新的最高得分。"""
-        if self.stats.score &amp;gt; self.stats.high_score:
-            self.stats.high_score = self.stats.score
-            self.prep_high_score()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;方法&lt;code&gt;check_high_score()&lt;/code&gt;
- 比较当前得分和最高得分。如果当前得分更高，就更新&lt;code&gt;high_score&lt;/code&gt;
- 的值，并调用&lt;code&gt;prep_high_score()&lt;/code&gt;
- 来更新包含最高得分的图像。&lt;/p&gt;
-&lt;p&gt;在&lt;code&gt;_check_bullet_alien_collisions()&lt;/code&gt;
- 中，每当有外星人被消灭时，都需要在更新得分后调用&lt;code&gt;check_high_score()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _check_bullet_alien_collisions(self):
-        --snip--
-        if collisions:
-            for aliens in collisions.values():
-                self.stats.score += self.settings.alien_points * len(aliens)
-            self.sb.prep_score()
-            self.sb.check_high_score()
-        --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;如果字典&lt;code&gt;collisions&lt;/code&gt;
- 存在，就根据消灭了多少外星人更新得分，再调用&lt;code&gt;check_high_score()&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;第一次玩这个游戏时，当前得分就是最高得分，因此两个地方显示的都是当前得分。但再次开始该游戏时，最高得分会出现在中央，而当前得分则出现在右边，如图14-4所示。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/14_Image00017.gif" style="width: 80%" width="80%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图14-4　最高得分显示在屏幕顶部中央&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_342"&gt;14.3.9　显示等级&lt;/h3&gt;
-&lt;p&gt;为在游戏中显示玩家的等级，首先需要在&lt;code&gt;GameStats&lt;/code&gt;
- 中添加一个表示当前等级的属性。为确保每次开始新游戏时都重置等级，在&lt;code&gt;reset_stats()&lt;/code&gt;
- 中初始化它：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;game_stats.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def reset_stats(self):
-        """初始化随游戏进行可能变化的统计信息。"""
-        self.ships_left = self.settings.ship_limit
-        self.score = 0
-        self.level = 1&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;为了让&lt;code&gt;Scoreboard&lt;/code&gt;
- 显示当前等级，在&lt;code&gt;__init__()&lt;/code&gt;
- 中调用一个新方法&lt;code&gt;prep_level()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def __init__(self, ai_game):
-        --snip--
-        self.prep_high_score()
-        self.prep_level()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;
-&lt;code&gt;prep_level()&lt;/code&gt;
- 的代码如下：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def prep_level(self):
-          """将等级转换为渲染的图像。"""
-          level_str = str(self.stats.level)
-❶         self.level_image = self.font.render(level_str, True,
-                  self.text_color, self.settings.bg_color)
-          # 将等级放在得分下方。
-          self.level_rect = self.level_image.get_rect()
-❷         self.level_rect.right = self.score_rect.right
-❸         self.level_rect.top = self.score_rect.bottom + 10&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;方法&lt;code&gt;prep_level()&lt;/code&gt;
- 根据存储在&lt;code&gt;stats.level&lt;/code&gt;
- 中的值创建一幅图像（见❶），并将其&lt;code&gt;right&lt;/code&gt;
- 属性设置为得分的&lt;code&gt;right&lt;/code&gt;
- 属性（见❷）。然后，将&lt;code&gt;top&lt;/code&gt;
- 属性设置为比得分图像的&lt;code&gt;bottom&lt;/code&gt;
- 属性大10像素，以便在得分和等级之间留出一定的空间（见❸）。&lt;/p&gt;
-&lt;p&gt;还需要更新&lt;code&gt;show_score()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def show_score(self):
-        """在屏幕上显示得分和等级。"""
-        self.screen.blit(self.score_image, self.score_rect)
-        self.screen.blit(self.high_score_image, self.high_score_rect)
-        self.screen.blit(self.level_image, self.level_rect)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;新增的代码行在屏幕上显示等级图像。&lt;/p&gt;
-&lt;p&gt;我们在&lt;code&gt;_check_bullet_alien_collisions()&lt;/code&gt;
- 中提高等级并更新等级图像：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _check_bullet_alien_collisions(self):
-        --snip--
-        if not self.aliens:
-            # 删除现有的子弹并新建一群外星人。
-            self.bullets.empty()
-            self._create_fleet()
-            self.settings.increase_speed()
-            # 提高等级。
-            self.stats.level += 1
-            self.sb.prep_level()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;如果整群外星人都被消灭，就将&lt;code&gt;stats.level&lt;/code&gt;
- 的值加1，并调用&lt;code&gt;prep_level()&lt;/code&gt;
- 确保正确地显示了新等级。&lt;/p&gt;
-&lt;p&gt;为确保在开始新游戏时更新等级图像，还需在玩家单击按钮Play时调用&lt;code&gt;prep_level()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _check_play_button(self, mouse_pos):
-        --snip--
-         if button_clicked and not self.stats.game_active:
-             --snip--
-             self.sb.prep_score()
-             self.sb.prep_level()
-             --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这里在调用&lt;code&gt;prep_score()&lt;/code&gt;
- 后立即调用&lt;code&gt;prep_level()&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;现在可以知道到了多少级，如图14-5所示。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/14_Image00018.gif" style="width: 80%" width="80%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图14-5　当前等级显示在当前得分的正下方&lt;/strong&gt;
-&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　在一些经典游戏中，得分带有标签，如Score、High Score和Level。这里没有显示这些标签，游戏开始后，每个数的含义将一目了然。要包含这些标签，只需在&lt;code&gt;Scoreboard&lt;/code&gt;
- 中调用&lt;code&gt;font.render()&lt;/code&gt;
- 前，将它们添加到得分字符串中。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_343"&gt;14.3.10　显示余下的飞船数&lt;/h3&gt;
-&lt;p&gt;最后来显示玩家还有多少艘飞船，但使用图形而不是数字。为此，在屏幕左上角绘制飞船图像来指出还余下多少艘飞船，就像众多经典的街机游戏中那样。&lt;/p&gt;
-&lt;p&gt;首先，需要让&lt;code&gt;Ship&lt;/code&gt;
- 继承&lt;code&gt;Sprite&lt;/code&gt;
- ，以便创建飞船编组：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;ship.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  import pygame
-  from pygame.sprite import Sprite
-❶ class Ship(Sprite):
-      """管理飞船的类。"""
-      def __init__(self, ai_game):
-          """初始化飞船并设置其起始位置。"""
-❷         super().__init__()
-          --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这里导入了&lt;code&gt;Sprite&lt;/code&gt;
- ，让&lt;code&gt;Ship&lt;/code&gt;
- 继承&lt;code&gt;Sprite&lt;/code&gt;
- （见❶），并在&lt;code&gt;__init__()&lt;/code&gt;
- 的开头调用&lt;code&gt;super()&lt;/code&gt;
- （见❷）。&lt;/p&gt;
-&lt;p&gt;接下来，需要修改&lt;code&gt;Scoreboard&lt;/code&gt;
- ，以创建可供显示的飞船编组。下面是其中的&lt;code&gt;import&lt;/code&gt;
- 语句：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;import pygame.font
-from pygame.sprite import Group
-from ship import Ship&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;鉴于需要创建飞船编组，导入&lt;code&gt;Group&lt;/code&gt;
- 和&lt;code&gt;Ship&lt;/code&gt;
- 类。&lt;/p&gt;
-&lt;p&gt;下面是方法&lt;code&gt;__init__()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def __init__(self, ai_game):
-        """初始化记录得分的属性。"""
-        self.ai_game = ai_game
-        self.screen = ai_game.screen
-        --snip--
-        self.prep_level()
-        self.prep_ships()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们将游戏实例赋给一个属性，因为创建飞船时需要用到它。在调用&lt;code&gt;prep_level()&lt;/code&gt;
- 后调用了&lt;code&gt;prep_ships()&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;
-&lt;code&gt;prep_ships()&lt;/code&gt;
- 的代码如下：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      def prep_ships(self):
-          """显示还余下多少艘飞船。"""
-❶         self.ships = Group()
-❷         for ship_number in range(self.stats.ships_left):
-              ship = Ship(self.ai_game)
-❸             ship.rect.x = 10 + ship_number * ship.rect.width
-❹             ship.rect.y = 10
-❺             self.ships.add(ship)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;方法&lt;code&gt;prep_ships()&lt;/code&gt;
- 创建一个空编组&lt;code&gt;self.ships&lt;/code&gt;
- ，用于存储飞船实例（见❶）。为填充这个编组，根据玩家还有多少艘飞船以相应的次数运行一个循环（见❷）。在这个循环中，创建新飞船并设置其&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/14_Image00003.gif"/&gt;
- 坐标，让整个飞船编组都位于屏幕左边，且每艘飞船的左边距都为10像素（见❸）。还将&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/14_Image00004.gif"/&gt;
- 坐标设置为离屏幕上边缘10像素，让所有飞船都出现在屏幕左上角（见❹）。最后，将每艘新飞船都添加到编组&lt;code&gt;ships&lt;/code&gt;
- 中（见❺）。&lt;/p&gt;
-&lt;p&gt;现在需要在屏幕上绘制飞船了：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;scoreboard.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def show_score(self):
-        """在屏幕上绘制得分、等级和余下的飞船数。"""
-        self.screen.blit(self.score_image, self.score_rect)
-        self.screen.blit(self.high_score_image, self.high_score_rect)
-        self.screen.blit(self.level_image, self.level_rect)
-        self.ships.draw(self.screen)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;为在屏幕上显示飞船，对编组调用&lt;code&gt;draw()&lt;/code&gt;
- 。Pygame将绘制每艘飞船。&lt;/p&gt;
-&lt;p&gt;为在游戏开始时让玩家知道自己有多少艘飞船，在开始新游戏时调用&lt;code&gt;prep_ships()&lt;/code&gt;
- 。这是在&lt;code&gt;AlienInvasion&lt;/code&gt;
- 的&lt;code&gt;_check_play_button()&lt;/code&gt;
- 中进行的：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _check_play_button(self, mouse_pos):
-        --snip--
-     if button_clicked and not self.stats.game_active:
-         --snip--
-         self.sb.prep_score()
-         self.sb.prep_level()
-         self.sb.prep_ships()
-         --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;还要在飞船被外星人撞到时调用&lt;code&gt;prep_ships()&lt;/code&gt;
- ，从而在玩家损失飞船时更新飞船图像：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;alien_invasion.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;    def _ship_hit(self):
-        """响应飞船被外星人撞到。"""
-        if self.stats.ships_left &amp;gt; 0:
-            # 将ships_left减1并更新记分牌。
-            self.stats.ships_left -= 1
-            self.sb.prep_ships()
-            --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这里在将&lt;code&gt;ships_left&lt;/code&gt;
- 的值减1后调用&lt;code&gt;prep_ships()&lt;/code&gt;
- 。这样每次损失飞船后，显示的飞船数都是正确的。&lt;/p&gt;
-&lt;p&gt;图14-6显示了完整的记分系统，它在屏幕左上角指出还余下多少艘飞船。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/14_Image00019.gif" style="width: 80%" width="80%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图14-6　游戏《外星人入侵》的完整记分系统&lt;/strong&gt;
-&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习14-5：空前的最高分&lt;/strong&gt;
- 　每当玩家关闭并重新开始游戏《外星人入侵》时，最高分都将被重置。请这样修复该问题：调用&lt;code&gt;sys.exit()&lt;/code&gt;
- 前将最高分写入文件，并在&lt;code&gt;GameStats&lt;/code&gt;
- 中初始化最高分时从文件中读取它。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习14-6：重构&lt;/strong&gt;
- 　找出执行多项任务的方法，对其进行重构，让代码高效而有序。例如，对于&lt;code&gt;_check_bullet_alien_collisions()&lt;/code&gt;
- ，将在外星人群被消灭干净时开始新等级的代码移到一个名为&lt;code&gt;start_new_level()&lt;/code&gt;
- 的方法中。再例如，对于&lt;code&gt;Scoreboard&lt;/code&gt;
- 的方法&lt;code&gt;__init__()&lt;/code&gt;
- ，将其中调用四个不同方法的代码移到一个名为&lt;code&gt;prep_images()&lt;/code&gt;
- 的方法中，以缩短方法&lt;code&gt;__init__()&lt;/code&gt;
- 。如果你重构了&lt;code&gt;_check_play_button()&lt;/code&gt;
- ，方法&lt;code&gt;prep_images()&lt;/code&gt;
- 也可简化&lt;code&gt;_check_play_button()&lt;/code&gt;
- 和&lt;code&gt;_start_game()&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　重构项目前，请阅读附录D，了解如果重构时引入了bug，如何将项目恢复到可正确运行的状态。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;练习14-7：扩展游戏《外星人入侵》&lt;/strong&gt;
- 　想想如何扩展游戏《外星人入侵》。例如，可以让外星人也能够向飞船射击，也可以为飞船添加盾牌，使得只有从两边射来的子弹才能摧毁飞船。另外，还可以使用像&lt;code&gt;pygame.mixer&lt;/code&gt;
- 这样的模块来添加声音效果，如爆炸声和射击声。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习14-8：终极版侧面射击&lt;/strong&gt;
- 　模仿项目“外星人入侵”继续开发“侧面射击”。添加一个Play按钮，在适合的情况下加快游戏的节奏，并开发一个记分系统。在开发过程中，务必重构代码，并寻找机会以本章没有介绍的方式定制该游戏。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_344"&gt;14.4　小结&lt;/h2&gt;
-&lt;p&gt;在本章中，你学习了如何创建用于开始新游戏的Play按钮，如何检测鼠标事件，以及在游戏处于活动状态时如何隐藏鼠标光标。你可以利用学到的知识在游戏中创建其他按钮，如用于显示玩法说明的Help按钮。你还学习了如何随游戏的进行调整其节奏，如何实现记分系统，以及如何以文本和非文本方式显示信息。&lt;/p&gt;
-&lt;br style="page-break-after:always"/&gt;
-&lt;div&gt;&lt;/div&gt;
-</description>
-    <pubDate>Thu, 23 Jul 2026 01:22:56 +0000</pubDate>
-    <guid isPermaLink="false">14</guid>
 </item>
 </channel>
 </rss>
