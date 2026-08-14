@@ -1,11 +1,751 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-  <title>每日更新推送</title>
-  <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
-  <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Fri, 14 Aug 2026 01:32:57 +0000</lastBuildDate>
-    <item>
+    <title>我的每日小说</title>
+    <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
+    <description>从 EPUB 自动生成的 RSS 订阅源</description>
+        <item>
+    <title>AutomaticApplicationPython - 026 - 第2章 控制流.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：55 分钟 (16206 字)</p><hr><h1 id="nav_point_38">第2章 控制流</h1>
+<p class="zw">你已经知道了单条指令的基本知识。程序就是一系列指令。但编程真正的力量不仅在于运行（或“执行”）一条接一条的指令，就像周末的任务清单那样。根据表达式求值的结果，程序可以决定跳过指令，重复指令，或从几条指令中选择一条运行。实际上，你几乎永远不希望程序从第一行代码开始，简单地执行每行代码，直到最后一行。“控制流语句”可以决定在什么条件下执行哪些Python语句。</p>
+<p class="zw">这些控制流语句直接对应于流程图中的符号，所以在本章中，我将提供示例代码的流程图。图2-1展示了一张流程图，内容是如果下雨怎么办。按照箭头构成的路径，从开始到结束。</p>
+<p class="zw">在流程图中，通常有不止一种方法从开始走到结束。计算机程序中的代码行也是这样。流程图用菱形表示这些分支节点，其他步骤用矩形表示。开始和结束步骤用带圆角的矩形表示。</p>
+<p class="zw">但在学习流程控制语句之前，首先要学习如何表示这些yes和no选项。同时你也需要理解，如何将这些分支节点写成Python代码。要做到这一点，让我们先看看布尔值、比较操作符和布尔操作符。</p>
+<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_01.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00069.jpg" style="width: 100%" width="100%"/>
+</p>
+<p class="图题">图2-1 一张流程图，告诉你如果下雨要做什么</p>
+<h2 id="nav_point_39">2.1 布尔值</h2>
+<p class="zw">虽然整型、浮点型和字符串数据类型有无数种可能的值，但“布尔”数据类型只有两种值：True和False。Boolean（布尔）的首字母大写，因为这个数据类型是根据数学家George Boole命名的。在作为Python代码输入时，布尔值True和False不像字符串，两边没有引号，它们总是以大写字母T或F开头，后面的字母小写。在交互式环境中输入下面内容，其中有些指令是故意弄错的，它们将导致出错信息。</p>
+<pre class="代码无行号"><code>❶ &gt;&gt;&gt; <strong>spam = True</strong>
+　&gt;&gt;&gt; <strong>spam</strong>
+　True
+❷&gt;&gt;&gt; <strong>true</strong>
+　Traceback (most recent call last):
+　  File "&lt;pyshell#2&gt;", line 1, in &lt;module&gt;
+　    true
+　NameError: name 'true' is not defined
+❸ &gt;&gt;&gt; <strong>True = 2 + 2</strong>
+　SyntaxError: assignment to keyword
+</code>
+</pre>
+<p class="zw">像其他值一样，布尔值也用在表达式中，并且可以保存在变量中❶。如果大小写不正确❷，或者试图使用True和False作为变量名❸，Python就会给出错误信息。</p>
+<h2 id="nav_point_40">2.2 比较操作符</h2>
+<p class="zw">“比较操作符”比较两个值，求值为一个布尔值。表2-1列出了比较操作符。</p>
+<p class="表题">表2-1 比较操作符</p>
+<table border="1" width="90%">
+<thead>
+<tr>
+<th>
+<p class="表头单元格">操作符</p>
+</th>
+<th>
+<p class="表头单元格">含义</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p class="表格单元格">==</p>
+</td>
+<td>
+<p class="表格单元格">等于</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">!=</p>
+</td>
+<td>
+<p class="表格单元格">不等于</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">&lt;</p>
+</td>
+<td>
+<p class="表格单元格">小于</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">&gt;</p>
+</td>
+<td>
+<p class="表格单元格">大于</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">&lt;=</p>
+</td>
+<td>
+<p class="表格单元格">小于等于</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">&gt;=</p>
+</td>
+<td>
+<p class="表格单元格">大于等于</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="zw">这些操作符根据给它们提供的值，求值为True或False。现在让我们尝试一些操作符，从==和!=开始。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt;  <strong>42 == 42</strong>
+True
+&gt;&gt;&gt;  <strong>42 == 99</strong>
+False
+&gt;&gt;&gt;  <strong>2 != 3</strong>
+True
+&gt;&gt;&gt;  <strong>2 != 2</strong>
+False
+</code>
+</pre>
+<p class="zw">如果两边的值一样，==（等于）求值为True。如果两边的值不同，!=（不等于）求值为False。==和!=操作符实际上可以用于所有数据类型的值。</p>
+<pre class="代码无行号"><code>　&gt;&gt;&gt; <strong>'hello' == 'hello'</strong>
+　True
+　&gt;&gt;&gt; <strong>'hello' == 'Hello'</strong>
+　False
+　&gt;&gt;&gt; <strong>'dog' != 'cat'</strong>
+　True
+　&gt;&gt;&gt; <strong>True == True</strong>
+　True
+　&gt;&gt;&gt; <strong>True != False</strong>
+　True
+　&gt;&gt;&gt; <strong>42 == 42.0</strong>
+　True
+❶ &gt;&gt;&gt; <strong>42 == '42'</strong>
+　False
+ </code>
+</pre>
+<p class="zw">请注意，整型或浮点型的值永远不会与字符串相等。表达式42 == '42'❶求值为False是因为，Python认为整数42与字符串'42'不同。</p>
+<p class="zw">另一方面，&lt;、&gt;、&lt;=和&gt;=操作符仅用于整型和浮点型值。</p>
+<pre class="代码无行号"><code>　&gt;&gt;&gt; <strong>42 &lt; 100</strong>
+　True
+　&gt;&gt;&gt; <strong>42 &gt; 100</strong>
+　False
+　&gt;&gt;&gt; <strong>42 &lt; 42</strong>
+　False
+　&gt;&gt;&gt; <strong>eggCount = 42</strong>
+❷&gt;&gt;&gt; <strong>eggCount &lt;= 42</strong>
+　True
+　&gt;&gt;&gt; <strong>myAge = 29</strong>
+❸ &gt;&gt;&gt; <strong>myAge &gt;= 10</strong>
+　True </code>
+</pre>
+<p class="editing-tag 超强提示标签">操作符的区别</p>
+<blockquote class="超强提示 editing-block">
+<p class="zw"><br/>
+</p>
+<p class="zw">你可能已经注意到，==操作符（等于）有两个等号，而=操作符（赋值）只有一个等号。这两个操作符很容易混淆。只要记住：</p>
+<ul>
+<li>
+<p class="zw">==操作符（等于）问两个值是否彼此相同。</p>
+</li>
+<li>
+<p class="zw">=操作符（赋值）将右边的值放到左边的变量中。</p>
+</li>
+</ul>
+<p class="zw">为了记住谁是谁，请注意==操作符（等于）包含两个字符，就像!=操作符（不等于）包含两个字符一样。</p>
+</blockquote>
+<p class="zw">你会经常用比较操作符比较一个变量和另外某个值。就像在例子eggCount &lt;= 42❶和myAge &gt;= 10❷中一样（毕竟，除了在代码中输入'dog' != 'cat'以外，你本来也可以直接输入True）。稍后，在学习控制流语句时，你会看到更多的例子。</p>
+<h2 id="nav_point_41">2.3 布尔操作符</h2>
+<p class="zw">3个布尔操作符（and、or和not）用于比较布尔值。像比较操作符一样，它们将这些表达式求值为一个布尔值。让我们仔细看看这些操作符，从and操作符开始。</p>
+<h3 id="nav_point_42">2.3.1 二元布尔操作符</h3>
+<p class="zw">and和or操作符总是接受两个布尔值（或表达式），所以它们被认为是“二元”操作符。如果两个布尔值都为True，and操作符就将表达式求值为True，否则求值为False。在交互式环境中输入某个使用and的表达式，看看效果。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>True and True</strong>
+True
+&gt;&gt;&gt; <strong>True and False</strong>
+False
+</code>
+</pre>
+<p class="zw">“真值表”显示了布尔操作符的所有可能结果。表2-2是操作符and的真值表。</p>
+<p class="表题">表2-2 and操作符的真值表</p>
+<table border="1" width="90%">
+<thead>
+<tr>
+<th>
+<p class="表头单元格">表达式</p>
+</th>
+<th>
+<p class="表头单元格">求值为</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p class="表格单元格">True and True</p>
+</td>
+<td>
+<p class="表格单元格">True</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">True and False</p>
+</td>
+<td>
+<p class="表格单元格">False</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">False and True</p>
+</td>
+<td>
+<p class="表格单元格">False</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">False and False</p>
+</td>
+<td>
+<p class="表格单元格">False</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="zw">另一方面，只要有一个布尔值为真，or操作符就将表达式求值为True。如果都是False，所求值为False。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>False or True</strong>
+True
+&gt;&gt;&gt; <strong>False or False</strong>
+False
+</code>
+</pre>
+<p class="zw">可以在or操作符的真值表中看到每一种可能的结果，如表2-3所示。</p>
+<p class="表题">表2-3 or操作符的真值表</p>
+<table border="1" width="90%">
+<thead>
+<tr>
+<th>
+<p class="表头单元格">表达式</p>
+</th>
+<th>
+<p class="表头单元格">求值为</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p class="表格单元格">True or True</p>
+</td>
+<td>
+<p class="表格单元格">True</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">True or False</p>
+</td>
+<td>
+<p class="表格单元格">True</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">False or True</p>
+</td>
+<td>
+<p class="表格单元格">True</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">False or False</p>
+</td>
+<td>
+<p class="表格单元格">False</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nav_point_43">2.3.2 not操作符</h3>
+<p class="zw">和and和or不同，not操作符只作用于一个布尔值（或表达式）。not操作符求值为相反的布尔值。</p>
+<pre class="代码无行号"><code>　&gt;&gt;&gt; <strong>not 　True</strong>
+　False
+❶ &gt;&gt;&gt; <strong>not not not not True</strong>
+　True
+</code>
+</pre>
+<p class="zw">就像在说话和写作中使用双重否定，你可以嵌套not操作符❶，虽然在真正的程序中并不经常这样做。表2-4展示了not的真值表。</p>
+<p class="表题">表2-4 not操作符的真值表</p>
+<table border="1" width="90%">
+<thead>
+<tr>
+<th>
+<p class="表头单元格">表达式</p>
+</th>
+<th>
+<p class="表头单元格">求值为</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p class="表格单元格">not True</p>
+</td>
+<td>
+<p class="表格单元格">False</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">not False</p>
+</td>
+<td>
+<p class="表格单元格">True</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="nav_point_44">2.4 混合布尔和比较操作符</h2>
+<p class="zw">既然比较操作符求值为布尔值，就可以和布尔操作符一起，在表达式中使用。</p>
+<p class="zw">回忆一下，and、or和not操作符称为布尔操作符是因为，它们总是操作于布尔值。虽然像4 &lt; 5这样的表达式不是布尔值，但可以求值为布尔值。在交互式环境中，尝试输入一些使用比较操作符的布尔表达式。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>(4 &lt; 5) and (5 &lt; 6)</strong>
+True
+&gt;&gt;&gt; <strong>(4 &lt; 5) and (9 &lt; 6)</strong>
+False
+&gt;&gt;&gt; <strong>(1 == 2) or (2 == 2)</strong>
+True
+</code>
+</pre>
+<p class="zw">计算机将先求值左边的表达式，然后再求值右边的表达式。知道两个布尔值后，它又将整个表达式再求值为一个布尔值。你可以认为计算机求值(4 &lt; 5)和(5 &lt; 6)的过程，如图2-2所示。</p>
+<p class="图"><img alt="0202" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00070.jpg"/>
+</p>
+<p class="图题">图2-2 (4 &lt; 5)和 (5 &lt; 6) 求值为True的过程</p>
+<p class="zw">也可以在一个表达式中使用多个布尔操作符，与比较操作符一起使用。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>2 + 2 == 4 and not 2 + 2 == 5 and 2 * 2 == 2 + 2</strong>
+True
+</code>
+</pre>
+<p class="zw">和算术操作符一样，布尔操作符也有操作顺序。在所有算术和比较操作符求值后，Python先求值not操作符，然后是and操作符，然后是or操作符。</p>
+<h2 id="nav_point_45">2.5 控制流的元素</h2>
+<p class="zw">控制流语句的开始部分通常是“条件”，接下来是一个代码块，称为“子句”。在开始学习具体的Python控制流语句之前，我将介绍条件和代码块。</p>
+<h3 id="nav_point_46">2.5.1 条件</h3>
+<p class="zw">你前面看到的布尔表达式可以看成是条件，它和表达式是一回事。“条件”只是在控制流语句的上下文中更具体的名称。条件总是求值为一个布尔值，True或False。控制流语句根据条件是True还是False，来决定做什么。几乎所有的控制流语句都使用条件。</p>
+<h3 id="nav_point_47">2.5.2 代码块</h3>
+<p class="zw">一些代码行可以作为一组，放在“代码块”中。可以根据代码行的缩进，知道代码块的开始和结束。代码块有3条规则。</p>
+<p class="zw">1．缩进增加时，代码块开始。</p>
+<p class="zw">2．代码块可以包含其他代码块。</p>
+<p class="zw">3．缩进减少为零，或减少为外面包围代码块的缩进，代码块就结束了。</p>
+<p class="zw">看一些有缩进的代码，更容易理解代码块。所以让我们在一小段游戏程序中，寻找代码块，如下所示：</p>
+<pre class="代码无行号"><code>　if name == 'Mary':
+❶     print('Hello Mary')
+　if password == 'swordfish':
+❷    print('Access granted.')
+　else:
+❸     print('Wrong password.')
+</code>
+</pre>
+<p class="zw">第一个代码块❶开始于代码行print('Hello Mary')，并且包含后面所有的行。在这个代码块中有另一个代码块❷，它只有一行代码：print('Access Granted.')。第三个代码块❸也只有一行：print('Wrong password.')。</p>
+<h2 id="nav_point_48">2.6 程序执行</h2>
+<p class="zw">在第1章的hello.py程序中，Python开始执行程序顶部的指令，然后一条接一条往下执行。“程序执行”（或简称“执行”）这一术语是指当前被执行的指令。如果将源代码打印在纸上，在它执行时用手指指着每一行代码，你可以认为手指就是程序执行。</p>
+<p class="zw">但是，并非所有的程序都是从上至下简单地执行。如果用手指追踪一个带有控制流语句的程序，可能会发现手指会根据条件跳过源代码，有可能跳过整个子句。</p>
+<h2 id="nav_point_49">2.7 控制流语句</h2>
+<p class="zw">现在，让我们来看最重要的控制流部分：语句本身。语句代表了在图2-1的流程图中看到的菱形，它们是程序将做出的实际决定。</p>
+<h3 id="nav_point_50">2.7.1 if语句</h3>
+<p class="zw">最常见的控制流语句是if语句。if语句的子句（也就是紧跟if语句的语句块），将在语句的条件为True时执行。如果条件为False，子句将跳过。</p>
+<p class="zw">在英文中，if语句念起来可能是：“如果条件为真，执行子句中的代码。”在Python中，if语句包含以下部分：</p>
+<ul>
+<li class="第1级无序列表">if关键字；</li>
+<li class="第1级无序列表">条件（即求值为True或False的表达式）；</li>
+<li class="第1级无序列表">冒号；</li>
+<li class="第1级无序列表">在下一行开始，缩进的代码块（称为if子句）。</li>
+</ul>
+<p class="zw">例如，假定有一些代码，检查某人的名字是否为Alice（假设此前曾为name赋值）。</p>
+<pre class="代码无行号"><code>if name == 'Alice':
+    print('Hi, Alice.')</code>
+</pre>
+<p class="zw">所有控制流语句都以冒号结尾，后面跟着一个新的代码块（子句）。语句的if子句是代码块，包含print('Hi, Alice.')。图2-3展示了这段代码的流程图。</p>
+<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_03.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00071.jpg"/>
+</p>
+<p class="图题">图2-3 if语句的流程图</p>
+<h3 id="nav_point_51">2.7.2 else语句</h3>
+<p class="zw">if子句后面有时候也可以跟着else语句。只有if语句的条件为False时，else子句才会执行。在英语中，else语句读起来可能是：“如果条件为真，执行这段代码。否则，执行那段代码”。else语句不包含条件，在代码中，else语句中包含下面部分：</p>
+<ul>
+<li class="第1级无序列表">else关键字；</li>
+<li class="第1级无序列表">冒号；</li>
+<li class="第1级无序列表">在下一行开始，缩进的代码块（称为else子句）。</li>
+</ul>
+<p class="zw">回到Alice的例子，我们来看看使用else语句的一些代码，在名字不是Alice时，提供不一样的问候。</p>
+<pre class="代码无行号"><code>if name == 'Alice':
+    print('Hi, Alice.')
+else:
+    print('Hello, stranger.')</code>
+</pre>
+<p class="zw">图2-4展示了这段代码的流程图。</p>
+<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_04.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00072.jpg"/>
+</p>
+<p class="图题">图2-4 else语句的流程图</p>
+<h3 id="nav_point_52">2.7.3 elif语句</h3>
+<p class="zw">虽然只有if或else子句会被执行，但有时候可能你希望，“许多”可能的子句中有一个被执行。elif语句是“否则如果”，总是跟在if或另一条elif语句后面。它提供了另一个条件，仅在前面的条件为False时才检查该条件。在代码中，elif语句总是包含以下部分：</p>
+<ul>
+<li class="第1级无序列表">elif关键字；</li>
+<li class="第1级无序列表">条件（即求值为True或False的表达式）；</li>
+<li class="第1级无序列表">冒号；</li>
+<li class="第1级无序列表">在下一行开始，缩进的代码块（称为elif子句）。</li>
+</ul>
+<p class="zw">让我们在名字检查程序中添加elif，看看这个语句的效果。</p>
+<pre class="代码无行号"><code>if name == 'Alice':
+    print('Hi, Alice.')
+elif age &lt; 12:
+    print('You are not Alice, kiddo.')</code>
+</pre>
+<p class="zw">这一次，检查此人的年龄。如果比 12 岁小，就告诉他一些不同的东西。可以在图2-5中看到这段代码的流程图。</p>
+<p class="zw">如果age &lt; 12为True并且name == 'Alice'为False，elif子句就会执行。但是，如果两个条件都为False，那么两个子句都会跳过。“不能”保证至少有一个子句会被执行。如果有一系列的elif语句，仅有一条或零条子句会被执行。一旦一个语句的条件为True，剩下的elif子句会自动跳过。例如，打开一个新的文件编辑器窗口，输入以下代码，保存为vampire.py。</p>
+<pre class="代码无行号"><code>if name == 'Alice':
+    print('Hi, Alice.')
+elif age &lt; 12:
+    print('You are not Alice, kiddo.')
+elif age &gt; 2000:
+    print('Unlike you, Alice is not an undead, immortal vampire.')
+elif age &gt; 100:
+    print('You are not Alice, grannie.')</code>
+</pre>
+<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_05.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00073.jpg"/>
+</p>
+<p class="图题">图2-5 elif语句的流程图</p>
+<p class="zw">这里，我添加了另外两条elif语句，让名字检查程序根据age的不同答案而发出问候。图2-6展示了这段代码的流程图。</p>
+<p class="zw">但是，elif语句的次序确实重要。让我们重新排序，引入一个缺陷。回忆一下，一旦找到一个True条件，剩余的子句就会自动跳过。所以如果交换vampire.py中的一些子句，就会遇到问题。像下面这样改变代码，将它保存为vampire2.py。</p>
+<pre class="代码无行号"><code>　if name == 'Alice':
+　    print('Hi, Alice.')
+　elif age &lt; 12:
+　    print('You are not Alice, kiddo.')
+❶ elif age &gt; 100:
+　    print('You are not Alice, grannie.')
+　elif age &gt; 2000:
+　    print('Unlike you, Alice is not an undead, immortal vampire.')
+</code>
+</pre>
+<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_06.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00074.jpg"/>
+</p>
+<p class="图题">图2-6 vampire.py程序中多重elif语句的流程图</p>
+<p class="zw">假设在这段代码执行之前，age变量的值是3000。你可能预计代码会打印出字符串'Unlike you, Alice is not an undead, immortal vampire.'。但是，因为age &gt; 100条件为真（毕竟3000大于100）❶，字符串'You are not Alice, grannie.'被打印出来，剩下的语句自动跳过。别忘了，最多只有一个子句会执行，对于elif语句，次序是很重要的。</p>
+<p class="zw">图2-7展示了前面代码的流程图。请注意，菱形age &gt; 100和age &gt; 2000交换了位置。</p>
+<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_07.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00075.jpg"/>
+</p>
+<p class="图题">图2-7 vampire2.py程序的流程图。打叉的路径在逻辑上永远不会发生，<br/>
+因为如果age大于2000，它就已经大于100了</p>
+<p class="zw">你可以选择在最后的elif语句后面加上else语句。在这种情况下，保证至少一个子句（且只有一个）会执行。如果每个if和elif语句中的条件都为False，就执行else子句。例如，让我们使用if、elif和else子句重新编写Alicee程序。</p>
+<pre class="代码无行号"><code>if name == 'Alice':
+    print('Hi, Alice.')
+elif age &lt; 12:
+    print('You are not Alice, kiddo.')
+else:
+    print('You are neither Alice nor a little kid.')</code>
+</pre>
+<p class="zw">图2-8展示了这段新代码的流程图，我们将它保存为littleKid.py。</p>
+<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_08.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00076.jpg"/>
+</p>
+<p class="图题">图2-8 前面littleKid.py程序的流程图</p>
+<p class="zw">在英语中，这类控制流结构会使得：“如果第一个条件为真，做这个。否则，如果第二个条件为真，做那个。否则，做另外的事。”如果你同时使用这3个语句，要记住这些次序规则，避免图2-7中那样的缺陷。首先，总是只有一个if语句。所有需要的elif语句都应该跟在if语句之后。其次，如果希望确保至少一条子句被执行，在最后加上else语句。</p>
+<h3 id="nav_point_53">2.7.4 while循环语句</h3>
+<p class="zw">利用while语句，可以让一个代码块一遍又一遍的执行。只要while语句的条件为True，while子句中的代码就会执行。在代码中，while语句总是包含下面几部分：</p>
+<ul>
+<li class="第1级无序列表">关键字；</li>
+<li class="第1级无序列表">条件（求值为True或False的表达式）；</li>
+<li class="第1级无序列表">冒号；</li>
+<li class="第1级无序列表">从新行开始，缩进的代码块（称为while子句）。</li>
+</ul>
+<p class="zw">可以看到，while语句看起来和if语句类似。不同之处是它们的行为。if子句结束时，程序继续执行if语句之后的语句。但在while子句结束时，程序执行跳回到while语句开始处。while子句常被称为“while循环”，或就是“循环”。</p>
+<p class="zw">让我们来看一个if语句和一个while循环。它们使用同样的条件，并基于该条件做出同样的动作。下面是if语句的代码：</p>
+<pre class="代码无行号"><code>spam = 0
+if spam &lt; 5:
+    print('Hello, world.')
+    spam = spam + 1</code>
+</pre>
+<p class="zw">下面是while语句的代码：</p>
+<pre class="代码无行号"><code>spam = 0
+while spam &lt; 5:
+    print('Hello, world.')
+    spam = spam + 1</code>
+</pre>
+<p class="zw">这些语句类似，if和while都检查spam的值，如果它小于５，就打印一条消息。但如果运行这两段代码，它们各自的表现非常不同。对于if语句，输出就是"Hello, world."。但对于while语句，输出是"Hello, world."重复了5次！看一看这两段代码的流程图，图2-9和2-10，找一找原因。</p>
+<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_10.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00077.jpg"/>
+</p>
+<p class="图题">图2-9 if语句代码的流程图</p>
+<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_09.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00078.jpg"/>
+</p>
+<p class="图题">图2-10 while语句代码的流程图</p>
+<p class="zw">带有if语句的代码检查条件，如果条件为True，就打印一次"Hello, world."。带有while循环的代码则不同，会打印5次。打印5次后停下来是因为，在每次循环迭代末尾，spam中的整数都增加1。这意味着循环将执行5次，然后spam &lt; 5变为False。</p>
+<p class="zw">在while循环中，条件总是在每次“迭代”开始时检查（也就是每次循环执行时）。如果条件为True，子句就会执行，然后，再次检查条件。当条件第一次为False时，while子句就跳过。</p>
+<h3 id="nav_point_54">2.7.5 恼人的循环</h3>
+<p class="zw">这里有一个小例子，它不停地要求你输入“your name”（就是这个字符串，而不是你的名字）。选择FileNew Window，打开一个新的文件编辑器窗口，输入以下代码，将文件保存为yourName.py：</p>
+<pre class="代码无行号"><code>❶ name = ''
+❷while name != 'your name':
+　    print('Please type your name.')
+❸     name = input()
+❹ print('Thank you!')
+</code>
+</pre>
+<p class="zw">首先，程序将变量name❶设置为一个空字符串。这样，条件name != 'your name'就会求值为True，程序就会进入while循环的子句❷。</p>
+<p class="zw">这个子句内的代码要求用户输入他们的名字，然后赋给name变量❸。因为这是语句块的最后一行，所以执行就回到while循环的开始，重新对条件求值。如果name中的值“不等于”字符串'your name'，那么条件就为True，执行将再次进入while子句。</p>
+<p class="zw">但如果用户输入your name，while循环的条件就变成'your name' != 'your name'，它求值为False。条件现在是False，程序就不会再次进入while循环子句，而是跳过它，继续执行程序后面的部分❹。图2-11展示了yourName.py程序的流程图。</p>
+<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_11.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00079.jpg"/>
+</p>
+<p class="图题">图2-11 yourName.py程序的流程图</p>
+<p class="zw">现在，让我们来看看yourName.py程序的效果。按F5键运行它，输几次your name之外的东西，然后再提供程序想要的输入。</p>
+<pre class="代码无行号"><code>Please type your name.
+<strong>Al</strong>
+Please type your name.
+<strong>Albert</strong>
+Please type your name.
+<strong>%#@#%*(^&amp;!!!</strong>
+Please type your name.
+<strong>your name</strong>
+Thank you!
+</code>
+</pre>
+<p class="zw">如果永不输入your name，那么循环的条件就永远不会为False，程序将永远问下去。这里，input()调用让用户输入正确的字符串，以便让程序继续。在其他程序，条件可能永远没有实际变化，这可能会出问题。让我们来看看如何跳出循环。</p>
+<h3 id="nav_point_55">2.7.6 break语句</h3>
+<p class="zw">有一个捷径，让执行提前跳出while循环子句。如果执行遇到break语句，就会马上退出while循环子句。在代码中，break语句仅包含break关键字。</p>
+<p class="zw">非常简单，对吗？这里有一个程序，和前面的程序做一样的事情，但使用了break语句来跳出循环。输入以下代码，将文件保存为yourName2.py：</p>
+<pre class="代码无行号"><code>❶ while True:
+　    print('Please type your name.')
+❷    name = input()
+❸     if name == 'your name':
+❹         break
+❺ print('Thank you!')</code>
+</pre>
+<p class="zw">第一行❶创建了一个“无限循环”，它是一个条件总是为True的while循环。（表达式True总是求值为True。）程序执行将总是进入循环，只有遇到break语句执行时才会退出（“永远不”退出的无限循环是一个常见的编程缺陷）。</p>
+<p class="zw">像以前一样，程序要求用户输入your name❷。但是现在，虽然执行仍然在while循环内，但有一个if语句会被执行❸，检查name是否等于your name。如果条件为True，break语句就会运行❹，执行就会跳出循环，转到print('Thank you!') ❺。否则，包含break语句的if语句子句就会跳过，让执行到达while循环的末尾。此时，程序执行跳回到while语句的开始❶，重新检查条件。因为条件是True，所以执行进入循环，再次要求用户输入your name。这个程序的流程图参见图2-12。</p>
+<p class="zw">运行yourName2.py，输入你为yourName.py程序输入的同样文本。重写的程序应该和原来的程序反应相同。</p>
+<p class="图"><img alt="..\automate02_12.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00080.jpg" style="width: 100%" width="100%"/>
+</p>
+<p class="图题">图2-12 带有无限循环的程序的流程图。注意打叉路径在逻辑上<br/>
+永远不会发生，因为循环条件总是为True</p>
+<h3 id="nav_point_56">2.7.7 continue语句</h3>
+<p class="zw">像break语句一样，continue语句用于循环内部。如果程序执行遇到continue语句，就会马上跳回到循环开始处，重新对循环条件求值（这也是执行到达循环末尾时发生的事情）。</p>
+<p class="zw">让我们用continue写一个程序，要求输入名字和口令。在一个新的文件编辑窗口中输入以下代码，将程序保存为swordfish.py。</p>
+<pre class="代码无行号"><code>　while True:
+　    print('Who are you?')
+　    name = input()
+❶     if name != 'Joe':
+❷        continue
+　    print('Hello, Joe. What is the password? (It is a fish.)')
+❸     password = input()
+　    if password == 'swordfish':
+❹         break
+❺ print('Access granted.')</code>
+</pre>
+<p class="zw">如果用户输入的名字不是Joe❶，continue语句❷将导致程序执行跳回到循环开始处。再次对条件求值时，执行总是进入循环，因为条件就是True。如果执行通过了if语句，用户就被要求输入口令❸。如果输入的口令是swordfish，break语句运行❹，执行跳出while循环，打印Access granted❺。否则，执行继续到while循环的末尾，又跳回到循环的开始。这个程序的流程图参见图2-13。</p>
+<p class="editing-tag 超强提示标签">陷在无限循环中？</p>
+<blockquote class="超强提示 editing-block">
+<p class="zw"><br/>
+</p>
+如果你运行一个有缺陷的程序，导致陷在一个无限循环中，那么请按Ctrl-C。这将向程序发送KeyboardInterrupt错误，导致它立即停止。试一下，在文件编辑器中创建一个简单的无限循环，将它保存为infiniteloop.py。<pre class="代码无行号"><code>while True:
+   print('Hello world!')</code>
+</pre>
+<p class="zw">如果运行这个程序，它将永远在屏幕上打印Hello world！因为while语句的条件总是True。在IDLE的交互式环境窗口中，只有两种办法停止这个程序：按下Ctrl-C或从菜单中选择ShellRestart Shell。如果你希望马上停止程序，即使它不是陷在一个无限循环中，Ctrl-C也是很方便的。</p>
+</blockquote>
+<p class="zw">运行这个程序，提供一些输入。只有你声称是Joe，它才会要求输入口令。一旦输入了正确的口令，它就会退出。</p>
+<pre class="代码无行号"><code>Who are you?
+<strong>I'm fine, thanks. Who are you?</strong>
+Who are you?
+<strong>Joe</strong>
+Hello, Joe. What is the password? (It is a fish.)
+<strong>Mary</strong>
+Who are you?
+<strong>Joe</strong>
+Hello, Joe. What is the password? (It is a fish.)
+<strong>swordfish</strong>
+Access granted.
+</code>
+</pre>
+<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_13.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00081.jpg" style="width: 100%" width="100%"/>
+</p>
+<p class="图题">图2-13 swordfish.py的流程图。打叉的路径在逻辑上永远不会执行，因为循环条件总是True</p>
+<h3 id="nav_point_57">2.7.8 for循环和range()函数</h3>
+<p class="zw">在条件为True时，while循环就会继续循环（这是它的名称的由来）。但如果你想让一个代码块执行固定次数，该怎么办？可以通过for循环语句和range()函数来实现。</p>
+<p class="editing-tag 超强提示标签">“类真”和“类假”的值</p>
+<blockquote class="超强提示 editing-block">
+<p class="zw"><br/>
+</p>
+其他数据类型中的某些值，条件认为它们等价于True和False。在用于条件时，0、0.0和' '（空字符串）被认为是False，其他值被认为是True。例如，请看下面的程序：<pre class="代码无行号"><code>name = ''
+while not name:❶
+    print('Enter your name:')
+    name = input()
+print('How many guests will you have?')
+numOfGuests = int(input())
+if numOfGuests:❷
+    print('Be sure to have enough room for all your guests.')❸
+print('Done')</code>
+</pre>
+<p class="zw">如果用户输入一个空字符串给name，那么while语句的条件就会是True ❶，程序继续要求输入名字。如果numOfGuests不是0 ❷，那么条件就被认为是True，程序就会为用户打印一条提醒信息❸。</p>
+<p class="zw">可以用not name != ' '代替not name，用numOfGuests != 0代替numOfGuests，但使用类真和类假的值会让代码更容易阅读。</p>
+</blockquote>
+<p class="zw">在代码中，for语句看起来像for i in range(5):这样，总是包含以下部分：</p>
+<ul>
+<li class="第1级无序列表">for关键字；</li>
+<li class="第1级无序列表">一个变量名；</li>
+<li class="第1级无序列表">in关键字；</li>
+<li class="第1级无序列表">调用range()方法，最多传入3个参数；</li>
+<li class="第1级无序列表">冒号；</li>
+<li class="第1级无序列表">从下一行开始，缩进的代码块（称为for子句）。</li>
+</ul>
+<p class="zw">让我们创建一个新的程序，名为fiveTimes.py，看看for循环的效果。</p>
+<pre class="代码无行号"><code>print('My name is')
+for i in range(5):
+    print('Jimmy Five Times (' + str(i) + ')')</code>
+</pre>
+<p class="zw">for循环子句中的代码运行了5次。第一次运行时，变量i被设为0。子句中的print()调用将打印出Jimmy Five Times (0)。Python完成for循环子句内所有代码的一次迭代之后，执行将回到循环的顶部，for语句让i增加1。这就是为什么range(5)导致子句的5次迭代，i分别被设置为0、1、2、3、4。变量i将递增到（但不包括）传递给range()函数的整数。图2-14展示了fiveTimes.py程序的流程图。</p>
+<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_14.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00082.jpg"/>
+</p>
+<p class="图题">图2-14 fiveTimes.py的流程图</p>
+<p class="zw">运行这个程序时，它将打印5次Jimmy Five Times和i的值，然后离开for循环。</p>
+<pre class="代码无行号"><code>My name is
+Jimmy Five Times (0)
+Jimmy Five Times (1)
+Jimmy Five Times (2)
+Jimmy Five Times (3)
+Jimmy Five Times (4)</code>
+</pre>
+<p class="zw">也可以在循环中使用continue语句。continue语句将让for循环变量继续下一个值，就像程序执行已经到达循环的末尾并返回开始一样。实际上，只能在while和for循环内部使用continue和break语句。如果试图在别处使用这些语句，Python将报错。</p>
+<p class="zw">作为for循环的另一个例子，请考虑数学家高斯的故事。当高斯还是一个小孩时，老师想给全班同学布置很多计算作业。老师让他们从0加到100。高斯想到了一个聪明办法，在几秒钟内算出了答案，但你可以用for循环写一个Python程序，替你完成计算。</p>
+<pre class="代码无行号"><code>❶ total = 0
+❷for num in range(101):
+❸     total = total + num
+❹ print(total)
+</code>
+</pre>
+<p class="zw">结果应该是5050。程序刚开始时，total变量被设为0。然后for循环执行100次total = total + num。当循环完成100次迭代时，0到100的每个整数都加给了total。这时，total被打印到屏幕上。即使在最慢的计算机上，这个程序也不用1秒钟就能完成计算。</p>
+<p class="zw">（小高斯想到，有50对数加起来是100：1 + 99, 2 + 98, 3 + 97……直到49 + 51。因为50 × 100 是5000，再加上中间的50，所以0到100的所有数之和是5050。聪明的孩子！）</p>
+<h3 id="nav_point_58">2.7.9 等价的while循环</h3>
+<p class="zw">实际上可以用while循环来做和for循环同样的事，for循环只是更简洁。让我们用与for循环等价的while循环，重写fiveTimes.py。</p>
+<pre class="代码无行号"><code>print('My name is')
+i = 0
+while i &lt; 5:
+    print('Jimmy Five Times (' + str(i) + ')')
+    i = i + 1</code>
+</pre>
+<p class="zw">运行这个程序，输出应该和使用for循环的fiveTimes.py程序一样。</p>
+<h3 id="nav_point_59">2.7.10 range()的开始、停止和步长参数</h3>
+<p class="zw">某些函数可以用多个参数调用，参数之间用逗号分开，range()就是其中之一。这让你能够改变传递给range()的整数，实现各种整数序列，包括从0以外的值开始。</p>
+<pre class="代码无行号"><code>for i in range(12, 16):
+    print(i)</code>
+</pre>
+<p class="zw">第一个参数是for循环变量开始的值，第二个参数是上限，但不包含它，也就是循环停止的数字。</p>
+<pre class="代码无行号"><code>12
+13
+14
+15</code>
+</pre>
+<p class="zw">range()函数也可以有第三个参数。前两个参数分别是起始值和终止值，第三个参数是“步长”。步长是每次迭代后循环变量增加的值。</p>
+<pre class="代码无行号"><code>for i in range(0, 10, 2):
+    print(i)</code>
+</pre>
+<p class="zw">所以调用range(0, 10, 2)将从0数到8，间隔为2。</p>
+<pre class="代码无行号"><code>0
+2
+4
+6
+8</code>
+</pre>
+<p class="zw">在为for循环生成序列数据方面，range()函数很灵活。举例来说，甚至可以用负数作为步长参数，让循环计数逐渐减少，而不是增加。</p>
+<pre class="代码无行号"><code>for i in range(5, -1, -1):
+    print(i)</code>
+</pre>
+<p class="zw">运行一个for循环，用range(5, -1, -1)来打印i，结果将从5降至0。</p>
+<pre class="代码无行号"><code>5
+4
+3
+2
+1
+0</code>
+</pre>
+<h2 id="nav_point_60">2.8 导入模块</h2>
+<p class="zw">Python程序可以调用一组基本的函数，这称为“内建函数”，包括你见到过的print()、input()和len()函数。Python也包括一组模块，称为“标准库”。每个模块都是一个Python程序，包含一组相关的函数，可以嵌入你的程序之中。例如，math模块有数学运算相关的函数，random模块有随机数相关的函数，等等。</p>
+<p class="zw">在开始使用一个模块中的函数之前，必须用import语句导入该模块。在代码中，import语句包含以下部分：</p>
+<ul>
+<li class="第1级无序列表">import关键字；</li>
+<li class="第1级无序列表">模块的名称；</li>
+<li class="第1级无序列表">可选的更多模块名称，之间用逗号隔开。</li>
+</ul>
+<p class="zw">在导入一个模块后，就可以使用该模块中所有很酷的函数。让我们试一试random模块，它让我们能使用random.randint()函数。</p>
+<p class="zw">在文件编辑器中输入以下代码，保存为printRandom.py：</p>
+<pre class="代码无行号"><code>import random
+for i in range(5):
+    print(random.randint(1, 10))</code>
+</pre>
+<p class="zw">如果运行这个程序，输出看起来可能像这样：</p>
+<pre class="代码无行号"><code>4
+1
+8
+4
+1</code>
+</pre>
+<p class="zw">random.randint()函数调用求值为传递给它的两个整数之间的一个随机整数。因为randint()属于random模块，必须在函数名称之前先加上random.，告诉python在random模块中寻找这个函数。</p>
+<p class="zw">下面是import语句的例子，它导入了4个不同的模块：</p>
+<pre class="代码无行号"><code>import random, sys, os, math</code>
+</pre>
+<p class="zw">现在我们可以使用这4个模块中的所有函数。本书后面我们将学习更多的相关内容。</p>
+<h3 id="nav_point_61">from import语句</h3>
+<p class="zw">import语句的另一种形式包括from关键字，之后是模块名称，import关键字和一个星号，例如from random import *。</p>
+<p class="zw">使用这种形式的import语句，调用random模块中的函数时不需要random.前缀。但是，使用完整的名称会让代码更可读，所以最好是使用普通形式的import语句。</p>
+<h2 id="nav_point_62">2.9 用sys.exit()提前结束程序</h2>
+<p class="zw">要介绍的最后一个控制流概念，是如何终止程序。当程序执行到指令的底部时，总是会终止。但是，通过调用sys.exit()函数，可以让程序终止或退出。因为这个函数在sys模块中，所以必须先导入sys，才能使用它。</p>
+<p class="zw">打开一个新的文件编辑器窗口，输入以下代码。保存为exitExample.py：</p>
+<pre class="代码无行号"><code>import sys
+while True:
+    print('Type exit to exit.')
+    response = input()
+    if response == 'exit':
+        sys.exit()
+    print('You typed ' + response + '.')</code>
+</pre>
+<p class="zw">在IDLE中运行这个程序。该程序有一个无限循环，里面没有break语句。结束该程序的唯一方式，就是用户输入exit，导致sys.exit()被调用。如果response等于exit，程序就会中止。因为response变量由input()函数赋值，所以用户必须输入exit，才能停止该程序。</p>
+<h2 id="nav_point_63">2.10 小结</h2>
+<p class="zw">通过使用求值为True或False的表达式（也称为条件），你可以编写程序来决定哪些代码执行，哪些代码跳过。可以在循环中一遍又一遍地执行代码，只要某个条件求值为True。如果需要跳出循环或回到开始处，break和continue语句很有用。</p>
+<p class="zw">这些控制流语句让你写出非常聪明的程序。还有另一种类型的控制流，你可以通过编写自己的函数来实现。这是下一章的主题。</p>
+<h2 id="nav_point_64">2.11 习题</h2>
+<p class="zw">1．布尔数据类型的两个值是什么？如何拼写？</p>
+<p class="zw">2．3个布尔操作符是什么？</p>
+<p class="zw">3．写出每个布尔操作符的真值表（也就是操作数的每种可能组合，以及操作的结果）。</p>
+<p class="zw">4．以下表达式求值的结果是什么？</p>
+<pre class="代码无行号"><code>(5 &gt; 4) and (3 == 5)
+not (5 &gt; 4)
+(5 &gt; 4) or (3 == 5)
+not ((5 &gt; 4) or (3 == 5))
+(True and True) and (True == False)
+(not False) or (not True)</code>
+</pre>
+<p class="zw">5．6个比较操作符是什么？</p>
+<p class="zw">6．等于操作符和赋值操作符的区别是什么？</p>
+<p class="zw">7．解释什么是条件，可以在哪里使用条件。</p>
+<p class="zw">8．识别这段代码中的3个语句块：</p>
+<pre class="代码无行号"><code>spam = 0
+if spam == 10:
+    print('eggs')
+    if spam &gt; 5:
+        print('bacon')
+    else:
+        print('ham')
+    print('spam')
+print('spam')</code>
+</pre>
+<p class="zw">9．编写代码，如果变量spam中存放1，就打印Hello，如果变量中存放2，就打印Howdy，如果变量中存放其他值，就打印Greetings!</p>
+<p class="zw">10．如果程序陷在一个无限循环中，你可以按什么键？</p>
+<p class="zw">11．break和continue之间的区别是什么？</p>
+<p class="zw">12．在for循环中，range(10)、range(0, 10)和range(0, 10, 1)之间的区别是什么？</p>
+<p class="zw">13．编写一小段程序，利用for循环，打印出从1到10的数字。然后利用while循环，编写一个等价的程序，打印出从1到10的数字。</p>
+<p class="zw">14．如果在名为spam的模块中，有一个名为bacon()的函数，那么在导入spam模块后，如何调用它？</p>
+<p class="zw">附加题：在因特网上查找round()和abs()函数，弄清楚它们的作用。在交互式环境中尝试使用它们。</p>
+<p class="zw"><br style="page-break-after:always"/>
+</p>
+<div></div>
+]]></description>
+    <pubDate>Fri, 14 Aug 2026 01:42:23 +0000</pubDate>
+    <guid isPermaLink="false">26</guid>
+</item>
+<item>
       <title><![CDATA[WorkBuddyGuide-蓝皮书总览]]></title>
       <link>https://workbuddy.homes/bluebook/</link>
       <description><![CDATA[学习时长：约0.5小时；学习内容：了解手册的整体结构、章节分布与学习路径；学习目的：建立全局视角，规划自己的学习路线，快速定位所需内容]]></description>
@@ -6504,973 +7244,6 @@ Comments: 62
 </description>
     <pubDate>Tue, 28 Jul 2026 01:14:36 +0000</pubDate>
     <guid isPermaLink="false">17</guid>
-</item>
-<item>
-    <title>Basic Python - 016 - 第 16 章 下载数据.epub</title>
-    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：112 分钟 (22223 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_373"&gt;第 16 章　下载数据&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00001.gif" style="width: 16%" width="16%"/&gt;
- 　本章将从网上下载数据，并对其进行可视化。网上的数据多得令人难以置信，大多未经仔细检查。如果能够对这些数据进行分析，就能发现别人没有发现的规律和关联。&lt;/p&gt;
-&lt;p&gt;本章将访问并可视化的数据以两种常见格式存储：CSV和JSON。我们将使用Python模块&lt;code&gt;csv&lt;/code&gt;
- 来处理以CSV格式存储的天气数据，找出两个地区在一段时间内的最高温度和最低温度。然后，使用Matplotlib根据下载的数据创建一个图表，展示两个不同地区的温度变化：阿拉斯加州锡特卡和加利福尼亚州死亡谷。然后，使用模块&lt;code&gt;json&lt;/code&gt;
- 访问以JSON格式存储的地震数据，并使用Plotly绘制一幅散点图，展示这些地震的位置和震级。&lt;/p&gt;
-&lt;p&gt;阅读本章后，你将能够处理各种类型和格式的数据集，并对如何创建复杂的图表有深入的认识。要处理各种真实的数据集，必须能够访问并可视化各种类型和格式的在线数据。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_374"&gt;16.1　CSV文件格式&lt;/h2&gt;
-&lt;p&gt;要在文本文件中存储数据，一个简单方式是将数据作为一系列&lt;strong&gt;以逗号分隔的值&lt;/strong&gt;
- （comma-separated values）写入文件。这样的文件称为&lt;strong&gt;CSV&lt;/strong&gt;
- 文件。例如，下面是一行CSV格式的天气数据：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;"USW00025333","SITKA AIRPORT, AK US","2018-01-01","0.45",,"48","38"&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这是阿拉斯加州锡特卡2018年1月1日的天气数据，其中包含当天的最高温度和最低温度，还有众多其他的数据。CSV文件对人来说阅读起来比较麻烦，但程序可轻松提取并处理其中的值，有助于加快数据分析过程。&lt;/p&gt;
-&lt;p&gt;我们将首先处理少量CSV格式的锡特卡天气数据，这些数据可在本书的配套资源（ituring.cn/ book/2784）中找到。请将文件sitka_weather_07-2018_simple.csv复制到存储本章程序的文件夹中。（下载本书的配套资源后，就有了这个项目所需的所有文件。）&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　该项目使用的天气数据来自美国国家海洋与大气管理局（National Oceanic and Atmospheric Administration，NOAA）。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_375"&gt;16.1.1　分析CSV文件头&lt;/h3&gt;
-&lt;p&gt;
-&lt;code&gt;csv&lt;/code&gt;
- 模块包含在Python标准库中，可用于分析CSV文件中的数据行，让我们能够快速提取感兴趣的值。先来查看这个文件的第一行，其中的一系列文件头指出了后续各行包含的是什么样的信息：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;sitka_highs.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  import csv
-  filename = 'data/sitka_weather_07-2018_simple.csv'
-❶ with open(filename) as f:
-❷     reader = csv.reader(f)
-❸     header_row = next(reader)
-      print(header_row)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;导入模块&lt;code&gt;csv&lt;/code&gt;
- 后，将要使用的文件的名称赋给&lt;code&gt;filename&lt;/code&gt;
- 。接下来，打开这个文件，并将返回的文件对象赋给&lt;code&gt;f&lt;/code&gt;
- （见❶）。然后，调用&lt;code&gt;csv.reader()&lt;/code&gt;
- 并将前面存储的文件对象作为实参传递给它，从而创建一个与该文件相关联的阅读器对象（见❷）。这个阅读器对象被赋给了&lt;code&gt;reader&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;模块&lt;code&gt;csv&lt;/code&gt;
- 包含函数&lt;code&gt;next()&lt;/code&gt;
- ，调用它并传入阅读器对象时，它将返回文件中的下一行。在上述代码中，只调用了&lt;code&gt;next()&lt;/code&gt;
- 一次，因此得到的是文件的第一行，其中包含文件头（见❸）。将返回的数据存储到&lt;code&gt;header_row&lt;/code&gt;
- 中。如你所见，&lt;code&gt;header_row&lt;/code&gt;
- 包含与天气相关的文件头，指出了每行都包含哪些数据：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;['STATION', 'NAME', 'DATE', 'PRCP', 'TAVG', 'TMAX', 'TMIN']&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;
-&lt;code&gt;reader&lt;/code&gt;
- 处理文件中以逗号分隔的第一行数据，并将每项数据都作为一个元素存储在列表中。文件头&lt;code&gt;STATION&lt;/code&gt;
- 表示记录数据的气象站的编码。这个文件头的位置表明，每行的第一个值都是气象站编码。文件头&lt;code&gt;NAME&lt;/code&gt;
- 指出每行的第二个值都是记录数据的气象站的名称。其他文件头则指出记录了哪些信息。当前，我们最关心的是日期（&lt;code&gt;DATE&lt;/code&gt;
- ）、最高温度（&lt;code&gt;TMAX&lt;/code&gt;
- ）和最低温度（&lt;code&gt;TMIN&lt;/code&gt;
- ）。这是一个简单的数据集，只包含降水量以及与温度相关的数据。你自己下载天气数据时，可选择涵盖众多测量值，如风速、风向以及详细的降水量数据。&lt;/p&gt;
-&lt;h3 id="nav_point_376"&gt;16.1.2　打印文件头及其位置&lt;/h3&gt;
-&lt;p&gt;为了让文件头数据更容易理解，将列表中的每个文件头及其位置打印出来：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;sitka_highs.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  with open(filename) as f:
-      reader = csv.reader(f)
-      header_row = next(reader)
-❶     for index, column_header in enumerate(header_row):
-          print(index, column_header)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在循环中，对列表调用了&lt;code&gt;enumerate()&lt;/code&gt;
- （见❶）来获取每个元素的索引及其值。（请注意，我们删除了代码行&lt;code&gt;print(header_row)&lt;/code&gt;
- ，转而显示这个更详细的版本。）&lt;/p&gt;
-&lt;p&gt;输出如下，指出了每个文件头的索引：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;0 STATION
-1 NAME
-2 DATE
-3 PRCP
-4 TAVG
-5 TMAX
-6 TMIN&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;从中可知，日期和最高温度分别存储在第三列和第六列。为研究这些数据，我们将处理sitka_weather_07-2018_simple.csv中的每行数据，并提取其中索引为2和5的值。&lt;/p&gt;
-&lt;h3 id="nav_point_377"&gt;16.1.3　提取并读取数据&lt;/h3&gt;
-&lt;p&gt;知道需要哪些列中的数据后，我们来读取一些数据。首先，读取每天的最高温度：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;sitka_highs.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  with open(filename) as f:
-      reader = csv.reader(f)
-      header_row = next(reader)
-      # 从文件中获取最高温度。
-❶     highs = []
-❷     for row in reader:
-❸         high = int(row[5])
-          highs.append(high)
-  print(highs)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;创建一个名为&lt;code&gt;highs&lt;/code&gt;
- 的空列表（见❶），再遍历文件中余下的各行（见❷）。阅读器对象从其停留的地方继续往下读取CSV文件，每次都自动返回当前所处位置的下一行。由于已经读取了文件头行，这个循环将从第二行开始——从这行开始包含的是实际数据。每次执行循环时，都将索引5处（&lt;code&gt;TMAX&lt;/code&gt;
- 列）的数据附加到&lt;code&gt;highs&lt;/code&gt;
- 末尾（见❸）。在文件中，这项数据是以字符串格式存储的，因此在附加到&lt;code&gt;highs&lt;/code&gt;
- 末尾前，使用函数&lt;code&gt;int()&lt;/code&gt;
- 将其转换为数值格式，以便使用。&lt;/p&gt;
-&lt;p&gt;
-&lt;code&gt;highs&lt;/code&gt;
- 现在存储的数据如下：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;[62, 58, 70, 70, 67, 59, 58, 62, 66, 59, 56, 63, 65, 58, 56, 59, 64, 60, 60,
- 61, 65, 65, 63, 59, 64, 65, 68, 66, 64, 67, 65]&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;提取每天的最高温度并将其存储到列表中之后，就可以可视化这些数据了。&lt;/p&gt;
-&lt;h3 id="nav_point_378"&gt;16.1.4　绘制温度图表&lt;/h3&gt;
-&lt;p&gt;为可视化这些温度数据，首先使用Matplotlib创建一个显示每日最高温度的简单图形，如下所示：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;sitka_highs.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  import csv
-  import matplotlib.pyplot as plt
-  filename = 'data/sitka_weather_07-2018_simple.csv'
-  with open(filename) as f:
-      --_snip_—
-  # 根据最高温度绘制图形。
-  plt.style.use('seaborn')
-  fig, ax = plt.subplots()
-❶ ax.plot(highs, c='red')
-  # 设置图形的格式。
-❷ ax.set_title("2018年7月每日最高温度", fontsize=24)
-❸ ax.set_xlabel('', fontsize=16)
-  ax.set_ylabel("温度 (F)", fontsize=16)
-  ax.tick_params(axis='both', which='major', labelsize=16)
-  plt.show()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;将最高温度列表传给&lt;code&gt;plot()&lt;/code&gt;
- （见❶），并传递&lt;code&gt;c='red'&lt;/code&gt;
- 以便将数据点绘制为红色。（这里使用红色显示最高温度，用蓝色显示最低温度。）接下来，设置了一些其他的格式，如名称和字号（见❷），这些都在第15章介绍过。鉴于还没有添加日期，因此没有给&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00003.gif"/&gt;
- 轴添加标签，但&lt;code&gt;ax.set_xlabel()&lt;/code&gt;
- 确实修改了字号，让默认标签更容易看清❸。图16-1显示了绘制的图表：一个简单的折线图，显示了阿拉斯加州锡特卡2018年7月的每日最高温度。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00034.gif" style="width: 82%" width="82%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图16-1　阿拉斯加州锡特卡2018年7月每日最高温度折线图&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_379"&gt;16.1.5　模块&lt;code&gt;datetime&lt;/code&gt;
-&lt;/h3&gt;
-&lt;p&gt;下面在图表中添加日期，使其更有用。在天气数据文件中，第一个日期在第二行：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;"USW00025333","SITKA AIRPORT, AK US","2018-07-01","0.25",,"62","50"&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;读取该数据时，获得的是一个字符串，因此需要想办法将字符串&lt;code&gt;"2018-7-1"&lt;/code&gt;
- 转换为一个表示相应日期的对象。为创建一个表示2018年7月1日的对象，可使用模块&lt;code&gt;datetime&lt;/code&gt;
- 中的方法&lt;code&gt;strptime()&lt;/code&gt;
- 。我们在终端会话中看看&lt;code&gt;strptime()&lt;/code&gt;
- 的工作原理：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; from datetime import datetime
-&amp;gt;&amp;gt;&amp;gt; first_date = datetime.strptime('2018-07-01', '%Y-%m-%d')
-&amp;gt;&amp;gt;&amp;gt; print(first_date)
-2018-07-01 00:00:00&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;首先导入模块&lt;code&gt;datetime&lt;/code&gt;
- 中的&lt;code&gt;datetime&lt;/code&gt;
- 类，再调用方法&lt;code&gt;strptime()&lt;/code&gt;
- ，并将包含所需日期的字符串作为第一个实参。第二个实参告诉Python如何设置日期的格式。在这里，&lt;code&gt;'%Y-'&lt;/code&gt;
- 让Python将字符串中第一个连字符前面的部分视为四位的年份，&lt;code&gt;'%m-'&lt;/code&gt;
- 让Python将第二个连字符前面的部分视为表示月份的数，&lt;code&gt;'%d'&lt;/code&gt;
- 让Python将字符串的最后一部分视为月份中的一天（1～31）。&lt;/p&gt;
-&lt;p&gt;方法&lt;code&gt;strptime()&lt;/code&gt;
- 可接受各种实参，并根据它们来决定如何解读日期。表16-1列出了这样的一些实参。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;表16-1　模块&lt;code&gt;datetime&lt;/code&gt;
- 中设置日期和时间格式的实参&lt;/strong&gt;
-&lt;/p&gt;
-&lt;table border="1" width="90%"&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;实参&lt;/p&gt;
-&lt;/th&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;含义&lt;/p&gt;
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;
-&lt;code&gt;%A&lt;/code&gt;
-&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;星期几，如Monday&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;
-&lt;code&gt;%B&lt;/code&gt;
-&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;月份名，如January&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;
-&lt;code&gt;%m&lt;/code&gt;
-&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;用数表示的月份（01～12）&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;
-&lt;code&gt;%d&lt;/code&gt;
-&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;用数表示的月份中的一天（01～31）&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;
-&lt;code&gt;%Y&lt;/code&gt;
-&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;四位的年份，如2019&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;
-&lt;code&gt;%y&lt;/code&gt;
-&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;两位的年份，如19&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;
-&lt;code&gt;%H&lt;/code&gt;
-&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;24小时制的小时数（00～23）&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;
-&lt;code&gt;%I&lt;/code&gt;
-&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;12小时制的小时数（01～12）&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;
-&lt;code&gt;%p&lt;/code&gt;
-&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;am或pm&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;
-&lt;code&gt;%M&lt;/code&gt;
-&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;分钟数（00～59）&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;
-&lt;code&gt;%S&lt;/code&gt;
-&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;秒数（00～61）&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id="nav_point_380"&gt;16.1.6　在图表中添加日期&lt;/h3&gt;
-&lt;p&gt;现在，可以通过提取日期和最高温度并将其传递给&lt;code&gt;plot()&lt;/code&gt;
- ，对温度图形进行改进，如下所示：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;sitka_highs.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  import csv
-  from datetime import datetime
-  import matplotlib.pyplot as plt
-  filename = 'data/sitka_weather_07-2018_simple.csv'
-  with open(filename) as f:
-      reader = csv.reader(f)
-      header_row = next(reader)
-      # 从文件中获取日期和最高温度。
-❶     dates, highs = [], []
-      for row in reader:
-❷         current_date = datetime.strptime(row[2], '%Y-%m-%d')
-          high = int(row[5])
-          dates.append(current_date)
-          highs.append(high)
-  # 根据最高温度绘制图形。
-  plt.style.use('seaborn')
-  fig, ax = plt.subplots()
-❸ ax.plot(dates, highs, c='red')
-  # 设置图形的格式。
-  ax.set_title("2018年7月每日最高温度", fontsize=24)
-  ax.set_xlabel('', fontsize=16)
-❹ fig.autofmt_xdate()
-  ax.set_ylabel("温度 (F)", fontsize=16)
-  ax.tick_params(axis='both', which='major', labelsize=16)
-  plt.show()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们创建了两个空列表，用于存储从文件中提取的日期和最高温度（见❶）。然后，将包含日期信息的数据（&lt;code&gt;row[0]&lt;/code&gt;
- ）转换为&lt;code&gt;datetime&lt;/code&gt;
- 对象（见❷），并将其附加到列表&lt;code&gt;dates&lt;/code&gt;
- 末尾。在❸处，将日期和最高温度值传递给&lt;code&gt;plot()&lt;/code&gt;
- 。在❹处，调用&lt;code&gt;fig.autofmt_xdate()&lt;/code&gt;
- 来绘制倾斜的日期标签，以免其彼此重叠。图16-2显示了改进后的图表。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00035.gif" style="width: 82%" width="82%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图16-2　现在图表的&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00003.gif"/&gt;
- 轴上有日期，含义更丰富&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_381"&gt;16.1.7　涵盖更长的时间&lt;/h3&gt;
-&lt;p&gt;设置好图表后，我们来添加更多的数据，生成一幅更复杂的锡特卡天气图。请将文件sitka_weather_2018_simple.csv复制到本章程序所在的文件夹，该文件包含整年的锡特卡天气数据。&lt;/p&gt;
-&lt;p&gt;现在可创建覆盖整年的天气图了：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;sitka_highs.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-❶ filename = 'data/sitka_weather_2018_simple.csv'
-  with open(filename) as f:
-  --snip--
-  # 设置图形的格式。
-❷ ax.set_title("2018年每日最高温度", fontsize=24)
-  ax.set_xlabel('', fontsize=16)
-  --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这里修改了文件名，以使用数据文件sitka_weather_2018_simple.csv（见❶），还修改了图表的标题，以反映其内容的变化（见❷）。图16-3显示了生成的图形。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00036.gif" style="width: 82%" width="82%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图16-3　一年的天气数据&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_382"&gt;16.1.8　再绘制一个数据系列&lt;/h3&gt;
-&lt;p&gt;虽然改进后的图表已经显示了丰富的数据，但是还能再添加最低温度数据，使其更有用。为此，需要从数据文件中提取最低温度，并将它们添加到图表中，如下所示：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;sitka_highs_lows.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  filename = 'sitka_weather_2018_simple.csv'
-  with open(filename) as f:
-      reader = csv.reader(f)
-      header_row = next(reader)
-      # 从文件中获取日期、最高温度和最低温度。
-❶     dates, highs, lows = [], [], []
-      for row in reader:
-          current_date = datetime.strptime(row[2], '%Y-%m-%d')
-          high = int(row[5])
-❷         low = int(row[6])
-          dates.append(current_date)
-          highs.append(high)
-          lows.append(low)
-  # 根据最高温度和最低温度绘制图形。
-  plt.style.use('seaborn')
-  fig, ax = plt.subplots()
-  ax.plot(dates, highs, c='red')
-❸ ax.plot(dates, lows, c='blue')
-  # 设置图形的格式。
-❹ ax.set_title("2018年每日最高温度", fontsize=24)
-  --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，添加空列表&lt;code&gt;lows&lt;/code&gt;
- ，用于存储最低温度。接下来，从每行的第七列（&lt;code&gt;row[6]&lt;/code&gt;
- ）提取最低温度并存储（见❷）。在❸处，添加调用&lt;code&gt;plot()&lt;/code&gt;
- 的代码，以使用蓝色绘制最低温度。最后，修改标题（见❹）。图16-4显示了这样绘制出来的图表。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00037.gif" style="width: 82%" width="82%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图16-4　在一个图表中包含两个数据系列&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_383"&gt;16.1.9　给图表区域着色&lt;/h3&gt;
-&lt;p&gt;添加两个数据系列后，就可以知道每天的温度范围了。下面来给这个图表做最后的修饰，通过着色来呈现每天的温度范围。为此，将使用方法&lt;code&gt;fill_between()&lt;/code&gt;
- 。它接受一个&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00003.gif"/&gt;
- 值系列和两个&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00004.gif"/&gt;
- 值系列，并填充两个&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00004.gif"/&gt;
- 值系列之间的空间：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;sitka_highs_lows.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  # 根据最低温度和最高温度绘制图形。
-  plt.style.use('seaborn')
-  fig, ax = plt.subplots()
-❶ ax.plot(dates, highs, c='red', alpha=0.5)
-  ax.plot(dates, lows, c='blue', alpha=0.5)
-❷ ax.fill_between(dates, highs, lows, facecolor='blue', alpha=0.1)
-  --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;❶处的实参&lt;code&gt;alpha&lt;/code&gt;
- 指定颜色的透明度。&lt;code&gt;alpha&lt;/code&gt;
- 值为0表示完全透明，为1（默认设置）表示完全不透明。通过将&lt;code&gt;alpha&lt;/code&gt;
- 设置为0.5，可让红色和蓝色折线的颜色看起来更浅。&lt;/p&gt;
-&lt;p&gt;在❷处，向&lt;code&gt;fill_between()&lt;/code&gt;
- 传递一个&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00003.gif"/&gt;
- 值系列（列表&lt;code&gt;dates&lt;/code&gt;
- ），以及两个&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00004.gif"/&gt;
- 值系列（&lt;code&gt;highs&lt;/code&gt;
- 和&lt;code&gt;lows&lt;/code&gt;
- ）。实参facecolor指定填充区域的颜色，还将&lt;code&gt;alpha&lt;/code&gt;
- 设置成了较小的值0.1，让填充区域将两个数据系列连接起来的同时不分散观察者的注意力。图16-5显示了最高温度和最低温度之间的区域被填充后的图表。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00038.gif" style="width: 82%" width="82%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图16-5　给两个数据集之间的区域着色&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;着色让两个数据集之间的区域变得更显眼了。&lt;/p&gt;
-&lt;h3 id="nav_point_384"&gt;16.1.10　错误检查&lt;/h3&gt;
-&lt;p&gt;我们应该能够使用任何地方的天气数据来运行sitka_highs_lows.py中的代码，但有些气象站收集的数据种类不同，有些气象站会偶尔出现故障，未能收集部分或全部应收集的数据。缺失数据可能引发异常，如果不妥善处理，可能导致程序崩溃。&lt;/p&gt;
-&lt;p&gt;例如，来看看生成加利福尼亚州死亡谷的温度图时出现的情况。请将文件death_valley_2018_simple.csv复制到本章程序所在的文件夹。&lt;/p&gt;
-&lt;p&gt;首先通过编写代码来查看这个数据文件包含的文件头：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;death_valley_highs&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;import csvlows.py_
-filename = 'data/death_valley_2018_simple.csv'
-with open(filename) as f:
-    reader = csv.reader(f)
-    header_row = next(reader)
-    for index, column_header in enumerate(header_row):
-        print(index, column_header)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;输出如下：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;0 STATION
-1 NAME
-2 DATE
-3 PRCP
-4 TMAX
-5 TMIN
-6 TOBS&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;与前面一样，日期也在索引2处，但最高温度和最低温度分别在索引4和索引5处，因此需要修改代码中的索引，以反映这一点。另外，这个气象站没有记录平均温度，而记录了&lt;code&gt;TOBS&lt;/code&gt;
- ，即特定时点的温度。&lt;/p&gt;
-&lt;p&gt;为演示缺失数据时将出现的状况，我故意从这个文件中删除了一项温度数据。下面来修改sitka_highs_lows.py，使用前面所说的索引来生成死亡谷的天气图，看看将出现什么状况：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;death_valley_highs_lows.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  filename = 'data/death_valley_2018_simple.csv'
-  with open(filename) as f:
-      --snip--
-      # 从文件中获取日期、最高温度和最低温度。
-      dates, highs, lows = [], [], []
-      for row in reader:
-          current_date = datetime.strptime(row[2], '%Y-%m-%d')
-❶     high = int(row[4])
-      low = int(row[5])
-      dates.append(current_date)
-  --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，修改索引，使其对应于这个文件中&lt;code&gt;TMAX&lt;/code&gt;
- 和&lt;code&gt;TMIN&lt;/code&gt;
- 的位置。&lt;/p&gt;
-&lt;p&gt;运行这个程序时出现了错误，如下述输出的最后一行所示：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;Traceback (most recent call last):
-  File "death_valley_highs_lows.py", line 15, in &amp;lt;module&amp;gt;
-    high = int(row[4])
-ValueError: invalid literal for int() with base 10: ''&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;该traceback指出，Python无法处理其中一天的最高温度，因为无法将空字符串（&lt;code&gt;''&lt;/code&gt;
- ）转换为整数。我们只要看一下文件death_valley_2018_simple.csv，就知道缺失了哪项数据，但这里不这样做，而是直接对缺失数据的情形进行处理。&lt;/p&gt;
-&lt;p&gt;为此，在从CSV文件中读取值时执行错误检查代码，对可能出现的异常进行处理，如下所示：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;death_valley_highs_lows.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  filename = 'data/death_valley_2018_simple.csv'
-  with open(filename) as f:
-      --snip--
-      for row in reader:
-              current_date = datetime.strptime(row[2], '%Y-%m-%d')
-❶             try:
-                  high = int(row[4])
-                  low = int(row[5])
-              except ValueError:
-❷                 print(f"Missing data for {current_date}")
-❸             else:
-                  dates.append(current_date)
-                  highs.append(high)
-                  lows.append(low)
-  # 根据最高温度和最低温度绘制图形。
-  --snip--
-  # 设置图形的格式。
-❹ title = "2018年每日最高温度和最低温度\n美国加利福尼亚州死亡谷"
-  ax.set_title(title, fontsize=20)
-  ax.set_xlabel('', fontsize=16)
-  --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;对于每一行，都尝试从中提取日期、最高温度和最低温度（见❶）。只要缺失其中一项数据，Python就会引发&lt;code&gt;ValueError&lt;/code&gt;
- 异常。我们这样进行处理：打印一条错误消息，指出缺失数据的日期（见❷）。打印错误消息后，循环将接着处理下一行。如果获取特定日期的所有数据时没有发生错误，就运行&lt;code&gt;else&lt;/code&gt;
- 代码块，将数据附加到相应列表的末尾（见❸）。这里绘图时使用的是有关另一个地方的信息，因此修改标题以指出这个地方。因为标题更长，所以我们缩小了字号（见❹）。&lt;/p&gt;
-&lt;p&gt;如果现在运行death_valley_highs_lows.py，将发现缺失数据的日期只有一个：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;Missing data for 2018-02-18 00:00:00&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;妥善地处理错误后，代码能够生成图形并忽略缺失数据的那天。图16-6显示了绘制出的图形。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00039.gif" style="width: 82%" width="82%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图16-6　死亡谷每天的最高温度和最低温度&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;将这个图表与锡特卡的图表进行比较可知，总体而言，死亡谷比阿拉斯加东南部暖和，这符合预期。同时，死亡谷沙漠中每天的温差也更大——从着色区域的高度可以看出这一点。&lt;/p&gt;
-&lt;p&gt;你使用的很多数据集都可能缺失数据、格式不正确或数据本身不正确。对于这样的情形，可使用本书前半部分介绍的工具来处理。在这里，使用了一个&lt;code&gt;try-except-else&lt;/code&gt;
- 代码块来处理数据缺失的问题。在有些情况下，需要使用&lt;code&gt;continue&lt;/code&gt;
- 来跳过一些数据，或者使用&lt;code&gt;remove()&lt;/code&gt;
- 或&lt;code&gt;del&lt;/code&gt;
- 将已提取的数据删除。只要能进行精确而有意义的可视化，采用任何管用的方法都是可以的。&lt;/p&gt;
-&lt;h3 id="nav_point_385"&gt;16.1.11　自己动手下载数据&lt;/h3&gt;
-&lt;p&gt;如果你想自己下载天气数据，可采取如下步骤。&lt;/p&gt;
-&lt;p&gt;(1) 访问网站NOAA Climate Data Online。在Discover Data By部分，单击Search Tool。在下拉列表Select a Dataset中，选择Daily Summaries。&lt;/p&gt;
-&lt;p&gt;(2) 选择一个日期范围，在Search For下拉列表中ZIP Codes，输入你感兴趣地区的邮政编码，再单击Search按钮。&lt;/p&gt;
-&lt;p&gt;(3) 在下一个页面中，你将看到指定地区的地图和相关信息。单击地区名下方的View Full Details或单击地图再单击Full Details。&lt;/p&gt;
-&lt;p&gt;(4) 向下滚动并单击Station List，以显示该地区的气象站，再选择一个气象站并单击Add to Cart。虽然这个网站使用了购物车图标，但提供的数据是免费的。单击右上角的购物车。&lt;/p&gt;
-&lt;p&gt;(5) 在Select the Output中选择Custom GHCN-Daily CSV。确认日期范围无误后单击Continue。&lt;/p&gt;
-&lt;p&gt;(6) 在下一个页面中，可选择要下载的数据类型。可以只下载一种数据（如气温），也可以下载该气象站提供的所有数据。做出选择后单击Continue。&lt;/p&gt;
-&lt;p&gt;(7) 在最后一个页面，你将看到订单小结。请输入你的电子邮箱地址，再单击Submit Order。你将收到一封确认邮件，指出收到了你的订单。几分钟后，你将收到另一封邮件，其中包含用于下载数据的链接。&lt;/p&gt;
-&lt;p&gt;你下载的数据与本节处理的数据有类似的结构，但包含的文件头可能不同。然而，只要按本节介绍的步骤做，就能对你感兴趣的数据进行可视化。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习16-1：锡特卡的降雨量&lt;/strong&gt;
- 　锡特卡属于温带雨林，降水量非常丰富。在数据文件sitka_weather_2018_simple.csv中，文件头PRCP表示的是每日降水量。请对这列数据进行可视化。如果你想知道沙漠的降水量有多低，可针对死亡谷完成同样的练习。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习16-2：比较锡特卡和死亡谷的温度&lt;/strong&gt;
- 　在有关锡特卡和死亡谷的图表中，温度刻度反映了数据范围的不同。为准确比较锡特卡和死亡谷的温度范围，需要在&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00004.gif"/&gt;
- 轴上使用相同的刻度。为此，请修改图16-5和图16-6所示图表的&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00004.gif"/&gt;
- 轴设置，对锡特卡和死亡谷的温度范围进行直接比较（也可对任何两个地方的温度范围进行比较）。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习16-3：旧金山&lt;/strong&gt;
- 　旧金山的温度更接近锡特卡还是死亡谷呢？为进行比较，可下载一些有关旧金山的温度数据，并据此生成包含最高温度和最低温度的图表。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习16-4：自动索引&lt;/strong&gt;
- 　本节以硬编码的方式指定了&lt;code&gt;TMIN&lt;/code&gt;
- 和&lt;code&gt;TMAX&lt;/code&gt;
- 列的索引。请根据文件头行确定这些列的索引，让程序同时适用于锡特卡和死亡谷。另外，请根据气象站的名称自动生成图表的标题。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习16-5：探索&lt;/strong&gt;
- 　生成一些图表，对你好奇的任何地方的其他天气数据进行研究。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_386"&gt;16.2　制作全球地震散点图：JSON格式&lt;/h2&gt;
-&lt;p&gt;在本节中&lt;span class="注释编号"&gt;1&lt;/span&gt;
- ，你将下载一个数据集，其中记录了一个月内全球发生的所有地震，再制作一幅散点图来展示这些地震的位置和震级。这些数据是以JSON格式存储的，因此要使用模块&lt;code&gt;json&lt;/code&gt;
- 来处理。Plotly提供了根据位置数据绘制地图的工具，适合初学者使用。你将使用它来进行可视化并指出全球的地震分布情况。&lt;/p&gt;
-&lt;p class="注释内容"&gt;
-&lt;span class="注释编号下"&gt;1&lt;/span&gt;
- 本节为陶俊杰根据原作编写。——编者注&lt;/p&gt;
-&lt;h3 id="nav_point_387"&gt;16.2.1　地震数据&lt;/h3&gt;
-&lt;p&gt;请将文件eq_data_1_day_m1.json复制到存储本章程序的文件夹中。地震是以里氏震级度量的，而该文件记录了（截至写作本节时）最近24小时内全球发生的所有不低于1级的地震。&lt;/p&gt;
-&lt;h3 id="nav_point_388"&gt;16.2.2　查看JSON数据&lt;/h3&gt;
-&lt;p&gt;如果打开文件eq_data_1_day_m1.json，你将发现其内容密密麻麻，难以阅读：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;{"type":"FeatureCollection","metadata":{"generated":1550361461000,...
-{"type":"Feature","properties":{"mag":1.2,"place":"11km NNE of Nor...
-{"type":"Feature","properties":{"mag":4.3,"place":"69km NNW of Ayn...
-{"type":"Feature","properties":{"mag":3.6,"place":"126km SSE of Co...
-{"type":"Feature","properties":{"mag":2.1,"place":"21km NNW of Teh...
-{"type":"Feature","properties":{"mag":4,"place":"57km SSW of Kakto...
---snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这些数据适合机器而不是人来读取。不过可以看到，这个文件包含一些字典，还有一些我们感兴趣的信息，如震级和位置。&lt;/p&gt;
-&lt;p&gt;模块&lt;code&gt;json&lt;/code&gt;
- 提供了各种探索和处理JSON数据的工具，其中一些有助于重新设置这个文件的格式，让我们能够更清楚地查看原始数据，继而决定如何以编程的方式来处理。&lt;/p&gt;
-&lt;p&gt;我们先加载这些数据并将其以易于阅读的方式显示出来。这个数据文件很长，因此不打印出来，而是将数据写入另一个文件，再打开该文件并轻松地在数据中导航：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;eq_explore_data.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  import json
-  # 探索数据的结构。
-  filename = 'data/eq_data_1_day_m1.json'
-  with open(filename) as f:
-❶     all_eq_data = json.load(f)
-❷ readable_file = 'data/readable_eq_data.json'
-  with open(readable_file, 'w') as f:
-❸     json.dump(all_eq_data, f, indent=4)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;首先导入模块&lt;code&gt;json&lt;/code&gt;
- ，以便恰当地加载文件中的数据，并将其存储到&lt;code&gt;all_eq_data&lt;/code&gt;
- 中（见❶）。函数&lt;code&gt;json.load()&lt;/code&gt;
- 将数据转换为Python能够处理的格式，这里是一个庞大的字典。在❷处，创建一个文件，以便将这些数据以易于阅读的方式写入其中。函数&lt;code&gt;json.dump()&lt;/code&gt;
- 接受一个JSON数据对象和一个文件对象，并将数据写入这个文件中（见❸）。参数&lt;code&gt;indent=4&lt;/code&gt;
- 让&lt;code&gt;dump()&lt;/code&gt;
- 使用与数据结构匹配的缩进量来设置数据的格式。&lt;/p&gt;
-&lt;p&gt;如果你现在查看目录data并打开其中的文件readable_eq_data.json，将发现其开头部分像下面这样：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;readable_eq_data.json&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  {
-      "type": "FeatureCollection",
-❶     "metadata": {
-          "generated": 1550361461000,
-          "url": "https://earthquake.usgs.gov/earthquakes/.../1.0_day.geojson",
-          "title": "USGS Magnitude 1.0+ Earthquakes, Past Day",
-          "status": 200,
-          "api": "1.7.0",
-          "count": 158
-      },
-❷     "features": [
-      --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这个文件的开头是一个键为&lt;code&gt;"metadata"&lt;/code&gt;
- 的片段（见❶），指出了这个数据文件是什么时候生成的，以及能够在网上的什么地方找到。它还包含适合人类阅读的标题以及文件中记录了多少次地震：在过去的24小时内，发生了158次地震。&lt;/p&gt;
-&lt;p&gt;这个geoJSON文件的结构适合存储基于位置的数据。数据存储在一个与键&lt;code&gt;"features"&lt;/code&gt;
- 相关联的列表中（见❷）。这个文件包含的是地震数据，因此列表的每个元素都对应一次地震。这种结构可能有点令人迷惑，但很有用，让地质学家能够将有关每次地震的任意数量信息存储在一个字典中，再将这些字典放在一个大型列表中。&lt;/p&gt;
-&lt;p&gt;我们来看看表示特定地震的字典：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;readable_eq_data.json&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-      {
-          "type": "Feature",
-❶         "properties": {
-              "mag": 0.96,
-              --snip--
-❷             "title": "M 1.0 - 8km NE of Aguanga, CA"
-           },
-❸          "geometry": {
-               "type": "Point",
-               "coordinates": [
-❹                 -116.7941667,
-❺                 33.4863333,
-                  3.22
-               ]
-          },
-          "id": "ci37532978"
-      },&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;键&lt;code&gt;"properties"&lt;/code&gt;
- 关联到了与特定地震相关的大量信息（见❶）。我们关心的主要是与键&lt;code&gt;"mag"&lt;/code&gt;
- 相关联的地震震级以及地震的标题，因为后者很好地概述了地震的震级和位置（见❷）。&lt;/p&gt;
-&lt;p&gt;键&lt;code&gt;"geometry"&lt;/code&gt;
- 指出了地震发生在什么地方（见❸），我们需要根据这项信息将地震在散点图上标出来。在与键&lt;code&gt;"coordinates"&lt;/code&gt;
- 相关联的列表中，可找到地震发生位置的经度（见❹）和纬度（见❺）。&lt;/p&gt;
-&lt;p&gt;这个文件的嵌套层级比我们编写的代码多。如果这让你感到迷惑，也不用担心，Python将替你处理大部分复杂的工作。我们每次只会处理一两个嵌套层级。我们将首先提取过去24小时内发生的每次地震对应的字典。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　说到位置时，我们通常先说纬度、再说经度，这种习惯形成的原因可能是人类先发现了纬度，很久后才有经度的概念。然而，很多地质学框架都先列出经度、后列出纬度，因为这与数学约定&lt;img alt="(x,y)" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00040.gif"/&gt;
- 一致。geoJSON格式遵循(经度, 纬度)的约定，但在使用其他框架时，获悉其遵循的约定很重要。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_389"&gt;16.2.3　创建地震列表&lt;/h3&gt;
-&lt;p&gt;首先，创建一个列表，其中包含所有地震的各种信息：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;eq_explore_data.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;import json
-# 探索数据的结构。
-filename = 'data/eq_data_1_day_m1.json'
-with open(filename) as f:
-    all_eq_data = json.load(f)
-all_eq_dicts = all_eq_data['features']
-print(len(all_eq_dicts))&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们提取与键&lt;code&gt;'features'&lt;/code&gt;
- 相关联的数据，并将其存储到&lt;code&gt;all_eq_dicts&lt;/code&gt;
- 中。我们知道，这个文件记录了158次地震。下面的输出表明，我们提取了这个文件记录的所有地震：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;158&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;注意，我们编写的代码很短。格式良好的文件readable_eq_data.json包含超过6000行内容，但只需几行代码，就可读取所有的数据并将其存储到一个Python列表中。下面将提取所有地震的震级。&lt;/p&gt;
-&lt;h3 id="nav_point_390"&gt;16.2.4　提取震级&lt;/h3&gt;
-&lt;p&gt;有了包含所有地震数据的列表后，就可遍历这个列表，从中提取所需的数据。下面来提取每次地震的震级：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;eq_explore_data.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  all_eq_dicts = all_eq_data['features']
-❶ mags = []
-  for eq_dict in all_eq_dicts:
-❷     mag = eq_dict['properties']['mag']
-      mags.append(mag)
-  print(mags[:10])&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们创建了一个空列表，用于存储地震震级，再遍历列表all_eq_dicts（见❶）。每次地震的震级都存储在相应字典的&lt;code&gt;'properties'&lt;/code&gt;
- 部分的&lt;code&gt;'mag'&lt;/code&gt;
- 键下（见❷）。我们依次将地震震级赋给变量&lt;code&gt;mag&lt;/code&gt;
- ，再将这个变量附加到列表&lt;code&gt;mags&lt;/code&gt;
- 末尾。&lt;/p&gt;
-&lt;p&gt;为确定提取的数据是否正确，打印前10次地震的震级：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;[0.96, 1.2, 4.3, 3.6, 2.1, 4, 1.06, 2.3, 4.9, 1.8]&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;接下来，我们将提取每次地震的位置信息，然后就可以绘制地震散点图了。&lt;/p&gt;
-&lt;h3 id="nav_point_391"&gt;16.2.5　提取位置数据&lt;/h3&gt;
-&lt;p&gt;位置数据存储在&lt;code&gt;"geometry"&lt;/code&gt;
- 键下。在&lt;code&gt;"geometry"&lt;/code&gt;
- 键关联的字典中，有一个&lt;code&gt;"coordinates"&lt;/code&gt;
- 键，它关联到一个列表，而列表中的前两个值为经度和纬度。下面演示了如何提取位置数据：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;eq_explore_data.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  all_eq_dicts = all_eq_data['features']
-  mags, titles, lons, lats = [], [], [], []
-  for eq_dict in all_eq_dicts:
-      mag = eq_dict['properties']['mag']
-❶     title = eq_dict['properties']['title']
-❷     lon = eq_dict['geometry']['coordinates'][0]
-      lat = eq_dict['geometry']['coordinates'][1]
-      mags.append(mag)
-      titles.append(title)
-      lons.append(lon)
-      lats.append(lat)
-  print(mags[:10])
-  print(titles[:2])
-  print(lons[:5])
-  print(lats[:5])&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们创建了用于存储位置标题的列表&lt;code&gt;titles&lt;/code&gt;
- ，来提取字典&lt;code&gt;'properties'&lt;/code&gt;
- 里&lt;code&gt;'title'&lt;/code&gt;
- 键对应的值（见❶），以及用于存储经度和纬度的列表。代码&lt;code&gt;eq_dict['geometry']&lt;/code&gt;
- 访问与&lt;code&gt;"geometry"&lt;/code&gt;
- 键相关联的字典（见❷）。第二个键（&lt;code&gt;'coordinates'&lt;/code&gt;
- ）提取与&lt;code&gt;"coordinates"&lt;/code&gt;
- 相关联的列表，而索引0提取该列表中的第一个值，即地震发生位置的经度。&lt;/p&gt;
-&lt;p&gt;打印前5个经度和纬度时，输出表明提取的数据是正确的：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;[0.96, 1.2, 4.3, 3.6, 2.1, 4, 1.06, 2.3, 4.9, 1.8]
-['M 1.0 - 8km NE of Aguanga, CA', 'M 1.2 - 11km NNE of North Nenana, Alaska']
-[-116.7941667, -148.9865, -74.2343, -161.6801, -118.5316667]
-[33.4863333, 64.6673, -12.1025, 54.2232, 35.3098333]&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;有了这些数据，就可以绘制地震散点图了。&lt;/p&gt;
-&lt;h3 id="nav_point_392"&gt;16.2.6　绘制震级散点图&lt;/h3&gt;
-&lt;p&gt;有了前面提取的数据，就可以绘制可视化图了。首先要实现一个简单的震级散点图，在确保显示的信息正确无误之后，我们再将注意力转向样式和外观方面。绘制初始散点图的代码如下：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;eq_world_map.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ import plotly.express as px
-  fig = px.scatter(
-      x=lons,
-      y=lats,
-      labels={"x": "经度", "y": "纬度"},
-      range_x=[-200, 200],
-      range_y=[-90, 90],
-      width=800,
-      height=800,
-      title="全球地震散点图",
-❷ )
-❸ fig.write_html("global_earthquakes.html")
-❹ fig.show()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;首先，导入&lt;code&gt;plotly.express&lt;/code&gt;
- ，用别名&lt;code&gt;px&lt;/code&gt;
- 表示。Plotly Express是Plotly的高级接口，简单易用，语法与Matplotlib类似（见❶）。然后，调用&lt;code&gt;px.scatter&lt;/code&gt;
- 函数配置参数创建一个&lt;code&gt;fig&lt;/code&gt;
- 实例，分别设置&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00003.gif"/&gt;
- 轴为经度［范围是&lt;code&gt;[-200, 200]&lt;/code&gt;
- （扩大空间，以便完整显示东西经180°附近的地震散点）］、&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00004.gif"/&gt;
- 轴为纬度［范围是&lt;code&gt;[-90, 90]&lt;/code&gt;
- ］，设置散点图显示的宽度和高度均为800像素，并设置标题为“全球地震散点图”（见❷）。&lt;/p&gt;
-&lt;p&gt;只用14行代码，简单的散点图就配置完成了，这返回了一个&lt;code&gt;fig&lt;/code&gt;
- 对象。&lt;code&gt;fig.write_html&lt;/code&gt;
- 方法可以将可视化图保存为html文件。在文件夹中找到global_earthquakes.html文件，用浏览器打开即可（见❸）。另外，如果使用Jupyter Notebook，可以直接使用&lt;code&gt;fig.show&lt;/code&gt;
- 方法直接在notebook单元格显示散点图（见❹）。&lt;/p&gt;
-&lt;p&gt;局部效果如下图所示：&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00041.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图16-7　显示24小时内所有地震的简单散点图&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;可对这幅散点图做大量修改，使其更有意义、更好懂。下面就来做些这样的修改。&lt;/p&gt;
-&lt;h3 id="nav_point_393"&gt;16.2.7　另一种指定图表数据的方式&lt;/h3&gt;
-&lt;p&gt;配置这个图表前，先来看看另一种稍微不同的指定Plotly 图表数据的方式。当前，经纬度数据是手动配置的：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-    x=lons,
-    y=lats,
-    labels={"x": "经度", "y": "纬度"},
---snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这是在Plotly Express中给图表定义数据的最简单方式之一，但在数据处理中并不是最佳的。下面是另一种给图表定义数据的等效方式，需要使用pandas数据分析工具。首先创建一个&lt;code&gt;DataFrame&lt;/code&gt;
- ，将需要的数据封装起来：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;import pandas as pd
-data = pd.DataFrame(
-    data=zip(lons, lats, titles, mags), columns=["经度", "纬度", "位置", "震级"]
-)
-data.head()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;然后，参数配置方式可以变更为：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-    data,
-    x="经度",
-    y="纬度",
---snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在这种方式中，所有有关数据的信息都以键值对的形式放在一个字典中。如果在eq_plot.py中使用这些代码，生成的图表是一样的。相比于前一种格式，这种格式让我们能够无缝衔接数据分析，并且更轻松地进行定制。&lt;/p&gt;
-&lt;h3 id="nav_point_394"&gt;16.2.8　定制标记的尺寸&lt;/h3&gt;
-&lt;p&gt;确定如何改进散点图的样式时，应着重于让要传达的信息更清晰。当前的散点图显示了每次地震的位置，但没有指出震级。我们要让观察者迅速获悉最严重的地震发生在什么地方。&lt;/p&gt;
-&lt;p&gt;为此，根据地震的震级设置其标记的尺寸：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;eq_world_map.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  fig = px.scatter(
-      data,
-      x="经度",
-      y="纬度",
-      range_x=[-200, 200],
-      range_y=[-90, 90],
-      width=800,
-      height=800,
-      title="全球地震散点图",
-❶     size="震级",
-❷     size_max=10,
-  )
-  fig.write_html("global_earthquakes.html")
-  fig.show()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;Plotly Express支持对数据系列进行定制，这些定制都以参数表示。这里使用了&lt;code&gt;size&lt;/code&gt;
- 参数来指定散点图中每个标记的尺寸，我们只需要将前面&lt;code&gt;data&lt;/code&gt;
- 中的&lt;code&gt;"震级"&lt;/code&gt;
- 字段提供给&lt;code&gt;size&lt;/code&gt;
- 参数即可（见❶）。另外，标记尺寸默认为20像素，还可以通过&lt;code&gt;size_max=10&lt;/code&gt;
- 将最大显示尺寸缩放到10（见❷）。&lt;/p&gt;
-&lt;p&gt;如果运行这些代码，将看到类似于图16-8所示的散点图。这比前面的散点图好多了，但还有很大的改进空间。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00042.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图16-8　现在散点图显示了地震的震级&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_395"&gt;16.2.9　定制标记的颜色&lt;/h3&gt;
-&lt;p&gt;我们还可以定制标记的颜色，以呈现地震的严重程度。执行这些修改前，将文件eq_data_30_day_m1.json复制到你的数据目录中，它包含30天内的地震数据。通过使用这个更大的数据集，绘制出来的地震散点图将有趣得多。&lt;/p&gt;
-&lt;p&gt;下面演示了如何使用渐变来呈现地震震级：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;eq_world_map.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ filename = 'data/eq_data_30_day_m1.json'
-  --snip--
-  fig = px.scatter(
-      data,
-      x="经度",
-      y="纬度",
-      range_x=[-200, 200],
-      range_y=[-90, 90],
-      width=800,
-      height=800,
-      title="全球地震散点图",
-      size="震级",
-      size_max=10,
-❷     color="震级",
-  )
-  --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;首先修改文件名，以使用30天的数据集（见❶）。为了让标记的震级按照不同的颜色显示，只需要配置&lt;code&gt;color="震级"&lt;/code&gt;
- 即可。默认的视觉映射图例渐变色范围是从蓝到红再到黄，数值越小则标记越蓝，而数值越大则标记越黄（见❷）。&lt;/p&gt;
-&lt;p&gt;如果现在运行这个程序，你看到的散点图将漂亮得多。如图16-9所示，渐变的颜色指出了地震的严重程度。通过在散点图上显示大量的地震，可将板块边界大致呈现出来！&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/16_Image00043.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图16-9　使用颜色和尺寸呈现震级的30天地震散点图&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_396"&gt;16.2.10　其他渐变&lt;/h3&gt;
-&lt;p&gt;Plotly Express有大量的渐变可供选择。要获悉有哪些渐变可供使用，请使用文件名show_color_scales.py保存下面这个简短的程序：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;show_color_scales.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;import plotly.express as px
-for key in px.colors.named_colorscales():
-    print(key)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;Plotly Express将渐变存储在模块&lt;code&gt;colors&lt;/code&gt;
- 中。这些渐变是在列表&lt;code&gt;px.colors.named_colorscales()&lt;/code&gt;
- 中定义的。下面的输出列出了可供你使用的所有渐变：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-greys
-hot
-inferno
-jet
-magenta
-magma
---snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;请尝试使用这些渐变其实映射到一个颜色列表。使用&lt;code&gt;px.colors.diverging.RdYlGn[::-1]&lt;/code&gt;
- 可以将对应颜色的配色列表反转。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　Plotly除了有&lt;code&gt;px.colors.diverging&lt;/code&gt;
- 表示连续变量的配色方案，还有&lt;code&gt;px.colors.sequential&lt;/code&gt;
- 和&lt;code&gt;px.colors.qualitative&lt;/code&gt;
- 表示离散变量。随便挑一种配色，例如&lt;code&gt;px.colors.qualitative.Alphabet&lt;/code&gt;
- ，你将看到渐变是如何定义的。每个渐变都有起始色和终止色，有些渐变还定义了一个或多个中间色。Plotly会在这些定义好的颜色之间插入颜色。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_397"&gt;16.2.11　添加鼠标指向时显示的文本&lt;/h3&gt;
-&lt;p&gt;为完成这幅散点图的绘制，我们将添加一些说明性文本，在你将鼠标指向表示地震的标记时显示出来。除了默认显示的经度和纬度外，还将显示震级以及地震的大致位置：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;eq_world_map.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;fig = px.scatter(
-    data,
-    x="经度",
-    y="纬度",
-    range_x=[-200, 200],
-    range_y=[-90, 90],
-    width=800,
-    height=800,
-    title="全球地震散点图",
-    size="震级",
-    size_max=10,
-    color="震级",
-   hover_name="位置",
-)
-fig.write_html("global_earthquakes.html")
-fig.show()
---snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;Plotly Express的操作非常简单，只需要将&lt;code&gt;hover_name&lt;/code&gt;
- 参数配置为&lt;code&gt;data&lt;/code&gt;
- 的&lt;code&gt;"位置"&lt;/code&gt;
- 字段即可。&lt;/p&gt;
-&lt;p&gt;太令人震惊了！通过编写大约40行代码，我们就绘制了一幅漂亮的全球地震活动散点图，并通过30天地震数据大致展示了地球的板块结构。Plotly Express提供了众多定制可视化外观和行为的方式。使用它提供的众多选项，可让图表和散点图准确地显示你所需的信息。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习16-6：重构&lt;/strong&gt;
- 　在从&lt;code&gt;all_eq_dicts&lt;/code&gt;
- 中提取数据的循环中，使用了变量来指向震级、经度、纬度和标题，再将这些值分别附加到相应列表的末尾。这旨在清晰地演示如何从JSON文件中提取数据，但并非必须这样做。你也可以不使用这些临时变量，而是直接从&lt;code&gt;eq_dict&lt;/code&gt;
- 中提取这些值，并将其附加到相应的列表末尾。这样做将缩短这个循环的循环体，使其只包含4行代码。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习16-7：自动生成标题&lt;/strong&gt;
- 　本节定义&lt;code&gt;my_layout&lt;/code&gt;
- 时以手工方式指定标题，这意味着每次变更源文件时，都需要修改标题。你可以不这样做，而是使用JSON文件中元数据（metadata）部分的数据集标题。为此，可提取这个值，将其赋给一个变量，并在定义&lt;code&gt;my_layout&lt;/code&gt;
- 时使用这个变量来指定散点图的标题。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习16-8：最近发生的地震&lt;/strong&gt;
- 　请在本书配套资源中找到关于最近1小时、1天、7天和30天内地震信息的数据文件（截至本书出版时，参见文件夹chapter_16/Excercise16-8）。请使用其中一个数据集，绘制一幅散点图来展示最近发生的地震。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习16-9：全球火灾&lt;/strong&gt;
- 　在本章的配套资源中，有一个名为world_fires_1_day.csv的文件。它包含了有关全球各地发生的火灾信息，包括经度、纬度和火灾强度（brightness）。使用16.1节介绍的数据处理技术以及16.2节介绍的散点图绘制技术，绘制一幅散点图来展示全球哪些地方发生了火灾。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_398"&gt;16.3　小结&lt;/h2&gt;
-&lt;p&gt;在本章中，你学习了：如何使用现实世界中的数据集；如何处理CSV和JSON文件，以及如何提取感兴趣的数据；如何使用Matplotlib来处理以往的天气数据，包括如何使用模块&lt;code&gt;datetime&lt;/code&gt;
- 和如何在同一个图表中绘制多个数据系列；如何使用Plotly绘制呈现地质数据的散点图；以及如何设置Plotly散点图和图表的样式。&lt;/p&gt;
-&lt;p&gt;有了使用CSV和JSON文件的经验后，你将能够处理几乎任何要分析的数据。大多数在线数据集能以这两种格式中的一种或两种下载。熟悉了这两种格式，再学习使用其他格式的数据就会更简单。&lt;/p&gt;
-&lt;p&gt;在下一章，你将编写自动从网上采集数据并对其进行可视化的程序。如果你只是将编程作为业余爱好，学会这些技能可以增加乐趣；如果你有志于成为专业程序员，就必须掌握这些技能。&lt;/p&gt;
-&lt;br style="page-break-after:always"/&gt;
-&lt;div&gt;&lt;/div&gt;
-</description>
-    <pubDate>Mon, 27 Jul 2026 01:26:45 +0000</pubDate>
-    <guid isPermaLink="false">16</guid>
 </item>
 </channel>
 </rss>
