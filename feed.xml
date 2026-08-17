@@ -1,11 +1,453 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-  <title>每日更新推送</title>
-  <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
-  <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Mon, 17 Aug 2026 01:05:51 +0000</lastBuildDate>
-    <item>
+    <title>我的每日小说</title>
+    <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
+    <description>从 EPUB 自动生成的 RSS 订阅源</description>
+        <item>
+    <title>AutomaticApplicationPython - 027 - 第3章 函数.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：46 分钟 (13784 字)</p><hr><h1 id="nav_point_65">第3章　函数</h1>
+<p class="zw">从前面的章节中，你已经熟悉了print()、input()和len()函数。Python提供了这样一些内建函数，但你也可以编写自己的函数。“函数”就像一个程序内的小程序。</p>
+<p class="zw">为了更好地理解函数的工作原理，让我们来创建一个函数。在文件编辑器中输入下面的程序，保存为helloFunc.py：</p>
+<pre class="代码无行号"><code>❶ def hello():
+❷     print('Howdy!')
+　    print('Howdy!!!')
+　    print('Hello there.')
+❸ hello()
+　hello()
+　hello()</code>
+</pre>
+<p class="zw">第一行是def语句❶，它定义了一个名为hello()的函数。def语句之后的代码块是函数体❷。这段代码在函数调用时执行，而不是在函数第一次定义时执行。</p>
+<p class="zw">函数之后的hello()语句行是函数调用❸。在代码中，函数调用就是函数名后跟上括号，也许在括号之间有一些参数。如果程序执行遇到这些调用，就会跳到函数的第一行，开始执行那里的代码。如果执行到达函数的末尾，就回到调用函数的那行，继续像以前一样向下执行代码。</p>
+<p class="zw">因为这个程序调用了3次hello()函数，所以函数中的代码就执行了3次。在运行这个程序时，输出看起来像这样：</p>
+<pre class="代码无行号"><code>Howdy!
+Howdy!!!
+Hello there.
+Howdy!
+Howdy!!!
+Hello there.
+Howdy!
+Howdy!!!
+Hello there.</code>
+</pre>
+<p class="zw">函数的一个主要目的就是将需要多次执行的代码放在一起。如果没有函数定义，你可能每次都需要复制粘贴这些代码，程序看起来可能会像这样：</p>
+<pre class="代码无行号"><code>print('Howdy!')
+print('Howdy!!!')
+print('Hello there.')
+print('Howdy!')
+print('Howdy!!!')
+print('Hello there.')
+print('Howdy!')
+print('Howdy!!!')
+print('Hello there.')</code>
+</pre>
+<p class="zw">一般来说，我们总是希望避免复制代码，因为如果一旦决定要更新代码（比如说，发现了一个缺陷要修复），就必须记住要修改所有复制的代码。</p>
+<p class="zw">随着你获得更多的编程经验，常常会发现自己在为代码“消除重复”，即去除一些重复或复制的代码。消除重复能够使程序更短、更易读、更容易更新。</p>
+<h2 id="nav_point_66">3.1 def语句和参数</h2>
+<p class="zw">如果调用print()或len()函数，你会传入一些值，放在括号之间，在这里称为“参数”。也可以自己定义接收参数的函数。在文件编辑器中输入这个例子，将它保存为helloFunc2.py：</p>
+<pre class="代码无行号"><code>❶ def hello(name):
+❷     print('Hello ' + name)
+❸ hello('Alice')
+　hello('Bob')</code>
+</pre>
+<p class="zw">如果运行这个程序，输出看起来像这样：</p>
+<pre class="代码无行号"><code>Hello Alice
+Hello Bob</code>
+</pre>
+<p class="zw">在这个程序的hello()函数定义中，有一个名为name的变元❶。“变元”是一个变量，当函数被调用时，参数就存放在其中。hello()函数第一次被调用时，使用的参数是'Alice'❸。程序执行进入该函数，变量name自动设为'Alice'，就是被print()语句打印出的内容❷。</p>
+<p class="zw">关于变元有一件特殊的事情值得注意：保存在变元中的值，在函数返回后就丢失了。例如前面的程序，如果你在hello('Bob')之后添加print(name)，程序会报NameError，因为没有名为name的变量。在函数调用hello('Bob')返回后，这个变量被销毁了，所以print(name)会引用一个不存在的变量name。</p>
+<p class="zw">这类似于程序结束时，程序中的变量会丢弃。在本章稍后，当我们探讨函数的局部作用域时，我会进一步分析为什么会这样。</p>
+<h2 id="nav_point_67">3.2 返回值和return语句</h2>
+<p class="zw">如果调用len()函数，并向它传入像'Hello'这样的参数，函数调用就求值为整数5。这是传入的字符串的长度。一般来说，函数调用求值的结果，称为函数的“返回值”。</p>
+<p class="zw">用def语句创建函数时，可以用return语句指定应该返回什么值。return语句包含以下部分：</p>
+<ul>
+<li class="第1级无序列表">return关键字；</li>
+<li class="第1级无序列表">函数应该返回的值或表达式。</li>
+</ul>
+<p class="zw">如果在return语句中使用了表达式，返回值就是该表达式求值的结果。例如，下面的程序定义了一个函数，它根据传入的数字参数，返回一个不同的字符串。在文件编辑器中输入以下代码，并保存为magic8Ball.py：</p>
+<pre class="代码无行号"><code>❶ import random
+❷ def getAnswer(answerNumber):
+❸     if answerNumber == 1:
+　        return 'It is certain'
+　    elif answerNumber == 2:
+ 　       return 'It is decidedly so'
+　    elif answerNumber == 3:
+ 　       return 'Yes'
+　    elif answerNumber == 4:
+　        return 'Reply hazy try again'
+　    elif answerNumber == 5:
+　        return 'Ask again later'
+　    elif answerNumber == 6:
+　        return 'Concentrate and ask again'
+　    elif answerNumber == 7:
+　        return 'My reply is no'
+　    elif answerNumber == 8:
+　        return 'Outlook not so good'
+　    elif answerNumber == 9:
+　        return 'Very doubtful'
+❹ r = random.randint(1, 9)
+❺ fortune = getAnswer(r)
+❻ print(fortune)</code>
+</pre>
+<p class="zw">在这个程序开始时，Python首先导入random模块❶。然后getAnswer()函数被定义❷。因为函数是被定义（而不是被调用），所以执行会跳过其中的代码。接下来，random.randint()函数被调用，带两个参数，1和9❹。它求值为1和9之间的一个随机整数（包括1和9），这个值被存在一个名为r的变量中。</p>
+<p class="zw">getAnswer()函数被调用，以r作为参数❺。程序执行转移到getAnswer()函数的顶部❸，r的值被保存到名为answerNumber的变元中。然后，根据answerNumber中的值，函数返回许多可能字符串中的一个。程序执行返回到程序底部的代码行，即原来调用getAnswer()的地方❺。返回的字符串被赋给一个名为fortune变量，然后它又被传递给print()调用❻，并被打印在屏幕上。</p>
+<p class="zw">请注意，因为可以将返回值作为参数传递给另一个函数调用，所以你可以将下面3行代码</p>
+<pre class="代码无行号"><code>r = random.randint(1, 9)
+fortune = getAnswer(r)
+print(fortune)</code>
+</pre>
+<p class="zw">缩写成一行等价的代码：</p>
+<pre class="代码无行号"><code>print(getAnswer(random.randint(1, 9)))</code>
+</pre>
+<p class="zw">记住，表达式是值和操作符的组合。函数调用可以用在表达式中，因为它求值为它的返回值。</p>
+<h2 id="nav_point_68">3.3 None值</h2>
+<p class="zw">在Python中有一个值称为None，它表示没有值。None是NoneType数据类型的唯一值（其他编程语言可能称这个值为null、nil或undefined）。就像布尔值True和False一样，None必须大写首字母N。</p>
+<p class="zw">如果你希望变量中存储的东西不会与一个真正的值混淆，这个没有值的值就可能有用。有一个使用None的地方就是print()的返回值。print()函数在屏幕上显示文本，但它不需要返回任何值，这和len()或input()不同。但既然所有函数调用都需要求值为一个返回值，那么print()就返回None。要看到这个效果，请在交互式环境中输入以下代码。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = print('Hello!')</strong>
+Hello!
+&gt;&gt;&gt; <strong>None == spam</strong>
+True
+</code>
+</pre>
+<p class="zw">在幕后，对于所有没有return语句的函数定义，Python都会在末尾加上return None。这类似于while或for循环隐式地以continue语句结尾。而且，如果使用不带值的return语句（也就是只有return关键字本身），那么就返回None。</p>
+<h2 id="nav_point_69">3.4 关键字参数和print()</h2>
+<p class="zw">大多数参数是由它们在函数调用中的位置来识别的。例如，random.randint(1, 10)与random.randint(10, 1)不同。函数调用random.randint(1, 10)将返回1到10之间的一个随机整数，因为第一个参数是范围的下界，第二个参数是范围的上界（而random.randint(10, 1)会导致错误）。</p>
+<p class="zw">但是，“关键字参数”是由函数调用时加在它们前面的关键字来识别的。关键字参数通常用于可选变元。例如，print()函数有可选的变元end和sep，分别指定在参数末尾打印什么，以及在参数之间打印什么来隔开它们。</p>
+<p class="zw">如果运行以下程序：</p>
+<pre class="代码无行号"><code>print('Hello')
+print('World')</code>
+</pre>
+<p class="zw">输出将会是：</p>
+<pre class="代码无行号"><code>Hello
+World</code>
+</pre>
+<p class="zw">这两个字符串出现在独立的两行中，因为print()函数自动在传入的字符串末尾添加了换行符。但是，可以设置end关键字参数，将它变成另一个字符串。例如，如果程序像这样：</p>
+<pre class="代码无行号"><code>print('Hello', end='')
+print('World')</code>
+</pre>
+<p class="zw">输出就会像这样：</p>
+<pre class="代码无行号"><code>HelloWorld</code>
+</pre>
+<p class="zw">输出被打印在一行中，因为在'Hello'后面不再打印换行，而是打印了一个空字符串。如果需要禁用加到每一个print()函数调用末尾的换行，这就很有用。</p>
+<p class="zw">类似地，如果向print()传入多个字符串值，该函数就会自动用一个空格分隔它们。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>print('cats', 'dogs', 'mice')</strong>
+cats dogs mice
+</code>
+</pre>
+<p class="zw">但是你可以传入sep关键字参数，替换掉默认的分隔字符串。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>print('cats', 'dogs', 'mice', sep=',')</strong>
+cats,dogs,mice
+</code>
+</pre>
+<p class="zw">也可以在你编写的函数中添加关键字参数，但必须先在接下来的两章中学习列表和字典数据类型。现在只要知道，某些函数有可选的关键字参数，在函数调用时可以指定。</p>
+<h2 id="nav_point_70">3.5 局部和全局作用域</h2>
+<p class="zw">在被调用函数内赋值的变元和变量，处于该函数的“局部作用域”。在所有函数之外赋值的变量，属于“全局作用域”。处于局部作用域的变量，被称为“局部变量”。处于全局作用域的变量，被称为“全局变量”。一个变量必是其中一种，不能既是局部的又是全局的。</p>
+<p class="zw">可以将“作用域”看成是变量的容器。当作用域被销毁时，所有保存在该作用域内的变量的值就被丢弃了。只有一个全局作用域，它是在程序开始时创建的。如果程序终止，全局作用域就被销毁，它的所有变量就被丢弃了。否则，下次你运行程序的时候，这些变量就会记住它们上次运行时的值。</p>
+<p class="zw">一个函数被调用时，就创建了一个局部作用域。在这个函数内赋值的所有变量，存在于该局部作用域内。该函数返回时，这个局部作用域就被销毁了，这些变量就丢失了。下次调用这个函数，局部变量不会记得该函数上次被调用时它们保存的值。</p>
+<p class="zw">作用域很重要，理由如下：</p>
+<ul>
+<li class="第1级无序列表">全局作用域中的代码不能使用任何局部变量；</li>
+<li class="第1级无序列表">但是，局部作用域可以访问全局变量；</li>
+<li class="第1级无序列表">一个函数的局部作用域中的代码，不能使用其他局部作用域中的变量。</li>
+<li class="第1级无序列表">如果在不同的作用域中，你可以用相同的名字命名不同的变量。也就是说，可以有一个名为spam的局部变量，和一个名为spam的全局变量。</li>
+</ul>
+<p class="zw">Python有不同的作用域，而不是让所有东西都成全局变量，这是有理由的。这样一来，当特定函数调用中的代码修改变量时，该函数与程序其他部分的交互，只能通过它的参数和返回值。这缩小了可能导致缺陷的代码作用域。如果程序只包含全局变量，又有一个变量赋值错误的缺陷，那就很难追踪这个赋值错误发生的位置。它可能在程序的任何地方赋值，而你的程序可能有几百到几千行！但如果缺陷是因为局部变量错误赋值，你就会知道，只有那一个函数中的代码可能产生赋值错误。</p>
+<p class="zw">虽然在小程序中使用全局变量没有太大问题，但当程序变得越来越大时，依赖全局变量就是一个坏习惯。</p>
+<h3 id="nav_point_71">3.5.1 局部变量不能在全局作用域内使用</h3>
+<p class="zw">考虑下面的程序，它在运行时会产生错误：</p>
+<pre class="代码无行号"><code>def spam():
+    eggs = 31337
+spam()
+print(eggs)</code>
+</pre>
+<p class="zw">如果运行这个程序，输出将是：</p>
+<pre class="代码无行号"><code>Traceback (most recent call last):
+  File "C:/test3784.py", line 4, in &lt;module&gt;
+    print(eggs)
+NameError: name 'eggs' is not defined</code>
+</pre>
+<p class="zw">发生错误是因为，eggs变量只属于spam()调用所创建的局部作用域。在程序执行从spam返回后，该局部作用域就被销毁了，不再有名为eggs的变量。所以当程序试图执行print(eggs)，Python就报错，说eggs没有定义。你想想看，这是有意义的。当程序执行在全局作用域中时，不存在局部作用域，所以不会有任何局部变量。这就是为什么只有全局变量能用于全局作用域。</p>
+<h3 id="nav_point_72">3.5.2 局部作用域不能使用其他局部作用域内的变量</h3>
+<p class="zw">一个函数被调用时，就创建了一个新的局部作用域，这包括一个函数被另一个函数调用时的情况。请看以下代码：</p>
+<pre class="代码无行号"><code>　def spam():
+❶     eggs = 99
+❷     bacon()
+❸     print(eggs)
+　def bacon():
+　    ham = 101
+❹     eggs = 0
+❺ spam()</code>
+</pre>
+<p class="zw">在程序开始运行时，spam()函数被调用❺，创建了一个局部作用域。局部变量eggs❶被赋值为99。然后bacon()函数被调用❷，创建了第二个局部作用域。多个局部作用域能同时存在。在这个新的局部作用域中，局部变量ham被赋值为101。局部变量eggs（与spam()的局部作用域中的那个变量不同）也被创建❹，并赋值为0。</p>
+<p class="zw">当bacon()返回时，这次调用的局部作用域被销毁。程序执行在spam()函数中继续，打印出eggs的值❸。因为spam()调用的局部作用域仍然存在，eggs变量被赋值为99。这就是程序的打印输出。</p>
+<p class="zw">要点在于，一个函数中的局部变量完全与其他函数中的局部变量分隔开来。</p>
+<h3 id="nav_point_73">3.5.3 全局变量可以在局部作用域中读取</h3>
+<p class="zw">请看以下程序：</p>
+<pre class="代码无行号"><code>def spam():
+    print(eggs)
+eggs = 42
+spam()
+print(eggs)</code>
+</pre>
+<p class="zw">因为在spam()函数中，没有变元名为eggs，也没有代码为eggs赋值，所以当spam()中使用eggs时，Python认为它是对全局变量eggs的引用。这就是前面的程序运行时打印出42的原因。</p>
+<h3 id="nav_point_74">3.5.4 名称相同的局部变量和全局变量</h3>
+<p class="zw">要想生活简单，就要避免局部变量与全局变量或其他局部变量同名。但在技术上，在Python中让局部变量和全局变量同名是完全合法的。为了看看实际发生的情况，请在文件编辑器中输入以下代码，并保存为sameName.py：</p>
+<pre class="代码无行号"><code>　def spam():
+❶     eggs = 'spam local'
+　    print(eggs) # prints 'spam local'
+　def bacon():
+❷     eggs = 'bacon local'
+　    print(eggs) # prints 'bacon local'
+　    spam()
+　    print(eggs) # prints 'bacon local'
+❸ eggs = 'global'
+　bacon()
+　print(eggs) # prints 'global'</code>
+</pre>
+<p class="zw">运行该程序，输出如下：</p>
+<pre class="代码无行号"><code>bacon local
+spam local
+bacon local
+global</code>
+</pre>
+<p class="zw">在这个程序中，实际上有3个不同的变量，但令人迷惑的是，它们都名为eggs。这些变量是：</p>
+<p class="zw">❶名为eggs的变量，存在于spam()被调用时的局部作用域；</p>
+<p class="zw">❷名为eggs的变量，存在于bacon()被调用时的局部作用域；</p>
+<p class="zw">❸名为eggs的变量，存在于全局作用域。</p>
+<p class="zw">因为这3个独立的变量都有相同的名字，追踪某一个时刻使用的是哪个变量，可能比较麻烦。这就是应该避免在不同作用域内使用相同变量名的原因。</p>
+<h2 id="nav_point_75">3.6 global语句</h2>
+<p class="zw">如果需要在一个函数内修改全局变量，就使用global语句。如果在函数的顶部有global eggs这样的代码，它就告诉Python，“在这个函数中，eggs指的是全局变量，所以不要用这个名字创建一个局部变量。”例如，在文件编辑器中输入以下代码，并保存为sameName2.py：</p>
+<pre class="代码无行号"><code>　def spam():
+❶     global eggs
+❷     eggs = 'spam'
+　eggs = 'global'
+　spam()
+　print(eggs)</code>
+</pre>
+<p class="zw">运行该程序，最后的print()调用将输出：</p>
+<pre class="代码无行号"><code>spam</code>
+</pre>
+<p class="zw">因为eggs在spam()的顶部被声明为global❶，所以当eggs被赋值为'spam'时❷，赋值发生在全局作用域的eggs上。没有创建局部eggs变量。</p>
+<p class="zw">有4条法则，来区分一个变量是处于局部作用域还是全局作用域：</p>
+<p class="zw">1．如果变量在全局作用域中使用（即在所有函数之外），它就总是全局变量。</p>
+<p class="zw">2．如果在一个函数中，有针对该变量的global语句，它就是全局变量。</p>
+<p class="zw">3．否则，如果该变量用于函数中的赋值语句，它就是局部变量。</p>
+<p class="zw">4．但是，如果该变量没有用在赋值语句中，它就是全局变量。</p>
+<p class="zw">为了更好地理解这些法则，这里有一个例子程序。在文件编辑器中输入以下代码，并保存为sameName3.py：</p>
+<pre class="代码无行号"><code>　  def spam():
+❶     global eggs
+　    eggs = 'spam' # this is the global
+　  def bacon():
+❷     eggs = 'bacon' # this is a local
+　  def ham():
+❸     print(eggs) # this is the global
+　  eggs = 42 # this is the global
+　  spam()
+　  print(eggs)</code>
+</pre>
+<p class="zw">在spam()函数中，eggs是全局eggs变量，因为在函数的开始处，有针对eggs变量的global语句❶。在bacon()中，eggs是局部变量，因为在该函数中有针对它的赋值语句❷。在ham()中❸，eggs是全局变量，因为在这个函数中，既没有赋值语句，也没有针对它的global语句。如果运行sameName3.py，输出将是：</p>
+<pre class="代码无行号"><code>spam</code>
+</pre>
+<p class="zw">在一个函数中，一个变量要么总是全局变量，要么总是局部变量。函数中的代码没有办法先使用名为eggs的局部变量，稍后又在同一个函数中使用全局eggs变量。</p>
+<p class="zw">如果想在一个函数中修改全局变量中存储的值，就必须对该变量使用global语句。</p>
+<p class="zw">在一个函数中，如果试图在局部变量赋值之前就使用它，像下面的程序这样，Python就会报错。为了看到效果，请在文件编辑器中输入以下代码，并保存为sameName4.py：</p>
+<pre class="代码无行号"><code>　def spam():
+　    print(eggs) # ERROR!
+❶     eggs = 'spam local'
+❷ eggs = 'global'
+　spam()</code>
+</pre>
+<p class="zw">运行前面的程序，会产生出错信息。</p>
+<pre class="代码无行号"><code>Traceback (most recent call last):
+  File "C:/test3784.py", line 6, in &lt;module&gt;
+    spam()
+  File "C:/test3784.py", line 2, in spam
+    print(eggs) # ERROR!
+UnboundLocalError: local variable 'eggs' referenced before assignment</code>
+</pre>
+<p class="zw">发生这个错误是因为，Python看到spam()函数中有针对eggs的赋值语句❶，因此认为eggs变量是局部变量。但是因为print(eggs)的执行在eggs赋值之前，局部变量eggs并不存在。Python不会退回到使用全局eggs变量❷。</p>
+<h2 id="nav_point_76">3.7 异常处理</h2>
+<p class="zw">到目前为止，在Python程序中遇到错误，或“异常”，意味着整个程序崩溃。你不希望这发生在真实世界的程序中。相反，你希望程序能检测错误，处理它们，然后继续运行。</p>
+<p class="zw">例如，考虑下面的程序，它有一个“除数为零”的错误。打开一个新的文件编辑器窗口，输入以下代码，并保存为zeroDivide.py：</p>
+<pre class="代码无行号"><code>def spam(divideBy):
+    return 42 / divideBy
+print(spam(2))
+print(spam(12))
+print(spam(0))
+print(spam(1))</code>
+</pre>
+<p class="zw">我们已经定义了名为spam的函数，给了它一个变元，然后打印出该函数带各种参数的值，看看会发生什么情况。下面是运行前面代码的输出：</p>
+<pre class="代码无行号"><code>21.0
+3.5
+Traceback (most recent call last):
+  File "C:/zeroDivide.py", line 6, in &lt;module&gt;
+    print(spam(0))
+  File "C:/zeroDivide.py", line 2, in spam
+    return 42 / divideBy
+ZeroDivisionError: division by zero</code>
+</pre>
+<p class="zw">当试图用一个数除以零时，就会发生ZeroDivisionError。根据错误信息中给出的行号，我们知道spam()中的return语句导致了一个错误。</p>
+<p class="editing-tag 超强提示标签">函数作为“黑盒”</p>
+<blockquote class="超强提示 editing-block">
+<p class="zw"><br/>
+</p>
+<p class="zw">通常，对于一个函数，你要知道的就是它的输入值（变元）和输出值。你并非总是需要加重自己的负担，弄清楚函数的代码实际是怎样工作的。如果以这种高层的方式来思考函数，通常大家会说，你将该函数看成是一个黑盒。</p>
+<p class="zw">这个思想是现代编程的基础。本书后面的章节将向你展示一些模块，其中的函数是由其他人编写的。尽管你在好奇的时候也可以看一看源代码，但为了能使用它们，你并不需要知道它们是如何工作的。而且，因为鼓励在编写函数时不使用全局变量，你通常也不必担心函数的代码会与程序的其他部分发生交叉影响。</p>
+</blockquote>
+<p class="zw">错误可以由try和except语句来处理。那些可能出错的语句被放在try子句中。如果错误发生，程序执行就转到接下来的except子句开始处。</p>
+<p class="zw">可以将前面除数为零的代码放在一个try子句中，让except子句包含代码，来处理该错误发生时应该做的事。</p>
+<pre class="代码无行号"><code>def spam(divideBy):
+    try:
+        return 42 / divideBy
+    except ZeroDivisionError:
+        print('Error: Invalid argument.')
+print(spam(2))
+print(spam(12))
+print(spam(0))
+print(spam(1))</code>
+</pre>
+<p class="zw">如果在try子句中的代码导致一个错误，程序执行就立即转到except子句的代码。在运行那些代码之后，执行照常继续。前面程序的输出如下：</p>
+<pre class="代码无行号"><code>21.0
+3.5
+Error: Invalid argument.
+None
+42.0</code>
+</pre>
+<p class="zw">请注意，在函数调用中的try语句块中，发生的所有错误都会被捕捉。请考虑以下程序，它的做法不一样，将spam()调用放在语句块中：</p>
+<pre class="代码无行号"><code>def spam(divideBy):
+    return 42 / divideBy
+try:
+    print(spam(2))
+    print(spam(12))
+    print(spam(0))
+    print(spam(1))
+except ZeroDivisionError:
+    print('Error: Invalid argument.')</code>
+</pre>
+<p class="zw">该程序运行时，输出如下：</p>
+<pre class="代码无行号"><code>21.0
+3.5
+Error: Invalid argument.</code>
+</pre>
+<p class="zw">print(spam(1))从未被执行是因为，一旦执行跳到except子句的代码，就不会回到try子句。它会继续照常向下执行。</p>
+<h2 id="nav_point_77">3.8 一个小程序：猜数字</h2>
+<p class="zw">到目前为止，前面展示的小例子适合于介绍基本概念。现在让我们看一看，如何将所学的知识综合起来，编写一个更完整的程序。在本节中，我将展示一个简单的猜数字游戏。在运行这个程序时，输出看起来像这样：</p>
+<pre class="代码无行号"><code>I am thinking of a number between 1 and 20.
+Take a guess.
+<strong>10</strong>
+Your guess is too low.
+Take a guess.
+<strong>15</strong>
+Your guess is too low.
+Take a guess.
+<strong>17</strong>
+Your guess is too high.
+Take a guess.
+<strong>16</strong>
+Good job! You guessed my number in 4 guesses!
+</code>
+</pre>
+<p class="zw">在文件编辑器中输入以下代码，并保存为guessTheNumber.py：</p>
+<pre class="代码无行号"><code># This is a guess the number game.
+import random
+secretNumber = random.randint(1, 20)
+print('I am thinking of a number between 1 and 20.')
+# Ask the player to guess 6 times.
+for guessesTaken in range(1, 7):
+    print('Take a guess.')
+    guess = int(input())
+    if guess &lt; secretNumber:
+        print('Your guess is too low.')
+    elif guess &gt; secretNumber:
+        print('Your guess is too high.')
+    else:
+        break # This condition is the correct guess!
+if guess == secretNumber:
+    print('Good job! You guessed my number in ' + str(guessesTaken) + ' guesses!')
+else:
+    print('Nope. The number I was thinking of was ' + str(secretNumber))</code>
+</pre>
+<p class="zw">让我们逐行来看看代码，从头开始。</p>
+<pre class="代码无行号"><code># This is a guess the number game.
+import random
+secretNumber = random.randint(1, 20)</code>
+</pre>
+<p class="zw">首先，代码顶部的一行注释解释了这个程序做什么。然后，程序导入了模块random，以便能用random.randint()函数生成一个数字，让用户来猜。返回值是一个1到20之间的随机整数，保存在变量secretNumber中。</p>
+<pre class="代码无行号"><code>print('I am thinking of a number between 1 and 20.')
+# Ask the player to guess 6 times.
+for guessesTaken in range(1, 7):
+    print('Take a guess.')
+    guess = int(input())</code>
+</pre>
+<p class="zw">程序告诉玩家，它有了一个秘密数字，并且给玩家6次猜测机会。在for循环中，代码让玩家输入一次猜测，并检查该猜测。该循环最多迭代6次。循环中发生的第一件事情，是让玩家输入一个猜测数字。因为input()返回一个字符串，所以它的返回值被直接传递给int()，它将字符串转变成整数。这保存在名为guess的变量中。</p>
+<pre class="代码无行号"><code>    if guess &lt; secretNumber:
+        print('Your guess is too low.')
+    elif guess &gt; secretNumber:
+        print('Your guess is too high.')</code>
+</pre>
+<p class="zw">这几行代码检查该猜测是小于还是大于那个秘密数字。不论哪种情况，都在屏幕上打印提示。</p>
+<pre class="代码无行号"><code>    else:
+        break # This condition is the correct guess!</code>
+</pre>
+<p class="zw">如果该猜测既不大于也不小于秘密数字，那么它就一定等于秘密数字，这时你希望程序执行跳出for循环。</p>
+<pre class="代码无行号"><code>if guess == secretNumber:
+    print('Good job! You guessed my number in ' + str(guessesTaken) + ' guesses!')
+else:
+    print('Nope. The number I was thinking of was ' + str(secretNumber))</code>
+</pre>
+<p class="zw">在for循环后，前面的if...else语句检查玩家是否正确地猜到了该数字，并将相应的信息打印在屏幕上。不论哪种情况，程序都会打印一个包含整数值的变量（guessesTaken和secretNumber）。因为必须将这些整数值连接成字符串，所以它将这些变量传递给str()函数，该函数返回这些整数值的字符串形式。现在这些字符串可以用+操作符连接起来，最后传递给print()函数调用。</p>
+<h2 id="nav_point_78">3.9 小结</h2>
+<p class="zw">函数是将代码逻辑分组的主要方式。因为函数中的变量存在于它们自己的局部作用域内，所以一个函数中的代码不能直接影响其他函数中变量的值。这限制了哪些代码才能改变变量的值，对于调试代码是很有帮助的。</p>
+<p class="zw">函数是很好的工具，帮助你组织代码。你可以认为他们是黑盒。它们以参数的形式接收输入，以返回值的形式产生输出。它们内部的代码不会影响其他函数中的变量。</p>
+<p class="zw">在前面几章中，一个错误就可能导致程序崩溃。在本章中，你学习了try和except语句，它们在检测到错误时会运行代码。这让程序在面对常见错误时更有灵活性。</p>
+<h2 id="nav_point_79">3.10 习题</h2>
+<p class="zw">1．为什么在程序中加入函数会有好处？</p>
+<p class="zw">2．函数中的代码何时执行：在函数被定义时，还是在函数被调用时？</p>
+<p class="zw">3．什么语句创建一个函数？</p>
+<p class="zw">4．一个函数和一次函数调用有什么区别？</p>
+<p class="zw">5．Python程序中有多少全局作用域？有多少局部作用域？</p>
+<p class="zw">6．当函数调用返回时，局部作用域中的变量发生了什么？</p>
+<p class="zw">7．什么是返回值？返回值可以作为表达式的一部分吗？</p>
+<p class="zw">8．如果函数没有返回语句，对它调用的返回值是什么？</p>
+<p class="zw">9．如何强制函数中的一个变量指的是全局变量？</p>
+<p class="zw">10．None的数据类型是什么？</p>
+<p class="zw">11．import areallyourpetsnamederic语句做了什么？</p>
+<p class="zw">12．如果在名为spam的模块中，有一个名为bacon()的函数，在引入spam后，如何调用它？</p>
+<p class="zw">13．如何防止程序在遇到错误时崩溃？</p>
+<p class="zw">14．try子句中发生了什么？except子句中发生了什么？</p>
+<h2 id="nav_point_80">3.11 实践项目</h2>
+<p class="zw">作为实践，请编写程序完成下列任务。</p>
+<h3 id="nav_point_81">3.11.1 Collatz序列</h3>
+<p class="zw">编写一个名为collatz()的函数，它有一个名为number的参数。如果参数是偶数，那么collatz()就打印出number // 2，并返回该值。如果number是奇数，collatz()就打印并返回3 * number + 1。</p>
+<p class="zw">然后编写一个程序，让用户输入一个整数，并不断对这个数调用collatz()，直到函数返回值１（令人惊奇的是，这个序列对于任何整数都有效，利用这个序列，你迟早会得到1！即使数学家也不能确定为什么。你的程序在研究所谓的“Collatz序列”，它有时候被称为“最简单的、不可能的数学问题”）。</p>
+<p class="zw">记得将input()的返回值用int()函数转成一个整数，否则它会是一个字符串。</p>
+<p class="editing-tag 强提示标签">提示</p>
+<blockquote class="强提示 editing-block">
+<p class="zw"><br/>
+</p>
+<p class="zw">如果number % 2 == 0，整数number就是偶数，如果number % 2 == 1，它就是奇数。</p>
+</blockquote>
+<p class="zw">这个程序的输出看起来应该像这样：</p>
+<pre class="代码无行号"><code>Enter number:
+3
+10
+5
+16
+8
+4
+2
+1</code>
+</pre>
+<h3 id="nav_point_82">3.11.2 输入验证</h3>
+<p class="zw">在前面的项目中添加try和except语句，检测用户是否输入了一个非整数的字符串。正常情况下，int()函数在传入一个非整数字符串时，会产生ValueError错误，比如int('puppy')。在except子句中，向用户输出一条信息，告诉他们必须输入一个整数。</p>
+<p class="zw"><br style="page-break-after:always"/>
+</p>
+<div></div>
+]]></description>
+    <pubDate>Mon, 17 Aug 2026 01:28:45 +0000</pubDate>
+    <guid isPermaLink="false">27</guid>
+</item>
+<item>
       <title><![CDATA[WorkBuddyGuide-本篇导读]]></title>
       <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/</link>
       <description><![CDATA[学习时长：约0.5小时；学习内容：第一篇的整体导览，了解从入门到基础功能的学习路径；学习目的：明确第一篇的学习框架，为后续章节学习做好准备]]></description>
@@ -5615,1042 +6057,6 @@ def edit_entry(request, entry_id):
 </description>
     <pubDate>Fri, 31 Jul 2026 01:23:01 +0000</pubDate>
     <guid isPermaLink="false">19</guid>
-</item>
-<item>
-    <title>Basic Python - 018 - 项目3 Web应用程序.epub</title>
-    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：145 分钟 (28858 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_415"&gt;项目3　Web应用程序&lt;/h1&gt;
-&lt;br style="page-break-after:always"/&gt;
-&lt;div&gt;&lt;/div&gt;
-&lt;h1 id="nav_point_416"&gt;第 18 章　从Django入手&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/18_Image00001.gif" style="width: 16%" width="16%"/&gt;
- 　在幕后，当今的网站实际上都是富应用程序（rich application），就像成熟的桌面应用程序一样。Python提供了一组开发Web应用程序的卓越工具。Django是一个&lt;strong&gt;Web框架&lt;/strong&gt;
- ，即一套旨在帮助开发交互式网站的工具。本章将介绍如何使用Django来开发一个名为“学习笔记”的项目，这是一个在线日志系统，让你能够记录学习到的有关特定主题的知识。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;我们将为这个项目制定规范，然后为应用程序使用的数据定义模型。我们将使用Django的管理系统来输入一些初始数据，再学习编写视图和模板，让Django能够为我们的网站创建页面。&lt;/p&gt;
-&lt;p&gt;Django能够响应页面请求，还让你能够更轻松地读写数据库、管理用户，等等。第19章和第20章将改进“学习笔记”项目，再将其部署到活动的服务器，让你和朋友都能够使用它。&lt;/p&gt;
-&lt;h2 id="nav_point_417"&gt;18.1　建立项目&lt;/h2&gt;
-&lt;p&gt;建立项目时，首先需要以规范的方式对项目进行描述，再建立虚拟环境，以便在其中创建项目。&lt;/p&gt;
-&lt;h3 id="nav_point_418"&gt;18.1.1　制定规范&lt;/h3&gt;
-&lt;p&gt;完整的规范详细说明了项目的目标，阐述了项目的功能，并讨论了项目的外观和用户界面。与任何良好的项目规划和商业计划书一样，规范应突出重点，帮助避免项目偏离轨道。这里不会制定完整的项目规划，只列出一些明确的目标，以突出开发的重点。我们制定的规范如下：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;我们要编写一个名为“学习笔记”的Web应用程序，让用户能够记录感兴趣的主题，并在学习每个主题的过程中添加日志条目。“学习笔记”的主页对这个网站进行描述，并邀请用户注册或登录。用户登录后，可以创建新主题、添加新条目以及阅读既有的条目。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;学习新的主题时，记录学到的知识可帮助跟踪和复习这些知识。优秀的应用程序让这个记录过程简单易行。&lt;/p&gt;
-&lt;h3 id="nav_point_419"&gt;18.1.2　建立虚拟环境&lt;/h3&gt;
-&lt;p&gt;要使用Django，首先需要建立一个虚拟工作环境。&lt;strong&gt;虚拟环境&lt;/strong&gt;
- 是系统的一个位置，可在其中安装包，并将之与其他Python包隔离。将项目的库与其他项目分离是有益的，并且为了在第20章将“学习笔记”部署到服务器，这也是必需的。&lt;/p&gt;
-&lt;p&gt;为项目新建一个目录，将其命名为learning_log，再在终端中切换到这个目录，并执行如下命令创建一个虚拟环境：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;learning_log$ python -m venv ll_env
-learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这里运行了模块&lt;code&gt;venv&lt;/code&gt;
- ，并使用它创建了一个名为ll_env的虚拟环境。（请注意，ll_env的开头是两个小写字母l，而不是数字1。）如果你运行程序或安装包时使用的是命令&lt;strong&gt;
-&lt;code&gt;python3&lt;/code&gt;
-&lt;/strong&gt;
- ，这里也务必使用同样的命令。&lt;/p&gt;
-&lt;h3 id="nav_point_420"&gt;18.1.3　激活虚拟环境&lt;/h3&gt;
-&lt;p&gt;现在需要使用下面的命令激活虚拟环境：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  learning_log$ source ll_env/bin/activate
-❶ (ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这个命令运行ll_env/bin中的脚本activate。环境处于活动状态时，环境名将包含在圆括号内，如❶处所示。在这种情况下，你可以在环境中安装包，并使用已安装的包。在ll_env中安装的包仅在该环境处于活动状态时才可用。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　如果你使用的是Windows系统，请使用命令&lt;code&gt;ll_env\Scripts\activate&lt;/code&gt;
- （不包含&lt;code&gt;source&lt;/code&gt;
- ）来激活这个虚拟环境。如果你使用的是PowerShell，可能需要将&lt;code&gt;Activate&lt;/code&gt;
- 的首字母大写。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;要停止使用虚拟环境，可执行命令&lt;strong&gt;
-&lt;code&gt;deactivate&lt;/code&gt;
-&lt;/strong&gt;
- ：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;(ll_env)learning_log$ deactivate
-learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;如果关闭运行虚拟环境的终端，虚拟环境也将不再处于活动状态。&lt;/p&gt;
-&lt;h3 id="nav_point_421"&gt;18.1.4　安装Django&lt;/h3&gt;
-&lt;p&gt;激活虚拟环境后，执行如下命令安装Django：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt; (ll_env)learning_log$ pip install django
-Collecting django
---snip--
-Installing collected packages: pytz, django
-Successfully installed django-2.2.0 pytz-2018.9 sqlparse-0.2.4
-(ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;由于是在虚拟环境（独立的环境）中工作，在各种系统中安装Django的命令都相同：不需要指定标志&lt;code&gt;--user&lt;/code&gt;
- ，也不需要使用像&lt;code&gt;python -m pip install package_name&lt;/code&gt;
- 这样较长的命令。&lt;/p&gt;
-&lt;p&gt;别忘了，Django仅在虚拟环境ll_env处于活动状态时才可用。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　每隔大约8个月，Django新版本就会发布，因此在你安装Django时，看到的可能是更新的版本。即便你使用的是更新的Django版本，这个项目也可行。如果要使用这里所示的Django版本，请使用命令&lt;code&gt;pip install django==2.2.*&lt;/code&gt;
- 安装Django 2.2的最新版本。如果你在使用更新的版本时遇到麻烦，请参阅本书的在线配套资源。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_422"&gt;18.1.5　在Django中创建项目&lt;/h3&gt;
-&lt;p&gt;在虚拟环境依然处于活动状态的情况下（ll_env包含在圆括号内），执行如下命令新建一个项目：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ (ll_env)learning_log$ django-admin startproject learning_log .
-❷ (ll_env)learning_log$ ls
-  learning_log ll_env manage.py
-❸ (ll_env)learning_log$ ls learning_log
-  __init__.py settings.py urls.py wsgi.py&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;❶处的命令让Django新建一个名为learning_log的项目。这个命令末尾的句点让新项目使用合适的目录结构，这样开发完成后可轻松地将应用程序部署到服务器。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　千万别忘了这个句点，否则部署应用程序时将遭遇一些配置问题。如果忘记了这个句点，要删除已创建的文件和文件夹（ll_env除外），再重新运行这个命令。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;在❷处，运行命令&lt;code&gt;ls&lt;/code&gt;
- （在Windows系统上为&lt;code&gt;dir&lt;/code&gt;
- ），结果表明Django新建了一个名为learning_log的目录，还创建了文件manage.py。后者是一个简单的程序，接受命令并将其交给Django的相关部分运行。我们将使用这些命令来管理使用数据库和运行服务器等任务。&lt;/p&gt;
-&lt;p&gt;目录learning_log包含4个文件（见❸），最重要的是settings.py、urls.py和wsgi.py。文件settings.py指定Django如何与系统交互以及如何管理项目。在开发项目的过程中，我们将修改其中一些设置，并添加一些设置。文件urls.py告诉Django，应创建哪些页面来响应浏览器请求。文件wsgi.py帮助Django提供它创建的文件，这个文件名是&lt;strong&gt;Web服务器网关接口&lt;/strong&gt;
- （Web server gateway interface）的首字母缩写。&lt;/p&gt;
-&lt;h3 id="nav_point_423"&gt;18.1.6　创建数据库&lt;/h3&gt;
-&lt;p&gt;Django将大部分与项目相关的信息存储在数据库中，因此需要创建一个供Django使用的数据库。为给项目“学习笔记”创建数据库，请在虚拟环境处于活动状态的情况下执行下面的命令：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  (ll_env)learning_log$ python manage.py migrate
-❶ Operations to perform:
-    Apply all migrations: admin, auth, contenttypes, sessions
-  Running migrations:
-    Applying contenttypes.0001_initial... OK
-    Applying auth.0001_initial... OK
-    --snip--
-    Applying sessions.0001_initial... OK
-❷ (ll_env)learning_log$ ls
-  db.sqlite3 learning_log ll_env manage.py&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们将修改数据库称为&lt;strong&gt;迁移&lt;/strong&gt;
- （migrate）数据库。首次执行命令&lt;code&gt;migrate&lt;/code&gt;
- 时，将让Django确保数据库与项目的当前状态匹配。在使用SQLite（后面将详细介绍）的新项目中首次执行这个命令时，Django将新建一个数据库。在❶处，Django指出它将准备好数据库，用于存储执行管理和身份验证任务所需的信息。&lt;/p&gt;
-&lt;p&gt;在❷处运行命令&lt;code&gt;ls&lt;/code&gt;
- ，其输出表明Django又创建了一个文件db.sqlite3。SQLite是一种使用单个文件的数据库，是编写简单应用程序的理想选择，因为它让你不用太关注数据库管理的问题。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　在虚拟环境中运行manage.py时，务必使用命令&lt;code&gt;python&lt;/code&gt;
- ，即便你在运行其他程序时使用的是另外的命令，如&lt;code&gt;python3&lt;/code&gt;
- 。在虚拟环境中，命令&lt;code&gt;python&lt;/code&gt;
- 指的是在虚拟环境中安装的Python版本。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_424"&gt;18.1.7　查看项目&lt;/h3&gt;
-&lt;p&gt;下面来核实Django正确地创建了项目。为此，可使用命令&lt;code&gt;runserver&lt;/code&gt;
- 查看项目的状态，如下所示：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  (ll_env)learning_log$ python manage.py runserver
-  Watchman unavailable: pywatchman not installed.
-  Watching for file changes with StatReloader
-  Performing system checks...
-❶ System check identified no issues (0 silenced).
-  February 18, 2019 - 16:26:07
-❷ Django version 2.2.0, using settings 'learning_log.settings'
-❸ Starting development server at http://127.0.0.1:8000/
-  Quit the server with CONTROL-C.&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;Django启动了一个名为development server的服务器，让你能够查看系统中的项目，了解其工作情况。如果你在浏览器中输入URL以请求页面，该Django服务器将进行响应：生成合适的页面，并将其发送给浏览器。&lt;/p&gt;
-&lt;p&gt;Django在❶处通过检查确认正确地创建了项目，在❷处指出使用的Django版本以及当前使用的设置文件的名称，并在❸处指出项目的URL。URL http://127.0.0.1:8000/表明项目将在你的计算机（即localhost）的端口8000上侦听请求。localhost指的是只处理当前系统发出的请求，而不允许其他任何人查看你正在开发的页面的服务器。&lt;/p&gt;
-&lt;p&gt;现在打开一款Web浏览器，并输入URL http://localhost:8000/（如果这不管用，请输入http://127.0.0.1:8000/）。你将看到类似于图18-1所示的页面。这个页面是Django创建的，让你知道到目前为止一切正常。现在暂时不要关闭这个服务器，等你要关闭这个服务器时，可切换到执行命令&lt;code&gt;runserver&lt;/code&gt;
- 时所在的终端窗口，再按Ctrl + C。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/18_Image00047.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图18-1　到目前为止一切正常&lt;/strong&gt;
-&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　如果出现错误消息That port is already in use（指定端口被占用），请执行命令&lt;code&gt;python manage.py runserver 8001&lt;/code&gt;
- ，让Diango使用另一个端口。如果这个端口也不可用，请不断执行上述命令，并逐渐增大其中的端口号，直到找到可用的端口。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;　&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习18-1：新项目&lt;/strong&gt;
- 　为深入了解Django都做了些什么，可创建两个空项目，看看Django创建了什么。新建一个文件夹，并给它指定简单的名称，如snap_gram或insta_chat（不要在目录learning_log中新建该文件夹）。在终端中切换到该文件夹，并创建一个虚拟环境。在这个虚拟环境中，安装Django，并执行命令&lt;code&gt;django-admin.py startproject snap_gram .&lt;/code&gt;
- （千万不要忘了这个命令末尾的句点）。&lt;/p&gt;
-&lt;p&gt;看看这个命令创建了哪些文件和文件夹，并与项目“学习笔记”包含的文件和文件夹进行比较。这样多做几次，直到你对Django新建项目时创建的东西了如指掌。然后，将项目目录删除（如果你想这样做的话）。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_425"&gt;18.2　创建应用程序&lt;/h2&gt;
-&lt;p&gt;Django&lt;strong&gt;项目&lt;/strong&gt;
- 由一系列应用程序组成，它们协同工作让项目成为一个整体。本章只创建一个应用程序，它将完成项目的大部分工作。第19章将添加一个管理用户账户的应用程序。&lt;/p&gt;
-&lt;p&gt;当前，在前面打开的终端窗口中应该还运行着&lt;code&gt;runserver&lt;/code&gt;
- 。请再打开一个终端窗口（或标签页），并切换到manage.py所在的目录。激活虚拟环境，再执行命令&lt;code&gt;startapp&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  learning_log$ source ll_env/bin/activate
-  (ll_env)learning_log$ python manage.py startapp learning_logs
-❶ (ll_env)learning_log$ ls
-  db.sqlite3 learning_log learning_logs ll_env manage.py
-❷ (ll_env)learning_log$ ls learning_logs/
-  __init__.py admin.py apps.py migrations models.py tests.py views.py&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;命令&lt;code&gt;startapp &lt;i&gt;appname&lt;/i&gt;
-&lt;/code&gt;
- 让Django搭建创建应用程序所需的基础设施。如果现在查看项目目录，将看到其中新增了文件夹learning_logs（见❶）。打开这个文件夹，看看Django都创建了什么（见❷），其中最重要的文件是models.py、admin.py和views.py。我们将使用models.py来定义要在应用程序中管理的数据，稍后再介绍admin.py和views.py。&lt;/p&gt;
-&lt;h3 id="nav_point_426"&gt;18.2.1　定义模型&lt;/h3&gt;
-&lt;p&gt;我们来想想涉及的数据。每位用户都需要在学习笔记中创建很多主题。用户输入的每个条目都与特定主题相关联，这些条目将以文本的方式显示。我们还需要存储每个条目的时间戳，以便告诉用户各个条目都是什么时候创建的。&lt;/p&gt;
-&lt;p&gt;打开文件models.py，看看它当前包含哪些内容：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;models.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;from django.db import models
-# 在这里创建模型。&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这里导入了模块&lt;code&gt;models&lt;/code&gt;
- ，并让我们创建自己的模型。模型告诉Django如何处理应用程序中存储的数据。在代码层面，模型就是一个类，就像前面讨论的每个类一样，包含属性和方法。下面是表示用户将存储的主题的模型：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  from django.db import models
-  class Topic(models.Model):
-      """用户学习的主题。"""
-❶     text = models.CharField(max_length=200)
-❷     date_added = models.DateTimeField(auto_now_add=True)
-❸     def __str__(self):
-          """返回模型的字符串表示。"""
-          return self.text&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们创建了一个名为&lt;code&gt;Topic&lt;/code&gt;
- 的类，它继承&lt;code&gt;Model&lt;/code&gt;
- ，即Django中定义了模型基本功能的类。我们给&lt;code&gt;Topic&lt;/code&gt;
- 类添加了两个属性：&lt;code&gt;text&lt;/code&gt;
- 和&lt;code&gt;date_added&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;属性&lt;code&gt;text&lt;/code&gt;
- 是一个&lt;code&gt;CharField&lt;/code&gt;
- ——由字符组成的数据，即文本（见❶）。需要存储少量文本，如名称、标题或城市时，可使用&lt;code&gt;CharField&lt;/code&gt;
- 。定义&lt;code&gt;CharField&lt;/code&gt;
- 属性时，必须告诉Django该在数据库中预留多少空间。这里将&lt;code&gt;max_length&lt;/code&gt;
- 设置成了200（即200字符），这对存储大多数主题名来说足够了。&lt;/p&gt;
-&lt;p&gt;属性&lt;code&gt;date_added&lt;/code&gt;
- 是一个&lt;code&gt;DateTimeField&lt;/code&gt;
- ——记录日期和时间的数据（见❷）。我们传递了实参&lt;code&gt;auto_now_add=True&lt;/code&gt;
- ，每当用户创建新主题时，Django都会将这个属性自动设置为当前日期和时间。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　要获悉可在模型中使用的各种字段，请参阅&lt;em&gt;Django Model Field Reference&lt;/em&gt;
- 。就当前而言，你无须全面了解其中的所有内容，但自己开发应用程序时，这些内容将提供极大的帮助。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;需要告诉Django，默认使用哪个属性来显示有关主题的信息。Django调用方法&lt;code&gt;__str__()&lt;/code&gt;
- 来显示模型的简单表示。这里编写了方法&lt;code&gt;__str__()&lt;/code&gt;
- ，它返回存储在属性&lt;code&gt;text&lt;/code&gt;
- 中的字符串（见❸）。&lt;/p&gt;
-&lt;h3 id="nav_point_427"&gt;18.2.2　激活模型&lt;/h3&gt;
-&lt;p&gt;要使用这些模型，必须让Django将前述应用程序包含到项目中。为此，打开settings.py（它位于目录learning_log/learning_log中），其中有个片段告诉Django哪些应用程序被安装到了项目中并将协同工作：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-]
---snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;请将&lt;code&gt;INSTALLED_APPS&lt;/code&gt;
- 修改成下面这样，将前面的应用程序添加到这个列表中：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-INSTALLED_APPS = [
-    # 我的应用程序
-    'learning_logs',
-    # 默认添加的应用程序
-     'django.contrib.admin',
-    --snip--
-]
---snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;通过将应用程序编组，在项目不断增大，包含更多的应用程序时，有助于对应用程序进行跟踪。这里新建了一个名为“我的应用程序”的片段，当前它只包含应用程序&lt;code&gt;learning_logs&lt;/code&gt;
- 。务必将自己创建的应用程序放在默认应用程序前面，这样能够覆盖默认应用程序的行为。&lt;/p&gt;
-&lt;p&gt;接下来，需要让Django修改数据库，使其能够存储与模型&lt;code&gt;Topic&lt;/code&gt;
- 相关的信息。为此，在终端窗口中执行下面的命令：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;(ll_env)learning_log$ python manage.py makemigrations learning_logs
-Migrations for 'learning_logs':
-  learning_logs/migrations/0001_initial.py
-    - Create model Topic
-(ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;命令&lt;code&gt;makemigrations&lt;/code&gt;
- 让Django确定该如何修改数据库，使其能够存储与前面定义的新模型相关联的数据。输出表明Django创建了一个名为0001_initial.py的迁移文件，这个文件将在数据库中为模型&lt;code&gt;Topic&lt;/code&gt;
- 创建一个表。&lt;/p&gt;
-&lt;p&gt;下面应用这种迁移，让Django替我们修改数据库：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  (ll_env)learning_log$ python manage.py migrate
-  Operations to perform:
-    Apply all migrations: admin, auth, contenttypes, learning_logs, sessions
-  Running migrations:
-❶   Applying learning_logs.0001_initial... OK&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这个命令的大部分输出与首次执行命令&lt;code&gt;migrate&lt;/code&gt;
- 的输出相同。需要检查的是❶处的输出行。在这里，Django指出为&lt;code&gt;learning_logs&lt;/code&gt;
- 应用迁移时一切正常。&lt;/p&gt;
-&lt;p&gt;每当需要修改“学习笔记”管理的数据时，都采取如下三个步骤：修改models.py，对&lt;code&gt;learning_logs&lt;/code&gt;
- 调用&lt;code&gt;makemigrations&lt;/code&gt;
- ，以及让Django迁移项目。&lt;/p&gt;
-&lt;h3 id="nav_point_428"&gt;18.2.3　Django管理网站&lt;/h3&gt;
-&lt;p&gt;Django提供的&lt;strong&gt;管理网站&lt;/strong&gt;
- （admin site）让你能够轻松地处理模型。网站管理员可以使用管理网站，但普通用户不能使用。本节将建立管理网站，并通过它使用模型&lt;code&gt;Topic&lt;/code&gt;
- 来添加一些主题。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li value="1"&gt;
-&lt;p&gt;
-&lt;strong&gt;创建超级用户&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;Django允许创建具备所有权限的用户，即&lt;strong&gt;超级用户&lt;/strong&gt;
- 。&lt;strong&gt;权限&lt;/strong&gt;
- 决定了用户可执行的操作。最严格的权限设置只允许用户阅读网站的公开信息。注册用户通常可阅读自己的私有数据，还可查看一些只有会员才能查看的信息。为有效地管理Web应用程序，网站所有者通常需要访问网站存储的所有信息。优秀的管理员会小心对待用户的敏感信息，因为用户极其信任自己访问的应用程序。&lt;/p&gt;
-&lt;p&gt;为在Django中创建超级用户，请执行下面的命令并按提示做：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  (ll_env)learning_log$ python manage.py createsuperuser
-❶ Username (leave blank to use 'eric'): ll_admin
-❷ Email address:
-❸ Password:
-  Password (again):
-  Superuser created successfully.
-  (ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;你执行命令&lt;code&gt;createsuperuser&lt;/code&gt;
- 时，Django提示输入超级用户的用户名（见❶）。这里输入的是ll_admin，但可输入任何用户名。如果你愿意，可以输入电子邮箱地址，也可让这个字段为空（见❷）。需要输入密码两次（见❸）。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　一些敏感信息可能会向网站管理员隐藏。例如，Django并不存储你输入的密码，而是存储从该密码派生出来的一个字符串，称为&lt;strong&gt;散列值&lt;/strong&gt;
- 。每当你输入密码时，Django都计算其散列值，并将结果与存储的散列值进行比较。如果这两个散列值相同，你就通过了身份验证。由于存储的是散列值，即便黑客获得了网站数据库的访问权，也只能获取其中存储的散列值，无法获得密码。在网站配置正确的情况下，几乎无法根据散列值推导出原始密码。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="2"&gt;
-&lt;p&gt;
-&lt;strong&gt;向管理网站注册模型&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;Django自动在管理网站中添加了一些模型，如&lt;code&gt;User&lt;/code&gt;
- 和&lt;code&gt;Group&lt;/code&gt;
- ，但对于我们创建的模型，必须手工进行注册。&lt;/p&gt;
-&lt;p&gt;我们创建应用程序&lt;code&gt;learning_logs&lt;/code&gt;
- 时，Django在models.py所在的目录中创建了一个名为admin.py的文件：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;admin.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;from django.contrib import admin
-# 在这里注册你的模型。&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;为向管理网站注册&lt;code&gt;Topic&lt;/code&gt;
- ，请输入下面的代码：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  from django.contrib import admin
-❶ from .models import Topic
-❷ admin.site.register(Topic)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这些代码首先导入要注册的模型&lt;code&gt;Topic&lt;/code&gt;
- （见❶）。&lt;code&gt;models&lt;/code&gt;
- 前面的句点让Django在admin.py所在的目录中查找models.py。&lt;code&gt;admin.site.register()&lt;/code&gt;
- 让Django通过管理网站管理模型（见❷）。&lt;/p&gt;
-&lt;p&gt;现在，使用超级用户账户访问管理网站：访问http://localhost:8000/admin/，并输入刚创建的超级用户的用户名和密码。你将看到类似于图18-2所示的屏幕。这个页面让你能够添加和修改用户和用户组，还可管理与刚才定义的模型&lt;code&gt;Topic&lt;/code&gt;
- 相关的数据。&lt;/p&gt;
-&lt;p class="p-img"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/18_Image00048.gif"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图18-2　包含模型Topic的管理网站&lt;/strong&gt;
-&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　如果在浏览器中看到一条消息，指出访问的网页不可用，请确认在终端窗口中运行着Django服务器。如果没有，请激活虚拟环境，并执行命令&lt;code&gt;python manage.py runserver&lt;/code&gt;
- 。在开发过程中，如果无法通过浏览器访问项目，首先应采取的故障排除措施是，关闭所有打开的终端，再打开终端并执行命令&lt;code&gt;runserver&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="3"&gt;
-&lt;p&gt;
-&lt;strong&gt;添加主题&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;向管理网站注册&lt;code&gt;Topic&lt;/code&gt;
- 后，我们来添加第一个主题。为此，单击Topics进入主题页面，它几乎是空的，因为还没有添加任何主题。单击Add，将出现一个用于添加新主题的表单。在第一个方框中输入&lt;code&gt;Chess&lt;/code&gt;
- ，再单击Save回到主题管理页面，其中包含刚创建的主题。&lt;/p&gt;
-&lt;p&gt;下面再创建一个主题，以便有更多的数据可供使用。再次单击Add，并输入Rock Climbing，然后单击Save回到主题管理页面。现在，你可以看到其中包含了主题Chess和&lt;code&gt;Rock Climbing&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id="nav_point_429"&gt;18.2.4　定义模型&lt;code&gt;Entry&lt;/code&gt;
-&lt;/h3&gt;
-&lt;p&gt;要记录学到的国际象棋和攀岩知识，用户必须能够在学习笔记中添加条目。为此，需要定义相关的模型。每个条目都与特定主题相关联，这种关系称为&lt;strong&gt;多对一关系&lt;/strong&gt;
- ，即多个条目可关联到同一个主题。&lt;/p&gt;
-&lt;p&gt;下面是模型&lt;code&gt;Entry&lt;/code&gt;
- 的代码，请将这些代码放在文件models.py中：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;models.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  from django.db import models
-  class Topic(models.Model):
-      --snip--
-❶ class Entry(models.Model):
-      """学到的有关某个主题的具体知识。"""
-❷     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
-❸     text = models.TextField()
-      date_added = models.DateTimeField(auto_now_add=True)
-❹     class Meta:
-          verbose_name_plural = 'entries'
-      def __str__(self):
-          """"""返回模型的字符串表示。"""
-❺         return f"{self.text[:50]}..."&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;像&lt;code&gt;Topic&lt;/code&gt;
- 一样，&lt;code&gt;Entry&lt;/code&gt;
- 也继承了Django基类&lt;code&gt;Model&lt;/code&gt;
- （见❶）。第一个属性&lt;code&gt;topic&lt;/code&gt;
- 是个&lt;code&gt;ForeignKey&lt;/code&gt;
- 实例（见❷）。&lt;strong&gt;外键&lt;/strong&gt;
- （foreign key）是一个数据库术语，它指向数据库中的另一条记录，这里是将每个条目关联到特定主题。创建每个主题时，都分配了一个键（ID）。需要在两项数据之间建立联系时，Django使用与每项信息相关联的键。我们稍后将根据这些联系获取与特定主题相关联的所有条目。实参&lt;code&gt;on_delete=models.CASCADE&lt;/code&gt;
- 让Django在删除主题的同时删除所有与之相关联的条目，这称为&lt;strong&gt;级联删除&lt;/strong&gt;
- （cascading delete）。&lt;/p&gt;
-&lt;p&gt;接下来是属性&lt;code&gt;text&lt;/code&gt;
- ，它是一个&lt;code&gt;TextField&lt;/code&gt;
- 实例（见❸）。这种字段的长度不受限制，因为我们不想限制条目的长度。属性&lt;code&gt;date_added&lt;/code&gt;
- 让我们能够按创建顺序呈现条目，并在每个条目旁边放置时间戳。&lt;/p&gt;
-&lt;p&gt;在❹处，我们在&lt;code&gt;Entry&lt;/code&gt;
- 类中嵌套了&lt;code&gt;Meta&lt;/code&gt;
- 类。&lt;code&gt;Meta&lt;/code&gt;
- 存储用于管理模型的额外信息。在这里，它让我们能够设置一个特殊属性，让Django在需要时使用&lt;code&gt;Entries&lt;/code&gt;
- 来表示多个条目。如果没有这个类，Django将使用&lt;code&gt;Entrys&lt;/code&gt;
- 来表示多个条目。&lt;/p&gt;
-&lt;p&gt;方法&lt;code&gt;__str__()&lt;/code&gt;
- 告诉Django，呈现条目时应显示哪些信息。条目包含的文本可能很长，因此让Django只显示&lt;code&gt;text&lt;/code&gt;
- 的前50字符（见❺）。我们还添加了一个省略号，指出显示的并非整个条目。&lt;/p&gt;
-&lt;h3 id="nav_point_430"&gt;18.2.5　迁移模型&lt;code&gt;Entry&lt;/code&gt;
-&lt;/h3&gt;
-&lt;p&gt;添加新模型后，需要再次迁移数据库。你将慢慢地对这个过程了如指掌：修改models.py，执行命令&lt;code&gt;python manage.py makemigrations &lt;i&gt;app_name&lt;/i&gt;
-&lt;/code&gt;
- ，再执行命令&lt;code&gt;python manage.py migrate&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;请使用如下命令迁移数据库并查看输出：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  (ll_env)learning_log$ python manage.py makemigrations learning_logs
-  Migrations for 'learning_logs':
-❶   learning_logs/migrations/0002_entry.py
-      - Create model Entry
-  (ll_env)learning_log$ python manage.py migrate
-  Operations to perform:
-    --snip--
-❷   Applying learning_logs.0002_entry... OK&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;生成了一个新的迁移文件0002_entry.py，它告诉Django如何修改数据库，使其能够存储与模型&lt;code&gt;Entry&lt;/code&gt;
- 相关的信息（见❶）。在❷处执行命令&lt;code&gt;migrate&lt;/code&gt;
- ，我们发现Django应用了该迁移且一切顺利。&lt;/p&gt;
-&lt;h3 id="nav_point_431"&gt;18.2.6　向管理网站注册&lt;code&gt;Entry&lt;/code&gt;
-&lt;/h3&gt;
-&lt;p&gt;我们还需要注册模型&lt;code&gt;Entry&lt;/code&gt;
- 。为此，需要将admin.py修改成类似于下面这样：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;admin.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;from django.contrib import admin
-from .models import Topic, Entry
-admin.site.register(Topic)
-admin.site.register(Entry)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;返回到http://localhost/admin/，你将看到Learning_Logs下列出了Entries。单击Entries的Add链接，或者单击Entries再选择Add entry，将看到一个下拉列表，供你选择要为哪个主题创建条目，以及一个用于输入条目的文本框。从下拉列表中选择Chess，并添加一个条目。下面是我添加的第一个条目。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The opening is the first part of the game, roughly the first ten moves or so. In the opening, it's a good idea to do three things— bring out your bishops and knights, try to control the center of the board, and castle your king.（国际象棋的第一个阶段是开局，大致是前10步左右。在开局阶段，最好做三件事情：将象和马调出来，努力控制棋盘的中间区域，以及用车将王护住。）&lt;/p&gt;
-&lt;p&gt;Of course, these are just guidelines. It will be important to learn when to follow these guidelines and when to disregard these suggestions.（当然，这些只是指导原则。学习什么情况下遵守这些原则、什么情况下不用遵守很重要。）&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;当你单击Save时，将返回到主条目管理页面。在这里，你将发现使用&lt;code&gt;text[:50]&lt;/code&gt;
- 作为条目的字符串表示的好处：在管理界面中只显示了条目的开头部分而不是其所有文本，这使得管理多个条目容易得多。&lt;/p&gt;
-&lt;p&gt;再来创建一个国际象棋条目，并创建一个攀岩条目，以提供一些初始数据。下面是第二个国际象棋条目。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;In the opening phase of the game, it's important to bring out your bishops and knights. These pieces are powerful and maneuverable enough to play a significant role in the beginning moves of a game.（在国际象棋的开局阶段，将象和马调出来很重要。这些棋子威力大，机动性强，在开局阶段扮演着重要角色。）&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;下面是第一个攀岩条目。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;One of the most important concepts in climbing is to keep your weight on your feet as much as possible. There's a myth that climbers can hang all day on their arms. In reality, good climbers have practiced specific ways of keeping their weight over their feet whenever possible.（最重要的攀岩概念之一是尽可能让双脚承受体重。有人误认为攀岩者能依靠手臂的力量坚持一整天。实际上，优秀的攀岩者都经过专门训练，能够尽可能让双脚承受体重。）&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;接着往下开发“学习笔记”时，这三个条目提供了可供使用的数据。&lt;/p&gt;
-&lt;h3 id="nav_point_432"&gt;18.2.7　Django shell&lt;/h3&gt;
-&lt;p&gt;输入一些数据后，就可通过交互式终端会话以编程方式查看这些数据了。这种交互式环境称为Django &lt;strong&gt;shell&lt;/strong&gt;
- ，是测试项目和排除故障的理想之地。下面是一个交互式shell会话示例：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  (ll_env)learning_log$ python manage.py shell
-❶ &amp;gt;&amp;gt;&amp;gt; from learning_logs.models import Topic
-  &amp;gt;&amp;gt;&amp;gt; Topic.objects.all()
-  &amp;lt;QuerySet [&amp;lt;Topic: Chess&amp;gt;, &amp;lt;Topic: Rock Climbing&amp;gt;]&amp;gt;&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在活动状态的虚拟环境中执行时，命令&lt;code&gt;python manage.py shell&lt;/code&gt;
- 启动Python解释器，让你能够探索存储在项目数据库中的数据。这里导入了模块&lt;code&gt;learning_logs.models&lt;/code&gt;
- 中的模型&lt;code&gt;Topic&lt;/code&gt;
- （见❶），再使用方法&lt;code&gt;Topic.objects.all()&lt;/code&gt;
- 获取模型&lt;code&gt;Topic&lt;/code&gt;
- 的所有实例，这将返回一个称为&lt;strong&gt;查询集&lt;/strong&gt;
- （queryset）的列表。&lt;/p&gt;
-&lt;p&gt;可以像遍历列表一样遍历查询集。下面演示了如何查看分配给每个主题对象的ID：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; topics = Topic.objects.all()
-&amp;gt;&amp;gt;&amp;gt; for topic in topics:
-...   print(topic.id, topic)
-...
-1 Chess
-2 Rock Climbing&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;将返回的查询集存储在&lt;code&gt;topics&lt;/code&gt;
- 中，再打印每个主题的&lt;code&gt;id&lt;/code&gt;
- 属性和字符串表示。从输出可知，主题Chess的ID为1，而Rock Climbing的ID为2。&lt;/p&gt;
-&lt;p&gt;知道主题对象的ID后，就可使用方法&lt;code&gt;Topic.objects.get()&lt;/code&gt;
- 获取该对象并查看其属性。下面来看看主题Chess的属性&lt;code&gt;text&lt;/code&gt;
- 和&lt;code&gt;date_added&lt;/code&gt;
- 的值：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; t = Topic.objects.get(id=1)
-&amp;gt;&amp;gt;&amp;gt; t.text
-'Chess'
-&amp;gt;&amp;gt;&amp;gt; t.date_added
-datetime.datetime(2019, 2, 19, 1, 55, 31, 98500, tzinfo=&amp;lt;UTC&amp;gt;)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们还可以查看与主题相关联的条目。前面给模型&lt;code&gt;Entry&lt;/code&gt;
- 定义了属性&lt;code&gt;topic&lt;/code&gt;
- 。这是一个&lt;code&gt;ForeignKey&lt;/code&gt;
- ，将条目与主题关联起来。利用这种关联，Django能够获取与特定主题相关联的所有条目，如下所示：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ &amp;gt;&amp;gt;&amp;gt; t.entry_set.all()
-  &amp;lt;QuerySet [&amp;lt;Entry: The opening is the first part of the game, roughly...&amp;gt;,
-  &amp;lt;Entry:
-  In the opening phase of the game, it's important t...&amp;gt;]&amp;gt;&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;要通过外键关系获取数据，可使用相关模型的小写名称、下划线和单词&lt;code&gt;set&lt;/code&gt;
- （见❶）。例如，假设有模型&lt;code&gt;Pizza&lt;/code&gt;
- 和&lt;code&gt;Topping&lt;/code&gt;
- ，而&lt;code&gt;Topping&lt;/code&gt;
- 通过一个外键关联到&lt;code&gt;Pizza&lt;/code&gt;
- 。如果有一个名为&lt;code&gt;my_pizza&lt;/code&gt;
- 的&lt;code&gt;Pizza&lt;/code&gt;
- 对象，就可使用代码&lt;code&gt;my_pizza.topping_set.all()&lt;/code&gt;
- 来获取这张比萨的所有配料。&lt;/p&gt;
-&lt;p&gt;编写用户可请求的页面时，我们将使用这种语法。确认代码能获取所需的数据时，shell很有帮助。如果代码在shell中的行为符合预期，那么它们在项目文件中也能正确地工作。如果代码引发了错误或获取的数据不符合预期，那么在简单的shell环境中排除故障要比在生成页面的文件中排除故障容易得多。我们不会太多地使用shell，但应继续使用它来熟悉对存储在项目中的数据进行访问的Django语法。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　每次修改模型后，都需要重启shell，这样才能看到修改的效果。要退出shell会话，可按Ctr + D。如果你使用的是Windows系统，应按Ctr + Z，再按回车键。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;　&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习18-2：简短的条目&lt;/strong&gt;
- 　当前，Django在管理网站或shell中显示&lt;code&gt;Entry&lt;/code&gt;
- 实例时，模型&lt;code&gt;Entry&lt;/code&gt;
- 的方法&lt;code&gt;__str__()&lt;/code&gt;
- 都在其末尾加上省略号。请在方法&lt;code&gt;__str__()&lt;/code&gt;
- 中添加一条&lt;code&gt;if&lt;/code&gt;
- 语句，以便仅在条目长度超过50字符时才添加省略号。使用管理网站添加一个不超过50字符的条目，并核实显示它时没有省略号。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习18-3：Django API&lt;/strong&gt;
- 　当你编写访问项目中数据的代码时，实际上编写的是查询。请浏览Django网站中有关如何查询数据的文档&lt;em&gt;Making queries&lt;/em&gt;
- ，其中大部分内容是你不熟悉的，但等你自己开发项目时，这些内容会很有用。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习18-4：比萨店&lt;/strong&gt;
- 　新建一个名为Pizzeria的项目，并在其中添加一个名为&lt;code&gt;pizzas&lt;/code&gt;
- 的应用程序。定义一个名为&lt;code&gt;Pizza&lt;/code&gt;
- 的模型，它包含字段&lt;code&gt;name&lt;/code&gt;
- ，用于存储比萨名称，如&lt;code&gt;Hawaiian&lt;/code&gt;
- 和&lt;code&gt;Meat Lovers&lt;/code&gt;
- 。定义一个名为&lt;code&gt;Topping&lt;/code&gt;
- 的模型，它包含字段&lt;code&gt;pizza&lt;/code&gt;
- 和&lt;code&gt;name&lt;/code&gt;
- ，其中字段&lt;code&gt;pizza&lt;/code&gt;
- 是一个关联到&lt;code&gt;Pizza&lt;/code&gt;
- 的外键，而字段&lt;code&gt;name&lt;/code&gt;
- 用于存储配料，如&lt;code&gt;pineapple&lt;/code&gt;
- 、&lt;code&gt;Canadian bacon&lt;/code&gt;
- 和&lt;code&gt;sausage&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;向管理网站注册这两个模型，并使用管理网站输入一些比萨名和配料。使用shell来查看你输入的数据。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_433"&gt;18.3　创建页面：学习笔记主页&lt;/h2&gt;
-&lt;p&gt;使用Django创建页面的过程分三个阶段：定义URL，编写视图和编写模板。按什么顺序完成这三个阶段无关紧要，但在本项目中，总是先定义URL模式。URL模式描述了URL是如何设计的，让Django知道如何将浏览器请求与网站URL匹配，以确定返回哪个页面。&lt;/p&gt;
-&lt;p&gt;每个URL都被映射到特定的&lt;strong&gt;视图&lt;/strong&gt;
- ——视图函数获取并处理页面所需的数据。视图函数通常使用&lt;strong&gt;模板&lt;/strong&gt;
- 来渲染页面，而模板定义页面的总体结构。为明白其中的工作原理，我们来创建学习笔记的主页。这包括定义该主页的URL，编写其视图函数并创建一个简单的模板。&lt;/p&gt;
-&lt;p&gt;我们只是要确保“学习笔记”按要求的那样工作，因此暂时让这个页面尽可能简单。Web应用程序能够正常运行后，设置样式可使其更有趣，但中看不中用的应用程序毫无意义。就目前而言，主页只显示标题和简单的描述。&lt;/p&gt;
-&lt;h3 id="nav_point_434"&gt;18.3.1　映射URL&lt;/h3&gt;
-&lt;p&gt;用户通过在浏览器中输入URL以及单击链接来请求页面，因此我们要确定项目需要哪些URL。主页的URL最重要，它是用户用来访问项目的基础URL。当前，基础URL（http://localhost: 8000/）返回默认的Django网站，让我们知道正确地建立了项目。下面修改这一点，将这个基础URL映射到“学习笔记”的主页。&lt;/p&gt;
-&lt;p&gt;打开项目主文件夹learning_log中的文件urls.py，你将看到如下代码：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;urls.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ from django.contrib import admin
-  from django.urls import path
-❷ urlpatterns = [
-❸     path('admin/', admin.site.urls),
-  ]&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;前两行导入了一个模块和一个函数，以便对管理网站的URL进行管理（见❶）。这个文件的主体定义了变量&lt;code&gt;urlpatterns&lt;/code&gt;
- （见❷）。在这个针对整个项目的urls.py文件中，变量&lt;code&gt;urlpatterns&lt;/code&gt;
- 包含项目中应用程序的URL。❸处的代码包含模块&lt;code&gt;admin.site.urls&lt;/code&gt;
- ，该模块定义了可在管理网站中请求的所有URL。&lt;/p&gt;
-&lt;p&gt;我们需要包含&lt;code&gt;learning_logs&lt;/code&gt;
- 的URL，因此添加如下代码：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  from django.contrib import admin
-  from django.urls import path, include
-  urlpatterns = [
-      path('admin/', admin.site.urls),
-❶     path('', include('learning_logs.urls')),
-  ]&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，添加一行代码来包含模块&lt;code&gt;learning_logs.urls&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;默认的urls.py包含在文件夹learning_log中，现在需要在文件夹learning_logs中再创建一个urls.py文件。为此，新建一个文件，使用文件名urls.py将其存储到文件夹learning_logs中，再在这个文件中输入如下代码：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;urls.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ """定义learning_logs的URL模式。"""
-❷ from django.urls import path
-❸ from . import views
-❹ app_name = 'learning_logs'
-❺ urlpatterns = [
-      # 主页
-❻     path('', views.index, name='index'),
-  ]&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;为指出当前位于哪个urls.py文件中，在该文件开头添加一个文档字符串（见❶）。接下来，导入了函数&lt;code&gt;path&lt;/code&gt;
- ，因为需要使用它将URL映射到视图（见❷）。我们还导入了模块&lt;code&gt;views&lt;/code&gt;
- （见❸），其中的句点让Python从当前urls.py模块所在的文件夹导入views.py。变量&lt;code&gt;app_name&lt;/code&gt;
- 让Django能够将这个urls.py文件同项目内其他应用程序中的同名文件区分开来（见❹）。在这个模块中，变量&lt;code&gt;urlpatterns&lt;/code&gt;
- 是一个列表，包含可在应用程序&lt;code&gt;learning_logs&lt;/code&gt;
- 中请求的页面。&lt;/p&gt;
-&lt;p&gt;实际的URL模式是对函数&lt;code&gt;path()&lt;/code&gt;
- 的调用，这个函数接受三个实参（见❺）。第一个是一个字符串，帮助Django正确地路由（route）请求。收到请求的URL后，Django力图将请求路由给一个视图。为此，它搜索所有的URL模式，找到与当前请求匹配的那个。Django忽略项目的基础URL（http://localhost:8000/），因此空字符串（&lt;code&gt;''&lt;/code&gt;
- ）与基础URL匹配。其他URL都与这个模式不匹配。如果请求的URL与任何既有的URL模式都不匹配，Django将返回一个错误页面。&lt;/p&gt;
-&lt;p&gt;
-&lt;code&gt;path()&lt;/code&gt;
- 的第二个实参（见❻）指定了要调用view.py中的哪个函数。请求的URL与前述正则表达式匹配时，Django将调用view.py中的函数&lt;code&gt;index()&lt;/code&gt;
- （这个视图函数将在下一节编写）。第三个实参将这个URL模式的名称指定为&lt;code&gt;index&lt;/code&gt;
- ，让我们能够在代码的其他地方引用它。每当需要提供到这个主页的链接时，都将使用这个名称，而不编写URL。&lt;/p&gt;
-&lt;h3 id="nav_point_435"&gt;18.3.2　编写视图&lt;/h3&gt;
-&lt;p&gt;视图函数接受请求中的信息，准备好生成页面所需的数据，再将这些数据发送给浏览器——这通常是使用定义页面外观的模板实现的。&lt;/p&gt;
-&lt;p&gt;learning_logs中的文件views.py是执行命令&lt;code&gt;python manage.py startapp&lt;/code&gt;
- 时自动生成的，当前其内容如下：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;views.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;from django.shortcuts import render
-# 在这里创建视图。&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;当前，这个文件只导入了函数&lt;code&gt;render()&lt;/code&gt;
- ，它根据视图提供的数据渲染响应。请在这个文件中添加为主页编写视图的代码，如下所示：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;from django.shortcuts import render
-def index(request):
-    """学习笔记的主页。"""
-    return render(request, 'learning_logs/index.html')&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;URL请求与刚才定义的模式匹配时，Django将在文件views.py中查找函数&lt;code&gt;index()&lt;/code&gt;
- ，再将对象&lt;code&gt;request&lt;/code&gt;
- 传递给这个视图函数。这里不需要处理任何数据，因此这个函数只包含调用&lt;code&gt;render()&lt;/code&gt;
- 的代码。这里向函数&lt;code&gt;render()&lt;/code&gt;
- 提供了两个实参：对象&lt;code&gt;request&lt;/code&gt;
- 以及一个可用于创建页面的模板。下面来编写这个模板。&lt;/p&gt;
-&lt;h3 id="nav_point_436"&gt;18.3.3　编写模板&lt;/h3&gt;
-&lt;p&gt;模板定义页面的外观，而每当页面被请求时，Django将填入相关的数据。模板让你能够访问视图提供的任何数据。我们的主页视图没有提供任何数据，因此相应的模板非常简单。&lt;/p&gt;
-&lt;p&gt;在文件夹learning_logs中新建一个文件夹，并将其命名为templates。在文件夹templates中，再新建一个文件夹，并将其命名为learning_logs。这好像有点多余（在文件夹learning_logs中创建文件夹templates，又在这个文件夹中创建文件夹learning_logs），但是建立了Django能够明确解读的结构，即便项目很大、包含很多应用程序亦如此。在最里面的文件夹learning_logs中，新建一个文件，并将其命名为index.html（这个文件的路径为learning_log/learning_logs/templates/ learning_logs/index.html），再在其中编写如下代码：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;index.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;lt;p&amp;gt;Learning Log&amp;lt;/p&amp;gt;
-&amp;lt;p&amp;gt;Learning Log helps you keep track of your learning, for any topic you're
-learning about.&amp;lt;/p&amp;gt;&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这个文件非常简单。这里向不熟悉HTML的读者解释一下：标签&lt;code&gt;&amp;lt;p&amp;gt;&amp;lt;/p&amp;gt;&lt;/code&gt;
- 标识段落。标签&lt;code&gt;&amp;lt;p&amp;gt;&lt;/code&gt;
- 指出段落的开头位置，而标签&lt;code&gt;&amp;lt;/p&amp;gt;&lt;/code&gt;
- 指出段落的结束位置。这里定义了两个段落：第一个充当标题，第二个阐述了用户可使用“学习笔记”来做什么。&lt;/p&gt;
-&lt;p&gt;现在，如果请求这个项目的基础URL http://localhost:8000/，将看到刚才创建的页面，而不是默认的Django页面。Django接受请求的URL，发现该URL与模式&lt;code&gt;''&lt;/code&gt;
- 匹配，因此调用函数&lt;code&gt;views.index()&lt;/code&gt;
- 。这将使用index.html包含的模板来渲染页面，结果如图18-3所示。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/18_Image00049.gif" style="width: 85%" width="85%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图18-3　学习笔记的主页&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;创建页面的过程看起来可能很复杂，但将URL、视图和模板分离的效果很好。这让我们能够分别考虑项目的不同方面，在项目很大时，可让各个参与者专注于最擅长的方面。例如，数据库专家专注于模型，程序员专注于视图代码，而Web设计人员专注于模板。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　可能出现如下错误消息：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;ModuleNotFoundError: No module named 'learning_logs.urls'&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;如果确实如此，请在执行命令&lt;code&gt;python manage.py runserver&lt;/code&gt;
- 的终端窗口中按Ctrl + C停用服务器，再重新执行这个命令。这样做后，应该能够看到主页。每当遇到类似的错误时，都尝试停用并重启服务器，看看是否管用。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;　&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习18-5：膳食规划程序&lt;/strong&gt;
- 　假设你要创建一个应用程序，帮助用户规划一周的膳食。为此，新建一个文件夹，并将其命名为meal_planner，再在这个文件夹中新建一个Django项目。然后，新建一个名为&lt;code&gt;meal_plans&lt;/code&gt;
- 的应用程序，并为这个项目创建一个简单的主页。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习18-6：比萨店主页&lt;/strong&gt;
- 　在为完成练习18-4而创建的项目Pizzeria中，添加一个主页。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_437"&gt;18.4　创建其他页面&lt;/h2&gt;
-&lt;p&gt;制定创建页面的流程后，可以开始扩充“学习笔记”项目了。我们将创建两个显示数据的页面，其中一个列出所有的主题，另一个显示特定主题的所有条目。对于每个页面，我们都将指定URL模式、编写一个视图函数并编写一个模板。但这样做之前，我们先创建一个父模板，项目中的其他模板都将继承它。&lt;/p&gt;
-&lt;h3 id="nav_point_438"&gt;18.4.1　模板继承&lt;/h3&gt;
-&lt;p&gt;创建网站时，一些通用元素几乎会在所有页面中出现。在这种情况下，可编写一个包含通用元素的父模板，并让每个页面都继承这个模板，而不必在每个页面中重复定义这些通用元素。这种方法能让你专注于开发每个页面的独特方面，还能让修改项目的整体外观容易得多。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li value="1"&gt;
-&lt;p&gt;
-&lt;strong&gt;父模板&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;下面创建一个名为base.html的模板，并将其存储在index.html所在的目录中。这个模板包含所有页面都有的元素，而其他模板都继承它。当前，所有页面都包含的元素只有顶端的标题。因为每个页面都包含这个模板，所以将这个标题设置为到主页的链接：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;base.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  &amp;lt;p&amp;gt;
-❶   &amp;lt;a href="{% url 'learning_logs:index' %}"&amp;gt;Learning Log&amp;lt;/a&amp;gt;
-  &amp;lt;/p&amp;gt;
-❷ {% block content %}{% endblock content %}&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这个文件的第一部分创建一个包含项目名的段落，该段落也是到主页的链接。为创建链接，使用了一个&lt;strong&gt;模板标签&lt;/strong&gt;
- ，它是用花括号和百分号（&lt;code&gt;{% %}&lt;/code&gt;
- ）表示的。模板标签是一小段代码，生成要在页面中显示的信息。这里的模板标签&lt;code&gt;{% url 'learning_logs:index' %}&lt;/code&gt;
- 生成一个URL，该URL与在learning_logs/urls.py中定义的名为&lt;code&gt;'index'&lt;/code&gt;
- 的URL模式匹配（见❶）。在本例中，&lt;code&gt;learning_logs&lt;/code&gt;
- 是一个&lt;strong&gt;命名空间&lt;/strong&gt;
- ，而&lt;code&gt;index&lt;/code&gt;
- 是该命名空间中一个名称独特的URL模式。这个命名空间来自在文件learning_logs/urls.py中赋给&lt;code&gt;app_name&lt;/code&gt;
- 的值。&lt;/p&gt;
-&lt;p&gt;在简单的HTML页面中，链接是使用&lt;strong&gt;锚&lt;/strong&gt;
- 标签&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;
- 定义的：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;lt;a href="link_url"&amp;gt;link text&amp;lt;/a&amp;gt;&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;通过使用模板标签来生成URL，能很容易地确保链接是最新的：只需修改urls.py中的URL模式，Django就会在页面下次被请求时自动插入修改后的URL。在本项目中，每个页面都将继承base.html，因此从现在开始，每个页面都包含到主页的链接。&lt;/p&gt;
-&lt;p&gt;在❷处，我们插入了一对&lt;strong&gt;块&lt;/strong&gt;
- 标签。这个块名为&lt;code&gt;content&lt;/code&gt;
- ，是一个占位符，其中包含的信息由子模板指定。&lt;/p&gt;
-&lt;p&gt;子模板并非必须定义父模板中的每个块，因此在父模板中，可使用任意多个块来预留空间，而子模板可根据需要定义相应数量的块。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　在Python代码中，几乎总是缩进四个空格。相比于Python文件，模板文件的缩进层级更多，因此每个层级通常只缩进两个空格。每个层级缩进多少个空格无关紧要，只需确保一致即可。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="2"&gt;
-&lt;p&gt;
-&lt;strong&gt;子模板&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;现在需要重写index.html，使其继承base.html。为此，向index.html添加如下代码：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;index.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ {% extends "learning_logs/base.html" %}
-❷ {% block content %}
-  &amp;lt;p&amp;gt;Learning Log helps you keep track of your learning, for any topic you're
-  learning about.&amp;lt;/p&amp;gt;
-❸ {% endblock content %}&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;如果将这些代码与原来的index.html进行比较，将发现标题Learning Log没有了，取而代之的是指定要继承哪个模板的代码（见❶）。子模板的第一行必须包含标签&lt;code&gt;{% extends %}&lt;/code&gt;
- ，让Django知道它继承了哪个父模板。文件base.html位于文件夹learning_logs中，因此父模板路径中包含learning_logs。这行代码导入模板base.html的所有内容，让index.html能够指定要在&lt;code&gt;content&lt;/code&gt;
- 块预留的空间中添加的内容。&lt;/p&gt;
-&lt;p&gt;在❷处，插入了一个名为&lt;code&gt;content&lt;/code&gt;
- 的&lt;code&gt;{% block %}&lt;/code&gt;
- 标签，以定义&lt;code&gt;content&lt;/code&gt;
- 块。不是从父模板继承的内容都包含在&lt;code&gt;content&lt;/code&gt;
- 块中，在这里是一个描述项目“学习笔记”的段落。在❸处，使用标签&lt;code&gt;{% endblock content %}&lt;/code&gt;
- 指出了内容定义的结束位置。在标签&lt;code&gt;{% endblock %}&lt;/code&gt;
- 中，并非必须指定块名，但如果模板包含多个块，指定块名有助于确定结束的是哪个块。&lt;/p&gt;
-&lt;p&gt;模板继承的优点开始显现出来了：在子模板中，只需包含当前页面特有的内容。这不仅简化了每个模板，还使得网站修改起来容易得多。要修改很多页面都包含的元素，只需修改父模板即可，所做的修改将传导到继承该父模板的每个页面。在包含数十乃至数百个页面的项目中，这种结构使得网站改进起来更容易、更快捷。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　在大型项目中，通常有一个用于整个网站的父模板base.html，且网站的每个主要部分都有一个父模板。每个部分的父模板都继承base.html，而网站的每个页面都继承相应部分的父模板。这让你能够轻松地修改整个网站的外观、网站任何一部分的外观以及任何一个页面的外观。这种配置提供了一种效率极高的工作方式，让你乐意不断地去改进网站。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id="nav_point_439"&gt;18.4.2　显示所有主题的页面&lt;/h3&gt;
-&lt;p&gt;有了高效的页面创建方法，就能专注于另外两个页面了：显示所有主题的页面和显示特定主题中条目的页面。前者显示用户创建的所有主题，它是第一个需要使用数据的页面。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li value="1"&gt;
-&lt;p&gt;
-&lt;strong&gt;URL模式&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;首先，定义显示所有主题的页面的URL。我们通常使用一个简单的URL片段来指出页面显示的信息，这里使用单词topics，因此URL http://localhost:8000/topics/将返回显示所有主题的页面。下面演示了该如何修改learning_logs/urls.py：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;urls.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  """为learning_logs定义URL模式。"""
-  --snip--
-  urlpatterns = [
-      # 主页
-      path('', views.index, name='index'),
-      # 显示所有的主题。
-❶     path('topics/', views.topics, name='topics'),
-  ]&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这里在用于主页URL的字符串参数中添加了&lt;code&gt;topics/&lt;/code&gt;
- （见❶）。Django检查请求的URL时，这个模式与如下URL匹配：基础URL后面跟着topics。可在末尾包含斜杠，也可省略，但单词topics后面不能有任何东西，否则就与该模式不匹配。URL与该模式匹配的请求都将交给views.py中的函数&lt;code&gt;topics()&lt;/code&gt;
- 处理。&lt;br/&gt;
- &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="2"&gt;
-&lt;p&gt;
-&lt;strong&gt;视图&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;函数&lt;code&gt;topics()&lt;/code&gt;
- 需要从数据库中获取一些数据，并将其交给给模板。需要在views.py中添加的代码如下：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;views.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  from django.shortcuts import render
-❶ from .models import Topic
-  def index(request):
-      --snip--
-❷ def topics(request):
-      """显示所有的主题。"""
-❸     topics = Topic.objects.order_by('date_added')
-❹     context = {'topics': topics}
-❺     return render(request, 'learning_logs/topics.html', context)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;首先导入与所需数据相关联的模型（见❶）。函数&lt;code&gt;topics()&lt;/code&gt;
- 包含一个形参：Django从服务器那里收到的&lt;code&gt;request&lt;/code&gt;
- 对象（见❷）。在❸处，查询数据库——请求提供&lt;code&gt;Topic&lt;/code&gt;
- 对象，并根据属性&lt;code&gt;date_added&lt;/code&gt;
- 进行排序。返回的查询集被存储在&lt;code&gt;topics&lt;/code&gt;
- 中。&lt;/p&gt;
-&lt;p&gt;在❹处，定义一个将发送给模板的上下文。&lt;strong&gt;上下文&lt;/strong&gt;
- 是一个字典，其中的键是将在模板中用来访问数据的名称，而值是要发送给模板的数据。这里只有一个键值对，包含一组将在页面中显示的主题。创建使用数据的页面时，除了对象&lt;code&gt;request&lt;/code&gt;
- 和模板的路径外，还将变量&lt;code&gt;context&lt;/code&gt;
- 传递给&lt;code&gt;render()&lt;/code&gt;
- （见❺）。&lt;br/&gt;
- &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="3"&gt;
-&lt;p&gt;
-&lt;strong&gt;模板&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;显示所有主题的页面的模板接受字典&lt;code&gt;context&lt;/code&gt;
- ，以便使用&lt;code&gt;topics()&lt;/code&gt;
- 提供的数据。请创建一个文件，将其命名为topics.html，并存储到index.html所在的目录中。下面演示了如何在这个模板中显示主题：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;topics.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  {% extends "learning_logs/base.html" %}
-  {% block content %}
-    &amp;lt;p&amp;gt;Topics&amp;lt;/p&amp;gt;
-❶   &amp;lt;ul&amp;gt;
-❷     {% for topic in topics %}
-❸       &amp;lt;li&amp;gt;{{ topic }}&amp;lt;/li&amp;gt;
-❹     {% empty %}
-        &amp;lt;li&amp;gt;No topics have been added yet.&amp;lt;/li&amp;gt;
-❺     {% endfor %}
-❻   &amp;lt;/ul&amp;gt;
-  {% endblock content %}&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;就像模板index.html中一样，首先使用标签&lt;code&gt;{% extends %}&lt;/code&gt;
- 来继承base.html，再开始定义&lt;code&gt;content&lt;/code&gt;
- 块。这个页面的主体是一个项目列表，其中列出了用户输入的主题。在标准HTML中，项目列表称为&lt;strong&gt;无序列表&lt;/strong&gt;
- ，用标签&lt;code&gt;&amp;lt;ul&amp;gt;&amp;lt;/ul&amp;gt;&lt;/code&gt;
- 表示。包含所有主题的项目列表始于❶处。&lt;/p&gt;
-&lt;p&gt;在❷处，使用一个相当于&lt;code&gt;for&lt;/code&gt;
- 循环的模板标签，它遍历字典&lt;code&gt;context&lt;/code&gt;
- 中的列表&lt;code&gt;topics&lt;/code&gt;
- 。模板中使用的代码与Python代码存在一些重要差别：Python使用缩进来指出哪些代码行是&lt;code&gt;for&lt;/code&gt;
- 循环的组成部分；而在模板中，每个&lt;code&gt;for&lt;/code&gt;
- 循环都必须使用&lt;code&gt;{% endfor %}&lt;/code&gt;
- 标签来显式地指出其结束位置。因此在模板中，循环类似于下面这样：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;{% for item in list %}
-    do something with each item
-{% endfor %}&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在循环中，要将每个主题转换为项目列表中的一项。要在模板中打印变量，需要将变量名用双花括号括起。这些花括号不会出现在页面中，只是用于告诉Django我们使用了一个模板变量。因此每次循环时，❸处的代码&lt;code&gt;{{ topic }}&lt;/code&gt;
- 都被替换为&lt;code&gt;topic&lt;/code&gt;
- 的当前值。HTML标签&lt;code&gt;&amp;lt;li&amp;gt;&amp;lt;/li&amp;gt;&lt;/code&gt;
- 表示一个&lt;strong&gt;项目列表项&lt;/strong&gt;
- 。在标签对&lt;code&gt;&amp;lt;ul&amp;gt;&amp;lt;/ul&amp;gt;&lt;/code&gt;
- 内部，位于标签&lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt;
- 和&lt;code&gt;&amp;lt;/li&amp;gt;&lt;/code&gt;
- 之间的内容都是一个项目列表项。&lt;/p&gt;
-&lt;p&gt;在❹处，使用模板标签&lt;code&gt;{% empty %}&lt;/code&gt;
- ，它告诉Django在列表&lt;code&gt;topics&lt;/code&gt;
- 为空时该如何办。这里是打印一条消息，告诉用户还没有添加任何主题。最后两行分别结束&lt;code&gt;for&lt;/code&gt;
- 循环（见❺）和项目列表（见❻）。&lt;/p&gt;
-&lt;p&gt;现在需要修改父模板，使其包含到显示所有主题的页面的链接。为此，在其中添加如下代码：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;base.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  &amp;lt;p&amp;gt;
-❶   &amp;lt;a href="{% url 'learning_logs:index' %}"&amp;gt;Learning Log&amp;lt;/a&amp;gt; -
-❷   &amp;lt;a href="{% url 'learning_logs:topics' %}"&amp;gt;Topics&amp;lt;/a&amp;gt;
-  &amp;lt;/p&amp;gt;
-  {% block content %}{% endblock content %}&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在到主页的链接后面添加一个连字符（见❶），再添加一个到显示所有主题的页面的链接——使用的也是模板标签&lt;code&gt;{% url %}&lt;/code&gt;
- （见❷）。这行让Django生成一个链接，它与learning_logs/urls.py中名为&lt;code&gt;'topics'&lt;/code&gt;
- 的URL模式匹配。&lt;/p&gt;
-&lt;p&gt;现在如果刷新浏览器中的主页，将看到链接Topics。如果单击这个链接，将看到类似于图18-4所示的页面。&lt;/p&gt;
-&lt;p class="p-img"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/18_Image00050.gif" style="width: 90%" width="90%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图18-4　显示所有主题的页面&lt;/strong&gt;
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id="nav_point_440"&gt;18.4.3　显示特定主题的页面&lt;/h3&gt;
-&lt;p&gt;接下来，需要创建一个专注于特定主题的页面，它显示该主题的名称以及所有条目。我们同样将定义一个新的URL模式，编写一个视图并创建一个模板。此外，还将修改显示所有主题的页面，让每个项目列表项都变为到相应主题页面的链接。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li value="1"&gt;
-&lt;p&gt;
-&lt;strong&gt;URL模式&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;显示特定主题的页面的URL模式与前面的所有URL模式都稍有不同，因为它使用主题的&lt;code&gt;id&lt;/code&gt;
- 属性来指出请求的是哪个主题。例如，如果用户要查看主题Chess（其&lt;code&gt;id&lt;/code&gt;
- 为1）的详细页面，URL将为http://localhost:8000/topics/1/。下面是与这个URL匹配的模式，应将其放在learning_logs/ urls.py中：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;urls.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-urlpatterns = [
-    --snip--
-    # 特定主题的详细页面。
-    path('topics/&amp;lt;int:topic_id&amp;gt;/', views.topic, name='topic'),
-]&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们来详细研究这个URL模式中的字符串&lt;code&gt;'topics/&amp;lt;int:topic_id&amp;gt;/'&lt;/code&gt;
- 。这个字符串的第一部分让Django查找在基础URL后包含单词topics的URL，第二部分（&lt;code&gt;/&amp;lt;int:topic_id&amp;gt;/&lt;/code&gt;
- ）与包含在两个斜杠内的整数匹配，并将这个整数存储在一个名为&lt;code&gt;topic_id&lt;/code&gt;
- 的实参中。&lt;/p&gt;
-&lt;p&gt;发现URL与这个模式匹配时，Django将调用视图函数&lt;code&gt;topic()&lt;/code&gt;
- ，并将存储在&lt;code&gt;topic_id&lt;/code&gt;
- 中的值作为实参传递给它。在这个函数中，将使用&lt;code&gt;topic_id&lt;/code&gt;
- 的值来获取相应的主题。&lt;br/&gt;
- &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="2"&gt;
-&lt;p&gt;
-&lt;strong&gt;视图&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;函数&lt;code&gt;topic()&lt;/code&gt;
- 需要从数据库中获取指定的主题以及与之相关联的所有条目，如下所示：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;views.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-❶ def topic(request, topic_id):
-      """显示单个主题及其所有的条目。"""
-❷     topic = Topic.objects.get(id=topic_id)
-❸     entries = topic.entry_set.order_by('-date_added')
-❹     context = {'topic': topic, 'entries': entries}
-❺     return render(request, 'learning_logs/topic.html', context)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这是除&lt;code&gt;request&lt;/code&gt;
- 对象外，第一个还包含另一个形参的视图函数。这个函数接受表达式&lt;code&gt;/&amp;lt;int:topic_id&amp;gt;/&lt;/code&gt;
- 捕获的值，并将其存储到&lt;code&gt;topic_id&lt;/code&gt;
- 中（见❶）。在❷处，使用&lt;code&gt;get()&lt;/code&gt;
- 来获取指定的主题，就像前面在Django shell中所做的那样。在❸处，获取与该主题相关联的条目，并根据&lt;code&gt;date_added&lt;/code&gt;
- 进行排序：&lt;code&gt;date_added&lt;/code&gt;
- 前面的减号指定按降序排列，即先显示最近的条目。将主题和条目都存储在字典&lt;code&gt;context&lt;/code&gt;
- 中（见❹），再将这个字典发送给模板topic.html（见❺）。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　❷处和❸处的代码称为&lt;strong&gt;查询&lt;/strong&gt;
- ，因为它们向数据库查询了特定的信息。在自己的项目中编写这样的查询时，先在Django shell中进行尝试大有裨益。比起先编写视图和模板、再在浏览器中检查结果，在shell中执行代码可更快获得反馈。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="3"&gt;
-&lt;p&gt;
-&lt;strong&gt;模板&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;这个模板需要显示主题的名称和条目的内容。如果当前主题不包含任何条目，还需向用户指出这一点：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;topic.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  {% extends 'learning_logs/base.html' %}
-  {% block content %}
-❶   &amp;lt;p&amp;gt;Topic: {{ topic }}&amp;lt;/p&amp;gt;
-    &amp;lt;p&amp;gt;Entries:&amp;lt;/p&amp;gt;
-❷   &amp;lt;ul&amp;gt;
-❸   {% for entry in entries %}
-      &amp;lt;li&amp;gt;
-❹       &amp;lt;p&amp;gt;{{ entry.date_added|date:'M d, Y H:i' }}&amp;lt;/p&amp;gt;
-❺       &amp;lt;p&amp;gt;{{ entry.text|linebreaks }}&amp;lt;/p&amp;gt;
-      &amp;lt;/li&amp;gt;
-❻   {% empty %}
-      &amp;lt;li&amp;gt;There are no entries for this topic yet.&amp;lt;/li&amp;gt;
-    {% endfor %}
-    &amp;lt;/ul&amp;gt;
-  {% endblock content %}&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;像这个项目的其他页面一样，这里也继承了base.html。接下来，显示当前的主题（见❶），它存储在模板变量&lt;code&gt;{{ topic }}&lt;/code&gt;
- 中。为什么可以使用变量&lt;code&gt;topic&lt;/code&gt;
- 呢？因为它包含在字典&lt;code&gt;context&lt;/code&gt;
- 中。接下来，定义一个显示每个条目的项目列表（见❷），并像前面显示所有主题一样遍历条目（见❸）。&lt;/p&gt;
-&lt;p&gt;每个项目列表项都将列出两项信息：条目的时间戳和完整的文本。为列出时间戳（见❹），我们显示属性&lt;code&gt;date_added&lt;/code&gt;
- 的值。在Django模板中，竖线（&lt;code&gt;|&lt;/code&gt;
- ）表示模板&lt;strong&gt;过滤器&lt;/strong&gt;
- ，即对模板变量的值进行修改的函数。过滤器&lt;code&gt;date: 'M d, Y H:i'&lt;/code&gt;
- 以类似于这样的格式显示时间戳：January 1, 2018 23:00。接下来的一行显示&lt;code&gt;text&lt;/code&gt;
- 的完整值，而不仅仅是前50字符。过滤器&lt;code&gt;linebreaks&lt;/code&gt;
- （见❺）将包含换行符的长条目转换为浏览器能够理解的格式，以免显示为不间断的文本块。在❻处，使用模板标签&lt;code&gt;{% empty %}&lt;/code&gt;
- 打印一条消息，告诉用户当前主题还没有条目。&lt;br/&gt;
- &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="4"&gt;
-&lt;p&gt;
-&lt;strong&gt;将显示所有主题的页面中的主题设置为链接&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;在浏览器中查看显示特定主题的页面前，需要修改模板topics.html，让每个主题都链接到相应的页面，如下所示：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;topics.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-   {% for topic in topics %}
-     &amp;lt;li&amp;gt;
-       &amp;lt;a href="{% url 'learning_logs:topic' topic.id %}"&amp;gt;{{ topic }}&amp;lt;/a&amp;gt;
-     &amp;lt;/li&amp;gt;
-  {% empty %}
---snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们使用模板标签&lt;code&gt;url&lt;/code&gt;
- 根据&lt;code&gt;learning_logs&lt;/code&gt;
- 中名为&lt;code&gt;'topic'&lt;/code&gt;
- 的URL模式生成了合适的链接。这个URL模式要求提供实参&lt;code&gt;topic_id&lt;/code&gt;
- ，因此在模板标签&lt;code&gt;url&lt;/code&gt;
- 中添加了属性&lt;code&gt;topic.id&lt;/code&gt;
- 。现在，主题列表中的每个主题都是链接了，链接到显示相应主题的页面，如http://localhost:8000/ topics/1/。&lt;/p&gt;
-&lt;p&gt;如果现在刷新显示所有主题的页面，再单击其中的一个主题，将看到类似于图18-5所示的页面。&lt;/p&gt;
-&lt;p class="p-img"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/18_Image00051.jpg"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图18-5　特定主题的详细页面，其中显示了该主题的所有条目&lt;/strong&gt;
-&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　topic.id和topic_id之间存在细微而重要的差别。表达式topic.id检查主题并获取其ID值，而在代码中，变量topic_id是指向该ID的引用。使用ID时如果出现错误，请确保正确地使用了这两个表达式。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;　&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习18-7：模板文档&lt;/strong&gt;
- 　请浏览Django模板文档。自己开发项目时，你可再回过头来参考该文档。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习18-8：比萨店页面&lt;/strong&gt;
- 　在练习18-6中开发的项目Pizzeria中，添加一个页面来显示供应的比萨的名称。然后，将每个比萨名都设置成链接，可通过单击来显示一个列出相应配料的页面。请务必使用模板继承来高效地创建页面。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_441"&gt;18.5　小结&lt;/h2&gt;
-&lt;p&gt;在本章中，你学习了：如何使用Django框架来创建Web应用程序；制定简要的项目规范，在虚拟环境中安装Django，创建一个项目，并核实该项目已被正确地创建；如何创建应用程序，以及如何定义表示应用程序数据的模型。你了解了数据库，以及在修改模型后，Django可为迁移数据库提供什么帮助。你创建了可访问管理网站的超级用户，并使用管理网站输入了一些初始数据。&lt;/p&gt;
-&lt;p&gt;你还探索了Django shell，它让你能够在终端会话中处理项目的数据。你学习了如何定义URL、创建视图函数以及编写为网站创建页面的模板。最后，你使用模板继承简化了各个模板的结构，使修改网站变得更容易。&lt;/p&gt;
-&lt;p&gt;第19章将创建对用户友好而直观的页面，让用户无须通过管理网站就能添加新的主题和条目，以及编辑既有条目。我们还将添加一个用户注册系统，让用户能够创建账户并记录自己的学习笔记。Web应用程序的核心就是，让任意数量的用户都能与之交互。&lt;/p&gt;
-&lt;br style="page-break-after:always"/&gt;
-&lt;div&gt;&lt;/div&gt;
-</description>
-    <pubDate>Thu, 30 Jul 2026 01:10:08 +0000</pubDate>
-    <guid isPermaLink="false">18</guid>
 </item>
 </channel>
 </rss>
