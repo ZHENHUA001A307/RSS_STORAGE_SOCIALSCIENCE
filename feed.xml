@@ -1,531 +1,539 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-    <title>我的每日小说</title>
-    <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
-    <description>从 EPUB 自动生成的 RSS 订阅源</description>
-        <item>
+  <title>每日更新推送</title>
+  <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
+  <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
+  <lastBuildDate>Mon, 17 Aug 2026 01:05:51 +0000</lastBuildDate>
+    <item>
+      <title><![CDATA[WorkBuddyGuide-本篇导读]]></title>
+      <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/</link>
+      <description><![CDATA[学习时长：约0.5小时；学习内容：第一篇的整体导览，了解从入门到基础功能的学习路径；学习目的：明确第一篇的学习框架，为后续章节学习做好准备]]></description>
+      <guid isPermaLink="false">https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/</guid>
+      <pubDate>Mon, 17 Aug 2026 01:05:51 +0000</pubDate>
+    </item>
+<item>
     <title>AutomaticApplicationPython - 026 - 第2章 控制流.epub</title>
-    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：55 分钟 (16206 字)</p><hr><h1 id="nav_point_38">第2章 控制流</h1>
-<p class="zw">你已经知道了单条指令的基本知识。程序就是一系列指令。但编程真正的力量不仅在于运行（或“执行”）一条接一条的指令，就像周末的任务清单那样。根据表达式求值的结果，程序可以决定跳过指令，重复指令，或从几条指令中选择一条运行。实际上，你几乎永远不希望程序从第一行代码开始，简单地执行每行代码，直到最后一行。“控制流语句”可以决定在什么条件下执行哪些Python语句。</p>
-<p class="zw">这些控制流语句直接对应于流程图中的符号，所以在本章中，我将提供示例代码的流程图。图2-1展示了一张流程图，内容是如果下雨怎么办。按照箭头构成的路径，从开始到结束。</p>
-<p class="zw">在流程图中，通常有不止一种方法从开始走到结束。计算机程序中的代码行也是这样。流程图用菱形表示这些分支节点，其他步骤用矩形表示。开始和结束步骤用带圆角的矩形表示。</p>
-<p class="zw">但在学习流程控制语句之前，首先要学习如何表示这些yes和no选项。同时你也需要理解，如何将这些分支节点写成Python代码。要做到这一点，让我们先看看布尔值、比较操作符和布尔操作符。</p>
-<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_01.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00069.jpg" style="width: 100%" width="100%"/>
-</p>
-<p class="图题">图2-1 一张流程图，告诉你如果下雨要做什么</p>
-<h2 id="nav_point_39">2.1 布尔值</h2>
-<p class="zw">虽然整型、浮点型和字符串数据类型有无数种可能的值，但“布尔”数据类型只有两种值：True和False。Boolean（布尔）的首字母大写，因为这个数据类型是根据数学家George Boole命名的。在作为Python代码输入时，布尔值True和False不像字符串，两边没有引号，它们总是以大写字母T或F开头，后面的字母小写。在交互式环境中输入下面内容，其中有些指令是故意弄错的，它们将导致出错信息。</p>
-<pre class="代码无行号"><code>❶ &gt;&gt;&gt; <strong>spam = True</strong>
-　&gt;&gt;&gt; <strong>spam</strong>
+    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：55 分钟 (16206 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_38"&gt;第2章 控制流&lt;/h1&gt;
+&lt;p class="zw"&gt;你已经知道了单条指令的基本知识。程序就是一系列指令。但编程真正的力量不仅在于运行（或“执行”）一条接一条的指令，就像周末的任务清单那样。根据表达式求值的结果，程序可以决定跳过指令，重复指令，或从几条指令中选择一条运行。实际上，你几乎永远不希望程序从第一行代码开始，简单地执行每行代码，直到最后一行。“控制流语句”可以决定在什么条件下执行哪些Python语句。&lt;/p&gt;
+&lt;p class="zw"&gt;这些控制流语句直接对应于流程图中的符号，所以在本章中，我将提供示例代码的流程图。图2-1展示了一张流程图，内容是如果下雨怎么办。按照箭头构成的路径，从开始到结束。&lt;/p&gt;
+&lt;p class="zw"&gt;在流程图中，通常有不止一种方法从开始走到结束。计算机程序中的代码行也是这样。流程图用菱形表示这些分支节点，其他步骤用矩形表示。开始和结束步骤用带圆角的矩形表示。&lt;/p&gt;
+&lt;p class="zw"&gt;但在学习流程控制语句之前，首先要学习如何表示这些yes和no选项。同时你也需要理解，如何将这些分支节点写成Python代码。要做到这一点，让我们先看看布尔值、比较操作符和布尔操作符。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_01.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00069.jpg" style="width: 100%" width="100%"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图2-1 一张流程图，告诉你如果下雨要做什么&lt;/p&gt;
+&lt;h2 id="nav_point_39"&gt;2.1 布尔值&lt;/h2&gt;
+&lt;p class="zw"&gt;虽然整型、浮点型和字符串数据类型有无数种可能的值，但“布尔”数据类型只有两种值：True和False。Boolean（布尔）的首字母大写，因为这个数据类型是根据数学家George Boole命名的。在作为Python代码输入时，布尔值True和False不像字符串，两边没有引号，它们总是以大写字母T或F开头，后面的字母小写。在交互式环境中输入下面内容，其中有些指令是故意弄错的，它们将导致出错信息。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = True&lt;/strong&gt;
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 　True
-❷&gt;&gt;&gt; <strong>true</strong>
+❷&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;true&lt;/strong&gt;
 　Traceback (most recent call last):
-　  File "&lt;pyshell#2&gt;", line 1, in &lt;module&gt;
+　  File "&amp;lt;pyshell#2&amp;gt;", line 1, in &amp;lt;module&amp;gt;
 　    true
 　NameError: name 'true' is not defined
-❸ &gt;&gt;&gt; <strong>True = 2 + 2</strong>
+❸ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;True = 2 + 2&lt;/strong&gt;
 　SyntaxError: assignment to keyword
-</code>
-</pre>
-<p class="zw">像其他值一样，布尔值也用在表达式中，并且可以保存在变量中❶。如果大小写不正确❷，或者试图使用True和False作为变量名❸，Python就会给出错误信息。</p>
-<h2 id="nav_point_40">2.2 比较操作符</h2>
-<p class="zw">“比较操作符”比较两个值，求值为一个布尔值。表2-1列出了比较操作符。</p>
-<p class="表题">表2-1 比较操作符</p>
-<table border="1" width="90%">
-<thead>
-<tr>
-<th>
-<p class="表头单元格">操作符</p>
-</th>
-<th>
-<p class="表头单元格">含义</p>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<p class="表格单元格">==</p>
-</td>
-<td>
-<p class="表格单元格">等于</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">!=</p>
-</td>
-<td>
-<p class="表格单元格">不等于</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">&lt;</p>
-</td>
-<td>
-<p class="表格单元格">小于</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">&gt;</p>
-</td>
-<td>
-<p class="表格单元格">大于</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">&lt;=</p>
-</td>
-<td>
-<p class="表格单元格">小于等于</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">&gt;=</p>
-</td>
-<td>
-<p class="表格单元格">大于等于</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="zw">这些操作符根据给它们提供的值，求值为True或False。现在让我们尝试一些操作符，从==和!=开始。</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt;  <strong>42 == 42</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;像其他值一样，布尔值也用在表达式中，并且可以保存在变量中❶。如果大小写不正确❷，或者试图使用True和False作为变量名❸，Python就会给出错误信息。&lt;/p&gt;
+&lt;h2 id="nav_point_40"&gt;2.2 比较操作符&lt;/h2&gt;
+&lt;p class="zw"&gt;“比较操作符”比较两个值，求值为一个布尔值。表2-1列出了比较操作符。&lt;/p&gt;
+&lt;p class="表题"&gt;表2-1 比较操作符&lt;/p&gt;
+&lt;table border="1" width="90%"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;
+&lt;p class="表头单元格"&gt;操作符&lt;/p&gt;
+&lt;/th&gt;
+&lt;th&gt;
+&lt;p class="表头单元格"&gt;含义&lt;/p&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;==&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;等于&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;!=&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;不等于&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;&amp;lt;&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;小于&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;&amp;gt;&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;大于&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;&amp;lt;=&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;小于等于&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;&amp;gt;=&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;大于等于&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p class="zw"&gt;这些操作符根据给它们提供的值，求值为True或False。现在让我们尝试一些操作符，从==和!=开始。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt;  &lt;strong&gt;42 == 42&lt;/strong&gt;
 True
-&gt;&gt;&gt;  <strong>42 == 99</strong>
+&amp;gt;&amp;gt;&amp;gt;  &lt;strong&gt;42 == 99&lt;/strong&gt;
 False
-&gt;&gt;&gt;  <strong>2 != 3</strong>
+&amp;gt;&amp;gt;&amp;gt;  &lt;strong&gt;2 != 3&lt;/strong&gt;
 True
-&gt;&gt;&gt;  <strong>2 != 2</strong>
+&amp;gt;&amp;gt;&amp;gt;  &lt;strong&gt;2 != 2&lt;/strong&gt;
 False
-</code>
-</pre>
-<p class="zw">如果两边的值一样，==（等于）求值为True。如果两边的值不同，!=（不等于）求值为False。==和!=操作符实际上可以用于所有数据类型的值。</p>
-<pre class="代码无行号"><code>　&gt;&gt;&gt; <strong>'hello' == 'hello'</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果两边的值一样，==（等于）求值为True。如果两边的值不同，!=（不等于）求值为False。==和!=操作符实际上可以用于所有数据类型的值。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'hello' == 'hello'&lt;/strong&gt;
 　True
-　&gt;&gt;&gt; <strong>'hello' == 'Hello'</strong>
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'hello' == 'Hello'&lt;/strong&gt;
 　False
-　&gt;&gt;&gt; <strong>'dog' != 'cat'</strong>
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'dog' != 'cat'&lt;/strong&gt;
 　True
-　&gt;&gt;&gt; <strong>True == True</strong>
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;True == True&lt;/strong&gt;
 　True
-　&gt;&gt;&gt; <strong>True != False</strong>
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;True != False&lt;/strong&gt;
 　True
-　&gt;&gt;&gt; <strong>42 == 42.0</strong>
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;42 == 42.0&lt;/strong&gt;
 　True
-❶ &gt;&gt;&gt; <strong>42 == '42'</strong>
+❶ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;42 == '42'&lt;/strong&gt;
 　False
- </code>
-</pre>
-<p class="zw">请注意，整型或浮点型的值永远不会与字符串相等。表达式42 == '42'❶求值为False是因为，Python认为整数42与字符串'42'不同。</p>
-<p class="zw">另一方面，&lt;、&gt;、&lt;=和&gt;=操作符仅用于整型和浮点型值。</p>
-<pre class="代码无行号"><code>　&gt;&gt;&gt; <strong>42 &lt; 100</strong>
+ &lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;请注意，整型或浮点型的值永远不会与字符串相等。表达式42 == '42'❶求值为False是因为，Python认为整数42与字符串'42'不同。&lt;/p&gt;
+&lt;p class="zw"&gt;另一方面，&amp;lt;、&amp;gt;、&amp;lt;=和&amp;gt;=操作符仅用于整型和浮点型值。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;42 &amp;lt; 100&lt;/strong&gt;
 　True
-　&gt;&gt;&gt; <strong>42 &gt; 100</strong>
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;42 &amp;gt; 100&lt;/strong&gt;
 　False
-　&gt;&gt;&gt; <strong>42 &lt; 42</strong>
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;42 &amp;lt; 42&lt;/strong&gt;
 　False
-　&gt;&gt;&gt; <strong>eggCount = 42</strong>
-❷&gt;&gt;&gt; <strong>eggCount &lt;= 42</strong>
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggCount = 42&lt;/strong&gt;
+❷&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggCount &amp;lt;= 42&lt;/strong&gt;
 　True
-　&gt;&gt;&gt; <strong>myAge = 29</strong>
-❸ &gt;&gt;&gt; <strong>myAge &gt;= 10</strong>
-　True </code>
-</pre>
-<p class="editing-tag 超强提示标签">操作符的区别</p>
-<blockquote class="超强提示 editing-block">
-<p class="zw"><br/>
-</p>
-<p class="zw">你可能已经注意到，==操作符（等于）有两个等号，而=操作符（赋值）只有一个等号。这两个操作符很容易混淆。只要记住：</p>
-<ul>
-<li>
-<p class="zw">==操作符（等于）问两个值是否彼此相同。</p>
-</li>
-<li>
-<p class="zw">=操作符（赋值）将右边的值放到左边的变量中。</p>
-</li>
-</ul>
-<p class="zw">为了记住谁是谁，请注意==操作符（等于）包含两个字符，就像!=操作符（不等于）包含两个字符一样。</p>
-</blockquote>
-<p class="zw">你会经常用比较操作符比较一个变量和另外某个值。就像在例子eggCount &lt;= 42❶和myAge &gt;= 10❷中一样（毕竟，除了在代码中输入'dog' != 'cat'以外，你本来也可以直接输入True）。稍后，在学习控制流语句时，你会看到更多的例子。</p>
-<h2 id="nav_point_41">2.3 布尔操作符</h2>
-<p class="zw">3个布尔操作符（and、or和not）用于比较布尔值。像比较操作符一样，它们将这些表达式求值为一个布尔值。让我们仔细看看这些操作符，从and操作符开始。</p>
-<h3 id="nav_point_42">2.3.1 二元布尔操作符</h3>
-<p class="zw">and和or操作符总是接受两个布尔值（或表达式），所以它们被认为是“二元”操作符。如果两个布尔值都为True，and操作符就将表达式求值为True，否则求值为False。在交互式环境中输入某个使用and的表达式，看看效果。</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>True and True</strong>
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;myAge = 29&lt;/strong&gt;
+❸ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;myAge &amp;gt;= 10&lt;/strong&gt;
+　True &lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="editing-tag 超强提示标签"&gt;操作符的区别&lt;/p&gt;
+&lt;blockquote class="超强提示 editing-block"&gt;
+&lt;p class="zw"&gt;&lt;br/&gt;
+&lt;/p&gt;
+&lt;p class="zw"&gt;你可能已经注意到，==操作符（等于）有两个等号，而=操作符（赋值）只有一个等号。这两个操作符很容易混淆。只要记住：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p class="zw"&gt;==操作符（等于）问两个值是否彼此相同。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class="zw"&gt;=操作符（赋值）将右边的值放到左边的变量中。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;为了记住谁是谁，请注意==操作符（等于）包含两个字符，就像!=操作符（不等于）包含两个字符一样。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="zw"&gt;你会经常用比较操作符比较一个变量和另外某个值。就像在例子eggCount &amp;lt;= 42❶和myAge &amp;gt;= 10❷中一样（毕竟，除了在代码中输入'dog' != 'cat'以外，你本来也可以直接输入True）。稍后，在学习控制流语句时，你会看到更多的例子。&lt;/p&gt;
+&lt;h2 id="nav_point_41"&gt;2.3 布尔操作符&lt;/h2&gt;
+&lt;p class="zw"&gt;3个布尔操作符（and、or和not）用于比较布尔值。像比较操作符一样，它们将这些表达式求值为一个布尔值。让我们仔细看看这些操作符，从and操作符开始。&lt;/p&gt;
+&lt;h3 id="nav_point_42"&gt;2.3.1 二元布尔操作符&lt;/h3&gt;
+&lt;p class="zw"&gt;and和or操作符总是接受两个布尔值（或表达式），所以它们被认为是“二元”操作符。如果两个布尔值都为True，and操作符就将表达式求值为True，否则求值为False。在交互式环境中输入某个使用and的表达式，看看效果。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;True and True&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>True and False</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;True and False&lt;/strong&gt;
 False
-</code>
-</pre>
-<p class="zw">“真值表”显示了布尔操作符的所有可能结果。表2-2是操作符and的真值表。</p>
-<p class="表题">表2-2 and操作符的真值表</p>
-<table border="1" width="90%">
-<thead>
-<tr>
-<th>
-<p class="表头单元格">表达式</p>
-</th>
-<th>
-<p class="表头单元格">求值为</p>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<p class="表格单元格">True and True</p>
-</td>
-<td>
-<p class="表格单元格">True</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">True and False</p>
-</td>
-<td>
-<p class="表格单元格">False</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">False and True</p>
-</td>
-<td>
-<p class="表格单元格">False</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">False and False</p>
-</td>
-<td>
-<p class="表格单元格">False</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="zw">另一方面，只要有一个布尔值为真，or操作符就将表达式求值为True。如果都是False，所求值为False。</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>False or True</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;“真值表”显示了布尔操作符的所有可能结果。表2-2是操作符and的真值表。&lt;/p&gt;
+&lt;p class="表题"&gt;表2-2 and操作符的真值表&lt;/p&gt;
+&lt;table border="1" width="90%"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;
+&lt;p class="表头单元格"&gt;表达式&lt;/p&gt;
+&lt;/th&gt;
+&lt;th&gt;
+&lt;p class="表头单元格"&gt;求值为&lt;/p&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;True and True&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;True&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;True and False&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;False&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;False and True&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;False&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;False and False&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;False&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p class="zw"&gt;另一方面，只要有一个布尔值为真，or操作符就将表达式求值为True。如果都是False，所求值为False。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;False or True&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>False or False</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;False or False&lt;/strong&gt;
 False
-</code>
-</pre>
-<p class="zw">可以在or操作符的真值表中看到每一种可能的结果，如表2-3所示。</p>
-<p class="表题">表2-3 or操作符的真值表</p>
-<table border="1" width="90%">
-<thead>
-<tr>
-<th>
-<p class="表头单元格">表达式</p>
-</th>
-<th>
-<p class="表头单元格">求值为</p>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<p class="表格单元格">True or True</p>
-</td>
-<td>
-<p class="表格单元格">True</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">True or False</p>
-</td>
-<td>
-<p class="表格单元格">True</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">False or True</p>
-</td>
-<td>
-<p class="表格单元格">True</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">False or False</p>
-</td>
-<td>
-<p class="表格单元格">False</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h3 id="nav_point_43">2.3.2 not操作符</h3>
-<p class="zw">和and和or不同，not操作符只作用于一个布尔值（或表达式）。not操作符求值为相反的布尔值。</p>
-<pre class="代码无行号"><code>　&gt;&gt;&gt; <strong>not 　True</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;可以在or操作符的真值表中看到每一种可能的结果，如表2-3所示。&lt;/p&gt;
+&lt;p class="表题"&gt;表2-3 or操作符的真值表&lt;/p&gt;
+&lt;table border="1" width="90%"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;
+&lt;p class="表头单元格"&gt;表达式&lt;/p&gt;
+&lt;/th&gt;
+&lt;th&gt;
+&lt;p class="表头单元格"&gt;求值为&lt;/p&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;True or True&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;True&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;True or False&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;True&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;False or True&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;True&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;False or False&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;False&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id="nav_point_43"&gt;2.3.2 not操作符&lt;/h3&gt;
+&lt;p class="zw"&gt;和and和or不同，not操作符只作用于一个布尔值（或表达式）。not操作符求值为相反的布尔值。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;not 　True&lt;/strong&gt;
 　False
-❶ &gt;&gt;&gt; <strong>not not not not True</strong>
+❶ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;not not not not True&lt;/strong&gt;
 　True
-</code>
-</pre>
-<p class="zw">就像在说话和写作中使用双重否定，你可以嵌套not操作符❶，虽然在真正的程序中并不经常这样做。表2-4展示了not的真值表。</p>
-<p class="表题">表2-4 not操作符的真值表</p>
-<table border="1" width="90%">
-<thead>
-<tr>
-<th>
-<p class="表头单元格">表达式</p>
-</th>
-<th>
-<p class="表头单元格">求值为</p>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<p class="表格单元格">not True</p>
-</td>
-<td>
-<p class="表格单元格">False</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">not False</p>
-</td>
-<td>
-<p class="表格单元格">True</p>
-</td>
-</tr>
-</tbody>
-</table>
-<h2 id="nav_point_44">2.4 混合布尔和比较操作符</h2>
-<p class="zw">既然比较操作符求值为布尔值，就可以和布尔操作符一起，在表达式中使用。</p>
-<p class="zw">回忆一下，and、or和not操作符称为布尔操作符是因为，它们总是操作于布尔值。虽然像4 &lt; 5这样的表达式不是布尔值，但可以求值为布尔值。在交互式环境中，尝试输入一些使用比较操作符的布尔表达式。</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>(4 &lt; 5) and (5 &lt; 6)</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;就像在说话和写作中使用双重否定，你可以嵌套not操作符❶，虽然在真正的程序中并不经常这样做。表2-4展示了not的真值表。&lt;/p&gt;
+&lt;p class="表题"&gt;表2-4 not操作符的真值表&lt;/p&gt;
+&lt;table border="1" width="90%"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;
+&lt;p class="表头单元格"&gt;表达式&lt;/p&gt;
+&lt;/th&gt;
+&lt;th&gt;
+&lt;p class="表头单元格"&gt;求值为&lt;/p&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;not True&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;False&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;not False&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;True&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h2 id="nav_point_44"&gt;2.4 混合布尔和比较操作符&lt;/h2&gt;
+&lt;p class="zw"&gt;既然比较操作符求值为布尔值，就可以和布尔操作符一起，在表达式中使用。&lt;/p&gt;
+&lt;p class="zw"&gt;回忆一下，and、or和not操作符称为布尔操作符是因为，它们总是操作于布尔值。虽然像4 &amp;lt; 5这样的表达式不是布尔值，但可以求值为布尔值。在交互式环境中，尝试输入一些使用比较操作符的布尔表达式。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;(4 &amp;lt; 5) and (5 &amp;lt; 6)&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>(4 &lt; 5) and (9 &lt; 6)</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;(4 &amp;lt; 5) and (9 &amp;lt; 6)&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>(1 == 2) or (2 == 2)</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;(1 == 2) or (2 == 2)&lt;/strong&gt;
 True
-</code>
-</pre>
-<p class="zw">计算机将先求值左边的表达式，然后再求值右边的表达式。知道两个布尔值后，它又将整个表达式再求值为一个布尔值。你可以认为计算机求值(4 &lt; 5)和(5 &lt; 6)的过程，如图2-2所示。</p>
-<p class="图"><img alt="0202" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00070.jpg"/>
-</p>
-<p class="图题">图2-2 (4 &lt; 5)和 (5 &lt; 6) 求值为True的过程</p>
-<p class="zw">也可以在一个表达式中使用多个布尔操作符，与比较操作符一起使用。</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>2 + 2 == 4 and not 2 + 2 == 5 and 2 * 2 == 2 + 2</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;计算机将先求值左边的表达式，然后再求值右边的表达式。知道两个布尔值后，它又将整个表达式再求值为一个布尔值。你可以认为计算机求值(4 &amp;lt; 5)和(5 &amp;lt; 6)的过程，如图2-2所示。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0202" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00070.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图2-2 (4 &amp;lt; 5)和 (5 &amp;lt; 6) 求值为True的过程&lt;/p&gt;
+&lt;p class="zw"&gt;也可以在一个表达式中使用多个布尔操作符，与比较操作符一起使用。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;2 + 2 == 4 and not 2 + 2 == 5 and 2 * 2 == 2 + 2&lt;/strong&gt;
 True
-</code>
-</pre>
-<p class="zw">和算术操作符一样，布尔操作符也有操作顺序。在所有算术和比较操作符求值后，Python先求值not操作符，然后是and操作符，然后是or操作符。</p>
-<h2 id="nav_point_45">2.5 控制流的元素</h2>
-<p class="zw">控制流语句的开始部分通常是“条件”，接下来是一个代码块，称为“子句”。在开始学习具体的Python控制流语句之前，我将介绍条件和代码块。</p>
-<h3 id="nav_point_46">2.5.1 条件</h3>
-<p class="zw">你前面看到的布尔表达式可以看成是条件，它和表达式是一回事。“条件”只是在控制流语句的上下文中更具体的名称。条件总是求值为一个布尔值，True或False。控制流语句根据条件是True还是False，来决定做什么。几乎所有的控制流语句都使用条件。</p>
-<h3 id="nav_point_47">2.5.2 代码块</h3>
-<p class="zw">一些代码行可以作为一组，放在“代码块”中。可以根据代码行的缩进，知道代码块的开始和结束。代码块有3条规则。</p>
-<p class="zw">1．缩进增加时，代码块开始。</p>
-<p class="zw">2．代码块可以包含其他代码块。</p>
-<p class="zw">3．缩进减少为零，或减少为外面包围代码块的缩进，代码块就结束了。</p>
-<p class="zw">看一些有缩进的代码，更容易理解代码块。所以让我们在一小段游戏程序中，寻找代码块，如下所示：</p>
-<pre class="代码无行号"><code>　if name == 'Mary':
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;和算术操作符一样，布尔操作符也有操作顺序。在所有算术和比较操作符求值后，Python先求值not操作符，然后是and操作符，然后是or操作符。&lt;/p&gt;
+&lt;h2 id="nav_point_45"&gt;2.5 控制流的元素&lt;/h2&gt;
+&lt;p class="zw"&gt;控制流语句的开始部分通常是“条件”，接下来是一个代码块，称为“子句”。在开始学习具体的Python控制流语句之前，我将介绍条件和代码块。&lt;/p&gt;
+&lt;h3 id="nav_point_46"&gt;2.5.1 条件&lt;/h3&gt;
+&lt;p class="zw"&gt;你前面看到的布尔表达式可以看成是条件，它和表达式是一回事。“条件”只是在控制流语句的上下文中更具体的名称。条件总是求值为一个布尔值，True或False。控制流语句根据条件是True还是False，来决定做什么。几乎所有的控制流语句都使用条件。&lt;/p&gt;
+&lt;h3 id="nav_point_47"&gt;2.5.2 代码块&lt;/h3&gt;
+&lt;p class="zw"&gt;一些代码行可以作为一组，放在“代码块”中。可以根据代码行的缩进，知道代码块的开始和结束。代码块有3条规则。&lt;/p&gt;
+&lt;p class="zw"&gt;1．缩进增加时，代码块开始。&lt;/p&gt;
+&lt;p class="zw"&gt;2．代码块可以包含其他代码块。&lt;/p&gt;
+&lt;p class="zw"&gt;3．缩进减少为零，或减少为外面包围代码块的缩进，代码块就结束了。&lt;/p&gt;
+&lt;p class="zw"&gt;看一些有缩进的代码，更容易理解代码块。所以让我们在一小段游戏程序中，寻找代码块，如下所示：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　if name == 'Mary':
 ❶     print('Hello Mary')
 　if password == 'swordfish':
 ❷    print('Access granted.')
 　else:
 ❸     print('Wrong password.')
-</code>
-</pre>
-<p class="zw">第一个代码块❶开始于代码行print('Hello Mary')，并且包含后面所有的行。在这个代码块中有另一个代码块❷，它只有一行代码：print('Access Granted.')。第三个代码块❸也只有一行：print('Wrong password.')。</p>
-<h2 id="nav_point_48">2.6 程序执行</h2>
-<p class="zw">在第1章的hello.py程序中，Python开始执行程序顶部的指令，然后一条接一条往下执行。“程序执行”（或简称“执行”）这一术语是指当前被执行的指令。如果将源代码打印在纸上，在它执行时用手指指着每一行代码，你可以认为手指就是程序执行。</p>
-<p class="zw">但是，并非所有的程序都是从上至下简单地执行。如果用手指追踪一个带有控制流语句的程序，可能会发现手指会根据条件跳过源代码，有可能跳过整个子句。</p>
-<h2 id="nav_point_49">2.7 控制流语句</h2>
-<p class="zw">现在，让我们来看最重要的控制流部分：语句本身。语句代表了在图2-1的流程图中看到的菱形，它们是程序将做出的实际决定。</p>
-<h3 id="nav_point_50">2.7.1 if语句</h3>
-<p class="zw">最常见的控制流语句是if语句。if语句的子句（也就是紧跟if语句的语句块），将在语句的条件为True时执行。如果条件为False，子句将跳过。</p>
-<p class="zw">在英文中，if语句念起来可能是：“如果条件为真，执行子句中的代码。”在Python中，if语句包含以下部分：</p>
-<ul>
-<li class="第1级无序列表">if关键字；</li>
-<li class="第1级无序列表">条件（即求值为True或False的表达式）；</li>
-<li class="第1级无序列表">冒号；</li>
-<li class="第1级无序列表">在下一行开始，缩进的代码块（称为if子句）。</li>
-</ul>
-<p class="zw">例如，假定有一些代码，检查某人的名字是否为Alice（假设此前曾为name赋值）。</p>
-<pre class="代码无行号"><code>if name == 'Alice':
-    print('Hi, Alice.')</code>
-</pre>
-<p class="zw">所有控制流语句都以冒号结尾，后面跟着一个新的代码块（子句）。语句的if子句是代码块，包含print('Hi, Alice.')。图2-3展示了这段代码的流程图。</p>
-<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_03.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00071.jpg"/>
-</p>
-<p class="图题">图2-3 if语句的流程图</p>
-<h3 id="nav_point_51">2.7.2 else语句</h3>
-<p class="zw">if子句后面有时候也可以跟着else语句。只有if语句的条件为False时，else子句才会执行。在英语中，else语句读起来可能是：“如果条件为真，执行这段代码。否则，执行那段代码”。else语句不包含条件，在代码中，else语句中包含下面部分：</p>
-<ul>
-<li class="第1级无序列表">else关键字；</li>
-<li class="第1级无序列表">冒号；</li>
-<li class="第1级无序列表">在下一行开始，缩进的代码块（称为else子句）。</li>
-</ul>
-<p class="zw">回到Alice的例子，我们来看看使用else语句的一些代码，在名字不是Alice时，提供不一样的问候。</p>
-<pre class="代码无行号"><code>if name == 'Alice':
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;第一个代码块❶开始于代码行print('Hello Mary')，并且包含后面所有的行。在这个代码块中有另一个代码块❷，它只有一行代码：print('Access Granted.')。第三个代码块❸也只有一行：print('Wrong password.')。&lt;/p&gt;
+&lt;h2 id="nav_point_48"&gt;2.6 程序执行&lt;/h2&gt;
+&lt;p class="zw"&gt;在第1章的hello.py程序中，Python开始执行程序顶部的指令，然后一条接一条往下执行。“程序执行”（或简称“执行”）这一术语是指当前被执行的指令。如果将源代码打印在纸上，在它执行时用手指指着每一行代码，你可以认为手指就是程序执行。&lt;/p&gt;
+&lt;p class="zw"&gt;但是，并非所有的程序都是从上至下简单地执行。如果用手指追踪一个带有控制流语句的程序，可能会发现手指会根据条件跳过源代码，有可能跳过整个子句。&lt;/p&gt;
+&lt;h2 id="nav_point_49"&gt;2.7 控制流语句&lt;/h2&gt;
+&lt;p class="zw"&gt;现在，让我们来看最重要的控制流部分：语句本身。语句代表了在图2-1的流程图中看到的菱形，它们是程序将做出的实际决定。&lt;/p&gt;
+&lt;h3 id="nav_point_50"&gt;2.7.1 if语句&lt;/h3&gt;
+&lt;p class="zw"&gt;最常见的控制流语句是if语句。if语句的子句（也就是紧跟if语句的语句块），将在语句的条件为True时执行。如果条件为False，子句将跳过。&lt;/p&gt;
+&lt;p class="zw"&gt;在英文中，if语句念起来可能是：“如果条件为真，执行子句中的代码。”在Python中，if语句包含以下部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;if关键字；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;条件（即求值为True或False的表达式）；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;冒号；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;在下一行开始，缩进的代码块（称为if子句）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;例如，假定有一些代码，检查某人的名字是否为Alice（假设此前曾为name赋值）。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;if name == 'Alice':
+    print('Hi, Alice.')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;所有控制流语句都以冒号结尾，后面跟着一个新的代码块（子句）。语句的if子句是代码块，包含print('Hi, Alice.')。图2-3展示了这段代码的流程图。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_03.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00071.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图2-3 if语句的流程图&lt;/p&gt;
+&lt;h3 id="nav_point_51"&gt;2.7.2 else语句&lt;/h3&gt;
+&lt;p class="zw"&gt;if子句后面有时候也可以跟着else语句。只有if语句的条件为False时，else子句才会执行。在英语中，else语句读起来可能是：“如果条件为真，执行这段代码。否则，执行那段代码”。else语句不包含条件，在代码中，else语句中包含下面部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;else关键字；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;冒号；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;在下一行开始，缩进的代码块（称为else子句）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;回到Alice的例子，我们来看看使用else语句的一些代码，在名字不是Alice时，提供不一样的问候。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;if name == 'Alice':
     print('Hi, Alice.')
 else:
-    print('Hello, stranger.')</code>
-</pre>
-<p class="zw">图2-4展示了这段代码的流程图。</p>
-<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_04.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00072.jpg"/>
-</p>
-<p class="图题">图2-4 else语句的流程图</p>
-<h3 id="nav_point_52">2.7.3 elif语句</h3>
-<p class="zw">虽然只有if或else子句会被执行，但有时候可能你希望，“许多”可能的子句中有一个被执行。elif语句是“否则如果”，总是跟在if或另一条elif语句后面。它提供了另一个条件，仅在前面的条件为False时才检查该条件。在代码中，elif语句总是包含以下部分：</p>
-<ul>
-<li class="第1级无序列表">elif关键字；</li>
-<li class="第1级无序列表">条件（即求值为True或False的表达式）；</li>
-<li class="第1级无序列表">冒号；</li>
-<li class="第1级无序列表">在下一行开始，缩进的代码块（称为elif子句）。</li>
-</ul>
-<p class="zw">让我们在名字检查程序中添加elif，看看这个语句的效果。</p>
-<pre class="代码无行号"><code>if name == 'Alice':
+    print('Hello, stranger.')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;图2-4展示了这段代码的流程图。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_04.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00072.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图2-4 else语句的流程图&lt;/p&gt;
+&lt;h3 id="nav_point_52"&gt;2.7.3 elif语句&lt;/h3&gt;
+&lt;p class="zw"&gt;虽然只有if或else子句会被执行，但有时候可能你希望，“许多”可能的子句中有一个被执行。elif语句是“否则如果”，总是跟在if或另一条elif语句后面。它提供了另一个条件，仅在前面的条件为False时才检查该条件。在代码中，elif语句总是包含以下部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;elif关键字；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;条件（即求值为True或False的表达式）；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;冒号；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;在下一行开始，缩进的代码块（称为elif子句）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;让我们在名字检查程序中添加elif，看看这个语句的效果。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;if name == 'Alice':
     print('Hi, Alice.')
-elif age &lt; 12:
-    print('You are not Alice, kiddo.')</code>
-</pre>
-<p class="zw">这一次，检查此人的年龄。如果比 12 岁小，就告诉他一些不同的东西。可以在图2-5中看到这段代码的流程图。</p>
-<p class="zw">如果age &lt; 12为True并且name == 'Alice'为False，elif子句就会执行。但是，如果两个条件都为False，那么两个子句都会跳过。“不能”保证至少有一个子句会被执行。如果有一系列的elif语句，仅有一条或零条子句会被执行。一旦一个语句的条件为True，剩下的elif子句会自动跳过。例如，打开一个新的文件编辑器窗口，输入以下代码，保存为vampire.py。</p>
-<pre class="代码无行号"><code>if name == 'Alice':
+elif age &amp;lt; 12:
+    print('You are not Alice, kiddo.')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这一次，检查此人的年龄。如果比 12 岁小，就告诉他一些不同的东西。可以在图2-5中看到这段代码的流程图。&lt;/p&gt;
+&lt;p class="zw"&gt;如果age &amp;lt; 12为True并且name == 'Alice'为False，elif子句就会执行。但是，如果两个条件都为False，那么两个子句都会跳过。“不能”保证至少有一个子句会被执行。如果有一系列的elif语句，仅有一条或零条子句会被执行。一旦一个语句的条件为True，剩下的elif子句会自动跳过。例如，打开一个新的文件编辑器窗口，输入以下代码，保存为vampire.py。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;if name == 'Alice':
     print('Hi, Alice.')
-elif age &lt; 12:
+elif age &amp;lt; 12:
     print('You are not Alice, kiddo.')
-elif age &gt; 2000:
+elif age &amp;gt; 2000:
     print('Unlike you, Alice is not an undead, immortal vampire.')
-elif age &gt; 100:
-    print('You are not Alice, grannie.')</code>
-</pre>
-<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_05.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00073.jpg"/>
-</p>
-<p class="图题">图2-5 elif语句的流程图</p>
-<p class="zw">这里，我添加了另外两条elif语句，让名字检查程序根据age的不同答案而发出问候。图2-6展示了这段代码的流程图。</p>
-<p class="zw">但是，elif语句的次序确实重要。让我们重新排序，引入一个缺陷。回忆一下，一旦找到一个True条件，剩余的子句就会自动跳过。所以如果交换vampire.py中的一些子句，就会遇到问题。像下面这样改变代码，将它保存为vampire2.py。</p>
-<pre class="代码无行号"><code>　if name == 'Alice':
+elif age &amp;gt; 100:
+    print('You are not Alice, grannie.')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_05.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00073.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图2-5 elif语句的流程图&lt;/p&gt;
+&lt;p class="zw"&gt;这里，我添加了另外两条elif语句，让名字检查程序根据age的不同答案而发出问候。图2-6展示了这段代码的流程图。&lt;/p&gt;
+&lt;p class="zw"&gt;但是，elif语句的次序确实重要。让我们重新排序，引入一个缺陷。回忆一下，一旦找到一个True条件，剩余的子句就会自动跳过。所以如果交换vampire.py中的一些子句，就会遇到问题。像下面这样改变代码，将它保存为vampire2.py。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　if name == 'Alice':
 　    print('Hi, Alice.')
-　elif age &lt; 12:
+　elif age &amp;lt; 12:
 　    print('You are not Alice, kiddo.')
-❶ elif age &gt; 100:
+❶ elif age &amp;gt; 100:
 　    print('You are not Alice, grannie.')
-　elif age &gt; 2000:
+　elif age &amp;gt; 2000:
 　    print('Unlike you, Alice is not an undead, immortal vampire.')
-</code>
-</pre>
-<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_06.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00074.jpg"/>
-</p>
-<p class="图题">图2-6 vampire.py程序中多重elif语句的流程图</p>
-<p class="zw">假设在这段代码执行之前，age变量的值是3000。你可能预计代码会打印出字符串'Unlike you, Alice is not an undead, immortal vampire.'。但是，因为age &gt; 100条件为真（毕竟3000大于100）❶，字符串'You are not Alice, grannie.'被打印出来，剩下的语句自动跳过。别忘了，最多只有一个子句会执行，对于elif语句，次序是很重要的。</p>
-<p class="zw">图2-7展示了前面代码的流程图。请注意，菱形age &gt; 100和age &gt; 2000交换了位置。</p>
-<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_07.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00075.jpg"/>
-</p>
-<p class="图题">图2-7 vampire2.py程序的流程图。打叉的路径在逻辑上永远不会发生，<br/>
-因为如果age大于2000，它就已经大于100了</p>
-<p class="zw">你可以选择在最后的elif语句后面加上else语句。在这种情况下，保证至少一个子句（且只有一个）会执行。如果每个if和elif语句中的条件都为False，就执行else子句。例如，让我们使用if、elif和else子句重新编写Alicee程序。</p>
-<pre class="代码无行号"><code>if name == 'Alice':
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_06.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00074.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图2-6 vampire.py程序中多重elif语句的流程图&lt;/p&gt;
+&lt;p class="zw"&gt;假设在这段代码执行之前，age变量的值是3000。你可能预计代码会打印出字符串'Unlike you, Alice is not an undead, immortal vampire.'。但是，因为age &amp;gt; 100条件为真（毕竟3000大于100）❶，字符串'You are not Alice, grannie.'被打印出来，剩下的语句自动跳过。别忘了，最多只有一个子句会执行，对于elif语句，次序是很重要的。&lt;/p&gt;
+&lt;p class="zw"&gt;图2-7展示了前面代码的流程图。请注意，菱形age &amp;gt; 100和age &amp;gt; 2000交换了位置。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_07.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00075.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图2-7 vampire2.py程序的流程图。打叉的路径在逻辑上永远不会发生，&lt;br/&gt;
+因为如果age大于2000，它就已经大于100了&lt;/p&gt;
+&lt;p class="zw"&gt;你可以选择在最后的elif语句后面加上else语句。在这种情况下，保证至少一个子句（且只有一个）会执行。如果每个if和elif语句中的条件都为False，就执行else子句。例如，让我们使用if、elif和else子句重新编写Alicee程序。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;if name == 'Alice':
     print('Hi, Alice.')
-elif age &lt; 12:
+elif age &amp;lt; 12:
     print('You are not Alice, kiddo.')
 else:
-    print('You are neither Alice nor a little kid.')</code>
-</pre>
-<p class="zw">图2-8展示了这段新代码的流程图，我们将它保存为littleKid.py。</p>
-<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_08.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00076.jpg"/>
-</p>
-<p class="图题">图2-8 前面littleKid.py程序的流程图</p>
-<p class="zw">在英语中，这类控制流结构会使得：“如果第一个条件为真，做这个。否则，如果第二个条件为真，做那个。否则，做另外的事。”如果你同时使用这3个语句，要记住这些次序规则，避免图2-7中那样的缺陷。首先，总是只有一个if语句。所有需要的elif语句都应该跟在if语句之后。其次，如果希望确保至少一条子句被执行，在最后加上else语句。</p>
-<h3 id="nav_point_53">2.7.4 while循环语句</h3>
-<p class="zw">利用while语句，可以让一个代码块一遍又一遍的执行。只要while语句的条件为True，while子句中的代码就会执行。在代码中，while语句总是包含下面几部分：</p>
-<ul>
-<li class="第1级无序列表">关键字；</li>
-<li class="第1级无序列表">条件（求值为True或False的表达式）；</li>
-<li class="第1级无序列表">冒号；</li>
-<li class="第1级无序列表">从新行开始，缩进的代码块（称为while子句）。</li>
-</ul>
-<p class="zw">可以看到，while语句看起来和if语句类似。不同之处是它们的行为。if子句结束时，程序继续执行if语句之后的语句。但在while子句结束时，程序执行跳回到while语句开始处。while子句常被称为“while循环”，或就是“循环”。</p>
-<p class="zw">让我们来看一个if语句和一个while循环。它们使用同样的条件，并基于该条件做出同样的动作。下面是if语句的代码：</p>
-<pre class="代码无行号"><code>spam = 0
-if spam &lt; 5:
+    print('You are neither Alice nor a little kid.')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;图2-8展示了这段新代码的流程图，我们将它保存为littleKid.py。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_08.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00076.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图2-8 前面littleKid.py程序的流程图&lt;/p&gt;
+&lt;p class="zw"&gt;在英语中，这类控制流结构会使得：“如果第一个条件为真，做这个。否则，如果第二个条件为真，做那个。否则，做另外的事。”如果你同时使用这3个语句，要记住这些次序规则，避免图2-7中那样的缺陷。首先，总是只有一个if语句。所有需要的elif语句都应该跟在if语句之后。其次，如果希望确保至少一条子句被执行，在最后加上else语句。&lt;/p&gt;
+&lt;h3 id="nav_point_53"&gt;2.7.4 while循环语句&lt;/h3&gt;
+&lt;p class="zw"&gt;利用while语句，可以让一个代码块一遍又一遍的执行。只要while语句的条件为True，while子句中的代码就会执行。在代码中，while语句总是包含下面几部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;关键字；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;条件（求值为True或False的表达式）；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;冒号；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;从新行开始，缩进的代码块（称为while子句）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;可以看到，while语句看起来和if语句类似。不同之处是它们的行为。if子句结束时，程序继续执行if语句之后的语句。但在while子句结束时，程序执行跳回到while语句开始处。while子句常被称为“while循环”，或就是“循环”。&lt;/p&gt;
+&lt;p class="zw"&gt;让我们来看一个if语句和一个while循环。它们使用同样的条件，并基于该条件做出同样的动作。下面是if语句的代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;spam = 0
+if spam &amp;lt; 5:
     print('Hello, world.')
-    spam = spam + 1</code>
-</pre>
-<p class="zw">下面是while语句的代码：</p>
-<pre class="代码无行号"><code>spam = 0
-while spam &lt; 5:
+    spam = spam + 1&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;下面是while语句的代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;spam = 0
+while spam &amp;lt; 5:
     print('Hello, world.')
-    spam = spam + 1</code>
-</pre>
-<p class="zw">这些语句类似，if和while都检查spam的值，如果它小于５，就打印一条消息。但如果运行这两段代码，它们各自的表现非常不同。对于if语句，输出就是"Hello, world."。但对于while语句，输出是"Hello, world."重复了5次！看一看这两段代码的流程图，图2-9和2-10，找一找原因。</p>
-<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_10.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00077.jpg"/>
-</p>
-<p class="图题">图2-9 if语句代码的流程图</p>
-<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_09.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00078.jpg"/>
-</p>
-<p class="图题">图2-10 while语句代码的流程图</p>
-<p class="zw">带有if语句的代码检查条件，如果条件为True，就打印一次"Hello, world."。带有while循环的代码则不同，会打印5次。打印5次后停下来是因为，在每次循环迭代末尾，spam中的整数都增加1。这意味着循环将执行5次，然后spam &lt; 5变为False。</p>
-<p class="zw">在while循环中，条件总是在每次“迭代”开始时检查（也就是每次循环执行时）。如果条件为True，子句就会执行，然后，再次检查条件。当条件第一次为False时，while子句就跳过。</p>
-<h3 id="nav_point_54">2.7.5 恼人的循环</h3>
-<p class="zw">这里有一个小例子，它不停地要求你输入“your name”（就是这个字符串，而不是你的名字）。选择FileNew Window，打开一个新的文件编辑器窗口，输入以下代码，将文件保存为yourName.py：</p>
-<pre class="代码无行号"><code>❶ name = ''
+    spam = spam + 1&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这些语句类似，if和while都检查spam的值，如果它小于５，就打印一条消息。但如果运行这两段代码，它们各自的表现非常不同。对于if语句，输出就是"Hello, world."。但对于while语句，输出是"Hello, world."重复了5次！看一看这两段代码的流程图，图2-9和2-10，找一找原因。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_10.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00077.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图2-9 if语句代码的流程图&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_09.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00078.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图2-10 while语句代码的流程图&lt;/p&gt;
+&lt;p class="zw"&gt;带有if语句的代码检查条件，如果条件为True，就打印一次"Hello, world."。带有while循环的代码则不同，会打印5次。打印5次后停下来是因为，在每次循环迭代末尾，spam中的整数都增加1。这意味着循环将执行5次，然后spam &amp;lt; 5变为False。&lt;/p&gt;
+&lt;p class="zw"&gt;在while循环中，条件总是在每次“迭代”开始时检查（也就是每次循环执行时）。如果条件为True，子句就会执行，然后，再次检查条件。当条件第一次为False时，while子句就跳过。&lt;/p&gt;
+&lt;h3 id="nav_point_54"&gt;2.7.5 恼人的循环&lt;/h3&gt;
+&lt;p class="zw"&gt;这里有一个小例子，它不停地要求你输入“your name”（就是这个字符串，而不是你的名字）。选择FileNew Window，打开一个新的文件编辑器窗口，输入以下代码，将文件保存为yourName.py：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ name = ''
 ❷while name != 'your name':
 　    print('Please type your name.')
 ❸     name = input()
 ❹ print('Thank you!')
-</code>
-</pre>
-<p class="zw">首先，程序将变量name❶设置为一个空字符串。这样，条件name != 'your name'就会求值为True，程序就会进入while循环的子句❷。</p>
-<p class="zw">这个子句内的代码要求用户输入他们的名字，然后赋给name变量❸。因为这是语句块的最后一行，所以执行就回到while循环的开始，重新对条件求值。如果name中的值“不等于”字符串'your name'，那么条件就为True，执行将再次进入while子句。</p>
-<p class="zw">但如果用户输入your name，while循环的条件就变成'your name' != 'your name'，它求值为False。条件现在是False，程序就不会再次进入while循环子句，而是跳过它，继续执行程序后面的部分❹。图2-11展示了yourName.py程序的流程图。</p>
-<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_11.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00079.jpg"/>
-</p>
-<p class="图题">图2-11 yourName.py程序的流程图</p>
-<p class="zw">现在，让我们来看看yourName.py程序的效果。按F5键运行它，输几次your name之外的东西，然后再提供程序想要的输入。</p>
-<pre class="代码无行号"><code>Please type your name.
-<strong>Al</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;首先，程序将变量name❶设置为一个空字符串。这样，条件name != 'your name'就会求值为True，程序就会进入while循环的子句❷。&lt;/p&gt;
+&lt;p class="zw"&gt;这个子句内的代码要求用户输入他们的名字，然后赋给name变量❸。因为这是语句块的最后一行，所以执行就回到while循环的开始，重新对条件求值。如果name中的值“不等于”字符串'your name'，那么条件就为True，执行将再次进入while子句。&lt;/p&gt;
+&lt;p class="zw"&gt;但如果用户输入your name，while循环的条件就变成'your name' != 'your name'，它求值为False。条件现在是False，程序就不会再次进入while循环子句，而是跳过它，继续执行程序后面的部分❹。图2-11展示了yourName.py程序的流程图。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_11.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00079.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图2-11 yourName.py程序的流程图&lt;/p&gt;
+&lt;p class="zw"&gt;现在，让我们来看看yourName.py程序的效果。按F5键运行它，输几次your name之外的东西，然后再提供程序想要的输入。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Please type your name.
+&lt;strong&gt;Al&lt;/strong&gt;
 Please type your name.
-<strong>Albert</strong>
+&lt;strong&gt;Albert&lt;/strong&gt;
 Please type your name.
-<strong>%#@#%*(^&amp;!!!</strong>
+&lt;strong&gt;%#@#%*(^&amp;amp;!!!&lt;/strong&gt;
 Please type your name.
-<strong>your name</strong>
+&lt;strong&gt;your name&lt;/strong&gt;
 Thank you!
-</code>
-</pre>
-<p class="zw">如果永不输入your name，那么循环的条件就永远不会为False，程序将永远问下去。这里，input()调用让用户输入正确的字符串，以便让程序继续。在其他程序，条件可能永远没有实际变化，这可能会出问题。让我们来看看如何跳出循环。</p>
-<h3 id="nav_point_55">2.7.6 break语句</h3>
-<p class="zw">有一个捷径，让执行提前跳出while循环子句。如果执行遇到break语句，就会马上退出while循环子句。在代码中，break语句仅包含break关键字。</p>
-<p class="zw">非常简单，对吗？这里有一个程序，和前面的程序做一样的事情，但使用了break语句来跳出循环。输入以下代码，将文件保存为yourName2.py：</p>
-<pre class="代码无行号"><code>❶ while True:
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果永不输入your name，那么循环的条件就永远不会为False，程序将永远问下去。这里，input()调用让用户输入正确的字符串，以便让程序继续。在其他程序，条件可能永远没有实际变化，这可能会出问题。让我们来看看如何跳出循环。&lt;/p&gt;
+&lt;h3 id="nav_point_55"&gt;2.7.6 break语句&lt;/h3&gt;
+&lt;p class="zw"&gt;有一个捷径，让执行提前跳出while循环子句。如果执行遇到break语句，就会马上退出while循环子句。在代码中，break语句仅包含break关键字。&lt;/p&gt;
+&lt;p class="zw"&gt;非常简单，对吗？这里有一个程序，和前面的程序做一样的事情，但使用了break语句来跳出循环。输入以下代码，将文件保存为yourName2.py：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ while True:
 　    print('Please type your name.')
 ❷    name = input()
 ❸     if name == 'your name':
 ❹         break
-❺ print('Thank you!')</code>
-</pre>
-<p class="zw">第一行❶创建了一个“无限循环”，它是一个条件总是为True的while循环。（表达式True总是求值为True。）程序执行将总是进入循环，只有遇到break语句执行时才会退出（“永远不”退出的无限循环是一个常见的编程缺陷）。</p>
-<p class="zw">像以前一样，程序要求用户输入your name❷。但是现在，虽然执行仍然在while循环内，但有一个if语句会被执行❸，检查name是否等于your name。如果条件为True，break语句就会运行❹，执行就会跳出循环，转到print('Thank you!') ❺。否则，包含break语句的if语句子句就会跳过，让执行到达while循环的末尾。此时，程序执行跳回到while语句的开始❶，重新检查条件。因为条件是True，所以执行进入循环，再次要求用户输入your name。这个程序的流程图参见图2-12。</p>
-<p class="zw">运行yourName2.py，输入你为yourName.py程序输入的同样文本。重写的程序应该和原来的程序反应相同。</p>
-<p class="图"><img alt="..\automate02_12.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00080.jpg" style="width: 100%" width="100%"/>
-</p>
-<p class="图题">图2-12 带有无限循环的程序的流程图。注意打叉路径在逻辑上<br/>
-永远不会发生，因为循环条件总是为True</p>
-<h3 id="nav_point_56">2.7.7 continue语句</h3>
-<p class="zw">像break语句一样，continue语句用于循环内部。如果程序执行遇到continue语句，就会马上跳回到循环开始处，重新对循环条件求值（这也是执行到达循环末尾时发生的事情）。</p>
-<p class="zw">让我们用continue写一个程序，要求输入名字和口令。在一个新的文件编辑窗口中输入以下代码，将程序保存为swordfish.py。</p>
-<pre class="代码无行号"><code>　while True:
+❺ print('Thank you!')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;第一行❶创建了一个“无限循环”，它是一个条件总是为True的while循环。（表达式True总是求值为True。）程序执行将总是进入循环，只有遇到break语句执行时才会退出（“永远不”退出的无限循环是一个常见的编程缺陷）。&lt;/p&gt;
+&lt;p class="zw"&gt;像以前一样，程序要求用户输入your name❷。但是现在，虽然执行仍然在while循环内，但有一个if语句会被执行❸，检查name是否等于your name。如果条件为True，break语句就会运行❹，执行就会跳出循环，转到print('Thank you!') ❺。否则，包含break语句的if语句子句就会跳过，让执行到达while循环的末尾。此时，程序执行跳回到while语句的开始❶，重新检查条件。因为条件是True，所以执行进入循环，再次要求用户输入your name。这个程序的流程图参见图2-12。&lt;/p&gt;
+&lt;p class="zw"&gt;运行yourName2.py，输入你为yourName.py程序输入的同样文本。重写的程序应该和原来的程序反应相同。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="..\automate02_12.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00080.jpg" style="width: 100%" width="100%"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图2-12 带有无限循环的程序的流程图。注意打叉路径在逻辑上&lt;br/&gt;
+永远不会发生，因为循环条件总是为True&lt;/p&gt;
+&lt;h3 id="nav_point_56"&gt;2.7.7 continue语句&lt;/h3&gt;
+&lt;p class="zw"&gt;像break语句一样，continue语句用于循环内部。如果程序执行遇到continue语句，就会马上跳回到循环开始处，重新对循环条件求值（这也是执行到达循环末尾时发生的事情）。&lt;/p&gt;
+&lt;p class="zw"&gt;让我们用continue写一个程序，要求输入名字和口令。在一个新的文件编辑窗口中输入以下代码，将程序保存为swordfish.py。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　while True:
 　    print('Who are you?')
 　    name = input()
 ❶     if name != 'Joe':
@@ -534,42 +542,42 @@ Thank you!
 ❸     password = input()
 　    if password == 'swordfish':
 ❹         break
-❺ print('Access granted.')</code>
-</pre>
-<p class="zw">如果用户输入的名字不是Joe❶，continue语句❷将导致程序执行跳回到循环开始处。再次对条件求值时，执行总是进入循环，因为条件就是True。如果执行通过了if语句，用户就被要求输入口令❸。如果输入的口令是swordfish，break语句运行❹，执行跳出while循环，打印Access granted❺。否则，执行继续到while循环的末尾，又跳回到循环的开始。这个程序的流程图参见图2-13。</p>
-<p class="editing-tag 超强提示标签">陷在无限循环中？</p>
-<blockquote class="超强提示 editing-block">
-<p class="zw"><br/>
-</p>
-如果你运行一个有缺陷的程序，导致陷在一个无限循环中，那么请按Ctrl-C。这将向程序发送KeyboardInterrupt错误，导致它立即停止。试一下，在文件编辑器中创建一个简单的无限循环，将它保存为infiniteloop.py。<pre class="代码无行号"><code>while True:
-   print('Hello world!')</code>
-</pre>
-<p class="zw">如果运行这个程序，它将永远在屏幕上打印Hello world！因为while语句的条件总是True。在IDLE的交互式环境窗口中，只有两种办法停止这个程序：按下Ctrl-C或从菜单中选择ShellRestart Shell。如果你希望马上停止程序，即使它不是陷在一个无限循环中，Ctrl-C也是很方便的。</p>
-</blockquote>
-<p class="zw">运行这个程序，提供一些输入。只有你声称是Joe，它才会要求输入口令。一旦输入了正确的口令，它就会退出。</p>
-<pre class="代码无行号"><code>Who are you?
-<strong>I'm fine, thanks. Who are you?</strong>
+❺ print('Access granted.')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果用户输入的名字不是Joe❶，continue语句❷将导致程序执行跳回到循环开始处。再次对条件求值时，执行总是进入循环，因为条件就是True。如果执行通过了if语句，用户就被要求输入口令❸。如果输入的口令是swordfish，break语句运行❹，执行跳出while循环，打印Access granted❺。否则，执行继续到while循环的末尾，又跳回到循环的开始。这个程序的流程图参见图2-13。&lt;/p&gt;
+&lt;p class="editing-tag 超强提示标签"&gt;陷在无限循环中？&lt;/p&gt;
+&lt;blockquote class="超强提示 editing-block"&gt;
+&lt;p class="zw"&gt;&lt;br/&gt;
+&lt;/p&gt;
+如果你运行一个有缺陷的程序，导致陷在一个无限循环中，那么请按Ctrl-C。这将向程序发送KeyboardInterrupt错误，导致它立即停止。试一下，在文件编辑器中创建一个简单的无限循环，将它保存为infiniteloop.py。&lt;pre class="代码无行号"&gt;&lt;code&gt;while True:
+   print('Hello world!')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果运行这个程序，它将永远在屏幕上打印Hello world！因为while语句的条件总是True。在IDLE的交互式环境窗口中，只有两种办法停止这个程序：按下Ctrl-C或从菜单中选择ShellRestart Shell。如果你希望马上停止程序，即使它不是陷在一个无限循环中，Ctrl-C也是很方便的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="zw"&gt;运行这个程序，提供一些输入。只有你声称是Joe，它才会要求输入口令。一旦输入了正确的口令，它就会退出。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Who are you?
+&lt;strong&gt;I'm fine, thanks. Who are you?&lt;/strong&gt;
 Who are you?
-<strong>Joe</strong>
+&lt;strong&gt;Joe&lt;/strong&gt;
 Hello, Joe. What is the password? (It is a fish.)
-<strong>Mary</strong>
+&lt;strong&gt;Mary&lt;/strong&gt;
 Who are you?
-<strong>Joe</strong>
+&lt;strong&gt;Joe&lt;/strong&gt;
 Hello, Joe. What is the password? (It is a fish.)
-<strong>swordfish</strong>
+&lt;strong&gt;swordfish&lt;/strong&gt;
 Access granted.
-</code>
-</pre>
-<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_13.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00081.jpg" style="width: 100%" width="100%"/>
-</p>
-<p class="图题">图2-13 swordfish.py的流程图。打叉的路径在逻辑上永远不会执行，因为循环条件总是True</p>
-<h3 id="nav_point_57">2.7.8 for循环和range()函数</h3>
-<p class="zw">在条件为True时，while循环就会继续循环（这是它的名称的由来）。但如果你想让一个代码块执行固定次数，该怎么办？可以通过for循环语句和range()函数来实现。</p>
-<p class="editing-tag 超强提示标签">“类真”和“类假”的值</p>
-<blockquote class="超强提示 editing-block">
-<p class="zw"><br/>
-</p>
-其他数据类型中的某些值，条件认为它们等价于True和False。在用于条件时，0、0.0和' '（空字符串）被认为是False，其他值被认为是True。例如，请看下面的程序：<pre class="代码无行号"><code>name = ''
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_13.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00081.jpg" style="width: 100%" width="100%"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图2-13 swordfish.py的流程图。打叉的路径在逻辑上永远不会执行，因为循环条件总是True&lt;/p&gt;
+&lt;h3 id="nav_point_57"&gt;2.7.8 for循环和range()函数&lt;/h3&gt;
+&lt;p class="zw"&gt;在条件为True时，while循环就会继续循环（这是它的名称的由来）。但如果你想让一个代码块执行固定次数，该怎么办？可以通过for循环语句和range()函数来实现。&lt;/p&gt;
+&lt;p class="editing-tag 超强提示标签"&gt;“类真”和“类假”的值&lt;/p&gt;
+&lt;blockquote class="超强提示 editing-block"&gt;
+&lt;p class="zw"&gt;&lt;br/&gt;
+&lt;/p&gt;
+其他数据类型中的某些值，条件认为它们等价于True和False。在用于条件时，0、0.0和' '（空字符串）被认为是False，其他值被认为是True。例如，请看下面的程序：&lt;pre class="代码无行号"&gt;&lt;code&gt;name = ''
 while not name:❶
     print('Enter your name:')
     name = input()
@@ -577,178 +585,178 @@ print('How many guests will you have?')
 numOfGuests = int(input())
 if numOfGuests:❷
     print('Be sure to have enough room for all your guests.')❸
-print('Done')</code>
-</pre>
-<p class="zw">如果用户输入一个空字符串给name，那么while语句的条件就会是True ❶，程序继续要求输入名字。如果numOfGuests不是0 ❷，那么条件就被认为是True，程序就会为用户打印一条提醒信息❸。</p>
-<p class="zw">可以用not name != ' '代替not name，用numOfGuests != 0代替numOfGuests，但使用类真和类假的值会让代码更容易阅读。</p>
-</blockquote>
-<p class="zw">在代码中，for语句看起来像for i in range(5):这样，总是包含以下部分：</p>
-<ul>
-<li class="第1级无序列表">for关键字；</li>
-<li class="第1级无序列表">一个变量名；</li>
-<li class="第1级无序列表">in关键字；</li>
-<li class="第1级无序列表">调用range()方法，最多传入3个参数；</li>
-<li class="第1级无序列表">冒号；</li>
-<li class="第1级无序列表">从下一行开始，缩进的代码块（称为for子句）。</li>
-</ul>
-<p class="zw">让我们创建一个新的程序，名为fiveTimes.py，看看for循环的效果。</p>
-<pre class="代码无行号"><code>print('My name is')
+print('Done')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果用户输入一个空字符串给name，那么while语句的条件就会是True ❶，程序继续要求输入名字。如果numOfGuests不是0 ❷，那么条件就被认为是True，程序就会为用户打印一条提醒信息❸。&lt;/p&gt;
+&lt;p class="zw"&gt;可以用not name != ' '代替not name，用numOfGuests != 0代替numOfGuests，但使用类真和类假的值会让代码更容易阅读。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="zw"&gt;在代码中，for语句看起来像for i in range(5):这样，总是包含以下部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;for关键字；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;一个变量名；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;in关键字；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;调用range()方法，最多传入3个参数；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;冒号；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;从下一行开始，缩进的代码块（称为for子句）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;让我们创建一个新的程序，名为fiveTimes.py，看看for循环的效果。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;print('My name is')
 for i in range(5):
-    print('Jimmy Five Times (' + str(i) + ')')</code>
-</pre>
-<p class="zw">for循环子句中的代码运行了5次。第一次运行时，变量i被设为0。子句中的print()调用将打印出Jimmy Five Times (0)。Python完成for循环子句内所有代码的一次迭代之后，执行将回到循环的顶部，for语句让i增加1。这就是为什么range(5)导致子句的5次迭代，i分别被设置为0、1、2、3、4。变量i将递增到（但不包括）传递给range()函数的整数。图2-14展示了fiveTimes.py程序的流程图。</p>
-<p class="图"><img alt="..\16-0403 换字\16-0403\automate02_14.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00082.jpg"/>
-</p>
-<p class="图题">图2-14 fiveTimes.py的流程图</p>
-<p class="zw">运行这个程序时，它将打印5次Jimmy Five Times和i的值，然后离开for循环。</p>
-<pre class="代码无行号"><code>My name is
+    print('Jimmy Five Times (' + str(i) + ')')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;for循环子句中的代码运行了5次。第一次运行时，变量i被设为0。子句中的print()调用将打印出Jimmy Five Times (0)。Python完成for循环子句内所有代码的一次迭代之后，执行将回到循环的顶部，for语句让i增加1。这就是为什么range(5)导致子句的5次迭代，i分别被设置为0、1、2、3、4。变量i将递增到（但不包括）传递给range()函数的整数。图2-14展示了fiveTimes.py程序的流程图。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_14.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00082.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图2-14 fiveTimes.py的流程图&lt;/p&gt;
+&lt;p class="zw"&gt;运行这个程序时，它将打印5次Jimmy Five Times和i的值，然后离开for循环。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;My name is
 Jimmy Five Times (0)
 Jimmy Five Times (1)
 Jimmy Five Times (2)
 Jimmy Five Times (3)
-Jimmy Five Times (4)</code>
-</pre>
-<p class="zw">也可以在循环中使用continue语句。continue语句将让for循环变量继续下一个值，就像程序执行已经到达循环的末尾并返回开始一样。实际上，只能在while和for循环内部使用continue和break语句。如果试图在别处使用这些语句，Python将报错。</p>
-<p class="zw">作为for循环的另一个例子，请考虑数学家高斯的故事。当高斯还是一个小孩时，老师想给全班同学布置很多计算作业。老师让他们从0加到100。高斯想到了一个聪明办法，在几秒钟内算出了答案，但你可以用for循环写一个Python程序，替你完成计算。</p>
-<pre class="代码无行号"><code>❶ total = 0
+Jimmy Five Times (4)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;也可以在循环中使用continue语句。continue语句将让for循环变量继续下一个值，就像程序执行已经到达循环的末尾并返回开始一样。实际上，只能在while和for循环内部使用continue和break语句。如果试图在别处使用这些语句，Python将报错。&lt;/p&gt;
+&lt;p class="zw"&gt;作为for循环的另一个例子，请考虑数学家高斯的故事。当高斯还是一个小孩时，老师想给全班同学布置很多计算作业。老师让他们从0加到100。高斯想到了一个聪明办法，在几秒钟内算出了答案，但你可以用for循环写一个Python程序，替你完成计算。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ total = 0
 ❷for num in range(101):
 ❸     total = total + num
 ❹ print(total)
-</code>
-</pre>
-<p class="zw">结果应该是5050。程序刚开始时，total变量被设为0。然后for循环执行100次total = total + num。当循环完成100次迭代时，0到100的每个整数都加给了total。这时，total被打印到屏幕上。即使在最慢的计算机上，这个程序也不用1秒钟就能完成计算。</p>
-<p class="zw">（小高斯想到，有50对数加起来是100：1 + 99, 2 + 98, 3 + 97……直到49 + 51。因为50 × 100 是5000，再加上中间的50，所以0到100的所有数之和是5050。聪明的孩子！）</p>
-<h3 id="nav_point_58">2.7.9 等价的while循环</h3>
-<p class="zw">实际上可以用while循环来做和for循环同样的事，for循环只是更简洁。让我们用与for循环等价的while循环，重写fiveTimes.py。</p>
-<pre class="代码无行号"><code>print('My name is')
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;结果应该是5050。程序刚开始时，total变量被设为0。然后for循环执行100次total = total + num。当循环完成100次迭代时，0到100的每个整数都加给了total。这时，total被打印到屏幕上。即使在最慢的计算机上，这个程序也不用1秒钟就能完成计算。&lt;/p&gt;
+&lt;p class="zw"&gt;（小高斯想到，有50对数加起来是100：1 + 99, 2 + 98, 3 + 97……直到49 + 51。因为50 × 100 是5000，再加上中间的50，所以0到100的所有数之和是5050。聪明的孩子！）&lt;/p&gt;
+&lt;h3 id="nav_point_58"&gt;2.7.9 等价的while循环&lt;/h3&gt;
+&lt;p class="zw"&gt;实际上可以用while循环来做和for循环同样的事，for循环只是更简洁。让我们用与for循环等价的while循环，重写fiveTimes.py。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;print('My name is')
 i = 0
-while i &lt; 5:
+while i &amp;lt; 5:
     print('Jimmy Five Times (' + str(i) + ')')
-    i = i + 1</code>
-</pre>
-<p class="zw">运行这个程序，输出应该和使用for循环的fiveTimes.py程序一样。</p>
-<h3 id="nav_point_59">2.7.10 range()的开始、停止和步长参数</h3>
-<p class="zw">某些函数可以用多个参数调用，参数之间用逗号分开，range()就是其中之一。这让你能够改变传递给range()的整数，实现各种整数序列，包括从0以外的值开始。</p>
-<pre class="代码无行号"><code>for i in range(12, 16):
-    print(i)</code>
-</pre>
-<p class="zw">第一个参数是for循环变量开始的值，第二个参数是上限，但不包含它，也就是循环停止的数字。</p>
-<pre class="代码无行号"><code>12
+    i = i + 1&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;运行这个程序，输出应该和使用for循环的fiveTimes.py程序一样。&lt;/p&gt;
+&lt;h3 id="nav_point_59"&gt;2.7.10 range()的开始、停止和步长参数&lt;/h3&gt;
+&lt;p class="zw"&gt;某些函数可以用多个参数调用，参数之间用逗号分开，range()就是其中之一。这让你能够改变传递给range()的整数，实现各种整数序列，包括从0以外的值开始。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;for i in range(12, 16):
+    print(i)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;第一个参数是for循环变量开始的值，第二个参数是上限，但不包含它，也就是循环停止的数字。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;12
 13
 14
-15</code>
-</pre>
-<p class="zw">range()函数也可以有第三个参数。前两个参数分别是起始值和终止值，第三个参数是“步长”。步长是每次迭代后循环变量增加的值。</p>
-<pre class="代码无行号"><code>for i in range(0, 10, 2):
-    print(i)</code>
-</pre>
-<p class="zw">所以调用range(0, 10, 2)将从0数到8，间隔为2。</p>
-<pre class="代码无行号"><code>0
+15&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;range()函数也可以有第三个参数。前两个参数分别是起始值和终止值，第三个参数是“步长”。步长是每次迭代后循环变量增加的值。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;for i in range(0, 10, 2):
+    print(i)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;所以调用range(0, 10, 2)将从0数到8，间隔为2。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;0
 2
 4
 6
-8</code>
-</pre>
-<p class="zw">在为for循环生成序列数据方面，range()函数很灵活。举例来说，甚至可以用负数作为步长参数，让循环计数逐渐减少，而不是增加。</p>
-<pre class="代码无行号"><code>for i in range(5, -1, -1):
-    print(i)</code>
-</pre>
-<p class="zw">运行一个for循环，用range(5, -1, -1)来打印i，结果将从5降至0。</p>
-<pre class="代码无行号"><code>5
+8&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;在为for循环生成序列数据方面，range()函数很灵活。举例来说，甚至可以用负数作为步长参数，让循环计数逐渐减少，而不是增加。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;for i in range(5, -1, -1):
+    print(i)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;运行一个for循环，用range(5, -1, -1)来打印i，结果将从5降至0。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;5
 4
 3
 2
 1
-0</code>
-</pre>
-<h2 id="nav_point_60">2.8 导入模块</h2>
-<p class="zw">Python程序可以调用一组基本的函数，这称为“内建函数”，包括你见到过的print()、input()和len()函数。Python也包括一组模块，称为“标准库”。每个模块都是一个Python程序，包含一组相关的函数，可以嵌入你的程序之中。例如，math模块有数学运算相关的函数，random模块有随机数相关的函数，等等。</p>
-<p class="zw">在开始使用一个模块中的函数之前，必须用import语句导入该模块。在代码中，import语句包含以下部分：</p>
-<ul>
-<li class="第1级无序列表">import关键字；</li>
-<li class="第1级无序列表">模块的名称；</li>
-<li class="第1级无序列表">可选的更多模块名称，之间用逗号隔开。</li>
-</ul>
-<p class="zw">在导入一个模块后，就可以使用该模块中所有很酷的函数。让我们试一试random模块，它让我们能使用random.randint()函数。</p>
-<p class="zw">在文件编辑器中输入以下代码，保存为printRandom.py：</p>
-<pre class="代码无行号"><code>import random
+0&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h2 id="nav_point_60"&gt;2.8 导入模块&lt;/h2&gt;
+&lt;p class="zw"&gt;Python程序可以调用一组基本的函数，这称为“内建函数”，包括你见到过的print()、input()和len()函数。Python也包括一组模块，称为“标准库”。每个模块都是一个Python程序，包含一组相关的函数，可以嵌入你的程序之中。例如，math模块有数学运算相关的函数，random模块有随机数相关的函数，等等。&lt;/p&gt;
+&lt;p class="zw"&gt;在开始使用一个模块中的函数之前，必须用import语句导入该模块。在代码中，import语句包含以下部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;import关键字；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;模块的名称；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;可选的更多模块名称，之间用逗号隔开。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;在导入一个模块后，就可以使用该模块中所有很酷的函数。让我们试一试random模块，它让我们能使用random.randint()函数。&lt;/p&gt;
+&lt;p class="zw"&gt;在文件编辑器中输入以下代码，保存为printRandom.py：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;import random
 for i in range(5):
-    print(random.randint(1, 10))</code>
-</pre>
-<p class="zw">如果运行这个程序，输出看起来可能像这样：</p>
-<pre class="代码无行号"><code>4
+    print(random.randint(1, 10))&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果运行这个程序，输出看起来可能像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;4
 1
 8
 4
-1</code>
-</pre>
-<p class="zw">random.randint()函数调用求值为传递给它的两个整数之间的一个随机整数。因为randint()属于random模块，必须在函数名称之前先加上random.，告诉python在random模块中寻找这个函数。</p>
-<p class="zw">下面是import语句的例子，它导入了4个不同的模块：</p>
-<pre class="代码无行号"><code>import random, sys, os, math</code>
-</pre>
-<p class="zw">现在我们可以使用这4个模块中的所有函数。本书后面我们将学习更多的相关内容。</p>
-<h3 id="nav_point_61">from import语句</h3>
-<p class="zw">import语句的另一种形式包括from关键字，之后是模块名称，import关键字和一个星号，例如from random import *。</p>
-<p class="zw">使用这种形式的import语句，调用random模块中的函数时不需要random.前缀。但是，使用完整的名称会让代码更可读，所以最好是使用普通形式的import语句。</p>
-<h2 id="nav_point_62">2.9 用sys.exit()提前结束程序</h2>
-<p class="zw">要介绍的最后一个控制流概念，是如何终止程序。当程序执行到指令的底部时，总是会终止。但是，通过调用sys.exit()函数，可以让程序终止或退出。因为这个函数在sys模块中，所以必须先导入sys，才能使用它。</p>
-<p class="zw">打开一个新的文件编辑器窗口，输入以下代码。保存为exitExample.py：</p>
-<pre class="代码无行号"><code>import sys
+1&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;random.randint()函数调用求值为传递给它的两个整数之间的一个随机整数。因为randint()属于random模块，必须在函数名称之前先加上random.，告诉python在random模块中寻找这个函数。&lt;/p&gt;
+&lt;p class="zw"&gt;下面是import语句的例子，它导入了4个不同的模块：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;import random, sys, os, math&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;现在我们可以使用这4个模块中的所有函数。本书后面我们将学习更多的相关内容。&lt;/p&gt;
+&lt;h3 id="nav_point_61"&gt;from import语句&lt;/h3&gt;
+&lt;p class="zw"&gt;import语句的另一种形式包括from关键字，之后是模块名称，import关键字和一个星号，例如from random import *。&lt;/p&gt;
+&lt;p class="zw"&gt;使用这种形式的import语句，调用random模块中的函数时不需要random.前缀。但是，使用完整的名称会让代码更可读，所以最好是使用普通形式的import语句。&lt;/p&gt;
+&lt;h2 id="nav_point_62"&gt;2.9 用sys.exit()提前结束程序&lt;/h2&gt;
+&lt;p class="zw"&gt;要介绍的最后一个控制流概念，是如何终止程序。当程序执行到指令的底部时，总是会终止。但是，通过调用sys.exit()函数，可以让程序终止或退出。因为这个函数在sys模块中，所以必须先导入sys，才能使用它。&lt;/p&gt;
+&lt;p class="zw"&gt;打开一个新的文件编辑器窗口，输入以下代码。保存为exitExample.py：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;import sys
 while True:
     print('Type exit to exit.')
     response = input()
     if response == 'exit':
         sys.exit()
-    print('You typed ' + response + '.')</code>
-</pre>
-<p class="zw">在IDLE中运行这个程序。该程序有一个无限循环，里面没有break语句。结束该程序的唯一方式，就是用户输入exit，导致sys.exit()被调用。如果response等于exit，程序就会中止。因为response变量由input()函数赋值，所以用户必须输入exit，才能停止该程序。</p>
-<h2 id="nav_point_63">2.10 小结</h2>
-<p class="zw">通过使用求值为True或False的表达式（也称为条件），你可以编写程序来决定哪些代码执行，哪些代码跳过。可以在循环中一遍又一遍地执行代码，只要某个条件求值为True。如果需要跳出循环或回到开始处，break和continue语句很有用。</p>
-<p class="zw">这些控制流语句让你写出非常聪明的程序。还有另一种类型的控制流，你可以通过编写自己的函数来实现。这是下一章的主题。</p>
-<h2 id="nav_point_64">2.11 习题</h2>
-<p class="zw">1．布尔数据类型的两个值是什么？如何拼写？</p>
-<p class="zw">2．3个布尔操作符是什么？</p>
-<p class="zw">3．写出每个布尔操作符的真值表（也就是操作数的每种可能组合，以及操作的结果）。</p>
-<p class="zw">4．以下表达式求值的结果是什么？</p>
-<pre class="代码无行号"><code>(5 &gt; 4) and (3 == 5)
-not (5 &gt; 4)
-(5 &gt; 4) or (3 == 5)
-not ((5 &gt; 4) or (3 == 5))
+    print('You typed ' + response + '.')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;在IDLE中运行这个程序。该程序有一个无限循环，里面没有break语句。结束该程序的唯一方式，就是用户输入exit，导致sys.exit()被调用。如果response等于exit，程序就会中止。因为response变量由input()函数赋值，所以用户必须输入exit，才能停止该程序。&lt;/p&gt;
+&lt;h2 id="nav_point_63"&gt;2.10 小结&lt;/h2&gt;
+&lt;p class="zw"&gt;通过使用求值为True或False的表达式（也称为条件），你可以编写程序来决定哪些代码执行，哪些代码跳过。可以在循环中一遍又一遍地执行代码，只要某个条件求值为True。如果需要跳出循环或回到开始处，break和continue语句很有用。&lt;/p&gt;
+&lt;p class="zw"&gt;这些控制流语句让你写出非常聪明的程序。还有另一种类型的控制流，你可以通过编写自己的函数来实现。这是下一章的主题。&lt;/p&gt;
+&lt;h2 id="nav_point_64"&gt;2.11 习题&lt;/h2&gt;
+&lt;p class="zw"&gt;1．布尔数据类型的两个值是什么？如何拼写？&lt;/p&gt;
+&lt;p class="zw"&gt;2．3个布尔操作符是什么？&lt;/p&gt;
+&lt;p class="zw"&gt;3．写出每个布尔操作符的真值表（也就是操作数的每种可能组合，以及操作的结果）。&lt;/p&gt;
+&lt;p class="zw"&gt;4．以下表达式求值的结果是什么？&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;(5 &amp;gt; 4) and (3 == 5)
+not (5 &amp;gt; 4)
+(5 &amp;gt; 4) or (3 == 5)
+not ((5 &amp;gt; 4) or (3 == 5))
 (True and True) and (True == False)
-(not False) or (not True)</code>
-</pre>
-<p class="zw">5．6个比较操作符是什么？</p>
-<p class="zw">6．等于操作符和赋值操作符的区别是什么？</p>
-<p class="zw">7．解释什么是条件，可以在哪里使用条件。</p>
-<p class="zw">8．识别这段代码中的3个语句块：</p>
-<pre class="代码无行号"><code>spam = 0
+(not False) or (not True)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;5．6个比较操作符是什么？&lt;/p&gt;
+&lt;p class="zw"&gt;6．等于操作符和赋值操作符的区别是什么？&lt;/p&gt;
+&lt;p class="zw"&gt;7．解释什么是条件，可以在哪里使用条件。&lt;/p&gt;
+&lt;p class="zw"&gt;8．识别这段代码中的3个语句块：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;spam = 0
 if spam == 10:
     print('eggs')
-    if spam &gt; 5:
+    if spam &amp;gt; 5:
         print('bacon')
     else:
         print('ham')
     print('spam')
-print('spam')</code>
-</pre>
-<p class="zw">9．编写代码，如果变量spam中存放1，就打印Hello，如果变量中存放2，就打印Howdy，如果变量中存放其他值，就打印Greetings!</p>
-<p class="zw">10．如果程序陷在一个无限循环中，你可以按什么键？</p>
-<p class="zw">11．break和continue之间的区别是什么？</p>
-<p class="zw">12．在for循环中，range(10)、range(0, 10)和range(0, 10, 1)之间的区别是什么？</p>
-<p class="zw">13．编写一小段程序，利用for循环，打印出从1到10的数字。然后利用while循环，编写一个等价的程序，打印出从1到10的数字。</p>
-<p class="zw">14．如果在名为spam的模块中，有一个名为bacon()的函数，那么在导入spam模块后，如何调用它？</p>
-<p class="zw">附加题：在因特网上查找round()和abs()函数，弄清楚它们的作用。在交互式环境中尝试使用它们。</p>
-<p class="zw"><br style="page-break-after:always"/>
-</p>
-<div></div>
-]]></description>
+print('spam')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;9．编写代码，如果变量spam中存放1，就打印Hello，如果变量中存放2，就打印Howdy，如果变量中存放其他值，就打印Greetings!&lt;/p&gt;
+&lt;p class="zw"&gt;10．如果程序陷在一个无限循环中，你可以按什么键？&lt;/p&gt;
+&lt;p class="zw"&gt;11．break和continue之间的区别是什么？&lt;/p&gt;
+&lt;p class="zw"&gt;12．在for循环中，range(10)、range(0, 10)和range(0, 10, 1)之间的区别是什么？&lt;/p&gt;
+&lt;p class="zw"&gt;13．编写一小段程序，利用for循环，打印出从1到10的数字。然后利用while循环，编写一个等价的程序，打印出从1到10的数字。&lt;/p&gt;
+&lt;p class="zw"&gt;14．如果在名为spam的模块中，有一个名为bacon()的函数，那么在导入spam模块后，如何调用它？&lt;/p&gt;
+&lt;p class="zw"&gt;附加题：在因特网上查找round()和abs()函数，弄清楚它们的作用。在交互式环境中尝试使用它们。&lt;/p&gt;
+&lt;p class="zw"&gt;&lt;br style="page-break-after:always"/&gt;
+&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+</description>
     <pubDate>Fri, 14 Aug 2026 01:42:23 +0000</pubDate>
     <guid isPermaLink="false">26</guid>
 </item>
 <item>
-      <title><![CDATA[WorkBuddyGuide-蓝皮书总览]]></title>
+      <title>WorkBuddyGuide-蓝皮书总览</title>
       <link>https://workbuddy.homes/bluebook/</link>
-      <description><![CDATA[学习时长：约0.5小时；学习内容：了解手册的整体结构、章节分布与学习路径；学习目的：建立全局视角，规划自己的学习路线，快速定位所需内容]]></description>
+      <description>学习时长：约0.5小时；学习内容：了解手册的整体结构、章节分布与学习路径；学习目的：建立全局视角，规划自己的学习路线，快速定位所需内容</description>
       <guid isPermaLink="false">https://workbuddy.homes/bluebook/</guid>
       <pubDate>Fri, 14 Aug 2026 01:32:57 +0000</pubDate>
     </item>
@@ -6643,607 +6651,6 @@ urlpatterns = [
 </description>
     <pubDate>Thu, 30 Jul 2026 01:10:08 +0000</pubDate>
     <guid isPermaLink="false">18</guid>
-</item>
-<item>
-    <title>Basic Python - 017 - 第 17 章 使用API.epub</title>
-    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：87 分钟 (17348 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_399"&gt;第 17 章　使用API&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/17_Image00001.gif" style="width: 16%" width="16%"/&gt;
- 　本章介绍如何编写独立的程序，对获取的数据进行可视化。这个程序将使用Web&lt;strong&gt;应用程序编程接口&lt;/strong&gt;
- （API）自动请求网站的特定信息而不是整个网页，再对这些信息进行可视化。由于这样编写的程序始终使用最新的数据进行可视化，即便数据瞬息万变，它呈现的信息也是最新的。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_400"&gt;17.1　使用Web API&lt;/h2&gt;
-&lt;p&gt;Web API是网站的一部分，用于与使用具体URL请求特定信息的程序交互。这种请求称为&lt;strong&gt;API调用&lt;/strong&gt;
- 。请求的数据将以易于处理的格式（如JSON或CSV）返回。依赖于外部数据源的大多数应用程序依赖于API调用，如集成社交媒体网站的应用程序。&lt;/p&gt;
-&lt;h3 id="nav_point_401"&gt;17.1.1　Git和GitHub&lt;/h3&gt;
-&lt;p&gt;本章的可视化基于来自GitHub的信息，这是一个让程序员能够协作开发项目的网站。我们将使用GitHub的API来请求有关该网站中Python项目的信息，再使用Plotly生成交互式可视化图表，呈现这些项目的受欢迎程度。&lt;/p&gt;
-&lt;p&gt;GitHub的名字源自Git，后者是一个分布式版本控制系统，帮助人们管理为项目所做的工作，避免一个人所做的修改影响其他人所做的修改。在项目中实现新功能时，Git跟踪你对每个文件所做的修改。确定代码可行后，你提交所做的修改，而Git将记录项目最新的状态。如果犯了错，想撤销所做的修改，你可以轻松地返回到以前的任何可行状态。（要更深入地了解如何使用Git进行版本控制，请参阅附录D。）GitHub上的项目都存储在仓库中，后者包含与项目相关联的一切：代码、项目参与者的信息、问题或bug报告，等等。&lt;/p&gt;
-&lt;p&gt;GitHub用户可以给喜欢的项目加星（star）以表示支持，还可以跟踪自己可能想使用的项目。在本章中，我们将编写一个程序，自动下载GitHub上星级最高的Python项目的信息，并对这些信息进行可视化。&lt;/p&gt;
-&lt;h3 id="nav_point_402"&gt;17.1.2　使用API调用请求数据&lt;/h3&gt;
-&lt;p&gt;GitHub的API让你能够通过API调用来请求各种信息。要知道API调用是什么样的，请在浏览器的地址栏中输入如下地址并按回车键：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;https://api.github.com/search/repositories?q=language:python&amp;amp;sort=stars&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这个调用返回GitHub当前托管了多少个Python项目，以及有关最受欢迎的Python仓库的信息。下面来仔细研究这个调用。开头的&lt;code&gt;https://api.github.com/&lt;/code&gt;
- 将请求发送到GitHub网站中响应API调用的部分，接下来的&lt;code&gt;search/repositories&lt;/code&gt;
- 让API搜索GitHub上的所有仓库。&lt;/p&gt;
-&lt;p&gt;
-&lt;code&gt;repositories&lt;/code&gt;
- 后面的问号指出需要传递一个实参。&lt;code&gt;q&lt;/code&gt;
- 表示查询，而等号（&lt;code&gt;=&lt;/code&gt;
- ）让我们能够开始指定查询。我们使用&lt;code&gt;language:python&lt;/code&gt;
- 指出只想获取主要语言为Python的仓库的信息。最后的&lt;code&gt;&amp;amp;sort=stars&lt;/code&gt;
- 指定将项目按星级排序。&lt;/p&gt;
-&lt;p&gt;下面显示了响应的前几行。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  {
-❶   "total_count": 3494012,
-❷   "incomplete_results": false,
-❸   "items": [
-      {
-        "id": 21289110,
-        "node_id": "MDEwOlJlcG9zaXRvcnkyMTI4OTExMA==",
-        "name": "awesome-python",
-        "full_name": "vinta/awesome-python",
-        --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;从响应可知，该URL并不适合人工输入，因为它采用了适合程序处理的格式。本书编写期间，GitHub总共有3 494 012个Python项目（见❶）。&lt;code&gt;"incomplete_results"&lt;/code&gt;
- 的值为&lt;code&gt;false&lt;/code&gt;
- （见❷），由此知道请求是成功的（并非不完整的）。倘若GitHub无法处理该API，此处返回的值将为&lt;code&gt;true&lt;/code&gt;
- 。接下来的列表中显示了返回的&lt;code&gt;"items"&lt;/code&gt;
- ，其中包含GitHub上最受欢迎的Python项目的详细信息（见❸）。&lt;/p&gt;
-&lt;h3 id="nav_point_403"&gt;17.1.3　安装Requests&lt;/h3&gt;
-&lt;p&gt;Requests包让Python程序能够轻松地向网站请求信息并检查返回的响应。要安装Requests，可使用&lt;code&gt;pip&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;$ python -m pip install --user requests&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这个命令让Python运行模块&lt;code&gt;pip&lt;/code&gt;
- ，并在当前用户的Python安装中添加Requests包。如果你运行程序或安装包时使用的是命令&lt;strong&gt;
-&lt;code&gt;python3&lt;/code&gt;
-&lt;/strong&gt;
- 或其他命令，请务必在这里使用同样的命令。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　如果该命令在macOS系统上不管用，可以尝试删除标志&lt;code&gt;--user&lt;/code&gt;
- 再次运行。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_404"&gt;17.1.4　处理API响应&lt;/h3&gt;
-&lt;p&gt;下面来编写一个程序，它自动执行API调用并处理结果，以找出GitHub上星级最高的Python项目：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;python&lt;/em&gt;
-repos.py&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ import requests
-  # 执行API调用并存储响应。
-❷ url = 'https://api.github.com/search/repositories?q=language:python&amp;amp;sort=stars'
-❸ headers = {'Accept': 'application/vnd.github.v3+json'}
-❹ r = requests.get(url, headers=headers)
-❺ print(f"Status code: {r.status_code}")
-  # 将API响应赋给一个变量。
-❻ response_dict = r.json()
-  # 处理结果。
-  print(response_dict.keys())&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，导入模块&lt;code&gt;requests&lt;/code&gt;
- 。在❷处，存储API调用的URL。最新的GitHub API版本为第3版，因此通过指定&lt;code&gt;headers&lt;/code&gt;
- 显式地要求使用这个版本的API（见❸），再使用&lt;code&gt;requests&lt;/code&gt;
- 调用API（见❹）。&lt;/p&gt;
-&lt;p&gt;我们调用&lt;code&gt;get()&lt;/code&gt;
- 并将URL传递给它，再将响应对象赋给变量&lt;code&gt;r&lt;/code&gt;
- 。响应对象包含一个名为&lt;code&gt;status_code&lt;/code&gt;
- 的属性，指出了请求是否成功（状态码200表示请求成功）。在❺处，打印&lt;code&gt;status_code&lt;/code&gt;
- ，核实调用是否成功。&lt;/p&gt;
-&lt;p&gt;这个API返回JSON格式的信息，因此使用方法&lt;code&gt;json()&lt;/code&gt;
- 将这些信息转换为一个Python字典（见❻），并将结果存储在&lt;code&gt;response_dict&lt;/code&gt;
- 中。&lt;/p&gt;
-&lt;p&gt;最后，打印&lt;code&gt;response_dict&lt;/code&gt;
- 中的键，输出如下：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;Status code: 200
-dict_keys(['total_count', 'incomplete_results', 'items'])&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;状态码为200，由此知道请求成功了。响应字典只包含三个键：&lt;code&gt;'total_count'&lt;/code&gt;
- 、&lt;code&gt;'incomplete_results'&lt;/code&gt;
- 和&lt;code&gt;'items'&lt;/code&gt;
- 。下面来看看响应字典内部是什么样的。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　像这样简单的调用应该会返回完整的结果集，因此完全可以忽略与&lt;code&gt;'incomplete_results'&lt;/code&gt;
- 关联的值。但在执行更复杂的API调用时，应检查这个值。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_405"&gt;17.1.5　处理响应字典&lt;/h3&gt;
-&lt;p&gt;将API调用返回的信息存储到字典后，就可处理其中的数据了。我们来生成一些概述这些信息的输出。这是一种不错的方式，可确认收到了期望的信息，进而开始研究感兴趣的信息：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;python_repos.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  import requests
-  # 执行API调用并存储响应。
-  --snip--
-  # 将API响应赋给一个变量。
-  response_dict = r.json()
-❶ print(f"Total repositories: {response_dict['total_count']}")
-  # 探索有关仓库的信息。
-❷ repo_dicts = response_dict['items']
-  print(f"Repositories returned: {len(repo_dicts)}")
-  # 研究第一个仓库。
-❸ repo_dict = repo_dicts[0]
-❹ print(f"\nKeys: {len(repo_dict)}")
-❺ for key in sorted(repo_dict.keys()):
-      print(key)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，打印与&lt;code&gt;'total_count'&lt;/code&gt;
- 相关联的值，它指出了GitHub总共包含多少个Python仓库。&lt;/p&gt;
-&lt;p&gt;与&lt;code&gt;'items'&lt;/code&gt;
- 关联的值是个列表，其中包含很多字典，而每个字典都包含有关一个Python仓库的信息。在❷处，将这个字典列表存储在&lt;code&gt;repo_dicts&lt;/code&gt;
- 中。接下来，打印&lt;code&gt;repo_dicts&lt;/code&gt;
- 的长度，以获悉获得了多少个仓库的信息。&lt;/p&gt;
-&lt;p&gt;为更深入地了解每个仓库的信息，提取&lt;code&gt;repo_dicts&lt;/code&gt;
- 中的第一个字典，并将其存储在&lt;code&gt;repo_dict&lt;/code&gt;
- 中（见❸）。接下来，打印这个字典包含的键数，看看其中有多少信息（见❹）。在❺处，打印这个字典的所有键，看看其中包含哪些信息。&lt;/p&gt;
-&lt;p&gt;输出让我们对实际包含的数据有了更清晰的认识：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  Status code: 200
-  Total repositories: 3494030
-  Repositories returned: 30
-❶ Keys: 73
-  archive_url
-  archived
-  assignees_url
-  --snip--
-  url
-  watchers
-  watchers_count&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;GitHub的API返回有关仓库的大量信息：&lt;code&gt;repo_dict&lt;/code&gt;
- 包含73个键（见❶）。通过仔细查看这些键，可大致知道可提取有关项目的哪些信息。（要准确地获悉API将返回哪些信息，要么阅读文档，要么像这里一样使用代码来查看。）&lt;/p&gt;
-&lt;p&gt;下面来提取&lt;code&gt;repo_dict&lt;/code&gt;
- 中与一些键相关联的值：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;python_repos.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  # 研究有关仓库的信息。
-  repo_dicts = response_dict['items']
-  print(f"Repositories returned: {len(repo_dicts)}")
-  # 研究第一个仓库。
-  repo_dict = repo_dicts[0]
-  print("\nSelected information about first repository:")
-❶ print(f"Name: {repo_dict['name']}")
-❷ print(f"Owner: {repo_dict['owner']['login']}")
-❸ print(f"Stars: {repo_dict['stargazers_count']}")
-  print(f"Repository: {repo_dict['html_url']}")
-❹ print(f"Created: {repo_dict['created_at']}")
-❺ print(f"Updated: {repo_dict['updated_at']}")
-  print(f"Description: {repo_dict['description']}")&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这里打印的值对应于表示第一个仓库的字典中的很多键。在❶处，打印了项目的名称。项目所有者是由一个字典表示的，因此❷处使用键&lt;code&gt;owner&lt;/code&gt;
- 来访问表示所有者的字典，再使用键&lt;code&gt;key&lt;/code&gt;
- 来获取所有者的登录名。在❸处，打印项目获得了多少个星的评级，以及该项目GitHub仓库的URL。接下来，显示项目的创建时间（见❹）和最后一次更新的时间（见❺）。最后，打印仓库的描述。输出类似于下面这样：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;Status code: 200
-Total repositories: 3494032
-Repositories returned: 30
-Selected information about first repository:
-Name: awesome-python
-Owner: vinta
-Stars: 61549
-Repository: https://github.com/vinta/awesome-python
-Created: 2014-06-27T21:00:06Z
-Updated: 2019-02-17T04:30:00Z
-Description: A curated list of awesome Python frameworks, libraries, software
-    and resources&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;从上述输出可知，在本书编写期间，GitHub上星级最高的Python项目为awesome-python，其所有者为用户vinta，有60 000多位GitHub用户给这项目加星了。我们可以看到这个项目仓库的URL，其创建时间为2014年6月，且最近更新了。最后，描述指出项目awesome-python包含一系列深受欢迎的Python资源。&lt;/p&gt;
-&lt;h3 id="nav_point_406"&gt;17.1.6　概述最受欢迎的仓库&lt;/h3&gt;
-&lt;p&gt;对这些数据进行可视化时，我们想涵盖多个仓库。下面就来编写一个循环，打印API调用返回的每个仓库的特定信息，以便能够在可视化中包含所有这些信息：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;python_repos.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  # 研究有关仓库的信息。
-  repo_dicts = response_dict['items']
-  print(f"Repositories returned: {len(repo_dicts)}")
-❶ print("\nSelected information about each repository:")
-❷ for repo_dict in repo_dicts:
-      print(f"\nName: {repo_dict['name']}")
-      print(f"Owner: {repo_dict['owner']['login']}")
-      print(f"Stars: {repo_dict['stargazers_count']}")
-      print(f"Repository: {repo_dict['html_url']}")
-      print(f"Description: {repo_dict['description']}")&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，打印了一条说明性消息。在❷处，遍历&lt;code&gt;repo_dicts&lt;/code&gt;
- 中的所有字典。在这个循环中，打印每个项目的名称、所有者、星级、在GitHub上的URL以及描述：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;Status code: 200
-Total repositories: 3494040
-Repositories returned: 30
-Selected information about each repository:
-Name: awesome-python
-Owner: vinta
-Stars: 61549
-Repository: https://github.com/vinta/awesome-python
-Description: A curated list of awesome Python frameworks, libraries, software
-  and resources
-Name: system-design-primer
-Owner: donnemartin
-Stars: 57256
-Repository: https://github.com/donnemartin/system-design-primer
-Description: Learn how to design large-scale systems. Prep for the system
-  design interview. Includes Anki flashcards.
---snip--
-Name: python-patterns
-Owner: faif
-Stars: 19058
-Repository: https://github.com/faif/python-patterns
-Description: A collection of design patterns/idioms in Python&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在上述输出中，有些有趣的项目可能值得一看。但不要在这上面花费太多时间，因为即将创建的可视化图表能让你更容易地看清结果。&lt;/p&gt;
-&lt;h3 id="nav_point_407"&gt;17.1.7　监视API的速率限制&lt;/h3&gt;
-&lt;p&gt;大多数API存在速率限制，也就是说，在特定时间内可执行的请求数存在限制。要获悉是否接近了GitHub的限制，请在浏览器中输入https://api.github.com/rate_limit，你将看到类似于下面的响应：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  {
-    "resources": {
-      "core": {
-        "limit": 60,
-        "remaining": 58,
-        "reset": 1550385312
-      },
-❶     "search": {
-❷       "limit": 10,
-❸       "remaining": 8,
-❹       "reset": 1550381772
-      },
-      --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们关心的信息是搜索API的速率限制（见❶）。从❷处可知，极限为每分钟10个请求，而在当前分钟内，还可执行8个请求（见❸）。&lt;code&gt;reset&lt;/code&gt;
- 值指的是配额将重置的&lt;strong&gt;Unix时间&lt;/strong&gt;
- 或&lt;strong&gt;新纪元时间&lt;/strong&gt;
- （1970年1月1日午夜后多少秒）（见❹）。用完配额后，你将收到一条简单的响应，由此知道已到达API极限。到达极限后，必须等待配额重置。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　很多API要求注册获得API密钥后才能执行API调用。本书编写期间，GitHub没有这样的要求，但获得API密钥后，配额将高得多。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_408"&gt;17.2　使用Plotly可视化仓库&lt;/h2&gt;
-&lt;p&gt;有了一些有趣的数据后，我们来进行可视化，呈现GitHub上Python项目的受欢迎程度。我们将创建一个交互式条形图：条形的高度表示项目获得了多少颗星。单击条形将带你进入项目在GitHub上的主页。请复制前面编写的python_repos_visual.py，并将副本修改成下面这样：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;python_repos_visual.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  import requests
-❶ from plotly.graph_objs import Bar
-  from plotly import offline
-❷ # 执行API调用并存储响应。
-  url = 'https://api.github.com/search/repositories?q=language:python&amp;amp;sort=stars'
-  headers = {'Accept': 'application/vnd.github.v3+json'}
-  r = requests.get(url, headers=headers)
-  print(f"Status code: {r.status_code}")
-  # 处理结果。
-  response_dict = r.json()
-  repo_dicts = response_dict['items']
-❸ repo_names, stars = [], []
-  for repo_dict in repo_dicts:
-      repo_names.append(repo_dict['name'])
-      stars.append(repo_dict['stargazers_count'])
-  # 可视化。
-❹ data = [{
-      'type': 'bar',
-      'x': repo_names,
-      'y': stars,
-  }]
-❺ my_layout = {
-      'title': 'GitHub上最受欢迎的Python项目',
-      'xaxis': {'title': 'Repository'},
-      'yaxis': {'title': 'Stars'},
-  }
-  fig = {'data': data, 'layout': my_layout}
-  offline.plot(fig, filename='python_repos.html')&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，导入Plotly中的&lt;code&gt;Bar&lt;/code&gt;
- 类和模块&lt;code&gt;offline&lt;/code&gt;
- 。像第15章的绘制直方图项目中定义列表&lt;code&gt;data&lt;/code&gt;
- 那样，这里也使用字典来定义布局，因此不需要导入&lt;code&gt;Layout&lt;/code&gt;
- 类。这里也打印API响应的状态，以便知道是否出现了问题（见❷）。现在不是探索阶段，早已确定了所需的数据是存在的，因此删除部分处理API响应的代码。&lt;/p&gt;
-&lt;p&gt;接下来，创建两个空列表，用于存储要在图表中呈现的数据（见❸）。我们需要每个项目的名称，用于给条形添加标签，还需要知道项目获得了多少个星，用于指定条形的高度。在循环中，将每个项目的名称和星级分别附加到这两个列表末尾。&lt;/p&gt;
-&lt;p&gt;然后，定义列表&lt;code&gt;data&lt;/code&gt;
- （见❹）。它像第16章的列表&lt;code&gt;data&lt;/code&gt;
- 一样包含一个字典，指定了图表的类型，并提供了&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/17_Image00003.gif"/&gt;
- 值和&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/17_Image00004.gif"/&gt;
- 值：&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/17_Image00003.gif"/&gt;
- 值为项目名称，&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/17_Image00004.gif"/&gt;
- 值为项目获得了多少个星。&lt;/p&gt;
-&lt;p&gt;在❺处，使用字典定义图表的布局。这里没有创建&lt;code&gt;Layout&lt;/code&gt;
- 实例，而是创建了一个包含布局规范的字典，并在其中指定了图表的名称以及每个坐标轴的标签。&lt;/p&gt;
-&lt;p&gt;生成的图表如图17-1所示。从中可知，前几个项目的受欢迎程度比其他项目高得多，但所有这些项目在Python生态系统中都很重要。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/17_Image00044.gif" style="width: 85%" width="85%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图17-1　GitHub上最受欢迎的Python项目&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_409"&gt;17.2.1　改进Plotly图表&lt;/h3&gt;
-&lt;p&gt;下面来改进这个图表的样式。第16章介绍过，可在&lt;code&gt;data&lt;/code&gt;
- 和&lt;code&gt;my_layout&lt;/code&gt;
- 中以键值对的形式指定各种样式。&lt;/p&gt;
-&lt;p&gt;通过修改&lt;code&gt;data&lt;/code&gt;
- ，可定制条形。下面是修改后的&lt;code&gt;data&lt;/code&gt;
- ，给条形指定了颜色和边框：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;python_repos_visual.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-data = [{
-    'type': 'bar',
-    'x': repo_names,
-    'y': stars,
-    'marker': {
-        'color': 'rgb(60, 100, 150)',
-        'line': {'width': 1.5, 'color': 'rgb(25, 25, 25)'}
-    },
-    'opacity': 0.6,
-}]
---snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;
-&lt;code&gt;marker&lt;/code&gt;
- 设置影响条形设计。我们给条形指定了一种自定义的蓝色，加上了宽1.5像素的深灰色轮廓，还将条形的不透明度设置为0.6，以免图表过于惹眼。&lt;/p&gt;
-&lt;p&gt;下面来修改&lt;code&gt;my_layout&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;python_repos_visual.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  my_layout = {
-      'title': 'GitHub上最受欢迎的Python项目',
-❶     'titlefont': {'size': 28},
-❷     'xaxis': {
-          'title': 'Repository',
-          'titlefont': {'size': 24},
-          'tickfont': {'size': 14},
-      },
-❸     'yaxis': {
-          'title': 'Stars',
-          'titlefont': {'size': 24},
-          'tickfont': {'size': 14},
-      },
-  }
-  --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;使用键&lt;code&gt;'titlefont'&lt;/code&gt;
- 指定图表名称的字号（见❶）。在字典&lt;code&gt;'xaxis'&lt;/code&gt;
- 中，添加指定&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/17_Image00003.gif"/&gt;
- 轴标签字号的设置（&lt;code&gt;'titlefont'&lt;/code&gt;
- ）和刻度标签字号的设置（&lt;code&gt;'tickfont'&lt;/code&gt;
- ）（见❷）。由于这些设置嵌套在字典中，还可以使用相应的键指定坐标轴标签和刻度标签的颜色和字体。在❸处，给&lt;img alt="y" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/17_Image00004.gif"/&gt;
- 轴指定类似的设置。&lt;/p&gt;
-&lt;p&gt;重新设置样式后的图表如图17-2所示。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/17_Image00045.gif" style="width: 85%" width="85%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图17-2　改进了图表的样式&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_410"&gt;17.2.2　添加自定义工具提示&lt;/h3&gt;
-&lt;p&gt;在Plotly中，将鼠标指向条形将显示其表示的信息。这通常称为&lt;strong&gt;工具提示&lt;/strong&gt;
- 。在本例中，当前显示的是项目获得了多少个星。下面来创建自定义工具提示，以显示项目的描述和所有者。&lt;/p&gt;
-&lt;p&gt;为生成这样的工具提示，需要再提取一些信息并修改对象&lt;code&gt;data&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;python_repos_visual.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  # 处理结果。
-  response_dict = r.json()
-  repo_dicts = response_dict['items']
-❶ repo_names, stars, labels = [], [], []
-  for repo_dict in repo_dicts:
-      repo_names.append(repo_dict['name'])
-      stars.append(repo_dict['stargazers_count'])
-❷     owner = repo_dict['owner']['login']
-      description = repo_dict['description']
-❸     label = f"{owner}&amp;lt;br /&amp;gt;{description}"
-      labels.append(label)
-  # 可视化。
-  data = [{
-      'type': 'bar',
-      'x': repo_names,
-      'y': stars,
-❹     'hovertext': labels,
-      'marker': {
-          'color': 'rgb(60, 100, 150)',
-          'line': {'width': 1.5, 'color': 'rgb(25, 25, 25)'}
-      },
-      'opacity': 0.6,
-  }]
-  --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;首先新建一个空列表&lt;code&gt;labels&lt;/code&gt;
- ，用于存储要给各个项目显示的文本（见❶）。在处理数据的循环中，提取每个项目的所有者和描述（见❷）。Plotly允许在文本元素中使用HTML代码，因此在创建由项目所有者和描述组成的字符串时，我们能够在这两部分之间添加换行符（&lt;code&gt;&amp;lt;br /&amp;gt;&lt;/code&gt;
- ）（见❸）。然后，将这个字符串附加到列表&lt;code&gt;labels&lt;/code&gt;
- 末尾。&lt;/p&gt;
-&lt;p&gt;在列表&lt;code&gt;data&lt;/code&gt;
- 包含的字典中，添加了键&lt;code&gt;'hovertext'&lt;/code&gt;
- ，并将与之关联的值指定为刚创建的列表（见❹）。Plotly创建每个条形时，将提取这个列表中的文本，并在观察者将鼠标指向条形时显示。这样修改后，生成的图表如图17-3所示。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/17_Image00046.gif" style="width: 85%" width="85%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图17-3　将鼠标指向条形时，将显示项目的描述和所有者&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_411"&gt;17.2.3　在图表中添加可单击的链接&lt;/h3&gt;
-&lt;p&gt;Plotly允许在文本元素中使用HTML，让你能够轻松地在图表中添加链接。下面将&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/17_Image00003.gif"/&gt;
- 轴标签作为链接，让观察者能够访问项目在GitHub上的主页。为此，需要提取URL并用其生成&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/17_Image00003.gif"/&gt;
- 轴标签：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;python_repos_visual.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  # 处理结果。
-  response_dict = r.json()
-  repo_dicts = response_dict['items']
-❶ repo_links, stars, labels = [], [], []
-  for repo_dict in repo_dicts:
-      repo_name = repo_dict['name']
-❷     repo_url = repo_dict['html_url']
-❸     repo_link = f"&amp;lt;a href='{repo_url}'&amp;gt;{repo_name}&amp;lt;/a&amp;gt;"
-      repo_links.append(repo_link)
-      stars.append(repo_dict['stargazers_count'])
-      --snip--
-  # 可视化。
-  data = [{
-      'type': 'bar',
-❹     'x': repo_links,
-      'y': stars,
-      --snip--
-  }]
-  --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这里修改了列表的名称（从&lt;code&gt;repo_names&lt;/code&gt;
- 改为&lt;code&gt;repo_links&lt;/code&gt;
- ），更准确地指出了要组合的信息（见❶）。接下来，从&lt;code&gt;repo_dict&lt;/code&gt;
- 中提取项目的URL，并将其赋给临时变量&lt;code&gt;repo_url&lt;/code&gt;
- （见❷）。在❸处，创建一个指向项目的链接，为此使用了HTML标记&lt;code&gt;&amp;lt;a&amp;gt;&lt;/code&gt;
- ，其格式为&lt;code&gt;&amp;lt;a href='URL'&amp;gt;link text&amp;lt;/a&amp;gt;&lt;/code&gt;
- 。然后，将这个链接附加到列表&lt;code&gt;repo_links&lt;/code&gt;
- 末尾。&lt;/p&gt;
-&lt;p&gt;在❹处，将这个列表用作图表的&lt;img alt="x" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/17_Image00003.gif"/&gt;
- 值。生成的图表与前面相同，但观察者可单击图表底端的项目名，以访问项目在GitHub上的主页。至此，我们对API获取的数据生成了可视化图表——它是交互性的，包含丰富的信息！&lt;/p&gt;
-&lt;h3 id="nav_point_412"&gt;17.2.4　深入了解Plotly和GitHub API&lt;/h3&gt;
-&lt;p&gt;要深入地了解如何生成Plotly图表，有两个不错的地方可以查看。第一个是Plotly User Guide in Python。通过研究该资源，可更深入地了解Plotly是如何使用数据来生成可视化图表的，以及它采取这种做法的原因。&lt;/p&gt;
-&lt;p&gt;第二个不错的资源是Plotly网站中的Python Figure Reference，其中列出了可用来配置Plotly可视化的所有设置。这里还列出了所有的图表类型，以及在各个配置选项中可设置的属性。&lt;/p&gt;
-&lt;p&gt;要更深入地了解GitHub API，可参阅其文档。通过阅读文档，你可以知道如何从GitHub提取各种信息。如果有GitHub账户，除了向公众提供的有关仓库的信息外，你还可以提取有关自己的信息。&lt;/p&gt;
-&lt;h2 id="nav_point_413"&gt;17.3　Hacker News API&lt;/h2&gt;
-&lt;p&gt;为探索如何使用其他网站的API调用，我们来看看Hacker News。在Hacker News网站，用户分享编程和技术方面的文章，并就这些文章展开积极的讨论。Hacker News的API让你能够访问有关该网站所有文章和评论的信息，且不要求通过注册获得密钥。&lt;/p&gt;
-&lt;p&gt;下面的调用返回本书编写期间最热门的文章的信息：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;https://hacker-news.firebaseio.com/v0/item/19155826.json&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;如果在浏览器中输入这个URL，将发现响应位于一对花括号内，表明这是一个字典。如果不改进格式，这样的响应难以阅读。下面像第16章的地震地图项目那样，通过方法&lt;code&gt;json.dump()&lt;/code&gt;
- 来运行这个URL，以便对返回的信息进行探索：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;hn_article.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;import requests
-import json
-# 执行API调用并存储响应。
-url = 'https://hacker-news.firebaseio.com/v0/item/19155826.json'
-r = requests.get(url)
-print(f"Status code: {r.status_code}")
-# 探索数据的结构。
-response_dict = r.json()
-readable_file = 'data/readable_hn_data.json'
-with open(readable_file, 'w') as f:
-    json.dump(response_dict, f, indent=4)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这里的所有代码都在前两章使用过，你应该不会感到陌生。输出是一个字典，其中包含有关ID为19155826的文章的信息：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;readable_hn_data.json&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  {
-      "by": "jimktrains2",
-❶     "descendants": 220,
-      "id": 19155826,
-❷     "kids": [
-          19156572,
-          19158857,
-          --snip--
-      ],
-      "score": 722,
-      "time": 1550085414,
-❸     "title": "Nasa's Mars Rover Opportunity Concludes a 15-Year Mission",
-      "type": "story",
-❹     "url": "https://www.nytimes.com/.../mars-opportunity-rover-dead.html"
-  }&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这个字典包含很多键。与键&lt;code&gt;'descendants'&lt;/code&gt;
- 相关联的值是文章被评论的次数（见❶）。与键&lt;code&gt;'kids'&lt;/code&gt;
- 相关联的值包含文章所有评论的ID（见❷）。每个评论本身也可能有评论，因此文章的后代（descendant）数量可能比其&lt;code&gt;'kids'&lt;/code&gt;
- 的数量多。这个字典中还包含当前文章的标题（见❸）和URL（见❹）。&lt;/p&gt;
-&lt;p&gt;下面的URL返回一个列表，其中包含Hacker News上当前排名靠前的文章的ID：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;https://hacker-news.firebaseio.com/v0/topstories.json&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;通过使用这个调用，可获悉当前有哪些文章位于主页，再生成一系列类似于前面的API调用。通过使用这种方法，可概述当前位于Hacker News主页的每篇文章：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;hn_submissions.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  from operator import itemgetter
-  import requests
-  # 执行API调用并存储响应。
-❶ url = 'https://hacker-news.firebaseio.com/v0/topstories.json'
-  r = requests.get(url)
-  print(f"Status code: {r.status_code}")
-  # 处理有关每篇文章的信息。
-❷ submission_ids = r.json()
-❸ submission_dicts = []
-  for submission_id in submission_ids[:30]:
-      # 对于每篇文章，都执行一个API调用。
-❹     url = f"https://hacker-news.firebaseio.com/v0/item/{submission_id}.json"
-      r = requests.get(url)
-      print(f"id: {submission_id}\tstatus: {r.status_code}")
-      response_dict = r.json()
-      # 对于每篇文章，都创建一个字典。
-❺     submission_dict = {
-          'title': response_dict['title'],
-          'hn_link': f"http://news.ycombinator.com/item?id={submission_id}",
-          'comments': response_dict['descendants'],
-      }
-❻     submission_dicts.append(submission_dict)
-❼ submission_dicts = sorted(submission_dicts, key=itemgetter('comments'),
-                              reverse=True)
-❽ for submission_dict in submission_dicts:
-      print(f"\nTitle: {submission_dict['title']}")
-      print(f"Discussion link: {submission_dict['hn_link']}")
-      print(f"Comments: {submission_dict['comments']}")&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;首先，执行一个API调用，并打印响应的状态（见❶）。这个API调用返回一个列表，其中包含Hacker News上当前最热门的500篇文章的ID。接下来，将响应对象转换为一个Python列表（见❷），并将其存储在&lt;code&gt;submission_ids&lt;/code&gt;
- 中。后面将使用这些ID来创建一系列字典，其中每个字典都存储了一篇文章的信息。&lt;/p&gt;
-&lt;p&gt;在❸处，创建一个名为&lt;code&gt;submission_dicts&lt;/code&gt;
- 的空列表，用于存储前面所说的字典。接下来，遍历前30篇文章的ID。对于每篇文章，都执行一个API调用，其中的URL包含&lt;code&gt;submission_id&lt;/code&gt;
- 的当前值（见❹）。我们打印请求的状态和文章ID，以便知道请求是否成功。&lt;/p&gt;
-&lt;p&gt;在❺处，为当前处理的文章创建一个字典，并在其中存储文章的标题、讨论页面的链接和评论数。然后，将&lt;code&gt;submission_dict&lt;/code&gt;
- 附加到&lt;code&gt;submission_dicts&lt;/code&gt;
- 末尾（见❻）。&lt;/p&gt;
-&lt;p&gt;Hacker News上的文章是根据总体得分排名的，而总体得分取决于很多因素，包含被推荐的次数、评论数和发表时间。我们要根据评论数对字典列表&lt;code&gt;submission_dicts&lt;/code&gt;
- 进行排序，为此使用了模块&lt;code&gt;operator&lt;/code&gt;
- 中的函数&lt;code&gt;itemgetter()&lt;/code&gt;
- （见❼）。我们向这个函数传递了键&lt;code&gt;'comments'&lt;/code&gt;
- ，因此它从该列表的每个字典中提取与键&lt;code&gt;'comments'&lt;/code&gt;
- 关联的值。这样，函数&lt;code&gt;sorted()&lt;/code&gt;
- 将根据这个值对列表进行排序。我们将列表按降序排列，即评论最多的文章位于最前面。&lt;/p&gt;
-&lt;p&gt;对列表排序后遍历它（见❽），并打印每篇热门文章的三项信息：标题、讨论页面的链接和评论数：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;Status code: 200
-id: 19155826    status: 200
-id: 19180181    status: 200
-id: 19181473    status: 200
---snip--
-Title: Nasa's Mars Rover Opportunity Concludes a 15-Year Mission
-Discussion link: http://news.ycombinator.com/item?id=19155826
-Comments: 220
-Title: Ask HN: Is it practical to create a software-controlled model rocket?
-Discussion link: http://news.ycombinator.com/item?id=19180181
-Comments: 72
-Title: Making My Own USB Keyboard from Scratch
-Discussion link: http://news.ycombinator.com/item?id=19181473
-Comments: 62
---snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;无论使用哪个API来访问和分析信息，流程都与此类似。有了这些数据后，就可进行可视化，指出最近哪些文章引发了最激烈的讨论。基于这种方式，应用程序可以为用户提供网站（如Hacker News）的定制化阅读体验。要深入了解通过Hacker News API可访问哪些信息，请参阅其文档页面。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习17-1：其他语言&lt;/strong&gt;
- 　修改python_repos.py中的API调用，使其在生成的图表中显示其他语言最受欢迎的项目。请尝试语言JavaScript、Ruby、C、Java、Perl、Haskell和Go。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习17-2：最活跃的讨论&lt;/strong&gt;
- 　使用hn_submissions.py中的数据，创建一个条形图，显示Hacker News上当前最活跃的讨论。条形的高度应对应于文章的评论数。条形的标签应包含文章的标题，并且充当到文章讨论页面的链接。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习17-3：测试python_repos.py&lt;/strong&gt;
- 　在python_repos.py中，我们打印了&lt;code&gt;status_code&lt;/code&gt;
- 的值，以核实API调用是否成功。请编写一个名为test_python_repos.py的程序，它使用单元测试来断言&lt;code&gt;status_code&lt;/code&gt;
- 的值为200。想想还可做出哪些断言，如返回的条目（item）数符合预期，仓库总数超过特定的值，等等。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习17-4：进一步探索&lt;/strong&gt;
- 　查看Plotly以及GitHub API或Hacker News API的文档，再根据从中获得的信息来定制本节绘制的图表的样式，或者提取并可视化其他数据。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_414"&gt;17.4　小结&lt;/h2&gt;
-&lt;p&gt;在本章中，你学习了：如何使用API来编写独立的程序，以自动采集所需的数据并对其进行可视化；使用GitHub API来探索GitHub上星级最高的Python项目，还大致地了解了Hacker News API；如何使用Requests包来自动执行GitHub API调用，以及如何处理调用的结果。本章还简要介绍了一些Plotly设置，可用其进一步定制生成的图表的外观。&lt;/p&gt;
-&lt;p&gt;在本书的最后一个项目中，我们将使用Django来创建一个Web应用程序。&lt;/p&gt;
-&lt;br style="page-break-after:always"/&gt;
-&lt;div&gt;&lt;/div&gt;
-</description>
-    <pubDate>Tue, 28 Jul 2026 01:14:36 +0000</pubDate>
-    <guid isPermaLink="false">17</guid>
 </item>
 </channel>
 </rss>
