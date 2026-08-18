@@ -1,11 +1,798 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-  <title>每日更新推送</title>
-  <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
-  <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Tue, 18 Aug 2026 01:04:02 +0000</lastBuildDate>
-    <item>
+    <title>我的每日小说</title>
+    <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
+    <description>从 EPUB 自动生成的 RSS 订阅源</description>
+        <item>
+    <title>AutomaticApplicationPython - 028 - 第4章 列表.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：70 分钟 (20782 字)</p><hr><h1 id="nav_point_83">第4章　列表</h1>
+<p class="zw">在你能够开始编写程序之前，还有一个主题需要理解，那就是列表数据类型及元组。列表和元组可以包含多个值，这样编写程序来处理大量数据就变得更容易。而且，由于列表本身又可以包含其他列表，所以可以用它们将数据安排成层次结构。</p>
+<p class="zw">本章将探讨列表的基础知识。我也会讲授关于方法的内容。方法也是函数，它们与特定数据类型的值绑定。然后我会简单介绍类似列表的元组和字符串数据类型，以及它们与列表值的比较。下一章将介绍字典数据类型。</p>
+<h2 id="nav_point_84">4.1 列表数据类型</h2>
+<p class="zw">“列表”是一个值，它包含多个字构成的序列。术语“列表值”指的是列表本身（它作为一个值，可以保存在变量中，或传递给函数，像所有其他值一样），而不是指列表值之内的那些值。列表值看起来像这样：['cat', 'bat', 'rat', 'elephant']。就像字符串值用引号来标记字符串的起止一样，列表用左方括号开始，右方括号结束，即[]。列表中的值也称为“表项”。表项用逗号分隔（就是说，它们是“逗号分隔的”）。例如，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code> &gt;&gt;&gt; <strong>[1, 2, 3]</strong>
+ [1, 2, 3]
+ &gt;&gt;&gt; <strong>['cat', 'bat', 'rat', 'elephant']</strong>
+ ['cat', 'bat', 'rat', 'elephant']
+ &gt;&gt;&gt; <strong>['hello', 3.1415, True, None, 42]</strong>
+ ['hello', 3.1415, True, None, 42]
+❶ &gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
+ &gt;&gt;&gt; <strong>spam</strong>
+ ['cat', 'bat', 'rat', 'elephant']
+</code>
+</pre>
+<p class="zw">spam变量❶仍然只被赋予一个值：列表值。但列表值本身包含多个值。[]是一个空列表，不包含任何值，类似于空字符串''。</p>
+<h3 id="nav_point_85">4.1.1 用下标取得列表中的单个值</h3>
+<p class="zw">假定列表['cat', 'bat', 'rat', 'elephant']保存在名为spam的变量中。Python代码spam[0]将求值为'cat'，spam[1]将求值为'bat'，依此类推。列表后面方括号内的整数被称为“下标”。列表中第一个值的下标是0，第二个值的下标是1，第三个值的下标是2，依此类推。图4-1展示了一个赋给spam的列表值，以及下标表达式的求值结果。</p>
+<p class="图"><img alt="0401" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00083.jpg"/>
+</p>
+<p class="图题">图4-1 一个列表值保存在spam变量中，展示了每个下标指向哪个值</p>
+<p class="zw">例如，在交互式环境中输入以下表达式。开始将列表赋给变量spam。</p>
+<pre class="代码无行号"><code> &gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
+ &gt;&gt;&gt; <strong>spam[0]</strong>
+ 'cat'
+ &gt;&gt;&gt; <strong>spam[1]</strong>
+ 'bat'
+ &gt;&gt;&gt; <strong>spam[2]</strong>
+ 'rat'
+ &gt;&gt;&gt; <strong>spam[3]</strong>
+ 'elephant'
+ &gt;&gt;&gt; <strong>['cat', 'bat', 'rat', 'elephant'][3]</strong>
+ 'elephant'
+❶ &gt;&gt;&gt; <strong>'Hello ' + spam[0]</strong>
+❷ 'Hello cat'
+ &gt;&gt;&gt; <strong>'The ' + spam[1] + ' ate the ' + spam[0] + '.'</strong>
+ 'The bat ate the cat.'
+</code>
+</pre>
+<p class="zw">请注意，表达式'Hello ' + spam[0] ❶求值为'Hello ' + 'cat'，因为spam[0]求值为字符串'cat'。这个表达式也因此求值为字符串'Hello cat'❷。</p>
+<p class="zw">如果使用的下标超出了列表中值的个数，Python将给出IndexError出错信息。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
+&gt;&gt;&gt; <strong>spam[10000]</strong>
+Traceback (most recent call last):
+  File "&lt;pyshell#9&gt;", line 1, in &lt;module&gt;
+    spam[10000]
+IndexError: list index out of range
+</code>
+</pre>
+<p class="zw">下标只能是整数，不能是浮点值。下面的例子将导致TypeError错误：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
+&gt;&gt;&gt; <strong>spam[1]</strong>
+'bat'
+&gt;&gt;&gt; <strong>spam[1.0]</strong>
+Traceback (most recent call last):
+  File "&lt;pyshell#13&gt;", line 1, in &lt;module&gt;
+    spam[1.0]
+TypeError: list indices must be integers, not float
+&gt;&gt;&gt; <strong>spam[int(1.0)]</strong>
+'bat'
+</code>
+</pre>
+<p class="zw">列表也可以包含其他列表值。这些列表的列表中的值，可以通过多重下标来访问，像这样：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = [['cat', 'bat'], [10, 20, 30, 40, 50]]</strong>
+&gt;&gt;&gt; <strong>spam[0]</strong>
+['cat', 'bat']
+&gt;&gt;&gt; <strong>spam[0][1]</strong>
+'bat'
+&gt;&gt;&gt; <strong>spam[1][4]</strong>
+50
+</code>
+</pre>
+<p class="zw">第一个下标表明使用哪个列表值，第二个下标表明该列表值中的值。例如，spam[0][1]打印出'bat'，即第一个列表中的第二个值。如果只使用一个下标，程序将打印出该下标处的完整列表值。</p>
+<h3 id="nav_point_86">4.1.2 负数下标</h3>
+<p class="zw">虽然下标从0开始并向上增长，但也可以用负整数作为下标。整数值−1指的是列表中的最后一个下标，−2指的是列表中倒数第二个下标，以此类推。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
+&gt;&gt;&gt; <strong>spam[-1]</strong>
+'elephant'
+&gt;&gt;&gt; <strong>spam[-3]</strong>
+'bat'
+&gt;&gt;&gt; <strong>'The ' + spam[-1] + ' is afraid of the ' + spam[-3] + '.'</strong>
+'The elephant is afraid of the bat.'
+</code>
+</pre>
+<h3 id="nav_point_87">4.1.3 利用切片取得子列表</h3>
+<p class="zw">就像下标可以从列表中取得单个值一样，“切片”可以从列表中取得多个值，结果是一个新列表。切片输入在一对方括号中，像下标一样，但它有两个冒号分隔的整数。请注意下标和切片的不同。</p>
+<ul>
+<li class="第1级无序列表">spam[2]是一个列表和下标（一个整数）。</li>
+<li class="第1级无序列表">spam[1:4]是一个列表和切片（两个整数）。</li>
+</ul>
+<p class="zw">在一个切片中，第一个整数是切片开始处的下标。第二个整数是切片结束处的下标。切片向上增长，直至第二个下标的值，但不包括它。切片求值为一个新的列表值。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
+&gt;&gt;&gt; <strong>spam[0:4]</strong>
+['cat', 'bat', 'rat', 'elephant']
+&gt;&gt;&gt; <strong>spam[1:3]</strong>
+['bat', 'rat']
+&gt;&gt;&gt; <strong>spam[0:-1]</strong>
+['cat', 'bat', 'rat']
+</code>
+</pre>
+<p class="zw">作为快捷方法，你可以省略切片中冒号两边的一个下标或两个下标。省略第一个下标相当于使用0，或列表的开始。省略第二个下标相当于使用列表的长度，意味着切片直至列表的末尾。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
+&gt;&gt;&gt; <strong>spam[:2]</strong>
+['cat', 'bat']
+&gt;&gt;&gt; <strong>spam[1:]</strong>
+['bat', 'rat', 'elephant']
+&gt;&gt;&gt; <strong>spam[:]</strong>
+['cat', 'bat', 'rat', 'elephant']
+</code>
+</pre>
+<h3 id="nav_point_88">4.1.4 用len()取得列表的长度</h3>
+<p class="zw">len()函数将返回传递给它的列表中值的个数，就像它能计算字符串中字符的个数一样。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'dog', 'moose']</strong>
+&gt;&gt;&gt; <strong>len(spam)</strong>
+3
+</code>
+</pre>
+<h3 id="nav_point_89">4.1.5 用下标改变列表中的值</h3>
+<p class="zw">一般情况下，赋值语句左边是一个变量名，就像spam = 4。但是，也可以使用列表的下标来改变下标处的值。例如，spam[1] = 'aardvark'意味着“将列表spam下标1处的值赋值为字符串'aardvark'。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
+&gt;&gt;&gt; <strong>spam[1] = 'aardvark'</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+['cat', 'aardvark', 'rat', 'elephant']
+&gt;&gt;&gt; <strong>spam[2] = spam[1]</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+['cat', 'aardvark', 'aardvark', 'elephant']
+&gt;&gt;&gt; <strong>spam[-1] = 12345</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+['cat', 'aardvark', 'aardvark', 12345]
+</code>
+</pre>
+<h3 id="nav_point_90">4.1.6 列表连接和列表复制</h3>
+<p class="zw">+操作符可以连接两个列表，得到一个新列表，就像它将两个字符串合并成一个新字符串一样。*操作符可以用于一个列表和一个整数，实现列表的复制。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>[1, 2, 3] + ['A', 'B', 'C']</strong>
+[1, 2,  3,  'A',  'B',  'C']
+&gt;&gt;&gt; <strong>['X', 'Y', 'Z'] * 3</strong>
+['X', 'Y', 'Z', 'X', 'Y', 'Z', 'X', 'Y', 'Z']
+&gt;&gt;&gt; <strong>spam = [1, 2, 3]</strong>
+&gt;&gt;&gt; <strong>spam = spam + ['A', 'B', 'C']</strong>
+&gt;&gt;&gt; spam
+[1, 2, 3, 'A', 'B', 'C']
+</code>
+</pre>
+<h3 id="nav_point_91">4.1.7 用del语句从列表中删除值</h3>
+<p class="zw">del语句将删除列表中下标处的值，表中被删除值后面的所有值，都将向前移动一个下标。例如，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
+&gt;&gt;&gt; <strong>del spam[2]</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+['cat', 'bat', 'elephant']
+&gt;&gt;&gt; <strong>del spam[2]</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+['cat', 'bat']
+</code>
+</pre>
+<p class="zw">del语句也可用于一个简单变量，删除它，作用就像是“取消赋值”语句。如果在删除之后试图使用该变量，就会遇到NameError错误，因为该变量已不再存在。</p>
+<p class="zw">在实践中，你几乎永远不需要删除简单变量。del语句几乎总是用于删除列表中的值。</p>
+<h2 id="nav_point_92">4.2 使用列表</h2>
+<p class="zw">当你第一次开始编程时，很容易会创建许多独立的变量，来保存一组类似的值。例如，如果要保存我的猫的名字，可能会写出这样的代码：</p>
+<pre class="代码无行号"><code>catName1 = 'Zophie'
+catName2 = 'Pooka'
+catName3 = 'Simon'
+catName4 = 'Lady Macbeth'
+catName5 = 'Fat-tail'
+catName6 = 'Miss Cleo'</code>
+</pre>
+<p class="zw">事实表明这是一种不好的编程方式。举一个例子，如果猫的数目发生改变，程序就不得不增加变量，来保存更多的猫。这种类型的程序也有很多重复或几乎相等的代码。考虑下面的程序中有多少重复代码，在文本编辑器中输入它并保存为allMyCats1.py：</p>
+<pre class="代码无行号"><code>print('Enter the name of cat 1:')
+catName1 = input()
+print('Enter the name of cat 2:')
+catName2 = input()
+print('Enter the name of cat 3:')
+catName3 = input()
+print('Enter the name of cat 4:')
+catName4 = input()
+print('Enter the name of cat 5:')
+catName5 = input()
+print('Enter the name of cat 6:')
+catName6 = input()
+print('The cat names are:')
+print(catName1 + ' ' + catName2 + ' ' + catName3 + ' ' + catName4 + ' ' +
+catName5 + ' ' + catName6)</code>
+</pre>
+<p class="zw">不必使用多个重复的变量，你可以使用单个变量，包含一个列表值。例如，下面是新的改进版本的allMyCats1.py程序。这个新版本使用了一个列表，可以保存用户输入的任意多的猫。在新的文件编辑器窗口中，输入以下代码并保存为allMyCats2.py。</p>
+<pre class="代码无行号"><code>catNames = []
+while True:
+    print('Enter the name of cat ' + str(len(catNames) + 1) +
+      ' (Or enter nothing to stop.):')
+    name = input()
+    if name == '':
+        break
+    catNames = catNames + [name] # list concatenation
+print('The cat names are:')
+for name in catNames:
+    print(' ' + name)</code>
+</pre>
+<p class="zw">运行这个程序，输出看起来像这样：</p>
+<pre class="代码无行号"><code>Enter the name of cat 1 (Or enter nothing to stop.):
+<strong>Zophie</strong>
+Enter the name of cat 2 (Or enter nothing to stop.):
+<strong>Pooka</strong>
+Enter the name of cat 3 (Or enter nothing to stop.):
+<strong>Simon</strong>
+Enter the name of cat 4 (Or enter nothing to stop.):
+<strong>Lady Macbeth</strong>
+Enter the name of cat 5 (Or enter nothing to stop.):
+<strong>Fat-tail</strong>
+Enter the name of cat 6 (Or enter nothing to stop.):
+<strong>Miss Cleo</strong>
+Enter the name of cat 7 (Or enter nothing to stop.):
+The cat names are:
+  Zophie
+  Pooka
+  Simon
+  Lady Macbeth
+  Fat-tail
+  Miss Cleo
+</code>
+</pre>
+<p class="zw">使用列表的好处在于，现在数据放在一个结构中，所以程序能够更灵活的处理数据，比放在一些重复的变量中方便。</p>
+<h3 id="nav_point_93">4.2.1 列表用于循环</h3>
+<p class="zw">在第2章中，你学习了使用循环，对一段代码执行一定次数。从技术上说，循环是针对一个列表或类似列表中的每个值，重复地执行代码块。例如，如果执行以下代码：</p>
+<pre class="代码无行号"><code>for i in range(4):
+    print(i)</code>
+</pre>
+<p class="zw">程序的输出将是：</p>
+<pre class="代码无行号"><code>0
+1
+2
+3</code>
+</pre>
+<p class="zw">这是因为range(4)的返回值是类似列表的值。Python认为它类似于[0, 1, 2, 3]。下面的程序和前面的程序输出相同：</p>
+<pre class="代码无行号"><code>for i in [0, 1, 2, 3]:
+    print(i)</code>
+</pre>
+<p class="zw">前面的for循环实际上是在循环执行它的子句，在每次迭代中，让变量依次设置为列表中的值。</p>
+<p class="editing-tag 提示标签">注意</p>
+<blockquote class="提示 editing-block">
+<p class="zw"><br/>
+</p>
+在本书中，我使用术语“类似列表”，来指技术上称为“序列”的数据类型。但是，你不需要知道这个术语的技术定义。</blockquote>
+<p class="zw">一个常见的Python技巧，是在for循环中使用range(len(someList))，迭代列表的每一个下标。例如，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>supplies = ['pens', 'staplers', 'flame-throwers', 'binders']</strong>
+&gt;&gt;&gt; <strong>for i in range(len(supplies)):</strong>
+    <strong>print('Index ' + str(i) + ' in supplies is: ' + supplies[i])</strong>
+<strong>　</strong>
+Index 0 in supplies is: pens
+Index 1 in supplies is: staplers
+Index 2 in supplies is: flame-throwers
+Index 3 in supplies is: binders
+</code>
+</pre>
+<p class="zw">在前面的循环中使用range(len(supplies))很方便，这是因为，循环中的代码可以访问下标（通过变量i），以及下标处的值（通过supplies[i]）。最妙的是，range(len(supplies))将迭代supplies的所有下标，无论它包含多少表项。</p>
+<h3 id="nav_point_94">4.2.2 in和not in操作符</h3>
+<p class="zw">利用in和not in操作符，可以确定一个值是否在列表中。像其他操作符一样，in和not in用在表达式中，连接两个值：一个要在列表中查找的值，以及待查找的列表。这些表达式将求值为布尔值。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>'howdy' in ['hello', 'hi', 'howdy', 'heyas']</strong>
+True
+&gt;&gt;&gt; <strong>spam = ['hello', 'hi', 'howdy', 'heyas']</strong>
+&gt;&gt;&gt; <strong>'cat' in spam</strong>
+False
+&gt;&gt;&gt; <strong>'howdy' not in spam</strong>
+False
+&gt;&gt;&gt; <strong>'cat' not in spam</strong>
+True
+</code>
+</pre>
+<p class="zw">例如，下面的程序让用户输入一个宠物名字，然后检查该名字是否在宠物列表中。打开一个新的文件编辑器窗口，输入以下代码，并保存为myPets.py：</p>
+<pre class="代码无行号"><code>myPets = ['Zophie', 'Pooka', 'Fat-tail']
+print('Enter a pet name:')
+name = input()
+if name not in myPets:
+    print('I do not have a pet named ' + name)
+else:
+    print(name + ' is my pet.')</code>
+</pre>
+<p class="zw">输出可能像这样：</p>
+<pre class="代码无行号"><code>Enter a pet name:
+<strong>Footfoot</strong>
+I do not have a pet named Footfoot
+</code>
+</pre>
+<h3 id="nav_point_95">4.2.3 多重赋值技巧</h3>
+<p class="zw">多重赋值技巧是一种快捷方式，让你在一行代码中，用列表中的值为多个变量赋值。所以不必像这样：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>cat = ['fat', 'black', 'loud']</strong>
+&gt;&gt;&gt; <strong>size = cat[0]</strong>
+&gt;&gt;&gt; <strong>color = cat[1]</strong>
+&gt;&gt;&gt; <strong>disposition = cat[2]</strong>
+</code>
+</pre>
+<p class="zw">而是输入下面的代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>cat = ['fat', 'black', 'loud']</strong>
+&gt;&gt;&gt; <strong>size, color, disposition = cat</strong>
+</code>
+</pre>
+<p class="zw">变量的数目和列表的长度必须严格相等，否则Python将给出ValueError：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>cat = ['fat', 'black', 'loud']</strong>
+&gt;&gt;&gt; <strong>size, color, disposition, name = cat</strong>
+Traceback (most recent call last):
+  File "&lt;pyshell#84&gt;", line 1, in &lt;module&gt;
+    size, color, disposition, name = cat
+ValueError: need more than 3 values to unpack
+</code>
+</pre>
+<h2 id="nav_point_96">4.3 增强的赋值操作</h2>
+<p class="zw">在对变量赋值时，常常会用到变量本身。例如，将42赋给变量spam之后，用下面的代码让spam的值增加1：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = 42</strong>
+&gt;&gt;&gt; <strong>spam = spam + 1</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+43</code>
+</pre>
+<p class="zw">作为一种快捷方式，可以用增强的赋值操作符+=来完成同样的事：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = 42</strong>
+&gt;&gt;&gt; <strong>spam += 1</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+43
+</code>
+</pre>
+<p class="zw">针对+、-、*、/和%操作符，都有增强的赋值操作符，如表4-1所示。</p>
+<p class="表题">表4-1 增强的赋值操作符</p>
+<table border="1" width="90%">
+<thead>
+<tr>
+<th>
+<p class="表头单元格">增强的赋值语句</p>
+</th>
+<th>
+<p class="表头单元格">等价的赋值语句</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p class="表格单元格">spam += 1</p>
+</td>
+<td>
+<p class="表格单元格">spam = spam + 1</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">spam -= 1</p>
+</td>
+<td>
+<p class="表格单元格">spam = spam - 1</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">spam *= 1</p>
+</td>
+<td>
+<p class="表格单元格">spam = spam * 1</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">spam /= 1</p>
+</td>
+<td>
+<p class="表格单元格">spam = spam / 1</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">spam %= 1</p>
+</td>
+<td>
+<p class="表格单元格">spam = spam % 1</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="zw">+=操作符也可以完成字符串和列表的连接，*=操作符可以完成字符串和列表的复制。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = 'Hello'</strong>
+&gt;&gt;&gt; <strong>spam += ' world!'</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+'Hello world!'
+&gt;&gt;&gt; <strong>bacon = ['Zophie']</strong>
+&gt;&gt;&gt; <strong>bacon *= 3</strong>
+&gt;&gt;&gt; <strong>bacon</strong>
+['Zophie', 'Zophie', 'Zophie']
+</code>
+</pre>
+<h2 id="nav_point_97">4.4 方法</h2>
+<p class="zw">方法和函数是一回事，只是它是调用在一个值上。例如，如果一个列表值存储在spam中，你可以在这个列表上调用index()列表方法（稍后我会解释），就像spam.index('hello')一样。方法部分跟在这个值后面，以一个句点分隔。</p>
+<p class="zw">每种数据类型都有它自己的一组方法。例如，列表数据类型有一些有用的方法，用来查找、添加、删除或操作列表中的值。</p>
+<h3 id="nav_point_98">4.4.1 用index()方法在列表中查找值</h3>
+<p class="zw">列表值有一个index()方法，可以传入一个值，如果该值存在于列表中，就返回它的下标。如果该值不在列表中，Python就报ValueError。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['hello', 'hi', 'howdy', 'heyas']</strong>
+&gt;&gt;&gt; <strong>spam.index('hello')</strong>
+0
+&gt;&gt;&gt; <strong>spam.index('heyas')</strong>
+3
+&gt;&gt;&gt; <strong>spam.index('howdy howdy howdy')</strong>
+Traceback (most recent call last):
+  File "&lt;pyshell#31&gt;", line 1, in &lt;module&gt;
+    spam.index('howdy howdy howdy')
+ValueError: 'howdy howdy howdy' is not in list
+</code>
+</pre>
+<p class="zw">如果列表中存在重复的值，就返回它第一次出现的下标。在交互式环境中输入以下代码，注意index()返回1，而不是3：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['Zophie', 'Pooka', 'Fat-tail', 'Pooka']</strong>
+&gt;&gt;&gt; <strong>spam.index('Pooka')</strong>
+1
+</code>
+</pre>
+<h3 id="nav_point_99">4.4.2 用append()和insert()方法在列表中添加值</h3>
+<p class="zw">要在列表中添加新值，就使用append()和 insert()方法。在交互式环境中输入以下代码，对变量spam中的列表调用append()方法：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'dog', 'bat']</strong>
+&gt;&gt;&gt; <strong>spam.append('moose')</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+['cat', 'dog', 'bat', 'moose']
+</code>
+</pre>
+<p class="zw">前面的append()方法调用，将参数添加到列表末尾。insert()方法可以在列表任意下标处插入一个值。insert()方法的第一个参数是新值的下标，第二个参数是要插入的新值。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'dog', 'bat']</strong>
+&gt;&gt;&gt; <strong>spam.insert(1, 'chicken')</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+['cat', 'chicken', 'dog', 'bat']
+</code>
+</pre>
+<p class="zw">请注意，代码是spam.append('moose')和spam.insert(1, 'chicken')，而不是spam = spam.append('moose')和spam = spam.insert(1, 'chicken')。append()和insert()都不会将spam的新值作为其返回值（实际上，append()和insert()的返回值是None，所以你肯定不希望将它保存为变量的新值）。但是，列表被“当场”修改了。在4.6.1节“可变和不变数据类型”中，将更详细地介绍当场修改一个列表。</p>
+<p class="zw">方法属于单个数据类型。append()和insert()方法是列表方法，只能在列表上调用，不能在其他值上调用，例如字符串和整型。在交互式环境中输入以下代码，注意产生的AttributeError错误信息：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>eggs = 'hello'</strong>
+&gt;&gt;&gt; <strong>eggs.append('world')</strong>
+Traceback (most recent call last):
+  File "&lt;pyshell#19&gt;", line 1, in &lt;module&gt;
+    eggs.append('world')
+AttributeError: 'str' object has no attribute 'append'
+&gt;&gt;&gt; <strong>bacon = 42</strong>
+&gt;&gt;&gt; <strong>bacon.insert(1, 'world')</strong>
+Traceback (most recent call last):
+  File "&lt;pyshell#22&gt;", line 1, in &lt;module&gt;
+    bacon.insert(1, 'world')
+AttributeError: 'int' object has no attribute 'insert'
+</code>
+</pre>
+<h3 id="nav_point_100">4.4.3 用remove()方法从列表中删除值</h3>
+<p class="zw">给 remove()方法传入一个值，它将从被调用的列表中删除。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
+&gt;&gt;&gt; <strong>spam.remove('bat')</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+['cat', 'rat', 'elephant']
+</code>
+</pre>
+<p class="zw">试图删除列表中不存在的值，将导致ValueError错误。例如，在交互式环境中输入以下代码，注意显示的错误：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
+&gt;&gt;&gt; <strong>spam.remove('chicken')</strong>
+Traceback (most recent call last):
+  File "&lt;pyshell#11&gt;", line 1, in &lt;module&gt;
+    spam.remove('chicken')
+ValueError: list.remove(x): x not in list
+</code>
+</pre>
+<p class="zw">如果该值在列表中出现多次，只有第一次出现的值会被删除。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'cat', 'hat', 'cat']</strong>
+&gt;&gt;&gt; <strong>spam.remove('cat')</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+['bat', 'rat', 'cat', 'hat', 'cat']
+</code>
+</pre>
+<p class="zw">如果知道想要删除的值在列表中的下标，del语句就很好用。如果知道想要从列表中删除的值，remove()方法就很好用。</p>
+<h3 id="nav_point_101">4.4.4 用sort()方法将列表中的值排序</h3>
+<p class="zw">数值的列表或字符串的列表，能用sort()方法排序。例如，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = [2, 5, 3.14, 1, -7]</strong>
+&gt;&gt;&gt; <strong>spam.sort()</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+[-7, 1, 2, 3.14, 5]
+&gt;&gt;&gt; <strong>spam = ['ants', 'cats', 'dogs', 'badgers', 'elephants']</strong>
+&gt;&gt;&gt; <strong>spam.sort()</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+['ants', 'badgers', 'cats', 'dogs', 'elephants']
+</code>
+</pre>
+<p class="zw">也可以指定reverse关键字参数为True，让sort()按逆序排序。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam.sort(reverse=True)</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+['elephants', 'dogs', 'cats', 'badgers', 'ants']
+</code>
+</pre>
+<p class="zw">关于sort()方法，你应该注意3件事。首先，sort()方法当场对列表排序。不要写出spam = spam.sort()这样的代码，试图记录返回值。</p>
+<p class="zw">其次，不能对既有数字又有字符串值的列表排序，因为Python不知道如何比较它们。在交互式环境中输入以下代码，注意TypeError错误：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = [1, 3, 2, 4, 'Alice', 'Bob']</strong>
+&gt;&gt;&gt; <strong>spam.sort()</strong>
+Traceback (most recent call last):
+  File "&lt;pyshell#70&gt;", line 1, in &lt;module&gt;
+    spam.sort()
+TypeError: unorderable types: str() &lt; int()
+</code>
+</pre>
+<p class="zw">第三，sort()方法对字符串排序时，使用“ASCII字符顺序”，而不是实际的字典顺序。这意味着大写字母排在小写字母之前。因此在排序时，小写的a在大写的Z之后。例如，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['Alice', 'ants', 'Bob', 'badgers', 'Carol', 'cats']</strong>
+&gt;&gt;&gt; <strong>spam.sort()</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+['Alice', 'Bob', 'Carol', 'ants', 'badgers', 'cats']
+</code>
+</pre>
+<p class="zw">如果需要按照普通的字典顺序来排序，就在sort()方法调用时，将关键字参数key设置为str.lower。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['a', 'z', 'A', 'Z']</strong>
+&gt;&gt;&gt; <strong>spam.sort(key=str.lower)</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+['a', 'A', 'z', 'Z']
+</code>
+</pre>
+<p class="zw">这将导致sort()方法将列表中所有的表项当成小写，但实际上并不会改变它们在列表中的值。</p>
+<h2 id="nav_point_102">4.5 例子程序：神奇8球和列表</h2>
+<p class="zw">前一章我们写过神奇8球程序。利用列表，可以写出更优雅的版本。不是用一些几乎一样的elif语句，而是创建一个列表，针对它编码。打开一个新的文件编辑器窗口，输入以下代码，并保存为magic8Ball2.py：</p>
+<pre class="代码无行号"><code>import random
+messages = ['It is certain',
+    'It is decidedly so',
+    'Yes definitely',
+    'Reply hazy try again',
+    'Ask again later',
+    'Concentrate and ask again',
+    'My reply is no',
+    'Outlook not so good',
+    'Very doubtful']
+print(messages[random.randint(0, len(messages) - 1)])</code>
+</pre>
+<p class="editing-tag 超强提示标签">Python中缩进规则的例外</p>
+<blockquote class="超强提示 editing-block">
+<p class="zw"><br/>
+</p>
+<p class="zw">在大多数情况下，代码行的缩进告诉Python它属于哪一个代码块。但是，这个规则有几个例外。例如在源代码文件中，列表实际上可以跨越几行。这些行的缩进并不重要。Python知道，没有看到结束方括号，列表就没有结束。例如，代码可以看起来像这样：</p>
+<pre class="代码无行号"><code>spam = ['apples',
+    'oranges',
+                    'bananas',
+'cats']
+print(spam)</code>
+</pre>
+<p class="zw">当然，从实践的角度来说，大部分人会利用Python的行为，让他们的列表看起来漂亮且可读，就像神奇8球程序中的消息列表一样。</p>
+<p class="zw">也可以在行末使用续行字符\，将一条指令写成多行。可以把\看成是“这条指令在下一行继续”。\续行字符之后的一行中，缩进并不重要。例如，下面是有效的Python代码：</p>
+<pre class="代码无行号"><code>print('Four score and seven ' + \
+      'years ago...')</code>
+</pre>
+<p class="zw">如果希望将一长行的Python代码安排得更为可读，这些技巧是有用的。</p>
+</blockquote>
+<p class="zw">运行这个程序，你会看到它与前面的magic8Ball.py程序效果一样。</p>
+<p class="zw">请注意用作messages下标的表达式：random.randint(0, len(messages) - 1)。这产生了一个随机数作为下标，不论messages的大小是多少。也就是说，你会得到0与len(messages) - 1之间的一个随机数。这种方法的好处在于，很容易向列表添加或删除字符串，而不必改变其他行的代码。如果稍后更新代码，就可以少改几行代码，引入缺陷的可能性也更小。</p>
+<h2 id="nav_point_103">4.6 类似列表的类型：字符串和元组</h2>
+<p class="zw">列表并不是唯一表示序列值的数据类型。例如，字符串和列表实际上很相似，只要你认为字符串是单个文本字符的列表。对列表的许多操作，也可以作用于字符串：按下标取值、切片、用于for循环、用于len()，以及用于in和not in操作符。为了看到这种效果，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>name = 'Zophie'</strong>
+&gt;&gt;&gt; <strong>name[0]</strong>
+'Z'
+&gt;&gt;&gt; <strong>name[-2]</strong>
+'i'
+&gt;&gt;&gt; <strong>name[0:4]</strong>
+'Zoph'
+&gt;&gt;&gt; <strong>'Zo' in name</strong>
+True
+&gt;&gt;&gt; <strong>'z' in name</strong>
+False
+&gt;&gt;&gt; <strong>'p' not in name</strong>
+False
+&gt;&gt;&gt; <strong>for i in name:</strong>
+        <strong>print('* * * ' + i + ' * * *')</strong>
+<strong>　</strong>
+* * * Z * * *
+* * * o * * *
+* * * p * * *
+* * * h * * *
+* * * i * * *
+* * * e * * *
+</code>
+</pre>
+<h3 id="nav_point_104">4.6.1 可变和不可变数据类型</h3>
+<p class="zw">但列表和字符串在一个重要的方面是不同的。列表是“可变的”数据类型，它的值可以添加、删除或改变。但是，字符串是“不可变的”，它不能被更改。尝试对字符串中的一个字符重新赋值，将导致TypeError错误。在交互式环境中输入以下代码，你就会看到：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>name = 'Zophie a cat'</strong>
+&gt;&gt;&gt; <strong>name[7] = 'the'</strong>
+Traceback (most recent call last):
+  File "&lt;pyshell#50&gt;", line 1, in &lt;module&gt;
+    name[7] = 'the'
+TypeError: 'str' object does not support item assignment
+</code>
+</pre>
+<p class="zw">“改变”一个字符串的正确方式，是使用切片和连接。构造一个“新的”字符串，从老的字符串那里复制一些部分。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>name = 'Zophie a cat'</strong>
+&gt;&gt;&gt; <strong>newName = name[0:7] + 'the' + name[8:12]</strong>
+&gt;&gt;&gt; <strong>name</strong>
+'Zophie a cat'
+&gt;&gt;&gt; <strong>newName</strong>
+'Zophie the cat'
+</code>
+</pre>
+<p class="zw">我们用[0:7]和[8:12]来指那些不想替换的字符。请注意，原来的'Zophie a cat'字符串没有被修改，因为字符串是不可变的。尽管列表值是可变的，但下面代码中的第二行并没有修改列表eggs：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>eggs = [1, 2, 3]</strong>
+&gt;&gt;&gt; <strong>eggs = [4, 5, 6]</strong>
+&gt;&gt;&gt; <strong>eggs</strong>
+[4, 5, 6]
+</code>
+</pre>
+<p class="zw">这里eggs中的列表值并没有改变，而是整个新的不同的列表值([4, 5, 6])，覆写了老的列表值。如图4-2所示。</p>
+<p class="图"><img alt="0402" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00084.jpg"/>
+</p>
+<p class="图题">图4-2 当eggs = [4, 5, 6]被执行时，eggs的内容被新的列表值取代</p>
+<p class="zw">如果你确实希望修改eggs中原来的列表，让它包含[4, 5, 6]，就要这样做：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>eggs = [1, 2, 3]</strong>
+&gt;&gt;&gt; <strong>del eggs[2]</strong>
+&gt;&gt;&gt; <strong>del eggs[1]</strong>
+&gt;&gt;&gt; <strong>del eggs[0]</strong>
+&gt;&gt;&gt; <strong>eggs.append(4)</strong>
+&gt;&gt;&gt; <strong>eggs.append(5)</strong>
+&gt;&gt;&gt; <strong>eggs.append(6)</strong>
+&gt;&gt;&gt; <strong>eggs</strong>
+[4, 5, 6]
+</code>
+</pre>
+<p class="zw">在第一个例子中，eggs最后的列表值与它开始的列表值是一样的。只是这个列表被改变了，而不是被覆写。图4-3展示了前面交互式脚本的例子中，前7行代码所做的7次改动。</p>
+<p class="图"><img alt="0403" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00085.jpg"/>
+</p>
+<p class="图题">图4-3 del语句和append()方法当场修改了同一个列表值</p>
+<p class="zw">改变一个可变数据类型的值（就像前面例子中del语句和append()方法所做的事），当场改变了该值，因为该变量的值没有被一个新的列表值取代。</p>
+<p class="zw">区分可变与不可变类型，似乎没有什么意义，但4.7.1节“传递引用”将解释，使用可变参数和不可变参数调用函数时产生的不同行为。首先，让我们来看看元组数据类型，它是列表数据类型的不可变形式。</p>
+<h3 id="nav_point_105">4.6.2 元组数据类型</h3>
+<p class="zw">除了两个方面，“元组”数据类型几乎与列表数据类型一样。首先，元组输入时用圆括号()，而不是用方括号[]。例如，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>eggs = ('hello', 42, 0.5)</strong>
+&gt;&gt;&gt; <strong>eggs[0]</strong>
+'hello'
+&gt;&gt;&gt; <strong>eggs[1:3]</strong>
+(42, 0.5)
+&gt;&gt;&gt; <strong>len(eggs)</strong>
+3
+</code>
+</pre>
+<p class="zw">但元组与列表的主要区别还在于，元组像字符串一样，是不可变的。元组不能让它们的值被修改、添加或删除。在交互式环境中输入以下代码，注意TypeError出错信息：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>eggs = ('hello', 42, 0.5)</strong>
+&gt;&gt;&gt; <strong>eggs[1] = 99</strong>
+Traceback (most recent call last):
+  File "&lt;pyshell#5&gt;", line 1, in &lt;module&gt;
+    eggs[1] = 99
+TypeError: 'tuple' object does not support item assignment
+</code>
+</pre>
+<p class="zw">如果元组中只有一个值，你可以在括号内该值的后面跟上一个逗号，表明这种情况。否则，Python将认为，你只是在一个普通括号内输入了一个值。逗号告诉Python，这是一个元组（不像其他编程语言，Python接受列表或元组中最后表项后面跟的逗号）。在交互式环境中，输入以下的type()函数调用，看看它们的区别：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>type(('hello',))</strong>
+&lt;class 'tuple'&gt;
+&gt;&gt;&gt; <strong>type(('hello'))</strong>
+&lt;class 'str'&gt;
+</code>
+</pre>
+<p class="zw">你可以用元组告诉所有读代码的人，你不打算改变这个序列的值。如果需要一个永远不会改变的值的序列，就使用元组。使用元组而不是列表的第二个好处在于，因为它们是不可变的，它们的内容不会变化，Python可以实现一些优化，让使用元组的代码比使用列表的代码更快。</p>
+<h3 id="nav_point_106">4.6.3 用list()和tuple()函数来转换类型</h3>
+<p class="zw">正如str(42)将返回'42'，即整数42的字符串表示形式，函数list()和tuple()将返回传递给它们的值的列表和元组版本。在交互式环境中输入以下代码，注意返回值与传入值是不同的数据类型：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>tuple(['cat', 'dog', 5])</strong>
+('cat', 'dog', 5)
+&gt;&gt;&gt; <strong>list(('cat', 'dog', 5))</strong>
+['cat', 'dog', 5]
+&gt;&gt;&gt; <strong>list('hello')</strong>
+['h', 'e', 'l', 'l', 'o']
+</code>
+</pre>
+<p class="zw">如果需要元组值的一个可变版本，将元组转换成列表就很方便。</p>
+<h2 id="nav_point_107">4.7 引用</h2>
+<p class="zw">正如你看到的，变量保存字符串和整数值。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = 42</strong>
+&gt;&gt;&gt; <strong>cheese = spam</strong>
+&gt;&gt;&gt; <strong>spam = 100</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+100
+&gt;&gt;&gt; <strong>cheese</strong>
+42
+</code>
+</pre>
+<p class="zw">你将42赋给spam变量，然后拷贝spam中的值，将它赋给变量cheese。当稍后将spam中的值改变为100时，这不会影响cheese中的值。这是因为spam和cheese是不同的变量，保存了不同的值。</p>
+<p class="zw">但列表不是这样的。当你将列表赋给一个变量时，实际上是将列表的“引用”赋给了该变量。引用是一个值，指向某些数据。列表引用是指向一个列表的值。这里有一些代码，让这个概念更容易理解。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>❶ &gt;&gt;&gt; <strong>spam = [0, 1, 2, 3, 4, 5]</strong>
+❷ &gt;&gt;&gt; <strong>cheese = spam</strong>
+❸ &gt;&gt;&gt; <strong>cheese[1] = 'Hello!'</strong>
+　&gt;&gt;&gt; <strong>spam</strong>
+　[0, 'Hello!', 2, 3, 4, 5]
+　&gt;&gt;&gt; <strong>cheese</strong>
+　[0, 'Hello!', 2, 3, 4, 5]
+</code>
+</pre>
+<p class="zw">这可能让你感到奇怪。代码只改变了cheese列表，但似乎cheese和spam列表同时发生了改变。</p>
+<p class="zw">当创建列表时❶，你将对它的引用赋给了变量。但下一行❷只是将spam中的列表引用拷贝到cheese，而不是列表值本身。这意味着存储在spam和cheese中的值，现在指向了同一个列表。底下只有一个列表，因为列表本身实际从未复制。所以当你修改cheese变量的第一个元素时❸，也修改了spam指向的同一个列表。</p>
+<p class="zw">记住，变量就像包含着值的盒子。本章前面的图显示列表在盒子中，这并不准确，因为列表变量实际上没有包含列表，而是包含了对列表的“引用”（这些引用包含一些ID数字，Python在内部使用这些ID，但是你可以忽略）。利用盒子作为变量的隐喻，图4-4展示了列表被赋给spam变量时发生的情形。</p>
+<p class="图"><img alt="0404" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00086.jpg"/>
+</p>
+<p class="图题">图4-4 spam = [0, 1, 2, 3, 4, 5]保存了对列表的引用，而非实际列表</p>
+<p class="zw">然后，在图4-5中，spam中的引用被复制给cheese。只有新的引用被创建并保存在cheese中，而非新的列表。请注意，两个引用都指向同一个列表。</p>
+<p class="图"><img alt="0405" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00087.jpg"/>
+</p>
+<p class="图题">图4-5 spam = cheese复制了引用，而非列表</p>
+<p class="zw">当你改变cheese指向的列表时，spam指向的列表也发生了改变，因为cheese和spam都指向同一个列表，如图4-6所示。</p>
+<p class="图"><img alt="0406" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00088.jpg"/>
+</p>
+<p class="图题">图4-6 cheese[1] = 'Hello!'修改了两个变量指向的列表</p>
+<p class="zw">变量包含对列表值的引用，而不是列表值本身。但对于字符串和整数值，变量就包含了字符串或整数值。在变量必须保存可变数据类型的值时，例如列表或字典，Python就使用引用。对于不可变的数据类型的值，例如字符串、整型或元组，Python变量就保存值本身。</p>
+<p class="zw">虽然Python变量在技术上包含了对列表或字典值的引用，但人们通常随意地说，该变量包含了列表或字典。</p>
+<h3 id="nav_point_108">4.7.1 传递引用</h3>
+<p class="zw">要理解参数如何传递给函数，引用就特别重要。当函数被调用时，参数的值被复制给变元。对于列表（以及字典，我将在下一章中讨论），这意味着变元得到的是引用的拷贝。要看看这导致的后果，请打开一个新的文件编辑器窗口，输入以下代码，并保存为passingReference.py：</p>
+<pre class="代码无行号"><code>def eggs(someParameter):
+    someParameter.append('Hello')
+spam = [1, 2, 3]
+eggs(spam)
+print(spam)</code>
+</pre>
+<p class="zw">请注意，当eggs()被调用时，没有使用返回值来为spam赋新值。相反，它直接当场修改了该列表。在运行时，该程序产生输出如下：</p>
+<pre class="代码无行号"><code>[1, 2, 3, 'Hello']</code>
+</pre>
+<p class="zw">尽管spam和someParameter包含了不同的引用，但它们都指向相同的列表。这就是为什么函数内的append('Hello')方法调用在函数调用返回后，仍然会对该列表产生影响。</p>
+<p class="zw">请记住这种行为：如果忘了Python处理列表和字典变量时采用这种方式，可能会导致令人困惑的缺陷。</p>
+<h3 id="nav_point_109">4.7.2 copy模块的copy()和deepcopy()函数</h3>
+<p class="zw">在处理列表和字典时，尽管传递引用常常是最方便的方法，但如果函数修改了传入的列表或字典，你可能不希望这些变动影响原来的列表或字典。要做到这一点，Python提供了名为copy的模块，其中包含copy()和deepcopy()函数。第一个函数copy.copy()，可以用来复制列表或字典这样的可变值，而不只是复制引用。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>import copy</strong>
+&gt;&gt;&gt; <strong>spam = ['A', 'B', 'C', 'D']</strong>
+&gt;&gt;&gt; <strong>cheese = copy.copy(spam)</strong>
+&gt;&gt;&gt; <strong>cheese[1] = 42</strong>
+&gt;&gt;&gt; <strong>spam</strong>
+['A', 'B', 'C', 'D']
+&gt;&gt;&gt; <strong>cheese</strong>
+['A', 42, 'C', 'D']
+</code>
+</pre>
+<p class="zw">现在spam和cheese变量指向独立的列表，这就是为什么当你将42赋给下标7时，只有cheese中的列表被改变。在图4-7中可以看到，两个变量的引用ID数字不再一样，因为它们指向了独立的列表。</p>
+<p class="图"><img alt="0407" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00089.jpg"/>
+</p>
+<p class="图题">图4-7 cheese = copy.copy(spam)创建了第二个列表，能独立于第一个列表修改</p>
+<p class="zw">如果要复制的列表中包含了列表，那就使用copy.deepcopy()函数来代替。deepcopy()函数将同时复制它们内部的列表。</p>
+<h2 id="nav_point_110">4.8 小结</h2>
+<p class="zw">列表是有用的数据类型，因为它们让你写代码处理一组可以修改的值，同时仅用一个变量。在本书后面的章节中，你会看到一些程序利用列表来完成工作。没有列表，这些工作很困难，甚至不可能完成。</p>
+<p class="zw">列表是可变的，这意味着它们的内容可以改变。元组和字符串虽然在某些方面像列表，却是不可变的，不能被修改。包含一个元组或字符串的变量，可以被一个新的元组或字符串覆写，但这和现场修改原来的值不是一回事，不像append()和remove()方法在列表上的效果。</p>
+<p class="zw">变量不直接保存列表值，它们保存对列表的“引用”。在复制变量或将列表作为函数调用的参数时，这一点很重要。因为被复制的只是列表引用，所以要注意，对该列表的所有改动都可能影响到程序中的其他变量。如果需要对一个变量中的列表修改，同时不修改原来的列表，就可以用copy()或deepcopy()。</p>
+<h2 id="nav_point_111">4.9 习题</h2>
+<p class="zw">1．什么是[]？</p>
+<p class="zw">2．如何将'hello'赋给列表的第三个值，而列表保存在名为spam的变量中？（假定变量包含[2, 4, 6, 8, 10]）。</p>
+<p class="zw">对接下来的3个问题，假定spam包含列表['a', 'b', 'c', 'd']。</p>
+<p class="zw">3．spam[int('3' * 2) / 11]求值为多少？</p>
+<p class="zw">4．spam[-1]求值为多少？</p>
+<p class="zw">5．spam[:2]求值为多少？</p>
+<p class="zw">对接下来的3个问题。假定bacon包含列表[3.14, 'cat', 11, 'cat', True]。</p>
+<p class="zw">6．bacon.index('cat')求值为多少？</p>
+<p class="zw">7．bacon.append(99)让bacon中的列表值变成什么样？</p>
+<p class="zw">8．bacon.remove('cat')让bacon中的列表时变成什么样？</p>
+<p class="zw">9．列表连接和复制的操作符是什么？</p>
+<p class="zw">10．append()和insert()列表方法之间的区别是什么？</p>
+<p class="zw">11．从列表中删除值有哪两种方法？</p>
+<p class="zw">12．请说出列表值和字符串的几点相似之处。</p>
+<p class="zw">13．列表和元组之间的区别是什么？</p>
+<p class="zw">14．如果元组中只有一个整数值42，如何输入该元组？</p>
+<p class="zw">15．如何从列表值得到元组形式？如何从元组值得到列表形式？</p>
+<p class="zw">16．“包含”列表的变量，实际上并未真地直接包含列表。它们包含的是什么？</p>
+<p class="zw">17．copy.copy()和copy.deepcopy()之间的区别是什么？</p>
+<h2 id="nav_point_112">4.10 实践项目</h2>
+<p class="zw">作为实践，编程完成下列任务。</p>
+<h3 id="nav_point_113">4.10.1 逗号代码</h3>
+<p class="zw">假定有下面这样的列表：</p>
+<pre class="代码无行号"><code>spam = ['apples', 'bananas', 'tofu', 'cats']</code>
+</pre>
+<p class="zw">编写一个函数，它以一个列表值作为参数，返回一个字符串。该字符串包含所有表项，表项之间以逗号和空格分隔，并在最后一个表项之前插入and。例如，将前面的spam列表传递给函数，将返回'apples, bananas, tofu, and cats'。但你的函数应该能够处理传递给它的任何列表。</p>
+<h3 id="nav_point_114">4.10.2 字符图网格</h3>
+<p class="zw">假定有一个列表的列表，内层列表的每个值都是包含一个字符的字符串，像这样：</p>
+<pre class="代码无行号"><code>grid = [['.', '.', '.', '.', '.', '.'],
+        ['.', 'O', 'O', '.', '.', '.'],
+        ['O', 'O', 'O', 'O', '.', '.'],
+        ['O', 'O', 'O', 'O', 'O', '.'],
+        ['.', 'O', 'O', 'O', 'O', 'O'],
+        ['O', 'O', 'O', 'O', 'O', '.'],
+        ['O', 'O', 'O', 'O', '.', '.'],
+        ['.', 'O', 'O', '.', '.', '.'],
+        ['.', '.', '.', '.', '.', '.']]</code>
+</pre>
+<p class="zw">你可以认为grid[x][y]是一幅“图”在x、y坐标处的字符，该图由文本字符组成。原点(0, 0)在左上角，向右x坐标增加，向下y坐标增加。</p>
+<p class="zw">复制前面的网格值，编写代码用它打印出图像。</p>
+<pre class="代码无行号"><code>..OO.OO..
+.OOOOOOO.
+.OOOOOOO.
+..OOOOO..
+...OOO...
+....O....</code>
+</pre>
+<p class="editing-tag 提示标签">提示</p>
+<blockquote class="提示 editing-block">
+<p class="zw"><br/>
+</p>
+你需要使用循环嵌套循环，打印出grid[0][0]，然后grid[1][0]，然后grid[2][0]，以此类推，直到grid[8][0]。这就完成第一行，所以接下来打印换行。然后程序将打印出grid[0][1]，然后grid[1][1]，然后grid[2][1]，以此类推。程序最后将打印出grid[8][5]。</blockquote>
+<p class="zw">而且，如果你不希望在每次print()调用后都自动打印换行，记得向print()传递end关键字参数。</p>
+<p class="zw"><br style="page-break-after:always"/>
+</p>
+<div></div>
+]]></description>
+    <pubDate>Tue, 18 Aug 2026 01:24:46 +0000</pubDate>
+    <guid isPermaLink="false">28</guid>
+</item>
+<item>
       <title><![CDATA[WorkBuddyGuide-第 1 章 初识 WorkBuddy]]></title>
       <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%201%20%E7%AB%A0%20%E5%88%9D%E8%AF%86%20WorkBuddy/</link>
       <description><![CDATA[学习时长：约1小时；学习内容：WorkBuddy的产品定位、核心能力（多模型切换、MCP Server、Skills等）[reference:0]；学习目的：理解WorkBuddy是什么、能做什么，建立对产品的基础认知]]></description>
@@ -3886,978 +4673,6 @@ complex()      hasattr()     max()           round()&lt;/code&gt;
 </description>
     <pubDate>Tue, 04 Aug 2026 01:13:46 +0000</pubDate>
     <guid isPermaLink="false">21</guid>
-</item>
-<item>
-    <title>Basic Python - 020 - 第 20 章 设置应用程序的样式并部署.epub</title>
-    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：143 分钟 (28476 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_462"&gt;第 20 章　设置应用程序的样式并部署&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/20_Image00001.gif" style="width: 16%" width="16%"/&gt;
- 　当前，项目“学习笔记”虽然功能齐备，但未设置样式，也只能在本地计算机上运行。在本章中，我们将以简单而专业的方式设置这个项目的样式，再将其部署到一台服务器上，让世界上的任何人都能够建立账户。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;为设置样式，我们将使用Bootstrap库，这是一组工具，用于为Web应用程序设置样式，使其在任何现代设备上都看起来很专业，无论是大型的平板显示器还是智能手机。为此，我们将使用应用程序django-bootstrap4，这也让你能够练习使用其他Django开发人员开发的应用程序。&lt;/p&gt;
-&lt;p&gt;我们将把项目“学习笔记”部署到Heroku，这个网站让你能够将项目推送到其服务器，让任何有互联网连接的人都可以使用它。我们还将使用版本控制系统Git来跟踪对这个项目所做的修改。&lt;/p&gt;
-&lt;p&gt;完成项目“学习笔记”后，你将能够开发简单的Web应用程序，让它们看起来很漂亮，再将其部署到服务器。你还能够利用更高级的学习资源来提高技能。&lt;/p&gt;
-&lt;h2 id="nav_point_463"&gt;20.1　设置项目“学习笔记”的样式&lt;/h2&gt;
-&lt;p&gt;之前，我们特意一直专注于项目“学习笔记”的功能，没有考虑样式设置问题。这是一种不错的开发方法，因为能正确运行的应用程序才是有用的。当然，应用程序能够正确运行后，外观就显得很重要了，因为漂亮的应用程序才能吸引用户。&lt;/p&gt;
-&lt;p&gt;本节简要介绍应用程序django-bootstrap4，并演示如何将其集成到项目中，为部署做好准备。&lt;/p&gt;
-&lt;h3 id="nav_point_464"&gt;20.1.1　应用程序django-bootstrap4&lt;/h3&gt;
-&lt;p&gt;我们将使用django-bootstrap4将Bootstrap集成到项目中。这个应用程序下载必要的Bootstrap文件，将其放到项目的合适位置，让你能够在项目的模板中使用样式设置指令。&lt;/p&gt;
-&lt;p&gt;为安装django-bootstrap4，在活动状态的虚拟环境中执行如下命令：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;(ll_env)learning_log$ pip install django-bootstrap4
---snip--
-Successfully installed django-bootstrap4-0.0.7&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;接下来，需要在settings.py的&lt;code&gt;INSTALLED_APPS&lt;/code&gt;
- 中添加如下代码，在项目中包含应用程序django- bootstrap4：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-INSTALLED_APPS = [
-    # 我的应用程序
-    'learning_logs',
-    'users',
-    # 第三方应用程序
-    'bootstrap4',
-    # Django默认添加的应用程序
-    'django.contrib.admin',
-    --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;新建一个名为“第三方应用程序”的片段，用于指定其他开发人员开发的应用程序，并在其中添加&lt;code&gt;'bootstrap4'&lt;/code&gt;
- 。务必将这个片段放在“我的应用程序”和“Django默认添加的应用程序”之间。&lt;/p&gt;
-&lt;h3 id="nav_point_465"&gt;20.1.2　使用Bootstrap设置项目“学习笔记”的样式&lt;/h3&gt;
-&lt;p&gt;Bootstrap是一个大型样式设置工具集，还提供了大量模板，可应用于项目以创建独特的总体风格。对Bootstrap初学者来说，这些模板比样式设置工具用起来容易得多。要查看Bootstrap提供的模板，可访问其官方网站，单击Examples并找到Navbars。我们将使用模板Navbars static，它提供了简单的顶部导航栏以及用于放置页面内容的容器。&lt;/p&gt;
-&lt;p&gt;图20-1显示了对base.html应用这个Bootstrap模板并对index.html做细微修改后的主页。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/20_Image00057.gif" style="width: 85%" width="85%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图20-1　项目“学习笔记”的主页——使用Bootstrap设置样式后&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_466"&gt;20.1.3　修改base.html&lt;/h3&gt;
-&lt;p&gt;我们需要修改模板base.html，以使用前述Bootstrap模板。下面分几部分介绍新的base.html。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li value="1"&gt;
-&lt;p&gt;
-&lt;strong&gt;定义HTML头部&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;对base.html所做的第一项修改是，在其中定义HTML头部，使得显示“学习笔记”的每个页面时，浏览器标题栏都显示该网站名。此外，还要添加一些在模板中使用Bootstrap所需的信息。请删除base.html的全部代码，并输入下面的代码：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;base.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ {% load bootstrap4 %}
-❷ &amp;lt;!doctype html&amp;gt;
-❸ &amp;lt;html lang="en"&amp;gt;
-❹ &amp;lt;head&amp;gt;
-    &amp;lt;meta charset="utf-8"&amp;gt;
-    &amp;lt;meta name="viewport" content="width=device-width, initial-scale=1,
-      shrink-to-fit=no"&amp;gt;
-❺   &amp;lt;title&amp;gt;Learning Log&amp;lt;/title&amp;gt;
-❻   {% bootstrap_css %}
-    {% bootstrap_javascript jquery='full' %}
-❼ &amp;lt;/head&amp;gt;&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，加载django-bootstrap4中的模板标签集。接下来，将这个文件声明为使用英语（见❸）编写的HTML文档（见❷）。HTML文件分为两个主要部分：&lt;strong&gt;头部&lt;/strong&gt;
- （head）和&lt;strong&gt;主体&lt;/strong&gt;
- （body）。在这个文件中，头部始于❹处。HTML文件的头部不包含任何内容，只是向浏览器提供正确显示页面所需的信息。❺处包含一个&lt;code&gt;title&lt;/code&gt;
- 元素，在浏览器中打开网站“学习笔记”的页面时，浏览器的标题栏将显示该元素的内容。&lt;/p&gt;
-&lt;p&gt;在❻处，使用django-bootstrap4的一个自定义模板标签，让Django包含所有的Bootstrap样式文件。接下来的标签启用你可能在页面中使用的所有交互式行为，如可折叠的导航栏。❼处为结束标签&lt;code&gt;&amp;lt;/head&amp;gt;&lt;/code&gt;
- 。&lt;br/&gt;
- &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="2"&gt;
-&lt;p&gt;
-&lt;strong&gt;定义导航栏&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;定义页面顶部导航栏的代码很长，因为需要同时支持较窄的手机屏幕和较宽的台式计算机显示器。我们将分三部分定义导航栏。&lt;/p&gt;
-&lt;p&gt;下面是导航栏定义代码的第一部分：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;base.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  --snip--
-  &amp;lt;/head&amp;gt;
-❶ &amp;lt;body&amp;gt;
-❷   &amp;lt;nav class="navbar navbar-expand-md navbar-light bg-light mb-4 border"&amp;gt;
-❸     &amp;lt;a class="navbar-brand" href="{% url 'learning_logs:index'%}"&amp;gt;
-          Learning Log&amp;lt;/a&amp;gt;
-❹     &amp;lt;button class="navbar-toggler" type="button" data-toggle="collapse"
-          data-target="#navbarCollapse" aria-controls="navbarCollapse"
-          aria-expanded="false" aria-label="Toggle navigation"&amp;gt;
-        &amp;lt;span class="navbar-toggler-icon"&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/button&amp;gt;&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;第一个元素为起始标签&lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;
- （见❶）。HTML文件的&lt;strong&gt;主体&lt;/strong&gt;
- 包含用户将在页面上看到的内容。❷处是一个&lt;code&gt;&amp;lt;nav&amp;gt;&lt;/code&gt;
- 元素，表示页面的导航链接部分。对于这个元素内的所有内容，都将根据此处的&lt;code&gt;navbar&lt;/code&gt;
- 和&lt;code&gt;navbar-expand-md&lt;/code&gt;
- 等选择器定义的Bootstrap样式规则来设置样式。&lt;strong&gt;选择器&lt;/strong&gt;
- （selector）决定了样式规则将应用于页面上的哪些元素。选择器&lt;code&gt;navbar-light&lt;/code&gt;
- 和&lt;code&gt;bg-light&lt;/code&gt;
- 使用一种浅色主题来设置导航栏的颜色。&lt;code&gt;mb-4&lt;/code&gt;
- 中的&lt;code&gt;mb&lt;/code&gt;
- 表示&lt;strong&gt;下边距&lt;/strong&gt;
- （margin-bottom），这个选择器确保导航栏和页面其他部分之间有一些空白区域。选择器&lt;code&gt;border&lt;/code&gt;
- 在浅色背景周围添加很细的边框，将导航栏与页面其他部分分开。&lt;/p&gt;
-&lt;p&gt;在❸处，指定在导航栏最左端显示项目名，并将其设置为到主页的链接，因为它将出现在这个项目的每个页面中。选择器&lt;code&gt;navbar-brand&lt;/code&gt;
- 设置这个链接的样式，使其比其他链接更显眼，这是一种网站推广方式。&lt;/p&gt;
-&lt;p&gt;❹处定义了一个按钮，它将在浏览器窗口太窄、无法水平显示整个导航栏时显示出来。如果用户单击这个按钮，将出现一个下拉列表，其中包含所有的导航元素。在用户缩小浏览器窗口或在屏幕较小的移动设备上显示网站时，&lt;code&gt;collapse&lt;/code&gt;
- 会导致导航栏折叠起来。&lt;/p&gt;
-&lt;p&gt;下面是导航栏定义代码的第二部分：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;base.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;          --snip--
-        &amp;lt;span class="navbar-toggler-icon"&amp;gt;&amp;lt;/span&amp;gt;&amp;lt;/button&amp;gt;
-❶     &amp;lt;div class="collapse navbar-collapse" id="navbarCollapse"&amp;gt;
-❷       &amp;lt;ul class="navbar-nav mr-auto"&amp;gt;
-❸         &amp;lt;li class="nav-item"&amp;gt;
-            &amp;lt;a class="nav-link" href="{% url 'learning_logs:topics'%}"&amp;gt;
-                Topics&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-         &amp;lt;/ul&amp;gt;&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;❶处开启了导航栏的一个新区域。div是division（分隔）的缩写。我们创建页面时，将其分隔成多个区域，并指定要应用于各个区域的样式和行为规则。在&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;
- 起始标签中定义的样式和行为规则将影响下一个结束标签&lt;code&gt;&amp;lt;/div&amp;gt;&lt;/code&gt;
- 之前的所有元素。这里指定了屏幕或窗口太窄时将折叠起来的导航栏部分的起始位置。&lt;/p&gt;
-&lt;p&gt;❷处定义了一组链接。Bootstrap将导航元素定义为无序列表项，但使用的样式规则让它们一点也不像列表。导航栏中的每个链接或元素都能以列表项的方式定义。这里只有一个列表项——到显示所有主题的页面的链接（见❸）。&lt;/p&gt;
-&lt;p&gt;下面是导航栏定义代码的最后一部分：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;base.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;                --snip--
-        &amp;lt;/ul&amp;gt;
-❶       &amp;lt;ul class="navbar-nav ml-auto"&amp;gt;
-❷         {% if user.is_authenticated %}
-            &amp;lt;li class="nav-item"&amp;gt;
-❸             &amp;lt;span class="navbar-text"&amp;gt;Hello, {{ user.username }}.&amp;lt;/span&amp;gt;
-            &amp;lt;/li&amp;gt;
-            &amp;lt;li class="nav-item"&amp;gt;
-              &amp;lt;a class="nav-link" href="{% url 'users:logout' %}"&amp;gt;Log out&amp;lt;/a&amp;gt;
-            &amp;lt;/li&amp;gt;
-          {% else %}
-            &amp;lt;li class="nav-item"&amp;gt;
-              &amp;lt;a class="nav-link" href="{% url 'users:register' %}"&amp;gt;Register&amp;lt;/a&amp;gt;
-            &amp;lt;/li&amp;gt;
-            &amp;lt;li class="nav-item"&amp;gt;
-              &amp;lt;a class="nav-link" href="{% url 'users:login' %}"&amp;gt;Log in&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;
-          {% endif %}
-      &amp;lt;/ul&amp;gt;
-❹   &amp;lt;/div&amp;gt;
-  &amp;lt;/nav&amp;gt;&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;❶处使用起始标签&lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt;
- 定义了另一组链接（你可根据需要在页面中包含任意数量的链接编组），这组链接与登录和注册相关，出现在导航栏最右端。选择器&lt;code&gt;ml-auto&lt;/code&gt;
- 表示&lt;strong&gt;自动左边距&lt;/strong&gt;
- （margin-left-automatic），它根据导航栏包含的其他元素设置左边距，确保这组链接位于屏幕右边。&lt;/p&gt;
-&lt;p&gt;❷处的&lt;code&gt;if&lt;/code&gt;
- 代码块与以前使用的条件代码块相同，它根据用户是否已登录显示相应的消息。这个代码块比以前长一些，因为它现在包含一些样式规则。❸处是一个&lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt;
- 元素，用于设置区域内一系列文本或元素的样式。这起初可能令人迷惑：为什么不嵌套&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;
- 呢？毕竟有很多页面深度嵌套了&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;
- 元素。这是因为&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;
- 元素创建区域，而&lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt;
- 元素不会。这里只是要设置导航栏中信息性文本（如已登录用户的名称）的样式，旨在让其外观与链接不同，以免用户忍不住去单击，因此使用了&lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;p&gt;❹处指出&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;
- 元素（它包含将在屏幕太窄时折叠起来的导航栏部分）到此结束，然后指出整个导航栏到此结束。要在导航栏中添加其他链接，可在既有的&lt;code&gt;&amp;lt;ul&amp;gt;&lt;/code&gt;
- 元素中添加&lt;code&gt;&amp;lt;li&amp;gt;&lt;/code&gt;
- 元素，并使用这里演示的样式设置指令。&lt;/p&gt;
-&lt;p&gt;在base.html中，还需添加一些代码：定义两个块，供各个页面放置其特有的内容。&lt;br/&gt;
- &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="3"&gt;
-&lt;p&gt;
-&lt;strong&gt;定义页面的主要部分&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;base.html的余下部分包含页面的主要部分：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;base.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;      --snip--
-    &amp;lt;/nav&amp;gt;
-❶   &amp;lt;main role="main" class="container"&amp;gt;
-❷     &amp;lt;div class="pb-2 mb-2 border-bottom"&amp;gt;
-        {% block page_header %}{% endblock page_header %}
-      &amp;lt;/div&amp;gt;
-❸     &amp;lt;div&amp;gt;
-        {% block content %}{% endblock content %}
-      &amp;lt;/div&amp;gt;
-    &amp;lt;/main&amp;gt;
-  &amp;lt;/body&amp;gt;
-  &amp;lt;/html&amp;gt;&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;❶处是一个&lt;code&gt;&amp;lt;main&amp;gt;&lt;/code&gt;
- 起始标签。&lt;code&gt;&amp;lt;main&amp;gt;&lt;/code&gt;
- 元素用于定义页面主体的最重要部分。此处指定了Bootstrap选择器&lt;code&gt;container&lt;/code&gt;
- ，这是一种对页面元素进行编组的简单方式。我们将在这个容器中放置两个&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;
- 元素。&lt;/p&gt;
-&lt;p&gt;第一个&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;
- 元素（见❷）包含一个&lt;code&gt;page_header&lt;/code&gt;
- 块，我们会在大多数页面中使用它来指定标题。为突出标题，设置内边距。&lt;strong&gt;内边距&lt;/strong&gt;
- （padding）指的是元素内容和边框之间的距离。选择器&lt;code&gt;pb-2&lt;/code&gt;
- 是一个Bootstrap指令，将元素的下内边距设置为适度的值。&lt;strong&gt;外边距&lt;/strong&gt;
- （margin）指的是元素的边框与其他元素之间的距离。我们只想在标题下面添加边框，因此使用选择器&lt;code&gt;border-bottom&lt;/code&gt;
- ，它在&lt;code&gt;page_header&lt;/code&gt;
- 块的下面添加较细的边框。&lt;/p&gt;
-&lt;p&gt;❸处定义了另一个&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;
- 元素，其中包含&lt;code&gt;content&lt;/code&gt;
- 块。我们没有对这个块指定样式，因此在具体的页面中，可根据需要设置内容的样式。文件base.html的末尾是元素&lt;code&gt;&amp;lt;main&amp;gt;&lt;/code&gt;
- 、&lt;code&gt;&amp;lt;body&amp;gt;&lt;/code&gt;
- 和&lt;code&gt;&amp;lt;html&amp;gt;&lt;/code&gt;
- 的结束标签。&lt;/p&gt;
-&lt;p&gt;如果现在在浏览器中加载“学习笔记”的主页，你将看到一个类似于图20-1所示的专业级导航栏。请尝试将窗口调整得非常窄，此时导航栏将变成一个按钮。如果你单击这个按钮，将打开一个下拉列表，其中包含所有的导航链接。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id="nav_point_467"&gt;20.1.4　使用jumbotron设置主页的样式&lt;/h3&gt;
-&lt;p&gt;下面使用Bootstrap元素jumbotron来修改主页。jumbotron元素是一个大框，在页面中显得鹤立鸡群。它可以包含任何东西，通常用于在主页中呈现简要的项目描述和让用户行动起来的元素。&lt;/p&gt;
-&lt;p&gt;修改后的文件index.html如下所示：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;index.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  {% extends "learning_logs/base.html" %}
-❶ {% block page_header %}
-❷   &amp;lt;div class="jumbotron"&amp;gt;
-❸     &amp;lt;h1 class="display-3"&amp;gt;Track your learning.&amp;lt;/h1&amp;gt;
-❹     &amp;lt;p class="lead"&amp;gt;Make your own Learning Log, and keep a list of the
-          topics you're learning about. Whenever you learn something new
-          about a topic, make an entry summarizing what you've learned.&amp;lt;/p&amp;gt;
-❺     &amp;lt;a class="btn btn-lg btn-primary" href="{% url 'users:register' %}"
-          role="button"&amp;gt;Register &amp;amp;raquo;&amp;lt;/a&amp;gt;
-    &amp;lt;/div&amp;gt;
-❻ {% endblock page_header %}&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，告诉Django接下来要定义&lt;code&gt;page_header&lt;/code&gt;
- 块包含的内容。jumbotron就是应用了一系列样式设置指令的&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;
- 元素（见❷）。这里使用选择器&lt;code&gt;jumbotron&lt;/code&gt;
- 应用这组来自Bootstrap库的样式设置指令。&lt;/p&gt;
-&lt;p&gt;这个jumbotron包含三个元素。第一个是一条简短的消息——Track your learning，让首次访问者大致知道“学习笔记”是做什么用的。&lt;code&gt;h1&lt;/code&gt;
- 类表示一级标题，而选择器&lt;code&gt;display-3&lt;/code&gt;
- 让这个标题显得更窄更高（见❸）。在❹处添加一条更长的消息，让用户更详细地知道使用学习笔记可以做什么。&lt;/p&gt;
-&lt;p&gt;在❺处，通过创建一个按钮（而不是文本链接）邀请用户注册账户。它与导航栏中的链接Register一样链接到的注册页面，但是按钮更显眼，并且让用户知道要使用这个项目首先需要如何做。这里的选择器让这个按钮很大，召唤用户赶快行动起来。代码&lt;code&gt;&amp;amp;raquo;&lt;/code&gt;
- 是一个&lt;strong&gt;HTML实体&lt;/strong&gt;
- ，表示两个右尖括号（&lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt;
- ）。在❻处，结束&lt;code&gt;page_header&lt;/code&gt;
- 块。我们不想在这个页面中添加其他内容，因此不需要定义&lt;code&gt;content&lt;/code&gt;
- 块。&lt;/p&gt;
-&lt;p&gt;现在的主页类似于图20-1所示，比设置样式前有很大的改进。&lt;/p&gt;
-&lt;h3 id="nav_point_468"&gt;20.1.5　设置登录页面的样式&lt;/h3&gt;
-&lt;p&gt;我们改进了登录页面的整体外观，但还未改进登录表单。下面来修改文件login.html，让表单与页面的其他部分一致：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;login.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  {% extends "learning_logs/base.html" %}
-❶ {% load bootstrap4 %}
-❷ {% block page_header %}
-    &amp;lt;h2&amp;gt;Log in to your account.&amp;lt;/h2&amp;gt;
-  {% endblock page_header %}
-  {% block content %}
-❸  &amp;lt;form method="post" action="{% url 'users:login' %}" class="form"&amp;gt;
-      {% csrf_token %}
-❹     {% bootstrap_form form %}
-❺     {% buttons %}
-        &amp;lt;button name="submit" class="btn btn-primary"&amp;gt;Log in&amp;lt;/button&amp;gt;
-      {% endbuttons %}
-      &amp;lt;input type="hidden" name="next"
-        value="{% url 'learning_logs:index' %}" /&amp;gt;
-    &amp;lt;/form&amp;gt;
-  {% endblock content %}&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，我们在这个模板中加载bootstrap4模板标签。在❷处，定义&lt;code&gt;page_header&lt;/code&gt;
- 块，指出这个页面是做什么用的。注意，我们从这个模板中删除了代码块&lt;code&gt;{% if form.errors %}&lt;/code&gt;
- ，因为django-bootstrap4会自动管理表单错误。&lt;/p&gt;
-&lt;p&gt;在❸处，添加属性&lt;code&gt;class="form"&lt;/code&gt;
- ，再使用模板标签&lt;code&gt;{% bootstrap_form %}&lt;/code&gt;
- 来显示表单（见❹），它替换了第19章使用的标签&lt;code&gt;{{ form.as_p }}&lt;/code&gt;
- 。模板标签&lt;code&gt;{% booststrap_form %}&lt;/code&gt;
- 将Bootstrap样式规则应用于各个表单元素。❺处是bootstrap4起始模板标签&lt;code&gt;{% buttons %}&lt;/code&gt;
- ，它将Bootstrap样式应用于按钮。&lt;/p&gt;
-&lt;p&gt;图20-2显示了现在渲染的登录表单。这个页面比以前整洁得多，且风格一致、用途明确。如果你尝试使用错误的用户名或密码登录，将发现消息的样式与整个网站一致，完美地融入了进来。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/20_Image00058.gif" style="width: 90%" width="90%"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图20-2　使用Bootstrap设置样式后的登录页面&lt;/strong&gt;
-&lt;/p&gt;
-&lt;h3 id="nav_point_469"&gt;20.1.6　设置显示所有主题的页面的样式&lt;/h3&gt;
-&lt;p&gt;下面来确保用于查看信息的页面也有合适的样式，首先来设置显示所有主题的页面：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;topics.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  {% extends "learning_logs/base.html" %}
-❶ {% block page_header %}
-    &amp;lt;h1&amp;gt;Topics&amp;lt;/h1&amp;gt;
-  {% endblock page_header %}
-  {% block content %}
-    &amp;lt;ul&amp;gt;
-      {% for topic in topics %}
-❷       &amp;lt;li&amp;gt;&amp;lt;h3&amp;gt;
-          &amp;lt;a href="{% url 'learning_logs:topic' topic.id %}"&amp;gt;{{ topic }}&amp;lt;/a&amp;gt;
-        &amp;lt;/h3&amp;gt;&amp;lt;/li&amp;gt;
-      {% empty %}
-        &amp;lt;li&amp;gt;&amp;lt;h3&amp;gt;No topics have been added yet.&amp;lt;/h3&amp;gt;&amp;lt;/li&amp;gt;
-      {% endfor %}
-    &amp;lt;/ul&amp;gt;
-❸   &amp;lt;h3&amp;gt;&amp;lt;a href="{% url 'learning_logs:new_topic' %}"&amp;gt;Add a new topic&amp;lt;/a&amp;gt;&amp;lt;/h3&amp;gt;
-  {% endblock content %}&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;不需要标签&lt;code&gt;{% load bootstrap4 %}&lt;/code&gt;
- ，因为这个文件中没有使用任何bootstrap4自定义标签。我们将标题Topics移到&lt;code&gt;page_header&lt;/code&gt;
- 块中，并给它指定标题样式，而没有使用简单的段落标签（见❶）。将每个主题都设置为&lt;code&gt;&amp;lt;h3&amp;gt;&lt;/code&gt;
- 元素，使其在页面上显得大一些（见❷）。对于添加新主题的链接，也做同样的处理（见❸）。&lt;/p&gt;
-&lt;h3 id="nav_point_470"&gt;20.1.7　设置显示单个主题的页面中的条目样式&lt;/h3&gt;
-&lt;p&gt;比起大部分页面，显示单个主题的页面包含更多内容，因此需要做的样式设置工作要更多一些。我们将使用Bootstrap的卡片（card）组件来突出每个条目。&lt;strong&gt;卡片&lt;/strong&gt;
- 是带灵活的预定义样式的&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;
- ，非常适合用于显示主题的条目：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;topic.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  {% extends 'learning_logs/base.html' %}
-❶ {% block page_header %}
-    &amp;lt;h3&amp;gt;{{ topic }}&amp;lt;/h3&amp;gt;
-  {% endblock page_header %}
-  {% block content %}
-    &amp;lt;p&amp;gt;
-      &amp;lt;a href="{% url 'learning_logs:new_entry' topic.id %}"&amp;gt;Add new entry&amp;lt;/a&amp;gt;
-    &amp;lt;/p&amp;gt;
-  {% for entry in entries %}
-❷   &amp;lt;div class="card mb-3"&amp;gt;
-❸     &amp;lt;h4 class="card-header"&amp;gt;
-        {{ entry.date_added|date:'M d, Y H:i' }}
-❹       &amp;lt;small&amp;gt;&amp;lt;a href="{% url 'learning_logs:edit_entry' entry.id %}"&amp;gt;
-            edit entry&amp;lt;/a&amp;gt;&amp;lt;/small&amp;gt;
-        &amp;lt;/h4&amp;gt;
-❺       &amp;lt;div class="card-body"&amp;gt;
-          {{ entry.text|linebreaks }}
-        &amp;lt;/div&amp;gt;
-      &amp;lt;/div&amp;gt;
-    {% empty %}
-      &amp;lt;p&amp;gt;There are no entries for this topic yet.&amp;lt;/p&amp;gt;
-    {% endfor %}
-  {% endblock content %}&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;首先将主题放在&lt;code&gt;page_header&lt;/code&gt;
- 块中（见❶），并删除该模板中以前使用的无序列表结构。在❷处，创建一个带选择器&lt;code&gt;card&lt;/code&gt;
- 的&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;
- 元素（而不是将每个条目作为一个列表项），其中包含两个嵌套的元素：一个包含条目的创建日期以及用于编辑条目的链接，另一个包含条目的内容。&lt;/p&gt;
-&lt;p&gt;嵌套的第一个元素是个标题。它是带选择器&lt;code&gt;card-header&lt;/code&gt;
- 的&lt;code&gt;&amp;lt;h4&amp;gt;&lt;/code&gt;
- 元素（见❸），包含条目的创建日期以及用于编辑条目的链接。用于编辑条目的链接放在标签&lt;code&gt;&amp;lt;small&amp;gt;&lt;/code&gt;
- 内，这让它看起来比时间戳小一些（见❹）。第二个嵌套的元素是一个带选择器&lt;code&gt;card-body&lt;/code&gt;
- 的&lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;
- 元素（见❺），将条目的内容放在一个简单的框内。注意我们只修改了影响页面外观的元素，对在页面中包含信息的Django代码未做任何修改。&lt;/p&gt;
-&lt;p&gt;图20-3显示了修改后的单个主题页面。“学习笔记”的功能没有任何变化，但显得更专业，对用户更有吸引力。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="{%}" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/20_Image00059.jpg"/&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;图20-3　使用Bootstrap设置样式后的单个主题页面&lt;/strong&gt;
-&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　要使用其他Bootstrap模板，可采用与本章类似的流程：将要使用的模板复制到base.html中并修改包含实际内容的元素，以使用该模板来显示项目的信息，然后使用Bootstrap的样式设置工具来设置各个页面中内容的样式。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;　&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习20-1：其他表单&lt;/strong&gt;
- 　本节对登录页面应用了Bootstrap样式。请对其他基于表单的页面做类似的修改，包括&lt;code&gt;new_topic&lt;/code&gt;
- 页面、&lt;code&gt;new_entry&lt;/code&gt;
- 页面、&lt;code&gt;edit_entry&lt;/code&gt;
- 页面和注册页面。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习20-2：设置博客的样式&lt;/strong&gt;
- 　对于你在第19章创建的项目Blog，使用Bootstrap来设置其样式。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_471"&gt;20.2　部署“学习笔记”&lt;/h2&gt;
-&lt;p&gt;至此，项目“学习笔记”的外观显得很专业，下面将其部署到服务器，让任何有互联网连接的人都能够使用它。为此，我们将使用Heroku。这是一个基于Web的平台，供我们管理Web应用程序的部署。我们将让“学习笔记”在Heroku上运行起来。&lt;/p&gt;
-&lt;h3 id="nav_point_472"&gt;20.2.1　建立Heroku账户&lt;/h3&gt;
-&lt;p&gt;要建立账户，请访问Heroku官方网站，并单击其中一个注册链接。注册账户是免费的，Heroku提供的免费试用服务（free tier）让你能够将项目部署到服务器并对其进行测试。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　Heroku提供的免费试用服务存在一些限制，如可部署的应用程序数量以及用户访问应用程序的频率。但这些限制都很宽松，让你能够在不支付任何费用的情况下练习部署应用程序。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_473"&gt;20.2.2　安装Heroku CLI&lt;/h3&gt;
-&lt;p&gt;要将项目部署到Heroku的服务器并对其进行管理，需要使用Heroku CLI（Command Line Interface，命令行界面）提供的工具。要安装最新的Heroku CLI版本，请访问Heroku Dev Center网站的The Heroku CLI页面，并根据你使用的操作系统按相关的说明做：使用只包含一行的终端命令或下载并运行安装程序。&lt;/p&gt;
-&lt;h3 id="nav_point_474"&gt;20.2.3　安装必要的包&lt;/h3&gt;
-&lt;p&gt;我们还需安装三个包，以便在服务器上支持Django项目提供的服务。为此，在活动状态的虚拟环境中执行如下命令：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;(ll_env)learning_log$ pip install psycopg2==2.7.*
-(ll_env)learning_log$ pip install django-heroku
-(ll_env)learning_log$ pip install gunicorn&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;为管理Heroku使用的数据库，&lt;code&gt;psycopg2&lt;/code&gt;
- 包必不可少。&lt;code&gt;django-heroku&lt;/code&gt;
- 包用于管理应用程序的各种配置，使其能够在Heroku服务器上正确地运行。这包括管理数据库，以及将静态文件存储到合适的地方，以便能够妥善地提供它们。静态文件包括样式规则和JavaScript文件。&lt;code&gt;gunicorn&lt;/code&gt;
- 包让服务器能够实时地支持应用程序。&lt;/p&gt;
-&lt;h3 id="nav_point_475"&gt;20.2.4　创建文件requirements.txt&lt;/h3&gt;
-&lt;p&gt;Heroku需要知道项目依赖于哪些包，因此我们使用pip生成一个文件，在其中列出这些包。同样，进入活动虚拟环境，并执行如下命令：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;(ll_env)learning_log$ pip freeze &amp;gt; requirements.txt&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;命令&lt;code&gt;freeze&lt;/code&gt;
- 让pip将项目中当前安装的所有包的名称都写入文件requirements.txt。请打开文件requirements.txt，查看项目中安装的包及其版本：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;requirements.txt&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;dj-database-url==0.5.0
-Django==2.2.0
-django-bootstrap4==0.0.7
-django-heroku==0.3.1
-gunicorn==19.9.0
-psycopg2==2.7.7
-pytz==2018.9
-sqlparse==0.2.4
-whitenoise==4.1.2&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;“学习笔记”依赖于8个特定版本的包，因此在相应的环境中才能正确地运行。在这8个包中，有4个是我们手工安装的，余下的4个是作为依赖的包自动安装的。&lt;/p&gt;
-&lt;p&gt;我们部署“学习笔记”时，Heroku将安装requirements.txt列出的所有包，从而创建一个环境，其中包含在本地使用的所有包。有鉴于此，我们可以深信在部署到Heroku后，项目的行为将与在本地系统上完全相同。当你在自己的系统上开发并维护各种项目时，这将是一个巨大的优点。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　如果在你的系统中，requirements.txt列出的包的版本与上面列出的不同，请保留原来的版本号。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_476"&gt;20.2.5　指定Python版本&lt;/h3&gt;
-&lt;p&gt;如果没有指定Python版本，Heroku将使用其当前的Python默认版本。下面来确保Heroku使用我们使用的Python版本。为此，在活动状态的虚拟环境中，执行命令&lt;code&gt;python --version&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;(ll_env)learning_log$ python --version
-Python 3.7.2&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;上述输出表明，我使用的是Python 3.7.2。请在manage.py所在的文件夹中新建一个名为runtime.txt的文件，并在其中输入如下内容：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;runtime.txt&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;python-3.7.2&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这个文件应只包含一行内容，以上面所示的格式指定你使用的Python版本。请确保输入小写的&lt;code&gt;python&lt;/code&gt;
- ，在它后面输入一个连字符，再输入由三部分组成的版本号。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　如果出现错误消息，指出不能使用指定的Python版本，请访问Heroku Dev Center网站的Language Support页面，再单击到Specifying a Python Runtime的链接。浏览打开的文章，了解支持的Python版本，并使用与你使用的Python版本最接近的版本。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_477"&gt;20.2.6　为部署到Heroku而修改settings.py&lt;/h3&gt;
-&lt;p&gt;现在需要在settings.py末尾添加一个片段，在其中指定一些Heroku环境设置：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-# 我的设置
-LOGIN_URL = 'users:login'
-# Heroku设置
-import django_heroku
-django_heroku.settings(locals())&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这里导入了模块&lt;code&gt;django_heroku&lt;/code&gt;
- 并调用了函数&lt;code&gt;settings()&lt;/code&gt;
- 。这个函数将一些设置修改为Heroku环境要求的值。&lt;/p&gt;
-&lt;h3 id="nav_point_478"&gt;20.2.7　创建启动进程的Procfile&lt;/h3&gt;
-&lt;p&gt;
-&lt;strong&gt;Procfile&lt;/strong&gt;
- 告诉Heroku应该启动哪些进程，以便正确地提供项目需要的服务。请将这个只包含一行代码的文件命名为Procfile（首字母P为大写），但不指定文件扩展名，再将其保存到manage.py所在的目录中。&lt;/p&gt;
-&lt;p&gt;Procfile的内容如下：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;Procfile&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;web: gunicorn learning_log.wsgi --log-file -&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这行代码让Heroku将Gunicorn用作服务器，并使用learning_log/wsgi.py中的设置来启动应用程序。标识&lt;code&gt;log-file&lt;/code&gt;
- 告诉Heroku应将哪些类型的事件写入日志。&lt;/p&gt;
-&lt;h3 id="nav_point_479"&gt;20.2.8　使用Git跟踪项目文件&lt;/h3&gt;
-&lt;p&gt;第17章说过，Git是一个版本控制程序，让你能够在每次成功实现新功能后都拍摄项目代码的快照。无论出现什么问题（如实现新功能时不小心引入了bug），都可轻松地恢复到最后一个可行的快照。每个快照都称为&lt;strong&gt;提交&lt;/strong&gt;
- 。&lt;/p&gt;
-&lt;p&gt;使用Git意味着在尝试实现新功能时无须担心破坏项目。将项目部署到服务器时，需要确保部署的是可行版本。要更详细地了解Git和版本控制，请参阅附录D。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li value="1"&gt;
-&lt;p&gt;
-&lt;strong&gt;安装Git&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;在你的系统中，可能已经安装了Git。要确定是否安装了Git，可打开一个新的终端窗口，并在其中执行命令&lt;code&gt;git --version&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;(ll_env)learning_log$ git --version
-git version 2.17.0&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;如果由于某种原因出现了错误消息，请参阅附录D中的Git安装说明。&lt;br/&gt;
- &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="2"&gt;
-&lt;p&gt;
-&lt;strong&gt;配置Git&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;Git跟踪是谁修改了项目，即便项目由一个人开发亦如此。为进行跟踪，Git需要知道你的用户名和电子邮箱。因此，你必须提供用户名，但对于练习项目，可以编造一个电子邮箱：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;(ll_env)learning_log$ git config --global user.name "ehmatthes"
-(ll_env)learning_log$ git config --global user.email "eric@example.com"&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;如果忘记了这一步，首次提交时Git将提示你提供这些信息。&lt;br/&gt;
- &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="3"&gt;
-&lt;p&gt;
-&lt;strong&gt;忽略文件&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;无须让Git跟踪项目中的每个文件，因此我们让它忽略一些文件。在manage.py所在的文件夹中创建一个名为.gitignore的文件（请注意，这个文件名以句点打头，且不包含扩展名），并在其中输入如下代码：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;.gitignore&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;ll_env/
-__pycache__/
-*.sqlite3&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这里让Git忽略目录ll_env，因为随时都可自动重新创建它。还指定不跟踪目录__pycache__，这个目录包含Django运行.py文件时自动创建的.pyc文件。我们没有跟踪对本地数据库的修改，因为这是个坏习惯：如果在服务器上使用的是SQLite，将项目推送到服务器时，可能会不小心用本地测试数据库覆盖在线数据库。&lt;code&gt;*.sqlite3&lt;/code&gt;
- 让Git忽略所有扩展名为.sqlite3的文件。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　如果你使用的是macOS系统，请将&lt;code&gt;.DS_Store&lt;/code&gt;
- 添加到文件.gitignore中。文件.DS_Store存储的是有关文件夹设置的信息，与这个项目一点关系都没有。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="4"&gt;
-&lt;p&gt;
-&lt;strong&gt;显示隐藏的文件&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;大多数操作系统都会隐藏名称以句点打头的文件和文件夹，如.gitignore。当你打开文件浏览器或在诸如Sublime Text等应用程序中打开文件时，默认看不到隐藏的文件。&lt;/p&gt;
-&lt;p&gt;不过作为程序员，你需要看到它们。下面说明了如何显示隐藏的文件。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li class="第2级无序列表"&gt;在Windows系统中，打开资源管理器，再打开一个文件夹，如Desktop。单击标签View（查看），并确保选中了复选框File name extensions（文件扩展名）和Hidden items（隐藏的项目）。&lt;/li&gt;
-&lt;li class="第2级无序列表"&gt;在macOS系统中，要显示隐藏的文件和文件夹，可在文件浏览器窗口中按Command + Shift + .（句点）。&lt;/li&gt;
-&lt;li class="第2级无序列表"&gt;在Ubuntu等Linux系统中，可在文件浏览器中按Ctrl + H来显示隐藏的文件和文件夹。为让这种设置为永久性的，可打开文件浏览器（如Nautilus），再单击选项标签（以三条线表示），并选中复选框Show Hidden Files（显示隐藏的文件）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="5"&gt;
-&lt;p&gt;
-&lt;strong&gt;提交项目&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;我们需要为“学习笔记”初始化一个Git仓库，将所有必要的文件都加入该仓库，并提交项目的初始状态，如下所示：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ (ll_env)learning_log$ git init
-  Initialized empty Git repository in /home/ehmatthes/pcc/learning_log/.git/
-❷ (ll_env)learning_log$ git add .
-❸ (ll_env)learning_log$ git commit -am "Ready for deployment to heroku."
-  [master (root-commit) 79fef72] Ready for deployment to heroku.
-   45 files changed, 712 insertions(+)
-   create mode 100644 .gitignore
-   create mode 100644 Procfile
-   --snip--
-   create mode 100644 users/views.py
-❹ (ll_env)learning_log$ git status
-  On branch master
-  nothing to commit, working tree clean
-  (ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，执行命令&lt;code&gt;git init&lt;/code&gt;
- ，在“学习笔记”所在的目录中初始化一个空仓库。在❷处，执行命令&lt;code&gt;git add .&lt;/code&gt;
- （千万别忘了这个句点），将未被忽略的文件都加入这个仓库。在❸处，执行命令&lt;code&gt;git commit -am commit message&lt;/code&gt;
- ，其中的标志&lt;code&gt;-a&lt;/code&gt;
- 让Git在这个提交中包含所有修改过的文件，而标志&lt;code&gt;-m&lt;/code&gt;
- 让Git记录一条日志消息。&lt;/p&gt;
-&lt;p&gt;在❹处，执行命令&lt;code&gt;git status&lt;/code&gt;
- ，输出表明当前位于分支master，而工作树是&lt;strong&gt;干净&lt;/strong&gt;
- （clean）的。每当要将项目推送到Heroku时，我们都希望看到这样的状态。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id="nav_point_480"&gt;20.2.9　推送到Heroku&lt;/h3&gt;
-&lt;p&gt;终于可以将项目推送到Heroku了。在活动的虚拟环境中，执行下面的命令：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ (ll_env)learning_log$ heroku login
-  heroku: Press any key to open up the browser to login or q to exit:
-  Logging in... done
-  Logged in as eric@example.com
-❷ (ll_env)learning_log$ heroku create
-  Creating app... done, ( secret-lowlands-82594
-  https://secret-lowlands-82594.herokuapp.com/ |
-      https://git.heroku.com/secret-lowlands-82594.git
-❸ (ll_env)learning_log$ git push heroku master
-  --snip--
-  remote: -----&amp;gt; Launching...
-  remote:        Released v5
-❹ remote:        https://secret-lowlands-82594.herokuapp.com/ deployed to Heroku
-  remote: Verifying deploy... done.
-  To https://git.heroku.com/secret-lowlands-82594.git
-   * [new branch]      master -&amp;gt; master
-  (ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;首先执行命令&lt;code&gt;heroku login&lt;/code&gt;
- ，这将打开浏览器并在其中显示一个页面，让你能够登录Heroku（见❶）。然后，让Heroku创建一个空项目（见❷）。Heroku生成的项目名由两个单词和一串数字组成，但以后可修改这个名称。接下来，执行命令&lt;code&gt;git push heroku master&lt;/code&gt;
- （见❸），让Git将项目的分支master推送到Heroku刚才创建的仓库中。Heroku将使用这些文件在其服务器上创建项目。❹处列出了用于访问这个项目的URL，但这个URL和项目名都是可以修改的。&lt;/p&gt;
-&lt;p&gt;执行这些命令后，项目就部署好了，但还未做全面配置。为核实正确地启动了服务器进程，请执行命令&lt;code&gt;heroku ps&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  (ll_env)learning_log$ heroku ps
-❶ Free dyno hours quota remaining this month: 450h 44m (81%)
-  Free dyno usage for this app: 0h 0m (0%)
-  For more information on dyno sleeping and how to upgrade, see:
-  https://devcenter.heroku.com/articles/dyno-sleeping
-❷ === web (Free): gunicorn learning_log.wsgi --log-file - (1)
-  web.1: up 2019/02/19 23:40:12 -0900 (~ 10m ago)
-  (ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;输出指出了在接下来的一个月内，项目还可在多长时间内处于活动状态（见❶）。编写本书时，Heroku允许免费部署在一个月内最多有550小时处于活动状态。项目的活动时间超过这个限制后，将显示标准的服务器错误页面，我们稍后将定制这个错误页面。在❷处，我们发现启动了Procfile指定的进程。&lt;/p&gt;
-&lt;p&gt;现在，可使用命令&lt;code&gt;heroku open&lt;/code&gt;
- 在浏览器中打开这个应用程序了：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;(ll_env)learning_log$ heroku open
-(ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;也可以启动浏览器并输入Heroku告诉你的URL，但上述命令让你无须这样做。你将看到“学习笔记”的主页，其样式设置正确无误，但还无法使用这个应用程序，因为尚未建立数据库。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　部署到Heroku的流程会不断变化。如果遇到无法解决的问题，请通过查看Heroku文档来获取帮助。为此，可访问Heroku Dev Center网站首页，单击Python，再单击到Get Started with Python或Deploying Python and Django Apps on Heroku的链接。如果看不懂这些文档，请参阅附录C提供的建议。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_481"&gt;20.2.10　在Heroku上建立数据库&lt;/h3&gt;
-&lt;p&gt;为建立在线数据库，需要再次执行命令&lt;code&gt;migrate&lt;/code&gt;
- ，并应用在开发期间生成的所有迁移。要对Heroku项目执行Django和Python命令，可使用命令&lt;code&gt;heroku run&lt;/code&gt;
- 。下面演示了如何对Heroku部署执行命令&lt;code&gt;migrate&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ (ll_env)learning_log$ heroku run python manage.py migrate
-❷ Running 'python manage.py migrate' on ⬣ secret-lowlands-82594... up, run.3060
-    --snip--
-❸ Running migrations:
-    --snip--
-    Applying learning_logs.0001_initial... OK
-    Applying learning_logs.0002_entry... OK
-    Applying learning_logs.0003_topic_owner... OK
-    Applying sessions.0001_initial... OK
-  (ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;首先执行命令&lt;code&gt;heroku run python manage.py migrate&lt;/code&gt;
- （见❶）。Heroku随后创建一个终端会话来执行命令&lt;code&gt;migrate&lt;/code&gt;
- （见❷）。在❸处，Django应用默认迁移以及我们在开发“学习笔记”期间生成的迁移。&lt;/p&gt;
-&lt;p&gt;现在如果访问这个部署的应用程序，将能够像在本地系统上一样使用它，但看不到在本地部署中输入的任何数据（包括超级用户账户），因为它们还没有被复制到在线服务器。通常，不将本地数据复制到在线部署中，因为本地数据通常是测试数据。&lt;/p&gt;
-&lt;p&gt;你可分享“学习笔记”的Heroku URL，让任何人都可使用它。下一节将再完成几个任务，以结束部署过程，让你能够继续开发“学习笔记”。&lt;/p&gt;
-&lt;h3 id="nav_point_482"&gt;20.2.11　改进Heroku部署&lt;/h3&gt;
-&lt;p&gt;本节将通过创建超级用户来改进部署，就像在本地一样。我们还将让这个项目更安全：将&lt;code&gt;DEBUG&lt;/code&gt;
- 设置为&lt;code&gt;False&lt;/code&gt;
- ，让用户在错误消息中看不到额外的信息，以防其利用这些信息来攻击服务器。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li value="1"&gt;
-&lt;p&gt;
-&lt;strong&gt;在Heroku上创建超级用户&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;我们知道可以使用命令&lt;code&gt;heroku run&lt;/code&gt;
- 来执行一次性命令，但也可这样执行命令：在连接到Heroku服务器的情况下，使用命令&lt;code&gt;heroku run bash&lt;/code&gt;
- 打开Bash终端会话。Bash是众多Linux终端运行的语言。我们将使用Bash终端会话来创建超级用户，以便访问在线应用程序的管理网站：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;  (ll_env)learning_log$ heroku run bash
-  Running 'bash' on ( secret-lowlands-82594... up, run.9858
-❶ ~ $ ls
-  learning_log learning_logs manage.py Procfile requirements.txt runtime.txt
-  staticfiles users
-❷ ~ $ python manage.py createsuperuser
-  Username (leave blank to use ' u47318'): ll_admin
-  Email address:
-  Password:
-  Password (again):
-  Superuser created successfully.
-❸ ~ $ exit
-  exit
-  (ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，执行命令&lt;code&gt;ls&lt;/code&gt;
- ，以查看服务器上有哪些文件和目录。服务器包含的文件和目录应与本地系统相同。可像遍历其他文件系统一样遍历这个文件系统。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　即便使用的是Windows系统，也应使用这里列出的命令（如&lt;code&gt;ls&lt;/code&gt;
- 而不是&lt;code&gt;dir&lt;/code&gt;
- ），因为这里是在通过远程连接运行Linux终端。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;在❷处，执行创建超级用户的命令，它像第18章在本地系统创建超级用户一样提示你输入相关的信息。在这个终端会话中创建超级用户后，执行命令&lt;code&gt;exit&lt;/code&gt;
- 返回到本地系统的终端会话（见❸）。&lt;/p&gt;
-&lt;p&gt;现在，你可以在在线应用程序的URL末尾添加/admin/来登录管理网站了。对我而言，这个URL为https://secret-lowlands-82594.herokuapp.com/admin/。&lt;/p&gt;
-&lt;p&gt;如果有其他人使用这个项目，别忘了你能访问他们的所有数据！千万别不把这一点当回事，否则用户就不会再将数据托付给你了。&lt;br/&gt;
- &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="2"&gt;
-&lt;p&gt;
-&lt;strong&gt;在Heroku上创建对用户友好的URL&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;你很可能希望URL更友好，比https://secret-lowlands-82594.herokuapp.com/admin/更好记。为此，只需使用一个命令重命名应用程序：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;(ll_env)learning_log$ heroku apps:rename learning-log
-Renaming secret-lowlands-82594 to learning-log-2e... done
-https://learning-log.herokuapp.com/ | https://git.heroku.com/learning-log.git
-Git remote heroku updated
- ◆  Don't forget to update git remotes for all other local checkouts of the app.
-(ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;给应用程序命名时，可使用字母、数字和连字符，并且想怎么命名都可以，只要指定的名称未被别人使用就行。现在，项目的URL变成了https://learning-log.herokuapp.com/。使用以前的URL再也无法访问它，命令&lt;code&gt;apps:rename&lt;/code&gt;
- 将整个项目都移到了新的URL处。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　使用Heroku提供的免费服务部署项目时，如果项目在指定时间内未收到请求或过于活跃，Heroku将让项目进入休眠状态。用户访问处于休眠状态的网站时，加载时间将更长，但对于后续请求，服务器的响应速度将更快。这就是Heroku能够提供免费部署的原因所在。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id="nav_point_483"&gt;20.2.12　确保项目的安全&lt;/h3&gt;
-&lt;p&gt;当前，部署的项目存在严重的安全问题：settings.py包含设置&lt;code&gt;DEBUG=True&lt;/code&gt;
- ，指定在发生错误时显示调试信息。开发项目时，Django的错误页面显示了重要的调试信息，如果将项目部署到服务器后还保留这个设置，将给攻击者提供大量可利用的信息。&lt;/p&gt;
-&lt;p&gt;在在线项目中，我们将设置一个环境变量，以控制是否显示调试信息。&lt;strong&gt;环境变量&lt;/strong&gt;
- 是在特定环境中设置的值。这是在服务器上存储敏感信息并将其与项目代码分开的方式之一。&lt;/p&gt;
-&lt;p&gt;下面来修改settings.py，使其在项目于Heroku上运行时检查一个环境变量：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-# Heroku设置
-import django_heroku
-django_heroku.settings(locals())
-if os.environ.get('DEBUG') == 'TRUE':
-    DEBUG = True
-elif os.environ.get('DEBUG') == 'FALSE':
-    DEBUG = False&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;方法&lt;code&gt;os.environ.get()&lt;/code&gt;
- 从项目当前所处的环境中读取与特定环境变量相关联的值。如果设置了这个环境变量，就返回它的值；如果没有设置，就返回&lt;code&gt;None&lt;/code&gt;
- 。使用环境变量来存储布尔值时，必须小心应对，因为在大多数情况下，环境变量存储的都是字符串。请看下面在简单的Python终端会话中执行的代码片段：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; bool('False')
-True&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;字符串&lt;code&gt;'False'&lt;/code&gt;
- 对应的布尔值为&lt;code&gt;True&lt;/code&gt;
- ，因为非空字符串对应的布尔值都为&lt;code&gt;True&lt;/code&gt;
- 。因此，我们将使用全大写的字符串&lt;code&gt;'TRUE'&lt;/code&gt;
- 和&lt;code&gt;'FALSE'&lt;/code&gt;
- ，以明确地指出存储的不是Python布尔值&lt;code&gt;True&lt;/code&gt;
- 和&lt;code&gt;False&lt;/code&gt;
- 。Django读取Heroku中键为&lt;code&gt;'DEBUG'&lt;/code&gt;
- 的环境变量时，如果其值为&lt;code&gt;'TRUE'&lt;/code&gt;
- ，我们就将&lt;code&gt;DEBUG&lt;/code&gt;
- 设置为&lt;code&gt;True&lt;/code&gt;
- ；如果其值为&lt;code&gt;'FALSE'&lt;/code&gt;
- ，就将&lt;code&gt;DEBUG&lt;/code&gt;
- 设置为&lt;code&gt;False&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;h3 id="nav_point_484"&gt;20.2.13　提交并推送修改&lt;/h3&gt;
-&lt;p&gt;现在需要将对settings.py所做的修改提交到Git仓库，再将修改推送到Heroku。下面的终端会话演示了这个过程：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ (ll_env)learning_log$ git commit -am "Set DEBUG based on environment variables."
-  [master 3427244] Set DEBUG based on environment variables.
-   1 file changed, 4 insertions(+)
-❷ (ll_env)learning_log$ git status
-  On branch master
-  nothing to commit, working tree clean
-  (ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;我们执行命令&lt;code&gt;git commit&lt;/code&gt;
- ，并指定一条简短而有描述性的提交消息（见❶）。别忘了，标志&lt;code&gt;-am&lt;/code&gt;
- 让Git提交所有修改过的文件，并记录一条日志消息。Git找出唯一修改过的文件，并将所做的修改提交到仓库。&lt;/p&gt;
-&lt;p&gt;❷处显示的状态表明，当前位于仓库的分支master，没有任何未提交的修改。推送到Heroku前，必须检查状态并看到刚才所说的消息。如果没有看到这样的消息，就说明有未提交的修改，而这些修改将不会推送到服务器。在这种情况下，可尝试再次执行命令&lt;code&gt;commit&lt;/code&gt;
- ，但如果你不知道该如何解决这个问题，请阅读附录D，更深入地了解Git的用法。&lt;/p&gt;
-&lt;p&gt;下面将修改后的仓库推送到Heroku：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;(ll_env)learning_log$ git push heroku master
-remote: Building source:
-remote:
-remote: -----&amp;gt; Python app detected
-remote: -----&amp;gt; Installing requirements with pip
---snip--
-remote: -----&amp;gt; Launching...
-remote:        Released v6
-remote:        https://learning-log.herokuapp.com/ deployed to Heroku
-remote:
-remote: Verifying deploy... done.
-To https://git.heroku.com/learning-log.git
-   144f020..d5075a1 master -&amp;gt; master
-(ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;Heroku发现仓库发生了变化，因此重建项目，确保所有的修改都生效。它不会重建数据库，因此这次无须执行命令&lt;code&gt;migrate&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;h3 id="nav_point_485"&gt;20.2.14　在Heroku上设置环境变量&lt;/h3&gt;
-&lt;p&gt;现在可通过Heroku将settings.py中的&lt;code&gt;DEBUG&lt;/code&gt;
- 设置为所需的值了。&lt;/p&gt;
-&lt;p&gt;命令&lt;code&gt;heroku config:set&lt;/code&gt;
- 设置一个环境变量：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;(ll_env)learning_log$ heroku config:set DEBUG=FALSE
-Setting DEBUG and restarting ⬣ learning-log... done, v7
-DEBUG: FALSE
-(ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;每当你在Heroku上设置环境变量时，Heroku都将重启项目，让环境变量生效。&lt;/p&gt;
-&lt;p&gt;要核实部署现在更安全了，请输入项目的URL，并在末尾加上未定义的路径，如尝试访问http://learning-log.herokuapp.com/letmein。你将看到通用的错误页面，它没有泄露任何有关该项目的具体信息。如果通过输入URL http://localhost:8000/letmein/向本地的“学习笔记”发出同样的请求，你将看到完整的Django错误页面。这样的结果非常理想：接着开发这个项目时，你可以看到信息丰富的错误消息，但访问在线项目的用户看不到有关代码的重要信息。&lt;/p&gt;
-&lt;p&gt;如果你在部署应用程序时遇到麻烦，需要排除故障，可执行命令&lt;code&gt;heroku config:set DEBUG='TRUE'&lt;/code&gt;
- ，以便访问在线项目时能够看到完整的错误报告。成功地排除故障后，务必将这个环境变量重置为&lt;code&gt;'FALSE'&lt;/code&gt;
- 。另外，请务必小心，一旦有用户经常访问这个在线项目，就不要这样做。&lt;/p&gt;
-&lt;h3 id="nav_point_486"&gt;20.2.15　创建自定义错误页面&lt;/h3&gt;
-&lt;p&gt;第19章对“学习笔记”进行了配置，使其在用户请求不属于自己的主题或条目时返回404错误。你可能还遇到过一些500错误（内部错误）。404错误通常意味着Django代码是正确的，但请求的对象不存在。500错误通常意味着代码有问题，如views.py中的函数有问题。当前，在这两种情况下，Django都返回通用的错误页面，但我们可以编写外观与“学习笔记”一致的404和500错误页面模板。这些模板必须放在根模板目录中。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li value="1"&gt;
-&lt;p&gt;
-&lt;strong&gt;创建自定义模板&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;在最外层的文件夹learning_log中，新建一个文件夹，并将其命名为templates。然后在这个文件夹中新建一个名为404.html的文件（这个文件的路径应为learning_log/templates/404.html），并在其中输入如下内容：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;404.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;{% extends "learning_logs/base.html" %}
-{% block page_header %}
-  &amp;lt;h2&amp;gt;The item you requested is not available. (404)&amp;lt;/h2&amp;gt;
-{% endblock page_header %}&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这个简单的模板指定了通用的404错误页面包含的信息，但该页面的外观与网站其他部分 一致。&lt;/p&gt;
-&lt;p&gt;再创建一个名为500.html的文件，并在其中输入如下代码：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;500.html&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;{% extends "learning_logs/base.html" %}
-{% block page_header %}
-  &amp;lt;h2&amp;gt;There has been an internal error. (500)&amp;lt;/h2&amp;gt;
-{% endblock page_header %}&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这些新文件要求对settings.py做细微的修改：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        'APP_DIRS': True,
-        --snip--
-    },
-]
---snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这项修改让Django在根模板目录中查找错误页面模板。&lt;br/&gt;
- &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="2"&gt;
-&lt;p&gt;
-&lt;strong&gt;在本地查看错误页面&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;将项目推送到Heroku前，如果要在本地查看错误页面是什么样的，首先需要在本地设置中设置&lt;code&gt;Debug=False&lt;/code&gt;
- ，以禁止显示默认的Django调试页面。为此，可对settings.py做如下修改（请确保修改的是settings.py中用于本地环境的部分，而不是用于Heroku的部分）：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;settings.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;--snip--
-# 安全警告：不要在在线环境中启用调试！
-DEBUG = False
---snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;现在，请求不属于你的主题或条目，以查看404错误页面。然后请求不存在的主题或条目，以查看500错误页面。例如，如果输入http://localhost:8000/topics/999/，将出现500错误页面，除非你输入的主题已经超过了999个！&lt;/p&gt;
-&lt;p&gt;查看错误页面后，将本地&lt;code&gt;DEBUG&lt;/code&gt;
- 的值重新设置为&lt;code&gt;True&lt;/code&gt;
- ，为后续开发提供方便。（在管理Heroku设置的部分，确保处理&lt;code&gt;DEBUG&lt;/code&gt;
- 的方式不变。）&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　500错误页面不会显示任何有关当前用户的信息，因为发生服务器错误时，Django不会通过响应发送任何上下文信息。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt; &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="3"&gt;
-&lt;p&gt;
-&lt;strong&gt;将修改推送到Heroku&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;现在需要提交对错误页面所做的修改，并将这些修改推送到Heroku：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ (ll_env)learning_log$ git add .
-❷ (ll_env)learning_log$ git commit -am "Added custom 404 and 500 error pages."
-   3 files changed, 15 insertions(+), 10 deletions(-)
-   create mode 100644 templates/404.html
-   create mode 100644 templates/500.html
-❸ (ll_env)learning_log$ git push heroku master
-  --snip--
-  remote: Verifying deploy.... done.
-  To https://git.heroku.com/learning-log.git
-     d5075a1..4bd3b1c master -&amp;gt; master
-  (ll_env)learning_log$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在❶处，执行命令&lt;code&gt;git add .&lt;/code&gt;
- ，因为我们在项目中创建了一些新文件，需要让Git跟踪它们。然后，提交所做的修改（见❷），并将修改后的项目推送到Heroku（见❸）。&lt;/p&gt;
-&lt;p&gt;现在，错误页面出现时，其样式应该与网站其他部分一致。这样，在发生错误时，用户将不会感到别扭。&lt;br/&gt;
- &lt;/p&gt;
-&lt;/li&gt;
-&lt;li value="4"&gt;
-&lt;p&gt;
-&lt;strong&gt;使用方法&lt;code&gt;get_object_or_404()&lt;/code&gt;
-&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;现在，如果用户手工请求不存在的主题或条目，将导致500错误。Django尝试渲染不存在的页面，但没有足够的信息来完成这项任务，进而引发了500错误。对于这种情形，将其视为404错误更合适。为此可使用Django快捷函数&lt;code&gt;get_object_or_404()&lt;/code&gt;
- 。这个函数尝试从数据库获取请求的对象，如果这个对象不存在，就引发404异常。我们在views.py中导入这个函数，并用它替换函数&lt;code&gt;get()&lt;/code&gt;
- ：&lt;/p&gt;
-&lt;p&gt;
-&lt;em&gt;views.py&lt;/em&gt;
-&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
---snip--
-@login_required
-def topic(request, topic_id):
-    """显示单个主题及其所有的条目。"""
-    topic = get_object_or_404(Topic, id=topic_id)
-    # 确定主题属于当前用户。
-    --snip--&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;现在，如果请求不存在的主题（如使用URL http://localhost:8000/topics/999/），将看到404错误页面。为部署这里所做的修改，再次提交，并将项目推送到Heroku。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id="nav_point_487"&gt;20.2.16　继续开发&lt;/h3&gt;
-&lt;p&gt;将项目“学习笔记”推送到服务器后，你可能想进一步开发它或开发要部署的其他项目。更新项目的过程几乎完全相同。&lt;/p&gt;
-&lt;p&gt;首先，对本地项目做必要的修改。如果在修改过程中创建了新文件，使用命令&lt;code&gt;git add .&lt;/code&gt;
- （千万别忘记末尾的句点）将其加入Git仓库中。如果有修改要求迁移数据库，也需要执行这个命令，因为每个迁移都将生成新的迁移文件。&lt;/p&gt;
-&lt;p&gt;然后，使用命令&lt;code&gt;git commit -am "commit message"&lt;/code&gt;
- 将修改提交到仓库，再使用命令&lt;code&gt;git push heroku master&lt;/code&gt;
- 将修改推送到Heroku。如果在本地迁移了数据库，也需要迁移在线数据库。为此，可使用一次性命令&lt;code&gt;heroku run python manage.py migrate&lt;/code&gt;
- ，也可使用&lt;code&gt;heroku run bash&lt;/code&gt;
- 打开远程终端会话，并在其中执行命令&lt;code&gt;python manage.py migrate&lt;/code&gt;
- 。然后访问在线项目，确认期望看到的修改已生效。&lt;/p&gt;
-&lt;p&gt;在这个过程中很容易犯错，因此看到错误时不要大惊小怪。如果代码不能正确地工作，请重新审视所做的工作，尝试找出其中的错误。如果找不出错误，或者不知道如何撤销错误，请参阅附录C中有关如何寻求帮助的建议。不要羞于去寻求帮助：每个学习开发项目的人都可能遇到过你面临的问题，因此总有人乐意伸出援手。通过解决遇到的每个问题，可让你的技能稳步提高，最终能够开发可靠而有意义的项目，还能解决别人遇到的问题。&lt;/p&gt;
-&lt;h3 id="nav_point_488"&gt;20.2.17　设置&lt;code&gt;SECRET_KEY&lt;/code&gt;
-&lt;/h3&gt;
-&lt;p&gt;Django根据settings.py中设置&lt;code&gt;SECRET_KEY&lt;/code&gt;
- 的值来实现大量的安全协议。在这个项目中，提交到仓库的设置文件包含设置&lt;code&gt;SECRET_KEY&lt;/code&gt;
- 。对于一个练习项目而言，这足够了，但对于生产网站，应更细致地处理设置&lt;code&gt;SECRET_KEY&lt;/code&gt;
- 。如果你创建的项目的用途很重要，务必研究如何更安全地处理设置&lt;code&gt;SECRET_KEY&lt;/code&gt;
- 。&lt;/p&gt;
-&lt;h3 id="nav_point_489"&gt;20.2.18　将项目从Heroku删除&lt;/h3&gt;
-&lt;p&gt;一个不错的练习是，使用同一个项目或一系列小项目执行部署过程多次，直到对部署过程了如指掌。然而，你需要知道如何删除部署的项目。Heroku限制了可免费托管的项目数，而你也不希望自己的账户中包含大量练习项目。&lt;/p&gt;
-&lt;p&gt;在Heroku网站登录后，将重定向到一个页面，其中列出了你托管的所有项目。单击要删除的项目，你将看到另一个页面，其中显示了有关这个项目的信息。单击链接Settings，再向下滚动，找到用于删除项目的链接并单击它。这种操作是不可撤销的，因此Heroku让你手工输入要删除的项目的名称，确认你确实要删除它。&lt;/p&gt;
-&lt;p&gt;如果喜欢在终端中工作，也可使用命令&lt;code&gt;destroy&lt;/code&gt;
- 来删除项目：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;(ll_env)learning_log$ heroku apps:destroy --app appname&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;
-&lt;code&gt;appname&lt;/code&gt;
- 是要删除的项目的名称，可能类似于&lt;code&gt;secret-lowlands-82594&lt;/code&gt;
- ，也可能类似于&lt;code&gt;learning-log&lt;/code&gt;
- （如果你重命名了项目）。你将被要求再次输入项目名，确认你确实要删除它。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　删除Heroku上的项目对本地项目没有任何影响。如果没有人使用你部署的项目，就尽管去练习部署过程好了，在Heroku上删除项目再重新部署完全合情合理。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;　&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;动手试一试&lt;/strong&gt;
-&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习20-3：在线博客&lt;/strong&gt;
- 　将你一直在开发的项目Blog部署到Heroku。确保将&lt;code&gt;DEBUG&lt;/code&gt;
- 设置为&lt;code&gt;False&lt;/code&gt;
- ，以免出现错误时用户看到完整的Django错误页面。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习20-4：在更多的情况下显示404错误页面&lt;/strong&gt;
- 　在视图函数&lt;code&gt;new_entry()&lt;/code&gt;
- 和&lt;code&gt;edit_entry()&lt;/code&gt;
- 中，也使用函数&lt;code&gt;get_object_or_404()&lt;/code&gt;
- 。完成这些修改后进行测试：输入类似于http://localhost:8000/new_entry/999/的URL，确认看到的是404错误页面。&lt;/p&gt;
-&lt;p&gt;
-&lt;strong&gt;练习20-5：扩展“学习笔记”&lt;/strong&gt;
- 　在“学习笔记”中添加一项功能，并将修改推送到在线部署。尝试做一项简单的修改，如在主页中对项目做更详细的描述。再尝试添加一项更高级的功能，如让用户能够将主题设置为公开的。为此，需要在模型&lt;code&gt;Topic&lt;/code&gt;
- 中添加一个名为&lt;code&gt;public&lt;/code&gt;
- 的属性（其默认值为&lt;code&gt;False&lt;/code&gt;
- ），并在&lt;code&gt;new_topic&lt;/code&gt;
- 页面中添加一个表单元素，让用户能够将私有主题改为公开。然后，需要迁移项目，并修改views.py，让未登录的用户也可以看到所有公开的主题。将修改推送到Heroku后，别忘了迁移在线数据库。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_490"&gt;20.3　小结&lt;/h2&gt;
-&lt;p&gt;在本章中，你学习了如何使用Bootstrap库和应用程序django-bootstrap4赋予应用程序简单而专业的外观。使用Bootstrap意味着无论用户使用哪种设备来访问你的项目，你选择的样式都将实现几乎相同的效果。&lt;/p&gt;
-&lt;p&gt;你学习了Bootstrap的模板，并使用模板Navbar static赋予了“学习笔记”简单的外观。你学习了如何使用jumbotron来突出主页中的消息，还学习了如何给网站的所有页面设置一致的样式。&lt;/p&gt;
-&lt;p&gt;在本章最后一节，你学习了如何将项目部署到Heroku服务器，让任何人都能够访问。你创建了一个Heroku账户，并安装了一些帮助管理部署过程的工具。你使用Git将能够正确运行的项目提交到仓库，再将这个仓库推送到Heroku的服务器。最后，你将&lt;code&gt;DEBUG&lt;/code&gt;
- 设置为&lt;code&gt;False&lt;/code&gt;
- ，以确保在线应用程序的安全。&lt;/p&gt;
-&lt;p&gt;开发完项目“学习笔记”后，你就能自己动手开发项目了。请先让项目尽可能简单，确定它能正确运行后，再添加复杂的功能。愿你学习愉快，开发项目时有好运相伴！&lt;/p&gt;
-&lt;br style="page-break-after:always"/&gt;
-&lt;div&gt;&lt;/div&gt;
-</description>
-    <pubDate>Mon, 03 Aug 2026 01:22:40 +0000</pubDate>
-    <guid isPermaLink="false">20</guid>
 </item>
 </channel>
 </rss>
