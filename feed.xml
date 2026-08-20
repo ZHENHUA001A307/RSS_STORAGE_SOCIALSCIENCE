@@ -1,54 +1,62 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-    <title>我的每日小说</title>
-    <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
-    <description>从 EPUB 自动生成的 RSS 订阅源</description>
-        <item>
+  <title>每日更新推送</title>
+  <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
+  <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
+  <lastBuildDate>Thu, 20 Aug 2026 00:53:09 +0000</lastBuildDate>
+    <item>
+      <title><![CDATA[WorkBuddyGuide-第 2 章 WorkBuddy的下载、安装、登录与更新]]></title>
+      <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%202%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E3%80%81%E7%99%BB%E5%BD%95%E4%B8%8E%E6%9B%B4%E6%96%B0/</link>
+      <description><![CDATA[学习时长：约1小时；学习内容：WorkBuddy的下载渠道、Windows/macOS安装步骤、登录方式（微信/手机号）、更新方法及常见问题处理[reference:1]；学习目的：顺利完成WorkBuddy的安装与登录，进入可用状态]]></description>
+      <guid isPermaLink="false">https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%202%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%8B%E8%BD%BD%E3%80%81%E5%AE%89%E8%A3%85%E3%80%81%E7%99%BB%E5%BD%95%E4%B8%8E%E6%9B%B4%E6%96%B0/</guid>
+      <pubDate>Thu, 20 Aug 2026 00:53:09 +0000</pubDate>
+    </item>
+<item>
     <title>AutomaticApplicationPython - 029 - 第5章 字典和结构化数据.epub</title>
-    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：49 分钟 (14639 字)</p><hr><h1 id="nav_point_115">第5章　字典和结构化数据</h1>
-<p class="zw">在本章中，我将介绍字典数据类型，它提供了一种灵活的访问和组织数据的方式。然后，结合字典与前一章中关于列表的知识，你将学习如何创建一个数据结构，对井字棋盘建模。</p>
-<h2 id="nav_point_116">5.1 字典数据类型</h2>
-<p class="zw">像列表一样，“字典”是许多值的集合。但不像列表的下标，字典的索引可以使用许多不同数据类型，不只是整数。字典的索引被称为“键”，键及其关联的值称为“键-值”对。</p>
-<p class="zw">在代码中，字典输入时带花括号{}。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>myCat = {'size': 'fat', 'color': 'gray', 'disposition': 'loud'}</strong>
-</code>
-</pre>
-<p class="zw">这将一个字典赋给myCat变量。这个字典的键是'size'、'color'和'disposition'。这些键相应的值是'fat'、'gray'和'loud'。可以通过它们的键访问这些值：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>myCat['size']</strong>
+    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：49 分钟 (14639 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_115"&gt;第5章　字典和结构化数据&lt;/h1&gt;
+&lt;p class="zw"&gt;在本章中，我将介绍字典数据类型，它提供了一种灵活的访问和组织数据的方式。然后，结合字典与前一章中关于列表的知识，你将学习如何创建一个数据结构，对井字棋盘建模。&lt;/p&gt;
+&lt;h2 id="nav_point_116"&gt;5.1 字典数据类型&lt;/h2&gt;
+&lt;p class="zw"&gt;像列表一样，“字典”是许多值的集合。但不像列表的下标，字典的索引可以使用许多不同数据类型，不只是整数。字典的索引被称为“键”，键及其关联的值称为“键-值”对。&lt;/p&gt;
+&lt;p class="zw"&gt;在代码中，字典输入时带花括号{}。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;myCat = {'size': 'fat', 'color': 'gray', 'disposition': 'loud'}&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这将一个字典赋给myCat变量。这个字典的键是'size'、'color'和'disposition'。这些键相应的值是'fat'、'gray'和'loud'。可以通过它们的键访问这些值：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;myCat['size']&lt;/strong&gt;
 'fat'
-&gt;&gt;&gt; <strong>'My cat has ' + myCat['color'] + ' fur.'</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'My cat has ' + myCat['color'] + ' fur.'&lt;/strong&gt;
 'My cat has gray fur.'
-</code>
-</pre>
-<p class="zw">字典仍然可以用整数值作为键，就像列表使用整数值作为下标一样，但它们不必从0开始，可以是任何数字。</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = {12345: 'Luggage Combination', 42: 'The Answer'}</strong>
-</code>
-</pre>
-<h3 id="nav_point_117">5.1.1 字典与列表</h3>
-<p class="zw">不像列表，字典中的表项是不排序的。名为spam的列表中，第一个表项是spam[0]。但字典中没有“第一个”表项。虽然确定两个列表是否相同时，表项的顺序很重要，但在字典中，键-值对输入的顺序并不重要。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cats', 'dogs', 'moose']</strong>
-&gt;&gt;&gt; <strong>bacon = ['dogs', 'moose', 'cats']</strong>
-&gt;&gt;&gt; <strong>spam == bacon</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;字典仍然可以用整数值作为键，就像列表使用整数值作为下标一样，但它们不必从0开始，可以是任何数字。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = {12345: 'Luggage Combination', 42: 'The Answer'}&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_117"&gt;5.1.1 字典与列表&lt;/h3&gt;
+&lt;p class="zw"&gt;不像列表，字典中的表项是不排序的。名为spam的列表中，第一个表项是spam[0]。但字典中没有“第一个”表项。虽然确定两个列表是否相同时，表项的顺序很重要，但在字典中，键-值对输入的顺序并不重要。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cats', 'dogs', 'moose']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;bacon = ['dogs', 'moose', 'cats']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam == bacon&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>eggs = {'name': 'Zophie', 'species': 'cat', 'age': '8'}</strong>
-&gt;&gt;&gt; <strong>ham = {'species': 'cat', 'age': '8', 'name': 'Zophie'}</strong>
-&gt;&gt;&gt; <strong>eggs == ham</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs = {'name': 'Zophie', 'species': 'cat', 'age': '8'}&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;ham = {'species': 'cat', 'age': '8', 'name': 'Zophie'}&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs == ham&lt;/strong&gt;
 True
-</code>
-</pre>
-<p class="zw">因为字典是不排序的，所以不能像列表那样切片。</p>
-<p class="zw">尝试访问字典中不存在的键，将导致KeyError出错信息。这很像列表的“越界”IndexError出错信息。在交互式环境中输入以下代码，并注意显示的出错信息，因为没有'color'键：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = {'name': 'Zophie', 'age': 7}</strong>
-&gt;&gt;&gt; <strong>spam['color']</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;因为字典是不排序的，所以不能像列表那样切片。&lt;/p&gt;
+&lt;p class="zw"&gt;尝试访问字典中不存在的键，将导致KeyError出错信息。这很像列表的“越界”IndexError出错信息。在交互式环境中输入以下代码，并注意显示的出错信息，因为没有'color'键：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = {'name': 'Zophie', 'age': 7}&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam['color']&lt;/strong&gt;
 Traceback (most recent call last):
   File "", line 1, in
     spam['color']
 KeyError: 'color'
-</code>
-</pre>
-<p class="zw">尽管字典是不排序的，但可以用任意值作为键，这一点让你能够用强大的方式来组织数据。假定你希望程序保存朋友生日的数据，就可以使用一个字典，用名字作为键，用生日作为值。打开一个新的文件编辑窗口，输入以下代码，并保存为birthdays.py：</p>
-<pre class="代码无行号"><code>❶ birthdays = {'Alice': 'Apr 1', 'Bob': 'Dec 12', 'Carol': 'Mar 4'}
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;尽管字典是不排序的，但可以用任意值作为键，这一点让你能够用强大的方式来组织数据。假定你希望程序保存朋友生日的数据，就可以使用一个字典，用名字作为键，用生日作为值。打开一个新的文件编辑窗口，输入以下代码，并保存为birthdays.py：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ birthdays = {'Alice': 'Apr 1', 'Bob': 'Dec 12', 'Carol': 'Mar 4'}
 　while True:
 　    print('Enter a name: (blank to quit)')
 　    name = input()
@@ -61,152 +69,152 @@ KeyError: 'color'
 　        print('What is their birthday?')
 　        bday = input()
 ❹         birthdays[name] = bday
-　        print('Birthday database updated.')</code>
-</pre>
-<p class="zw">你创建了一个初始的字典，将它保存在birthdays中❶。用in关键字，可以看看输入的名字是否作为键存在于字典中❷，就像查看列表一样。如果该名字在字典中，你可以用方括号访问关联的值❸。如果不在，你可以用同样的方括号语法和赋值操作符添加它❹。</p>
-<p class="zw">运行这个程序，结果看起来如下所示：</p>
-<pre class="代码无行号"><code>Enter a name: (blank to quit)
-<strong>Alice</strong>
+　        print('Birthday database updated.')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;你创建了一个初始的字典，将它保存在birthdays中❶。用in关键字，可以看看输入的名字是否作为键存在于字典中❷，就像查看列表一样。如果该名字在字典中，你可以用方括号访问关联的值❸。如果不在，你可以用同样的方括号语法和赋值操作符添加它❹。&lt;/p&gt;
+&lt;p class="zw"&gt;运行这个程序，结果看起来如下所示：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Enter a name: (blank to quit)
+&lt;strong&gt;Alice&lt;/strong&gt;
 Apr 1 is the birthday of Alice
 Enter a name: (blank to quit)
-<strong>Eve</strong>
+&lt;strong&gt;Eve&lt;/strong&gt;
 I do not have birthday information for Eve
 What is their birthday?
-<strong>Dec 5</strong>
+&lt;strong&gt;Dec 5&lt;/strong&gt;
 Birthday database updated.
 Enter a name: (blank to quit)
-<strong>Eve</strong>
+&lt;strong&gt;Eve&lt;/strong&gt;
 Dec 5 is the birthday of Eve
 Enter a name: (blank to quit)
-</code>
-</pre>
-<p class="zw">当然，在程序终止时，你在这个程序中输入的所有数据都丢失了。在第 8章中，你将学习如何将数据保存在硬盘的文件中。</p>
-<h3 id="nav_point_118">5.1.2 keys()、values()和items()方法</h3>
-<p class="zw">有3个字典方法，它们将返回类似列表的值，分别对应于字典的键、值和键-值对：keys()、values()和items()。这些方法返回的值不是真正的列表，它们不能被修改，没有append()方法。但这些数据类型（分别是dict_keys、dict_values和dict_items）可以用于for循环。为了看看这些方法的工作原理，请在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = {'color': 'red', 'age': 42}</strong>
-&gt;&gt;&gt; <strong>for v in spam.values():</strong>
-        <strong>print(v)</strong>
-<strong>　</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;当然，在程序终止时，你在这个程序中输入的所有数据都丢失了。在第 8章中，你将学习如何将数据保存在硬盘的文件中。&lt;/p&gt;
+&lt;h3 id="nav_point_118"&gt;5.1.2 keys()、values()和items()方法&lt;/h3&gt;
+&lt;p class="zw"&gt;有3个字典方法，它们将返回类似列表的值，分别对应于字典的键、值和键-值对：keys()、values()和items()。这些方法返回的值不是真正的列表，它们不能被修改，没有append()方法。但这些数据类型（分别是dict_keys、dict_values和dict_items）可以用于for循环。为了看看这些方法的工作原理，请在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = {'color': 'red', 'age': 42}&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;for v in spam.values():&lt;/strong&gt;
+        &lt;strong&gt;print(v)&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
 red
-42</code>
-</pre>
-<p class="zw">这里，for循环迭代了spam字典中的每个值。for循环也可以迭代每个键，或者键-值对：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>for k in spam.keys():</strong>
-        <strong>print(k)</strong>
-<strong>　</strong>
+42&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这里，for循环迭代了spam字典中的每个值。for循环也可以迭代每个键，或者键-值对：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;for k in spam.keys():&lt;/strong&gt;
+        &lt;strong&gt;print(k)&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
 color
 age
-&gt;&gt;&gt; <strong>for i in spam.items():</strong>
-        <strong>print(i)</strong>
-<strong>　</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;for i in spam.items():&lt;/strong&gt;
+        &lt;strong&gt;print(i)&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
 ('color', 'red')
 ('age', 42)
-</code>
-</pre>
-<p class="zw">利用keys()、values()和items()方法，循环分别可以迭代键、值或键-值对。请注意，items()方法返回的dict_items值中，包含的是键和值的元组。</p>
-<p class="zw">如果希望通过这些方法得到一个真正的列表，就把类似列表的返回值传递给 list函数。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = {'color': 'red', 'age': 42}</strong>
-&gt;&gt;&gt; <strong>spam.keys()</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;利用keys()、values()和items()方法，循环分别可以迭代键、值或键-值对。请注意，items()方法返回的dict_items值中，包含的是键和值的元组。&lt;/p&gt;
+&lt;p class="zw"&gt;如果希望通过这些方法得到一个真正的列表，就把类似列表的返回值传递给 list函数。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = {'color': 'red', 'age': 42}&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.keys()&lt;/strong&gt;
 dict_keys(['color', 'age'])
-&gt;&gt;&gt; <strong>list(spam.keys())</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;list(spam.keys())&lt;/strong&gt;
 ['color', 'age']
-</code>
-</pre>
-<p class="zw">list(spam.keys())代码行接受keys()函数返回的dict_keys值，并传递给list()。然后返回一个列表，即['color', 'age']。</p>
-<p class="zw">也可以利用多重赋值的技巧，在for循环中将键和值赋给不同的变量。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = {'color': 'red', 'age': 42}</strong>
-&gt;&gt;&gt; <strong>for k, v in spam.items():</strong>
-        <strong>print('Key: ' + k + ' Value: ' + str(v))</strong>
-<strong>　</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;list(spam.keys())代码行接受keys()函数返回的dict_keys值，并传递给list()。然后返回一个列表，即['color', 'age']。&lt;/p&gt;
+&lt;p class="zw"&gt;也可以利用多重赋值的技巧，在for循环中将键和值赋给不同的变量。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = {'color': 'red', 'age': 42}&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;for k, v in spam.items():&lt;/strong&gt;
+        &lt;strong&gt;print('Key: ' + k + ' Value: ' + str(v))&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
 Key: age Value: 42
 Key: color Value: red
-</code>
-</pre>
-<h3 id="nav_point_119">5.1.3 检查字典中是否存在键或值</h3>
-<p class="zw">回忆一下，前一章提到，in和not in操作符可以检查值是否存在于列表中。也可以利用这些操作符，检查某个键或值是否存在于字典中。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = {'name': 'Zophie', 'age': 7}</strong>
-&gt;&gt;&gt; <strong>'name' in spam.keys()</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_119"&gt;5.1.3 检查字典中是否存在键或值&lt;/h3&gt;
+&lt;p class="zw"&gt;回忆一下，前一章提到，in和not in操作符可以检查值是否存在于列表中。也可以利用这些操作符，检查某个键或值是否存在于字典中。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = {'name': 'Zophie', 'age': 7}&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'name' in spam.keys()&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'Zophie' in spam.values()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Zophie' in spam.values()&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'color' in spam.keys()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'color' in spam.keys()&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>'color' not in spam.keys()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'color' not in spam.keys()&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'color' in spam</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'color' in spam&lt;/strong&gt;
 False
-</code>
-</pre>
-<p class="zw">请注意，在前面的例子中，'color' in spam本质上是一个简写版本。相当于'color' in spam.keys()。这种情况总是对的：如果想要检查一个值是否为字典中的键，就可以用关键字in（或not in），作用于该字典本身。</p>
-<h3 id="nav_point_120">5.1.4 get()方法</h3>
-<p class="zw">在访问一个键的值之前，检查该键是否存在于字典中，这很麻烦。好在，字典有一个get()方法，它有两个参数：要取得其值的键，以及如果该键不存在时，返回的备用值。</p>
-<p class="zw">在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>picnicItems = {'apples': 5, 'cups': 2}</strong>
-&gt;&gt;&gt; <strong>'I am bringing ' + str(picnicItems.get('cups', 0)) + ' cups.'</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;请注意，在前面的例子中，'color' in spam本质上是一个简写版本。相当于'color' in spam.keys()。这种情况总是对的：如果想要检查一个值是否为字典中的键，就可以用关键字in（或not in），作用于该字典本身。&lt;/p&gt;
+&lt;h3 id="nav_point_120"&gt;5.1.4 get()方法&lt;/h3&gt;
+&lt;p class="zw"&gt;在访问一个键的值之前，检查该键是否存在于字典中，这很麻烦。好在，字典有一个get()方法，它有两个参数：要取得其值的键，以及如果该键不存在时，返回的备用值。&lt;/p&gt;
+&lt;p class="zw"&gt;在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;picnicItems = {'apples': 5, 'cups': 2}&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'I am bringing ' + str(picnicItems.get('cups', 0)) + ' cups.'&lt;/strong&gt;
 'I am bringing 2 cups.'
-&gt;&gt;&gt; <strong>'I am bringing ' + str(picnicItems.get('eggs', 0)) + ' eggs.'</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'I am bringing ' + str(picnicItems.get('eggs', 0)) + ' eggs.'&lt;/strong&gt;
 'I am bringing 0 eggs.'
-</code>
-</pre>
-<p class="zw">因为picnicItems字典中没有'egg'键，get()方法返回的默认值是0。不使用get()，代码就会产生一个错误消息，就像下面的例子：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>picnicItems = {'apples': 5, 'cups': 2}</strong>
-&gt;&gt;&gt; <strong>'I am bringing ' + str(picnicItems['eggs']) + ' eggs.'</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;因为picnicItems字典中没有'egg'键，get()方法返回的默认值是0。不使用get()，代码就会产生一个错误消息，就像下面的例子：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;picnicItems = {'apples': 5, 'cups': 2}&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'I am bringing ' + str(picnicItems['eggs']) + ' eggs.'&lt;/strong&gt;
 Traceback (most recent call last):
-  File "&lt;pyshell#34&gt;", line 1, in
+  File "&amp;lt;pyshell#34&amp;gt;", line 1, in
     'I am bringing ' + str(picnicItems['eggs']) + ' eggs.'
 KeyError: 'eggs'
-</code>
-</pre>
-<h3 id="nav_point_121">5.1.5 setdefault()方法</h3>
-<p class="zw">你常常需要为字典中某个键设置一个默认值，当该键没有任何值时使用它。代码看起来像这样：</p>
-<pre class="代码无行号"><code>spam = {'name': 'Pooka', 'age': 5}
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_121"&gt;5.1.5 setdefault()方法&lt;/h3&gt;
+&lt;p class="zw"&gt;你常常需要为字典中某个键设置一个默认值，当该键没有任何值时使用它。代码看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;spam = {'name': 'Pooka', 'age': 5}
 if 'color' not in spam:
     spam['color'] = 'black'
-</code>
-</pre>
-<p class="zw">setdefault()方法提供了一种方式，在一行中完成这件事。传递给该方法的第一个参数，是要检查的键。第二个参数，是如果该键不存在时要设置的值。如果该键确实存在，方法就会返回键的值。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = {'name': 'Pooka', 'age': 5}</strong>
-&gt;&gt;&gt; <strong>spam.setdefault('color', 'black')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;setdefault()方法提供了一种方式，在一行中完成这件事。传递给该方法的第一个参数，是要检查的键。第二个参数，是如果该键不存在时要设置的值。如果该键确实存在，方法就会返回键的值。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = {'name': 'Pooka', 'age': 5}&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.setdefault('color', 'black')&lt;/strong&gt;
 'black'
-&gt;&gt;&gt; <strong>spam</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 {'color': 'black', 'age': 5, 'name': 'Pooka'}
-&gt;&gt;&gt; <strong>spam.setdefault('color', 'white')</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.setdefault('color', 'white')&lt;/strong&gt;
 'black'
-&gt;&gt;&gt; <strong>spam</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 {'color': 'black', 'age': 5, 'name': 'Pooka'}
-</code>
-</pre>
-<p class="zw">第一次调用setdefault()时，spam变量中的字典变为{'color': 'black', 'age': 5, 'name': 'Pooka'}。该方法返回值'black'，因为现在该值被赋给键'color'。当spam.setdefault('color', 'white')接下来被调用时，该键的值“没有”被改变成'white'，因为spam变量已经有名为'color'的键。</p>
-<p class="zw">setdefault()方法是一个很好的快捷方式，可以确保一个键存在。下面有一个小程序，计算一个字符串中每个字符出现的次数。打开一个文件编辑器窗口，输入以下代码，保存为characterCount.py：</p>
-<pre class="代码无行号"><code>message = 'It was a bright cold day in April, and the clocks were striking thirteen.'
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;第一次调用setdefault()时，spam变量中的字典变为{'color': 'black', 'age': 5, 'name': 'Pooka'}。该方法返回值'black'，因为现在该值被赋给键'color'。当spam.setdefault('color', 'white')接下来被调用时，该键的值“没有”被改变成'white'，因为spam变量已经有名为'color'的键。&lt;/p&gt;
+&lt;p class="zw"&gt;setdefault()方法是一个很好的快捷方式，可以确保一个键存在。下面有一个小程序，计算一个字符串中每个字符出现的次数。打开一个文件编辑器窗口，输入以下代码，保存为characterCount.py：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;message = 'It was a bright cold day in April, and the clocks were striking thirteen.'
 count = {}
 for character in message:
     count.setdefault(character, 0)
     count[character] = count[character] + 1
-print(count)</code>
-</pre>
-<p class="zw">程序循环迭代message字符串中的每个字符，计算每个字符出现的次数。setdefault()方法调用确保了键存在于count字典中（默认值是0），这样在执行count[character] = count[character] + 1时，就不会抛出KeyError错误。程序运行时，输出如下：</p>
-<pre class="代码无行号"><code>{' ': 13, ',': 1, '.': 1, 'A': 1, 'I': 1, 'a': 4, 'c': 3, 'b': 1, 'e': 5, 'd': 3, 'g': 2, 'i':
-6, 'h': 3, 'k': 2, 'l': 3, 'o': 2, 'n': 4, 'p': 1, 's': 3, 'r': 5, 't': 6, 'w': 2, 'y': 1}</code>
-</pre>
-<p class="zw">从输出可以看到，小写字母c出现了3次，空格字符出现了13次，大写字母A出现了1次。无论message变量中包含什么样的字符串，这个程序都能工作，即使该字符串有上百万的字符！</p>
-<h2 id="nav_point_122">5.2 漂亮打印</h2>
-<p class="zw">如果程序中导入pprint模块，就可以使用pprint()和pformat()函数，它们将“漂亮打印”一个字典的字。如果想要字典中表项的显示比print()的输出结果更干净，这就有用了。修改前面的characterCount.py程序，将它保存为prettyCharacterCount.py。</p>
-<pre class="代码无行号"><code>
-<strong>import pprint</strong>
+print(count)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;程序循环迭代message字符串中的每个字符，计算每个字符出现的次数。setdefault()方法调用确保了键存在于count字典中（默认值是0），这样在执行count[character] = count[character] + 1时，就不会抛出KeyError错误。程序运行时，输出如下：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;{' ': 13, ',': 1, '.': 1, 'A': 1, 'I': 1, 'a': 4, 'c': 3, 'b': 1, 'e': 5, 'd': 3, 'g': 2, 'i':
+6, 'h': 3, 'k': 2, 'l': 3, 'o': 2, 'n': 4, 'p': 1, 's': 3, 'r': 5, 't': 6, 'w': 2, 'y': 1}&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;从输出可以看到，小写字母c出现了3次，空格字符出现了13次，大写字母A出现了1次。无论message变量中包含什么样的字符串，这个程序都能工作，即使该字符串有上百万的字符！&lt;/p&gt;
+&lt;h2 id="nav_point_122"&gt;5.2 漂亮打印&lt;/h2&gt;
+&lt;p class="zw"&gt;如果程序中导入pprint模块，就可以使用pprint()和pformat()函数，它们将“漂亮打印”一个字典的字。如果想要字典中表项的显示比print()的输出结果更干净，这就有用了。修改前面的characterCount.py程序，将它保存为prettyCharacterCount.py。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;
+&lt;strong&gt;import pprint&lt;/strong&gt;
 message = 'It was a bright cold day in April, and the clocks were striking
 thirteen.'
 count = {}
 for character in message:
     count.setdefault(character, 0)
     count[character] = count[character] + 1
-<strong>pprint</strong>
-.<strong>pprint(</strong>
-count<strong>)</strong>
-</code>
-</pre>
-<p class="zw">这一次，当程序运行时，输出看起来更干净，键排过序。</p>
-<pre class="代码无行号"><code>{' ': 13,
+&lt;strong&gt;pprint&lt;/strong&gt;
+.&lt;strong&gt;pprint(&lt;/strong&gt;
+count&lt;strong&gt;)&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这一次，当程序运行时，输出看起来更干净，键排过序。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;{' ': 13,
  ',': 1,
  '.': 1,
  'A': 1,
@@ -228,151 +236,151 @@ count<strong>)</strong>
  's': 3,
  't': 6,
  'w': 2,
- 'y': 1}</code>
-</pre>
-<p class="zw">如果字典本身包含嵌套的列表或字典，pprint.pprint()函数就特别有用。</p>
-<p class="zw">如果希望得到漂亮打印的文本作为字符串，而不是显示在屏幕上，那就调用pprint.pformat()。下面两行代码是等价的：</p>
-<pre class="代码无行号"><code>pprint.pprint(someDictionaryValue)
-print(pprint.pformat(someDictionaryValue))</code>
-</pre>
-<h2 id="nav_point_123">5.3 使用数据结构对真实世界建模</h2>
-<p class="zw">甚至在因特网之前，人们也有办法与世界另一边的某人下一盘国际象棋。每个棋手在自己家里放好一个棋盘，然后轮流向对方寄出明信片，描述每一着棋。要做到这一点，棋手需要一种方法，无二义地描述棋盘的状态，以及他们的着法。</p>
-<p class="zw">在“代数记谱法”中，棋盘空间由一个数字和字母坐标确定，如图5-1所示。</p>
-<p class="图"><img alt="0501" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00090.jpg"/>
-</p>
-<p class="图题">图5-1 代数记谱法中棋盘的坐标</p>
-<p class="zw">棋子用字母表示：K表示王，Q表示后，R表示车，B表示象，N表示马。描述一次移动，用棋子的字母和它的目的地坐标。一对这样的移动表示一个回合（白方先下），例如，棋谱2. Nf3 Nc6表明在棋局的第二回合，白方将马移动到f3，黑方将马移动到c6。</p>
-<p class="zw">代数记谱法还有更多内容，但要点是你可以用它无二义地描述象棋游戏，不需要站在棋盘前。你的对手甚至可以在世界的另一边！实际上，如果你的记忆力很好，甚至不需要物理的棋具：只需要阅读寄来的棋子移动，更新心里想的棋盘。</p>
-<p class="zw">计算机有很好的记忆力。现在计算机上的程序，很容易存储几百万个像'2. Nf3 Nc6'这样的字符串。这就是为什么计算机不用物理棋盘就能下象棋。它们用数据建模来表示棋盘，你可以编写代码来使用这个模型。</p>
-<p class="zw">这里就可以用到列表和字典。可以用它们对真实世界建模，例如棋盘。作为第一个例子，我们将使用比国际象棋简单一点的游戏：井字棋。</p>
-<h3 id="nav_point_124">5.3.1 井字棋盘</h3>
-<p class="zw">井字棋盘看起来像一个大的井字符号（#），有9个空格，可以包含X、O或空。要用字典表示棋盘，可以为每个空格分配一个字符串键，如图5-2所示。</p>
-<p class="图"><img alt="0502" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00091.jpg"/>
-</p>
-<p class="图题">图5-2 井字棋盘的空格和它们对应的键</p>
-<p class="zw">可以用字符串值来表示，棋盘上每个空格有什么：'X'、'O'或' '（空格字符）。因此，需要存储9个字符串。可以用一个字典来做这事。带有键'top-R'的字符串表示右上角，带有键'low-L'的字符串表示左下角，带有键'mid-M'的字符串表示中间，以此类推。</p>
-<p class="zw">这个字典就是表示井字棋盘的数据结构。将这个字典表示的棋盘保存在名为theBoard的变量中。打开一个文件编辑器窗口，输入以下代码，并保存为ticTacToe.py：</p>
-<pre class="代码无行号"><code>theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+ 'y': 1}&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果字典本身包含嵌套的列表或字典，pprint.pprint()函数就特别有用。&lt;/p&gt;
+&lt;p class="zw"&gt;如果希望得到漂亮打印的文本作为字符串，而不是显示在屏幕上，那就调用pprint.pformat()。下面两行代码是等价的：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;pprint.pprint(someDictionaryValue)
+print(pprint.pformat(someDictionaryValue))&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h2 id="nav_point_123"&gt;5.3 使用数据结构对真实世界建模&lt;/h2&gt;
+&lt;p class="zw"&gt;甚至在因特网之前，人们也有办法与世界另一边的某人下一盘国际象棋。每个棋手在自己家里放好一个棋盘，然后轮流向对方寄出明信片，描述每一着棋。要做到这一点，棋手需要一种方法，无二义地描述棋盘的状态，以及他们的着法。&lt;/p&gt;
+&lt;p class="zw"&gt;在“代数记谱法”中，棋盘空间由一个数字和字母坐标确定，如图5-1所示。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0501" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00090.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图5-1 代数记谱法中棋盘的坐标&lt;/p&gt;
+&lt;p class="zw"&gt;棋子用字母表示：K表示王，Q表示后，R表示车，B表示象，N表示马。描述一次移动，用棋子的字母和它的目的地坐标。一对这样的移动表示一个回合（白方先下），例如，棋谱2. Nf3 Nc6表明在棋局的第二回合，白方将马移动到f3，黑方将马移动到c6。&lt;/p&gt;
+&lt;p class="zw"&gt;代数记谱法还有更多内容，但要点是你可以用它无二义地描述象棋游戏，不需要站在棋盘前。你的对手甚至可以在世界的另一边！实际上，如果你的记忆力很好，甚至不需要物理的棋具：只需要阅读寄来的棋子移动，更新心里想的棋盘。&lt;/p&gt;
+&lt;p class="zw"&gt;计算机有很好的记忆力。现在计算机上的程序，很容易存储几百万个像'2. Nf3 Nc6'这样的字符串。这就是为什么计算机不用物理棋盘就能下象棋。它们用数据建模来表示棋盘，你可以编写代码来使用这个模型。&lt;/p&gt;
+&lt;p class="zw"&gt;这里就可以用到列表和字典。可以用它们对真实世界建模，例如棋盘。作为第一个例子，我们将使用比国际象棋简单一点的游戏：井字棋。&lt;/p&gt;
+&lt;h3 id="nav_point_124"&gt;5.3.1 井字棋盘&lt;/h3&gt;
+&lt;p class="zw"&gt;井字棋盘看起来像一个大的井字符号（#），有9个空格，可以包含X、O或空。要用字典表示棋盘，可以为每个空格分配一个字符串键，如图5-2所示。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0502" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00091.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图5-2 井字棋盘的空格和它们对应的键&lt;/p&gt;
+&lt;p class="zw"&gt;可以用字符串值来表示，棋盘上每个空格有什么：'X'、'O'或' '（空格字符）。因此，需要存储9个字符串。可以用一个字典来做这事。带有键'top-R'的字符串表示右上角，带有键'low-L'的字符串表示左下角，带有键'mid-M'的字符串表示中间，以此类推。&lt;/p&gt;
+&lt;p class="zw"&gt;这个字典就是表示井字棋盘的数据结构。将这个字典表示的棋盘保存在名为theBoard的变量中。打开一个文件编辑器窗口，输入以下代码，并保存为ticTacToe.py：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
             'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
-            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}</code>
-</pre>
-<p class="zw">保存在theBoard变量中的数据结构，表示了图5-3中的井字棋盘。</p>
-<p class="图"><img alt="0503" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00092.gif"/>
-</p>
-<p class="图题">图5-3 一个空的井字棋盘</p>
-<p class="zw">因为theBoard变量中每个键的值都是单个空格字符，所以这个字典表示一个完全干净的棋盘。如果玩家X选择了中间的空格，就可以用下面这个字典来表示棋盘：</p>
-<pre class="代码无行号"><code>theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;保存在theBoard变量中的数据结构，表示了图5-3中的井字棋盘。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0503" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00092.gif"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图5-3 一个空的井字棋盘&lt;/p&gt;
+&lt;p class="zw"&gt;因为theBoard变量中每个键的值都是单个空格字符，所以这个字典表示一个完全干净的棋盘。如果玩家X选择了中间的空格，就可以用下面这个字典来表示棋盘：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
             'mid-L': ' ', 'mid-M': 'X', 'mid-R': ' ',
-            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}</code>
-</pre>
-<p class="zw">theBoard变量中的数据结构现在表示图5-4中的井字棋盘。</p>
-<p class="图"><img alt="0504" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00093.gif"/>
-</p>
-<p class="图题">图5-4 第一着</p>
-<p class="zw">一个玩家O获胜的棋盘上，他将O横贯棋盘的顶部，看起来像这样：</p>
-<pre class="代码无行号"><code>theBoard = {'top-L': 'O', 'top-M': 'O', 'top-R': 'O',
+            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;theBoard变量中的数据结构现在表示图5-4中的井字棋盘。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0504" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00093.gif"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图5-4 第一着&lt;/p&gt;
+&lt;p class="zw"&gt;一个玩家O获胜的棋盘上，他将O横贯棋盘的顶部，看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;theBoard = {'top-L': 'O', 'top-M': 'O', 'top-R': 'O',
             'mid-L': 'X', 'mid-M': 'X', 'mid-R': ' ',
-            'low-L': ' ', 'low-M': ' ', 'low-R': 'X'}</code>
-</pre>
-<p class="zw">theBoard变量中的数据结构现在表示图5-5中的井字棋盘。</p>
-<p class="图"><img alt="0505" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00094.jpg"/>
-</p>
-<p class="图题">图5-5 玩家O获胜</p>
-<p class="zw">当然，玩家只看到打印在屏幕上的内容，而不是变量的内容。让我们创建一个函数，将棋盘字典打印到屏幕上。将下面代码添加到ticTacToe.py（新代码是黑体的）：</p>
-<pre class="代码无行号"><code>theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': 'X'}&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;theBoard变量中的数据结构现在表示图5-5中的井字棋盘。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0505" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00094.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图5-5 玩家O获胜&lt;/p&gt;
+&lt;p class="zw"&gt;当然，玩家只看到打印在屏幕上的内容，而不是变量的内容。让我们创建一个函数，将棋盘字典打印到屏幕上。将下面代码添加到ticTacToe.py（新代码是黑体的）：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
             'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
             'low-L': ' ', 'low-M': ' ', 'low-R': ' '}
-<strong>def printBoard(board):</strong>
-<strong>    print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])</strong>
-<strong>    print('-+-+-')</strong>
-<strong>    print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])</strong>
-<strong>    print('-+-+-')</strong>
-<strong>    print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])</strong>
-<strong>printBoard(theBoard)</strong>
-</code>
-</pre>
-<p class="zw">运行这个程序时，printBoard()将打印出空白井字棋盘。</p>
-<pre class="代码无行号"><code>| |
+&lt;strong&gt;def printBoard(board):&lt;/strong&gt;
+&lt;strong&gt;    print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])&lt;/strong&gt;
+&lt;strong&gt;    print('-+-+-')&lt;/strong&gt;
+&lt;strong&gt;    print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])&lt;/strong&gt;
+&lt;strong&gt;    print('-+-+-')&lt;/strong&gt;
+&lt;strong&gt;    print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])&lt;/strong&gt;
+&lt;strong&gt;printBoard(theBoard)&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;运行这个程序时，printBoard()将打印出空白井字棋盘。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;| |
 -+-+-
  | |
 -+-+-
- | |</code>
-</pre>
-<p class="zw">printBoard()函数可以处理传入的任何井字棋数据结构。尝试将代码改成以下的样子：</p>
-<pre class="代码无行号"><code>theBoard =<strong> {'top-L': 'O', 'top-M': 'O', 'top-R': 'O', 'mid-L': 'X', 'mid-M':</strong>
-<strong>'X', 'mid-R': ' ', 'low-L': ' ', 'low-M': ' ', 'low-R': 'X'}</strong>
-<strong>　</strong>
+ | |&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;printBoard()函数可以处理传入的任何井字棋数据结构。尝试将代码改成以下的样子：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;theBoard =&lt;strong&gt; {'top-L': 'O', 'top-M': 'O', 'top-R': 'O', 'mid-L': 'X', 'mid-M':&lt;/strong&gt;
+&lt;strong&gt;'X', 'mid-R': ' ', 'low-L': ' ', 'low-M': ' ', 'low-R': 'X'}&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
 def printBoard(board):
-<strong>    </strong>
+&lt;strong&gt;    &lt;/strong&gt;
 print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])
-<strong>    </strong>
+&lt;strong&gt;    &lt;/strong&gt;
 print('-+-+-')
-<strong>    </strong>
+&lt;strong&gt;    &lt;/strong&gt;
 print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
-<strong>    </strong>
+&lt;strong&gt;    &lt;/strong&gt;
 print('-+-+-')
-<strong>    </strong>
+&lt;strong&gt;    &lt;/strong&gt;
 print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
 printBoard(theBoard)
-</code>
-</pre>
-<p class="zw">现在运行该程序，新棋盘将打印在屏幕上。</p>
-<pre class="代码无行号"><code>O|O|O
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;现在运行该程序，新棋盘将打印在屏幕上。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;O|O|O
 -+-+-
 X|X|
 -+-+-
-| |X</code>
-</pre>
-<p class="zw">因为你创建了一个数据结构来表示井字棋盘，编写了printBoard()中的代码来解释该数据结构，所以就有了一个程序，对井字棋盘进行了“建模”。也可以用不同的方式组织数据结构（例如，使用'TOP-LEFT'这样的键来代替'top-L'），但只要代码能处理你的数据结构，就有了正确工作的程序。</p>
-<p class="zw">例如，printBoard()函数预期井字棋数据结构是一个字典，包含所有9个空格的键。假如传入的字典缺少'mid-L'键，程序就不能工作了。</p>
-<pre class="代码无行号"><code>O|O|O
+| |X&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;因为你创建了一个数据结构来表示井字棋盘，编写了printBoard()中的代码来解释该数据结构，所以就有了一个程序，对井字棋盘进行了“建模”。也可以用不同的方式组织数据结构（例如，使用'TOP-LEFT'这样的键来代替'top-L'），但只要代码能处理你的数据结构，就有了正确工作的程序。&lt;/p&gt;
+&lt;p class="zw"&gt;例如，printBoard()函数预期井字棋数据结构是一个字典，包含所有9个空格的键。假如传入的字典缺少'mid-L'键，程序就不能工作了。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;O|O|O
 -+-+-
 Traceback (most recent call last):
-  File "ticTacToe.py", line 10, in &lt;module&gt;
+  File "ticTacToe.py", line 10, in &amp;lt;module&amp;gt;
     printBoard(theBoard)
   File "ticTacToe.py", line 6, in printBoard
     print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
-KeyError: 'mid-L'</code>
-</pre>
-<p class="zw">现在让我们添加代码，允许玩家输入他们的着法。修改ticTacToe.py程序如下所示：</p>
-<pre class="代码无行号"><code>　theBoard = <strong>{'top-L': ' ', 'top-M': ' ', 'top-R': ' ', 'mid-L': ' ', 'mid-M': '</strong>
-　<strong>', 'mid-R': ' ', 'low-L': ' ', 'low-M': ' ', 'low-R': ' '}</strong>
-<strong>　</strong>
+KeyError: 'mid-L'&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;现在让我们添加代码，允许玩家输入他们的着法。修改ticTacToe.py程序如下所示：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　theBoard = &lt;strong&gt;{'top-L': ' ', 'top-M': ' ', 'top-R': ' ', 'mid-L': ' ', 'mid-M': '&lt;/strong&gt;
+　&lt;strong&gt;', 'mid-R': ' ', 'low-L': ' ', 'low-M': ' ', 'low-R': ' '}&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
 　def printBoard(board):
 　    print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])
 　    print('-+-+-')
 　    print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
 　    print('-+-+-')
  　   print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
-　<strong>turn = 'X'</strong>
-　<strong>for i in range(9):</strong>
-❶     <strong>printBoard(theBoard)</strong>
-　    <strong>print('Turn for ' + turn + '. Move on which space?')</strong>
-❷     <strong>move = input()</strong>
-❸     <strong>theBoard[move] = turn</strong>
-❹     <strong>if turn == 'X':</strong>
-　        <strong>turn = 'O'</strong>
-　    <strong>else:</strong>
-　        <strong>turn = 'X'</strong>
+　&lt;strong&gt;turn = 'X'&lt;/strong&gt;
+　&lt;strong&gt;for i in range(9):&lt;/strong&gt;
+❶     &lt;strong&gt;printBoard(theBoard)&lt;/strong&gt;
+　    &lt;strong&gt;print('Turn for ' + turn + '. Move on which space?')&lt;/strong&gt;
+❷     &lt;strong&gt;move = input()&lt;/strong&gt;
+❸     &lt;strong&gt;theBoard[move] = turn&lt;/strong&gt;
+❹     &lt;strong&gt;if turn == 'X':&lt;/strong&gt;
+　        &lt;strong&gt;turn = 'O'&lt;/strong&gt;
+　    &lt;strong&gt;else:&lt;/strong&gt;
+　        &lt;strong&gt;turn = 'X'&lt;/strong&gt;
 　printBoard(theBoard)
-</code>
-</pre>
-<p class="zw">新的代码在每一步新的着法之前，打印出棋盘❶，获取当前棋手的着法❷，相应地更新棋盘❸，然后改变当前棋手❹，进入到下一着。</p>
-<p class="zw">运行该程序，它看起来像这样：</p>
-<pre class="代码无行号"><code> | |
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;新的代码在每一步新的着法之前，打印出棋盘❶，获取当前棋手的着法❷，相应地更新棋盘❸，然后改变当前棋手❹，进入到下一着。&lt;/p&gt;
+&lt;p class="zw"&gt;运行该程序，它看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt; | |
 -+-+-
  | |
 -+-+-
  | |
 Turn for X. Move on which space?
-<strong>mid-M</strong>
+&lt;strong&gt;mid-M&lt;/strong&gt;
  | |
 -+-+-
  |X|
 -+-+-
  | |
 Turn for O. Move on which space?
-<strong>low-L</strong>
+&lt;strong&gt;low-L&lt;/strong&gt;
  | |
 -+-+-
  |X|
@@ -385,25 +393,25 @@ X|X|O
 -+-+-
 O| |X
 Turn for X. Move on which space?
-<strong>low-M</strong>
+&lt;strong&gt;low-M&lt;/strong&gt;
 O|O|X
 -+-+-
 X|X|O
 -+-+-
 O|X|X
-</code>
-</pre>
-<p class="zw">这不是一个完整的井字棋游戏（例如，它并不检查玩家是否获胜），但这已足够展示如何在程序中使用数据结构。</p>
-<p class="editing-tag 提示标签">注意</p>
-<blockquote class="提示 editing-block">
-<p class="zw"><br/>
-</p>
-<p class="zw">如果你很好奇，完整的井字棋程序的源代码在网上有介绍，网址是<a href="http://nostarch.com/automatestuff/">http://nostarch.com/automatestuff/</a>
- 。</p>
-</blockquote>
-<h3 id="nav_point_125">5.3.2 嵌套的字典和列表</h3>
-<p class="zw">对井字棋盘建模相当简单：棋盘只需要一个字典，包含9个键值对。当你对复杂的事物建模时，可能发现字典和列表中需要包含其他字典和列表。列表适用于包含一组有序的值，字典适合于包含关联的键与值。例如，下面的程序使用字典包含其他字典，用于记录谁为野餐带来了什么食物。totalBrought()函数可以读取这个数据结构，计算所有客人带来的食物的总数。</p>
-<pre class="代码无行号"><code>　allGuests = {'Alice': {'apples': 5, 'pretzels': 12},
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这不是一个完整的井字棋游戏（例如，它并不检查玩家是否获胜），但这已足够展示如何在程序中使用数据结构。&lt;/p&gt;
+&lt;p class="editing-tag 提示标签"&gt;注意&lt;/p&gt;
+&lt;blockquote class="提示 editing-block"&gt;
+&lt;p class="zw"&gt;&lt;br/&gt;
+&lt;/p&gt;
+&lt;p class="zw"&gt;如果你很好奇，完整的井字棋程序的源代码在网上有介绍，网址是&lt;a href="http://nostarch.com/automatestuff/"&gt;http://nostarch.com/automatestuff/&lt;/a&gt;
+ 。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id="nav_point_125"&gt;5.3.2 嵌套的字典和列表&lt;/h3&gt;
+&lt;p class="zw"&gt;对井字棋盘建模相当简单：棋盘只需要一个字典，包含9个键值对。当你对复杂的事物建模时，可能发现字典和列表中需要包含其他字典和列表。列表适用于包含一组有序的值，字典适合于包含关联的键与值。例如，下面的程序使用字典包含其他字典，用于记录谁为野餐带来了什么食物。totalBrought()函数可以读取这个数据结构，计算所有客人带来的食物的总数。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　allGuests = {'Alice': {'apples': 5, 'pretzels': 12},
 　             'Bob': {'ham sandwiches': 3, 'apples': 2},
 　             'Carol': {'cups': 3, 'apple pies': 1}}
 　def totalBrought(guests, item):
@@ -416,53 +424,53 @@ O|X|X
 　print(' - Cups ' + str(totalBrought(allGuests, 'cups')))
 　print(' - Cakes ' + str(totalBrought(allGuests, 'cakes')))
 　print(' - Ham Sandwiches ' + str(totalBrought(allGuests, 'ham sandwiches')))
-　print(' - Apple Pies ' + str(totalBrought(allGuests, 'apple pies')))</code>
-</pre>
-<p class="zw">在totalBrought()函数中，for循环迭代guests中的每个键值对❶。在这个循环里，客人的名字字符串赋给k，他们带来的野餐食物的字典赋给v。如果食物参数是字典中存在的键，它的值（数量）就添加到numBrought❷。如果它不是键，get()方法就返回0，添加到numBrought。</p>
-<p class="zw">该程序的输出像这样：</p>
-<pre class="代码无行号"><code>Number of things being brought:
+　print(' - Apple Pies ' + str(totalBrought(allGuests, 'apple pies')))&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;在totalBrought()函数中，for循环迭代guests中的每个键值对❶。在这个循环里，客人的名字字符串赋给k，他们带来的野餐食物的字典赋给v。如果食物参数是字典中存在的键，它的值（数量）就添加到numBrought❷。如果它不是键，get()方法就返回0，添加到numBrought。&lt;/p&gt;
+&lt;p class="zw"&gt;该程序的输出像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Number of things being brought:
 - Apples 7
 - Cups 3
 - Cakes 0
 - Ham Sandwiches 3
-- Apple Pies 1</code>
-</pre>
-<p class="zw">这似乎对一个非常简单的东西建模，你可能认为不需要费事去写一个程序来做到这一点。但是要认识到，这个函数totalBrought()可以轻易地处理一个字典，其中包含数千名客人，每个人都带来了“数千种”不同的野餐食物。这样用这种数据结构来保存信息，并使用totalBrought()函数，就会节约大量的时间！</p>
-<p class="zw">你可以用自己喜欢的任何方法，用数据结构对事物建模，只要程序中其他代码能够正确处理这个数据模型。在刚开始编程时，不需要太担心数据建模的“正确”方式。随着经验增加，你可能会得到更有效的模型，但重要的是，该数据模型符合程序的需要。</p>
-<h2 id="nav_point_126">5.4 小结</h2>
-<p class="zw">在本章中，你学习了字典的所有相关知识。列表和字典是这样的值，它们可以包含多个值，包括其他列表和字典。字典是有用的，因为你可以把一些项（键）映射到另一些项（值），它不像列表，只包含一系列有序的值。字典中的值是通过方括号访问的，像列表一样。字典不是只能使用整数下标，而是可以用各种数据类型作为键：整型、浮点型、字符串或元组。通过将程序中的值组织成数据结构，你可以创建真实世界事物的模型。井字棋盘就是这样一个例子。</p>
-<p class="zw">这就介绍了Python编程的所有基本概念！在本书后面的部分，你将继续学习一些新概念，但现在你已学习了足够多的内容，可以开始编写一些有用的程序，让一些任务自动化。你可能不觉得自己有足够的Python知识，来实现页面下载、更新电子表格，或发送文本消息。但这就是Python模块要干的事！这些模块由其他程序员编写，提供了一些函数，让这些事情变得容易。所以让我们学习如何编写真正的程序，实现有用的自动化任务。</p>
-<h2 id="nav_point_127">5.5 习题</h2>
-<p class="zw">1．空字典的代码是怎样的？</p>
-<p class="zw">2．一个字典包含键'fow'和值42，看起来是怎样的？</p>
-<p class="zw">3．字典和列表的主要区别是什么？</p>
-<p class="zw">4．如果spam是{'bar': 100}，你试图访问spam['foo']，会发生什么？</p>
-<p class="zw">5．如果一个字典保存在spam中，表达式'cat' in spam和'cat' in spam.keys()之间的区别是什么？</p>
-<p class="zw">6．如果一个字典保存在变量中，表达式'cat' in spam和'cat' in spam.values()之间的区别是什么？</p>
-<p class="zw">7．下面代码的简洁写法是什么？</p>
-<pre class="代码无行号"><code>if 'color' not in spam:
-    spam['color'] = 'black'</code>
-</pre>
-<p class="zw">8．什么模块和函数可以用于“漂亮打印”字典值？</p>
-<h2 id="nav_point_128">5.6 实践项目</h2>
-<p class="zw">作为实践，编程完成下列任务。</p>
-<h3 id="nav_point_129">5.6.1 好玩游戏的物品清单</h3>
-<p class="zw">你在创建一个好玩的视频游戏。用于对玩家物品清单建模的数据结构是一个字典。其中键是字符串，描述清单中的物品，值是一个整型值，说明玩家有多少该物品。例如，字典值{'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}意味着玩家有1条绳索、6个火把、42枚金币等。</p>
-<p class="zw">写一个名为displayInventory()的函数，它接受任何可能的物品清单，并显示如下：</p>
-<pre class="代码无行号"><code>Inventory:
+- Apple Pies 1&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这似乎对一个非常简单的东西建模，你可能认为不需要费事去写一个程序来做到这一点。但是要认识到，这个函数totalBrought()可以轻易地处理一个字典，其中包含数千名客人，每个人都带来了“数千种”不同的野餐食物。这样用这种数据结构来保存信息，并使用totalBrought()函数，就会节约大量的时间！&lt;/p&gt;
+&lt;p class="zw"&gt;你可以用自己喜欢的任何方法，用数据结构对事物建模，只要程序中其他代码能够正确处理这个数据模型。在刚开始编程时，不需要太担心数据建模的“正确”方式。随着经验增加，你可能会得到更有效的模型，但重要的是，该数据模型符合程序的需要。&lt;/p&gt;
+&lt;h2 id="nav_point_126"&gt;5.4 小结&lt;/h2&gt;
+&lt;p class="zw"&gt;在本章中，你学习了字典的所有相关知识。列表和字典是这样的值，它们可以包含多个值，包括其他列表和字典。字典是有用的，因为你可以把一些项（键）映射到另一些项（值），它不像列表，只包含一系列有序的值。字典中的值是通过方括号访问的，像列表一样。字典不是只能使用整数下标，而是可以用各种数据类型作为键：整型、浮点型、字符串或元组。通过将程序中的值组织成数据结构，你可以创建真实世界事物的模型。井字棋盘就是这样一个例子。&lt;/p&gt;
+&lt;p class="zw"&gt;这就介绍了Python编程的所有基本概念！在本书后面的部分，你将继续学习一些新概念，但现在你已学习了足够多的内容，可以开始编写一些有用的程序，让一些任务自动化。你可能不觉得自己有足够的Python知识，来实现页面下载、更新电子表格，或发送文本消息。但这就是Python模块要干的事！这些模块由其他程序员编写，提供了一些函数，让这些事情变得容易。所以让我们学习如何编写真正的程序，实现有用的自动化任务。&lt;/p&gt;
+&lt;h2 id="nav_point_127"&gt;5.5 习题&lt;/h2&gt;
+&lt;p class="zw"&gt;1．空字典的代码是怎样的？&lt;/p&gt;
+&lt;p class="zw"&gt;2．一个字典包含键'fow'和值42，看起来是怎样的？&lt;/p&gt;
+&lt;p class="zw"&gt;3．字典和列表的主要区别是什么？&lt;/p&gt;
+&lt;p class="zw"&gt;4．如果spam是{'bar': 100}，你试图访问spam['foo']，会发生什么？&lt;/p&gt;
+&lt;p class="zw"&gt;5．如果一个字典保存在spam中，表达式'cat' in spam和'cat' in spam.keys()之间的区别是什么？&lt;/p&gt;
+&lt;p class="zw"&gt;6．如果一个字典保存在变量中，表达式'cat' in spam和'cat' in spam.values()之间的区别是什么？&lt;/p&gt;
+&lt;p class="zw"&gt;7．下面代码的简洁写法是什么？&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;if 'color' not in spam:
+    spam['color'] = 'black'&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;8．什么模块和函数可以用于“漂亮打印”字典值？&lt;/p&gt;
+&lt;h2 id="nav_point_128"&gt;5.6 实践项目&lt;/h2&gt;
+&lt;p class="zw"&gt;作为实践，编程完成下列任务。&lt;/p&gt;
+&lt;h3 id="nav_point_129"&gt;5.6.1 好玩游戏的物品清单&lt;/h3&gt;
+&lt;p class="zw"&gt;你在创建一个好玩的视频游戏。用于对玩家物品清单建模的数据结构是一个字典。其中键是字符串，描述清单中的物品，值是一个整型值，说明玩家有多少该物品。例如，字典值{'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}意味着玩家有1条绳索、6个火把、42枚金币等。&lt;/p&gt;
+&lt;p class="zw"&gt;写一个名为displayInventory()的函数，它接受任何可能的物品清单，并显示如下：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Inventory:
 12 arrow
 42 gold coin
 1 rope
 6 torch
 1 dagger
-Total number of items: 62</code>
-</pre>
-<p class="editing-tag 强提示标签">提示</p>
-<blockquote class="强提示 editing-block">
-<p class="zw"><br/>
-</p>
-你可以使用for循环，遍历字典中所有的键。</blockquote>
-<pre class="代码无行号"><code># inventory.py
+Total number of items: 62&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="editing-tag 强提示标签"&gt;提示&lt;/p&gt;
+&lt;blockquote class="强提示 editing-block"&gt;
+&lt;p class="zw"&gt;&lt;br/&gt;
+&lt;/p&gt;
+你可以使用for循环，遍历字典中所有的键。&lt;/blockquote&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;# inventory.py
 stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
 def displayInventory(inventory):
     print("Inventory:")
@@ -471,206 +479,206 @@ def displayInventory(inventory):
         print(str(v) + ' ' + k)
         item_total += v
     print("Total number of items: " + str(item_total))
-displayInventory(stuff)</code>
-</pre>
-<h3 id="nav_point_130">5.6.2 列表到字典的函数，针对好玩游戏物品清单</h3>
-<p class="zw">假设征服一条龙的战利品表示为这样的字符串列表：</p>
-<pre class="代码无行号"><code>dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']</code>
-</pre>
-<p class="zw">写一个名为addToInventory(inventory, addedItems)的函数，其中inventory参数是一个字典，表示玩家的物品清单（像前面项目一样），addedItems参数是一个列表，就像dragonLoot。</p>
-<p class="zw">addToInventory()函数应该返回一个字典，表示更新过的物品清单。请注意，列表可以包含多个同样的项。你的代码看起来可能像这样：</p>
-<pre class="代码无行号"><code>def addToInventory(inventory, addedItems):
+displayInventory(stuff)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_130"&gt;5.6.2 列表到字典的函数，针对好玩游戏物品清单&lt;/h3&gt;
+&lt;p class="zw"&gt;假设征服一条龙的战利品表示为这样的字符串列表：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;写一个名为addToInventory(inventory, addedItems)的函数，其中inventory参数是一个字典，表示玩家的物品清单（像前面项目一样），addedItems参数是一个列表，就像dragonLoot。&lt;/p&gt;
+&lt;p class="zw"&gt;addToInventory()函数应该返回一个字典，表示更新过的物品清单。请注意，列表可以包含多个同样的项。你的代码看起来可能像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;def addToInventory(inventory, addedItems):
     # your code goes here
 inv = {'gold coin': 42, 'rope': 1}
 dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
 inv = addToInventory(inv, dragonLoot)
-displayInventory(inv)</code>
-</pre>
-<p class="zw">前面的程序（加上前一个项目中的displayInventory()函数）将输出如下：</p>
-<pre class="代码无行号"><code>Inventory:
+displayInventory(inv)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;前面的程序（加上前一个项目中的displayInventory()函数）将输出如下：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Inventory:
 45 gold coin
 1 rope
 1 ruby
 1 dagger
-Total number of items: 48</code>
-</pre>
-<p class="zw"><br style="page-break-after:always"/>
-</p>
-<div></div>
-]]></description>
+Total number of items: 48&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;&lt;br style="page-break-after:always"/&gt;
+&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+</description>
     <pubDate>Thu, 20 Aug 2026 00:29:00 +0000</pubDate>
     <guid isPermaLink="false">29</guid>
 </item>
 <item>
     <title>AutomaticApplicationPython - 028 - 第4章 列表.epub</title>
-    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：70 分钟 (20782 字)</p><hr><h1 id="nav_point_83">第4章　列表</h1>
-<p class="zw">在你能够开始编写程序之前，还有一个主题需要理解，那就是列表数据类型及元组。列表和元组可以包含多个值，这样编写程序来处理大量数据就变得更容易。而且，由于列表本身又可以包含其他列表，所以可以用它们将数据安排成层次结构。</p>
-<p class="zw">本章将探讨列表的基础知识。我也会讲授关于方法的内容。方法也是函数，它们与特定数据类型的值绑定。然后我会简单介绍类似列表的元组和字符串数据类型，以及它们与列表值的比较。下一章将介绍字典数据类型。</p>
-<h2 id="nav_point_84">4.1 列表数据类型</h2>
-<p class="zw">“列表”是一个值，它包含多个字构成的序列。术语“列表值”指的是列表本身（它作为一个值，可以保存在变量中，或传递给函数，像所有其他值一样），而不是指列表值之内的那些值。列表值看起来像这样：['cat', 'bat', 'rat', 'elephant']。就像字符串值用引号来标记字符串的起止一样，列表用左方括号开始，右方括号结束，即[]。列表中的值也称为“表项”。表项用逗号分隔（就是说，它们是“逗号分隔的”）。例如，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code> &gt;&gt;&gt; <strong>[1, 2, 3]</strong>
+    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：70 分钟 (20782 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_83"&gt;第4章　列表&lt;/h1&gt;
+&lt;p class="zw"&gt;在你能够开始编写程序之前，还有一个主题需要理解，那就是列表数据类型及元组。列表和元组可以包含多个值，这样编写程序来处理大量数据就变得更容易。而且，由于列表本身又可以包含其他列表，所以可以用它们将数据安排成层次结构。&lt;/p&gt;
+&lt;p class="zw"&gt;本章将探讨列表的基础知识。我也会讲授关于方法的内容。方法也是函数，它们与特定数据类型的值绑定。然后我会简单介绍类似列表的元组和字符串数据类型，以及它们与列表值的比较。下一章将介绍字典数据类型。&lt;/p&gt;
+&lt;h2 id="nav_point_84"&gt;4.1 列表数据类型&lt;/h2&gt;
+&lt;p class="zw"&gt;“列表”是一个值，它包含多个字构成的序列。术语“列表值”指的是列表本身（它作为一个值，可以保存在变量中，或传递给函数，像所有其他值一样），而不是指列表值之内的那些值。列表值看起来像这样：['cat', 'bat', 'rat', 'elephant']。就像字符串值用引号来标记字符串的起止一样，列表用左方括号开始，右方括号结束，即[]。列表中的值也称为“表项”。表项用逗号分隔（就是说，它们是“逗号分隔的”）。例如，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt; &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;[1, 2, 3]&lt;/strong&gt;
  [1, 2, 3]
- &gt;&gt;&gt; <strong>['cat', 'bat', 'rat', 'elephant']</strong>
+ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;['cat', 'bat', 'rat', 'elephant']&lt;/strong&gt;
  ['cat', 'bat', 'rat', 'elephant']
- &gt;&gt;&gt; <strong>['hello', 3.1415, True, None, 42]</strong>
+ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;['hello', 3.1415, True, None, 42]&lt;/strong&gt;
  ['hello', 3.1415, True, None, 42]
-❶ &gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
- &gt;&gt;&gt; <strong>spam</strong>
+❶ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'bat', 'rat', 'elephant']&lt;/strong&gt;
+ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
  ['cat', 'bat', 'rat', 'elephant']
-</code>
-</pre>
-<p class="zw">spam变量❶仍然只被赋予一个值：列表值。但列表值本身包含多个值。[]是一个空列表，不包含任何值，类似于空字符串''。</p>
-<h3 id="nav_point_85">4.1.1 用下标取得列表中的单个值</h3>
-<p class="zw">假定列表['cat', 'bat', 'rat', 'elephant']保存在名为spam的变量中。Python代码spam[0]将求值为'cat'，spam[1]将求值为'bat'，依此类推。列表后面方括号内的整数被称为“下标”。列表中第一个值的下标是0，第二个值的下标是1，第三个值的下标是2，依此类推。图4-1展示了一个赋给spam的列表值，以及下标表达式的求值结果。</p>
-<p class="图"><img alt="0401" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00083.jpg"/>
-</p>
-<p class="图题">图4-1 一个列表值保存在spam变量中，展示了每个下标指向哪个值</p>
-<p class="zw">例如，在交互式环境中输入以下表达式。开始将列表赋给变量spam。</p>
-<pre class="代码无行号"><code> &gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
- &gt;&gt;&gt; <strong>spam[0]</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;spam变量❶仍然只被赋予一个值：列表值。但列表值本身包含多个值。[]是一个空列表，不包含任何值，类似于空字符串''。&lt;/p&gt;
+&lt;h3 id="nav_point_85"&gt;4.1.1 用下标取得列表中的单个值&lt;/h3&gt;
+&lt;p class="zw"&gt;假定列表['cat', 'bat', 'rat', 'elephant']保存在名为spam的变量中。Python代码spam[0]将求值为'cat'，spam[1]将求值为'bat'，依此类推。列表后面方括号内的整数被称为“下标”。列表中第一个值的下标是0，第二个值的下标是1，第三个值的下标是2，依此类推。图4-1展示了一个赋给spam的列表值，以及下标表达式的求值结果。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0401" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00083.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图4-1 一个列表值保存在spam变量中，展示了每个下标指向哪个值&lt;/p&gt;
+&lt;p class="zw"&gt;例如，在交互式环境中输入以下表达式。开始将列表赋给变量spam。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt; &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'bat', 'rat', 'elephant']&lt;/strong&gt;
+ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[0]&lt;/strong&gt;
  'cat'
- &gt;&gt;&gt; <strong>spam[1]</strong>
+ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[1]&lt;/strong&gt;
  'bat'
- &gt;&gt;&gt; <strong>spam[2]</strong>
+ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[2]&lt;/strong&gt;
  'rat'
- &gt;&gt;&gt; <strong>spam[3]</strong>
+ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[3]&lt;/strong&gt;
  'elephant'
- &gt;&gt;&gt; <strong>['cat', 'bat', 'rat', 'elephant'][3]</strong>
+ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;['cat', 'bat', 'rat', 'elephant'][3]&lt;/strong&gt;
  'elephant'
-❶ &gt;&gt;&gt; <strong>'Hello ' + spam[0]</strong>
+❶ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello ' + spam[0]&lt;/strong&gt;
 ❷ 'Hello cat'
- &gt;&gt;&gt; <strong>'The ' + spam[1] + ' ate the ' + spam[0] + '.'</strong>
+ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'The ' + spam[1] + ' ate the ' + spam[0] + '.'&lt;/strong&gt;
  'The bat ate the cat.'
-</code>
-</pre>
-<p class="zw">请注意，表达式'Hello ' + spam[0] ❶求值为'Hello ' + 'cat'，因为spam[0]求值为字符串'cat'。这个表达式也因此求值为字符串'Hello cat'❷。</p>
-<p class="zw">如果使用的下标超出了列表中值的个数，Python将给出IndexError出错信息。</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
-&gt;&gt;&gt; <strong>spam[10000]</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;请注意，表达式'Hello ' + spam[0] ❶求值为'Hello ' + 'cat'，因为spam[0]求值为字符串'cat'。这个表达式也因此求值为字符串'Hello cat'❷。&lt;/p&gt;
+&lt;p class="zw"&gt;如果使用的下标超出了列表中值的个数，Python将给出IndexError出错信息。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'bat', 'rat', 'elephant']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[10000]&lt;/strong&gt;
 Traceback (most recent call last):
-  File "&lt;pyshell#9&gt;", line 1, in &lt;module&gt;
+  File "&amp;lt;pyshell#9&amp;gt;", line 1, in &amp;lt;module&amp;gt;
     spam[10000]
 IndexError: list index out of range
-</code>
-</pre>
-<p class="zw">下标只能是整数，不能是浮点值。下面的例子将导致TypeError错误：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
-&gt;&gt;&gt; <strong>spam[1]</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;下标只能是整数，不能是浮点值。下面的例子将导致TypeError错误：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'bat', 'rat', 'elephant']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[1]&lt;/strong&gt;
 'bat'
-&gt;&gt;&gt; <strong>spam[1.0]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[1.0]&lt;/strong&gt;
 Traceback (most recent call last):
-  File "&lt;pyshell#13&gt;", line 1, in &lt;module&gt;
+  File "&amp;lt;pyshell#13&amp;gt;", line 1, in &amp;lt;module&amp;gt;
     spam[1.0]
 TypeError: list indices must be integers, not float
-&gt;&gt;&gt; <strong>spam[int(1.0)]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[int(1.0)]&lt;/strong&gt;
 'bat'
-</code>
-</pre>
-<p class="zw">列表也可以包含其他列表值。这些列表的列表中的值，可以通过多重下标来访问，像这样：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = [['cat', 'bat'], [10, 20, 30, 40, 50]]</strong>
-&gt;&gt;&gt; <strong>spam[0]</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;列表也可以包含其他列表值。这些列表的列表中的值，可以通过多重下标来访问，像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = [['cat', 'bat'], [10, 20, 30, 40, 50]]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[0]&lt;/strong&gt;
 ['cat', 'bat']
-&gt;&gt;&gt; <strong>spam[0][1]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[0][1]&lt;/strong&gt;
 'bat'
-&gt;&gt;&gt; <strong>spam[1][4]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[1][4]&lt;/strong&gt;
 50
-</code>
-</pre>
-<p class="zw">第一个下标表明使用哪个列表值，第二个下标表明该列表值中的值。例如，spam[0][1]打印出'bat'，即第一个列表中的第二个值。如果只使用一个下标，程序将打印出该下标处的完整列表值。</p>
-<h3 id="nav_point_86">4.1.2 负数下标</h3>
-<p class="zw">虽然下标从0开始并向上增长，但也可以用负整数作为下标。整数值−1指的是列表中的最后一个下标，−2指的是列表中倒数第二个下标，以此类推。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
-&gt;&gt;&gt; <strong>spam[-1]</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;第一个下标表明使用哪个列表值，第二个下标表明该列表值中的值。例如，spam[0][1]打印出'bat'，即第一个列表中的第二个值。如果只使用一个下标，程序将打印出该下标处的完整列表值。&lt;/p&gt;
+&lt;h3 id="nav_point_86"&gt;4.1.2 负数下标&lt;/h3&gt;
+&lt;p class="zw"&gt;虽然下标从0开始并向上增长，但也可以用负整数作为下标。整数值−1指的是列表中的最后一个下标，−2指的是列表中倒数第二个下标，以此类推。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'bat', 'rat', 'elephant']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[-1]&lt;/strong&gt;
 'elephant'
-&gt;&gt;&gt; <strong>spam[-3]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[-3]&lt;/strong&gt;
 'bat'
-&gt;&gt;&gt; <strong>'The ' + spam[-1] + ' is afraid of the ' + spam[-3] + '.'</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'The ' + spam[-1] + ' is afraid of the ' + spam[-3] + '.'&lt;/strong&gt;
 'The elephant is afraid of the bat.'
-</code>
-</pre>
-<h3 id="nav_point_87">4.1.3 利用切片取得子列表</h3>
-<p class="zw">就像下标可以从列表中取得单个值一样，“切片”可以从列表中取得多个值，结果是一个新列表。切片输入在一对方括号中，像下标一样，但它有两个冒号分隔的整数。请注意下标和切片的不同。</p>
-<ul>
-<li class="第1级无序列表">spam[2]是一个列表和下标（一个整数）。</li>
-<li class="第1级无序列表">spam[1:4]是一个列表和切片（两个整数）。</li>
-</ul>
-<p class="zw">在一个切片中，第一个整数是切片开始处的下标。第二个整数是切片结束处的下标。切片向上增长，直至第二个下标的值，但不包括它。切片求值为一个新的列表值。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
-&gt;&gt;&gt; <strong>spam[0:4]</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_87"&gt;4.1.3 利用切片取得子列表&lt;/h3&gt;
+&lt;p class="zw"&gt;就像下标可以从列表中取得单个值一样，“切片”可以从列表中取得多个值，结果是一个新列表。切片输入在一对方括号中，像下标一样，但它有两个冒号分隔的整数。请注意下标和切片的不同。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;spam[2]是一个列表和下标（一个整数）。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;spam[1:4]是一个列表和切片（两个整数）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;在一个切片中，第一个整数是切片开始处的下标。第二个整数是切片结束处的下标。切片向上增长，直至第二个下标的值，但不包括它。切片求值为一个新的列表值。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'bat', 'rat', 'elephant']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[0:4]&lt;/strong&gt;
 ['cat', 'bat', 'rat', 'elephant']
-&gt;&gt;&gt; <strong>spam[1:3]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[1:3]&lt;/strong&gt;
 ['bat', 'rat']
-&gt;&gt;&gt; <strong>spam[0:-1]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[0:-1]&lt;/strong&gt;
 ['cat', 'bat', 'rat']
-</code>
-</pre>
-<p class="zw">作为快捷方法，你可以省略切片中冒号两边的一个下标或两个下标。省略第一个下标相当于使用0，或列表的开始。省略第二个下标相当于使用列表的长度，意味着切片直至列表的末尾。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
-&gt;&gt;&gt; <strong>spam[:2]</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;作为快捷方法，你可以省略切片中冒号两边的一个下标或两个下标。省略第一个下标相当于使用0，或列表的开始。省略第二个下标相当于使用列表的长度，意味着切片直至列表的末尾。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'bat', 'rat', 'elephant']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[:2]&lt;/strong&gt;
 ['cat', 'bat']
-&gt;&gt;&gt; <strong>spam[1:]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[1:]&lt;/strong&gt;
 ['bat', 'rat', 'elephant']
-&gt;&gt;&gt; <strong>spam[:]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[:]&lt;/strong&gt;
 ['cat', 'bat', 'rat', 'elephant']
-</code>
-</pre>
-<h3 id="nav_point_88">4.1.4 用len()取得列表的长度</h3>
-<p class="zw">len()函数将返回传递给它的列表中值的个数，就像它能计算字符串中字符的个数一样。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'dog', 'moose']</strong>
-&gt;&gt;&gt; <strong>len(spam)</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_88"&gt;4.1.4 用len()取得列表的长度&lt;/h3&gt;
+&lt;p class="zw"&gt;len()函数将返回传递给它的列表中值的个数，就像它能计算字符串中字符的个数一样。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'dog', 'moose']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;len(spam)&lt;/strong&gt;
 3
-</code>
-</pre>
-<h3 id="nav_point_89">4.1.5 用下标改变列表中的值</h3>
-<p class="zw">一般情况下，赋值语句左边是一个变量名，就像spam = 4。但是，也可以使用列表的下标来改变下标处的值。例如，spam[1] = 'aardvark'意味着“将列表spam下标1处的值赋值为字符串'aardvark'。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
-&gt;&gt;&gt; <strong>spam[1] = 'aardvark'</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_89"&gt;4.1.5 用下标改变列表中的值&lt;/h3&gt;
+&lt;p class="zw"&gt;一般情况下，赋值语句左边是一个变量名，就像spam = 4。但是，也可以使用列表的下标来改变下标处的值。例如，spam[1] = 'aardvark'意味着“将列表spam下标1处的值赋值为字符串'aardvark'。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'bat', 'rat', 'elephant']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[1] = 'aardvark'&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 ['cat', 'aardvark', 'rat', 'elephant']
-&gt;&gt;&gt; <strong>spam[2] = spam[1]</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[2] = spam[1]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 ['cat', 'aardvark', 'aardvark', 'elephant']
-&gt;&gt;&gt; <strong>spam[-1] = 12345</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[-1] = 12345&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 ['cat', 'aardvark', 'aardvark', 12345]
-</code>
-</pre>
-<h3 id="nav_point_90">4.1.6 列表连接和列表复制</h3>
-<p class="zw">+操作符可以连接两个列表，得到一个新列表，就像它将两个字符串合并成一个新字符串一样。*操作符可以用于一个列表和一个整数，实现列表的复制。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>[1, 2, 3] + ['A', 'B', 'C']</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_90"&gt;4.1.6 列表连接和列表复制&lt;/h3&gt;
+&lt;p class="zw"&gt;+操作符可以连接两个列表，得到一个新列表，就像它将两个字符串合并成一个新字符串一样。*操作符可以用于一个列表和一个整数，实现列表的复制。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;[1, 2, 3] + ['A', 'B', 'C']&lt;/strong&gt;
 [1, 2,  3,  'A',  'B',  'C']
-&gt;&gt;&gt; <strong>['X', 'Y', 'Z'] * 3</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;['X', 'Y', 'Z'] * 3&lt;/strong&gt;
 ['X', 'Y', 'Z', 'X', 'Y', 'Z', 'X', 'Y', 'Z']
-&gt;&gt;&gt; <strong>spam = [1, 2, 3]</strong>
-&gt;&gt;&gt; <strong>spam = spam + ['A', 'B', 'C']</strong>
-&gt;&gt;&gt; spam
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = [1, 2, 3]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = spam + ['A', 'B', 'C']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; spam
 [1, 2, 3, 'A', 'B', 'C']
-</code>
-</pre>
-<h3 id="nav_point_91">4.1.7 用del语句从列表中删除值</h3>
-<p class="zw">del语句将删除列表中下标处的值，表中被删除值后面的所有值，都将向前移动一个下标。例如，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
-&gt;&gt;&gt; <strong>del spam[2]</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_91"&gt;4.1.7 用del语句从列表中删除值&lt;/h3&gt;
+&lt;p class="zw"&gt;del语句将删除列表中下标处的值，表中被删除值后面的所有值，都将向前移动一个下标。例如，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'bat', 'rat', 'elephant']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;del spam[2]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 ['cat', 'bat', 'elephant']
-&gt;&gt;&gt; <strong>del spam[2]</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;del spam[2]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 ['cat', 'bat']
-</code>
-</pre>
-<p class="zw">del语句也可用于一个简单变量，删除它，作用就像是“取消赋值”语句。如果在删除之后试图使用该变量，就会遇到NameError错误，因为该变量已不再存在。</p>
-<p class="zw">在实践中，你几乎永远不需要删除简单变量。del语句几乎总是用于删除列表中的值。</p>
-<h2 id="nav_point_92">4.2 使用列表</h2>
-<p class="zw">当你第一次开始编程时，很容易会创建许多独立的变量，来保存一组类似的值。例如，如果要保存我的猫的名字，可能会写出这样的代码：</p>
-<pre class="代码无行号"><code>catName1 = 'Zophie'
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;del语句也可用于一个简单变量，删除它，作用就像是“取消赋值”语句。如果在删除之后试图使用该变量，就会遇到NameError错误，因为该变量已不再存在。&lt;/p&gt;
+&lt;p class="zw"&gt;在实践中，你几乎永远不需要删除简单变量。del语句几乎总是用于删除列表中的值。&lt;/p&gt;
+&lt;h2 id="nav_point_92"&gt;4.2 使用列表&lt;/h2&gt;
+&lt;p class="zw"&gt;当你第一次开始编程时，很容易会创建许多独立的变量，来保存一组类似的值。例如，如果要保存我的猫的名字，可能会写出这样的代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;catName1 = 'Zophie'
 catName2 = 'Pooka'
 catName3 = 'Simon'
 catName4 = 'Lady Macbeth'
 catName5 = 'Fat-tail'
-catName6 = 'Miss Cleo'</code>
-</pre>
-<p class="zw">事实表明这是一种不好的编程方式。举一个例子，如果猫的数目发生改变，程序就不得不增加变量，来保存更多的猫。这种类型的程序也有很多重复或几乎相等的代码。考虑下面的程序中有多少重复代码，在文本编辑器中输入它并保存为allMyCats1.py：</p>
-<pre class="代码无行号"><code>print('Enter the name of cat 1:')
+catName6 = 'Miss Cleo'&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;事实表明这是一种不好的编程方式。举一个例子，如果猫的数目发生改变，程序就不得不增加变量，来保存更多的猫。这种类型的程序也有很多重复或几乎相等的代码。考虑下面的程序中有多少重复代码，在文本编辑器中输入它并保存为allMyCats1.py：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;print('Enter the name of cat 1:')
 catName1 = input()
 print('Enter the name of cat 2:')
 catName2 = input()
@@ -684,10 +692,10 @@ print('Enter the name of cat 6:')
 catName6 = input()
 print('The cat names are:')
 print(catName1 + ' ' + catName2 + ' ' + catName3 + ' ' + catName4 + ' ' +
-catName5 + ' ' + catName6)</code>
-</pre>
-<p class="zw">不必使用多个重复的变量，你可以使用单个变量，包含一个列表值。例如，下面是新的改进版本的allMyCats1.py程序。这个新版本使用了一个列表，可以保存用户输入的任意多的猫。在新的文件编辑器窗口中，输入以下代码并保存为allMyCats2.py。</p>
-<pre class="代码无行号"><code>catNames = []
+catName5 + ' ' + catName6)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;不必使用多个重复的变量，你可以使用单个变量，包含一个列表值。例如，下面是新的改进版本的allMyCats1.py程序。这个新版本使用了一个列表，可以保存用户输入的任意多的猫。在新的文件编辑器窗口中，输入以下代码并保存为allMyCats2.py。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;catNames = []
 while True:
     print('Enter the name of cat ' + str(len(catNames) + 1) +
       ' (Or enter nothing to stop.):')
@@ -697,21 +705,21 @@ while True:
     catNames = catNames + [name] # list concatenation
 print('The cat names are:')
 for name in catNames:
-    print(' ' + name)</code>
-</pre>
-<p class="zw">运行这个程序，输出看起来像这样：</p>
-<pre class="代码无行号"><code>Enter the name of cat 1 (Or enter nothing to stop.):
-<strong>Zophie</strong>
+    print(' ' + name)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;运行这个程序，输出看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Enter the name of cat 1 (Or enter nothing to stop.):
+&lt;strong&gt;Zophie&lt;/strong&gt;
 Enter the name of cat 2 (Or enter nothing to stop.):
-<strong>Pooka</strong>
+&lt;strong&gt;Pooka&lt;/strong&gt;
 Enter the name of cat 3 (Or enter nothing to stop.):
-<strong>Simon</strong>
+&lt;strong&gt;Simon&lt;/strong&gt;
 Enter the name of cat 4 (Or enter nothing to stop.):
-<strong>Lady Macbeth</strong>
+&lt;strong&gt;Lady Macbeth&lt;/strong&gt;
 Enter the name of cat 5 (Or enter nothing to stop.):
-<strong>Fat-tail</strong>
+&lt;strong&gt;Fat-tail&lt;/strong&gt;
 Enter the name of cat 6 (Or enter nothing to stop.):
-<strong>Miss Cleo</strong>
+&lt;strong&gt;Miss Cleo&lt;/strong&gt;
 Enter the name of cat 7 (Or enter nothing to stop.):
 The cat names are:
   Zophie
@@ -720,298 +728,298 @@ The cat names are:
   Lady Macbeth
   Fat-tail
   Miss Cleo
-</code>
-</pre>
-<p class="zw">使用列表的好处在于，现在数据放在一个结构中，所以程序能够更灵活的处理数据，比放在一些重复的变量中方便。</p>
-<h3 id="nav_point_93">4.2.1 列表用于循环</h3>
-<p class="zw">在第2章中，你学习了使用循环，对一段代码执行一定次数。从技术上说，循环是针对一个列表或类似列表中的每个值，重复地执行代码块。例如，如果执行以下代码：</p>
-<pre class="代码无行号"><code>for i in range(4):
-    print(i)</code>
-</pre>
-<p class="zw">程序的输出将是：</p>
-<pre class="代码无行号"><code>0
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;使用列表的好处在于，现在数据放在一个结构中，所以程序能够更灵活的处理数据，比放在一些重复的变量中方便。&lt;/p&gt;
+&lt;h3 id="nav_point_93"&gt;4.2.1 列表用于循环&lt;/h3&gt;
+&lt;p class="zw"&gt;在第2章中，你学习了使用循环，对一段代码执行一定次数。从技术上说，循环是针对一个列表或类似列表中的每个值，重复地执行代码块。例如，如果执行以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;for i in range(4):
+    print(i)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;程序的输出将是：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;0
 1
 2
-3</code>
-</pre>
-<p class="zw">这是因为range(4)的返回值是类似列表的值。Python认为它类似于[0, 1, 2, 3]。下面的程序和前面的程序输出相同：</p>
-<pre class="代码无行号"><code>for i in [0, 1, 2, 3]:
-    print(i)</code>
-</pre>
-<p class="zw">前面的for循环实际上是在循环执行它的子句，在每次迭代中，让变量依次设置为列表中的值。</p>
-<p class="editing-tag 提示标签">注意</p>
-<blockquote class="提示 editing-block">
-<p class="zw"><br/>
-</p>
-在本书中，我使用术语“类似列表”，来指技术上称为“序列”的数据类型。但是，你不需要知道这个术语的技术定义。</blockquote>
-<p class="zw">一个常见的Python技巧，是在for循环中使用range(len(someList))，迭代列表的每一个下标。例如，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>supplies = ['pens', 'staplers', 'flame-throwers', 'binders']</strong>
-&gt;&gt;&gt; <strong>for i in range(len(supplies)):</strong>
-    <strong>print('Index ' + str(i) + ' in supplies is: ' + supplies[i])</strong>
-<strong>　</strong>
+3&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这是因为range(4)的返回值是类似列表的值。Python认为它类似于[0, 1, 2, 3]。下面的程序和前面的程序输出相同：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;for i in [0, 1, 2, 3]:
+    print(i)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;前面的for循环实际上是在循环执行它的子句，在每次迭代中，让变量依次设置为列表中的值。&lt;/p&gt;
+&lt;p class="editing-tag 提示标签"&gt;注意&lt;/p&gt;
+&lt;blockquote class="提示 editing-block"&gt;
+&lt;p class="zw"&gt;&lt;br/&gt;
+&lt;/p&gt;
+在本书中，我使用术语“类似列表”，来指技术上称为“序列”的数据类型。但是，你不需要知道这个术语的技术定义。&lt;/blockquote&gt;
+&lt;p class="zw"&gt;一个常见的Python技巧，是在for循环中使用range(len(someList))，迭代列表的每一个下标。例如，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;supplies = ['pens', 'staplers', 'flame-throwers', 'binders']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;for i in range(len(supplies)):&lt;/strong&gt;
+    &lt;strong&gt;print('Index ' + str(i) + ' in supplies is: ' + supplies[i])&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
 Index 0 in supplies is: pens
 Index 1 in supplies is: staplers
 Index 2 in supplies is: flame-throwers
 Index 3 in supplies is: binders
-</code>
-</pre>
-<p class="zw">在前面的循环中使用range(len(supplies))很方便，这是因为，循环中的代码可以访问下标（通过变量i），以及下标处的值（通过supplies[i]）。最妙的是，range(len(supplies))将迭代supplies的所有下标，无论它包含多少表项。</p>
-<h3 id="nav_point_94">4.2.2 in和not in操作符</h3>
-<p class="zw">利用in和not in操作符，可以确定一个值是否在列表中。像其他操作符一样，in和not in用在表达式中，连接两个值：一个要在列表中查找的值，以及待查找的列表。这些表达式将求值为布尔值。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>'howdy' in ['hello', 'hi', 'howdy', 'heyas']</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;在前面的循环中使用range(len(supplies))很方便，这是因为，循环中的代码可以访问下标（通过变量i），以及下标处的值（通过supplies[i]）。最妙的是，range(len(supplies))将迭代supplies的所有下标，无论它包含多少表项。&lt;/p&gt;
+&lt;h3 id="nav_point_94"&gt;4.2.2 in和not in操作符&lt;/h3&gt;
+&lt;p class="zw"&gt;利用in和not in操作符，可以确定一个值是否在列表中。像其他操作符一样，in和not in用在表达式中，连接两个值：一个要在列表中查找的值，以及待查找的列表。这些表达式将求值为布尔值。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'howdy' in ['hello', 'hi', 'howdy', 'heyas']&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>spam = ['hello', 'hi', 'howdy', 'heyas']</strong>
-&gt;&gt;&gt; <strong>'cat' in spam</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['hello', 'hi', 'howdy', 'heyas']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'cat' in spam&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>'howdy' not in spam</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'howdy' not in spam&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>'cat' not in spam</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'cat' not in spam&lt;/strong&gt;
 True
-</code>
-</pre>
-<p class="zw">例如，下面的程序让用户输入一个宠物名字，然后检查该名字是否在宠物列表中。打开一个新的文件编辑器窗口，输入以下代码，并保存为myPets.py：</p>
-<pre class="代码无行号"><code>myPets = ['Zophie', 'Pooka', 'Fat-tail']
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;例如，下面的程序让用户输入一个宠物名字，然后检查该名字是否在宠物列表中。打开一个新的文件编辑器窗口，输入以下代码，并保存为myPets.py：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;myPets = ['Zophie', 'Pooka', 'Fat-tail']
 print('Enter a pet name:')
 name = input()
 if name not in myPets:
     print('I do not have a pet named ' + name)
 else:
-    print(name + ' is my pet.')</code>
-</pre>
-<p class="zw">输出可能像这样：</p>
-<pre class="代码无行号"><code>Enter a pet name:
-<strong>Footfoot</strong>
+    print(name + ' is my pet.')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;输出可能像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Enter a pet name:
+&lt;strong&gt;Footfoot&lt;/strong&gt;
 I do not have a pet named Footfoot
-</code>
-</pre>
-<h3 id="nav_point_95">4.2.3 多重赋值技巧</h3>
-<p class="zw">多重赋值技巧是一种快捷方式，让你在一行代码中，用列表中的值为多个变量赋值。所以不必像这样：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>cat = ['fat', 'black', 'loud']</strong>
-&gt;&gt;&gt; <strong>size = cat[0]</strong>
-&gt;&gt;&gt; <strong>color = cat[1]</strong>
-&gt;&gt;&gt; <strong>disposition = cat[2]</strong>
-</code>
-</pre>
-<p class="zw">而是输入下面的代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>cat = ['fat', 'black', 'loud']</strong>
-&gt;&gt;&gt; <strong>size, color, disposition = cat</strong>
-</code>
-</pre>
-<p class="zw">变量的数目和列表的长度必须严格相等，否则Python将给出ValueError：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>cat = ['fat', 'black', 'loud']</strong>
-&gt;&gt;&gt; <strong>size, color, disposition, name = cat</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_95"&gt;4.2.3 多重赋值技巧&lt;/h3&gt;
+&lt;p class="zw"&gt;多重赋值技巧是一种快捷方式，让你在一行代码中，用列表中的值为多个变量赋值。所以不必像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;cat = ['fat', 'black', 'loud']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;size = cat[0]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;color = cat[1]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;disposition = cat[2]&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;而是输入下面的代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;cat = ['fat', 'black', 'loud']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;size, color, disposition = cat&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;变量的数目和列表的长度必须严格相等，否则Python将给出ValueError：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;cat = ['fat', 'black', 'loud']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;size, color, disposition, name = cat&lt;/strong&gt;
 Traceback (most recent call last):
-  File "&lt;pyshell#84&gt;", line 1, in &lt;module&gt;
+  File "&amp;lt;pyshell#84&amp;gt;", line 1, in &amp;lt;module&amp;gt;
     size, color, disposition, name = cat
 ValueError: need more than 3 values to unpack
-</code>
-</pre>
-<h2 id="nav_point_96">4.3 增强的赋值操作</h2>
-<p class="zw">在对变量赋值时，常常会用到变量本身。例如，将42赋给变量spam之后，用下面的代码让spam的值增加1：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = 42</strong>
-&gt;&gt;&gt; <strong>spam = spam + 1</strong>
-&gt;&gt;&gt; <strong>spam</strong>
-43</code>
-</pre>
-<p class="zw">作为一种快捷方式，可以用增强的赋值操作符+=来完成同样的事：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = 42</strong>
-&gt;&gt;&gt; <strong>spam += 1</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h2 id="nav_point_96"&gt;4.3 增强的赋值操作&lt;/h2&gt;
+&lt;p class="zw"&gt;在对变量赋值时，常常会用到变量本身。例如，将42赋给变量spam之后，用下面的代码让spam的值增加1：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = 42&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = spam + 1&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
+43&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;作为一种快捷方式，可以用增强的赋值操作符+=来完成同样的事：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = 42&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam += 1&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 43
-</code>
-</pre>
-<p class="zw">针对+、-、*、/和%操作符，都有增强的赋值操作符，如表4-1所示。</p>
-<p class="表题">表4-1 增强的赋值操作符</p>
-<table border="1" width="90%">
-<thead>
-<tr>
-<th>
-<p class="表头单元格">增强的赋值语句</p>
-</th>
-<th>
-<p class="表头单元格">等价的赋值语句</p>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<p class="表格单元格">spam += 1</p>
-</td>
-<td>
-<p class="表格单元格">spam = spam + 1</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">spam -= 1</p>
-</td>
-<td>
-<p class="表格单元格">spam = spam - 1</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">spam *= 1</p>
-</td>
-<td>
-<p class="表格单元格">spam = spam * 1</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">spam /= 1</p>
-</td>
-<td>
-<p class="表格单元格">spam = spam / 1</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">spam %= 1</p>
-</td>
-<td>
-<p class="表格单元格">spam = spam % 1</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="zw">+=操作符也可以完成字符串和列表的连接，*=操作符可以完成字符串和列表的复制。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = 'Hello'</strong>
-&gt;&gt;&gt; <strong>spam += ' world!'</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;针对+、-、*、/和%操作符，都有增强的赋值操作符，如表4-1所示。&lt;/p&gt;
+&lt;p class="表题"&gt;表4-1 增强的赋值操作符&lt;/p&gt;
+&lt;table border="1" width="90%"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;
+&lt;p class="表头单元格"&gt;增强的赋值语句&lt;/p&gt;
+&lt;/th&gt;
+&lt;th&gt;
+&lt;p class="表头单元格"&gt;等价的赋值语句&lt;/p&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;spam += 1&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;spam = spam + 1&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;spam -= 1&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;spam = spam - 1&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;spam *= 1&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;spam = spam * 1&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;spam /= 1&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;spam = spam / 1&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;spam %= 1&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;spam = spam % 1&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p class="zw"&gt;+=操作符也可以完成字符串和列表的连接，*=操作符可以完成字符串和列表的复制。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = 'Hello'&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam += ' world!'&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 'Hello world!'
-&gt;&gt;&gt; <strong>bacon = ['Zophie']</strong>
-&gt;&gt;&gt; <strong>bacon *= 3</strong>
-&gt;&gt;&gt; <strong>bacon</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;bacon = ['Zophie']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;bacon *= 3&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;bacon&lt;/strong&gt;
 ['Zophie', 'Zophie', 'Zophie']
-</code>
-</pre>
-<h2 id="nav_point_97">4.4 方法</h2>
-<p class="zw">方法和函数是一回事，只是它是调用在一个值上。例如，如果一个列表值存储在spam中，你可以在这个列表上调用index()列表方法（稍后我会解释），就像spam.index('hello')一样。方法部分跟在这个值后面，以一个句点分隔。</p>
-<p class="zw">每种数据类型都有它自己的一组方法。例如，列表数据类型有一些有用的方法，用来查找、添加、删除或操作列表中的值。</p>
-<h3 id="nav_point_98">4.4.1 用index()方法在列表中查找值</h3>
-<p class="zw">列表值有一个index()方法，可以传入一个值，如果该值存在于列表中，就返回它的下标。如果该值不在列表中，Python就报ValueError。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['hello', 'hi', 'howdy', 'heyas']</strong>
-&gt;&gt;&gt; <strong>spam.index('hello')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h2 id="nav_point_97"&gt;4.4 方法&lt;/h2&gt;
+&lt;p class="zw"&gt;方法和函数是一回事，只是它是调用在一个值上。例如，如果一个列表值存储在spam中，你可以在这个列表上调用index()列表方法（稍后我会解释），就像spam.index('hello')一样。方法部分跟在这个值后面，以一个句点分隔。&lt;/p&gt;
+&lt;p class="zw"&gt;每种数据类型都有它自己的一组方法。例如，列表数据类型有一些有用的方法，用来查找、添加、删除或操作列表中的值。&lt;/p&gt;
+&lt;h3 id="nav_point_98"&gt;4.4.1 用index()方法在列表中查找值&lt;/h3&gt;
+&lt;p class="zw"&gt;列表值有一个index()方法，可以传入一个值，如果该值存在于列表中，就返回它的下标。如果该值不在列表中，Python就报ValueError。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['hello', 'hi', 'howdy', 'heyas']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.index('hello')&lt;/strong&gt;
 0
-&gt;&gt;&gt; <strong>spam.index('heyas')</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.index('heyas')&lt;/strong&gt;
 3
-&gt;&gt;&gt; <strong>spam.index('howdy howdy howdy')</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.index('howdy howdy howdy')&lt;/strong&gt;
 Traceback (most recent call last):
-  File "&lt;pyshell#31&gt;", line 1, in &lt;module&gt;
+  File "&amp;lt;pyshell#31&amp;gt;", line 1, in &amp;lt;module&amp;gt;
     spam.index('howdy howdy howdy')
 ValueError: 'howdy howdy howdy' is not in list
-</code>
-</pre>
-<p class="zw">如果列表中存在重复的值，就返回它第一次出现的下标。在交互式环境中输入以下代码，注意index()返回1，而不是3：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['Zophie', 'Pooka', 'Fat-tail', 'Pooka']</strong>
-&gt;&gt;&gt; <strong>spam.index('Pooka')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果列表中存在重复的值，就返回它第一次出现的下标。在交互式环境中输入以下代码，注意index()返回1，而不是3：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['Zophie', 'Pooka', 'Fat-tail', 'Pooka']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.index('Pooka')&lt;/strong&gt;
 1
-</code>
-</pre>
-<h3 id="nav_point_99">4.4.2 用append()和insert()方法在列表中添加值</h3>
-<p class="zw">要在列表中添加新值，就使用append()和 insert()方法。在交互式环境中输入以下代码，对变量spam中的列表调用append()方法：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'dog', 'bat']</strong>
-&gt;&gt;&gt; <strong>spam.append('moose')</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_99"&gt;4.4.2 用append()和insert()方法在列表中添加值&lt;/h3&gt;
+&lt;p class="zw"&gt;要在列表中添加新值，就使用append()和 insert()方法。在交互式环境中输入以下代码，对变量spam中的列表调用append()方法：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'dog', 'bat']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.append('moose')&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 ['cat', 'dog', 'bat', 'moose']
-</code>
-</pre>
-<p class="zw">前面的append()方法调用，将参数添加到列表末尾。insert()方法可以在列表任意下标处插入一个值。insert()方法的第一个参数是新值的下标，第二个参数是要插入的新值。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'dog', 'bat']</strong>
-&gt;&gt;&gt; <strong>spam.insert(1, 'chicken')</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;前面的append()方法调用，将参数添加到列表末尾。insert()方法可以在列表任意下标处插入一个值。insert()方法的第一个参数是新值的下标，第二个参数是要插入的新值。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'dog', 'bat']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.insert(1, 'chicken')&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 ['cat', 'chicken', 'dog', 'bat']
-</code>
-</pre>
-<p class="zw">请注意，代码是spam.append('moose')和spam.insert(1, 'chicken')，而不是spam = spam.append('moose')和spam = spam.insert(1, 'chicken')。append()和insert()都不会将spam的新值作为其返回值（实际上，append()和insert()的返回值是None，所以你肯定不希望将它保存为变量的新值）。但是，列表被“当场”修改了。在4.6.1节“可变和不变数据类型”中，将更详细地介绍当场修改一个列表。</p>
-<p class="zw">方法属于单个数据类型。append()和insert()方法是列表方法，只能在列表上调用，不能在其他值上调用，例如字符串和整型。在交互式环境中输入以下代码，注意产生的AttributeError错误信息：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>eggs = 'hello'</strong>
-&gt;&gt;&gt; <strong>eggs.append('world')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;请注意，代码是spam.append('moose')和spam.insert(1, 'chicken')，而不是spam = spam.append('moose')和spam = spam.insert(1, 'chicken')。append()和insert()都不会将spam的新值作为其返回值（实际上，append()和insert()的返回值是None，所以你肯定不希望将它保存为变量的新值）。但是，列表被“当场”修改了。在4.6.1节“可变和不变数据类型”中，将更详细地介绍当场修改一个列表。&lt;/p&gt;
+&lt;p class="zw"&gt;方法属于单个数据类型。append()和insert()方法是列表方法，只能在列表上调用，不能在其他值上调用，例如字符串和整型。在交互式环境中输入以下代码，注意产生的AttributeError错误信息：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs = 'hello'&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs.append('world')&lt;/strong&gt;
 Traceback (most recent call last):
-  File "&lt;pyshell#19&gt;", line 1, in &lt;module&gt;
+  File "&amp;lt;pyshell#19&amp;gt;", line 1, in &amp;lt;module&amp;gt;
     eggs.append('world')
 AttributeError: 'str' object has no attribute 'append'
-&gt;&gt;&gt; <strong>bacon = 42</strong>
-&gt;&gt;&gt; <strong>bacon.insert(1, 'world')</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;bacon = 42&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;bacon.insert(1, 'world')&lt;/strong&gt;
 Traceback (most recent call last):
-  File "&lt;pyshell#22&gt;", line 1, in &lt;module&gt;
+  File "&amp;lt;pyshell#22&amp;gt;", line 1, in &amp;lt;module&amp;gt;
     bacon.insert(1, 'world')
 AttributeError: 'int' object has no attribute 'insert'
-</code>
-</pre>
-<h3 id="nav_point_100">4.4.3 用remove()方法从列表中删除值</h3>
-<p class="zw">给 remove()方法传入一个值，它将从被调用的列表中删除。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
-&gt;&gt;&gt; <strong>spam.remove('bat')</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_100"&gt;4.4.3 用remove()方法从列表中删除值&lt;/h3&gt;
+&lt;p class="zw"&gt;给 remove()方法传入一个值，它将从被调用的列表中删除。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'bat', 'rat', 'elephant']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.remove('bat')&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 ['cat', 'rat', 'elephant']
-</code>
-</pre>
-<p class="zw">试图删除列表中不存在的值，将导致ValueError错误。例如，在交互式环境中输入以下代码，注意显示的错误：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'elephant']</strong>
-&gt;&gt;&gt; <strong>spam.remove('chicken')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;试图删除列表中不存在的值，将导致ValueError错误。例如，在交互式环境中输入以下代码，注意显示的错误：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'bat', 'rat', 'elephant']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.remove('chicken')&lt;/strong&gt;
 Traceback (most recent call last):
-  File "&lt;pyshell#11&gt;", line 1, in &lt;module&gt;
+  File "&amp;lt;pyshell#11&amp;gt;", line 1, in &amp;lt;module&amp;gt;
     spam.remove('chicken')
 ValueError: list.remove(x): x not in list
-</code>
-</pre>
-<p class="zw">如果该值在列表中出现多次，只有第一次出现的值会被删除。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cat', 'bat', 'rat', 'cat', 'hat', 'cat']</strong>
-&gt;&gt;&gt; <strong>spam.remove('cat')</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果该值在列表中出现多次，只有第一次出现的值会被删除。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['cat', 'bat', 'rat', 'cat', 'hat', 'cat']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.remove('cat')&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 ['bat', 'rat', 'cat', 'hat', 'cat']
-</code>
-</pre>
-<p class="zw">如果知道想要删除的值在列表中的下标，del语句就很好用。如果知道想要从列表中删除的值，remove()方法就很好用。</p>
-<h3 id="nav_point_101">4.4.4 用sort()方法将列表中的值排序</h3>
-<p class="zw">数值的列表或字符串的列表，能用sort()方法排序。例如，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = [2, 5, 3.14, 1, -7]</strong>
-&gt;&gt;&gt; <strong>spam.sort()</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果知道想要删除的值在列表中的下标，del语句就很好用。如果知道想要从列表中删除的值，remove()方法就很好用。&lt;/p&gt;
+&lt;h3 id="nav_point_101"&gt;4.4.4 用sort()方法将列表中的值排序&lt;/h3&gt;
+&lt;p class="zw"&gt;数值的列表或字符串的列表，能用sort()方法排序。例如，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = [2, 5, 3.14, 1, -7]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.sort()&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 [-7, 1, 2, 3.14, 5]
-&gt;&gt;&gt; <strong>spam = ['ants', 'cats', 'dogs', 'badgers', 'elephants']</strong>
-&gt;&gt;&gt; <strong>spam.sort()</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['ants', 'cats', 'dogs', 'badgers', 'elephants']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.sort()&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 ['ants', 'badgers', 'cats', 'dogs', 'elephants']
-</code>
-</pre>
-<p class="zw">也可以指定reverse关键字参数为True，让sort()按逆序排序。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam.sort(reverse=True)</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;也可以指定reverse关键字参数为True，让sort()按逆序排序。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.sort(reverse=True)&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 ['elephants', 'dogs', 'cats', 'badgers', 'ants']
-</code>
-</pre>
-<p class="zw">关于sort()方法，你应该注意3件事。首先，sort()方法当场对列表排序。不要写出spam = spam.sort()这样的代码，试图记录返回值。</p>
-<p class="zw">其次，不能对既有数字又有字符串值的列表排序，因为Python不知道如何比较它们。在交互式环境中输入以下代码，注意TypeError错误：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = [1, 3, 2, 4, 'Alice', 'Bob']</strong>
-&gt;&gt;&gt; <strong>spam.sort()</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;关于sort()方法，你应该注意3件事。首先，sort()方法当场对列表排序。不要写出spam = spam.sort()这样的代码，试图记录返回值。&lt;/p&gt;
+&lt;p class="zw"&gt;其次，不能对既有数字又有字符串值的列表排序，因为Python不知道如何比较它们。在交互式环境中输入以下代码，注意TypeError错误：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = [1, 3, 2, 4, 'Alice', 'Bob']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.sort()&lt;/strong&gt;
 Traceback (most recent call last):
-  File "&lt;pyshell#70&gt;", line 1, in &lt;module&gt;
+  File "&amp;lt;pyshell#70&amp;gt;", line 1, in &amp;lt;module&amp;gt;
     spam.sort()
-TypeError: unorderable types: str() &lt; int()
-</code>
-</pre>
-<p class="zw">第三，sort()方法对字符串排序时，使用“ASCII字符顺序”，而不是实际的字典顺序。这意味着大写字母排在小写字母之前。因此在排序时，小写的a在大写的Z之后。例如，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['Alice', 'ants', 'Bob', 'badgers', 'Carol', 'cats']</strong>
-&gt;&gt;&gt; <strong>spam.sort()</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+TypeError: unorderable types: str() &amp;lt; int()
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;第三，sort()方法对字符串排序时，使用“ASCII字符顺序”，而不是实际的字典顺序。这意味着大写字母排在小写字母之前。因此在排序时，小写的a在大写的Z之后。例如，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['Alice', 'ants', 'Bob', 'badgers', 'Carol', 'cats']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.sort()&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 ['Alice', 'Bob', 'Carol', 'ants', 'badgers', 'cats']
-</code>
-</pre>
-<p class="zw">如果需要按照普通的字典顺序来排序，就在sort()方法调用时，将关键字参数key设置为str.lower。</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['a', 'z', 'A', 'Z']</strong>
-&gt;&gt;&gt; <strong>spam.sort(key=str.lower)</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果需要按照普通的字典顺序来排序，就在sort()方法调用时，将关键字参数key设置为str.lower。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['a', 'z', 'A', 'Z']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.sort(key=str.lower)&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 ['a', 'A', 'z', 'Z']
-</code>
-</pre>
-<p class="zw">这将导致sort()方法将列表中所有的表项当成小写，但实际上并不会改变它们在列表中的值。</p>
-<h2 id="nav_point_102">4.5 例子程序：神奇8球和列表</h2>
-<p class="zw">前一章我们写过神奇8球程序。利用列表，可以写出更优雅的版本。不是用一些几乎一样的elif语句，而是创建一个列表，针对它编码。打开一个新的文件编辑器窗口，输入以下代码，并保存为magic8Ball2.py：</p>
-<pre class="代码无行号"><code>import random
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这将导致sort()方法将列表中所有的表项当成小写，但实际上并不会改变它们在列表中的值。&lt;/p&gt;
+&lt;h2 id="nav_point_102"&gt;4.5 例子程序：神奇8球和列表&lt;/h2&gt;
+&lt;p class="zw"&gt;前一章我们写过神奇8球程序。利用列表，可以写出更优雅的版本。不是用一些几乎一样的elif语句，而是创建一个列表，针对它编码。打开一个新的文件编辑器窗口，输入以下代码，并保存为magic8Ball2.py：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;import random
 messages = ['It is certain',
     'It is decidedly so',
     'Yes definitely',
@@ -1021,243 +1029,243 @@ messages = ['It is certain',
     'My reply is no',
     'Outlook not so good',
     'Very doubtful']
-print(messages[random.randint(0, len(messages) - 1)])</code>
-</pre>
-<p class="editing-tag 超强提示标签">Python中缩进规则的例外</p>
-<blockquote class="超强提示 editing-block">
-<p class="zw"><br/>
-</p>
-<p class="zw">在大多数情况下，代码行的缩进告诉Python它属于哪一个代码块。但是，这个规则有几个例外。例如在源代码文件中，列表实际上可以跨越几行。这些行的缩进并不重要。Python知道，没有看到结束方括号，列表就没有结束。例如，代码可以看起来像这样：</p>
-<pre class="代码无行号"><code>spam = ['apples',
+print(messages[random.randint(0, len(messages) - 1)])&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="editing-tag 超强提示标签"&gt;Python中缩进规则的例外&lt;/p&gt;
+&lt;blockquote class="超强提示 editing-block"&gt;
+&lt;p class="zw"&gt;&lt;br/&gt;
+&lt;/p&gt;
+&lt;p class="zw"&gt;在大多数情况下，代码行的缩进告诉Python它属于哪一个代码块。但是，这个规则有几个例外。例如在源代码文件中，列表实际上可以跨越几行。这些行的缩进并不重要。Python知道，没有看到结束方括号，列表就没有结束。例如，代码可以看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;spam = ['apples',
     'oranges',
                     'bananas',
 'cats']
-print(spam)</code>
-</pre>
-<p class="zw">当然，从实践的角度来说，大部分人会利用Python的行为，让他们的列表看起来漂亮且可读，就像神奇8球程序中的消息列表一样。</p>
-<p class="zw">也可以在行末使用续行字符\，将一条指令写成多行。可以把\看成是“这条指令在下一行继续”。\续行字符之后的一行中，缩进并不重要。例如，下面是有效的Python代码：</p>
-<pre class="代码无行号"><code>print('Four score and seven ' + \
-      'years ago...')</code>
-</pre>
-<p class="zw">如果希望将一长行的Python代码安排得更为可读，这些技巧是有用的。</p>
-</blockquote>
-<p class="zw">运行这个程序，你会看到它与前面的magic8Ball.py程序效果一样。</p>
-<p class="zw">请注意用作messages下标的表达式：random.randint(0, len(messages) - 1)。这产生了一个随机数作为下标，不论messages的大小是多少。也就是说，你会得到0与len(messages) - 1之间的一个随机数。这种方法的好处在于，很容易向列表添加或删除字符串，而不必改变其他行的代码。如果稍后更新代码，就可以少改几行代码，引入缺陷的可能性也更小。</p>
-<h2 id="nav_point_103">4.6 类似列表的类型：字符串和元组</h2>
-<p class="zw">列表并不是唯一表示序列值的数据类型。例如，字符串和列表实际上很相似，只要你认为字符串是单个文本字符的列表。对列表的许多操作，也可以作用于字符串：按下标取值、切片、用于for循环、用于len()，以及用于in和not in操作符。为了看到这种效果，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>name = 'Zophie'</strong>
-&gt;&gt;&gt; <strong>name[0]</strong>
+print(spam)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;当然，从实践的角度来说，大部分人会利用Python的行为，让他们的列表看起来漂亮且可读，就像神奇8球程序中的消息列表一样。&lt;/p&gt;
+&lt;p class="zw"&gt;也可以在行末使用续行字符\，将一条指令写成多行。可以把\看成是“这条指令在下一行继续”。\续行字符之后的一行中，缩进并不重要。例如，下面是有效的Python代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;print('Four score and seven ' + \
+      'years ago...')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果希望将一长行的Python代码安排得更为可读，这些技巧是有用的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p class="zw"&gt;运行这个程序，你会看到它与前面的magic8Ball.py程序效果一样。&lt;/p&gt;
+&lt;p class="zw"&gt;请注意用作messages下标的表达式：random.randint(0, len(messages) - 1)。这产生了一个随机数作为下标，不论messages的大小是多少。也就是说，你会得到0与len(messages) - 1之间的一个随机数。这种方法的好处在于，很容易向列表添加或删除字符串，而不必改变其他行的代码。如果稍后更新代码，就可以少改几行代码，引入缺陷的可能性也更小。&lt;/p&gt;
+&lt;h2 id="nav_point_103"&gt;4.6 类似列表的类型：字符串和元组&lt;/h2&gt;
+&lt;p class="zw"&gt;列表并不是唯一表示序列值的数据类型。例如，字符串和列表实际上很相似，只要你认为字符串是单个文本字符的列表。对列表的许多操作，也可以作用于字符串：按下标取值、切片、用于for循环、用于len()，以及用于in和not in操作符。为了看到这种效果，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;name = 'Zophie'&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;name[0]&lt;/strong&gt;
 'Z'
-&gt;&gt;&gt; <strong>name[-2]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;name[-2]&lt;/strong&gt;
 'i'
-&gt;&gt;&gt; <strong>name[0:4]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;name[0:4]&lt;/strong&gt;
 'Zoph'
-&gt;&gt;&gt; <strong>'Zo' in name</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Zo' in name&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'z' in name</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'z' in name&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>'p' not in name</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'p' not in name&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>for i in name:</strong>
-        <strong>print('* * * ' + i + ' * * *')</strong>
-<strong>　</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;for i in name:&lt;/strong&gt;
+        &lt;strong&gt;print('* * * ' + i + ' * * *')&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
 * * * Z * * *
 * * * o * * *
 * * * p * * *
 * * * h * * *
 * * * i * * *
 * * * e * * *
-</code>
-</pre>
-<h3 id="nav_point_104">4.6.1 可变和不可变数据类型</h3>
-<p class="zw">但列表和字符串在一个重要的方面是不同的。列表是“可变的”数据类型，它的值可以添加、删除或改变。但是，字符串是“不可变的”，它不能被更改。尝试对字符串中的一个字符重新赋值，将导致TypeError错误。在交互式环境中输入以下代码，你就会看到：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>name = 'Zophie a cat'</strong>
-&gt;&gt;&gt; <strong>name[7] = 'the'</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_104"&gt;4.6.1 可变和不可变数据类型&lt;/h3&gt;
+&lt;p class="zw"&gt;但列表和字符串在一个重要的方面是不同的。列表是“可变的”数据类型，它的值可以添加、删除或改变。但是，字符串是“不可变的”，它不能被更改。尝试对字符串中的一个字符重新赋值，将导致TypeError错误。在交互式环境中输入以下代码，你就会看到：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;name = 'Zophie a cat'&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;name[7] = 'the'&lt;/strong&gt;
 Traceback (most recent call last):
-  File "&lt;pyshell#50&gt;", line 1, in &lt;module&gt;
+  File "&amp;lt;pyshell#50&amp;gt;", line 1, in &amp;lt;module&amp;gt;
     name[7] = 'the'
 TypeError: 'str' object does not support item assignment
-</code>
-</pre>
-<p class="zw">“改变”一个字符串的正确方式，是使用切片和连接。构造一个“新的”字符串，从老的字符串那里复制一些部分。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>name = 'Zophie a cat'</strong>
-&gt;&gt;&gt; <strong>newName = name[0:7] + 'the' + name[8:12]</strong>
-&gt;&gt;&gt; <strong>name</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;“改变”一个字符串的正确方式，是使用切片和连接。构造一个“新的”字符串，从老的字符串那里复制一些部分。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;name = 'Zophie a cat'&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;newName = name[0:7] + 'the' + name[8:12]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;name&lt;/strong&gt;
 'Zophie a cat'
-&gt;&gt;&gt; <strong>newName</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;newName&lt;/strong&gt;
 'Zophie the cat'
-</code>
-</pre>
-<p class="zw">我们用[0:7]和[8:12]来指那些不想替换的字符。请注意，原来的'Zophie a cat'字符串没有被修改，因为字符串是不可变的。尽管列表值是可变的，但下面代码中的第二行并没有修改列表eggs：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>eggs = [1, 2, 3]</strong>
-&gt;&gt;&gt; <strong>eggs = [4, 5, 6]</strong>
-&gt;&gt;&gt; <strong>eggs</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;我们用[0:7]和[8:12]来指那些不想替换的字符。请注意，原来的'Zophie a cat'字符串没有被修改，因为字符串是不可变的。尽管列表值是可变的，但下面代码中的第二行并没有修改列表eggs：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs = [1, 2, 3]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs = [4, 5, 6]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs&lt;/strong&gt;
 [4, 5, 6]
-</code>
-</pre>
-<p class="zw">这里eggs中的列表值并没有改变，而是整个新的不同的列表值([4, 5, 6])，覆写了老的列表值。如图4-2所示。</p>
-<p class="图"><img alt="0402" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00084.jpg"/>
-</p>
-<p class="图题">图4-2 当eggs = [4, 5, 6]被执行时，eggs的内容被新的列表值取代</p>
-<p class="zw">如果你确实希望修改eggs中原来的列表，让它包含[4, 5, 6]，就要这样做：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>eggs = [1, 2, 3]</strong>
-&gt;&gt;&gt; <strong>del eggs[2]</strong>
-&gt;&gt;&gt; <strong>del eggs[1]</strong>
-&gt;&gt;&gt; <strong>del eggs[0]</strong>
-&gt;&gt;&gt; <strong>eggs.append(4)</strong>
-&gt;&gt;&gt; <strong>eggs.append(5)</strong>
-&gt;&gt;&gt; <strong>eggs.append(6)</strong>
-&gt;&gt;&gt; <strong>eggs</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这里eggs中的列表值并没有改变，而是整个新的不同的列表值([4, 5, 6])，覆写了老的列表值。如图4-2所示。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0402" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00084.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图4-2 当eggs = [4, 5, 6]被执行时，eggs的内容被新的列表值取代&lt;/p&gt;
+&lt;p class="zw"&gt;如果你确实希望修改eggs中原来的列表，让它包含[4, 5, 6]，就要这样做：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs = [1, 2, 3]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;del eggs[2]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;del eggs[1]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;del eggs[0]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs.append(4)&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs.append(5)&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs.append(6)&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs&lt;/strong&gt;
 [4, 5, 6]
-</code>
-</pre>
-<p class="zw">在第一个例子中，eggs最后的列表值与它开始的列表值是一样的。只是这个列表被改变了，而不是被覆写。图4-3展示了前面交互式脚本的例子中，前7行代码所做的7次改动。</p>
-<p class="图"><img alt="0403" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00085.jpg"/>
-</p>
-<p class="图题">图4-3 del语句和append()方法当场修改了同一个列表值</p>
-<p class="zw">改变一个可变数据类型的值（就像前面例子中del语句和append()方法所做的事），当场改变了该值，因为该变量的值没有被一个新的列表值取代。</p>
-<p class="zw">区分可变与不可变类型，似乎没有什么意义，但4.7.1节“传递引用”将解释，使用可变参数和不可变参数调用函数时产生的不同行为。首先，让我们来看看元组数据类型，它是列表数据类型的不可变形式。</p>
-<h3 id="nav_point_105">4.6.2 元组数据类型</h3>
-<p class="zw">除了两个方面，“元组”数据类型几乎与列表数据类型一样。首先，元组输入时用圆括号()，而不是用方括号[]。例如，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>eggs = ('hello', 42, 0.5)</strong>
-&gt;&gt;&gt; <strong>eggs[0]</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;在第一个例子中，eggs最后的列表值与它开始的列表值是一样的。只是这个列表被改变了，而不是被覆写。图4-3展示了前面交互式脚本的例子中，前7行代码所做的7次改动。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0403" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00085.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图4-3 del语句和append()方法当场修改了同一个列表值&lt;/p&gt;
+&lt;p class="zw"&gt;改变一个可变数据类型的值（就像前面例子中del语句和append()方法所做的事），当场改变了该值，因为该变量的值没有被一个新的列表值取代。&lt;/p&gt;
+&lt;p class="zw"&gt;区分可变与不可变类型，似乎没有什么意义，但4.7.1节“传递引用”将解释，使用可变参数和不可变参数调用函数时产生的不同行为。首先，让我们来看看元组数据类型，它是列表数据类型的不可变形式。&lt;/p&gt;
+&lt;h3 id="nav_point_105"&gt;4.6.2 元组数据类型&lt;/h3&gt;
+&lt;p class="zw"&gt;除了两个方面，“元组”数据类型几乎与列表数据类型一样。首先，元组输入时用圆括号()，而不是用方括号[]。例如，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs = ('hello', 42, 0.5)&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs[0]&lt;/strong&gt;
 'hello'
-&gt;&gt;&gt; <strong>eggs[1:3]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs[1:3]&lt;/strong&gt;
 (42, 0.5)
-&gt;&gt;&gt; <strong>len(eggs)</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;len(eggs)&lt;/strong&gt;
 3
-</code>
-</pre>
-<p class="zw">但元组与列表的主要区别还在于，元组像字符串一样，是不可变的。元组不能让它们的值被修改、添加或删除。在交互式环境中输入以下代码，注意TypeError出错信息：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>eggs = ('hello', 42, 0.5)</strong>
-&gt;&gt;&gt; <strong>eggs[1] = 99</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;但元组与列表的主要区别还在于，元组像字符串一样，是不可变的。元组不能让它们的值被修改、添加或删除。在交互式环境中输入以下代码，注意TypeError出错信息：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs = ('hello', 42, 0.5)&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs[1] = 99&lt;/strong&gt;
 Traceback (most recent call last):
-  File "&lt;pyshell#5&gt;", line 1, in &lt;module&gt;
+  File "&amp;lt;pyshell#5&amp;gt;", line 1, in &amp;lt;module&amp;gt;
     eggs[1] = 99
 TypeError: 'tuple' object does not support item assignment
-</code>
-</pre>
-<p class="zw">如果元组中只有一个值，你可以在括号内该值的后面跟上一个逗号，表明这种情况。否则，Python将认为，你只是在一个普通括号内输入了一个值。逗号告诉Python，这是一个元组（不像其他编程语言，Python接受列表或元组中最后表项后面跟的逗号）。在交互式环境中，输入以下的type()函数调用，看看它们的区别：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>type(('hello',))</strong>
-&lt;class 'tuple'&gt;
-&gt;&gt;&gt; <strong>type(('hello'))</strong>
-&lt;class 'str'&gt;
-</code>
-</pre>
-<p class="zw">你可以用元组告诉所有读代码的人，你不打算改变这个序列的值。如果需要一个永远不会改变的值的序列，就使用元组。使用元组而不是列表的第二个好处在于，因为它们是不可变的，它们的内容不会变化，Python可以实现一些优化，让使用元组的代码比使用列表的代码更快。</p>
-<h3 id="nav_point_106">4.6.3 用list()和tuple()函数来转换类型</h3>
-<p class="zw">正如str(42)将返回'42'，即整数42的字符串表示形式，函数list()和tuple()将返回传递给它们的值的列表和元组版本。在交互式环境中输入以下代码，注意返回值与传入值是不同的数据类型：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>tuple(['cat', 'dog', 5])</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果元组中只有一个值，你可以在括号内该值的后面跟上一个逗号，表明这种情况。否则，Python将认为，你只是在一个普通括号内输入了一个值。逗号告诉Python，这是一个元组（不像其他编程语言，Python接受列表或元组中最后表项后面跟的逗号）。在交互式环境中，输入以下的type()函数调用，看看它们的区别：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;type(('hello',))&lt;/strong&gt;
+&amp;lt;class 'tuple'&amp;gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;type(('hello'))&lt;/strong&gt;
+&amp;lt;class 'str'&amp;gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;你可以用元组告诉所有读代码的人，你不打算改变这个序列的值。如果需要一个永远不会改变的值的序列，就使用元组。使用元组而不是列表的第二个好处在于，因为它们是不可变的，它们的内容不会变化，Python可以实现一些优化，让使用元组的代码比使用列表的代码更快。&lt;/p&gt;
+&lt;h3 id="nav_point_106"&gt;4.6.3 用list()和tuple()函数来转换类型&lt;/h3&gt;
+&lt;p class="zw"&gt;正如str(42)将返回'42'，即整数42的字符串表示形式，函数list()和tuple()将返回传递给它们的值的列表和元组版本。在交互式环境中输入以下代码，注意返回值与传入值是不同的数据类型：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;tuple(['cat', 'dog', 5])&lt;/strong&gt;
 ('cat', 'dog', 5)
-&gt;&gt;&gt; <strong>list(('cat', 'dog', 5))</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;list(('cat', 'dog', 5))&lt;/strong&gt;
 ['cat', 'dog', 5]
-&gt;&gt;&gt; <strong>list('hello')</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;list('hello')&lt;/strong&gt;
 ['h', 'e', 'l', 'l', 'o']
-</code>
-</pre>
-<p class="zw">如果需要元组值的一个可变版本，将元组转换成列表就很方便。</p>
-<h2 id="nav_point_107">4.7 引用</h2>
-<p class="zw">正如你看到的，变量保存字符串和整数值。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = 42</strong>
-&gt;&gt;&gt; <strong>cheese = spam</strong>
-&gt;&gt;&gt; <strong>spam = 100</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果需要元组值的一个可变版本，将元组转换成列表就很方便。&lt;/p&gt;
+&lt;h2 id="nav_point_107"&gt;4.7 引用&lt;/h2&gt;
+&lt;p class="zw"&gt;正如你看到的，变量保存字符串和整数值。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = 42&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;cheese = spam&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = 100&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 100
-&gt;&gt;&gt; <strong>cheese</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;cheese&lt;/strong&gt;
 42
-</code>
-</pre>
-<p class="zw">你将42赋给spam变量，然后拷贝spam中的值，将它赋给变量cheese。当稍后将spam中的值改变为100时，这不会影响cheese中的值。这是因为spam和cheese是不同的变量，保存了不同的值。</p>
-<p class="zw">但列表不是这样的。当你将列表赋给一个变量时，实际上是将列表的“引用”赋给了该变量。引用是一个值，指向某些数据。列表引用是指向一个列表的值。这里有一些代码，让这个概念更容易理解。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>❶ &gt;&gt;&gt; <strong>spam = [0, 1, 2, 3, 4, 5]</strong>
-❷ &gt;&gt;&gt; <strong>cheese = spam</strong>
-❸ &gt;&gt;&gt; <strong>cheese[1] = 'Hello!'</strong>
-　&gt;&gt;&gt; <strong>spam</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;你将42赋给spam变量，然后拷贝spam中的值，将它赋给变量cheese。当稍后将spam中的值改变为100时，这不会影响cheese中的值。这是因为spam和cheese是不同的变量，保存了不同的值。&lt;/p&gt;
+&lt;p class="zw"&gt;但列表不是这样的。当你将列表赋给一个变量时，实际上是将列表的“引用”赋给了该变量。引用是一个值，指向某些数据。列表引用是指向一个列表的值。这里有一些代码，让这个概念更容易理解。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = [0, 1, 2, 3, 4, 5]&lt;/strong&gt;
+❷ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;cheese = spam&lt;/strong&gt;
+❸ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;cheese[1] = 'Hello!'&lt;/strong&gt;
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 　[0, 'Hello!', 2, 3, 4, 5]
-　&gt;&gt;&gt; <strong>cheese</strong>
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;cheese&lt;/strong&gt;
 　[0, 'Hello!', 2, 3, 4, 5]
-</code>
-</pre>
-<p class="zw">这可能让你感到奇怪。代码只改变了cheese列表，但似乎cheese和spam列表同时发生了改变。</p>
-<p class="zw">当创建列表时❶，你将对它的引用赋给了变量。但下一行❷只是将spam中的列表引用拷贝到cheese，而不是列表值本身。这意味着存储在spam和cheese中的值，现在指向了同一个列表。底下只有一个列表，因为列表本身实际从未复制。所以当你修改cheese变量的第一个元素时❸，也修改了spam指向的同一个列表。</p>
-<p class="zw">记住，变量就像包含着值的盒子。本章前面的图显示列表在盒子中，这并不准确，因为列表变量实际上没有包含列表，而是包含了对列表的“引用”（这些引用包含一些ID数字，Python在内部使用这些ID，但是你可以忽略）。利用盒子作为变量的隐喻，图4-4展示了列表被赋给spam变量时发生的情形。</p>
-<p class="图"><img alt="0404" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00086.jpg"/>
-</p>
-<p class="图题">图4-4 spam = [0, 1, 2, 3, 4, 5]保存了对列表的引用，而非实际列表</p>
-<p class="zw">然后，在图4-5中，spam中的引用被复制给cheese。只有新的引用被创建并保存在cheese中，而非新的列表。请注意，两个引用都指向同一个列表。</p>
-<p class="图"><img alt="0405" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00087.jpg"/>
-</p>
-<p class="图题">图4-5 spam = cheese复制了引用，而非列表</p>
-<p class="zw">当你改变cheese指向的列表时，spam指向的列表也发生了改变，因为cheese和spam都指向同一个列表，如图4-6所示。</p>
-<p class="图"><img alt="0406" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00088.jpg"/>
-</p>
-<p class="图题">图4-6 cheese[1] = 'Hello!'修改了两个变量指向的列表</p>
-<p class="zw">变量包含对列表值的引用，而不是列表值本身。但对于字符串和整数值，变量就包含了字符串或整数值。在变量必须保存可变数据类型的值时，例如列表或字典，Python就使用引用。对于不可变的数据类型的值，例如字符串、整型或元组，Python变量就保存值本身。</p>
-<p class="zw">虽然Python变量在技术上包含了对列表或字典值的引用，但人们通常随意地说，该变量包含了列表或字典。</p>
-<h3 id="nav_point_108">4.7.1 传递引用</h3>
-<p class="zw">要理解参数如何传递给函数，引用就特别重要。当函数被调用时，参数的值被复制给变元。对于列表（以及字典，我将在下一章中讨论），这意味着变元得到的是引用的拷贝。要看看这导致的后果，请打开一个新的文件编辑器窗口，输入以下代码，并保存为passingReference.py：</p>
-<pre class="代码无行号"><code>def eggs(someParameter):
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这可能让你感到奇怪。代码只改变了cheese列表，但似乎cheese和spam列表同时发生了改变。&lt;/p&gt;
+&lt;p class="zw"&gt;当创建列表时❶，你将对它的引用赋给了变量。但下一行❷只是将spam中的列表引用拷贝到cheese，而不是列表值本身。这意味着存储在spam和cheese中的值，现在指向了同一个列表。底下只有一个列表，因为列表本身实际从未复制。所以当你修改cheese变量的第一个元素时❸，也修改了spam指向的同一个列表。&lt;/p&gt;
+&lt;p class="zw"&gt;记住，变量就像包含着值的盒子。本章前面的图显示列表在盒子中，这并不准确，因为列表变量实际上没有包含列表，而是包含了对列表的“引用”（这些引用包含一些ID数字，Python在内部使用这些ID，但是你可以忽略）。利用盒子作为变量的隐喻，图4-4展示了列表被赋给spam变量时发生的情形。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0404" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00086.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图4-4 spam = [0, 1, 2, 3, 4, 5]保存了对列表的引用，而非实际列表&lt;/p&gt;
+&lt;p class="zw"&gt;然后，在图4-5中，spam中的引用被复制给cheese。只有新的引用被创建并保存在cheese中，而非新的列表。请注意，两个引用都指向同一个列表。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0405" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00087.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图4-5 spam = cheese复制了引用，而非列表&lt;/p&gt;
+&lt;p class="zw"&gt;当你改变cheese指向的列表时，spam指向的列表也发生了改变，因为cheese和spam都指向同一个列表，如图4-6所示。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0406" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00088.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图4-6 cheese[1] = 'Hello!'修改了两个变量指向的列表&lt;/p&gt;
+&lt;p class="zw"&gt;变量包含对列表值的引用，而不是列表值本身。但对于字符串和整数值，变量就包含了字符串或整数值。在变量必须保存可变数据类型的值时，例如列表或字典，Python就使用引用。对于不可变的数据类型的值，例如字符串、整型或元组，Python变量就保存值本身。&lt;/p&gt;
+&lt;p class="zw"&gt;虽然Python变量在技术上包含了对列表或字典值的引用，但人们通常随意地说，该变量包含了列表或字典。&lt;/p&gt;
+&lt;h3 id="nav_point_108"&gt;4.7.1 传递引用&lt;/h3&gt;
+&lt;p class="zw"&gt;要理解参数如何传递给函数，引用就特别重要。当函数被调用时，参数的值被复制给变元。对于列表（以及字典，我将在下一章中讨论），这意味着变元得到的是引用的拷贝。要看看这导致的后果，请打开一个新的文件编辑器窗口，输入以下代码，并保存为passingReference.py：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;def eggs(someParameter):
     someParameter.append('Hello')
 spam = [1, 2, 3]
 eggs(spam)
-print(spam)</code>
-</pre>
-<p class="zw">请注意，当eggs()被调用时，没有使用返回值来为spam赋新值。相反，它直接当场修改了该列表。在运行时，该程序产生输出如下：</p>
-<pre class="代码无行号"><code>[1, 2, 3, 'Hello']</code>
-</pre>
-<p class="zw">尽管spam和someParameter包含了不同的引用，但它们都指向相同的列表。这就是为什么函数内的append('Hello')方法调用在函数调用返回后，仍然会对该列表产生影响。</p>
-<p class="zw">请记住这种行为：如果忘了Python处理列表和字典变量时采用这种方式，可能会导致令人困惑的缺陷。</p>
-<h3 id="nav_point_109">4.7.2 copy模块的copy()和deepcopy()函数</h3>
-<p class="zw">在处理列表和字典时，尽管传递引用常常是最方便的方法，但如果函数修改了传入的列表或字典，你可能不希望这些变动影响原来的列表或字典。要做到这一点，Python提供了名为copy的模块，其中包含copy()和deepcopy()函数。第一个函数copy.copy()，可以用来复制列表或字典这样的可变值，而不只是复制引用。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>import copy</strong>
-&gt;&gt;&gt; <strong>spam = ['A', 'B', 'C', 'D']</strong>
-&gt;&gt;&gt; <strong>cheese = copy.copy(spam)</strong>
-&gt;&gt;&gt; <strong>cheese[1] = 42</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+print(spam)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;请注意，当eggs()被调用时，没有使用返回值来为spam赋新值。相反，它直接当场修改了该列表。在运行时，该程序产生输出如下：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;[1, 2, 3, 'Hello']&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;尽管spam和someParameter包含了不同的引用，但它们都指向相同的列表。这就是为什么函数内的append('Hello')方法调用在函数调用返回后，仍然会对该列表产生影响。&lt;/p&gt;
+&lt;p class="zw"&gt;请记住这种行为：如果忘了Python处理列表和字典变量时采用这种方式，可能会导致令人困惑的缺陷。&lt;/p&gt;
+&lt;h3 id="nav_point_109"&gt;4.7.2 copy模块的copy()和deepcopy()函数&lt;/h3&gt;
+&lt;p class="zw"&gt;在处理列表和字典时，尽管传递引用常常是最方便的方法，但如果函数修改了传入的列表或字典，你可能不希望这些变动影响原来的列表或字典。要做到这一点，Python提供了名为copy的模块，其中包含copy()和deepcopy()函数。第一个函数copy.copy()，可以用来复制列表或字典这样的可变值，而不只是复制引用。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;import copy&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ['A', 'B', 'C', 'D']&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;cheese = copy.copy(spam)&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;cheese[1] = 42&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 ['A', 'B', 'C', 'D']
-&gt;&gt;&gt; <strong>cheese</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;cheese&lt;/strong&gt;
 ['A', 42, 'C', 'D']
-</code>
-</pre>
-<p class="zw">现在spam和cheese变量指向独立的列表，这就是为什么当你将42赋给下标7时，只有cheese中的列表被改变。在图4-7中可以看到，两个变量的引用ID数字不再一样，因为它们指向了独立的列表。</p>
-<p class="图"><img alt="0407" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00089.jpg"/>
-</p>
-<p class="图题">图4-7 cheese = copy.copy(spam)创建了第二个列表，能独立于第一个列表修改</p>
-<p class="zw">如果要复制的列表中包含了列表，那就使用copy.deepcopy()函数来代替。deepcopy()函数将同时复制它们内部的列表。</p>
-<h2 id="nav_point_110">4.8 小结</h2>
-<p class="zw">列表是有用的数据类型，因为它们让你写代码处理一组可以修改的值，同时仅用一个变量。在本书后面的章节中，你会看到一些程序利用列表来完成工作。没有列表，这些工作很困难，甚至不可能完成。</p>
-<p class="zw">列表是可变的，这意味着它们的内容可以改变。元组和字符串虽然在某些方面像列表，却是不可变的，不能被修改。包含一个元组或字符串的变量，可以被一个新的元组或字符串覆写，但这和现场修改原来的值不是一回事，不像append()和remove()方法在列表上的效果。</p>
-<p class="zw">变量不直接保存列表值，它们保存对列表的“引用”。在复制变量或将列表作为函数调用的参数时，这一点很重要。因为被复制的只是列表引用，所以要注意，对该列表的所有改动都可能影响到程序中的其他变量。如果需要对一个变量中的列表修改，同时不修改原来的列表，就可以用copy()或deepcopy()。</p>
-<h2 id="nav_point_111">4.9 习题</h2>
-<p class="zw">1．什么是[]？</p>
-<p class="zw">2．如何将'hello'赋给列表的第三个值，而列表保存在名为spam的变量中？（假定变量包含[2, 4, 6, 8, 10]）。</p>
-<p class="zw">对接下来的3个问题，假定spam包含列表['a', 'b', 'c', 'd']。</p>
-<p class="zw">3．spam[int('3' * 2) / 11]求值为多少？</p>
-<p class="zw">4．spam[-1]求值为多少？</p>
-<p class="zw">5．spam[:2]求值为多少？</p>
-<p class="zw">对接下来的3个问题。假定bacon包含列表[3.14, 'cat', 11, 'cat', True]。</p>
-<p class="zw">6．bacon.index('cat')求值为多少？</p>
-<p class="zw">7．bacon.append(99)让bacon中的列表值变成什么样？</p>
-<p class="zw">8．bacon.remove('cat')让bacon中的列表时变成什么样？</p>
-<p class="zw">9．列表连接和复制的操作符是什么？</p>
-<p class="zw">10．append()和insert()列表方法之间的区别是什么？</p>
-<p class="zw">11．从列表中删除值有哪两种方法？</p>
-<p class="zw">12．请说出列表值和字符串的几点相似之处。</p>
-<p class="zw">13．列表和元组之间的区别是什么？</p>
-<p class="zw">14．如果元组中只有一个整数值42，如何输入该元组？</p>
-<p class="zw">15．如何从列表值得到元组形式？如何从元组值得到列表形式？</p>
-<p class="zw">16．“包含”列表的变量，实际上并未真地直接包含列表。它们包含的是什么？</p>
-<p class="zw">17．copy.copy()和copy.deepcopy()之间的区别是什么？</p>
-<h2 id="nav_point_112">4.10 实践项目</h2>
-<p class="zw">作为实践，编程完成下列任务。</p>
-<h3 id="nav_point_113">4.10.1 逗号代码</h3>
-<p class="zw">假定有下面这样的列表：</p>
-<pre class="代码无行号"><code>spam = ['apples', 'bananas', 'tofu', 'cats']</code>
-</pre>
-<p class="zw">编写一个函数，它以一个列表值作为参数，返回一个字符串。该字符串包含所有表项，表项之间以逗号和空格分隔，并在最后一个表项之前插入and。例如，将前面的spam列表传递给函数，将返回'apples, bananas, tofu, and cats'。但你的函数应该能够处理传递给它的任何列表。</p>
-<h3 id="nav_point_114">4.10.2 字符图网格</h3>
-<p class="zw">假定有一个列表的列表，内层列表的每个值都是包含一个字符的字符串，像这样：</p>
-<pre class="代码无行号"><code>grid = [['.', '.', '.', '.', '.', '.'],
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;现在spam和cheese变量指向独立的列表，这就是为什么当你将42赋给下标7时，只有cheese中的列表被改变。在图4-7中可以看到，两个变量的引用ID数字不再一样，因为它们指向了独立的列表。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0407" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/28_Image00089.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图4-7 cheese = copy.copy(spam)创建了第二个列表，能独立于第一个列表修改&lt;/p&gt;
+&lt;p class="zw"&gt;如果要复制的列表中包含了列表，那就使用copy.deepcopy()函数来代替。deepcopy()函数将同时复制它们内部的列表。&lt;/p&gt;
+&lt;h2 id="nav_point_110"&gt;4.8 小结&lt;/h2&gt;
+&lt;p class="zw"&gt;列表是有用的数据类型，因为它们让你写代码处理一组可以修改的值，同时仅用一个变量。在本书后面的章节中，你会看到一些程序利用列表来完成工作。没有列表，这些工作很困难，甚至不可能完成。&lt;/p&gt;
+&lt;p class="zw"&gt;列表是可变的，这意味着它们的内容可以改变。元组和字符串虽然在某些方面像列表，却是不可变的，不能被修改。包含一个元组或字符串的变量，可以被一个新的元组或字符串覆写，但这和现场修改原来的值不是一回事，不像append()和remove()方法在列表上的效果。&lt;/p&gt;
+&lt;p class="zw"&gt;变量不直接保存列表值，它们保存对列表的“引用”。在复制变量或将列表作为函数调用的参数时，这一点很重要。因为被复制的只是列表引用，所以要注意，对该列表的所有改动都可能影响到程序中的其他变量。如果需要对一个变量中的列表修改，同时不修改原来的列表，就可以用copy()或deepcopy()。&lt;/p&gt;
+&lt;h2 id="nav_point_111"&gt;4.9 习题&lt;/h2&gt;
+&lt;p class="zw"&gt;1．什么是[]？&lt;/p&gt;
+&lt;p class="zw"&gt;2．如何将'hello'赋给列表的第三个值，而列表保存在名为spam的变量中？（假定变量包含[2, 4, 6, 8, 10]）。&lt;/p&gt;
+&lt;p class="zw"&gt;对接下来的3个问题，假定spam包含列表['a', 'b', 'c', 'd']。&lt;/p&gt;
+&lt;p class="zw"&gt;3．spam[int('3' * 2) / 11]求值为多少？&lt;/p&gt;
+&lt;p class="zw"&gt;4．spam[-1]求值为多少？&lt;/p&gt;
+&lt;p class="zw"&gt;5．spam[:2]求值为多少？&lt;/p&gt;
+&lt;p class="zw"&gt;对接下来的3个问题。假定bacon包含列表[3.14, 'cat', 11, 'cat', True]。&lt;/p&gt;
+&lt;p class="zw"&gt;6．bacon.index('cat')求值为多少？&lt;/p&gt;
+&lt;p class="zw"&gt;7．bacon.append(99)让bacon中的列表值变成什么样？&lt;/p&gt;
+&lt;p class="zw"&gt;8．bacon.remove('cat')让bacon中的列表时变成什么样？&lt;/p&gt;
+&lt;p class="zw"&gt;9．列表连接和复制的操作符是什么？&lt;/p&gt;
+&lt;p class="zw"&gt;10．append()和insert()列表方法之间的区别是什么？&lt;/p&gt;
+&lt;p class="zw"&gt;11．从列表中删除值有哪两种方法？&lt;/p&gt;
+&lt;p class="zw"&gt;12．请说出列表值和字符串的几点相似之处。&lt;/p&gt;
+&lt;p class="zw"&gt;13．列表和元组之间的区别是什么？&lt;/p&gt;
+&lt;p class="zw"&gt;14．如果元组中只有一个整数值42，如何输入该元组？&lt;/p&gt;
+&lt;p class="zw"&gt;15．如何从列表值得到元组形式？如何从元组值得到列表形式？&lt;/p&gt;
+&lt;p class="zw"&gt;16．“包含”列表的变量，实际上并未真地直接包含列表。它们包含的是什么？&lt;/p&gt;
+&lt;p class="zw"&gt;17．copy.copy()和copy.deepcopy()之间的区别是什么？&lt;/p&gt;
+&lt;h2 id="nav_point_112"&gt;4.10 实践项目&lt;/h2&gt;
+&lt;p class="zw"&gt;作为实践，编程完成下列任务。&lt;/p&gt;
+&lt;h3 id="nav_point_113"&gt;4.10.1 逗号代码&lt;/h3&gt;
+&lt;p class="zw"&gt;假定有下面这样的列表：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;spam = ['apples', 'bananas', 'tofu', 'cats']&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;编写一个函数，它以一个列表值作为参数，返回一个字符串。该字符串包含所有表项，表项之间以逗号和空格分隔，并在最后一个表项之前插入and。例如，将前面的spam列表传递给函数，将返回'apples, bananas, tofu, and cats'。但你的函数应该能够处理传递给它的任何列表。&lt;/p&gt;
+&lt;h3 id="nav_point_114"&gt;4.10.2 字符图网格&lt;/h3&gt;
+&lt;p class="zw"&gt;假定有一个列表的列表，内层列表的每个值都是包含一个字符的字符串，像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;grid = [['.', '.', '.', '.', '.', '.'],
         ['.', 'O', 'O', '.', '.', '.'],
         ['O', 'O', 'O', 'O', '.', '.'],
         ['O', 'O', 'O', 'O', 'O', '.'],
@@ -1265,34 +1273,34 @@ print(spam)</code>
         ['O', 'O', 'O', 'O', 'O', '.'],
         ['O', 'O', 'O', 'O', '.', '.'],
         ['.', 'O', 'O', '.', '.', '.'],
-        ['.', '.', '.', '.', '.', '.']]</code>
-</pre>
-<p class="zw">你可以认为grid[x][y]是一幅“图”在x、y坐标处的字符，该图由文本字符组成。原点(0, 0)在左上角，向右x坐标增加，向下y坐标增加。</p>
-<p class="zw">复制前面的网格值，编写代码用它打印出图像。</p>
-<pre class="代码无行号"><code>..OO.OO..
+        ['.', '.', '.', '.', '.', '.']]&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;你可以认为grid[x][y]是一幅“图”在x、y坐标处的字符，该图由文本字符组成。原点(0, 0)在左上角，向右x坐标增加，向下y坐标增加。&lt;/p&gt;
+&lt;p class="zw"&gt;复制前面的网格值，编写代码用它打印出图像。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;..OO.OO..
 .OOOOOOO.
 .OOOOOOO.
 ..OOOOO..
 ...OOO...
-....O....</code>
-</pre>
-<p class="editing-tag 提示标签">提示</p>
-<blockquote class="提示 editing-block">
-<p class="zw"><br/>
-</p>
-你需要使用循环嵌套循环，打印出grid[0][0]，然后grid[1][0]，然后grid[2][0]，以此类推，直到grid[8][0]。这就完成第一行，所以接下来打印换行。然后程序将打印出grid[0][1]，然后grid[1][1]，然后grid[2][1]，以此类推。程序最后将打印出grid[8][5]。</blockquote>
-<p class="zw">而且，如果你不希望在每次print()调用后都自动打印换行，记得向print()传递end关键字参数。</p>
-<p class="zw"><br style="page-break-after:always"/>
-</p>
-<div></div>
-]]></description>
+....O....&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="editing-tag 提示标签"&gt;提示&lt;/p&gt;
+&lt;blockquote class="提示 editing-block"&gt;
+&lt;p class="zw"&gt;&lt;br/&gt;
+&lt;/p&gt;
+你需要使用循环嵌套循环，打印出grid[0][0]，然后grid[1][0]，然后grid[2][0]，以此类推，直到grid[8][0]。这就完成第一行，所以接下来打印换行。然后程序将打印出grid[0][1]，然后grid[1][1]，然后grid[2][1]，以此类推。程序最后将打印出grid[8][5]。&lt;/blockquote&gt;
+&lt;p class="zw"&gt;而且，如果你不希望在每次print()调用后都自动打印换行，记得向print()传递end关键字参数。&lt;/p&gt;
+&lt;p class="zw"&gt;&lt;br style="page-break-after:always"/&gt;
+&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+</description>
     <pubDate>Tue, 18 Aug 2026 01:24:46 +0000</pubDate>
     <guid isPermaLink="false">28</guid>
 </item>
 <item>
-      <title><![CDATA[WorkBuddyGuide-第 1 章 初识 WorkBuddy]]></title>
+      <title>WorkBuddyGuide-第 1 章 初识 WorkBuddy</title>
       <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%201%20%E7%AB%A0%20%E5%88%9D%E8%AF%86%20WorkBuddy/</link>
-      <description><![CDATA[学习时长：约1小时；学习内容：WorkBuddy的产品定位、核心能力（多模型切换、MCP Server、Skills等）[reference:0]；学习目的：理解WorkBuddy是什么、能做什么，建立对产品的基础认知]]></description>
+      <description>学习时长：约1小时；学习内容：WorkBuddy的产品定位、核心能力（多模型切换、MCP Server、Skills等）[reference:0]；学习目的：理解WorkBuddy是什么、能做什么，建立对产品的基础认知</description>
       <guid isPermaLink="false">https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%201%20%E7%AB%A0%20%E5%88%9D%E8%AF%86%20WorkBuddy/</guid>
       <pubDate>Tue, 18 Aug 2026 01:04:02 +0000</pubDate>
     </item>
@@ -4978,69 +4986,6 @@ operable program or batch file
 </description>
     <pubDate>Fri, 07 Aug 2026 01:56:00 +0000</pubDate>
     <guid isPermaLink="false">23</guid>
-</item>
-<item>
-    <title>Basic Python - 022 - 附录 B 文本编辑器与IDE.epub</title>
-    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：19 分钟 (3735 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_503"&gt;附录 B　文本编辑器与IDE&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/22_Image00001.gif" style="width: 16%" width="16%"/&gt;
- 　程序员要花费大量时间编写、阅读和编辑代码，因此必须使用文本编辑器或&lt;strong&gt;集成开发环境&lt;/strong&gt;
- （IDE）来尽可能提高效率。好的编辑器会做些简单的工作，如突出代码结构，帮助你在编程期间发现常见的bug，但是又不会做得太多，以免打断你的思路。编辑器还提供了一些很有用的功能，如自动缩进、标识出合适的行长以及提供常用操作的快捷键。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;IDE是一种提供了大量其他工具（如交互式调试器和代码检视器）的文本编辑器。IDE在你输入代码时对其进行检查，力图弄清你创建的项目是什么样的。例如，当你输入函数名时，IDE可能显示该函数接受的所有参数。在一切顺利且你明白显示的内容时，这可能很有帮助。不过对初学者来说，这可能是极大的负担，因为他们可能不明白为何在IDE中输入的代码不可行。&lt;/p&gt;
-&lt;p&gt;我建议你在学习编程期间使用简单的文本编辑器。文本编辑器给系统带来的负担轻得多，因此如果你使用的计算机较旧或配置的资源有限，文本编辑器运行起来将比IDE顺畅得多。如果你熟悉IDE或者周围有人在使用IDE而你也想在这样的环境中编程，则完全可以尝试使用IDE。&lt;/p&gt;
-&lt;p&gt;就目前而言，不用太操心工具选择的问题，还不如将时间花在深入了解Python语言和开发感兴趣的项目上。掌握基础知识后，就会更清楚什么样的工具适合你。&lt;/p&gt;
-&lt;p&gt;本附录介绍如何配置文本编辑器Sublime Text，以提高工作效率。最后还将简单介绍众多其他编辑器，你可能会考虑使用它们或者看到其他Python程序员使用它们。&lt;/p&gt;
-&lt;h2 id="nav_point_504"&gt;B.1　自定义Sublime Text设置&lt;/h2&gt;
-&lt;p&gt;在第1章，你配置了Sublime Text，使其使用所需的Python版本来运行程序。下面来配置其他方面，让Sublime Text完成本附录开头提到的一些工作。&lt;/p&gt;
-&lt;h3 id="nav_point_505"&gt;B.1.1　将制表符转换为空格&lt;/h3&gt;
-&lt;p&gt;如果在代码中混用制表符和空格键，可能导致程序出现难以调试的问题。为避免这种情况发生，可配置Sublime Text，使其总是使用空格来缩进，即便你按下Tab键亦如此。为此，打开菜单View ▶ Indentation，核实选择了Indent Using Spaces。如果没有，现在选择就它，并确保将Tab Width设置为4个空格。&lt;/p&gt;
-&lt;p&gt;如果你已经在程序中混用了制表符和空格，可将所有制表符都转换为空格，方法是选择菜单View ▶ Indentation ▶ Convert Tabs to Spaces。也可通过单击Sublime Text窗口右下角的Spaces字样来访问这些设置。&lt;/p&gt;
-&lt;p&gt;现在如果按Tab键来缩进代码行，Sublime Text将自动将制表符转换为指定数量的空格。&lt;/p&gt;
-&lt;h3 id="nav_point_506"&gt;B.1.2　设置行长标志&lt;/h3&gt;
-&lt;p&gt;大多数编辑器允许你设置视觉线索（通常是竖线），指出代码行应在哪里结束。在Python社区，这方面的约定是行长不要超过79字符。要设置这种标志，可打开菜单View ▶ Ruler，再选择80。Sublime Text将在第80字符标志处放置一条竖线，帮助确保代码行的长度是合适的。&lt;/p&gt;
-&lt;h3 id="nav_point_507"&gt;B.1.3　缩进和取消缩进代码块&lt;/h3&gt;
-&lt;p&gt;要缩进代码块，可选择它，再选择菜单Edit ▶ Line ▶ Indent或按Ctrl + ]（macOS系统中为Command + ]）。要取消缩进代码块，可选择菜单Edit ▶ Line ▶ Unindent或按Ctrl + [（macOS系统中为Command + [）。&lt;/p&gt;
-&lt;h3 id="nav_point_508"&gt;B.1.4　将代码块注释掉&lt;/h3&gt;
-&lt;p&gt;要暂时禁用代码块，可选中它并注释掉，从而让Python忽略它。通过选择菜单Edit ▶ Comment ▶ Toggle Comment或按Ctrl + /（macOS系统中为Command + /），可将选定的代码行注释掉：在行首添加井号（#），并保持缩进程度不变，以指出这不是常规注释。要对代码块取消注释，可选中它，并再次选择前述菜单项。&lt;/p&gt;
-&lt;h3 id="nav_point_509"&gt;B.1.5　保存配置&lt;/h3&gt;
-&lt;p&gt;前面提到的一些设置只影响当前文件，要让设置影响所有在Sublime Text中打开的文件，需要定义用户设置。为此选择菜单Preferences ▶ Settings，找到文件Preferences.sublime-settings – User，并在其中输入如下内容：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;{
-    "rulers": [80],
-    "translate_tabs_to_spaces": true
-}&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;保存这个文件，则指定的标尺和制表符设置将被应用于在Sublime Text中打开的所有文件。在这个文件中添加设置时，确保每行都以逗号结尾，但最后一行例外。你可以在网上查看其他用户的设置文件，进而自定义编辑器，以最大限度地提高工作效率。&lt;/p&gt;
-&lt;h3 id="nav_point_510"&gt;B.1.6　进一步自定义&lt;/h3&gt;
-&lt;p&gt;你能以众多方式自定义Sublime Text，进一步提高工作效率。探索菜单时，要留意最常用的菜单项的键盘快捷键。通过使用键盘快捷键而不是鼠标或触摸板来执行操作，可提高效率。不要试图一次性记住所有的快捷键，只需记住最常执行的操作的快捷键就行，同时看看有没有其他功能可帮助你改善工作流程。&lt;/p&gt;
-&lt;h2 id="nav_point_511"&gt;B.2　其他文本编辑器和IDE&lt;/h2&gt;
-&lt;p&gt;你肯定会听说众多其他的文本编辑器，或者看到有人使用这些编辑器。对于这些编辑器，通常可像自定义Sublime Text那样进行配置。下面介绍你可能听人说到的一些文本编辑器。&lt;/p&gt;
-&lt;h3 id="nav_point_512"&gt;B.2.1　IDLE&lt;/h3&gt;
-&lt;p&gt;IDLE是Python自带的文本编辑器。相比于Sublime Text，它不那么直观，但有些初学者教程可能会提到它，因此你可能想试一试。&lt;/p&gt;
-&lt;h3 id="nav_point_513"&gt;B.2.2　Geany&lt;/h3&gt;
-&lt;p&gt;Geany是一款简单的编辑器，你可在其中直接运行所有的程序。它在终端窗口中显示所有输出，有助于你逐渐习惯使用终端。Geany的界面非常简单，但功能强大，因此很多经验丰富的程序员也在使用它。&lt;/p&gt;
-&lt;h3 id="nav_point_514"&gt;B.2.3　Emacs和Vim&lt;/h3&gt;
-&lt;p&gt;Emacs和Vim是两款流行的编辑器，深受众多经验丰富的程序员喜爱，因为使用它们时，用户的手根本不用离开键盘。因此学会使用这些编辑器后，编写、阅读和编辑代码的效率将获得极大提高。不过这也意味着学会使用它们的难度极大。大多数Linux和macOS计算机自带Vim，而且Emacs和Vim都可完全在终端中运行，因此它们常被用来通过远程终端会话在服务器上编写代码。&lt;/p&gt;
-&lt;p&gt;程序员通常会推荐你试一试它们，但很多编程老手忘了编程新手要学习的东西实在太多了。知道这些编辑器是有益的，但请先使用简单编辑器，以便专注于学习编程，而不是费时间去学习如何使用编辑器。等你能够熟悉地编写和编辑代码后，再去使用这些编辑器吧。&lt;/p&gt;
-&lt;h3 id="nav_point_515"&gt;B.2.4　Atom&lt;/h3&gt;
-&lt;p&gt;Atom是一款文本编辑器，但提供了一些通常只有IDE才提供的功能。在Atom中，可以打开单个文件，也可打开项目文件夹并轻松地访问项目中所有的文件。Atom集成了Git和GitHub，在需要使用版本控制时，这让你在编辑器中就能使用本地仓库和远程仓库，无须切换到另一个终端窗口。&lt;/p&gt;
-&lt;p&gt;Atom还允许你安装包，从而以众多方式扩展其功能。可安装的包有很多，这让Atom更像一个IDE。&lt;/p&gt;
-&lt;h3 id="nav_point_516"&gt;B.2.5　Visual Studio Code&lt;/h3&gt;
-&lt;p&gt;Visual Studio Code（VS Code）也是一款类似于IDE的编辑器，让你能够高效地使用调试器，还集成了版本控制功能并提供了代码补全工具。&lt;/p&gt;
-&lt;h3 id="nav_point_517"&gt;B.2.6　PyCharm&lt;/h3&gt;
-&lt;p&gt;PyCharm是一款深受Python程序员欢迎的IDE，因为它是专门为使用Python编程而开发的。完整版需要付费订阅，但很多开发人员觉得免费的社区版（PyCharm Community Edition）也很有用。&lt;/p&gt;
-&lt;p&gt;PyCharm提供了一个&lt;strong&gt;linter&lt;/strong&gt;
- ，它检查编码是否遵循了普遍接受的Python编程约定，并在代码不符合Python代码格式设置时提出修改建议。它集成了调试器，旨在帮助你高效消除错误，还支持各种模式，让你能够高效地使用众多流行的Python库。&lt;/p&gt;
-&lt;h3 id="nav_point_518"&gt;B.2.7　Jupyter Notebook&lt;/h3&gt;
-&lt;p&gt;Jupyter Notebook不属于传统的文本编辑器或IDE，而是一款主要由块组成的Web应用程序。每个块都要么是代码块，要么是文本块，其中的文本块采用Markdown格式，让你能够设置简单的文本格式。&lt;/p&gt;
-&lt;p&gt;最初开发时，Jupyter Notebook旨在支持在科学应用程序中使用Python，但经过不断的扩展后，它在很多情形下都很有用。在Jupyter Notebook中，不仅可在.py文件中添加注释，还可编写带简单格式的文本，如标题、带项目符号的列表和在不同代码片段之间导航的超链接。每个代码块都可独立运行，让你能够测试程序的一小部分或同时运行所有的代码块。每个代码块都有独立的输出区域，可根据需要显示或隐藏。&lt;/p&gt;
-&lt;p&gt;Jupyter Notebook不同单元格（cell）之间的交互有时可能会令你迷惑。例如，如果在一个单元格中定义了一个函数，在其他单元格中也可使用。这在大多数情况下是有益的，但如果Notebook很长，而你又对Notebook环境的工作原理没有全面的认识，就会感到迷惑。&lt;/p&gt;
-&lt;p&gt;如果你使用Python进行科学编程或以数据为核心的编程，肯定会遇到Jupyter Notebook。&lt;/p&gt;
-&lt;br style="page-break-after:always"/&gt;
-&lt;div&gt;&lt;/div&gt;
-</description>
-    <pubDate>Thu, 06 Aug 2026 01:13:12 +0000</pubDate>
-    <guid isPermaLink="false">22</guid>
 </item>
 </channel>
 </rss>
