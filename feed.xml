@@ -5,6 +5,503 @@
     <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
     <description>从 EPUB 自动生成的 RSS 订阅源</description>
         <item>
+    <title>AutomaticApplicationPython - 029 - 第5章 字典和结构化数据.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：49 分钟 (14639 字)</p><hr><h1 id="nav_point_115">第5章　字典和结构化数据</h1>
+<p class="zw">在本章中，我将介绍字典数据类型，它提供了一种灵活的访问和组织数据的方式。然后，结合字典与前一章中关于列表的知识，你将学习如何创建一个数据结构，对井字棋盘建模。</p>
+<h2 id="nav_point_116">5.1 字典数据类型</h2>
+<p class="zw">像列表一样，“字典”是许多值的集合。但不像列表的下标，字典的索引可以使用许多不同数据类型，不只是整数。字典的索引被称为“键”，键及其关联的值称为“键-值”对。</p>
+<p class="zw">在代码中，字典输入时带花括号{}。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>myCat = {'size': 'fat', 'color': 'gray', 'disposition': 'loud'}</strong>
+</code>
+</pre>
+<p class="zw">这将一个字典赋给myCat变量。这个字典的键是'size'、'color'和'disposition'。这些键相应的值是'fat'、'gray'和'loud'。可以通过它们的键访问这些值：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>myCat['size']</strong>
+'fat'
+&gt;&gt;&gt; <strong>'My cat has ' + myCat['color'] + ' fur.'</strong>
+'My cat has gray fur.'
+</code>
+</pre>
+<p class="zw">字典仍然可以用整数值作为键，就像列表使用整数值作为下标一样，但它们不必从0开始，可以是任何数字。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = {12345: 'Luggage Combination', 42: 'The Answer'}</strong>
+</code>
+</pre>
+<h3 id="nav_point_117">5.1.1 字典与列表</h3>
+<p class="zw">不像列表，字典中的表项是不排序的。名为spam的列表中，第一个表项是spam[0]。但字典中没有“第一个”表项。虽然确定两个列表是否相同时，表项的顺序很重要，但在字典中，键-值对输入的顺序并不重要。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ['cats', 'dogs', 'moose']</strong>
+&gt;&gt;&gt; <strong>bacon = ['dogs', 'moose', 'cats']</strong>
+&gt;&gt;&gt; <strong>spam == bacon</strong>
+False
+&gt;&gt;&gt; <strong>eggs = {'name': 'Zophie', 'species': 'cat', 'age': '8'}</strong>
+&gt;&gt;&gt; <strong>ham = {'species': 'cat', 'age': '8', 'name': 'Zophie'}</strong>
+&gt;&gt;&gt; <strong>eggs == ham</strong>
+True
+</code>
+</pre>
+<p class="zw">因为字典是不排序的，所以不能像列表那样切片。</p>
+<p class="zw">尝试访问字典中不存在的键，将导致KeyError出错信息。这很像列表的“越界”IndexError出错信息。在交互式环境中输入以下代码，并注意显示的出错信息，因为没有'color'键：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = {'name': 'Zophie', 'age': 7}</strong>
+&gt;&gt;&gt; <strong>spam['color']</strong>
+Traceback (most recent call last):
+  File "", line 1, in
+    spam['color']
+KeyError: 'color'
+</code>
+</pre>
+<p class="zw">尽管字典是不排序的，但可以用任意值作为键，这一点让你能够用强大的方式来组织数据。假定你希望程序保存朋友生日的数据，就可以使用一个字典，用名字作为键，用生日作为值。打开一个新的文件编辑窗口，输入以下代码，并保存为birthdays.py：</p>
+<pre class="代码无行号"><code>❶ birthdays = {'Alice': 'Apr 1', 'Bob': 'Dec 12', 'Carol': 'Mar 4'}
+　while True:
+　    print('Enter a name: (blank to quit)')
+　    name = input()
+　    if name == '':
+　        break
+❷     if name in birthdays:
+❸         print(birthdays[name] + ' is the birthday of ' + name)
+　    else:
+　        print('I do not have birthday information for ' + name)
+　        print('What is their birthday?')
+　        bday = input()
+❹         birthdays[name] = bday
+　        print('Birthday database updated.')</code>
+</pre>
+<p class="zw">你创建了一个初始的字典，将它保存在birthdays中❶。用in关键字，可以看看输入的名字是否作为键存在于字典中❷，就像查看列表一样。如果该名字在字典中，你可以用方括号访问关联的值❸。如果不在，你可以用同样的方括号语法和赋值操作符添加它❹。</p>
+<p class="zw">运行这个程序，结果看起来如下所示：</p>
+<pre class="代码无行号"><code>Enter a name: (blank to quit)
+<strong>Alice</strong>
+Apr 1 is the birthday of Alice
+Enter a name: (blank to quit)
+<strong>Eve</strong>
+I do not have birthday information for Eve
+What is their birthday?
+<strong>Dec 5</strong>
+Birthday database updated.
+Enter a name: (blank to quit)
+<strong>Eve</strong>
+Dec 5 is the birthday of Eve
+Enter a name: (blank to quit)
+</code>
+</pre>
+<p class="zw">当然，在程序终止时，你在这个程序中输入的所有数据都丢失了。在第 8章中，你将学习如何将数据保存在硬盘的文件中。</p>
+<h3 id="nav_point_118">5.1.2 keys()、values()和items()方法</h3>
+<p class="zw">有3个字典方法，它们将返回类似列表的值，分别对应于字典的键、值和键-值对：keys()、values()和items()。这些方法返回的值不是真正的列表，它们不能被修改，没有append()方法。但这些数据类型（分别是dict_keys、dict_values和dict_items）可以用于for循环。为了看看这些方法的工作原理，请在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = {'color': 'red', 'age': 42}</strong>
+&gt;&gt;&gt; <strong>for v in spam.values():</strong>
+        <strong>print(v)</strong>
+<strong>　</strong>
+red
+42</code>
+</pre>
+<p class="zw">这里，for循环迭代了spam字典中的每个值。for循环也可以迭代每个键，或者键-值对：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>for k in spam.keys():</strong>
+        <strong>print(k)</strong>
+<strong>　</strong>
+color
+age
+&gt;&gt;&gt; <strong>for i in spam.items():</strong>
+        <strong>print(i)</strong>
+<strong>　</strong>
+('color', 'red')
+('age', 42)
+</code>
+</pre>
+<p class="zw">利用keys()、values()和items()方法，循环分别可以迭代键、值或键-值对。请注意，items()方法返回的dict_items值中，包含的是键和值的元组。</p>
+<p class="zw">如果希望通过这些方法得到一个真正的列表，就把类似列表的返回值传递给 list函数。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = {'color': 'red', 'age': 42}</strong>
+&gt;&gt;&gt; <strong>spam.keys()</strong>
+dict_keys(['color', 'age'])
+&gt;&gt;&gt; <strong>list(spam.keys())</strong>
+['color', 'age']
+</code>
+</pre>
+<p class="zw">list(spam.keys())代码行接受keys()函数返回的dict_keys值，并传递给list()。然后返回一个列表，即['color', 'age']。</p>
+<p class="zw">也可以利用多重赋值的技巧，在for循环中将键和值赋给不同的变量。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = {'color': 'red', 'age': 42}</strong>
+&gt;&gt;&gt; <strong>for k, v in spam.items():</strong>
+        <strong>print('Key: ' + k + ' Value: ' + str(v))</strong>
+<strong>　</strong>
+Key: age Value: 42
+Key: color Value: red
+</code>
+</pre>
+<h3 id="nav_point_119">5.1.3 检查字典中是否存在键或值</h3>
+<p class="zw">回忆一下，前一章提到，in和not in操作符可以检查值是否存在于列表中。也可以利用这些操作符，检查某个键或值是否存在于字典中。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = {'name': 'Zophie', 'age': 7}</strong>
+&gt;&gt;&gt; <strong>'name' in spam.keys()</strong>
+True
+&gt;&gt;&gt; <strong>'Zophie' in spam.values()</strong>
+True
+&gt;&gt;&gt; <strong>'color' in spam.keys()</strong>
+False
+&gt;&gt;&gt; <strong>'color' not in spam.keys()</strong>
+True
+&gt;&gt;&gt; <strong>'color' in spam</strong>
+False
+</code>
+</pre>
+<p class="zw">请注意，在前面的例子中，'color' in spam本质上是一个简写版本。相当于'color' in spam.keys()。这种情况总是对的：如果想要检查一个值是否为字典中的键，就可以用关键字in（或not in），作用于该字典本身。</p>
+<h3 id="nav_point_120">5.1.4 get()方法</h3>
+<p class="zw">在访问一个键的值之前，检查该键是否存在于字典中，这很麻烦。好在，字典有一个get()方法，它有两个参数：要取得其值的键，以及如果该键不存在时，返回的备用值。</p>
+<p class="zw">在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>picnicItems = {'apples': 5, 'cups': 2}</strong>
+&gt;&gt;&gt; <strong>'I am bringing ' + str(picnicItems.get('cups', 0)) + ' cups.'</strong>
+'I am bringing 2 cups.'
+&gt;&gt;&gt; <strong>'I am bringing ' + str(picnicItems.get('eggs', 0)) + ' eggs.'</strong>
+'I am bringing 0 eggs.'
+</code>
+</pre>
+<p class="zw">因为picnicItems字典中没有'egg'键，get()方法返回的默认值是0。不使用get()，代码就会产生一个错误消息，就像下面的例子：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>picnicItems = {'apples': 5, 'cups': 2}</strong>
+&gt;&gt;&gt; <strong>'I am bringing ' + str(picnicItems['eggs']) + ' eggs.'</strong>
+Traceback (most recent call last):
+  File "&lt;pyshell#34&gt;", line 1, in
+    'I am bringing ' + str(picnicItems['eggs']) + ' eggs.'
+KeyError: 'eggs'
+</code>
+</pre>
+<h3 id="nav_point_121">5.1.5 setdefault()方法</h3>
+<p class="zw">你常常需要为字典中某个键设置一个默认值，当该键没有任何值时使用它。代码看起来像这样：</p>
+<pre class="代码无行号"><code>spam = {'name': 'Pooka', 'age': 5}
+if 'color' not in spam:
+    spam['color'] = 'black'
+</code>
+</pre>
+<p class="zw">setdefault()方法提供了一种方式，在一行中完成这件事。传递给该方法的第一个参数，是要检查的键。第二个参数，是如果该键不存在时要设置的值。如果该键确实存在，方法就会返回键的值。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = {'name': 'Pooka', 'age': 5}</strong>
+&gt;&gt;&gt; <strong>spam.setdefault('color', 'black')</strong>
+'black'
+&gt;&gt;&gt; <strong>spam</strong>
+{'color': 'black', 'age': 5, 'name': 'Pooka'}
+&gt;&gt;&gt; <strong>spam.setdefault('color', 'white')</strong>
+'black'
+&gt;&gt;&gt; <strong>spam</strong>
+{'color': 'black', 'age': 5, 'name': 'Pooka'}
+</code>
+</pre>
+<p class="zw">第一次调用setdefault()时，spam变量中的字典变为{'color': 'black', 'age': 5, 'name': 'Pooka'}。该方法返回值'black'，因为现在该值被赋给键'color'。当spam.setdefault('color', 'white')接下来被调用时，该键的值“没有”被改变成'white'，因为spam变量已经有名为'color'的键。</p>
+<p class="zw">setdefault()方法是一个很好的快捷方式，可以确保一个键存在。下面有一个小程序，计算一个字符串中每个字符出现的次数。打开一个文件编辑器窗口，输入以下代码，保存为characterCount.py：</p>
+<pre class="代码无行号"><code>message = 'It was a bright cold day in April, and the clocks were striking thirteen.'
+count = {}
+for character in message:
+    count.setdefault(character, 0)
+    count[character] = count[character] + 1
+print(count)</code>
+</pre>
+<p class="zw">程序循环迭代message字符串中的每个字符，计算每个字符出现的次数。setdefault()方法调用确保了键存在于count字典中（默认值是0），这样在执行count[character] = count[character] + 1时，就不会抛出KeyError错误。程序运行时，输出如下：</p>
+<pre class="代码无行号"><code>{' ': 13, ',': 1, '.': 1, 'A': 1, 'I': 1, 'a': 4, 'c': 3, 'b': 1, 'e': 5, 'd': 3, 'g': 2, 'i':
+6, 'h': 3, 'k': 2, 'l': 3, 'o': 2, 'n': 4, 'p': 1, 's': 3, 'r': 5, 't': 6, 'w': 2, 'y': 1}</code>
+</pre>
+<p class="zw">从输出可以看到，小写字母c出现了3次，空格字符出现了13次，大写字母A出现了1次。无论message变量中包含什么样的字符串，这个程序都能工作，即使该字符串有上百万的字符！</p>
+<h2 id="nav_point_122">5.2 漂亮打印</h2>
+<p class="zw">如果程序中导入pprint模块，就可以使用pprint()和pformat()函数，它们将“漂亮打印”一个字典的字。如果想要字典中表项的显示比print()的输出结果更干净，这就有用了。修改前面的characterCount.py程序，将它保存为prettyCharacterCount.py。</p>
+<pre class="代码无行号"><code>
+<strong>import pprint</strong>
+message = 'It was a bright cold day in April, and the clocks were striking
+thirteen.'
+count = {}
+for character in message:
+    count.setdefault(character, 0)
+    count[character] = count[character] + 1
+<strong>pprint</strong>
+.<strong>pprint(</strong>
+count<strong>)</strong>
+</code>
+</pre>
+<p class="zw">这一次，当程序运行时，输出看起来更干净，键排过序。</p>
+<pre class="代码无行号"><code>{' ': 13,
+ ',': 1,
+ '.': 1,
+ 'A': 1,
+ 'I': 1,
+ 'a': 4,
+ 'b': 1,
+ 'c': 3,
+ 'd': 3,
+ 'e': 5,
+ 'g': 2,
+ 'h': 3,
+ 'i': 6,
+ 'k': 2,
+ 'l': 3,
+ 'n': 4,
+ 'o': 2,
+ 'p': 1,
+ 'r': 5,
+ 's': 3,
+ 't': 6,
+ 'w': 2,
+ 'y': 1}</code>
+</pre>
+<p class="zw">如果字典本身包含嵌套的列表或字典，pprint.pprint()函数就特别有用。</p>
+<p class="zw">如果希望得到漂亮打印的文本作为字符串，而不是显示在屏幕上，那就调用pprint.pformat()。下面两行代码是等价的：</p>
+<pre class="代码无行号"><code>pprint.pprint(someDictionaryValue)
+print(pprint.pformat(someDictionaryValue))</code>
+</pre>
+<h2 id="nav_point_123">5.3 使用数据结构对真实世界建模</h2>
+<p class="zw">甚至在因特网之前，人们也有办法与世界另一边的某人下一盘国际象棋。每个棋手在自己家里放好一个棋盘，然后轮流向对方寄出明信片，描述每一着棋。要做到这一点，棋手需要一种方法，无二义地描述棋盘的状态，以及他们的着法。</p>
+<p class="zw">在“代数记谱法”中，棋盘空间由一个数字和字母坐标确定，如图5-1所示。</p>
+<p class="图"><img alt="0501" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00090.jpg"/>
+</p>
+<p class="图题">图5-1 代数记谱法中棋盘的坐标</p>
+<p class="zw">棋子用字母表示：K表示王，Q表示后，R表示车，B表示象，N表示马。描述一次移动，用棋子的字母和它的目的地坐标。一对这样的移动表示一个回合（白方先下），例如，棋谱2. Nf3 Nc6表明在棋局的第二回合，白方将马移动到f3，黑方将马移动到c6。</p>
+<p class="zw">代数记谱法还有更多内容，但要点是你可以用它无二义地描述象棋游戏，不需要站在棋盘前。你的对手甚至可以在世界的另一边！实际上，如果你的记忆力很好，甚至不需要物理的棋具：只需要阅读寄来的棋子移动，更新心里想的棋盘。</p>
+<p class="zw">计算机有很好的记忆力。现在计算机上的程序，很容易存储几百万个像'2. Nf3 Nc6'这样的字符串。这就是为什么计算机不用物理棋盘就能下象棋。它们用数据建模来表示棋盘，你可以编写代码来使用这个模型。</p>
+<p class="zw">这里就可以用到列表和字典。可以用它们对真实世界建模，例如棋盘。作为第一个例子，我们将使用比国际象棋简单一点的游戏：井字棋。</p>
+<h3 id="nav_point_124">5.3.1 井字棋盘</h3>
+<p class="zw">井字棋盘看起来像一个大的井字符号（#），有9个空格，可以包含X、O或空。要用字典表示棋盘，可以为每个空格分配一个字符串键，如图5-2所示。</p>
+<p class="图"><img alt="0502" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00091.jpg"/>
+</p>
+<p class="图题">图5-2 井字棋盘的空格和它们对应的键</p>
+<p class="zw">可以用字符串值来表示，棋盘上每个空格有什么：'X'、'O'或' '（空格字符）。因此，需要存储9个字符串。可以用一个字典来做这事。带有键'top-R'的字符串表示右上角，带有键'low-L'的字符串表示左下角，带有键'mid-M'的字符串表示中间，以此类推。</p>
+<p class="zw">这个字典就是表示井字棋盘的数据结构。将这个字典表示的棋盘保存在名为theBoard的变量中。打开一个文件编辑器窗口，输入以下代码，并保存为ticTacToe.py：</p>
+<pre class="代码无行号"><code>theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}</code>
+</pre>
+<p class="zw">保存在theBoard变量中的数据结构，表示了图5-3中的井字棋盘。</p>
+<p class="图"><img alt="0503" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00092.gif"/>
+</p>
+<p class="图题">图5-3 一个空的井字棋盘</p>
+<p class="zw">因为theBoard变量中每个键的值都是单个空格字符，所以这个字典表示一个完全干净的棋盘。如果玩家X选择了中间的空格，就可以用下面这个字典来表示棋盘：</p>
+<pre class="代码无行号"><code>theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L': ' ', 'mid-M': 'X', 'mid-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}</code>
+</pre>
+<p class="zw">theBoard变量中的数据结构现在表示图5-4中的井字棋盘。</p>
+<p class="图"><img alt="0504" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00093.gif"/>
+</p>
+<p class="图题">图5-4 第一着</p>
+<p class="zw">一个玩家O获胜的棋盘上，他将O横贯棋盘的顶部，看起来像这样：</p>
+<pre class="代码无行号"><code>theBoard = {'top-L': 'O', 'top-M': 'O', 'top-R': 'O',
+            'mid-L': 'X', 'mid-M': 'X', 'mid-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': 'X'}</code>
+</pre>
+<p class="zw">theBoard变量中的数据结构现在表示图5-5中的井字棋盘。</p>
+<p class="图"><img alt="0505" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/29_Image00094.jpg"/>
+</p>
+<p class="图题">图5-5 玩家O获胜</p>
+<p class="zw">当然，玩家只看到打印在屏幕上的内容，而不是变量的内容。让我们创建一个函数，将棋盘字典打印到屏幕上。将下面代码添加到ticTacToe.py（新代码是黑体的）：</p>
+<pre class="代码无行号"><code>theBoard = {'top-L': ' ', 'top-M': ' ', 'top-R': ' ',
+            'mid-L': ' ', 'mid-M': ' ', 'mid-R': ' ',
+            'low-L': ' ', 'low-M': ' ', 'low-R': ' '}
+<strong>def printBoard(board):</strong>
+<strong>    print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])</strong>
+<strong>    print('-+-+-')</strong>
+<strong>    print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])</strong>
+<strong>    print('-+-+-')</strong>
+<strong>    print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])</strong>
+<strong>printBoard(theBoard)</strong>
+</code>
+</pre>
+<p class="zw">运行这个程序时，printBoard()将打印出空白井字棋盘。</p>
+<pre class="代码无行号"><code>| |
+-+-+-
+ | |
+-+-+-
+ | |</code>
+</pre>
+<p class="zw">printBoard()函数可以处理传入的任何井字棋数据结构。尝试将代码改成以下的样子：</p>
+<pre class="代码无行号"><code>theBoard =<strong> {'top-L': 'O', 'top-M': 'O', 'top-R': 'O', 'mid-L': 'X', 'mid-M':</strong>
+<strong>'X', 'mid-R': ' ', 'low-L': ' ', 'low-M': ' ', 'low-R': 'X'}</strong>
+<strong>　</strong>
+def printBoard(board):
+<strong>    </strong>
+print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])
+<strong>    </strong>
+print('-+-+-')
+<strong>    </strong>
+print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
+<strong>    </strong>
+print('-+-+-')
+<strong>    </strong>
+print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
+printBoard(theBoard)
+</code>
+</pre>
+<p class="zw">现在运行该程序，新棋盘将打印在屏幕上。</p>
+<pre class="代码无行号"><code>O|O|O
+-+-+-
+X|X|
+-+-+-
+| |X</code>
+</pre>
+<p class="zw">因为你创建了一个数据结构来表示井字棋盘，编写了printBoard()中的代码来解释该数据结构，所以就有了一个程序，对井字棋盘进行了“建模”。也可以用不同的方式组织数据结构（例如，使用'TOP-LEFT'这样的键来代替'top-L'），但只要代码能处理你的数据结构，就有了正确工作的程序。</p>
+<p class="zw">例如，printBoard()函数预期井字棋数据结构是一个字典，包含所有9个空格的键。假如传入的字典缺少'mid-L'键，程序就不能工作了。</p>
+<pre class="代码无行号"><code>O|O|O
+-+-+-
+Traceback (most recent call last):
+  File "ticTacToe.py", line 10, in &lt;module&gt;
+    printBoard(theBoard)
+  File "ticTacToe.py", line 6, in printBoard
+    print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
+KeyError: 'mid-L'</code>
+</pre>
+<p class="zw">现在让我们添加代码，允许玩家输入他们的着法。修改ticTacToe.py程序如下所示：</p>
+<pre class="代码无行号"><code>　theBoard = <strong>{'top-L': ' ', 'top-M': ' ', 'top-R': ' ', 'mid-L': ' ', 'mid-M': '</strong>
+　<strong>', 'mid-R': ' ', 'low-L': ' ', 'low-M': ' ', 'low-R': ' '}</strong>
+<strong>　</strong>
+　def printBoard(board):
+　    print(board['top-L'] + '|' + board['top-M'] + '|' + board['top-R'])
+　    print('-+-+-')
+　    print(board['mid-L'] + '|' + board['mid-M'] + '|' + board['mid-R'])
+　    print('-+-+-')
+ 　   print(board['low-L'] + '|' + board['low-M'] + '|' + board['low-R'])
+　<strong>turn = 'X'</strong>
+　<strong>for i in range(9):</strong>
+❶     <strong>printBoard(theBoard)</strong>
+　    <strong>print('Turn for ' + turn + '. Move on which space?')</strong>
+❷     <strong>move = input()</strong>
+❸     <strong>theBoard[move] = turn</strong>
+❹     <strong>if turn == 'X':</strong>
+　        <strong>turn = 'O'</strong>
+　    <strong>else:</strong>
+　        <strong>turn = 'X'</strong>
+　printBoard(theBoard)
+</code>
+</pre>
+<p class="zw">新的代码在每一步新的着法之前，打印出棋盘❶，获取当前棋手的着法❷，相应地更新棋盘❸，然后改变当前棋手❹，进入到下一着。</p>
+<p class="zw">运行该程序，它看起来像这样：</p>
+<pre class="代码无行号"><code> | |
+-+-+-
+ | |
+-+-+-
+ | |
+Turn for X. Move on which space?
+<strong>mid-M</strong>
+ | |
+-+-+-
+ |X|
+-+-+-
+ | |
+Turn for O. Move on which space?
+<strong>low-L</strong>
+ | |
+-+-+-
+ |X|
+-+-+-
+O| |
+--_snip_--
+O|O|X
+-+-+-
+X|X|O
+-+-+-
+O| |X
+Turn for X. Move on which space?
+<strong>low-M</strong>
+O|O|X
+-+-+-
+X|X|O
+-+-+-
+O|X|X
+</code>
+</pre>
+<p class="zw">这不是一个完整的井字棋游戏（例如，它并不检查玩家是否获胜），但这已足够展示如何在程序中使用数据结构。</p>
+<p class="editing-tag 提示标签">注意</p>
+<blockquote class="提示 editing-block">
+<p class="zw"><br/>
+</p>
+<p class="zw">如果你很好奇，完整的井字棋程序的源代码在网上有介绍，网址是<a href="http://nostarch.com/automatestuff/">http://nostarch.com/automatestuff/</a>
+ 。</p>
+</blockquote>
+<h3 id="nav_point_125">5.3.2 嵌套的字典和列表</h3>
+<p class="zw">对井字棋盘建模相当简单：棋盘只需要一个字典，包含9个键值对。当你对复杂的事物建模时，可能发现字典和列表中需要包含其他字典和列表。列表适用于包含一组有序的值，字典适合于包含关联的键与值。例如，下面的程序使用字典包含其他字典，用于记录谁为野餐带来了什么食物。totalBrought()函数可以读取这个数据结构，计算所有客人带来的食物的总数。</p>
+<pre class="代码无行号"><code>　allGuests = {'Alice': {'apples': 5, 'pretzels': 12},
+　             'Bob': {'ham sandwiches': 3, 'apples': 2},
+　             'Carol': {'cups': 3, 'apple pies': 1}}
+　def totalBrought(guests, item):
+　    numBrought = 0
+❶     for k, v in guests.items():
+❷         numBrought = numBrought + v.get(item, 0)
+　    return numBrought
+　print('Number of things being brought:')
+　print(' - Apples ' + str(totalBrought(allGuests, 'apples')))
+　print(' - Cups ' + str(totalBrought(allGuests, 'cups')))
+　print(' - Cakes ' + str(totalBrought(allGuests, 'cakes')))
+　print(' - Ham Sandwiches ' + str(totalBrought(allGuests, 'ham sandwiches')))
+　print(' - Apple Pies ' + str(totalBrought(allGuests, 'apple pies')))</code>
+</pre>
+<p class="zw">在totalBrought()函数中，for循环迭代guests中的每个键值对❶。在这个循环里，客人的名字字符串赋给k，他们带来的野餐食物的字典赋给v。如果食物参数是字典中存在的键，它的值（数量）就添加到numBrought❷。如果它不是键，get()方法就返回0，添加到numBrought。</p>
+<p class="zw">该程序的输出像这样：</p>
+<pre class="代码无行号"><code>Number of things being brought:
+- Apples 7
+- Cups 3
+- Cakes 0
+- Ham Sandwiches 3
+- Apple Pies 1</code>
+</pre>
+<p class="zw">这似乎对一个非常简单的东西建模，你可能认为不需要费事去写一个程序来做到这一点。但是要认识到，这个函数totalBrought()可以轻易地处理一个字典，其中包含数千名客人，每个人都带来了“数千种”不同的野餐食物。这样用这种数据结构来保存信息，并使用totalBrought()函数，就会节约大量的时间！</p>
+<p class="zw">你可以用自己喜欢的任何方法，用数据结构对事物建模，只要程序中其他代码能够正确处理这个数据模型。在刚开始编程时，不需要太担心数据建模的“正确”方式。随着经验增加，你可能会得到更有效的模型，但重要的是，该数据模型符合程序的需要。</p>
+<h2 id="nav_point_126">5.4 小结</h2>
+<p class="zw">在本章中，你学习了字典的所有相关知识。列表和字典是这样的值，它们可以包含多个值，包括其他列表和字典。字典是有用的，因为你可以把一些项（键）映射到另一些项（值），它不像列表，只包含一系列有序的值。字典中的值是通过方括号访问的，像列表一样。字典不是只能使用整数下标，而是可以用各种数据类型作为键：整型、浮点型、字符串或元组。通过将程序中的值组织成数据结构，你可以创建真实世界事物的模型。井字棋盘就是这样一个例子。</p>
+<p class="zw">这就介绍了Python编程的所有基本概念！在本书后面的部分，你将继续学习一些新概念，但现在你已学习了足够多的内容，可以开始编写一些有用的程序，让一些任务自动化。你可能不觉得自己有足够的Python知识，来实现页面下载、更新电子表格，或发送文本消息。但这就是Python模块要干的事！这些模块由其他程序员编写，提供了一些函数，让这些事情变得容易。所以让我们学习如何编写真正的程序，实现有用的自动化任务。</p>
+<h2 id="nav_point_127">5.5 习题</h2>
+<p class="zw">1．空字典的代码是怎样的？</p>
+<p class="zw">2．一个字典包含键'fow'和值42，看起来是怎样的？</p>
+<p class="zw">3．字典和列表的主要区别是什么？</p>
+<p class="zw">4．如果spam是{'bar': 100}，你试图访问spam['foo']，会发生什么？</p>
+<p class="zw">5．如果一个字典保存在spam中，表达式'cat' in spam和'cat' in spam.keys()之间的区别是什么？</p>
+<p class="zw">6．如果一个字典保存在变量中，表达式'cat' in spam和'cat' in spam.values()之间的区别是什么？</p>
+<p class="zw">7．下面代码的简洁写法是什么？</p>
+<pre class="代码无行号"><code>if 'color' not in spam:
+    spam['color'] = 'black'</code>
+</pre>
+<p class="zw">8．什么模块和函数可以用于“漂亮打印”字典值？</p>
+<h2 id="nav_point_128">5.6 实践项目</h2>
+<p class="zw">作为实践，编程完成下列任务。</p>
+<h3 id="nav_point_129">5.6.1 好玩游戏的物品清单</h3>
+<p class="zw">你在创建一个好玩的视频游戏。用于对玩家物品清单建模的数据结构是一个字典。其中键是字符串，描述清单中的物品，值是一个整型值，说明玩家有多少该物品。例如，字典值{'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}意味着玩家有1条绳索、6个火把、42枚金币等。</p>
+<p class="zw">写一个名为displayInventory()的函数，它接受任何可能的物品清单，并显示如下：</p>
+<pre class="代码无行号"><code>Inventory:
+12 arrow
+42 gold coin
+1 rope
+6 torch
+1 dagger
+Total number of items: 62</code>
+</pre>
+<p class="editing-tag 强提示标签">提示</p>
+<blockquote class="强提示 editing-block">
+<p class="zw"><br/>
+</p>
+你可以使用for循环，遍历字典中所有的键。</blockquote>
+<pre class="代码无行号"><code># inventory.py
+stuff = {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12}
+def displayInventory(inventory):
+    print("Inventory:")
+    item_total = 0
+    for k, v in inventory.items():
+        print(str(v) + ' ' + k)
+        item_total += v
+    print("Total number of items: " + str(item_total))
+displayInventory(stuff)</code>
+</pre>
+<h3 id="nav_point_130">5.6.2 列表到字典的函数，针对好玩游戏物品清单</h3>
+<p class="zw">假设征服一条龙的战利品表示为这样的字符串列表：</p>
+<pre class="代码无行号"><code>dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']</code>
+</pre>
+<p class="zw">写一个名为addToInventory(inventory, addedItems)的函数，其中inventory参数是一个字典，表示玩家的物品清单（像前面项目一样），addedItems参数是一个列表，就像dragonLoot。</p>
+<p class="zw">addToInventory()函数应该返回一个字典，表示更新过的物品清单。请注意，列表可以包含多个同样的项。你的代码看起来可能像这样：</p>
+<pre class="代码无行号"><code>def addToInventory(inventory, addedItems):
+    # your code goes here
+inv = {'gold coin': 42, 'rope': 1}
+dragonLoot = ['gold coin', 'dagger', 'gold coin', 'gold coin', 'ruby']
+inv = addToInventory(inv, dragonLoot)
+displayInventory(inv)</code>
+</pre>
+<p class="zw">前面的程序（加上前一个项目中的displayInventory()函数）将输出如下：</p>
+<pre class="代码无行号"><code>Inventory:
+45 gold coin
+1 rope
+1 ruby
+1 dagger
+Total number of items: 48</code>
+</pre>
+<p class="zw"><br style="page-break-after:always"/>
+</p>
+<div></div>
+]]></description>
+    <pubDate>Thu, 20 Aug 2026 00:29:00 +0000</pubDate>
+    <guid isPermaLink="false">29</guid>
+</item>
+<item>
     <title>AutomaticApplicationPython - 028 - 第4章 列表.epub</title>
     <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：70 分钟 (20782 字)</p><hr><h1 id="nav_point_83">第4章　列表</h1>
 <p class="zw">在你能够开始编写程序之前，还有一个主题需要理解，那就是列表数据类型及元组。列表和元组可以包含多个值，这样编写程序来处理大量数据就变得更容易。而且，由于列表本身又可以包含其他列表，所以可以用它们将数据安排成层次结构。</p>
@@ -4544,135 +5041,6 @@ operable program or batch file
 </description>
     <pubDate>Thu, 06 Aug 2026 01:13:12 +0000</pubDate>
     <guid isPermaLink="false">22</guid>
-</item>
-<item>
-    <title>Basic Python - 021 - 附录 A 安装与故障排除.epub</title>
-    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：23 分钟 (4485 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_491"&gt;附录 A　安装与故障排除&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/21_Image00001.gif" style="width: 16%" width="16%"/&gt;
- 　Python有不同的版本，在各种操作系统中有很多安装方式。如果第1章介绍的方式不管用，或者要安装非系统自带的Python版本，本附录可提供帮助。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="nav_point_492"&gt;A.1　Windows系统&lt;/h2&gt;
-&lt;p&gt;第1章的安装说明指出了如何使用Python网站提供的官方安装程序安装Python。如果执行安装程序后，无法运行Python，本节的故障排除说明将帮助你让Python恢复正常。&lt;/p&gt;
-&lt;h3 id="nav_point_493"&gt;A.1.1　查找Python解释器&lt;/h3&gt;
-&lt;p&gt;如果执行简单命令&lt;code&gt;python&lt;/code&gt;
- 时出现错误消息，如&lt;code&gt;python&lt;/code&gt;
- 不是可识别的内部或外部命令（python is not recognized as an internal or external command），很可能是因为执行安装程序时没有选中复选框Add Python to PATH。在这种情况下，需要告诉Windows去哪里查找Python解释器。要确定Python解释器的位置，请打开C盘，并在其中查找名称以Python打头的文件夹。（要找到这样的文件夹，可能需要在Windows资源管理器的搜索栏中输入单词python，因为它可能不在C盘的根目录下。）打开这个文件夹，并查找名称为python（全部小写）的文件。右击这个文件并选择“属性”，你将在“位置”后面看到它的路径。&lt;/p&gt;
-&lt;p&gt;要告诉Windows去哪里查找解释器，可以打开一个终端窗口，输入刚才看到的路径，再输入&lt;code&gt;-version&lt;/code&gt;
- ，并按回车键：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;$ C:\Python37\python --version
-Python 3.7.2&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在你的系统中，这条路径可能类似于下面这样：&lt;code&gt;C:\Users\username\Programs\Python37\python&lt;/code&gt;
- 。指定路径后，Windows应该会运行Python解释器。&lt;/p&gt;
-&lt;h3 id="nav_point_494"&gt;A.1.2　将Python添加到环境变量&lt;code&gt;Path&lt;/code&gt;
-&lt;/h3&gt;
-&lt;p&gt;如果每次启动Python终端会话时都需要输入完整的路径，那就太讨厌了。因此，我们将在系统中添加这个路径，让你只需使用命令&lt;code&gt;python&lt;/code&gt;
- 即可。打开控制面板并单击“系统和安全”，再单击“系统”。单击“高级系统设置”，在打开的窗口中单击按钮“环境变量”。&lt;/p&gt;
-&lt;p&gt;在“系统变量”部分，找到并单击变量&lt;code&gt;Path&lt;/code&gt;
- ，再单击按钮“编辑”。你将看到一系列位置，而系统将在这些位置查找程序。单击“新建”按钮，并将文件python.exe的路径粘贴到出现的文本框中。如果你的系统设置与我的一样，这条路径应该是这样的：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;C:\Python37&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;请注意，这里没有指定文件名python.exe，而只是告诉系统到哪里去查找它。&lt;/p&gt;
-&lt;p&gt;关闭终端窗口，再打开一个新的终端窗口。这将在终端会话中加载变量&lt;code&gt;Path&lt;/code&gt;
- 的新值。现在执行命令&lt;code&gt;python --version&lt;/code&gt;
- 时，你将看到刚才在变量&lt;code&gt;Path&lt;/code&gt;
- 中设置的Python版本。现在，只需在命令提示符下输入&lt;code&gt;python&lt;/code&gt;
- 并按回车，就可启动Python终端会话了。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　如果你使用的是较早的Windows版本，则单击“编辑”按钮时，出现的对话框可能包含文本框“变量”。如果是这样，请使用右箭头键滚动到最右边。千万不要覆盖变量原来的值。如果不小心覆盖了，请单击“取消”按钮，再重复前面的步骤。在变量值的末尾添加一个分号，再添加文件python.exe的路径，如下所示：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;%SystemRoot%\system32\...\System32\WindowsPowerShell\v1.0\;C:\Python37&lt;/code&gt;
-&lt;/pre&gt;
-&lt;/blockquote&gt;
-&lt;h3 id="nav_point_495"&gt;A.1.3　重装Python&lt;/h3&gt;
-&lt;p&gt;如果还是无法运行Python，卸载Python并再次执行安装程序通常能解决所有的问题。为此，打开“控制面板”并单击“程序和功能”，再向下滚动，找到并选择刚才安装的Python版本。单击“卸载/更改”，在出现的对话框中单击“卸载”。然后，按第1章的说明再次执行安装程序，并确保选择了复选框Add Python to PATH以及其他与系统相关的设置。如果还是无法运行Python，又不知道到哪里去寻求帮助，请参阅附录C的建议。&lt;/p&gt;
-&lt;h2 id="nav_point_496"&gt;A.2　macOS系统&lt;/h2&gt;
-&lt;p&gt;第1章的安装说明让你使用Python网站提供的安装程序，我推荐你这样做，除非有特殊原因。另一种方法是使用Homebrew，在macOS系统中，可使用这个工具来安装各种软件。如果你使用过Homebrew并想使用它来安装Python，或者有同事在使用Homebrew而你也想安装它，请参阅接下来的说明。&lt;/p&gt;
-&lt;h3 id="nav_point_497"&gt;A.2.1　安装Homebrew&lt;/h3&gt;
-&lt;p&gt;Homebrew依赖于Apple Xcode包中的一些命令行工具，因此你需要先安装Xcode命令行工具。为此，打开一个终端窗口并执行如下命令：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;$ xcode-select --install&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;在不断出现的确认对话框中都单击OK按钮。（根据网络连接的速度，这可能持续一段时间。）接下来执行如下命令以安装Homebrew：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;$ /usr/bin/ruby -e "$(curl -fsSL
-https://raw.githubusercontent.com/Homebrew/install/master/install)"&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这个命令可在Homebrew网站找到。务必在&lt;code&gt;curl -fsSL&lt;/code&gt;
- 和&lt;code&gt;URL&lt;/code&gt;
- 之间包含一个空格。&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;
-&lt;strong&gt;注意&lt;/strong&gt;
- 　这个命令中的&lt;code&gt;-e&lt;/code&gt;
- 让Ruby（Homebrew就是使用这种编程语言编写的）执行下载的代码。除非来源是你信任的，否则不要运行这样的命令。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;为确认正确地安装了Homebrew，请执行如下命令：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;$ brew doctor
-Your system is ready to brew.&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;上述输出表明，可以使用Homebrew在系统中安装包了。&lt;/p&gt;
-&lt;h3 id="nav_point_498"&gt;A.2.2　安装Python&lt;/h3&gt;
-&lt;p&gt;为安装最新的Python版本，请执行如下命令：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;$ brew install python&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;使用下面的命令检查安装的是哪个版本：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;$ python3 --version
-Python 3.7.2
-$&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;现在，可以使用命令&lt;code&gt;python3&lt;/code&gt;
- 来启动Python终端会话了，还可以使用命令&lt;code&gt;python3&lt;/code&gt;
- 来配置文本编辑器，使其使用刚安装的Python版本（而不是系统自带的版本）来运行Python程序。如果不知道如何配置Sublime Text来使用刚安装的Python版本，请参阅第1章的说明。&lt;/p&gt;
-&lt;h2 id="nav_point_499"&gt;A.3　Linux系统&lt;/h2&gt;
-&lt;p&gt;几乎所有Linux系统都默认安装了Python，但如果自带的版本低于Python 3.6，就需要安装最新的版本。下面的说明适用于大多数基于apt的系统。&lt;/p&gt;
-&lt;p&gt;你将使用名为&lt;code&gt;deadsnakes&lt;/code&gt;
- 的包，它能让你轻松地安装多个Python版本。请执行如下命令：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;$ sudo add-apt-repository ppa:deadsnakes/ppa
-$ sudo apt-get update
-$ sudo apt install python3.7&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;这些命令将在你的系统中安装Python 3.7。&lt;/p&gt;
-&lt;p&gt;执行下面的命令启动一个运行Python 3.7的终端会话：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;$ python3.7
-&amp;gt;&amp;gt;&amp;gt;&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p&gt;配置文本编辑器使其使用Python 3.7以及从终端运行程序时，也需要用到这个命令。&lt;/p&gt;
-&lt;h2 id="nav_point_500"&gt;A.4　Python关键字和内置函数&lt;/h2&gt;
-&lt;p&gt;Python包含一系列关键字和内置函数，给变量命名时，知道这些关键字和内置函数很重要：不能将Python关键字用作变量名，也不应将Python内置函数的名称用作变量名，否则将覆盖相应的内置函数。&lt;/p&gt;
-&lt;p&gt;本节将列出Python关键字和内置函数的名称，让你知道应避免使用哪些变量名。&lt;/p&gt;
-&lt;h3 id="nav_point_501"&gt;A.4.1　Python关键字&lt;/h3&gt;
-&lt;p&gt;下面的关键字都有特殊含义，如果将它们用作变量名，将引发错误：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;False    await      else      import     pass
-None     break      except    in         raise
-True     class      finally   is         return
-and      continue   for       lambda     try
-as       def        from      nonlocal   while
-assert   del        global    not        with
-async    elif       if        or         yield&lt;/code&gt;
-&lt;/pre&gt;
-&lt;h3 id="nav_point_502"&gt;A.4.2　Python内置函数&lt;/h3&gt;
-&lt;p&gt;将内置函数名用作变量名时，不会导致错误，但将覆盖这些函数的行为：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;abs()          delattr()     hash()          memoryview()   set()
-all()          dict()        help()          min()          setattr()
-any()          dir()         hex()           next()         slice()
-ascii()        divmod()      id()            object()       sorted()
-bin()          enumerate()   input()         oct()          staticmethod()
-bool()         eval()        int()           open()         str()
-breakpoint()   exec()        isinstance()    ord()          sum()
-bytearray()    filter()      issubclass()    pow()          super()
-bytes()        float()       iter()          print()        tuple()
-callable()     format()      len()           property()     type()
-chr()          frozenset()   list()          range()        vars()
-classmethod()  getattr()     locals()        repr()         zip()
-compile()      globals()     map()           reversed()     __import__()
-complex()      hasattr()     max()           round()&lt;/code&gt;
-&lt;/pre&gt;
-&lt;br style="page-break-after:always"/&gt;
-&lt;div&gt;&lt;/div&gt;
-</description>
-    <pubDate>Tue, 04 Aug 2026 01:13:46 +0000</pubDate>
-    <guid isPermaLink="false">21</guid>
 </item>
 </channel>
 </rss>
