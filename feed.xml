@@ -1,11 +1,756 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-  <title>每日更新推送</title>
-  <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
-  <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Mon, 31 Aug 2026 04:20:41 +0000</lastBuildDate>
-    <item>
+    <title>我的每日小说</title>
+    <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
+    <description>从 EPUB 自动生成的 RSS 订阅源</description>
+        <item>
+    <title>AutomaticApplicationPython - 031 - 第7章 模式匹配与正则表达式.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：85 分钟 (25447 字)</p><hr><h1 id="nav_point_162">第7章　模式匹配与正则表达式</h1>
+<p class="zw">你可能熟悉文本查找，即按下Ctrl-F，输入你要查找的词。“正则表达式”更进一步，它们让你指定要查找的“模式”。你也许不知道一家公司的准确电话号码，但如果你住在美国或加拿大，你就知道它有3位数字，然后是一个短横线，然后是4位数字（有时候以3位区号开始）。因此作为一个人，你看到一个电话号码就知道：415-555-1234是电话号码，但4,155,551,234不是。</p>
+<p class="zw">正则表达式很有用，但如果不是程序员，很少会有人了解它，尽管大多数现代文本编辑器和文字处理器（诸如微软的Word或OpenOffice），都有查找和查找替换功能，可以根据正则表达式查找。正则表达式可以节约大量时间，不仅适用于软件用户，也适用于程序员。实际上，技术作家Cory Doctorow声称，甚至应该在教授编程之前，先教授正则表达式：</p>
+<p class="zw">“知道[正则表达式]可能意味着用3步解决一个问题，而不是用3000步。如果你是一个技术怪侠，别忘了你用几次击键就能解决的问题，其他人需要数天的烦琐工作才能解决，而且他们容易犯错。” <a href="text00020.html#anchor71" id="ac71">
+<sup>[1]</sup>
+</a>
+</p>
+<p class="zw">在本章中，你将从编写一个程序开始，先不用正则表达式来寻找文本模式。然后再看看，使用正则表达式让代码变得多么简洁。我将展示用正则表达式进行基本匹配，然后转向一些更强大的功能，诸如字符串替换，以及创建你自己的字符类型。最后，在本章末尾，你将编写一个程序，从一段文本中自动提取电话号码和E-mail地址。</p>
+<h2 id="nav_point_163">7.1 不用正则表达式来查找文本模式</h2>
+<p class="zw">假设你希望在字符串中查找电话号码。你知道模式：3个数字，一个短横线，3个数字，一个短横线，再是4个数字。例如：415-555-4242。</p>
+<p class="zw">假定我们用一个名为isPhoneNumber()的函数，来检查字符串是否匹配模式，它返回True或False。打开一个新的文件编辑器窗口，输入以下代码，然后保存为isPhoneNumber.py：</p>
+<pre class="代码无行号"><code>　def isPhoneNumber(text):
+❶     if len(text) != 12:
+　        return False
+　    for i in range(0, 3):
+❷         if not text[i].isdecimal():
+　            return False
+❸     if text[3] != '-':
+　        return False
+　    for i in range(4, 7):
+❹         if not text[i].isdecimal():
+　            return False
+❺     if text[7] != '-':
+ 　       return False
+　    for i in range(8, 12):
+❻         if not text[i].isdecimal():
+　            return False
+❼     return True
+　print('415-555-4242 is a phone number:')
+　print(isPhoneNumber('415-555-4242'))
+　print('Moshi moshi is a phone number:')
+　print(isPhoneNumber('Moshi moshi'))</code>
+</pre>
+<p class="zw">运行该程序，输出看起来像这样：</p>
+<pre class="代码无行号"><code>415-555-4242 is a phone number:
+True
+Moshi moshi is a phone number:
+False</code>
+</pre>
+<p class="zw">isPhoneNumber()函数的代码进行几项检查，看看text中的字符串是不是有效的电话号码。如果其中任意一项检查失败，函数就返回False。代码首先检查该字符串是否刚好有12个字符❶。然后它检查区号（就是text中的前3个字符）是否只包含数字❷。函数剩下的部分检查该字符串是否符合电话号码的模式：号码必须在区号后出现第一个短横线❸，3个数字❹，然后是另一个短横线❺，最后是4个数字❻。如果程序执行通过了所有的检查，它就返回True❼。</p>
+<p class="zw">用参数'415-555-4242'调用isPhoneNumber()将返回真。用参数'Moshi moshi'调用isPhoneNumber()将返回假，第一项测试失败了，因为不是12个字符。</p>
+<p class="zw">必须添加更多代码，才能在更长的字符串中寻找这种文本模式。用下面的代码，替代isPhoneNumber.py中最后4个print()函数调用：</p>
+<pre class="代码无行号"><code>　message = 'Call me at 415-555-1011 tomorrow. 415-555-9999 is my office.'
+　for i in range(len(message)):
+❶     chunk = message[i:i+12]
+❷     if isPhoneNumber(chunk):
+　      print('Phone number found: ' + chunk)
+　print('Done')</code>
+</pre>
+<p class="zw">该程序运行时，输出看起来像这样：</p>
+<pre class="代码无行号"><code>Phone number found: 415-555-1011
+Phone number found: 415-555-9999
+Done</code>
+</pre>
+<p class="zw">在for循环的每一次迭代中，取自message的一段新的12个字符被赋给变量chunk❶。例如，在第一次迭代，i是0，chunk被赋值为message[0:12]（即字符串'Call me at 4'）。在下一次迭代，i是1，chunk被赋值为message[1:13]（字符串'all me at 41'）。</p>
+<p class="zw">将chunk传递给isPhoneNumber()，看看它是否符合电话号码的模式❷。如果符合，就打印出这段文本。</p>
+<p class="zw">继续遍历message，最终chunk中的12个字符会是一个电话号码。该循环遍历了整个字符串，测试了每一段12个字符，打印出所有满足isPhoneNumber()的chunk。当我们遍历完message，就打印出Done。</p>
+<p class="zw">在这个例子中，虽然message中的字符串很短，但它也可能包含上百万个字符，程序运行仍然不需要一秒钟。使用正则表达式查找电话号码的类似程序，运行也不会超过一秒钟，但用正则表达式编写这类程序会快得多。</p>
+<h2 id="nav_point_164">7.2 用正则表达式查找文本模式</h2>
+<p class="zw">前面的电话号码查找程序能工作，但它使用了很多代码，做的事却有限：isPhoneNumber()函数有17行，但只能查找一种电话号码模式。像415.555.4242或(415) 555-4242这样的电话号码格式，该怎么办呢？如果电话号码有分机，例如415-555-4242 x99，该怎么办呢？isPhoneNumber()函数在验证它们时会失败。你可以添加更多的代码来处理额外的模式，但还有更简单的方法。</p>
+<p class="zw">正则表达式，简称为regex，是文本模式的描述方法。例如，\d 是一个正则表达式，表示一位数字字符，即任何一位 0 到 9 的数字。Python 使用正则表达式\d\d\d-\d\d\d-\d\d\d\d，来匹配前面isPhoneNumber()函数匹配的同样文本：3 个数字、一个短横线、3 个数字、一个短横线、4 个数字。所有其他字符串都不能匹配\d\d\d-\d\d\d-\d\d\d\d正则表达式。</p>
+<p class="zw">但正则表达式可以复杂得多。例如，在一个模式后加上花括号包围的3（{3}），就是说，“匹配这个模式3次”。所以较短的正则表达式\d{3}-\d{3}-\d{4}，也匹配正确的电话号码格式。</p>
+<h3 id="nav_point_165">7.2.1 创建正则表达式对象</h3>
+<p class="zw">Python中所有正则表达式的函数都在re模块中。在交互式环境中输入以下代码，导入该模块：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>import re</strong>
+</code>
+</pre>
+<p class="editing-tag 提示标签">注意</p>
+<blockquote class="提示 editing-block">
+<p class="zw"><br/>
+</p>
+本章后面的大多数例子都需要re模块，所以要记得在你写的每个脚本开始处导入它，或重新启动IDLE时。否则，就会遇到错误消息NameError: name 're' is not defined。</blockquote>
+<p class="zw">向re.compile()传入一个字符串值，表示正则表达式，它将返回一个Regex模式对象（或者就简称为Regex对象）。</p>
+<p class="zw">要创建一个Regex对象来匹配电话号码模式，就在交互式环境中输入以下代码（回忆一下，\d表示“一个数字字符”，\d\d\d-\d\d\d-\d\d\d\d是正确电话号码模式的正则表达式）。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')</strong>
+</code>
+</pre>
+<p class="zw">现在phoneNumRegex变量包含了一个Regex对象。</p>
+<h3 id="nav_point_166">7.2.2 匹配Regex对象</h3>
+<p class="zw">Regex对象的search()方法查找传入的字符串，寻找该正则表达式的所有匹配。如果字符串中没有找到该正则表达式模式，search()方法将返回None。如果找到了该模式，search()方法将返回一个Match对象。Match对象有一个group()方法，它返回被查找字符串中实际匹配的文本（稍后我会解释分组）。例如，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')</strong>
+&gt;&gt;&gt; <strong>mo = phoneNumRegex.search('My number is 415-555-4242.')</strong>
+&gt;&gt;&gt; <strong>print('Phone number found: ' + mo.group())</strong>
+Phone number found: 415-555-4242
+</code>
+</pre>
+<p class="zw">变量名mo是一个通用的名称，用于Match对象。这个例子可能初看起来有点复杂，但它比前面的isPhoneNumber.py程序要短很多，并且做的事情一样。</p>
+<p class="zw">这里，我们将期待的模式传递给re.compile()，并将得到的Regex对象保存在phoneNumRegex中。然后我们在phoneNumRegex上调用search()，向它传入想查找的字符串。查找的结果保存在变量mo中。在这个例子里，我们知道模式会在这个字符串中找到，所以我们知道会返回一个Match对象。知道mo包含一个Match对象，而不是空值None，我们就可以在mo变量上调用group()，返回匹配的结果。将mo.group()写在打印语句中，显示出完整的匹配，即415-555-4242。</p>
+<p class="editing-tag 超强提示标签">向re.compile()传递原始字符串</p>
+<blockquote class="超强提示 editing-block">
+<p class="zw"><br/>
+</p>
+回忆一下，Python中转义字符使用倒斜杠（\）。字符串'\n'表示一个换行字符，而不是倒斜杠加上一个小写的n。你需要输入转义字符\，才能打印出一个倒斜杠。所以'\n'表示一个倒斜杠加上一个小写的n。但是，通过在字符串的第一个引号之前加上r，可以将该字符串标记为原始字符串，它不包括转义字符。<p class="zw">因为正则表达式常常使用倒斜杠，向re.compile()函数传入原始字符串就很方便，而不是输入额外得到斜杠。输入r'\d\d\d-\d\d\d-\d\d\d\d'，比输入'\d\d\d-\d\d\d-\d\d\d\d'要容易得多。</p>
+</blockquote>
+<h3 id="nav_point_167">7.2.3 正则表达式匹配复习</h3>
+<p class="zw">虽然在Python中使用正则表达式有几个步骤，但每一步都相当简单。</p>
+<p class="zw">1．用import re导入正则表达式模块。</p>
+<p class="zw">2．用re.compile()函数创建一个Regex对象（记得使用原始字符串）。</p>
+<p class="zw">3．向Regex对象的search()方法传入想查找的字符串。它返回一个Match对象。</p>
+<p class="zw">4．调用Match对象的group()方法，返回实际匹配文本的字符串。</p>
+<p class="editing-tag 提示标签">注意</p>
+<blockquote class="提示 editing-block">
+<p class="zw"><br/>
+</p>
+虽然我鼓励你在交互式环境中输入示例代码,但你也应该利用基于网页的正则表达式测试程序。它可以向你清楚地展示，一个正则表达式如何匹配输入的一段文本。我推荐的测试程序位于<a href="http://regexpal.com/">http://regexpal.com/</a>
+ 。</blockquote>
+<h2 id="nav_point_168">7.3 用正则表达式匹配更多模式</h2>
+<p class="zw">既然你已知道用Python创建和查找正则表达式对象的基本步骤，就可以尝试一些更强大的模式匹配功能了。</p>
+<h3 id="nav_point_169">7.3.1 利用括号分组</h3>
+<p class="zw">假定想要将区号从电话号码中分离。添加括号将在正则表达式中创建“分组”：(\d\d\d)-(\d\d\d-\d\d\d\d)。然后可以使用group()匹配对象方法，从一个分组中获取匹配的文本。</p>
+<p class="zw">正则表达式字符串中的第一对括号是第1组。第二对括号是第2组。向group()匹配对象方法传入整数1或2，就可以取得匹配文本的不同部分。向group()方法传入0或不传入参数，将返回整个匹配的文本。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d-\d\d\d\d)')</strong>
+&gt;&gt;&gt; <strong>mo = phoneNumRegex.search('My number is 415-555-4242.')</strong>
+&gt;&gt;&gt; <strong>mo.group(1)</strong>
+'415'
+&gt;&gt;&gt; <strong>mo.group(2)</strong>
+'555-4242'
+&gt;&gt;&gt; <strong>mo.group(0)</strong>
+'415-555-4242'
+&gt;&gt;&gt; <strong>mo.group()</strong>
+'415-555-4242'
+</code>
+</pre>
+<p class="zw">如果想要一次就获取所有的分组，请使用groups()方法，注意函数名的复数形式。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>mo.groups()</strong>
+('415', '555-4242')
+&gt;&gt;&gt; <strong>areaCode, mainNumber = mo.groups()</strong>
+&gt;&gt;&gt; <strong>print(areaCode)</strong>
+415
+&gt;&gt;&gt; <strong>print(mainNumber)</strong>
+555-4242
+</code>
+</pre>
+<p class="zw">因为mo.groups()返回多个值的元组，所以你可以使用多重赋值的技巧，每个值赋给一个独立的变量，就像前面的代码行：areaCode, mainNumber = mo.groups()。</p>
+<p class="zw">括号在正则表达式中有特殊的含义，但是如果你需要在文本中匹配括号，怎么办？例如，你要匹配的电话号码，可能将区号放在一对括号中。在这种情况下，就需要用倒斜杠对(和)进行字符转义。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>phoneNumRegex = re.compile(r'(\(\d\d\d\)) (\d\d\d-\d\d\d\d)')</strong>
+&gt;&gt;&gt; <strong>mo = phoneNumRegex.search('My phone number is (415) 555-4242.')</strong>
+&gt;&gt;&gt; <strong>mo.group(1)</strong>
+'(415)'
+&gt;&gt;&gt; <strong>mo.group(2)</strong>
+'555-4242'
+</code>
+</pre>
+<p class="zw">传递给re.compile()的原始字符串中，(和)转义字符将匹配实际的括号字符。</p>
+<h3 id="nav_point_170">7.3.2 用管道匹配多个分组</h3>
+<p class="zw">字符|称为“管道”。希望匹配许多表达式中的一个时，就可以使用它。例如，正则表达式r'Batman|Tina Fey'将匹配'Batman'或'Tina Fey'。</p>
+<p class="zw">如果Batman和Tina Fey都出现在被查找的字符串中，第一次出现的匹配文本，将作为Match对象返回。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>heroRegex = re.compile (r'Batman|Tina Fey')</strong>
+&gt;&gt;&gt; <strong>mo1 = heroRegex.search('Batman and Tina Fey.')</strong>
+&gt;&gt;&gt; <strong>mo1.group()</strong>
+'Batman'
+&gt;&gt;&gt; <strong>mo2 = heroRegex.search('Tina Fey and Batman.')</strong>
+&gt;&gt;&gt; <strong>mo2.group()</strong>
+'Tina Fey'
+</code>
+</pre>
+<p class="editing-tag 提示标签">注意</p>
+<blockquote class="提示 editing-block">
+<p class="zw"><br/>
+</p>
+利用findall()方法，可以找到“所有”匹配的地方。这在7.5节“findall()方法”中讨论。</blockquote>
+<p class="zw">也可以使用管道来匹配多个模式中的一个，作为正则表达式的一部分。例如，假设你希望匹配'Batman'、'Batmobile'、'Batcopter'和'Batbat'中任意一个。因为所有这些字符串都以Bat开始，所以如果能够只指定一次前缀，就很方便。这可以通过括号实现。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>batRegex = re.compile(r'Bat(man|mobile|copter|bat)')</strong>
+&gt;&gt;&gt; <strong>mo = batRegex.search('Batmobile lost a wheel')</strong>
+&gt;&gt;&gt; <strong>mo.group()</strong>
+'Batmobile'
+&gt;&gt;&gt; <strong>mo.group(1)</strong>
+'mobile'
+</code>
+</pre>
+<p class="zw">方法调用mo.group()返回了完全匹配的文本'Batmobile'，而mo.group(1)只是返回第一个括号分组内匹配的文本'mobile'。通过使用管道字符和分组括号，可以指定几种可选的模式，让正则表达式去匹配。</p>
+<p class="zw">如果需要匹配真正的管道字符，就用倒斜杠转义，即|。</p>
+<h3 id="nav_point_171">7.3.3 用问号实现可选匹配</h3>
+<p class="zw">有时候，想匹配的模式是可选的。就是说，不论这段文本在不在，正则表达式都会认为匹配。字符?表明它前面的分组在这个模式中是可选的。例如，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>batRegex = re.compile(r'Bat(wo)?man')</strong>
+&gt;&gt;&gt; <strong>mo1 = batRegex.search('The Adventures of Batman')</strong>
+&gt;&gt;&gt; <strong>mo1.group()</strong>
+'Batman'
+&gt;&gt;&gt; <strong>mo2 = batRegex.search('The Adventures of Batwoman')</strong>
+&gt;&gt;&gt; <strong>mo2.group()</strong>
+'Batwoman'
+</code>
+</pre>
+<p class="zw">正则表达式中的(wo)?部分表明，模式wo是可选的分组。该正则表达式匹配的文本中，wo将出现零次或一次。这就是为什么正则表达式既匹配'Batwoman'，又匹配'Batman'。</p>
+<p class="zw">利用前面电话号码的例子，你可以让正则表达式寻找包含区号或不包含区号的电话号码。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>phoneRegex = re.compile(r'(\d\d\d-)?\d\d\d-\d\d\d\d')</strong>
+&gt;&gt;&gt; <strong>mo1 = phoneRegex.search('My number is 415-555-4242')</strong>
+&gt;&gt;&gt; <strong>mo1.group()</strong>
+'415-555-4242'
+&gt;&gt;&gt; <strong>mo2 = phoneRegex.search('My number is 555-4242')</strong>
+&gt;&gt;&gt; <strong>mo2.group()</strong>
+'555-4242'
+</code>
+</pre>
+<p class="zw">你可以认为?是在说，“匹配这个问号之前的分组零次或一次”。</p>
+<p class="zw">如果需要匹配真正的问号字符，就使用转义字符\?。</p>
+<h3 id="nav_point_172">7.3.4 用星号匹配零次或多次</h3>
+<p class="zw">*（称为星号）意味着“匹配零次或多次”，即星号之前的分组，可以在文本中出现任意次。它可以完全不存在，或一次又一次地重复。让我们再来看看Batman的例子。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>batRegex = re.compile(r'Bat(wo)*man')</strong>
+&gt;&gt;&gt; <strong>mo1 = batRegex.search('The Adventures of Batman')</strong>
+&gt;&gt;&gt; <strong>mo1.group()</strong>
+'Batman'
+&gt;&gt;&gt; <strong>mo2 = batRegex.search('The Adventures of Batwoman')</strong>
+&gt;&gt;&gt; <strong>mo2.group()</strong>
+'Batwoman'
+&gt;&gt;&gt; <strong>mo3 = batRegex.search('The Adventures of Batwowowowoman')</strong>
+&gt;&gt;&gt; <strong>mo3.group()</strong>
+'Batwowowowoman'
+</code>
+</pre>
+<p class="zw">对于'Batman'，正则表达式的(wo)<em>部分匹配wo的零个实例。对于'Batwoman'，(wo)</em>
+ 匹配wo的一个实例。对于'Batwowowowoman'，(wo)*匹配wo的4个实例。</p>
+<p class="zw">如果需要匹配真正的星号字符，就在正则表达式的星号字符前加上倒斜杠，即*。</p>
+<h3 id="nav_point_173">7.3.5 用加号匹配一次或多次</h3>
+<p class="zw">*意味着“匹配零次或多次”，+（加号）则意味着“匹配一次或多次”。星号不要求分组出现在匹配的字符串中，但加号不同，加号前面的分组必须“至少出现一次”。这不是可选的。在交互式环境中输入以下代码，把它和前一节的星号正则表达式进行比较：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>batRegex = re.compile(r'Bat(wo)+man')</strong>
+&gt;&gt;&gt; <strong>mo1 = batRegex.search('The Adventures of Batwoman')</strong>
+&gt;&gt;&gt; <strong>mo1.group()</strong>
+'Batwoman'
+&gt;&gt;&gt; <strong>mo2 = batRegex.search('The Adventures of Batwowowowoman')</strong>
+&gt;&gt;&gt; <strong>mo2.group()</strong>
+'Batwowowowoman'
+&gt;&gt;&gt; <strong>mo3 = batRegex.search('The Adventures of Batman')</strong>
+&gt;&gt;&gt; <strong>mo3 == None</strong>
+True
+</code>
+</pre>
+<p class="zw">正则表达式Bat(wo)+man不会匹配字符串'The Adventures of Batman'，因为加号要求wo至少出现一次。</p>
+<p class="zw">如果需要匹配真正的加号字符，在加号前面加上倒斜杠实现转义：+。</p>
+<h3 id="nav_point_174">7.3.6 用花括号匹配特定次数</h3>
+<p class="zw">如果想要一个分组重复特定次数，就在正则表达式中该分组的后面，跟上花括号包围的数字。例如，正则表达式(Ha){3}将匹配字符串'HaHaHa'，但不会匹配'HaHa'，因为后者只重复了(Ha)分组两次。</p>
+<p class="zw">除了一个数字，还可以指定一个范围，即在花括号中写下一个最小值、一个逗号和一个最大值。例如，正则表达式(Ha){3,5}将匹配'HaHaHa'、'HaHaHaHa'和'HaHaHaHaHa'。</p>
+<p class="zw">也可以不写花括号中的第一个或第二个数字，不限定最小值或最大值。例如，(Ha){3,}将匹配3次或更多次实例，(Ha){,5}将匹配0到5次实例。花括号让正则表达式更简短。这两个正则表达式匹配同样的模式：</p>
+<pre class="代码无行号"><code>(Ha){3}
+(Ha)(Ha)(Ha)</code>
+</pre>
+<p class="zw">这两个正则表达式也匹配同样的模式：</p>
+<pre class="代码无行号"><code>(Ha){3,5}
+((Ha)(Ha)(Ha))|((Ha)(Ha)(Ha)(Ha))|((Ha)(Ha)(Ha)(Ha)(Ha))</code>
+</pre>
+<p class="zw">在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>haRegex = re.compile(r'(Ha){3}')</strong>
+&gt;&gt;&gt; <strong>mo1 = haRegex.search('HaHaHa')</strong>
+&gt;&gt;&gt; <strong>mo1.group()</strong>
+'HaHaHa'
+&gt;&gt;&gt; <strong>mo2 = haRegex.search('Ha')</strong>
+&gt;&gt;&gt; <strong>mo2 == None</strong>
+True
+</code>
+</pre>
+<p class="zw">这里，(Ha){3}匹配'HaHaHa'，但不匹配'Ha'。因为它不匹配'Ha'，所以search()返回None。</p>
+<h2 id="nav_point_175">7.4 贪心和非贪心匹配</h2>
+<p class="zw">在字符串'HaHaHaHaHa'中，因为(Ha){3,5}可以匹配3个、4个或5个实例，你可能会想，为什么在前面花括号的例子中，Match对象的group()调用会返回'HaHaHaHaHa'，而不是更短的可能结果。毕竟，'HaHaHa'和'HaHaHaHa'也能够有效地匹配正则表达式(Ha){3,5}。</p>
+<p class="zw">Python的正则表达式默认是“贪心”的，这表示在有二义的情况下，它们会尽可能匹配最长的字符串。花括号的“非贪心”版本匹配尽可能最短的字符串，即在结束的花括号后跟着一个问号。</p>
+<p class="zw">在交互式环境中输入以下代码，注意在查找相同字符串时，花括号的贪心形式和非贪心形式之间的区别：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>greedyHaRegex = re.compile(r'(Ha){3,5}')</strong>
+&gt;&gt;&gt; <strong>mo1 = greedyHaRegex.search('HaHaHaHaHa')</strong>
+&gt;&gt;&gt; <strong>mo1.group()</strong>
+'HaHaHaHaHa'
+&gt;&gt;&gt; <strong>nongreedyHaRegex = re.compile(r'(Ha){3,5}?')</strong>
+&gt;&gt;&gt; <strong>mo2 = nongreedyHaRegex.search('HaHaHaHaHa')</strong>
+&gt;&gt;&gt; <strong>mo2.group()</strong>
+'HaHaHa'
+</code>
+</pre>
+<p class="zw">请注意，问号在正则表达式中可能有两种含义：声明非贪心匹配或表示可选的分组。这两种含义是完全无关的。</p>
+<h2 id="nav_point_176">7.5 findall()方法</h2>
+<p class="zw">除了search方法外，Regex对象也有一个findall()方法。search()将返回一个Match对象，包含被查找字符串中的“第一次”匹配的文本，而findall()方法将返回一组字符串，包含被查找字符串中的所有匹配。为了看看search()返回的Match对象只包含第一次出现的匹配文本，请在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')</strong>
+&gt;&gt;&gt; <strong>mo = phoneNumRegex.search('Cell: 415-555-9999 Work: 212-555-0000')</strong>
+&gt;&gt;&gt; <strong>mo.group()</strong>
+'415-555-9999'
+</code>
+</pre>
+<p class="zw">另一方面，findall()不是返回一个Match对象，而是返回一个字符串列表，只要在正则表达式中没有分组。列表中的每个字符串都是一段被查找的文本，它匹配该正则表达式。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>phoneNumRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d') # has no groups</strong>
+&gt;&gt;&gt; <strong>phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000')</strong>
+['415-555-9999', '212-555-0000']
+</code>
+</pre>
+<p class="zw">如果在正则表达式中有分组，那么findall将返回元组的列表。每个元组表示一个找到的匹配，其中的项就是正则表达式中每个分组的匹配字符串。为了看看findall()的效果，请在交互式环境中输入以下代码（请注意，被编译的正则表达式现在有括号分组）：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d)-(\d\d\d\d)') # has groups</strong>
+&gt;&gt;&gt; <strong>phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000')</strong>
+[('415', '555', '1122'), ('212', '555', '0000')]
+</code>
+</pre>
+<p class="zw">作为findall()方法的返回结果的总结，请记住下面两点：</p>
+<p class="zw">1．如果调用在一个没有分组的正则表达式上，例如\d\d\d-\d\d\d-\d\d\d\d，方法findall()将返回一个匹配字符串的列表，例如['415-555-9999', '212-555-0000']。</p>
+<p class="zw">2．如果调用在一个有分组的正则表达式上，例如(\d\d\d)-(\d\d\d)-(\d\d\d\d)，方法findall()将返回一个字符串的元组的列表（每个分组对应一个字符串），例如[('415', '555', '1122'), ('212', '555', '0000')]。</p>
+<h2 id="nav_point_177">7.6 字符分类</h2>
+<p class="zw">在前面电话号码正则表达式的例子中，你知道\d 可以代表任何数字。也就是说，\d是正则表达式(0|1|2|3|4|5|6|7|8|9)的缩写。有许多这样的“缩写字符分类”，如表7-1所示。</p>
+<p class="表题">表7-1 常用字符分类的缩写代码</p>
+<table border="1" width="90%">
+<thead>
+<tr>
+<th>
+<p class="表头单元格">缩写字符分类</p>
+</th>
+<th>
+<p class="表头单元格">表示</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<p class="表格单元格">\d</p>
+</td>
+<td>
+<p class="表格单元格">0到9的任何数字</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">\D</p>
+</td>
+<td>
+<p class="表格单元格">除0到9的数字以外的任何字符</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">\w</p>
+</td>
+<td>
+<p class="表格单元格">任何字母、数字或下划线字符（可以认为是匹配“单词”字符）</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">\W</p>
+</td>
+<td>
+<p class="表格单元格">除字母、数字和下划线以外的任何字符</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">\s</p>
+</td>
+<td>
+<p class="表格单元格">空格、制表符或换行符（可以认为是匹配“空白”字符）</p>
+</td>
+</tr>
+<tr>
+<td>
+<p class="表格单元格">\S</p>
+</td>
+<td>
+<p class="表格单元格">除空格、制表符和换行符以外的任何字符</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="zw">字符分类对于缩短正则表达式很有用。字符分类[0-5]只匹配数字0到5，这比输入(0|1|2|3|4|5)要短很多。</p>
+<p class="zw">例如，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>xmasRegex = re.compile(r'\d+\s\w+')</strong>
+&gt;&gt;&gt; <strong>xmasRegex.findall('12 drummers, 11 pipers, 10 lords, 9 ladies, 8 maids, 7</strong>
+<strong>swans, 6 geese, 5 rings, 4 birds, 3 hens, 2 doves, 1 partridge')</strong>
+['12 drummers', '11 pipers', '10 lords', '9 ladies', '8 maids', '7 swans', '6
+geese', '5 rings', '4 birds', '3 hens', '2 doves', '1 partridge']
+</code>
+</pre>
+<p class="zw">正则表达式\d+\s\w+匹配的文本有一个或多个数字(\d+)，接下来是一个空白字符(\s)，接下来是一个或多个字母/数字/下划线字符(\w+)。findall()方法将返回所有匹配该正则表达式的字符串，放在一个列表中。</p>
+<h2 id="nav_point_178">7.7 建立自己的字符分类</h2>
+<p class="zw">有时候你想匹配一组字符，但缩写的字符分类（\d、\w、\s等）太宽泛。你可以用方括号定义自己的字符分类。例如，字符分类[aeiouAEIOU]将匹配所有元音字符，不论大小写。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>vowelRegex = re.compile(r'[aeiouAEIOU]')</strong>
+&gt;&gt;&gt; <strong>vowelRegex.findall('RoboCop eats baby food. BABY FOOD.')</strong>
+['o', 'o', 'o', 'e', 'a', 'a', 'o', 'o', 'A', 'O', 'O']
+</code>
+</pre>
+<p class="zw">也可以使用短横表示字母或数字的范围。例如，字符分类[a-zA-Z0-9]将匹配所有小写字母、大写字母和数字。</p>
+<p class="zw">请注意，在方括号内，普通的正则表达式符号不会被解释。这意味着，你不需要前面加上倒斜杠转义.、*、?或()字符。例如，字符分类将匹配数字0到5和一个句点。你不需要将它写成[0-5.]。</p>
+<p class="zw">通过在字符分类的左方括号后加上一个插入字符（^），就可以得到“非字符类”。非字符类将匹配不在这个字符类中的所有字符。例如，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>consonantRegex = re.compile(r'[^aeiouAEIOU]')</strong>
+&gt;&gt;&gt; <strong>consonantRegex.findall('RoboCop eats baby food. BABY FOOD.')</strong>
+['R', 'b', 'c', 'p', ' ', 't', 's', ' ', 'b', 'b', 'y', ' ', 'f', 'd', '.', '
+', 'B', 'B', 'Y', ' ', 'F', 'D', '.']
+</code>
+</pre>
+<p class="zw">现在，不是匹配所有元音字符，而是匹配所有非元音字符。</p>
+<h2 id="nav_point_179">7.8 插入字符和美元字符</h2>
+<p class="zw">可以在正则表达式的开始处使用插入符号（^），表明匹配必须发生在被查找文本开始处。类似地，可以在正则表达式的末尾加上美元符号（$），表示该字符串必须以这个正则表达式的模式结束。可以同时使用^和$，表明整个字符串必须匹配该模式，也就是说，只匹配该字符串的某个子集是不够的。</p>
+<p class="zw">例如，正则表达式r'^Hello'匹配以'Hello'开始的字符串。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>beginsWithHello = re.compile(r'^Hello')</strong>
+&gt;&gt;&gt; <strong>beginsWithHello.search('Hello world!')</strong>
+&lt; _sre.SRE_Match object; span=(0, 5), match='Hello'&gt;
+&gt;&gt;&gt; <strong>beginsWithHello.search('He said hello.') == None</strong>
+True
+</code>
+</pre>
+<p class="zw">正则表达式r'\d$'匹配以数字0到9结束的字符串。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>endsWithNumber = re.compile(r'\d$')</strong>
+&gt;&gt;&gt; <strong>endsWithNumber.search('Your number is 42')</strong>
+&lt; _sre.SRE_Match object; span=(16, 17), match='2'&gt;
+&gt;&gt;&gt; <strong>endsWithNumber.search('Your number is forty two.') == None</strong>
+True
+</code>
+</pre>
+<p class="zw">正则表达式r'^\d+$'匹配从开始到结束都是数字的字符串。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>wholeStringIsNum = re.compile(r'^\d+$')</strong>
+&gt;&gt;&gt; <strong>wholeStringIsNum.search('1234567890')</strong>
+&lt; _sre.SRE_Match object; span=(0, 10), match='1234567890'&gt;
+&gt;&gt;&gt; <strong>wholeStringIsNum.search('12345xyz67890') == None</strong>
+True
+&gt;&gt;&gt; <strong>wholeStringIsNum.search('12 34567890') == None</strong>
+True
+</code>
+</pre>
+<p class="zw">前面交互式脚本例子中的最后两次search()调用表明，如果使用了^和$，那么整个字符串必须匹配该正则表达式。</p>
+<p class="zw">我总是会混淆这两个符号的含义，所以我使用助记法“Carrots cost dollars”，提醒我插入符号在前面，美元符号在后面。</p>
+<h2 id="nav_point_180">7.9 通配字符</h2>
+<p class="zw">在正则表达式中，.（句点）字符称为“通配符”。它匹配除了换行之外的所有字符。例如，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>atRegex = re.compile(r'.at')</strong>
+&gt;&gt;&gt; <strong>atRegex.findall('The cat in the hat sat on the flat mat.')</strong>
+['cat', 'hat', 'sat', 'lat', 'mat']
+</code>
+</pre>
+<p class="zw">要记住，句点字符只匹配一个字符，这就是为什么在前面的例子中，对于文本flat，只匹配lat。要匹配真正的句点，就是用倒斜杠转义：.。</p>
+<h3 id="nav_point_181">7.9.1 用点-星匹配所有字符</h3>
+<p class="zw">有时候想要匹配所有字符串。例如，假定想要匹配字符串'First Name:'，接下来是任意文本，接下来是'Last Name:'，然后又是任意文本。可以用点-星（.*）表示“任意文本”。回忆一下，句点字符表示“除换行外所有单个字符”，星号字符表示“前面字符出现零次或多次”。</p>
+<p class="zw">在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>nameRegex = re.compile(r'First Name: (.*) Last Name: (.*)')</strong>
+&gt;&gt;&gt; <strong>mo = nameRegex.search('First Name: Al Last Name: Sweigart')</strong>
+&gt;&gt;&gt; <strong>mo.group(1)</strong>
+'Al'
+&gt;&gt;&gt; <strong>mo.group(2)</strong>
+'Sweigart'
+</code>
+</pre>
+<p class="zw">点-星使用“贪心”模式：它总是匹配尽可能多的文本。要用“非贪心”模式匹配所有文本，就使用点-星和问号。像和大括号一起使用时那样，问号告诉Python用非贪心模式匹配。在交互式环境中输入以下代码，看看贪心模式和非贪心模式的区别：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>nongreedyRegex = re.compile(r'&lt;.*?&gt;')</strong>
+&gt;&gt;&gt; <strong>mo = nongreedyRegex.search(' for dinner.&gt;')</strong>
+&gt;&gt;&gt; <strong>mo.group()</strong>
+'&lt; To serve man&gt;'
+&gt;&gt;&gt; <strong>greedyRegex = re.compile(r'&lt;.*&gt;')</strong>
+&gt;&gt;&gt; <strong>mo = greedyRegex.search(' for dinner.&gt;')</strong>
+&gt;&gt;&gt; <strong>mo.group()</strong>
+'&lt; To serve man&gt; for dinner.&gt;'
+</code>
+</pre>
+<p class="zw">两个正则表达式都可以翻译成“匹配一个左尖括号，接下来是任意字符，接下来是一个右尖括号”。但是字符串'&lt;To serve man&gt; for dinner.&gt;'对右肩括号有两种可能的匹配。在非贪心的正则表达式中，Python匹配最短可能的字符串：'&lt;To serve man&gt;'。在贪心版本中，Python匹配最长可能的字符串：'&lt;To serve man&gt; for dinner.&gt;'。</p>
+<h3 id="nav_point_182">7.9.2 用句点字符匹配换行</h3>
+<p class="zw">点-星将匹配除换行外的所有字符。通过传入re.DOTALL作为re.compile()的第二个参数，可以让句点字符匹配所有字符，包括换行字符。</p>
+<p class="zw">在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>noNewlineRegex = re.compile('.*')</strong>
+&gt;&gt;&gt; <strong>noNewlineRegex.search('Serve the public trust.\nProtect the innocent.</strong>
+<strong>\nUphold the law.').group()</strong>
+'Serve the public trust.'
+&gt;&gt;&gt; <strong>newlineRegex = re.compile('.*', re.DOTALL)</strong>
+&gt;&gt;&gt; <strong>newlineRegex.search('Serve the public trust.\nProtect the innocent.</strong>
+<strong>\nUphold the law.').group()</strong>
+'Serve the public trust.\nProtect the innocent.\nUphold the law.'
+</code>
+</pre>
+<p class="zw">正则表达式noNewlineRegex在创建时没有向re.compile()传入re.DOTALL，它将匹配所有字符，直到第一个换行字符。但是，newlineRegex在创建时向re.compile()传入了re.DOTALL，它将匹配所有字符。这就是为什么newlineRegex.search()调用匹配完整的字符串，包括其中的换行字符。</p>
+<h2 id="nav_point_183">7.10 正则表达式符号复习</h2>
+<p class="zw">本章介绍了许多表示法，所以这里快速复习一下学到的内容：</p>
+<ul>
+<li class="第1级无序列表">?匹配零次或一次前面的分组。</li>
+<li class="第1级无序列表">*匹配零次或多次前面的分组。</li>
+<li class="第1级无序列表">+匹配一次或多次前面的分组。</li>
+<li class="第1级无序列表">{n}匹配n次前面的分组。</li>
+<li class="第1级无序列表">{n,}匹配n次或更多前面的分组。</li>
+<li class="第1级无序列表">{,m}匹配零次到m次前面的分组。</li>
+<li class="第1级无序列表">{n,m}匹配至少n次、至多m次前面的分组。</li>
+<li class="第1级无序列表">{n,m}?或*?或+?对前面的分组进行非贪心匹配。</li>
+<li class="第1级无序列表">^spam意味着字符串必须以spam开始。</li>
+<li class="第1级无序列表">spam$意味着字符串必须以spam结束。</li>
+<li class="第1级无序列表">.匹配所有字符，换行符除外。</li>
+<li class="第1级无序列表">\d、\w和\s分别匹配数字、单词和空格。</li>
+<li class="第1级无序列表">\D、\W和\S分别匹配出数字、单词和空格外的所有字符。</li>
+<li class="第1级无序列表">[abc]匹配方括号内的任意字符（诸如a、b或c）。</li>
+<li class="第1级无序列表">[^abc]匹配不在方括号内的任意字符。</li>
+</ul>
+<h2 id="nav_point_184">7.11 不区分大小写的匹配</h2>
+<p class="zw">通常，正则表达式用你指定的大小写匹配文本。例如，下面的正则表达式匹配完全不同的字符串：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>regex1 = re.compile('RoboCop')</strong>
+&gt;&gt;&gt; <strong>regex2 = re.compile('ROBOCOP')</strong>
+&gt;&gt;&gt; <strong>regex3 = re.compile('robOcop')</strong>
+&gt;&gt;&gt; <strong>regex4 = re.compile('RobocOp')</strong>
+</code>
+</pre>
+<p class="zw">但是，有时候你只关心匹配字母，不关心它们是大写或小写。要让正则表达式不区分大小写，可以向re.compile()传入re.IGNORECASE或re.I，作为第二个参数。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>robocop = re.compile(r'robocop', re.I)</strong>
+&gt;&gt;&gt; <strong>robocop.search('RoboCop is part man, part machine, all cop.').group()</strong>
+'RoboCop'
+&gt;&gt;&gt; <strong>robocop.search('ROBOCOP protects the innocent.').group()</strong>
+'ROBOCOP'
+&gt;&gt;&gt; <strong>robocop.search('Al, why does your programming book talk about robocop so much?').group()</strong>
+'robocop'
+</code>
+</pre>
+<h2 id="nav_point_185">7.12 用sub()方法替换字符串</h2>
+<p class="zw">正则表达式不仅能找到文本模式，而且能够用新的文本替换掉这些模式。Regex对象的sub()方法需要传入两个参数。第一个参数是一个字符串，用于取代发现的匹配。第二个参数是一个字符串，是用正则表达式匹配的内容。sub()方法返回替换完成后的字符串。</p>
+<p class="zw">例如，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>namesRegex = re.compile(r'Agent \w+')</strong>
+&gt;&gt;&gt; <strong>namesRegex.sub('CENSORED', 'Agent Alice gave the secret documents to Agent Bob.')</strong>
+'CENSORED gave the secret documents to CENSORED.'
+</code>
+</pre>
+<p class="zw">有时候，你可能需要使用匹配的文本本身，作为替换的一部分。在sub()的第一个参数中，可以输入\1、\2、\3……。表示“在替换中输入分组1、2、3……的文本”。</p>
+<p class="zw">例如，假定想要隐去密探的姓名，只显示他们姓名的第一个字母。要做到这一点，可以使用正则表达式Agent (\w)\w<em>，传入r'\1</em>
+ *'作为sub()的第一个参数。字符串中的\1将由分组1匹配的文本所替代，也就是正则表达式的(\w)分组。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>agentNamesRegex = re.compile(r'Agent (\w)\w*')</strong>
+&gt;&gt;&gt; <strong>agentNamesRegex.sub(r'\1****', 'Agent Alice told Agent Carol that Agent</strong>
+<strong>Eve knew Agent Bob was a double agent.')</strong>
+A**** told C**** that E**** knew B**** was a double agent.'
+</code>
+</pre>
+<h2 id="nav_point_186">7.13 管理复杂的正则表达式</h2>
+<p class="zw">如果要匹配的文本模式很简单，正则表达式就很好。但匹配复杂的文本模式，可能需要长的、费解的正则表达式。你可以告诉re.compile()，忽略正则表达式字符串中的空白符和注释，从而缓解这一点。要实现这种详细模式，可以向re.compile()传入变量re.VERBOSE，作为第二个参数。</p>
+<p class="zw">现在，不必使用这样难以阅读的正则表达式：</p>
+<pre class="代码无行号"><code>phoneRegex = re.compile(r'((\d{3}|\(\d{3}\))?(\s|-|\.)?\d{3}(\s|-|\.)\d{4}
+(\s*(ext|x|ext.)\s*\d{2,5})?)')</code>
+</pre>
+<p class="zw">你可以将正则表达式放在多行中，并加上注释，像这样：</p>
+<pre class="代码无行号"><code>phoneRegex = re.compile(r'''(
+    (\d{3}|\(\d{3}\))?               # area code
+    (\s|-|\.)?                       # separator
+    \d{3}                            # first 3 digits
+    (\s|-|\.)                        # separator
+    \d{4}                            # last 4 digits
+    (\s*(ext|x|ext.)\s*\d{2,5})?     # extension
+    )''', re.VERBOSE)</code>
+</pre>
+<p class="zw">请注意，前面的例子使用了三重引号('")，创建了一个多行字符串。这样就可以将正则表达式定义放在多行中，让它更可读。</p>
+<p class="zw">正则表达式字符串中的注释规则，与普通的Python代码一样：#符号和它后面直到行末的内容，都被忽略。而且，表示正则表达式的多行字符串中，多余的空白字符也不认为是要匹配的文本模式的一部分。这让你能够组织正则表达式，让它更可读。</p>
+<h2 id="nav_point_187">7.14 组合使用re.IGNORECASE、re.DOTALL和re.VERBOSE</h2>
+<p class="zw">如果你希望在正则表达式中使用re.VERBOSE来编写注释，还希望使用re.IGNORECASE来忽略大小写，该怎么办？遗憾的是，re.compile()函数只接受一个值作为它的第二参数。可以使用管道字符（|）将变量组合起来，从而绕过这个限制。管道字符在这里称为“按位或”操作符。</p>
+<p class="zw">所以，如果希望正则表达式不区分大小写，并且句点字符匹配换行，就可以这样构造re.compile()调用：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>someRegexValue = re.compile('foo', re.IGNORECASE | re.DOTALL)</strong>
+</code>
+</pre>
+<p class="zw">使用第二个参数的全部3个选项，看起来像这样：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>someRegexValue = re.compile('foo', re.IGNORECASE | re.DOTALL | re.VERBOSE)</strong>
+</code>
+</pre>
+<p class="zw">这个语法有一点老式，源自于早期的Python版本。位运算符的细节超出了本书的范围，更多的信息请查看资源<a href="http://nostarch.com/automatestuff/">http://nostarch.com/automatestuff/</a>
+ 。可以向第二个参数传入其他选项，它们不常用，但你也可以在前面的资源中找到有关它们的信息。</p>
+<h2 id="nav_point_188">7.15 项目：电话号码和E-mail地址提取程序</h2>
+<p class="zw">假设你有一个无聊的任务，要在一篇长的网页或文章中，找出所有电话号码和邮件地址。如果手动翻页，可能需要查找很长时间。如果有一个程序，可以在剪贴板的文本中查找电话号码和E-mail地址，那你就只要按一下Ctrl-A选择所有文本，按下Ctrl-C将它复制到剪贴板，然后运行你的程序。它会用找到的电话号码和E-mail地址，替换掉剪贴板中的文本。</p>
+<p class="zw">当你开始接手一个新项目时，很容易想要直接开始写代码。但更多的时候，最好是后退一步，考虑更大的图景。我建议先草拟高层次的计划，弄清楚程序需要做什么。暂时不要思考真正的代码，稍后再来考虑。现在，先关注大框架。</p>
+<p class="zw">例如，你的电话号码和E-mail地址提取程序需要完成以下任务：</p>
+<ul>
+<li class="第1级无序列表">从剪贴板取得文本。</li>
+<li class="第1级无序列表">找出文本中所有的电话号码和E-mail地址。</li>
+<li class="第1级无序列表">将它们粘贴到剪贴板。</li>
+</ul>
+<p class="zw">现在你可以开始思考，如何用代码来完成工作。代码需要做下面的事情：</p>
+<ul>
+<li class="第1级无序列表">使用pyperclip模块复制和粘贴字符串。</li>
+<li class="第1级无序列表">创建两个正则表达式，一个匹配电话号码，另一个匹配E-mail地址。</li>
+<li class="第1级无序列表">对两个正则表达式，找到所有的匹配，而不只是第一次匹配。</li>
+<li class="第1级无序列表">将匹配的字符串整理好格式，放在一个字符串中，用于粘贴。</li>
+<li class="第1级无序列表">如果文本中没有找到匹配，显示某种消息。</li>
+</ul>
+<p class="zw">这个列表就像项目的路线图。在编写代码时，可以独立地关注其中的每一步。每一步都很好管理。它的表达方式让你知道在Python中如何去做。</p>
+<h3 id="nav_point_189">第1步：为电话号码创建一个正则表达式</h3>
+<p class="zw">首先，你需要创建一个正则表达式来查找电话号码。创建一个新文件，输入以下代码，保存为phoneAndEmail.py：</p>
+<pre class="代码无行号"><code>#! python3
+# phoneAndEmail.py - Finds phone numbers and email addresses on the clipboard.
+import pyperclip, re
+phoneRegex = re.compile(r'''(
+    (\d{3}|\(\d{3}\))?             # area code
+    (\s|-|\.)?                     # separator
+    (\d{3})                        # first 3 digits
+    (\s|-|\.)                      # separator
+    (\d{4})                        # last 4 digits
+    (\s*(ext|x|ext\.)\s*(\d{2,5}))?     # extension
+    )''', re.VERBOSE)
+# TODO: Create email regex.
+# TODO: Find matches in clipboard text.
+# TODO: Copy results to the clipboard.</code>
+</pre>
+<p class="zw">TODO注释仅仅是程序的框架。当编写真正的代码时，它们会被替换掉。</p>
+<p class="zw">电话号码从一个“可选的”区号开始，所以区号分组跟着一个问号。因为区号可能只是3个数字（即\d{3}），或括号中的3个数字（即(\d{3})），所以应该用管道符号连接这两部分。可以对这部分多行字符串加上正则表达式注释# Area code，帮助你记忆(\d{3}|(\d{3}))?要匹配的是什么。</p>
+<p class="zw">电话号码分割字符可以是空格（\s）、短横（-）或句点（.），所以这些部分也应该用管道连接。这个正则表达式接下来的几部分很简单：3个数字，接下来是另一个分割符，接下来是4个数字。最后的部分是可选的分机号，包括任意数目的空格，接着ext、x或ext.，再接着2到5位数字。</p>
+<h3 id="nav_point_190">第2步：为E-mail地址创建一个正则表达式</h3>
+<p class="zw">还需要一个正则表达式来匹配E-mail地址。让你的程序看起来像这样：</p>
+<pre class="代码无行号"><code>　#! python3
+　# phoneAndEmail.py - Finds phone numbers and email addresses on the clipboard.
+　import pyperclip, re
+　phoneRegex = re.compile(r'''(
+　--_snip_--
+　<strong># Create email regex.</strong>
+　<strong>emailRegex = re.compile(r'''(</strong>
+❶     <strong>[a-zA-Z0-9._%+-]+         # username</strong>
+❷     <strong>@                     # @ symbol</strong>
+❸     <strong>[a-zA-Z0-9.-]+         # domain name</strong>
+　<strong>    (\.[a-zA-Z]{2,4})     # dot-something</strong>
+　<strong>    )''', re.VERBOSE)</strong>
+　<strong>　</strong>
+　# TODO: Find matches in clipboard text.
+　# TODO: Copy results to the clipboard.
+</code>
+</pre>
+<p class="zw">E-mail地址的用户名部分❶是一个或多个字符，字符可以包括：小写和大写字母、数字、句点、下划线、百分号、加号或短横。可以将所有这些放入一个字符分类：[a-zA-Z0-9._%+-]。</p>
+<p class="zw">域名和用户名用@符号分割❷，域名❸允许的字符分类要少一些，只允许字母、数字、句点和短横：[a-zA-Z0-9.-]。最后是“dot-com”部分（技术上称为“顶级域名”），它实际上可以是“dot-anything”。它有2到4个字符。</p>
+<p class="zw">E-mail地址的格式有许多奇怪的规则。这个正则表达式不会匹配所有可能的、有效的E-mail地址，但它会匹配你遇到的大多数典型的电子邮件地址。</p>
+<h3 id="nav_point_191">第3步：在剪贴板文本中找到所有匹配</h3>
+<p class="zw">既然已经指定了电话号码和电子邮件地址的正则表达式，就可以让 Python的re模块做辛苦的工作，查找剪贴板文本中所有的匹配。pyperclip.paste()函数将取得一个字符串，内容是剪贴板上的文本，findall()正则表达式方法将返回一个元组的列表。</p>
+<p class="zw">让你的程序看起来像这样：</p>
+<pre class="代码无行号"><code>　#! python3
+　# phoneAndEmail.py - Finds phone numbers and email addresses on the clipboard.
+　import pyperclip, re
+　phoneRegex = re.compile(r＇＇＇(
+　--_snip_--
+　<strong># Find matches in clipboard text.</strong>
+　<strong>text = str(pyperclip.paste())</strong>
+❶ <strong>matches = []</strong>
+❷ <strong>for groups in phoneRegex.findall(text):</strong>
+　<strong>    phoneNum = '-'.join([groups[1], groups[3], groups[5]])</strong>
+　<strong>    if groups[8] != '':</strong>
+　<strong>        phoneNum += ' x' + groups[8]</strong>
+　<strong>    matches.append(phoneNum)</strong>
+❸ <strong>for groups in emailRegex.findall(text):</strong>
+　<strong>    matches.append(groups[0])</strong>
+　<strong>　</strong>
+　# TODO: Copy results to the clipboard.
+</code>
+</pre>
+<p class="zw">每个匹配对应一个元组，每个元组包含正则表达式中每个分组的字符串。回忆一下，分组0匹配整个正则表达式，所以在元组下标0处的分组，就是你感兴趣的内容。</p>
+<p class="zw">在❶处可以看到，你将所有的匹配保存在名为matches的列表变量中。它从一个空列表开始，经过几个for循环。对于E-mail地址，你将每次匹配的分组0添加到列表中❸。对于匹配的电话号码，你不想只是添加分组0。虽然程序可以“检测”几种不同形式的电话号码，你希望添加的电话号码是唯一的、标准的格式。phoneNum变量包含一个字符串，它由匹配文本的分组1、3、5和8构成❷。（这些分组是区号、前3个数字、后4个数字和分机号。）</p>
+<h3 id="nav_point_192">第4步：所有匹配连接成一个字符串，复制到剪贴板</h3>
+<p class="zw">现在，E-mail地址和电话号码已经作为字符串列表放在matches中，你希望将它们复制到剪贴板。pyperclip.copy()函数只接收一个字符串值，而不是字符串的列表，所以你在matches上调用join()方法。</p>
+<p class="zw">为了更容易看到程序在工作，让我们将所有找到的匹配都输出在终端上。如果没有找到电话号码或E-mail地址，程序应该告诉用户。</p>
+<p class="zw">让你的程序看起来像这样：</p>
+<pre class="代码无行号"><code>#! python3
+# phoneAndEmail.py - Finds phone numbers and email addresses on the clipboard.
+--_snip_--
+for groups in emailRegex.findall(text):
+<strong>    </strong>
+matches.append(groups[0])
+<strong># Copy results to the clipboard.</strong>
+<strong>if len(matches) &gt; 0:</strong>
+<strong>    pyperclip.copy('\n'.join(matches))</strong>
+<strong>    print('Copied to clipboard:')</strong>
+<strong>    print('\n'.join(matches))</strong>
+<strong>else:</strong>
+<strong>    print('No phone numbers or email addresses found.')</strong>
+</code>
+</pre>
+<h3 id="nav_point_193">第5步：运行程序</h3>
+<p class="zw">作为一个例子，打开你的Web浏览器，访问No Starch Press的联系页面http://www.nostarch.com/contactus.htm。按下Ctrl-A选择该页的所有文本，按下Ctrl-C将它复制到剪贴板。运行这个程序，输出看起来像这样：</p>
+<pre class="代码无行号"><code>Copied to clipboard:
+800-420-7240
+415-863-9900
+415-863-9950
+info@nostarch.com
+media@nostarch.com
+academic@nostarch.com
+help@nostarch.com</code>
+</pre>
+<h3 id="nav_point_194">第6步：类似程序的构想</h3>
+<p class="zw">识别文本的模式（并且可能用sub()方法替换它们）有许多不同潜在的应用。</p>
+<ul>
+<li class="第1级无序列表">寻找网站的URL，它们以http://或https://开始。</li>
+<li class="第1级无序列表">整理不同日期格式的日期（诸如3/14/2015、03-14-2015和2015/3/14），用唯一的标准格式替代。</li>
+<li class="第1级无序列表">删除敏感的信息，诸如社会保险号或信用卡号。</li>
+<li class="第1级无序列表">寻找常见打字错误，诸如单词间的多个空格、不小心重复的单词，或者句子末尾处多个感叹号。它们很烦人！！</li>
+</ul>
+<h2 id="nav_point_195">7.16 小结</h2>
+<p class="zw">虽然计算机可以很快地查找文本，但你必须精确地告诉它要找什么。正则表达式让你精确地指明要找的文本模式。实际上，某些文字处理和电子表格应用提供了查找替换功能，让你使用正则表达式进行查找。</p>
+<p class="zw">Python自带的re模块让你编译Regex对象。该对象有几种方法：search()查找单词匹配，findall()查找所有匹配实例，sub()对文本进行查找和替换。</p>
+<p class="zw">除本章介绍的语法以外，还有一些正则表达式语法。你可以在官方Python文档中找到更多内容：<a href="http://docs.python.org/3/library/re.html">http://docs.python.org/3/library/re.html</a>
+ 。指南网站<a href="http://www.regular-expressions.info/">http://www.regular- expressions.info/</a>
+ 也是很有用的资源。</p>
+<p class="zw">既然已经掌握了如何操纵和匹配字符串，接下来就该学习如何在计算机硬盘上读写文件了。</p>
+<h2 id="nav_point_196">7.17 习题</h2>
+<p class="zw">1．创建Regex对象的函数是什么？</p>
+<p class="zw">2．在创建Regex对象时，为什么常用原始字符串？</p>
+<p class="zw">3．search()方法返回什么？</p>
+<p class="zw">4．通过Match对象，如何得到匹配该模式的实际字符串？</p>
+<p class="zw">5．用r'(\d\d\d)-(\d\d\d-\d\d\d\d)'创建的正则表达式中，分组0表示什么？分组1呢？分组2呢？</p>
+<p class="zw">6．括号和句点在正则表达式语法中有特殊的含义。如何指定正则表达式匹配真正的括号和句点字符？</p>
+<p class="zw">7．findall()方法返回一个字符串的列表，或字符串元组的列表。是什么决定它提供哪种返回？</p>
+<p class="zw">8．在正则表达式中，|字符表示什么意思？</p>
+<p class="zw">9．在正则表达式中，?字符有哪两种含义？</p>
+<p class="zw">10．在正则表达式中，+和*字符之间的区别是什么？</p>
+<p class="zw">11．在正则表达式中，{3}和{3,5}之间的区别是什么？</p>
+<p class="zw">12．在正则表达式中，\d、\w和\s缩写字符类是什么意思？</p>
+<p class="zw">13．在正则表达式中，\D、\W和\S缩写字符类是什么意思？</p>
+<p class="zw">14．如何让正则表达式不区分大小写？</p>
+<p class="zw">15．字符.通常匹配什么？如果re.DOTALL作为第二个参数传递给re.compile()，它会匹配什么？</p>
+<p class="zw">16．.*和.*?之间的区别是什么？</p>
+<p class="zw">17．匹配所有数字和小写字母的字符分类语法是什么？</p>
+<p class="zw">18．如果numRegex = re.compile(r'\d+')，那么numRegex.sub('X', '12 drummers, 11 pipers, five rings, 3 hens')返回什么？</p>
+<p class="zw">19．将re.VERBOSE作为第二个参数传递给re.compile()，让你能做什么？</p>
+<p class="zw">20．如何写一个正则表达式，匹配每3位就有一个逗号的数字？它必须匹配以下数字：</p>
+<ul>
+<li class="第1级无序列表">'42'</li>
+<li class="第1级无序列表">'1,234'</li>
+<li class="第1级无序列表">'6,368,745'</li>
+</ul>
+<p class="zw">但不会匹配：</p>
+<ul>
+<li class="第1级无序列表">'12,34,567' （逗号之间只有两位数字）</li>
+<li class="第1级无序列表">'1234' （缺少逗号）</li>
+</ul>
+<p class="zw">21．如何写一个正则表达式，匹配姓Nakamoto的完整姓名？你可以假定名字总是出现在姓前面，是一个大写字母开头的单词。该正则表达式必须匹配：</p>
+<ul>
+<li class="第1级无序列表">'Satoshi Nakamoto'</li>
+<li class="第1级无序列表">'Alice Nakamoto'</li>
+<li class="第1级无序列表">'RoboCop Nakamoto'</li>
+</ul>
+<p class="zw">但不匹配：</p>
+<ul>
+<li class="第1级无序列表">'satoshi Nakamoto'（名字没有大写首字母）</li>
+<li class="第1级无序列表">'Mr. Nakamoto'（前面的单词包含非字母字符）</li>
+<li class="第1级无序列表">'Nakamoto' （没有名字）</li>
+<li class="第1级无序列表">'Satoshi nakamoto'（姓没有首字母大写）</li>
+</ul>
+<p class="zw">22．如何编写一个正则表达式匹配一个句子，它的第一个词是Alice、Bob或Carol，第二个词是eats、pets或throws，第三个词是apples、cats或baseballs。该句子以句点结束。这个正则表达式应该不区分大小写。它必须匹配：</p>
+<ul>
+<li class="第1级无序列表">'Alice eats apples.'</li>
+<li class="第1级无序列表">'Bob pets cats.'</li>
+<li class="第1级无序列表">'Carol throws baseballs.'</li>
+<li class="第1级无序列表">'Alice throws Apples.'</li>
+<li class="第1级无序列表">'BOB EATS CATS.'</li>
+</ul>
+<p class="zw">但不匹配：</p>
+<ul>
+<li class="第1级无序列表">'RoboCop eats apples.'</li>
+<li class="第1级无序列表">'ALICE THROWS FOOTBALLS.'</li>
+<li class="第1级无序列表">'Carol eats 7 cats.'</li>
+</ul>
+<h2 id="nav_point_197">7.18 实践项目</h2>
+<p class="zw">作为实践，编程完成下列任务。</p>
+<h3 id="nav_point_198">7.18.1 强口令检测</h3>
+<p class="zw">写一个函数，它使用正则表达式，确保传入的口令字符串是强口令。强口令的定义是：长度不少于8个字符，同时包含大写和小写字符，至少有一位数字。你可能需要用多个正则表达式来测试该字符串，以保证它的强度。</p>
+<h3 id="nav_point_199">7.18.2 strip()的正则表达式版本</h3>
+<p class="zw">写一个函数，它接受一个字符串，做的事情和strip()字符串方法一样。如果只传入了要去除的字符串，没有其他参数，那么就从该字符串首尾去除空白字符。否则，函数第二个参数指定的字符将从该字符串中去除。</p>
+<hr/>
+<p class="footnote">
+<a href="text00020.html#ac71" id="anchor71">[1]</a>
+ 　 Cory Doctorow, “Here’s what ICT should really teach kids: how to do regular expressions,”_Guardian_, December 4, 2012, _http://www.theguardian.com/technology/2012/dec/04/ict-teach-kids-regular-expressions/._</p>
+<p class="zw"><br style="page-break-after:always"/>
+</p>
+<div></div>
+]]></description>
+    <pubDate>Mon, 31 Aug 2026 04:29:58 +0000</pubDate>
+    <guid isPermaLink="false">31</guid>
+</item>
+<item>
       <title><![CDATA[WorkBuddyGuide-第 4 章 快速完成第一个 WorkBuddy 任务]]></title>
       <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%204%20%E7%AB%A0%20%E5%BF%AB%E9%80%9F%E5%AE%8C%E6%88%90%E7%AC%AC%E4%B8%80%E4%B8%AA%20WorkBuddy%20%E4%BB%BB%E5%8A%A1/</link>
       <description><![CDATA[学习时长：约1.5小时；学习内容：创建任务的完整流程（新建任务、选择目录、选择模式与模型、输入任务说明）[reference:6]、任务说明的写作方法（目标/输入/动作/约束/输出/验收）[reference:7]及三个入门任务实操（整理文件、生成会议纪要、Word转PPT）[reference:8]；学习目的：掌握创建和执行任务的全流程，能够独立完成第一个WorkBuddy任务]]></description>
@@ -4479,12 +5224,5 @@ Beautiful is better than ugly.&lt;/code&gt;
     <pubDate>Thu, 13 Aug 2026 00:51:18 +0000</pubDate>
     <guid isPermaLink="false">2</guid>
 </item>
-<item>
-      <title>WorkBuddyGuide-本篇导读</title>
-      <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/</link>
-      <description>学习时长：约0.5小时；学习内容：第一篇的整体导览，了解从入门到基础功能的学习路径；学习目的：明确第一篇的学习框架，为后续章节学习做好准备</description>
-      <guid isPermaLink="false">https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/</guid>
-      <pubDate>Wed, 12 Aug 2026 07:16:14 +0000</pubDate>
-    </item>
 </channel>
 </rss>
