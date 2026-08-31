@@ -1,267 +1,275 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-    <title>我的每日小说</title>
-    <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
-    <description>从 EPUB 自动生成的 RSS 订阅源</description>
-        <item>
+  <title>每日更新推送</title>
+  <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
+  <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
+  <lastBuildDate>Mon, 31 Aug 2026 04:20:41 +0000</lastBuildDate>
+    <item>
+      <title><![CDATA[WorkBuddyGuide-第 4 章 快速完成第一个 WorkBuddy 任务]]></title>
+      <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%204%20%E7%AB%A0%20%E5%BF%AB%E9%80%9F%E5%AE%8C%E6%88%90%E7%AC%AC%E4%B8%80%E4%B8%AA%20WorkBuddy%20%E4%BB%BB%E5%8A%A1/</link>
+      <description><![CDATA[学习时长：约1.5小时；学习内容：创建任务的完整流程（新建任务、选择目录、选择模式与模型、输入任务说明）[reference:6]、任务说明的写作方法（目标/输入/动作/约束/输出/验收）[reference:7]及三个入门任务实操（整理文件、生成会议纪要、Word转PPT）[reference:8]；学习目的：掌握创建和执行任务的全流程，能够独立完成第一个WorkBuddy任务]]></description>
+      <guid isPermaLink="false">https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%204%20%E7%AB%A0%20%E5%BF%AB%E9%80%9F%E5%AE%8C%E6%88%90%E7%AC%AC%E4%B8%80%E4%B8%AA%20WorkBuddy%20%E4%BB%BB%E5%8A%A1/</guid>
+      <pubDate>Mon, 31 Aug 2026 04:20:41 +0000</pubDate>
+    </item>
+<item>
     <title>AutomaticApplicationPython - 030 - 第6章 字符串操作.epub</title>
-    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：62 分钟 (18374 字)</p><hr><h1 id="nav_point_131">第6章　字符串操作</h1>
-<p class="zw">文本是程序需要处理的最常见的数据形式。你已经知道如何用+操作符连接两个字符串，但能做的事情还要多得多。可以从字符串中提取部分字符串，添加或删除空白字符，将字母转换成小写或大写，检查字符串的格式是否正确。你甚至可以编写Python代码访问剪贴板，复制或粘贴文本。</p>
-<p class="zw">在本章中，你将学习所有这些内容和更多内容。然后你会看到两个不同的编程项目：一个是简单的口令管理器，另一个将枯燥的文本格式化工作自动化。</p>
-<h2 id="nav_point_132">6.1 处理字符串</h2>
-<p class="zw">让我们来看看，Python提供的写入、打印和访问字符串的一些方法。</p>
-<h3 id="nav_point_133">6.1.1 字符串字面量</h3>
-<p class="zw">在Python中输入字符串值相当简单的：它们以单引号开始和结束。但是如何才能在字符串内使用单引号呢？输入'That is Alice's cat.'是不行的，因为Python认为这个字符串在Alice之后就结束了，剩下的（s cat.'）是无效的Python代码。好在，有几种方法来输入字符串。</p>
-<h3 id="nav_point_134">6.1.2 双引号</h3>
-<p class="zw">字符串可以用双引号开始和结束，就像用单引号一样。使用双引号的一个好处，就是字符串中可以使用单引号字符。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam</strong>
- = <strong>"That is Alice's cat."</strong>
-</code>
-</pre>
-<p class="zw">因为字符串以双引号开始，所以Python知道单引号是字符串的一部分，而不是表示字符串的结束。但是，如果在字符串中既需要使用单引号又需要使用双引号，那就要使用转义字符。</p>
-<h3 id="nav_point_135">6.1.3 转义字符</h3>
-<p class="zw">“转义字符”让你输入一些字符，它们用其他方式是不可能放在字符串里的。转义字符包含一个倒斜杠（\），紧跟着是想要添加到字符串中的字符。（尽管它包含两个字符，但大家公认它是一个转义字符。）例如，单引号的转义字符是\’。你可以在单引号开始和结束的字符串中使用它。为了看看转义字符的效果，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = 'Say hi to Bob\'s mother.'</strong>
-</code>
-</pre>
-<p class="zw">Python知道，因为Bob\'s中的单引号有一个倒斜杠，所以它不是表示字符串结束的单引号。转义字符\'和\"让你能在字符串中加入单引号和双引号。</p>
-<p class="zw">表6-1列出了可用的转义字符。</p>
-<p class="表题">表6-1 转义字符</p>
-<table border="1" width="90%">
-<thead>
-<tr>
-<th>
-<p class="表头单元格">转义字符</p>
-</th>
-<th>
-<p class="表头单元格">打印为</p>
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>
-<p class="表格单元格">\'</p>
-</td>
-<td>
-<p class="表格单元格">单引号</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">\"</p>
-</td>
-<td>
-<p class="表格单元格">双引号</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">\t</p>
-</td>
-<td>
-<p class="表格单元格">制表符</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">\n</p>
-</td>
-<td>
-<p class="表格单元格">换行符</p>
-</td>
-</tr>
-<tr>
-<td>
-<p class="表格单元格">\\</p>
-</td>
-<td>
-<p class="表格单元格">倒斜杠</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="zw">在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>print("Hello there!\nHow are you?\nI\'m doing fine.")</strong>
+    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：62 分钟 (18374 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_131"&gt;第6章　字符串操作&lt;/h1&gt;
+&lt;p class="zw"&gt;文本是程序需要处理的最常见的数据形式。你已经知道如何用+操作符连接两个字符串，但能做的事情还要多得多。可以从字符串中提取部分字符串，添加或删除空白字符，将字母转换成小写或大写，检查字符串的格式是否正确。你甚至可以编写Python代码访问剪贴板，复制或粘贴文本。&lt;/p&gt;
+&lt;p class="zw"&gt;在本章中，你将学习所有这些内容和更多内容。然后你会看到两个不同的编程项目：一个是简单的口令管理器，另一个将枯燥的文本格式化工作自动化。&lt;/p&gt;
+&lt;h2 id="nav_point_132"&gt;6.1 处理字符串&lt;/h2&gt;
+&lt;p class="zw"&gt;让我们来看看，Python提供的写入、打印和访问字符串的一些方法。&lt;/p&gt;
+&lt;h3 id="nav_point_133"&gt;6.1.1 字符串字面量&lt;/h3&gt;
+&lt;p class="zw"&gt;在Python中输入字符串值相当简单的：它们以单引号开始和结束。但是如何才能在字符串内使用单引号呢？输入'That is Alice's cat.'是不行的，因为Python认为这个字符串在Alice之后就结束了，剩下的（s cat.'）是无效的Python代码。好在，有几种方法来输入字符串。&lt;/p&gt;
+&lt;h3 id="nav_point_134"&gt;6.1.2 双引号&lt;/h3&gt;
+&lt;p class="zw"&gt;字符串可以用双引号开始和结束，就像用单引号一样。使用双引号的一个好处，就是字符串中可以使用单引号字符。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
+ = &lt;strong&gt;"That is Alice's cat."&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;因为字符串以双引号开始，所以Python知道单引号是字符串的一部分，而不是表示字符串的结束。但是，如果在字符串中既需要使用单引号又需要使用双引号，那就要使用转义字符。&lt;/p&gt;
+&lt;h3 id="nav_point_135"&gt;6.1.3 转义字符&lt;/h3&gt;
+&lt;p class="zw"&gt;“转义字符”让你输入一些字符，它们用其他方式是不可能放在字符串里的。转义字符包含一个倒斜杠（\），紧跟着是想要添加到字符串中的字符。（尽管它包含两个字符，但大家公认它是一个转义字符。）例如，单引号的转义字符是\’。你可以在单引号开始和结束的字符串中使用它。为了看看转义字符的效果，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = 'Say hi to Bob\'s mother.'&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;Python知道，因为Bob\'s中的单引号有一个倒斜杠，所以它不是表示字符串结束的单引号。转义字符\'和\"让你能在字符串中加入单引号和双引号。&lt;/p&gt;
+&lt;p class="zw"&gt;表6-1列出了可用的转义字符。&lt;/p&gt;
+&lt;p class="表题"&gt;表6-1 转义字符&lt;/p&gt;
+&lt;table border="1" width="90%"&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;
+&lt;p class="表头单元格"&gt;转义字符&lt;/p&gt;
+&lt;/th&gt;
+&lt;th&gt;
+&lt;p class="表头单元格"&gt;打印为&lt;/p&gt;
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;\'&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;单引号&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;\"&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;双引号&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;\t&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;制表符&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;\n&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;换行符&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;\\&lt;/p&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;p class="表格单元格"&gt;倒斜杠&lt;/p&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p class="zw"&gt;在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;print("Hello there!\nHow are you?\nI\'m doing fine.")&lt;/strong&gt;
 Hello there!
 How are you?
 I'm doing fine.
-</code>
-</pre>
-<h3 id="nav_point_136">6.1.4 原始字符串</h3>
-<p class="zw">可以在字符串开始的引号之前加上r，使它成为原始字符串。“原始字符串”完全忽略所有的转义字符，打印出字符串中所有的倒斜杠。例如，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>print(r'That is Carol\'s cat.')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_136"&gt;6.1.4 原始字符串&lt;/h3&gt;
+&lt;p class="zw"&gt;可以在字符串开始的引号之前加上r，使它成为原始字符串。“原始字符串”完全忽略所有的转义字符，打印出字符串中所有的倒斜杠。例如，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;print(r'That is Carol\'s cat.')&lt;/strong&gt;
 That is Carol\'s cat.
-</code>
-</pre>
-<p class="zw">因为这是原始字符串，Python认为倒斜杠是字符串的一部分，而不是转义字符的开始。如果输入的字符串包含许多倒斜杠，比如下一章中要介绍的正则表达式字符串，那么原始字符串就很有用。</p>
-<h3 id="nav_point_137">6.1.5 用三重引号的多行字符串</h3>
-<p class="zw">虽然可以用\n转义字符将换行放入一个字符串，但使用多行字符串通常更容易。在Python中，多行字符串的起止是3个单引号或3个双引号。“三重引号”之间的所有引号、制表符或换行，都被认为是字符串的一部分。Python的代码块缩进规则不适用于多行字符串。</p>
-<p class="zw">打开文件编辑器，输入以下代码：</p>
-<pre class="代码无行号"><code>print('''Dear Alice,
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;因为这是原始字符串，Python认为倒斜杠是字符串的一部分，而不是转义字符的开始。如果输入的字符串包含许多倒斜杠，比如下一章中要介绍的正则表达式字符串，那么原始字符串就很有用。&lt;/p&gt;
+&lt;h3 id="nav_point_137"&gt;6.1.5 用三重引号的多行字符串&lt;/h3&gt;
+&lt;p class="zw"&gt;虽然可以用\n转义字符将换行放入一个字符串，但使用多行字符串通常更容易。在Python中，多行字符串的起止是3个单引号或3个双引号。“三重引号”之间的所有引号、制表符或换行，都被认为是字符串的一部分。Python的代码块缩进规则不适用于多行字符串。&lt;/p&gt;
+&lt;p class="zw"&gt;打开文件编辑器，输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;print('''Dear Alice,
 Eve's cat has been arrested for catnapping, cat burglary, and extortion.
 Sincerely,
-Bob''')</code>
-</pre>
-<p class="zw">将该程序保存为catnapping.py并运行。输出看起来像这样：</p>
-<pre class="代码无行号"><code>Dear Alice,
+Bob''')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;将该程序保存为catnapping.py并运行。输出看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Dear Alice,
 Eve's cat has been arrested for catnapping, cat burglary, and extortion.
 Sincerely,
-Bob</code>
-</pre>
-<p class="zw">请注意，Eve's中的单引号字符不需要转义。在原始字符串中，转义单引号和双引号是可选的。下面的print()调用将打印出同样的文本，但没有使用多行字符串：</p>
-<pre class="代码无行号"><code>print('Dear Alice,\n\nEve\'s cat has been arrested for catnapping, cat
-burglary, and extortion.\n\nSincerely,\nBob')</code>
-</pre>
-<h3 id="nav_point_138">6.1.6 多行注释</h3>
-<p class="zw">虽然井号字符（#）表示这一行是注释，但多行字符串常常用作多行注释。下面是完全有效的Python代码：</p>
-<pre class="代码无行号"><code>"""This is a test Python program.
+Bob&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;请注意，Eve's中的单引号字符不需要转义。在原始字符串中，转义单引号和双引号是可选的。下面的print()调用将打印出同样的文本，但没有使用多行字符串：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;print('Dear Alice,\n\nEve\'s cat has been arrested for catnapping, cat
+burglary, and extortion.\n\nSincerely,\nBob')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_138"&gt;6.1.6 多行注释&lt;/h3&gt;
+&lt;p class="zw"&gt;虽然井号字符（#）表示这一行是注释，但多行字符串常常用作多行注释。下面是完全有效的Python代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;"""This is a test Python program.
 Written by Al Sweigart al@inventwithpython.com
 This program was designed for Python 3, not Python 2.
 """
 def spam():
     """This is a multiline comment to help
     explain what the spam() function does."""
-    print('Hello!')</code>
-</pre>
-<h3 id="nav_point_139">6.1.7 字符串下标和切片</h3>
-<p class="zw">字符串像列表一样，使用下标和切片。可以将字符串'Hello world!'看成是一个列表，字符串中的每个字符都是一个表项，有对应的下标。</p>
-<pre class="代码无行号"><code>'  H  e  l  l  o      w  o  r  l  d   !   '
-    0  1  2  3  4  5  6  7  8  9  10 11</code>
-</pre>
-<p class="zw">字符计数包含了空格和感叹号，所以'Hello world!'有12个字符，H的下标是0，!的下标是11。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = 'Hello world!'</strong>
-&gt;&gt;&gt; <strong>spam[0]</strong>
+    print('Hello!')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_139"&gt;6.1.7 字符串下标和切片&lt;/h3&gt;
+&lt;p class="zw"&gt;字符串像列表一样，使用下标和切片。可以将字符串'Hello world!'看成是一个列表，字符串中的每个字符都是一个表项，有对应的下标。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;'  H  e  l  l  o      w  o  r  l  d   !   '
+    0  1  2  3  4  5  6  7  8  9  10 11&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;字符计数包含了空格和感叹号，所以'Hello world!'有12个字符，H的下标是0，!的下标是11。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = 'Hello world!'&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[0]&lt;/strong&gt;
 'H'
-&gt;&gt;&gt; <strong>spam[4]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[4]&lt;/strong&gt;
 'o'
-&gt;&gt;&gt; <strong>spam[-1]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[-1]&lt;/strong&gt;
 '!'
-&gt;&gt;&gt; <strong>spam[0:5]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[0:5]&lt;/strong&gt;
 'Hello'
-&gt;&gt;&gt; <strong>spam[:5]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[:5]&lt;/strong&gt;
 'Hello'
-&gt;&gt;&gt; <strong>spam[6:]</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam[6:]&lt;/strong&gt;
 'world!'
-</code>
-</pre>
-<p class="zw">如果指定一个下标，你将得到字符串在该处的字符。如果用一个下标和另一个下标指定一个范围，开始下标将被包含，结束下标则不包含。因此，如果spam是'Hello world!'，spam[0:5]就是'Hello'。通过spam[0:5]得到的子字符串，将包含spam[0]到spam[4]的全部内容，而不包括下标5处的空格。</p>
-<p class="zw">请注意，字符串切片并没有修改原来的字符串。可以从一个变量中获取切片，记录在另一个变量中。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = 'Hello world!'</strong>
-&gt;&gt;&gt; <strong>fizz = spam[0:5]</strong>
-&gt;&gt;&gt; <strong>fizz</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果指定一个下标，你将得到字符串在该处的字符。如果用一个下标和另一个下标指定一个范围，开始下标将被包含，结束下标则不包含。因此，如果spam是'Hello world!'，spam[0:5]就是'Hello'。通过spam[0:5]得到的子字符串，将包含spam[0]到spam[4]的全部内容，而不包括下标5处的空格。&lt;/p&gt;
+&lt;p class="zw"&gt;请注意，字符串切片并没有修改原来的字符串。可以从一个变量中获取切片，记录在另一个变量中。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = 'Hello world!'&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;fizz = spam[0:5]&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;fizz&lt;/strong&gt;
 'Hello'
-</code>
-</pre>
-<p class="zw">通过切片并将结果子字符串保存在另一个变量中，就可以同时拥有完整的字符串和子字符串，便于快速简单的访问。</p>
-<h3 id="nav_point_140">6.1.8 字符串的in和not in操作符</h3>
-<p class="zw">像列表一样，in和not in操作符也可以用于字符串。用in或not in连接两个字符串得到的表达式，将求值为布尔值True或False。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>'Hello' in 'Hello World'</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;通过切片并将结果子字符串保存在另一个变量中，就可以同时拥有完整的字符串和子字符串，便于快速简单的访问。&lt;/p&gt;
+&lt;h3 id="nav_point_140"&gt;6.1.8 字符串的in和not in操作符&lt;/h3&gt;
+&lt;p class="zw"&gt;像列表一样，in和not in操作符也可以用于字符串。用in或not in连接两个字符串得到的表达式，将求值为布尔值True或False。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello' in 'Hello World'&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'Hello' in 'Hello'</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello' in 'Hello'&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'HELLO' in 'Hello World'</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'HELLO' in 'Hello World'&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>'' in 'spam'</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'' in 'spam'&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'cats' not in 'cats and dogs'</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'cats' not in 'cats and dogs'&lt;/strong&gt;
 False
-</code>
-</pre>
-<p class="zw">这些表达式测试第一个字符串（精确匹配，区分大小写）是否在第二个字符串中。</p>
-<h2 id="nav_point_141">6.2 有用的字符串方法</h2>
-<p class="zw">一些字符串方法会分析字符串，或生成转变过的字符串。本节介绍了这些方法，你会经常使用它们。</p>
-<h3 id="nav_point_142">6.2.1 字符串方法upper()、lower()、isupper()和islower()</h3>
-<p class="zw">upper()和lower()字符串方法返回一个新字符串，其中原字符串的所有字母都被相应地转换为大写或小写。字符串中非字母字符保持不变。</p>
-<p class="zw">在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = 'Hello world!'</strong>
-&gt;&gt;&gt; <strong>spam = spam.upper()</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这些表达式测试第一个字符串（精确匹配，区分大小写）是否在第二个字符串中。&lt;/p&gt;
+&lt;h2 id="nav_point_141"&gt;6.2 有用的字符串方法&lt;/h2&gt;
+&lt;p class="zw"&gt;一些字符串方法会分析字符串，或生成转变过的字符串。本节介绍了这些方法，你会经常使用它们。&lt;/p&gt;
+&lt;h3 id="nav_point_142"&gt;6.2.1 字符串方法upper()、lower()、isupper()和islower()&lt;/h3&gt;
+&lt;p class="zw"&gt;upper()和lower()字符串方法返回一个新字符串，其中原字符串的所有字母都被相应地转换为大写或小写。字符串中非字母字符保持不变。&lt;/p&gt;
+&lt;p class="zw"&gt;在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = 'Hello world!'&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = spam.upper()&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 'HELLO WORLD!'
-&gt;&gt;&gt; <strong>spam = spam.lower()</strong>
-&gt;&gt;&gt; <strong>spam</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = spam.lower()&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
 'hello world!'
-</code>
-</pre>
-<p class="zw">请注意，这些方法没有改变字符串本身，而是返回一个新字符串。如果你希望改变原来的字符串，就必须在该字符串上调用upper()或lower()，然后将这个新字符串赋给保存原来字符串的变量。这就是为什么必须使用 spam = spam.upper()，才能改变spam中的字符串，而不是仅仅使用spam.upper()（这就好比，如果变量eggs中包含值10，写下eggs + 3并不会改变eggs的值，但是eggs = eggs + 3会改变eggs的值）。</p>
-<p class="zw">如果需要进行大小写无关的比较，upper()和lower()方法就很有用。字符串'great'和'GREat'彼此不相等。但在下面的小程序中，用户输入Great、GREAT或grEAT都没关系，因为字符串首先被转换成小写。</p>
-<pre class="代码无行号"><code>print('How are you?')
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;请注意，这些方法没有改变字符串本身，而是返回一个新字符串。如果你希望改变原来的字符串，就必须在该字符串上调用upper()或lower()，然后将这个新字符串赋给保存原来字符串的变量。这就是为什么必须使用 spam = spam.upper()，才能改变spam中的字符串，而不是仅仅使用spam.upper()（这就好比，如果变量eggs中包含值10，写下eggs + 3并不会改变eggs的值，但是eggs = eggs + 3会改变eggs的值）。&lt;/p&gt;
+&lt;p class="zw"&gt;如果需要进行大小写无关的比较，upper()和lower()方法就很有用。字符串'great'和'GREat'彼此不相等。但在下面的小程序中，用户输入Great、GREAT或grEAT都没关系，因为字符串首先被转换成小写。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;print('How are you?')
 feeling = input()
 if feeling.lower() == 'great':
     print('I feel great too.')
 else:
-    print('I hope the rest of your day is good.')</code>
-</pre>
-<p class="zw">在运行该程序时，先显示问题，然后输入变形的great，如GREat，程序将给出输出I feel great too。在程序中加入代码，处理多种用户输入情况或输入错误，诸如大小写不一致，这会让程序更容易使用，且更不容易失效。</p>
-<pre class="代码无行号"><code>How are you?
-<strong>GREat</strong>
+    print('I hope the rest of your day is good.')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;在运行该程序时，先显示问题，然后输入变形的great，如GREat，程序将给出输出I feel great too。在程序中加入代码，处理多种用户输入情况或输入错误，诸如大小写不一致，这会让程序更容易使用，且更不容易失效。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;How are you?
+&lt;strong&gt;GREat&lt;/strong&gt;
 I feel great too.
-</code>
-</pre>
-<p class="zw">如果字符串至少有一个字母，并且所有字母都是大写或小写，isupper()和islower()方法就会相应地返回布尔值True。否则，该方法返回False。在交互式环境中输入以下代码，并注意每个方法调用的返回值：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = 'Hello world!'</strong>
-&gt;&gt;&gt; <strong>spam.islower()</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果字符串至少有一个字母，并且所有字母都是大写或小写，isupper()和islower()方法就会相应地返回布尔值True。否则，该方法返回False。在交互式环境中输入以下代码，并注意每个方法调用的返回值：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = 'Hello world!'&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.islower()&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>spam.isupper()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.isupper()&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>'HELLO'.isupper()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'HELLO'.isupper()&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'abc12345'.islower()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'abc12345'.islower()&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'12345'.islower()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'12345'.islower()&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>'12345'.isupper()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'12345'.isupper()&lt;/strong&gt;
 False
-</code>
-</pre>
-<p class="zw">因为upper()和lower()字符串方法本身返回字符串，所以也可以在“那些”返回的字符串上继续调用字符串方法。这样做的表达式看起来就像方法调用链。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>'Hello'.upper()</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;因为upper()和lower()字符串方法本身返回字符串，所以也可以在“那些”返回的字符串上继续调用字符串方法。这样做的表达式看起来就像方法调用链。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello'.upper()&lt;/strong&gt;
 'HELLO'
-&gt;&gt;&gt; <strong>'Hello'.upper().lower()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello'.upper().lower()&lt;/strong&gt;
 'hello'
-&gt;&gt;&gt; <strong>'Hello'.upper().lower().upper()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello'.upper().lower().upper()&lt;/strong&gt;
 'HELLO'
-&gt;&gt;&gt; <strong>'HELLO'.lower()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'HELLO'.lower()&lt;/strong&gt;
 'hello'
-&gt;&gt;&gt; <strong>'HELLO'.lower().islower()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'HELLO'.lower().islower()&lt;/strong&gt;
 True
-</code>
-</pre>
-<h3 id="nav_point_143">6.2.2 isX字符串方法</h3>
-<p class="zw">除了islower()和isupper()，还有几个字符串方法，它们的名字以is开始。这些方法返回一个布尔值，描述了字符串的特点。下面是一些常用的isX字符串方法：</p>
-<ul>
-<li class="第1级无序列表">isalpha()返回True，如果字符串只包含字母，并且非空；</li>
-<li class="第1级无序列表">isalnum()返回True，如果字符串只包含字母和数字，并且非空；</li>
-<li class="第1级无序列表">isdecimal()返回True，如果字符串只包含数字字符，并且非空；</li>
-<li class="第1级无序列表">isspace()返回True，如果字符串只包含空格、制表符和换行，并且非空；</li>
-<li class="第1级无序列表">.istitle()返回True，如果字符串仅包含以大写字母开头、后面都是小写字母的单词。</li>
-</ul>
-<p class="zw">在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>'hello'.isalpha()</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_143"&gt;6.2.2 isX字符串方法&lt;/h3&gt;
+&lt;p class="zw"&gt;除了islower()和isupper()，还有几个字符串方法，它们的名字以is开始。这些方法返回一个布尔值，描述了字符串的特点。下面是一些常用的isX字符串方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;isalpha()返回True，如果字符串只包含字母，并且非空；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;isalnum()返回True，如果字符串只包含字母和数字，并且非空；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;isdecimal()返回True，如果字符串只包含数字字符，并且非空；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;isspace()返回True，如果字符串只包含空格、制表符和换行，并且非空；&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;.istitle()返回True，如果字符串仅包含以大写字母开头、后面都是小写字母的单词。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'hello'.isalpha()&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'hello123'.isalpha()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'hello123'.isalpha()&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>'hello123'.isalnum()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'hello123'.isalnum()&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'hello'.isalnum()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'hello'.isalnum()&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'123'.isdecimal()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'123'.isdecimal()&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>' '.isspace()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;' '.isspace()&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'This Is Title Case'.istitle()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'This Is Title Case'.istitle()&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'This Is Title Case 123'.istitle()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'This Is Title Case 123'.istitle()&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'This Is not Title Case'.istitle()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'This Is not Title Case'.istitle()&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>'This Is NOT Title Case Either'.istitle()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'This Is NOT Title Case Either'.istitle()&lt;/strong&gt;
 False
-</code>
-</pre>
-<p class="zw">如果需要验证用户输入，isX字符串方法是有用的。例如，下面的程序反复询问用户年龄和口令，直到他们提供有效的输入。打开一个新的文件编辑器窗口，输入以下程序，保存为validateInput.py：</p>
-<pre class="代码无行号"><code>while True:
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果需要验证用户输入，isX字符串方法是有用的。例如，下面的程序反复询问用户年龄和口令，直到他们提供有效的输入。打开一个新的文件编辑器窗口，输入以下程序，保存为validateInput.py：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;while True:
     print('Enter your age:')
     age = input()
     if age.isdecimal():
@@ -272,122 +280,122 @@ while True:
     password = input()
     if password.isalnum():
         break
-    print('Passwords can only have letters and numbers.')</code>
-</pre>
-<p class="zw">在第一个while循环中，我们要求用户输入年龄，并将输入保存在age中。如果age是有效的值（数字），我们就跳出第一个while循环，转向第二个循环，询问口令。否则，我们告诉用户需要输入数字，并再次要求他们输入年龄。在第二个while循环中，我们要求输入口令，客户的输入保存在password中。如果输入是字母或数字，就跳出循环。如果不是，我们并不满意，于是告诉用户口令必须是字母或数字，并再次要求他们输入口令。</p>
-<p class="zw">如果运行，该程序的输出看起来如下：</p>
-<pre class="代码无行号"><code>Enter your age:
-<strong>forty two</strong>
+    print('Passwords can only have letters and numbers.')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;在第一个while循环中，我们要求用户输入年龄，并将输入保存在age中。如果age是有效的值（数字），我们就跳出第一个while循环，转向第二个循环，询问口令。否则，我们告诉用户需要输入数字，并再次要求他们输入年龄。在第二个while循环中，我们要求输入口令，客户的输入保存在password中。如果输入是字母或数字，就跳出循环。如果不是，我们并不满意，于是告诉用户口令必须是字母或数字，并再次要求他们输入口令。&lt;/p&gt;
+&lt;p class="zw"&gt;如果运行，该程序的输出看起来如下：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Enter your age:
+&lt;strong&gt;forty two&lt;/strong&gt;
 Please enter a number for your age.
 Enter your age:
-<strong>42</strong>
+&lt;strong&gt;42&lt;/strong&gt;
 Select a new password (letters and numbers only):
-<strong>secr3t!</strong>
+&lt;strong&gt;secr3t!&lt;/strong&gt;
 Passwords can only have letters and numbers.
 Select a new password (letters and numbers only):
-<strong>secr3t</strong>
-</code>
-</pre>
-<p class="zw">在变量上调用isdecimal()和isalnum()，我们就能够测试保存在这些变量中的值是否为数字，是否为字母或数字。这里，这些测试帮助我们拒绝输入forty two，接受42，拒绝secr3t!，接受secr3t。</p>
-<h3 id="nav_point_144">6.2.3 字符串方法startswith()和endswith()</h3>
-<p class="zw">startswith()和endswith()方法返回True，如果它们所调用的字符串以该方法传入的字符串开始或结束。否则，方法返回False。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>'Hello world!'.startswith('Hello')</strong>
+&lt;strong&gt;secr3t&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;在变量上调用isdecimal()和isalnum()，我们就能够测试保存在这些变量中的值是否为数字，是否为字母或数字。这里，这些测试帮助我们拒绝输入forty two，接受42，拒绝secr3t!，接受secr3t。&lt;/p&gt;
+&lt;h3 id="nav_point_144"&gt;6.2.3 字符串方法startswith()和endswith()&lt;/h3&gt;
+&lt;p class="zw"&gt;startswith()和endswith()方法返回True，如果它们所调用的字符串以该方法传入的字符串开始或结束。否则，方法返回False。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello world!'.startswith('Hello')&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'Hello world!'.endswith('world!')</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello world!'.endswith('world!')&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'abc123'.startswith('abcdef')</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'abc123'.startswith('abcdef')&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>'abc123'.endswith('12')</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'abc123'.endswith('12')&lt;/strong&gt;
 False
-&gt;&gt;&gt; <strong>'Hello world!'.startswith('Hello world!')</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello world!'.startswith('Hello world!')&lt;/strong&gt;
 True
-&gt;&gt;&gt; <strong>'Hello world!'.endswith('Hello world!')</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello world!'.endswith('Hello world!')&lt;/strong&gt;
 True
-</code>
-</pre>
-<p class="zw">如果只需要检查字符串的开始或结束部分是否等于另一个字符串，而不是整个字符串，这些方法就可以替代等于操作符==，这很有用。</p>
-<h3 id="nav_point_145">6.2.4 字符串方法join()和split()</h3>
-<p class="zw">如果有一个字符串列表，需要将它们连接起来，成为一个单独的字符串，join()方法就很有用。join()方法在一个字符串上调用，参数是一个字符串列表，返回一个字符串。返回的字符串由传入的列表中每个字符串连接而成。例如，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>', '.join(['cats', 'rats', 'bats'])</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果只需要检查字符串的开始或结束部分是否等于另一个字符串，而不是整个字符串，这些方法就可以替代等于操作符==，这很有用。&lt;/p&gt;
+&lt;h3 id="nav_point_145"&gt;6.2.4 字符串方法join()和split()&lt;/h3&gt;
+&lt;p class="zw"&gt;如果有一个字符串列表，需要将它们连接起来，成为一个单独的字符串，join()方法就很有用。join()方法在一个字符串上调用，参数是一个字符串列表，返回一个字符串。返回的字符串由传入的列表中每个字符串连接而成。例如，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;', '.join(['cats', 'rats', 'bats'])&lt;/strong&gt;
 'cats, rats, bats'
-&gt;&gt;&gt; <strong>' '.join(['My', 'name', 'is', 'Simon'])</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;' '.join(['My', 'name', 'is', 'Simon'])&lt;/strong&gt;
 'My name is Simon'
-&gt;&gt;&gt; <strong>'ABC'.join(['My', 'name', 'is', 'Simon'])</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'ABC'.join(['My', 'name', 'is', 'Simon'])&lt;/strong&gt;
 'MyABCnameABCisABCSimon'
-</code>
-</pre>
-<p class="zw">请注意，调用join()方法的字符串，被插入到列表参数中每个字符串的中间。例如，如果在', '字符串上调用join(['cats', 'rats', 'bats'])，返回的字符串就是'cats, rats, bats'。</p>
-<p class="zw">要记住，join()方法是针对一个字符串而调用的，并且传入一个列表值（很容易不小心用其他的方式调用它）。split()方法做的事情正好相反：它针对一个字符串调用，返回一个字符串列表。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>'My name is Simon'.split()</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;请注意，调用join()方法的字符串，被插入到列表参数中每个字符串的中间。例如，如果在', '字符串上调用join(['cats', 'rats', 'bats'])，返回的字符串就是'cats, rats, bats'。&lt;/p&gt;
+&lt;p class="zw"&gt;要记住，join()方法是针对一个字符串而调用的，并且传入一个列表值（很容易不小心用其他的方式调用它）。split()方法做的事情正好相反：它针对一个字符串调用，返回一个字符串列表。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'My name is Simon'.split()&lt;/strong&gt;
 ['My', 'name', 'is', 'Simon']
-</code>
-</pre>
-<p class="zw">默认情况下，字符串'My name is Simon'按照各种空白字符分割，诸如空格、制表符或换行符。这些空白字符不包含在返回列表的字符串中。也可以向split()方法传入一个分割字符串，指定它按照不同的字符串分割。例如，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>'MyABCnameABCisABCSimon'.split('ABC')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;默认情况下，字符串'My name is Simon'按照各种空白字符分割，诸如空格、制表符或换行符。这些空白字符不包含在返回列表的字符串中。也可以向split()方法传入一个分割字符串，指定它按照不同的字符串分割。例如，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'MyABCnameABCisABCSimon'.split('ABC')&lt;/strong&gt;
 ['My', 'name', 'is', 'Simon']
-&gt;&gt;&gt; <strong>'My name is Simon'.split('m')</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'My name is Simon'.split('m')&lt;/strong&gt;
 ['My na', 'e is Si', 'on']
-</code>
-</pre>
-<p class="zw">一个常见的split()用法，是按照换行符分割多行字符串。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = '''Dear Alice,</strong>
-<strong>How have you been? I am fine.</strong>
-<strong>There is a container in the fridge</strong>
-<strong>that is labeled "Milk Experiment".</strong>
-<strong>　</strong>
-<strong>Please do not drink it.</strong>
-<strong>Sincerely,</strong>
-<strong>Bob'''</strong>
-&gt;&gt;&gt; <strong>spam.split('\n')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;一个常见的split()用法，是按照换行符分割多行字符串。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = '''Dear Alice,&lt;/strong&gt;
+&lt;strong&gt;How have you been? I am fine.&lt;/strong&gt;
+&lt;strong&gt;There is a container in the fridge&lt;/strong&gt;
+&lt;strong&gt;that is labeled "Milk Experiment".&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
+&lt;strong&gt;Please do not drink it.&lt;/strong&gt;
+&lt;strong&gt;Sincerely,&lt;/strong&gt;
+&lt;strong&gt;Bob'''&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.split('\n')&lt;/strong&gt;
 ['Dear Alice,', 'How have you been? I am fine.', 'There is a container in the
 fridge', 'that is labeled "Milk Experiment".', '', 'Please do not drink it.',
 'Sincerely,', 'Bob']
-</code>
-</pre>
-<p class="zw">向split()方法传入参数’\n’，我们按照换行符分割变量中存储的多行字符串，返回列表中的每个表项，对应于字符串中的一行。</p>
-<h3 id="nav_point_146">6.2.5 用rjust()、ljust()和center()方法对齐文本</h3>
-<p class="zw">rjust()和ljust()字符串方法返回调用它们的字符串的填充版本，通过插入空格来对齐文本。这两个方法的第一个参数是一个整数长度，用于对齐字符串。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>'Hello'.rjust(10)</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;向split()方法传入参数’\n’，我们按照换行符分割变量中存储的多行字符串，返回列表中的每个表项，对应于字符串中的一行。&lt;/p&gt;
+&lt;h3 id="nav_point_146"&gt;6.2.5 用rjust()、ljust()和center()方法对齐文本&lt;/h3&gt;
+&lt;p class="zw"&gt;rjust()和ljust()字符串方法返回调用它们的字符串的填充版本，通过插入空格来对齐文本。这两个方法的第一个参数是一个整数长度，用于对齐字符串。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello'.rjust(10)&lt;/strong&gt;
 '      Hello'
-&gt;&gt;&gt; <strong>'Hello'.rjust(20)</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello'.rjust(20)&lt;/strong&gt;
 '                   Hello'
-&gt;&gt;&gt; <strong>'Hello World'.rjust(20)</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello World'.rjust(20)&lt;/strong&gt;
 '           Hello World'
-&gt;&gt;&gt; <strong>'Hello'.ljust(10)</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello'.ljust(10)&lt;/strong&gt;
 'Hello      '
-</code>
-</pre>
-<p class="zw">'Hello'.rjust(10)是说我们希望右对齐，将'Hello'放在一个长度为10的字符串中。'Hello'有5个字符，所以左边会加上5个空格，得到一个10个字符的字符串，实现'Hello'右对齐。</p>
-<p class="zw">rjust()和ljust()方法的第二个可选参数将指定一个填充字符，取代空格字符。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>'Hello'.rjust(20, '*')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;'Hello'.rjust(10)是说我们希望右对齐，将'Hello'放在一个长度为10的字符串中。'Hello'有5个字符，所以左边会加上5个空格，得到一个10个字符的字符串，实现'Hello'右对齐。&lt;/p&gt;
+&lt;p class="zw"&gt;rjust()和ljust()方法的第二个可选参数将指定一个填充字符，取代空格字符。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello'.rjust(20, '*')&lt;/strong&gt;
 '***************Hello'
-&gt;&gt;&gt; <strong>'Hello'.ljust(20, '-')</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello'.ljust(20, '-')&lt;/strong&gt;
 'Hello---------------'
-</code>
-</pre>
-<p class="zw">center()字符串方法与ljust()与rjust()类似，但它让文本居中，而不是左对齐或右对齐。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>'Hello'.center(20)</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;center()字符串方法与ljust()与rjust()类似，但它让文本居中，而不是左对齐或右对齐。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello'.center(20)&lt;/strong&gt;
 '       Hello '
-&gt;&gt;&gt; <strong>'Hello'.center(20, '=')</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello'.center(20, '=')&lt;/strong&gt;
 '=======Hello========'
-</code>
-</pre>
-<p class="zw">如果需要打印表格式数据，留出正确的空格，这些方法就特别有用。打开一个新的文件编辑器窗口，输入以下代码，并保存为picnicTable.py：</p>
-<pre class="代码无行号"><code>def printPicnic(itemsDict, leftWidth, rightWidth):
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果需要打印表格式数据，留出正确的空格，这些方法就特别有用。打开一个新的文件编辑器窗口，输入以下代码，并保存为picnicTable.py：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;def printPicnic(itemsDict, leftWidth, rightWidth):
     print('PICNIC ITEMS'.center(leftWidth + rightWidth, '-'))
     for k, v in itemsDict.items():
         print(k.ljust(leftWidth, '.') + str(v).rjust(rightWidth))
 picnicItems = {'sandwiches': 4, 'apples': 12, 'cups': 4, 'cookies': 8000}
 printPicnic(picnicItems, 12, 5)
-printPicnic(picnicItems, 20, 6)</code>
-</pre>
-<p class="zw">在这个程序中，我们定义了printPicnic()方法，它接受一个信息的字典，并利用center()、ljust()和rjust()，以一种干净对齐的表格形式显示这些信息。</p>
-<p class="zw">我们传递给printPicnic()的字典是picnicItems。在picnicItems中，我们有4个三明治、12个苹果、4个杯子和8000块饼干。我们希望将这些信息组织成两行，表项的名字在左边，数量在右边。</p>
-<p class="zw">要做到这一点，就需要决定左列和右列的宽度。与字典一起，我们将这些值传递给printPicnic()。</p>
-<p class="zw">printPicnic()接受一个字典，一个leftWidth表示表的左列宽度，一个rightWidth表示表的右列宽度。它打印出标题PICNIC ITEMS，在表上方居中。然后它遍历字典，每行打印一个键-值对。键左对齐，填充句号。值右对齐，填充空格。</p>
-<p class="zw">在定义printPicnic()后，我们定义了字典picnicItems，并调用printPicnic()两次，传入不同的表左右列宽度。</p>
-<p class="zw">运行该程序，野餐用品就会显示两次。第一次左列宽度是12个字符，右列宽度是5个字符。第二次它们分别是20个和6个字符。</p>
-<pre class="代码无行号"><code>---PICNIC ITEMS--
+printPicnic(picnicItems, 20, 6)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;在这个程序中，我们定义了printPicnic()方法，它接受一个信息的字典，并利用center()、ljust()和rjust()，以一种干净对齐的表格形式显示这些信息。&lt;/p&gt;
+&lt;p class="zw"&gt;我们传递给printPicnic()的字典是picnicItems。在picnicItems中，我们有4个三明治、12个苹果、4个杯子和8000块饼干。我们希望将这些信息组织成两行，表项的名字在左边，数量在右边。&lt;/p&gt;
+&lt;p class="zw"&gt;要做到这一点，就需要决定左列和右列的宽度。与字典一起，我们将这些值传递给printPicnic()。&lt;/p&gt;
+&lt;p class="zw"&gt;printPicnic()接受一个字典，一个leftWidth表示表的左列宽度，一个rightWidth表示表的右列宽度。它打印出标题PICNIC ITEMS，在表上方居中。然后它遍历字典，每行打印一个键-值对。键左对齐，填充句号。值右对齐，填充空格。&lt;/p&gt;
+&lt;p class="zw"&gt;在定义printPicnic()后，我们定义了字典picnicItems，并调用printPicnic()两次，传入不同的表左右列宽度。&lt;/p&gt;
+&lt;p class="zw"&gt;运行该程序，野餐用品就会显示两次。第一次左列宽度是12个字符，右列宽度是5个字符。第二次它们分别是20个和6个字符。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;---PICNIC ITEMS--
 sandwiches..    4
 apples......   12
 cups........    4
@@ -396,164 +404,164 @@ cookies..... 8000
 sandwiches..........    4
 apples..............   12
 cups................    4
-cookies............. 8000</code>
-</pre>
-<p class="zw">利用rjust()、ljust()和center()让你确保字符串整齐对齐，即使你不清楚字符串有多少字符。</p>
-<h3 id="nav_point_147">6.2.6 用strip()、rstrip()和lstrip()删除空白字符</h3>
-<p class="zw">有时候你希望删除字符串左边、右边或两边的空白字符（空格、制表符和换行符）。strip()字符串方法将返回一个新的字符串，它的开头或末尾都没有空白字符。lstrip()和rstrip()方法将相应删除左边或右边的空白字符。</p>
-<p class="zw">在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = ' Hello World '</strong>
-&gt;&gt;&gt; <strong>spam.strip()</strong>
+cookies............. 8000&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;利用rjust()、ljust()和center()让你确保字符串整齐对齐，即使你不清楚字符串有多少字符。&lt;/p&gt;
+&lt;h3 id="nav_point_147"&gt;6.2.6 用strip()、rstrip()和lstrip()删除空白字符&lt;/h3&gt;
+&lt;p class="zw"&gt;有时候你希望删除字符串左边、右边或两边的空白字符（空格、制表符和换行符）。strip()字符串方法将返回一个新的字符串，它的开头或末尾都没有空白字符。lstrip()和rstrip()方法将相应删除左边或右边的空白字符。&lt;/p&gt;
+&lt;p class="zw"&gt;在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = ' Hello World '&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.strip()&lt;/strong&gt;
 'Hello World'
-&gt;&gt;&gt; <strong>spam.lstrip()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.lstrip()&lt;/strong&gt;
 'Hello World '
-&gt;&gt;&gt; <strong>spam.rstrip()</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.rstrip()&lt;/strong&gt;
 '     Hello World'
-</code>
-</pre>
-<p class="zw">有一个可选的字符串参数，指定两边的哪些字符应该删除。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>spam = 'SpamSpamBaconSpamEggsSpamSpam'</strong>
-&gt;&gt;&gt; <strong>spam.strip('ampS')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;有一个可选的字符串参数，指定两边的哪些字符应该删除。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = 'SpamSpamBaconSpamEggsSpamSpam'&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam.strip('ampS')&lt;/strong&gt;
 'BaconSpamEggs'
-</code>
-</pre>
-<p class="zw">向strip()方法传入参数'ampS'，告诉它在变量中存储的字符串两端，删除出现的a、m、p和大写的S。传入strip()方法的字符串中，字符的顺序并不重要：strip('ampS')做的事情和strip('mapS')或strip('Spam')一样。</p>
-<h3 id="nav_point_148">6.2.7 用pyperclip模块拷贝粘贴字符串</h3>
-<p class="zw">pyperclip模块有copy()和paste()函数，可以向计算机的剪贴板发送文本，或从它接收文本。将程序的输出发送到剪贴板，使它很容易粘贴到邮件、文字处理程序或其他软件中。pyperclip模块不是Python自带的。要安装它，请遵从附录A中安装第三方模块的指南。安装pyperclip模块后，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>import pyperclip</strong>
-&gt;&gt;&gt; <strong>pyperclip.copy('Hello world!')</strong>
-&gt;&gt;&gt; <strong>pyperclip.paste()</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;向strip()方法传入参数'ampS'，告诉它在变量中存储的字符串两端，删除出现的a、m、p和大写的S。传入strip()方法的字符串中，字符的顺序并不重要：strip('ampS')做的事情和strip('mapS')或strip('Spam')一样。&lt;/p&gt;
+&lt;h3 id="nav_point_148"&gt;6.2.7 用pyperclip模块拷贝粘贴字符串&lt;/h3&gt;
+&lt;p class="zw"&gt;pyperclip模块有copy()和paste()函数，可以向计算机的剪贴板发送文本，或从它接收文本。将程序的输出发送到剪贴板，使它很容易粘贴到邮件、文字处理程序或其他软件中。pyperclip模块不是Python自带的。要安装它，请遵从附录A中安装第三方模块的指南。安装pyperclip模块后，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;import pyperclip&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;pyperclip.copy('Hello world!')&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;pyperclip.paste()&lt;/strong&gt;
 'Hello world!'
-</code>
-</pre>
-<p class="zw">当然，如果你的程序之外的某个程序改变了剪贴板的内容，paste()函数就会返回它。例如，如果我将这句话复制到剪贴板，然后调用paste()，看起来就会像这样：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>pyperclip.paste()</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;当然，如果你的程序之外的某个程序改变了剪贴板的内容，paste()函数就会返回它。例如，如果我将这句话复制到剪贴板，然后调用paste()，看起来就会像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;pyperclip.paste()&lt;/strong&gt;
 'For example, if I copied this sentence to the clipboard and then called
 paste(), it would look like this:'
-</code>
-</pre>
-<p class="editing-tag 超强提示标签">在IDLE之外运行Python脚本</p>
-<blockquote class="超强提示 editing-block">
-<p class="zw"><br/>
-</p>
-到目前为止，你一直在使用IDLE中的交互式环境和文件编辑器来运行Python脚本。但是，你不想每次运行一个脚本时，都打开IDLE和Python脚本，这样不方便。好在，有一些快捷方式，让你更容易地建立和运行Python脚本。这些步骤在Windows、OS X和Linux上稍有不同，但每一种都在附录B中描述。请翻到附录B，学习如何方便地运行Python脚本，并能够向它们传递命令行参数。（使用IDLE时，不能向程序传递命令行参数。）</blockquote>
-<h2 id="nav_point_149">6.3 项目：口令保管箱</h2>
-<p class="zw">你可能在许多不同网站上拥有账号，每个账号使用相同的口令是个坏习惯。如果这些网站中任何一个有安全漏洞，黑客就会知道你所有的其他账号的口令。最好是在你的计算机上，使用口令管理器软件，利用一个主控口令，解锁口令管理器。然后将某个账户口令拷贝到剪贴板，再将它粘贴到网站的口令输入框。</p>
-<p class="zw">你在这个例子中创建的口令管理器程序并不安全，但它基本展示了这种程序的工作原理。</p>
-<p class="editing-tag 超强提示标签">本章项目</p>
-<blockquote class="超强提示 editing-block">
-<p class="zw"><br/>
-</p>
-这是本书的第一个章内项目。以后，每章都会有一些项目，展示该章介绍的一些概念。这些项目的编写方式，让你从一个空白的文件编辑器窗口开始，得到一个完整的、能工作的程序。就像交互式环境的例子一样，不要只看项目的部分，要注意计算机的提示！</blockquote>
-<h3 id="nav_point_150">第1步：程序设计和数据结构</h3>
-<p class="zw">你希望用一个命令行参数来运行这个程序，该参数是账号的名称。例如，账号的口令将拷贝到剪贴板，这样用户就能将它粘贴到口令输入框。通过这种方式，用户可以有很长而复杂的口令，又不需要记住它们。</p>
-<p class="zw">打开一个新的文件编辑器窗口，将该程序保存为pw.py。程序开始时需要有一行#!（参见附录B），并且应该写一些注释，简单描述该程序。因为你希望关联每个账号的名称及其口令，所以可以将这些作为字符串保存在字典中。字典将是组织你的账号和口令数据的数据结构。让你的程序看起来像下面这样：</p>
-<pre class="代码无行号"><code>#! python3
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="editing-tag 超强提示标签"&gt;在IDLE之外运行Python脚本&lt;/p&gt;
+&lt;blockquote class="超强提示 editing-block"&gt;
+&lt;p class="zw"&gt;&lt;br/&gt;
+&lt;/p&gt;
+到目前为止，你一直在使用IDLE中的交互式环境和文件编辑器来运行Python脚本。但是，你不想每次运行一个脚本时，都打开IDLE和Python脚本，这样不方便。好在，有一些快捷方式，让你更容易地建立和运行Python脚本。这些步骤在Windows、OS X和Linux上稍有不同，但每一种都在附录B中描述。请翻到附录B，学习如何方便地运行Python脚本，并能够向它们传递命令行参数。（使用IDLE时，不能向程序传递命令行参数。）&lt;/blockquote&gt;
+&lt;h2 id="nav_point_149"&gt;6.3 项目：口令保管箱&lt;/h2&gt;
+&lt;p class="zw"&gt;你可能在许多不同网站上拥有账号，每个账号使用相同的口令是个坏习惯。如果这些网站中任何一个有安全漏洞，黑客就会知道你所有的其他账号的口令。最好是在你的计算机上，使用口令管理器软件，利用一个主控口令，解锁口令管理器。然后将某个账户口令拷贝到剪贴板，再将它粘贴到网站的口令输入框。&lt;/p&gt;
+&lt;p class="zw"&gt;你在这个例子中创建的口令管理器程序并不安全，但它基本展示了这种程序的工作原理。&lt;/p&gt;
+&lt;p class="editing-tag 超强提示标签"&gt;本章项目&lt;/p&gt;
+&lt;blockquote class="超强提示 editing-block"&gt;
+&lt;p class="zw"&gt;&lt;br/&gt;
+&lt;/p&gt;
+这是本书的第一个章内项目。以后，每章都会有一些项目，展示该章介绍的一些概念。这些项目的编写方式，让你从一个空白的文件编辑器窗口开始，得到一个完整的、能工作的程序。就像交互式环境的例子一样，不要只看项目的部分，要注意计算机的提示！&lt;/blockquote&gt;
+&lt;h3 id="nav_point_150"&gt;第1步：程序设计和数据结构&lt;/h3&gt;
+&lt;p class="zw"&gt;你希望用一个命令行参数来运行这个程序，该参数是账号的名称。例如，账号的口令将拷贝到剪贴板，这样用户就能将它粘贴到口令输入框。通过这种方式，用户可以有很长而复杂的口令，又不需要记住它们。&lt;/p&gt;
+&lt;p class="zw"&gt;打开一个新的文件编辑器窗口，将该程序保存为pw.py。程序开始时需要有一行#!（参见附录B），并且应该写一些注释，简单描述该程序。因为你希望关联每个账号的名称及其口令，所以可以将这些作为字符串保存在字典中。字典将是组织你的账号和口令数据的数据结构。让你的程序看起来像下面这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;#! python3
 # pw.py - An insecure password locker program.
 PASSWORDS = {'email': 'F7minlBDDuvMJuxESSKHFhTxFtjVB6',
              'blog': 'VmALvQyKAxiVH5G8v01if1MLZF3sdt',
-             'luggage': '12345'}</code>
-</pre>
-<h3 id="nav_point_151">第2步：处理命令行参数</h3>
-<p class="zw">命令行参数将存储在变量sys.argv中（关于如何在程序中使用命令行参数，更多信息请参见附录B）。sys.argv列表中的第一项总是一个字符串，它包含程序的文件名（'pw.py'）。第二项应该是第一个命令行参数。对于这个程序，这个参数就是账户名称，你希望获取它的口令。因为命令行参数是必须的，所以如果用户忘记添加参数（也就是说，如果列表中少于两个值），你就显示用法信息。让你的程序看起来像下面这样：</p>
-<pre class="代码无行号"><code>#! python3
+             'luggage': '12345'}&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_151"&gt;第2步：处理命令行参数&lt;/h3&gt;
+&lt;p class="zw"&gt;命令行参数将存储在变量sys.argv中（关于如何在程序中使用命令行参数，更多信息请参见附录B）。sys.argv列表中的第一项总是一个字符串，它包含程序的文件名（'pw.py'）。第二项应该是第一个命令行参数。对于这个程序，这个参数就是账户名称，你希望获取它的口令。因为命令行参数是必须的，所以如果用户忘记添加参数（也就是说，如果列表中少于两个值），你就显示用法信息。让你的程序看起来像下面这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;#! python3
 # pw.py - An insecure password locker program.
 PASSWORDS = {'email': 'F7minlBDDuvMJuxESSKHFhTxFtjVB6',
              'blog': 'VmALvQyKAxiVH5G8v01if1MLZF3sdt',
              'luggage': '12345'}
-<strong>import sys</strong>
-<strong>if len(sys.argv) &lt; 2:</strong>
-<strong>    print('Usage: python pw.py [account] - copy account password')</strong>
-<strong>    sys.exit()</strong>
-<strong>　</strong>
-<strong>account = sys.argv[1] # first command line arg is the account name</strong>
-</code>
-</pre>
-<h3 id="nav_point_152">第3步：复制正确的口令</h3>
-<p class="zw">既然账户名称已经作为字符串保存在变量account中，你就需要看看它是不是PASSWORDS字典中的键。如果是，你希望利用pyperclip.copy()，将该键的值复制到剪贴板（既然用到了pyperclip模块，就需要导入它）。请注意，实际上不需要account变量，你可以在程序中所有使用account的地方，直接使用sys.argv[1]。但名为account的变量更可读，不像是神秘的sys.argv[1]。</p>
-<p class="zw">让你的程序看起来像这样：</p>
-<pre class="代码无行号"><code>#! python3
+&lt;strong&gt;import sys&lt;/strong&gt;
+&lt;strong&gt;if len(sys.argv) &amp;lt; 2:&lt;/strong&gt;
+&lt;strong&gt;    print('Usage: python pw.py [account] - copy account password')&lt;/strong&gt;
+&lt;strong&gt;    sys.exit()&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
+&lt;strong&gt;account = sys.argv[1] # first command line arg is the account name&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;h3 id="nav_point_152"&gt;第3步：复制正确的口令&lt;/h3&gt;
+&lt;p class="zw"&gt;既然账户名称已经作为字符串保存在变量account中，你就需要看看它是不是PASSWORDS字典中的键。如果是，你希望利用pyperclip.copy()，将该键的值复制到剪贴板（既然用到了pyperclip模块，就需要导入它）。请注意，实际上不需要account变量，你可以在程序中所有使用account的地方，直接使用sys.argv[1]。但名为account的变量更可读，不像是神秘的sys.argv[1]。&lt;/p&gt;
+&lt;p class="zw"&gt;让你的程序看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;#! python3
 # pw.py - An insecure password locker program.
 PASSWORDS = {'email': 'F7minlBDDuvMJuxESSKHFhTxFtjVB6',
-<strong>             </strong>
+&lt;strong&gt;             &lt;/strong&gt;
 'blog': 'VmALvQyKAxiVH5G8v01if1MLZF3sdt',
-<strong>             </strong>
+&lt;strong&gt;             &lt;/strong&gt;
 'luggage': '12345'}
-import sys<strong>, pyperclip</strong>
-if len(sys.argv) &lt; 2:
+import sys&lt;strong&gt;, pyperclip&lt;/strong&gt;
+if len(sys.argv) &amp;lt; 2:
     print('Usage: py pw.py [account] - copy account password')
     sys.exit()
 account = sys.argv[1] # first command line arg is the account name
-<strong>if account in PASSWORDS:</strong>
-    <strong>pyperclip.copy(PASSWORDS[account])</strong>
-    <strong>print('Password for ' + account + ' copied to clipboard.')</strong>
-<strong>else:</strong>
-    <strong>print('There is no account named ' + account)</strong>
-</code>
-</pre>
-<p class="zw">这段新代码在PASSWORDS字典中查找账户名称。如果该账号名称是字典中的键，我们就取得该键对应的值，将它复制到剪贴板，然后打印一条消息，说我们已经复制了该值。否则，我们打印一条消息，说没有这个名称的账号。</p>
-<p class="zw">这就是完整的脚本。利用附录B中的指导，轻松地启动命令行程序，现在你就有了一种快速的方式，将账号的口令复制到剪贴板。如果需要更新口令，就必须修改源代码的PASSWORDS字典中的值。</p>
-<p class="zw">当然，你可能不希望把所有的口令都放在一个地方，让某人能够轻易地复制。但你可以修改这个程序，利用它快速地将普通文本复制到剪贴板。假设你需要发出一些电子邮件，它们有许多同样的段落。你可以将每个段落作为一个值，放在PASSWORDS字典中（此时你可能希望对这个字典重命名），然后你就有了一种方式，快速地选择一些标准的文本，并复制到剪贴板。</p>
-<p class="zw">在Windows上，你可以创建一个批处理文件，利用Win-R运行窗口，来运行这个程序（关于批处理文件的更多信息，参见附录B）。在文件编辑器中输入以下代码，保存为pw.bat，放在C:\Windows目录下：</p>
-<pre class="代码无行号"><code>@py.exe C:\Python34\pw.py %*
-@pause</code>
-</pre>
-<p class="zw">有了这个批处理文件，在Windows上运行口令保存程序，就只要按下Win-R，再输入pw &lt;account name&gt;。</p>
-<h2 id="nav_point_153">6.4 项目：在Wiki标记中添加无序列表</h2>
-<p class="zw">在编辑一篇维基百科的文章时，你可以创建一个无序列表，即让每个列表项占据一行，并在前面放置一个星号。但是假设你有一个非常大的列表，希望添加前面的星号。你可以在每一行开始处输入这些星号，一行接一行。或者也可以用一小段Python脚本，将这个任务自动化。</p>
-<p class="zw">bulletPointAdder.py脚本将从剪贴板中取得文本，在每一行开始处加上星号和空格，然后将这段新的文本贴回到剪贴板。例如，如果我将下面的文本复制到剪贴板（取自于维基百科的文章“List of Lists of Lists”）：</p>
-<pre class="代码无行号"><code>Lists of animals
+&lt;strong&gt;if account in PASSWORDS:&lt;/strong&gt;
+    &lt;strong&gt;pyperclip.copy(PASSWORDS[account])&lt;/strong&gt;
+    &lt;strong&gt;print('Password for ' + account + ' copied to clipboard.')&lt;/strong&gt;
+&lt;strong&gt;else:&lt;/strong&gt;
+    &lt;strong&gt;print('There is no account named ' + account)&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这段新代码在PASSWORDS字典中查找账户名称。如果该账号名称是字典中的键，我们就取得该键对应的值，将它复制到剪贴板，然后打印一条消息，说我们已经复制了该值。否则，我们打印一条消息，说没有这个名称的账号。&lt;/p&gt;
+&lt;p class="zw"&gt;这就是完整的脚本。利用附录B中的指导，轻松地启动命令行程序，现在你就有了一种快速的方式，将账号的口令复制到剪贴板。如果需要更新口令，就必须修改源代码的PASSWORDS字典中的值。&lt;/p&gt;
+&lt;p class="zw"&gt;当然，你可能不希望把所有的口令都放在一个地方，让某人能够轻易地复制。但你可以修改这个程序，利用它快速地将普通文本复制到剪贴板。假设你需要发出一些电子邮件，它们有许多同样的段落。你可以将每个段落作为一个值，放在PASSWORDS字典中（此时你可能希望对这个字典重命名），然后你就有了一种方式，快速地选择一些标准的文本，并复制到剪贴板。&lt;/p&gt;
+&lt;p class="zw"&gt;在Windows上，你可以创建一个批处理文件，利用Win-R运行窗口，来运行这个程序（关于批处理文件的更多信息，参见附录B）。在文件编辑器中输入以下代码，保存为pw.bat，放在C:\Windows目录下：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;@py.exe C:\Python34\pw.py %*
+@pause&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;有了这个批处理文件，在Windows上运行口令保存程序，就只要按下Win-R，再输入pw &amp;lt;account name&amp;gt;。&lt;/p&gt;
+&lt;h2 id="nav_point_153"&gt;6.4 项目：在Wiki标记中添加无序列表&lt;/h2&gt;
+&lt;p class="zw"&gt;在编辑一篇维基百科的文章时，你可以创建一个无序列表，即让每个列表项占据一行，并在前面放置一个星号。但是假设你有一个非常大的列表，希望添加前面的星号。你可以在每一行开始处输入这些星号，一行接一行。或者也可以用一小段Python脚本，将这个任务自动化。&lt;/p&gt;
+&lt;p class="zw"&gt;bulletPointAdder.py脚本将从剪贴板中取得文本，在每一行开始处加上星号和空格，然后将这段新的文本贴回到剪贴板。例如，如果我将下面的文本复制到剪贴板（取自于维基百科的文章“List of Lists of Lists”）：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Lists of animals
 Lists of aquarium life
 Lists of biologists by author abbreviation
-Lists of cultivars</code>
-</pre>
-<p class="zw">然后运行bulletPointAdder.py程序，剪贴板中就会包含下面的内容：</p>
-<pre class="代码无行号"><code>* Lists of animals
+Lists of cultivars&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;然后运行bulletPointAdder.py程序，剪贴板中就会包含下面的内容：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;* Lists of animals
 * Lists of aquarium life
 * Lists of biologists by author abbreviation
-* Lists of cultivars</code>
-</pre>
-<p class="zw">这段前面加了星号的文本，就可以粘贴回维基百科的文章中，成为一个无序列表。</p>
-<h3 id="nav_point_154">第1步：从剪贴板中复制和粘贴</h3>
-<p class="zw">你希望bulletPointAdder.py程序完成下列事情：</p>
-<p class="zw">1．从剪贴板粘贴文本；</p>
-<p class="zw">2．对它做一些处理；</p>
-<p class="zw">3．将新的文本复制到剪贴板。</p>
-<p class="zw">第2步有一点技巧，但第1步和第3步相当简单，它们只是利用了pyperclip.copy()和pyperclip.paste()函数。现在，我们先写出程序中第1步和第3步的部分。输入以下代码，将程序保存为bulletPointAdder.py：</p>
-<pre class="代码无行号"><code>#! python3
+* Lists of cultivars&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这段前面加了星号的文本，就可以粘贴回维基百科的文章中，成为一个无序列表。&lt;/p&gt;
+&lt;h3 id="nav_point_154"&gt;第1步：从剪贴板中复制和粘贴&lt;/h3&gt;
+&lt;p class="zw"&gt;你希望bulletPointAdder.py程序完成下列事情：&lt;/p&gt;
+&lt;p class="zw"&gt;1．从剪贴板粘贴文本；&lt;/p&gt;
+&lt;p class="zw"&gt;2．对它做一些处理；&lt;/p&gt;
+&lt;p class="zw"&gt;3．将新的文本复制到剪贴板。&lt;/p&gt;
+&lt;p class="zw"&gt;第2步有一点技巧，但第1步和第3步相当简单，它们只是利用了pyperclip.copy()和pyperclip.paste()函数。现在，我们先写出程序中第1步和第3步的部分。输入以下代码，将程序保存为bulletPointAdder.py：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;#! python3
 # bulletPointAdder.py - Adds Wikipedia bullet points to the start
 # of each line of text on the clipboard.
 import pyperclip
 text = pyperclip.paste()
 # TODO: Separate lines and add stars.
-pyperclip.copy(text)</code>
-</pre>
-<p class="zw">TODO注释是提醒，你最后应该完成这部分程序。下一步实际上就是实现程序的这个部分。</p>
-<h3 id="nav_point_155">第2步：分离文本中的行，并添加星号</h3>
-<p class="zw">调用pyperclip.paste()将返回剪贴板上的所有文本，结果是一个大字符串。如果我们使用“List of Lists of Lists”的例子，保存在text中的字符串就像这样：</p>
-<pre class="代码无行号"><code>'Lists of animals\nLists of aquarium life\nLists of biologists by author
-abbreviation\nLists of cultivars'</code>
-</pre>
-<p class="zw">在打印到剪贴板，或从剪贴板粘贴时，该字符串中的\n换行字符，让它能显示为多行。在这一个字符串中有许多“行”。你想要在每一行开始处添加一个星号。</p>
-<p class="zw">你可以编写代码，查找字符串中每个\n换行字符，然后在它后面添加一个星号。但更容易的做法是，使用split()方法得到一个字符串的列表，其中每个表项就是原来字符串中的一行，然后在列表中每个字符串前面添加星号。</p>
-<p class="zw">让程序看起来像这样：</p>
-<pre class="代码无行号"><code>#! python3
+pyperclip.copy(text)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;TODO注释是提醒，你最后应该完成这部分程序。下一步实际上就是实现程序的这个部分。&lt;/p&gt;
+&lt;h3 id="nav_point_155"&gt;第2步：分离文本中的行，并添加星号&lt;/h3&gt;
+&lt;p class="zw"&gt;调用pyperclip.paste()将返回剪贴板上的所有文本，结果是一个大字符串。如果我们使用“List of Lists of Lists”的例子，保存在text中的字符串就像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;'Lists of animals\nLists of aquarium life\nLists of biologists by author
+abbreviation\nLists of cultivars'&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;在打印到剪贴板，或从剪贴板粘贴时，该字符串中的\n换行字符，让它能显示为多行。在这一个字符串中有许多“行”。你想要在每一行开始处添加一个星号。&lt;/p&gt;
+&lt;p class="zw"&gt;你可以编写代码，查找字符串中每个\n换行字符，然后在它后面添加一个星号。但更容易的做法是，使用split()方法得到一个字符串的列表，其中每个表项就是原来字符串中的一行，然后在列表中每个字符串前面添加星号。&lt;/p&gt;
+&lt;p class="zw"&gt;让程序看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;#! python3
 # bulletPointAdder.py - Adds Wikipedia bullet points to the start
 # of each line of text on the clipboard.
 import pyperclip
 text = pyperclip.paste()
-<strong># Separate lines and add stars.</strong>
-<strong>lines = text.split('\n')</strong>
-<strong>for i in range(len(lines)): # loop through all indexes in the "lines" list</strong>
-<strong>    lines[i] = '* ' + lines[i] # add star to each string in "lines" list</strong>
-<strong>　</strong>
+&lt;strong&gt;# Separate lines and add stars.&lt;/strong&gt;
+&lt;strong&gt;lines = text.split('\n')&lt;/strong&gt;
+&lt;strong&gt;for i in range(len(lines)): # loop through all indexes in the "lines" list&lt;/strong&gt;
+&lt;strong&gt;    lines[i] = '* ' + lines[i] # add star to each string in "lines" list&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
 pyperclip.copy(text)
-</code>
-</pre>
-<p class="zw">我们按换行符分割文本，得到一个列表，其中每个表项是文本中的一行。我们将列表保存在lines中，然后遍历lines中的每个表项。对于每一行，我们在开始处添加一个新号和一个空格。现在lines中的每个字符串都以星号开始。</p>
-<h3 id="nav_point_156">第3步：连接修改过的行</h3>
-<p class="zw">lines列表现在包含修改过的行，每行都以星号开始。但pyperclip.copy()需要一个字符串，而不是字符串的列表。要得到这个字符串，就要将lines传递给join方法，连接列表中字符串。让你的程序看起来像这样：</p>
-<pre class="代码无行号"><code>#! python3
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;我们按换行符分割文本，得到一个列表，其中每个表项是文本中的一行。我们将列表保存在lines中，然后遍历lines中的每个表项。对于每一行，我们在开始处添加一个新号和一个空格。现在lines中的每个字符串都以星号开始。&lt;/p&gt;
+&lt;h3 id="nav_point_156"&gt;第3步：连接修改过的行&lt;/h3&gt;
+&lt;p class="zw"&gt;lines列表现在包含修改过的行，每行都以星号开始。但pyperclip.copy()需要一个字符串，而不是字符串的列表。要得到这个字符串，就要将lines传递给join方法，连接列表中字符串。让你的程序看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;#! python3
 # bulletPointAdder.py - Adds Wikipedia bullet points to the start
 # of each line of text on the clipboard.
 import pyperclip
@@ -561,92 +569,92 @@ text = pyperclip.paste()
 # Separate lines and add stars.
 lines = text.split('\n')
 for i in range(len(lines)): # loop through all indexes for "lines" list
-<strong>    </strong>
+&lt;strong&gt;    &lt;/strong&gt;
 lines[i] = '* ' + lines[i] # add star to each string in "lines" list
-<strong>text = '\n'.join(lines)</strong>
+&lt;strong&gt;text = '\n'.join(lines)&lt;/strong&gt;
 pyperclip.copy(text)
-</code>
-</pre>
-<p class="zw">运行这个程序，它将取代剪贴板上的文本，新的文本每一行都以星号开始。现在程序完成了，可以在剪贴板中复制一些文本，试着运行它。</p>
-<p class="zw">即使不需要自动化这样一个专门的任务，也可能想要自动化某些其他类型的文本操作，诸如删除每行末尾的空格，或将文本转换成大写或小写。不论你的需求是什么，都可以使用剪贴板作为输入和输出。</p>
-<h2 id="nav_point_157">6.5 小结</h2>
-<p class="zw">文本是常见的数据形式，Python自带了许多有用的字符串方法，来处理保存在字符串中的文本。在你写的几乎每个Python程序中，都会用到取下标、切片和字符串方法。</p>
-<p class="zw">现在你写的程序似乎不太复杂，因为它们没有图形用户界面，没有图像和彩色的文本。到目前为止，你在利用print()显示文本，利用input()让用户输入文本。但是，用户可以通过剪贴板，快速输入大量的文本。这种能力提供了一种有用的编程方式，可以操作大量的文本。这些基于文本的程序可能没有闪亮的窗口或图形，但它们能很快完成大量有用的工作。</p>
-<p class="zw">操作大量文本的另一种方式，是直接从硬盘读写文件。在下一章中，你将学习如何用Python来做到这一点。</p>
-<h2 id="nav_point_158">6.6 习题</h2>
-<p class="zw">1．什么是转义字符？</p>
-<p class="zw">2．转义字符\n和\t代表什么？</p>
-<p class="zw">3．如何在字符串中放入一个倒斜杠字符\？</p>
-<p class="zw">4．字符串"Howl's Moving Castle"是有效字符串。为什么单词中的单引号没有转义，却没有问题？</p>
-<p class="zw">5．如果你不希望在字符串中加入\n，怎样写一个带有换行的字符串？</p>
-<p class="zw">6．下面的表达式求值为什么？</p>
-<ul>
-<li>
-<p class="zw">'Hello world!'[1]</p>
-</li>
-<li>
-<p class="zw">'Hello world!'[0:5]</p>
-</li>
-<li>
-<p class="zw">'Hello world!'[:5]</p>
-</li>
-<li>
-<p class="zw">'Hello world!'[3:]</p>
-</li>
-</ul>
-<p class="zw">7．下面的表达式求值为什么？</p>
-<ul>
-<li>
-<p class="zw">'Hello'.upper()</p>
-</li>
-<li>
-<p class="zw">'Hello'.upper().isupper()</p>
-</li>
-<li>
-<p class="zw">'Hello'.upper().lower()</p>
-</li>
-</ul>
-<p class="zw">8．下面的表达式求值为什么？</p>
-<ul>
-<li>
-<p class="zw">'Remember, remember, the fifth of November.'.split()</p>
-</li>
-<li>
-<p class="zw">'-'.join('There can be only one.'.split())</p>
-</li>
-</ul>
-<p class="zw">9．什么字符串方法能用于字符串右对齐、左对齐和居中？</p>
-<p class="zw">10．如何去掉字符串开始或末尾的空白字符？</p>
-<h2 id="nav_point_159">6.7 实践项目</h2>
-<p class="zw">作为实践，编程完成下列任务。</p>
-<h3 id="nav_point_160">表格打印</h3>
-<p class="zw">编写一个名为printTable()的函数，它接受字符串的列表的列表，将它显示在组织良好的表格中，每列右对齐。假定所有内层列表都包含同样数目的字符串。例如，该值可能看起来像这样：</p>
-<pre class="代码无行号"><code>tableData = [['apples', 'oranges', 'cherries', 'banana'],
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;运行这个程序，它将取代剪贴板上的文本，新的文本每一行都以星号开始。现在程序完成了，可以在剪贴板中复制一些文本，试着运行它。&lt;/p&gt;
+&lt;p class="zw"&gt;即使不需要自动化这样一个专门的任务，也可能想要自动化某些其他类型的文本操作，诸如删除每行末尾的空格，或将文本转换成大写或小写。不论你的需求是什么，都可以使用剪贴板作为输入和输出。&lt;/p&gt;
+&lt;h2 id="nav_point_157"&gt;6.5 小结&lt;/h2&gt;
+&lt;p class="zw"&gt;文本是常见的数据形式，Python自带了许多有用的字符串方法，来处理保存在字符串中的文本。在你写的几乎每个Python程序中，都会用到取下标、切片和字符串方法。&lt;/p&gt;
+&lt;p class="zw"&gt;现在你写的程序似乎不太复杂，因为它们没有图形用户界面，没有图像和彩色的文本。到目前为止，你在利用print()显示文本，利用input()让用户输入文本。但是，用户可以通过剪贴板，快速输入大量的文本。这种能力提供了一种有用的编程方式，可以操作大量的文本。这些基于文本的程序可能没有闪亮的窗口或图形，但它们能很快完成大量有用的工作。&lt;/p&gt;
+&lt;p class="zw"&gt;操作大量文本的另一种方式，是直接从硬盘读写文件。在下一章中，你将学习如何用Python来做到这一点。&lt;/p&gt;
+&lt;h2 id="nav_point_158"&gt;6.6 习题&lt;/h2&gt;
+&lt;p class="zw"&gt;1．什么是转义字符？&lt;/p&gt;
+&lt;p class="zw"&gt;2．转义字符\n和\t代表什么？&lt;/p&gt;
+&lt;p class="zw"&gt;3．如何在字符串中放入一个倒斜杠字符\？&lt;/p&gt;
+&lt;p class="zw"&gt;4．字符串"Howl's Moving Castle"是有效字符串。为什么单词中的单引号没有转义，却没有问题？&lt;/p&gt;
+&lt;p class="zw"&gt;5．如果你不希望在字符串中加入\n，怎样写一个带有换行的字符串？&lt;/p&gt;
+&lt;p class="zw"&gt;6．下面的表达式求值为什么？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p class="zw"&gt;'Hello world!'[1]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class="zw"&gt;'Hello world!'[0:5]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class="zw"&gt;'Hello world!'[:5]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class="zw"&gt;'Hello world!'[3:]&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;7．下面的表达式求值为什么？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p class="zw"&gt;'Hello'.upper()&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class="zw"&gt;'Hello'.upper().isupper()&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class="zw"&gt;'Hello'.upper().lower()&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;8．下面的表达式求值为什么？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p class="zw"&gt;'Remember, remember, the fifth of November.'.split()&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p class="zw"&gt;'-'.join('There can be only one.'.split())&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;9．什么字符串方法能用于字符串右对齐、左对齐和居中？&lt;/p&gt;
+&lt;p class="zw"&gt;10．如何去掉字符串开始或末尾的空白字符？&lt;/p&gt;
+&lt;h2 id="nav_point_159"&gt;6.7 实践项目&lt;/h2&gt;
+&lt;p class="zw"&gt;作为实践，编程完成下列任务。&lt;/p&gt;
+&lt;h3 id="nav_point_160"&gt;表格打印&lt;/h3&gt;
+&lt;p class="zw"&gt;编写一个名为printTable()的函数，它接受字符串的列表的列表，将它显示在组织良好的表格中，每列右对齐。假定所有内层列表都包含同样数目的字符串。例如，该值可能看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;tableData = [['apples', 'oranges', 'cherries', 'banana'],
              ['Alice', 'Bob', 'Carol', 'David'],
-             ['dogs', 'cats', 'moose', 'goose']]</code>
-</pre>
-<p class="zw">你的printTable()函数将打印出：</p>
-<pre class="代码无行号"><code>  apples Alice     dogs
+             ['dogs', 'cats', 'moose', 'goose']]&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;你的printTable()函数将打印出：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;  apples Alice     dogs
  oranges     Bob   cats
 cherries Carol moose
-  banana David goose</code>
-</pre>
-<p class="editing-tag 提示标签">提示</p>
-<blockquote class="提示 editing-block">
-<p class="zw"><br/>
-</p>
-你的代码首先必须找到每个内层列表中最长的字符串，这样整列就有足够的宽度以放下所有字符串。你可以将每一列的最大宽度，保存为一个整数的列表。printTable()函数的开始可以是colWidths = [0] * len(tableData)，这创建了一个列表，它包含了一些0，数目与tableData中内层列表的数目相同。这样，colWidths[0]就可以保存tableData[0]中最长字符串的宽度，colWidths[1]就可以保存tableData[1]中最长字符串的宽度，以此类推。然后可以找到colWidths列表中最大的值，决定将什么整数宽度传递给rjust()字符串方法。</blockquote>
-<p class="zw"><br style="page-break-after:always"/>
-</p>
-<div></div>
-]]></description>
+  banana David goose&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="editing-tag 提示标签"&gt;提示&lt;/p&gt;
+&lt;blockquote class="提示 editing-block"&gt;
+&lt;p class="zw"&gt;&lt;br/&gt;
+&lt;/p&gt;
+你的代码首先必须找到每个内层列表中最长的字符串，这样整列就有足够的宽度以放下所有字符串。你可以将每一列的最大宽度，保存为一个整数的列表。printTable()函数的开始可以是colWidths = [0] * len(tableData)，这创建了一个列表，它包含了一些0，数目与tableData中内层列表的数目相同。这样，colWidths[0]就可以保存tableData[0]中最长字符串的宽度，colWidths[1]就可以保存tableData[1]中最长字符串的宽度，以此类推。然后可以找到colWidths列表中最大的值，决定将什么整数宽度传递给rjust()字符串方法。&lt;/blockquote&gt;
+&lt;p class="zw"&gt;&lt;br style="page-break-after:always"/&gt;
+&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+</description>
     <pubDate>Mon, 24 Aug 2026 01:26:30 +0000</pubDate>
     <guid isPermaLink="false">30</guid>
 </item>
 <item>
-      <title><![CDATA[WorkBuddyGuide-第 3 章 WorkBuddy 的主界面、任务与工作区]]></title>
+      <title>WorkBuddyGuide-第 3 章 WorkBuddy 的主界面、任务与工作区</title>
       <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%203%20%E7%AB%A0%20WorkBuddy%20%E7%9A%84%E4%B8%BB%E7%95%8C%E9%9D%A2%E3%80%81%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%B7%A5%E4%BD%9C%E5%8C%BA/</link>
-      <description><![CDATA[学习时长：约1.5小时；学习内容：主界面三区域（侧边栏、对话区、结果区）的功能[reference:2]、任务与工作空间的区别[reference:3]、三种工作模式（Ask/Craft/Plan）[reference:4]及模型选择[reference:5]；学习目的：熟悉WorkBuddy的操作界面和核心概念，能够独立创建任务和管理工作区]]></description>
+      <description>学习时长：约1.5小时；学习内容：主界面三区域（侧边栏、对话区、结果区）的功能[reference:2]、任务与工作空间的区别[reference:3]、三种工作模式（Ask/Craft/Plan）[reference:4]及模型选择[reference:5]；学习目的：熟悉WorkBuddy的操作界面和核心概念，能够独立创建任务和管理工作区</description>
       <guid isPermaLink="false">https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%203%20%E7%AB%A0%20WorkBuddy%20%E7%9A%84%E4%B8%BB%E7%95%8C%E9%9D%A2%E3%80%81%E4%BB%BB%E5%8A%A1%E4%B8%8E%E5%B7%A5%E4%BD%9C%E5%8C%BA/</guid>
       <pubDate>Mon, 24 Aug 2026 01:22:34 +0000</pubDate>
     </item>
@@ -4478,801 +4486,5 @@ Beautiful is better than ugly.&lt;/code&gt;
       <guid isPermaLink="false">https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/</guid>
       <pubDate>Wed, 12 Aug 2026 07:16:14 +0000</pubDate>
     </item>
-<item>
-    <title>AutomaticApplicationPython - 025 - 第一部分 Python编程基础.epub</title>
-    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：63 分钟 (12531 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_20"&gt;第一部分　Python编程基础&lt;/h1&gt;
-&lt;p class="图"&gt;&lt;img alt="..\16-0403yds排版\16-0403yds排版\Links\Links\00.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/25_Image00061.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="zw"&gt;&lt;br style="page-break-after:always"/&gt;
-&lt;/p&gt;
-&lt;div&gt;&lt;/div&gt;
-&lt;h1 id="nav_point_21"&gt;第1章 Python基础&lt;/h1&gt;
-&lt;p class="zw"&gt;Python编程语言有许多语法结构、标准库函数和交互式开发环境功能。好在，你可以忽略大多数内容。你只需要学习部分内容，就能编写一些方便的小程序。&lt;/p&gt;
-&lt;p class="zw"&gt;但在动手之前，你必须学习一些基本编程概念。就像魔法师培训，你可能认为这些概念既深奥又啰嗦，但有了一些知识和实践，你就能像魔法师一样指挥你的计算机，完成难以置信的事情。&lt;/p&gt;
-&lt;p class="zw"&gt;本章有几个例子，我们鼓励你在交互式环境中输入它们。交互式环境让你每次执行一条Python指令，并立即显示结果。使用交互式环境对于了解基本Python指令的行为是很好的，所以你在阅读时要试一下。做过的事比仅仅读过的内容，更令人印象深刻。&lt;/p&gt;
-&lt;h2 id="nav_point_22"&gt;1.1 在交互式环境中输入表达式&lt;/h2&gt;
-&lt;p class="zw"&gt;启动IDLE就运行了交互式环境，这是和Python一起安装的。在Windows上，打开“开始”菜单，选择“All ProgramsPython 3.3”，然后选择“IDLE（Python GUI）”。在OS X上，选择“ApplicationsMacPython 3.3IDLE”。在Ubuntu上，打开新的终端窗口并输入idle3。&lt;/p&gt;
-&lt;p class="zw"&gt;一个窗口会出现，包含&amp;gt;&amp;gt;&amp;gt;提示符，这就是交互式环境。在提示符后输入2 + 2，让Python做一些简单的算术。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;2 + 2&lt;/strong&gt;
-
-
-4&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;IDLE窗口现在应该显示下面这样的文本：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;Python 3.3.2 (v3.3.2:d047928ae3f6, May 16 2013, 00:06:53) [MSC v.1600 64 bit
-(AMD64)] on win32
-Type "copyright", "credits" or "license()" for more information.
-&amp;gt;&amp;gt;&amp;gt; 2 + 2
-4
-&amp;gt;&amp;gt;&amp;gt; &lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;在Python中，2 + 2称为“表达式”，它是语言中最基本的编程结构。表达式包含“值”（例如2）和“操作符”（例如+），并且总是可以求值（也就是归约）为单个值。这意味着在Python代码中，所有使用表达式的地方，也可以使用一个值。&lt;/p&gt;
-&lt;p class="zw"&gt;在前面的例子中，2 + 2被求值为单个值4。没有操作符的单个值也被认为是一个表达式，尽管它求值的结果就是它自己，像下面这样：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;2&lt;/strong&gt;
-
-
-2&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="editing-tag 超强提示标签"&gt;错误没关系！&lt;/p&gt;
-&lt;blockquote class="超强提示 editing-block"&gt;
-&lt;p class="zw"&gt;&lt;br/&gt;
-&lt;/p&gt;
-&lt;p class="zw"&gt;如果程序包含计算机不能理解的代码，就会崩溃，这将导致Python显示错误信息。错误信息并不会破坏你的计算机，所以不要害怕犯错误。“崩溃”只是意味着程序意外地停止执行。&lt;/p&gt;
-&lt;p class="zw"&gt;如果你希望对一条错误信息了解更多，可以在网上查找这条信息的准确文本，找到关于这个错误的更多内容。也可以查看&lt;a&gt;http://nostarch.com/automatestuff/&lt;/a&gt;
- ，这里有常见的Python错误信息和含义的列表。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="zw"&gt;Python表达式中也可以使用大量其他操作符。例如，表 1-1 列出了Python的所有数学操作符。&lt;/p&gt;
-&lt;p class="表题"&gt;表1-1 数学操作符&lt;/p&gt;
-&lt;table border="1" width="90%"&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;操作符&lt;/p&gt;
-&lt;/th&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;操作&lt;/p&gt;
-&lt;/th&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;例子&lt;/p&gt;
-&lt;/th&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;求值为&lt;/p&gt;
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;**&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;指数&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;2 ** 3&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;8&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;%&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;取模/取余数&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;22 % 8&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;6&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;//&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;整除/商数取整&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;22 // 8&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;2&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;/&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;除法&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;22 / 8&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;2.75&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;*&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;乘法&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;3 * 5&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;15&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;-&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;减法&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;5 - 2&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;3&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;+&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;加法&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;2 + 2&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;4&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p class="zw"&gt;数学操作符的操作顺序（也称为“优先级”）与数学中类似。**操作符首先求值，接下来是­*、/、//和%操作符，从左到右计算。+和-操作符最后求值，也是从左到右计算。如果需要，可以用括号来改变通常的优先级。在交互式环境中输入下列表达式：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;2 + 3 * 6&lt;/strong&gt;
-
-
-20
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;(2 + 3) * 6&lt;/strong&gt;
-
-
-30
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;48565878 * 578453&lt;/strong&gt;
-
-
-28093077826734
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;2 ** 8&lt;/strong&gt;
-
-
-256
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;23 /&lt;/strong&gt;
-
- 7
-3.2857142857142856
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;23 // 7&lt;/strong&gt;
-
-
-3
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;23 % 7&lt;/strong&gt;
-
-
-2
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;2 + 2&lt;/strong&gt;
-
-
-4
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;(5 - 1) * ((7 + 1) / (3 - 1))&lt;/strong&gt;
-
-
-16.0&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;在每个例子中，作为程序员，你必须输入表达式，但Python完成较难的工作，将它求值为单个值。Python将继续求值表达式的各个部分，直到它成为单个值，如图1-1所示。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="0101" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/25_Image00065.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图1-1 表达式求值将它归约为单个值&lt;/p&gt;
-&lt;p class="zw"&gt;将操作符和值放在一起构成表达式的这些规则，是 Python 编程语言的基本部分，就像帮助我们沟通的语法规则一样。下面是例子：&lt;/p&gt;
-&lt;p class="zw"&gt;This is a grammatically correct English sentence.&lt;/p&gt;
-&lt;p class="zw"&gt;This grammatically is sentence not English correct a.&lt;/p&gt;
-&lt;p class="zw"&gt;第二行很难解释，因为它不符合英语的规则。类似地，如果你输入错误的 Python指令，Python也不能理解，就会显示出错误信息，像下面这样：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;5 +&lt;/strong&gt;
-
-
-  File "&amp;lt;stdin&amp;gt;", line 1
-    5 +
-      ^
-SyntaxError: invalid syntax
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;42 + 5 + * 2&lt;/strong&gt;
-
-
-  File "&amp;lt;stdin&amp;gt;", line 1
-    42 + 5 + * 2
-              ^
-SyntaxError: invalid syntax&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;你总是可以在交互式环境中输入一条指令，检查它是否能工作。不要担心会弄坏计算机：最坏的情况就是Python显示出错信息。专业的软件开发者在编写代码时，常常会遇到错误信息。&lt;/p&gt;
-&lt;h2 id="nav_point_23"&gt;1.2 整型、浮点型和字符串数据类型&lt;/h2&gt;
-&lt;p class="zw"&gt;记住，表达式是值和操作符的组合，它们可以通过求值成为单个值。“数据类型”是一类值，每个值都只属于一种数据类型。表1-2列出了Python中最常见的数据类型。例如，值-2和30属于“整型”值。整型（或int）数据类型表明值是整数。带有小数点的数，如3.14，称为“浮点型”（或float）。请注意，尽管42是一个整型，但42.0是一个浮点型。&lt;/p&gt;
-&lt;p class="表题"&gt;表1-2 常见数据类型&lt;/p&gt;
-&lt;table border="1" width="90%"&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;数据类型&lt;/p&gt;
-&lt;/th&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;例子&lt;/p&gt;
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;整型&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;-2, -1, 0, 1, 2, 3, 4, 5&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;浮点型&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;-1.25, -1.0, - -0.5, 0.0, 0.5, 1.0, 1.25&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;字符串&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;'a', 'aa', 'aaa', 'Hello!', '11 cats'&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p class="zw"&gt;Python程序也可以有文本值，称为“字符串”，或strs（发音为“stirs”）。总是用单引号（'）包围住字符串（例如'Hello'或'Goodbye cruel world!'），这样Python就知道字符串的开始和结束。甚至可以有没有字符的字符串，称为“空字符串”。第4章更详细地解释了字符串。&lt;/p&gt;
-&lt;p class="zw"&gt;如果你看到错误信息SyntaxError: EOL while scanning string literal，可能是忘记了字符串末尾的单引号，如下面的例子所示：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Hello world!&lt;/strong&gt;
-
-
-SyntaxError: EOL while scanning string literal&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;h2 id="nav_point_24"&gt;1.3 字符串连接和复制&lt;/h2&gt;
-&lt;p class="zw"&gt;根据操作符之后的值的数据类型，操作符的含义可能会改变。例如，在操作两个整型或浮点型值时，+是相加操作符。但是，在用于两个字符串时，它将字符串连接起来，成为“字符串连接”操作符。在交互式环境中输入以下内容：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Alice' + 'Bob'&lt;/strong&gt;
-
-
-'AliceBob'&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;该表达式求值为一个新字符串，包含了两个字符串的文本。但是，如果你对一个字符串和一个整型值使用加操作符，Python就不知道如何处理，它将显示一条错误信息。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Alice' + 42&lt;/strong&gt;
-
-
-Traceback (most recent call last):
-   File "&amp;lt;pyshell#26&amp;gt;", line 1, in &amp;lt;module&amp;gt;
-     'Alice' + 42
-TypeError: Can't convert 'int' object to str implicitly&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;错误信息Can't convert 'int' object to str implicitly表示Python认为，你试图将一个整数连接到字符串'Alice'。代码必须显式地将整数转换为字符串，因为Python不能自动完成转换。（1.6节“程序剖析”在讨论函数时，将解释数据类型转换。）&lt;/p&gt;
-&lt;p class="zw"&gt;在用于两个整型或浮点型值时，­*­操作符表示乘法。但­*­操作符用于一个字符串值和一个整型值时，它变成了“字符串复制”操作符。在交互式环境中输入一个字符串乘一个数字，看看效果。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Alice' * 5&lt;/strong&gt;
-
-
-'AliceAliceAliceAliceAlice'&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;该表达式求值为一个字符串，它将原来的字符串重复若干次，次数就是整型的值。字符串复制是一个有用的技巧，但不像字符串连接那样常用。&lt;/p&gt;
-&lt;p class="zw"&gt;*操作符只能用于两个数字（作为乘法），或一个字符串和一个整型（作为字符串复制操作符）。否则，Python将显示错误信息。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Alice' * 'Bob'&lt;/strong&gt;
-
-
-Traceback (most recent call last):
-  File "&amp;lt;pyshell#32&amp;gt;", line 1, in &amp;lt;module&amp;gt;
-    'Alice' * 'Bob'
-TypeError: can't multiply sequence by non-int of type 'str'
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Alice' * 5.0&lt;/strong&gt;
-
-
-Traceback (most recent call last):
-  File "&amp;lt;pyshell#33&amp;gt;", line 1, in &amp;lt;module&amp;gt;
-    'Alice' * 5.0
-TypeError: can't multiply sequence by non-int of type 'float'&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;Python不理解这些表达式是有道理的：你不能把两个单词相乘，也很难将一个任意字符串复制小数次。&lt;/p&gt;
-&lt;h2 id="nav_point_25"&gt;1.4 在变量中保存值&lt;/h2&gt;
-&lt;p class="zw"&gt;“变量”就像计算机内存中的一个盒子，其中可以存放一个值。如果你的程序稍后将用到一个已求值的表达式的结果，就可以将它保存在一个变量中。&lt;/p&gt;
-&lt;h3 id="nav_point_26"&gt;1.4.1 赋值语句&lt;/h3&gt;
-&lt;p class="zw"&gt;用“赋值语句”将值保存在变量中。赋值语句包含一个变量名、一个等号（称为赋值操作符），以及要存储的值。如果输入赋值语句spam = 42，那么名为spam的变量将保存一个整型值42。&lt;/p&gt;
-&lt;p class="zw"&gt;可以将变量看成一个带标签的盒子，值放在其中，如图1-2所示。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="0102" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/25_Image00066.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图1-2 spam = 42 就像是告诉程序“变量spam现在有整数42放在里面”&lt;/p&gt;
-&lt;p class="zw"&gt;例如，在交互式环境中输入以下内容：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;❶ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = 40&lt;/strong&gt;
-
-
-　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
-
-
-　40
-　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggs = 2&lt;/strong&gt;
-
-
-❷ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam + eggs&lt;/strong&gt;
-
-
-　42
-　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam + eggs + spam&lt;/strong&gt;
-
-
-　82
-❸ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = spam + 2&lt;/strong&gt;
-
-
-　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
-
-
-　42&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;第一次存入一个值，变量就被“初始化”（或创建）❶。此后，可以在表达式中使用它，以及其他变量和值❷。如果变量被赋了一个新值，老值就被忘记了❸。这就是为什么在例子结束时，spam求值为42，而不是40。这称为“覆写”该变量。在交互式环境中输入以下代码，尝试覆写一个字符串：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = 'Hello'&lt;/strong&gt;
-
-
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
-
-
-'Hello'
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = 'Goodbye'&lt;/strong&gt;
-
-
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
-
-
-'Goodbye'&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;就像图1-3中的盒子，这个例子中的spam变量保存了'Hello'，直到你用'Goodbye'替代它。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="0103" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/25_Image00067.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图1-3 如果一个新值赋给变量，老值就被遗忘了&lt;/p&gt;
-&lt;h3 id="nav_point_27"&gt;1.4.2 变量名&lt;/h3&gt;
-&lt;p class="zw"&gt;表1-3中有一些合法变量名的例子。你可以给变量取任何名字，只要它遵守以下3条规则：&lt;/p&gt;
-&lt;p class="zw"&gt;1．只能是一个词。&lt;/p&gt;
-&lt;p class="zw"&gt;2．只能包含字母、数字和下划线。&lt;/p&gt;
-&lt;p class="zw"&gt;3．不能以数字开头。&lt;/p&gt;
-&lt;p class="表题"&gt;表1-3 有效和无效的变量名&lt;/p&gt;
-&lt;table border="1" width="90%"&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;有效的变量名&lt;/p&gt;
-&lt;/th&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;无效的变量名&lt;/p&gt;
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;balance&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;current-balance（不允许中划线）&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;currentBalance&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;current balanc（不允许空格）&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;current_balance&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;4account（不允许数字开头）&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;_spam&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;42（不允许数字开头）&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;SPAM&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;total_$um（不允许$这样的特殊字符）&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;account4&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;'hello'（不允许'这样的特殊字符）&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p class="zw"&gt;变量名是区分大小写的。这意味着，spam、 SPAM、Spam和sPaM是4个不同的变量。变量用小写字母开头是Python的惯例。&lt;/p&gt;
-&lt;p class="zw"&gt;本书的变量名使用了驼峰形式，没有用下划线。也就是说，变量名用lookLikeThis，而不是looking_like_this。一些有经验的程序员可能会指出，官方的Python代码风格PEP 8，即应该使用下划线。我喜欢驼峰式，这没有错，并认为PEP 8本身“愚蠢的一致性是头脑狭隘人士的心魔”：&lt;/p&gt;
-&lt;blockquote class="提示 editing-block"&gt;“一致地满足风格指南是重要的。但最重要的是，知道何时要不一致，因为有时候风格指南就是不适用。如果有怀疑，请相信自己的最佳判断。”&lt;/blockquote&gt;
-&lt;p class="zw"&gt;好的变量名描述了它包含的数据。设想你搬到一间新屋子，搬家纸箱上标的都是“东西”。你永远找不到任何东西！本书的例子和许多Python的文档，使用spam、eggs和bacon等变量名作为一般名称（受到Monty Python的“Spam”短剧的影响），但在你的程序中，具有描述性的名字有助于提高代码可读性。&lt;/p&gt;
-&lt;h2 id="nav_point_28"&gt;1.5 第一个程序&lt;/h2&gt;
-&lt;p class="zw"&gt;虽然交互式环境对于一次运行一条 Python指令很好，但要编写完整的Python程序，就需要在文件编辑器中输入指令。“文件编辑器”类似于Notepad或TextMate这样的文本编辑器，它有一些针对输入源代码的特殊功能。要在IDLE中打开文件编辑器，请选择FileNew ▶File。&lt;/p&gt;
-&lt;p class="zw"&gt;出现的窗口中应该包含一个光标，等待你输入，但它与交互式环境不同。在交互式环境中，按下回车，就会执行Python指令。文件编辑器允许输入许多指令，保存为文件，并运行该程序。下面是区别这两者的方法：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li class="第1级无序列表"&gt;交互式环境窗口总是有&amp;gt;&amp;gt;&amp;gt;提示符。&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;文件编辑器窗口没有&amp;gt;&amp;gt;&amp;gt;提示符。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p class="zw"&gt;现在是创建第一个程序的时候了！在文件编辑器窗口打开后，输入以下内容：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;❶ # This program says hello and asks for my name.
-
-❷ print('Hello world!')
-　print('What is your name?') # ask for their name
-❸ myName = input()
-❹ print('It is good to meet you, ' + myName)
-❺ print('The length of your name is:')
-　print(len(myName))
-❻ print('What is your age?') # ask for their age
-　myAge = input()
-　print('You will be ' + str(int(myAge) + 1) + ' in a year.') &lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;在输入完源代码后保存它，这样就不必在每次启动IDLE时重新输入。从文件编辑器窗口顶部的菜单，选择File▶Save As。在“Save As”窗口中，在输入框输入hello.py，然后点击“Save”。&lt;/p&gt;
-&lt;p class="zw"&gt;在输入程序时，应该过一段时间就保存你的程序。这样，如果计算机崩溃，或者不小心退出了IDLE，也不会丢失代码。作为快捷键，可以在Windows和Linux上按Ctrl-S，在OS X上按⌘-S，来保存文件。&lt;/p&gt;
-&lt;p class="zw"&gt;在保存文件后，让我们来运行程序。选择Run▶Run Module，或按下F5键。程序将在交互式环境窗口中运行，该窗口是首次启动IDLE时出现的。记住，必须在文件编辑器窗口中按F5，而不是在交互式环境窗口中。在程序要求输入时，输入你的名字。在交互式环境中，程序输出应该看起来像这样：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;Python 3.3.2 (v3.3.2:d047928ae3f6, May 16 2013, 00:06:53) [MSC v.1600 64 bit
-(AMD64)] on win32
-Type "copyright", "credits" or "license()" for more information.
-&amp;gt;&amp;gt;&amp;gt; ================================ RESTART ================================
-&amp;gt;&amp;gt;&amp;gt;
-Hello world!
-What is your name?
-&lt;strong&gt;Al&lt;/strong&gt;
-
-
-It is good to meet you, Al
-The length of your name is:
-2
-What is your age?
-&lt;strong&gt;4&lt;/strong&gt;
-
-
-You will be 5 in a year.
-&amp;gt;&amp;gt;&amp;gt; &lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;如果没有更多代码行要执行，Python程序就会“中止”。也就是说，它停止运行。（也可以说Python程序“退出”了。）&lt;/p&gt;
-&lt;p class="zw"&gt;可以通过点击窗口上部的X，关闭文件编辑器。要重新加载一个保存了的程序，就在菜单中选择File▶Open。现在请这样做，在出现的窗口中选择hello.py，并点击“Open”按钮。前面保存的程序hello.py应该在文件编辑器窗口中打开。&lt;/p&gt;
-&lt;h2 id="nav_point_29"&gt;1.6 程序剖析&lt;/h2&gt;
-&lt;p class="zw"&gt;新程序在文件编辑器中打开后，让我们快速看一看它用到的Python指令，逐一查看每行代码。&lt;/p&gt;
-&lt;h3 id="nav_point_30"&gt;1.6.1 注释&lt;/h3&gt;
-&lt;p class="zw"&gt;下面这行称为“注释”。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;❶ # This program says hello and asks for my name. &lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;Python会忽略注释，你可以用它们来写程序注解，或提醒自己代码试图完成的事。这一行中，#标志之后的所有文本都是注释。&lt;/p&gt;
-&lt;p class="zw"&gt;有时候，程序员在测试代码时，会在一行代码前面加上#，临时删除它。这称为“注释掉”代码。在你想搞清楚为什么程序不工作时，这样做可能有用。稍后，如果你准备还原这一行代码，可以去掉#。&lt;/p&gt;
-&lt;p class="zw"&gt;Python也会忽略注释之后的空行。在程序中，想加入空行时就可以加入。这会让你的代码更容易阅读，就像书中的段落一样。&lt;/p&gt;
-&lt;h3 id="nav_point_31"&gt;1.6.2 print()函数&lt;/h3&gt;
-&lt;p class="zw"&gt;print()函数将括号内的字符串显示在屏幕上。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;❷ print('Hello world!')
-　print('What is your name?') # ask for their name&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;代码行print('Hello world!')表示“打印出字符串'Hello world!'的文本”。Python执行到这行时，你告诉Python调用print()函数，并将字符串“传递”给函数。传递给函数的值称为“参数”。请注意，引号没有打印在屏幕上。它们只是表示字符串的起止，不是字符串的一部分。&lt;/p&gt;
-&lt;p class="zw"&gt;也可以用这个函数在屏幕上打印出空行，只要调用print()就可以了，括号内没有任何东西。&lt;/p&gt;
-&lt;p class="zw"&gt;在写函数名时，末尾的左右括号表明它是一个函数的名字。这就是为什么在本书中你会看到print()，而不是print。第2章更详细地探讨了函数。&lt;/p&gt;
-&lt;h3 id="nav_point_32"&gt;1.6.3 input()函数&lt;/h3&gt;
-&lt;p class="zw"&gt;函数等待用户在键盘上输入一些文本，并按下回车键。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;❸ myName = input()&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;这个函数求值为一个字符串，即用户输入的文本。前面的代码行将这个字符串赋给变量myName。&lt;/p&gt;
-&lt;p class="zw"&gt;你可以认为input()函数调用是一个表达式，它求值为用户输入的任何字符串。如果用户输入'Al'，那么该表达式就求值为myName = 'Al'。&lt;/p&gt;
-&lt;h3 id="nav_point_33"&gt;1.6.4 打印用户的名字&lt;/h3&gt;
-&lt;p class="zw"&gt;接下来的print()调用，在括号间包含表达式'It is good to meet you, ' + myName。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;❹ print('It is good to meet you, ' + myName) &lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;要记住，表达式总是可以求值为一个值。如果'Al'是上一行代码保存在myName中的值，那么这个表达式就求值为'It is good to meet you, Al'。这个字符串传给print()，它将输出到屏幕上。&lt;/p&gt;
-&lt;h3 id="nav_point_34"&gt;1.6.5 len()函数&lt;/h3&gt;
-&lt;p class="zw"&gt;你可以向len()函数传递一个字符串（或包含字符串的变量），然后该函数求值为一个整型值，即字符串中字符的个数。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;❺ print('The length of your name is:')
-　print(len(myName)) &lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;在交互式环境中输入以下内容试一试：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;len('hello')&lt;/strong&gt;
-
-
-5
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;len('My very energetic monster just scarfed nachos.')&lt;/strong&gt;
-
-
-46
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;len('')&lt;/strong&gt;
-
-
-0&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;就像这些例子，len(myName)求值为一个整数。然后它被传递给print()，在屏幕上显示。请注意，print()允许传入一个整型值或字符串。但如果在交互式环境中输入以下内容，就会报错：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt; &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;print('I am ' + 29 + ' years old.')&lt;/strong&gt;
-
-
-Traceback (most recent call last):
-  File "&amp;lt;pyshell#6&amp;gt;", line 1, in &amp;lt;module&amp;gt;
-    print('I am ' + 29 + ' years old.')
-TypeError: Can't convert 'int' object to str implicitly&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;导致错误的原因不是print()函数，而是你试图传递给print()的表达式。如果在交互式环境中单独输入这个表达式，也会得到同样的错误。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'I am ' + 29 + ' years old.'&lt;/strong&gt;
-
-
-Traceback (most recent call last):
-  File "&amp;lt;pyshell#7&amp;gt;", line 1, in &amp;lt;module&amp;gt;
-   'I am ' + 29 + ' years old.'
-TypeError: Can't convert 'int' object to str implicitly&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;报错是因为，只能用+操作符加两个整数，或连接两个字符串。不能让一个整数和一个字符串相加，因为这不符合Python的语法。可以使用字符串版本的整数，修复这个错误。这在下一节中解释。&lt;/p&gt;
-&lt;h3 id="nav_point_35"&gt;1.6.6 str()、int()和float()函数&lt;/h3&gt;
-&lt;p class="zw"&gt;如果想要连接一个整数（如29）和一个字符串，再传递给print()，就需要获得值'29'。它是29的字符串形式。str()函数可以传入一个整型值，并求值为它的字符串形式，像下面这样：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;str(29)&lt;/strong&gt;
-
-
-'29'
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;print('I am ' + str(29) + ' years old.')&lt;/strong&gt;
-
-
-I am 29 years old. &lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;因为str(29)求值为’29’，所以表达式'I am ' + str(29) + ' years old.'求值为'I am ' + '29' + ' years old.'，它又求值为'I am 29 years old.'。这就是传递给print()函数的值。&lt;/p&gt;
-&lt;p class="zw"&gt;str()、int()和float()函数将分别求值为传入值的字符串、整数和浮点数形式。请尝试用这些函数在交互式环境中转换一些值，看看会发生什么。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;str(0)&lt;/strong&gt;
-
-
-'0'
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;str(-3.14)&lt;/strong&gt;
-
-
-'-3.14'
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;int('42')&lt;/strong&gt;
-
-
-42
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;int('-99')&lt;/strong&gt;
-
-
--99
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;int(1.25)&lt;/strong&gt;
-
-
-1
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;int(1.99)&lt;/strong&gt;
-
-
-1
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;float('3.14')&lt;/strong&gt;
-
-
-3.14
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;float(10)&lt;/strong&gt;
-
-
-10.0&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;前面的例子调用了str()、int()和float()函数，向它们传入其他数据类型的值，得到了字符串、整型或浮点型的值。&lt;/p&gt;
-&lt;p class="zw"&gt;如果想要将一个整数或浮点数与一个字符串连接，str()函数就很方便。如果你有一些字符串值，希望将它们用于数学运算，int()函数也很有用。例如，input()函数总是返回一个字符串，即便用户输入的是一个数字。在交互式环境中输入spam = input()，在它等待文本时输入101。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = input()&lt;/strong&gt;
-
-
-101
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
-
-
-'101'&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;保存在spam中的值不是整数101，而是字符串'101'。如果想要用spam中的值进行数学运算，那就用int()函数取得spam的整数形式，然后将这个新值存在spam中。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = int(spam)&lt;/strong&gt;
-
-
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
-
-
-101&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;现在你应该能将spam变量作为整数，而不是字符串使用。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam * 10 / 5&lt;/strong&gt;
-
-
-202.0&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;请注意，如果你将一个不能求值为整数的值传递给int()，Python将显示出错信息。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;int('99.99')&lt;/strong&gt;
-
-
-Traceback (most recent call last):
-  File "&amp;lt;pyshell#18&amp;gt;", line 1, in &amp;lt;module&amp;gt;
-    int('99.99')
-ValueError: invalid literal for int() with base 10: '99.99'
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;int('twelve')&lt;/strong&gt;
-
-
-Traceback (most recent call last):
-  File "&amp;lt;pyshell#19&amp;gt;", line 1, in &amp;lt;module&amp;gt;
-    int('twelve')
-ValueError: invalid literal for int() with base 10: 'twelve'&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;如果需要对浮点数进行取整运算，也可以用int()函数。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;int(7.7)&lt;/strong&gt;
-
-
-7
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;int(7.7) + 1&lt;/strong&gt;
-
-
-8&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;在你的程序中，最后3行使用了函数int()和str()，取得适当数据类型的值。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;❻ print('What is your age?') # ask for their age
-　myAge = input()
-　print('You will be ' + str(int(myAge) + 1) + ' in a year.') &lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;myAge变量包含了input()函数返回的值。因为input()函数总是返回一个字符串（即使用户输入的是数字），所以你可以使用int(myAge)返回字符串的整型值。这个整型值随后在表达式int(myAge) + 1中与1相加。&lt;/p&gt;
-&lt;p class="zw"&gt;相加的结果传递给str()函数：str(int(myAge) + 1)。然后，返回的字符串与字符串'You will be '和' in a year.'连接，求值为一个更长的字符串。这个更长的字符串最终传递给print()，在屏幕上显示。&lt;/p&gt;
-&lt;p class="zw"&gt;假定用户输入字符串'4'，保存在myAge中。字符串'4'被转换为一个整型，所以你可以对它加1。结果是5。str()函数将这个结果转化为字符串，这样你就可以将它与第二个字符串'in a year.'连接，创建最终的消息。这些求值步骤如图1-4所示。&lt;/p&gt;
-&lt;p class="editing-tag 超强提示标签"&gt;文本和数字相等判断&lt;/p&gt;
-&lt;blockquote class="超强提示 editing-block"&gt;
-&lt;p class="zw"&gt;&lt;br/&gt;
-&lt;/p&gt;
-&lt;p class="zw"&gt;虽然数字的字符串值被认为与整型值和浮点型值完全不同，但整型值可以与浮点值相等。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;42 == '42'&lt;/strong&gt;
-
-
-False
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;42 == 42.0&lt;/strong&gt;
-
-
-True
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;42.0 == 0042.000&lt;/strong&gt;
-
-
-True&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;Python进行这种区分，因为字符串是文本，而整型值和浮点型都是数字。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="图"&gt;&lt;img alt="0104" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/25_Image00068.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图1-4 如果4保存在myAge中，求值的步骤&lt;/p&gt;
-&lt;h2 id="nav_point_36"&gt;1.7 小结&lt;/h2&gt;
-&lt;p class="zw"&gt;你可以用一个计算器来计算表达式，或在文本处理器中输入字符串连接。甚至可以通过复制粘贴文本，很容易地实现字符串复制。但是表达式以及组成它们的值（操作符、变量和函数调用），才是构成程序的基本构建块。一旦你知道如何处理这些元素，就能够用Python操作大量的数据。&lt;/p&gt;
-&lt;p class="zw"&gt;最好是记住本章中介绍的不同类型的操作符（+、-、­*­、/、//、%和­**­是数学操作符，+和­*­是字符串操作符），以及3种数据类型（整型、浮点型和字符串）。&lt;/p&gt;
-&lt;p class="zw"&gt;我们还介绍了几个不同的函数。print()和input()函数处理简单的文本输出（到屏幕）和输入（通过键盘）。len()函数接受一个字符串，并求值为该字符串中字符的数目。&lt;/p&gt;
-&lt;p class="zw"&gt;在下一章中，你将学习如何告诉Python根据它拥有的值，明智地决定什么代码要运行，什么代码要跳过，什么代码要重复。这称为“控制流”，它让你编写程序来做出明智的决定。&lt;/p&gt;
-&lt;h2 id="nav_point_37"&gt;1.8 习题&lt;/h2&gt;
-&lt;p class="zw"&gt;1．下面哪些是操作符，哪些是值？&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;*
-'hello'
--88.8
--
-/
-+
-5&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;2．下面哪个是变量，哪个是字符串？&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;spam
-'spam'&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;3．说出3种数据类型。&lt;/p&gt;
-&lt;p class="zw"&gt;4．表达式由什么构成？所有表达式都做什么事？&lt;/p&gt;
-&lt;p class="zw"&gt;5．本章介绍了赋值语句，如spam = 10。表达式和语句有什么区别？&lt;/p&gt;
-&lt;p class="zw"&gt;6．下列语句运行后，变量bacon的值是什么？&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;bacon = 20
-bacon + 1&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;7．下面两个表达式求值的结果是什么？&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;'spam' + 'spamspam'
-'spam' * 3&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;8．为什么eggs是有效的变量名，而100是无效的？&lt;/p&gt;
-&lt;p class="zw"&gt;9．哪3个函数能分别取得一个值的整型、浮点型或字符串版本？&lt;/p&gt;
-&lt;p class="zw"&gt;10．为什么这个表达式会导致错误？如何修复？&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;
-&lt;code&gt;'I have eaten ' + 99 + ' burritos.'&lt;/code&gt;
-
-&lt;/pre&gt;
-&lt;p class="zw"&gt;附加题：在线查找len()函数的Python文档。它在一个标题为“Built-in Functions”的网页上。扫一眼Python的其他函数的列表，查看round()函数的功能，在交互式环境中使用它。&lt;/p&gt;
-&lt;p class="zw"&gt;&lt;br style="page-break-after:always"/&gt;
-&lt;/p&gt;
-&lt;div&gt;&lt;/div&gt;
-</description>
-    <pubDate>Tue, 11 Aug 2026 00:42:30 +0000</pubDate>
-    <guid isPermaLink="false">25</guid>
-</item>
 </channel>
 </rss>
