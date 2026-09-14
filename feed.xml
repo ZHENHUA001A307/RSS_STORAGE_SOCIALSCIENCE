@@ -1,11 +1,459 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-  <title>每日更新推送</title>
-  <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
-  <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
-  <lastBuildDate>Mon, 14 Sep 2026 03:54:24 +0000</lastBuildDate>
-    <item>
+    <title>我的每日小说</title>
+    <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
+    <description>从 EPUB 自动生成的 RSS 订阅源</description>
+        <item>
+    <title>AutomaticApplicationPython - 033 - 第9章 组织文件.epub</title>
+    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：64 分钟 (19059 字)</p><hr><h1 id="nav_point_231">第9章　组织文件</h1>
+<p class="zw">在上一章中，你学习了如何用Python创建并写入新文件。你的程序也可以组织硬盘上已经存在的文件。也许你曾经经历过查找一个文件夹，里面有几十个、几百个，甚至上千个文件，需要手工进行复制、改名、移动或压缩。或者考虑下面这样的任务：</p>
+<ul>
+<li class="第1级无序列表">在一个文件夹及其所有子文件夹中，复制所有的pdf文件（且只复制pdf文件）</li>
+<li class="第1级无序列表">针对一个文件夹中的所有文件，删除文件名中前导的零，该文件夹中有数百个文件，名为spam001.txt、spam002.txt、spam003.txt等。</li>
+<li class="第1级无序列表">将几个文件夹的内容压缩到一个ZIP文件中（这可能是一个简单的备份系统）</li>
+</ul>
+<p class="zw">所有这种无聊的任务，正是在请求用Python实现自动化。通过对电脑编程来完成这些任务，你就把它变成了一个快速工作的文件职员，而且从不犯错。</p>
+<p class="zw">在开始处理文件时你会发现，如果能够很快查看文件的扩展名（.txt、.pdf、.jpg等），是很有帮助的。在OS X和Linux上，文件浏览器很有可能自动显示扩展名。在Windows上，文件扩展名可能默认是隐藏的。要显示扩展名，请点开Start►Control Panel►Appearance和Personalization►Folder选项。在View选项卡中，Advanced Settings之下，取消Hide extensions for known file types复选框。</p>
+<h2 id="nav_point_232">9.1 shutil模块</h2>
+<p class="zw">shutil（或称为shell工具）模块中包含一些函数，让你在Python程序中复制、移动、改名和删除文件。要使用shutil的函数，首先需要import shutil。</p>
+<h3 id="nav_point_233">9.1.1 复制文件和文件夹</h3>
+<p class="zw">shutil模块提供了一些函数，用于复制文件和整个文件夹。</p>
+<p class="zw">调用shutil.copy(source, destination)，将路径source处的文件复制到路径destination处的文件夹（source和destination都是字符串）。如果destination是一个文件名，它将作为被复制文件的新名字。该函数返回一个字符串，表示被复制文件的路径。</p>
+<p class="zw">在交互式环境中输入以下代码，看看shutil.copy()的效果：</p>
+<pre class="代码无行号"><code>　&gt;&gt;&gt; <strong>import shutil, os</strong>
+　&gt;&gt;&gt; <strong>os.chdir('C:\\')</strong>
+❶ &gt;&gt;&gt; <strong>shutil.copy('C:\\spam.txt', 'C:\\delicious')</strong>
+　'C:\\delicious\\spam.txt'
+❷ &gt;&gt;&gt; <strong>shutil.copy('eggs.txt', 'C:\\delicious\\eggs2.txt')</strong>
+　'C:\\delicious\\eggs2.txt'
+</code>
+</pre>
+<p class="zw">第一个shutil.copy()调用将文件C:\spam.txt复制到文件夹C:\delicious。返回值是刚刚被复制的文件的路径。请注意，因为指定了一个文件夹作为目的地❶，原来的文件名spam.txt就被用作新复制的文件名。第二个shutil.copy()调用❷也将文件C:\eggs.txt复制到文件夹C:\delicious，但为新文件提供了一个名字eggs2.txt。</p>
+<p class="zw">shutil.copy()将复制一个文件，shutil.copytree()将复制整个文件夹，以及它包含的文件夹和文件。调用shutil.copytree(source, destination)，将路径source处的文件夹，包括它的所有文件和子文件夹，复制到路径destination处的文件夹。source和destination参数都是字符串。该函数返回一个字符串，是新复制的文件夹的路径。</p>
+<p class="zw">在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>import shutil, os</strong>
+&gt;&gt;&gt; <strong>os.chdir('C:\\')</strong>
+&gt;&gt;&gt; <strong>shutil.copytree('C:\\bacon', 'C:\\bacon_backup')</strong>
+'C:\\bacon_backup'
+</code>
+</pre>
+<p class="zw">shutil.copytree()调用创建了一个新文件夹，名为bacon_backup，其中的内容与原来的bacon文件夹一样。现在你已经备份了非常非常宝贵的“bacon”。</p>
+<h3 id="nav_point_234">9.1.2 文件和文件夹的移动与改名</h3>
+<p class="zw">调用shutil.move(source, destination)，将路径source处的文件夹移动到路径destination，并返回新位置的绝对路径的字符串。</p>
+<p class="zw">如果destination指向一个文件夹，source文件将移动到destination中，并保持原来的文件名。例如，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>import shutil</strong>
+&gt;&gt;&gt; <strong>shutil.move('C:\\bacon.txt', 'C:\\eggs')</strong>
+'C:\\eggs\\bacon.txt'
+</code>
+</pre>
+<p class="zw">假定在C:\目录中已存在一个名为eggs的文件夹，这个shutil.move()调用就是说，“将C:\bacon.txt移动到文件夹C:\eggs中。</p>
+<p class="zw">如果在C:\eggs中原来已经存在一个文件bacon.txt，它就会被覆写。因为用这种方式很容易不小心覆写文件，所以在使用move()时应该注意。</p>
+<p class="zw">destination路径也可以指定一个文件名。在下面的例子中，source文件被移动并改名。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>shutil.move('C:\\bacon.txt', 'C:\\eggs\\new_bacon.txt')</strong>
+'C:\\eggs\\new_bacon.txt'
+</code>
+</pre>
+<p class="zw">这一行是说，“将C:\bacon.txt移动到文件夹C:\eggs，完成之后，将bacon.txt文件改名为new_bacon.txt。”</p>
+<p class="zw">前面两个例子都假设在C:\目录下有一个文件夹eggs。但是如果没有eggs文件夹，move()就会将bacon.txt改名，变成名为eggs的文件。</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>shutil.move('C:\\bacon.txt', 'C:\\eggs')</strong>
+'C:\\eggs'
+</code>
+</pre>
+<p class="zw">这里，move()在C:\目录下找不到名为eggs的文件夹，所以假定destination指的是一个文件，而非文件夹。所以bacon.txt文本文件被改名为eggs（没有.txt文件扩展名的文本文件），但这可能不是你所希望的！这可能是程序中很难发现的缺陷，因为move()调用会很开心地做一些事情，但和你所期望的完全不同。这也是在使用move()时要小心的另一个理由。</p>
+<p class="zw">最后，构成目的地的文件夹必须已经存在，否则Python会抛出异常。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>shutil.move('spam.txt', 'c:\\does_not_exist\\eggs\\ham')</strong>
+Traceback (most recent call last):
+  File "C:\Python34\lib\shutil.py", line 521, in move
+    os.rename(src, real_dst)
+FileNotFoundError: [WinError 3] The system cannot find the path specified:
+'spam.txt' -&gt; 'c:\\does_not_exist\\eggs\\ham'
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "&lt; pyshell#29&gt;", line 1, in &lt; module&gt;
+    shutil.move('spam.txt', 'c:\\does_not_exist\\eggs\\ham')
+  File "C:\Python34\lib\shutil.py", line 533, in move
+    copy2(src, real_dst)
+  File "C:\Python34\lib\shutil.py", line 244, in copy2
+    copyfile(src, dst, follow_symlinks=follow_symlinks)
+  File "C:\Python34\lib\shutil.py", line 108, in copyfile
+    with open(dst, 'wb') as fdst:
+FileNotFoundError: [Errno 2] No such file or directory: 'c:\\does_not_exist\\
+eggs\\ham'
+</code>
+</pre>
+<p class="zw">Python在does_not_exist目录中寻找eggs和ham。它没有找到不存在的目录，所以不能将spam.txt移动到指定的路径。</p>
+<h3 id="nav_point_235">9.1.3 永久删除文件和文件夹</h3>
+<p class="zw">利用os模块中的函数，可以删除一个文件或一个空文件夹。但利用shutil模块，可以删除一个文件夹及其所有的内容。</p>
+<ul>
+<li class="第1级无序列表">用os.unlink(path)将删除path处的文件。</li>
+<li class="第1级无序列表">调用os.rmdir(path)将删除path处的文件夹。该文件夹必须为空，其中没有任何文件和文件夹。</li>
+<li class="第1级无序列表">调用shutil.rmtree(path)将删除path处的文件夹，它包含的所有文件和文件夹都会被删除。</li>
+</ul>
+<p class="zw">在程序中使用这些函数时要小心！可以第一次运行程序时，注释掉这些调用，并且加上print()调用，显示会被删除的文件。这样做是一个好主意。下面有一个Python程序，本来打算删除具有.txt扩展名的文件，但有一处录入错误（用粗体突出显示），结果导致它删除了.rxt文件。</p>
+<pre class="代码无行号"><code>import os
+for filename in os.listdir():
+    if filename.endswith('.<strong>r</strong>
+xt'):
+        os.unlink(filename)
+</code>
+</pre>
+<p class="zw">如果你有某些重要的文件以.rxt结尾，它们就会被不小心永久地删除。作为替代，你应该先运行像这样的程序：</p>
+<pre class="代码无行号"><code>import os
+for filename in os.listdir():
+    if filename.endswith('.rxt'):
+        #os.unlink(filename)
+        print(filename)</code>
+</pre>
+<p class="zw">现在os.unlink()调用被注释掉，所以Python会忽略它。作为替代，你会打印出将被删除的文件名。先运行这个版本的程序，你就会知道，你不小心告诉程序要删除.rxt文件，而不是.txt文件。</p>
+<p class="zw">在确定程序按照你的意图工作后，删除print(filename)代码行，取消os.unlink(filename)代码行的注释。然后再次运行该程序，实际删除这些文件。</p>
+<h3 id="nav_point_236">9.1.4 用send2trash模块安全地删除</h3>
+<p class="zw">因为Python内建的shutil.rmtree()函数不可恢复地删除文件和文件夹，所以用起来可能有危险。删除文件和文件夹的更好方法，是使用第三方的send2trash模块。你可以在终端窗口中运行pip install send2trash，安装该模块（参见附录A，其中更详细地解释了如何安装第三方模块）。</p>
+<p class="zw">利用send2trash，比Python常规的删除函数要安全得多，因为它会将文件夹和文件发送到计算机的垃圾箱或回收站，而不是永久删除它们。如果因程序缺陷而用send2trash删除了某些你不想删除的东西，稍后可以从垃圾箱恢复。</p>
+<p class="zw">安装send2trash后，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>import send2trash</strong>
+&gt;&gt;&gt; <strong>baconFile = open('bacon.txt', 'a') # creates the file</strong>
+&gt;&gt;&gt; <strong>baconFile.write('Bacon is not a vegetable.')</strong>
+25
+&gt;&gt;&gt; <strong>baconFile.close()</strong>
+&gt;&gt;&gt; <strong>send2trash.send2trash('bacon.txt')</strong>
+</code>
+</pre>
+<p class="zw">一般来说，总是应该使用send2trash.send2trash()函数来删除文件和文件夹。虽然它将文件发送到垃圾箱，让你稍后能够恢复它们，但是这不像永久删除文件，不会释放磁盘空间。如果你希望程序释放磁盘空间，就要用os和shutil来删除文件和文件夹。请注意，send2trash()函数只能将文件送到垃圾箱，不能从中恢复文件。</p>
+<h2 id="nav_point_237">9.2 遍历目录树</h2>
+<p class="zw">假定你希望对某个文件夹中的所有文件改名，包括该文件夹中所有子文件夹中的所有文件。也就是说，你希望遍历目录树，处理遇到的每个文件。写程序完成这件事，可能需要一些技巧。好在，Python提供了一个函数，替你处理这个过程。</p>
+<p class="zw">请看C:\delicious文件夹及其内容，如图9-1所示。</p>
+<p class="图"><img alt="0901" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/33_Image00100.jpg"/>
+</p>
+<p class="图题">图9-1 一个示例文件夹，包含3个文件夹和4个文件</p>
+<p class="zw">这里有一个例子程序，针对图9-1的目录树，使用了os.walk()函数：</p>
+<pre class="代码无行号"><code>import os
+for folderName, subfolders, filenames in os.walk('C:\\delicious'):
+    print('The current folder is ' + folderName)
+    for subfolder in subfolders:
+        print('SUBFOLDER OF ' + folderName + ': ' + subfolder)
+    for filename in filenames:
+        print('FILE INSIDE ' + folderName + ': '+ filename)
+    print('')</code>
+</pre>
+<p class="zw">os.walk()函数被传入一个字符串值，即一个文件夹的路径。你可以在一个for循环语句中使用os.walk()函数，遍历目录树，就像使用range()函数遍历一个范围的数字一样。不像range()，os.walk()在循环的每次迭代中，返回3个值：</p>
+<p class="zw">1．当前文件夹名称的字符串。</p>
+<p class="zw">2．当前文件夹中子文件夹的字符串的列表。</p>
+<p class="zw">3．当前文件夹中文件的字符串的列表。</p>
+<p class="zw">所谓当前文件夹，是指for循环当前迭代的文件夹。程序的当前工作目录，不会因为os.walk()而改变。</p>
+<p class="zw">就像你可以在代码for i in range(10):中选择变量名称i一样，你也可以选择前面列出来的3个字的变量名称。我通常使用foldername、subfolders和filenames。</p>
+<p class="zw">运行该程序，它的输出如下：</p>
+<pre class="代码无行号"><code>The current folder is C:\delicious
+SUBFOLDER OF C:\delicious: cats
+SUBFOLDER OF C:\delicious: walnut
+FILE INSIDE C:\delicious: spam.txt
+The current folder is C:\delicious\cats
+FILE INSIDE C:\delicious\cats: catnames.txt
+FILE INSIDE C:\delicious\cats: zophie.jpg
+The current folder is C:\delicious\walnut
+SUBFOLDER OF C:\delicious\walnut: waffles
+The current folder is C:\delicious\walnut\waffles
+FILE INSIDE C:\delicious\walnut\waffles: butter.txt.</code>
+</pre>
+<p class="zw">因为os.walk()返回字符串的列表，保存在subfolder和filename变量中，所以你可以在它们自己的for循环中使用这些列表。用你自己定制的代码，取代print()函数调用（或者如果不需要，就删除for循环）。</p>
+<h2 id="nav_point_238">9.3 用zipfile模块压缩文件</h2>
+<p class="zw">你可能熟悉ZIP文件（带有.zip文件扩展名），它可以包含许多其他文件的压缩内容。压缩一个文件会减少它的大小，这在因特网上传输时很有用。因为一个ZIP文件可以包含多个文件和子文件夹，所以它是一种很方便的方式，将多个文件打包成一个文件。这个文件叫做“归档文件”，然后可以用作电子邮件的附件，或其他用途。</p>
+<p class="zw">利用zipfile模块中的函数，Python程序可以创建和打开（或解压）ZIP文件。假定你有一个名为example.zip的zip文件，它的内容如图9-2所示。</p>
+<p class="图"><img alt="0902" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/33_Image00101.jpg"/>
+</p>
+<p class="图题">图9-2 example.zip的内容</p>
+<p class="zw">可以从<a href="http://nostarch.com/automatestuff/">http://nostarch.com/automatestuff/</a>
+ 下载这个ZIP文件，或者利用计算机上已有的一个ZIP文件，接着完成下面的操作。</p>
+<h3 id="nav_point_239">9.3.1 读取ZIP文件</h3>
+<p class="zw">要读取ZIP文件的内容，首先必须创建一个ZipFile对象（请注意大写首字母Z和F）。ZipFile对象在概念上与File对象相似，你在第8章中曾经看到open()函数返回File对象：它们是一些值，程序通过它们与文件打交道。要创建一个ZipFile对象，就调用zipfile.ZipFile()函数，向它传入一个字符串，表示.zip文件的文件名。请注意，zipfile是Python模块的名称，ZipFile()是函数的名称。</p>
+<p class="zw">例如，在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>　&gt;&gt;&gt; <strong>import zipfile, os</strong>
+　&gt;&gt;&gt; <strong>os.chdir('C:\\') # move to the folder with example.zip</strong>
+　&gt;&gt;&gt; <strong>exampleZip = zipfile.ZipFile('example.zip')</strong>
+　&gt;&gt;&gt; <strong>exampleZip.namelist()</strong>
+　['spam.txt', 'cats/', 'cats/catnames.txt', 'cats/zophie.jpg']
+　&gt;&gt;&gt; <strong>spamInfo = exampleZip.getinfo('spam.txt')</strong>
+　&gt;&gt;&gt; <strong>spamInfo.file_size</strong>
+　13908
+　&gt;&gt;&gt; <strong>spamInfo.compress_size</strong>
+　3828
+❶ &gt;&gt;&gt; <strong>'Compressed file is %sx smaller!' % (round(spamInfo.file_size / spamInfo</strong>
+　<strong>.compress_size, 2))</strong>
+　'Compressed file is 3.63x smaller!'
+　&gt;&gt;&gt; <strong>exampleZip.close()</strong>
+</code>
+</pre>
+<p class="zw">ZipFile对象有一个namelist()方法，返回ZIP文件中包含的所有文件和文件夹的字符串的列表。这些字符串可以传递给ZipFile对象的getinfo()方法，返回一个关于特定文件的ZipInfo对象。ZipInfo对象有自己的属性，诸如表示字节数的file_size和compress_size，它们分别表示原来文件大小和压缩后文件大小。ZipFile对象表示整个归档文件，而ZipInfo对象则保存该归档文件中每个文件的有用信息。</p>
+<p class="zw">❶处的命令计算出example.zip压缩的效率，用压缩后文件的大小除以原来文件的大小，并以%s字符串格式打印出这一信息。</p>
+<h3 id="nav_point_240">9.3.2 从ZIP文件中解压缩</h3>
+<p class="zw">ZipFile对象的extractall()方法从ZIP文件中解压缩所有文件和文件夹，放到当前工作目录中。</p>
+<pre class="代码无行号"><code>　&gt;&gt;&gt; <strong>import zipfile, os</strong>
+　&gt;&gt;&gt; <strong>os.chdir('C:\\') # move to the folder with example.zip</strong>
+　&gt;&gt;&gt; <strong>exampleZip = zipfile.ZipFile('example.zip')</strong>
+❶ &gt;&gt;&gt; <strong>exampleZip.extractall()</strong>
+　&gt;&gt;&gt; <strong>exampleZip.close()</strong>
+</code>
+</pre>
+<p class="zw">运行这段代码后，example.zip的内容将被解压缩到C:\。或者，你可以向extractall()传递的一个文件夹名称，它将文件解压缩到那个文件夹，而不是当前工作目录。如果传递给extractall()方法的文件夹不存在，它会被创建。例如，如果你用exampleZip.extractall('C:\ delicious')取代❶处的调用，代码就会从example.zip中解压缩文件，放到新创建的C:\delicious文件夹中。</p>
+<p class="zw">ZipFile对象的extract()方法从ZIP文件中解压缩单个文件。继续交互式环境中的例子：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>exampleZip.extract('spam.txt')</strong>
+'C:\\spam.txt'
+&gt;&gt;&gt; <strong>exampleZip.extract('spam.txt', 'C:\\some\\new\\folders')</strong>
+'C:\\some\\new\\folders\\spam.txt'
+&gt;&gt;&gt; <strong>exampleZip.close()</strong>
+</code>
+</pre>
+<p class="zw">传递给extract()的字符串，必须匹配namelist()返回的字符串列表中的一个。或者，你可以向extract()传递第二个参数，将文件解压缩到指定的文件夹，而不是当前工作目录。如果第二个参数指定的文件夹不存在，Python就会创建它。extract()的返回值是被压缩后文件的绝对路径。</p>
+<h3 id="nav_point_241">9.3.3 创建和添加到ZIP文件</h3>
+<p class="zw">要创建你自己的压缩ZIP文件，必须以“写模式”打开ZipFile对象，即传入'w'作为第二个参数（这类似于向open()函数传入'w'，以写模式打开一个文本文件）。</p>
+<p class="zw">如果向ZipFile对象的write()方法传入一个路径，Python就会压缩该路径所指的文件，将它加到ZIP文件中。write()方法的第一个参数是一个字符串，代表要添加的文件名。第二个参数是“压缩类型”参数，它告诉计算机使用怎样的算法来压缩文件。可以总是将这个值设置为zipfile.ZIP_DEFLATED（这指定了deflate压缩算法，它对各种类型的数据都很有效）。在交互式环境中输入以下代码：</p>
+<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>import zipfile</strong>
+&gt;&gt;&gt; <strong>newZip = zipfile.ZipFile('new.zip', 'w')</strong>
+&gt;&gt;&gt; <strong>newZip.write('spam.txt', compress_type=zipfile.ZIP_DEFLATED)</strong>
+&gt;&gt;&gt; <strong>newZip.close()</strong>
+</code>
+</pre>
+<p class="zw">这段代码将创建一个新的ZIP文件，名为new.zip，它包含spam.txt压缩后的内容。</p>
+<p class="zw">要记住，就像写入文件一样，写模式将擦除ZIP文件中所有原有的内容。如果只是希望将文件添加到原有的ZIP文件中，就要向zipfile.ZipFile()传入'a'作为第二个参数，以添加模式打开ZIP文件。</p>
+<h2 id="nav_point_242">9.4 项目：将带有美国风格日期的文件改名为欧洲风格日期</h2>
+<p class="zw">假定你的老板用电子邮件发给你上千个文件，文件名包含美国风格的日期（MM-DD-YYYY），需要将它们改名为欧洲风格的日期（DD-MM-YYYY）。手工完成这个无聊的任务可能需要几天时间！让我们写一个程序来完成它。</p>
+<p class="zw">下面是程序要做的事：</p>
+<ul>
+<li class="第1级无序列表">检查当前工作目录的所有文件名，寻找美国风格的日期。</li>
+<li class="第1级无序列表">如果找到，将该文件改名，交换月份和日期的位置，使之成为欧洲风格。</li>
+</ul>
+<p class="zw">这意味着代码需要做下面的事情：</p>
+<ul>
+<li class="第1级无序列表">创建一个正则表达式，可以识别美国风格日期的文本模式。</li>
+<li class="第1级无序列表">调用os.listdir()，找出工作目录中的所有文件。</li>
+<li class="第1级无序列表">循环遍历每个文件名，利用该正则表达式检查它是否包含日期。</li>
+<li class="第1级无序列表">如果它包含日期，用shutil.move()对该文件改名。</li>
+</ul>
+<p class="zw">对于这个项目，打开一个新的文件编辑器窗口，将代码保存为renameDates.py。</p>
+<h3 id="nav_point_243">第1步：为美国风格的日期创建一个正则表达式</h3>
+<p class="zw">程序的第一部分需要导入必要的模块，并创建一个正则表达式，它能识别MM-DD-YYYY格式的日期。TODO注释将提醒你，这个程序还要写什么。将它们作为TODO，就很容易利用IDLE的Ctrl-F查找功能找到它们。让你的代码看起来像这样：</p>
+<pre class="代码无行号"><code>　#! python3
+　# renameDates.py - Renames filenames with American MM-DD-YYYY date format
+　# to European DD-MM-YYYY.
+❶ import shutil, os, re
+　# Create a regex that matches files with the American date format.
+❷ datePattern = re.compile(r"""^(.*?)     # all text before the date
+　    ((0|1)?\d)-                 # one or two digits for the month
+　    ((0|1|2|3)?\d)-            # one or two digits for the day
+ 　   ((19|20)\d\d)             # four digits for the year
+　    (.*?)$                     # all text after the date
+❸     """, re.VERBOSE)
+　# TODO: Loop over the files in the working directory.
+　# TODO: Skip files without a date.
+　# TODO: Get the different parts of the filename.
+　# TODO: Form the European-style filename.
+　# TODO: Get the full, absolute file paths.
+　# TODO: Rename the files.</code>
+</pre>
+<p class="zw">通过本章，你知道shutil.move()函数可以用于文件改名：它的参数是要改名的文件名，以及新的文件名。因为这个函数存在于shutil模块中，所以你必须导入该模块❶。</p>
+<p class="zw">在为这些文件改名之前，需要确定哪些文件要改名。文件名如果包含spam4-4-1984.txt和01-03-2014eggs.zip这样的日期，就应该改名，而文件名不包含日期的应该忽略，诸如littlebrother.epub。</p>
+<p class="zw">可以用正则表达式来识别该模式。在开始导入re模块后，调用re.compile()创建一个Regex对象❷。传入re.VERBOSE作为第二参数❸，这将在正则表达式字符串中允许空白字符和注释，让它更可读。</p>
+<p class="zw">正则表达式字符串以^(.*?)开始，匹配文件名开始处、日期出现之前的任何文本。((0|1)?\d)分组匹配月份。第一个数字可以是0或1，所以正则表达式匹配12，作为十二月份，也会匹配02，作为二月份。这个数字也是可选的，所以四月份可以是04或4。日期的分组是((0|1|2|3)?\d)，它遵循类似的逻辑。3、03和31是有效的日期数字（是的，这个正则表达式会接受一些无效的日期，诸如4-31-2014、2-29-2013和0-15-2014。日期有许多特例，很容易被遗漏。为了简单，这个程序中的正则表达式已经足够好了）。</p>
+<p class="zw">虽然1885是一个有效的年份，但你可能只在寻找20世纪和21世纪的年份。这防止了程序不小心匹配非日期的文件名，它们和日期格式类似，诸如10-10-1000.txt。</p>
+<p class="zw">正则表达式的(.*?)$部分，将匹配日期之后的任何文本。</p>
+<h3 id="nav_point_244">第2步：识别文件名中的日期部分</h3>
+<p class="zw">接下来，程序将循环遍历os.listdir()返回的文件名字符串列表，用这个正则表达式匹配它们。文件名不包含日期的文件将被忽略。如果文件名包含日期，匹配的文本将保存在几个变量中。用下面的代码代替程序中前3个TODO：</p>
+<pre class="代码无行号"><code>　#! python3
+　# renameDates.py - Renames filenames with American MM-DD-YYYY date format
+　# to European DD-MM-YYYY.
+　--<em>snip</em>
+--
+　<strong># Loop over the files in the working directory.</strong>
+　<strong>for amerFilename in os.listdir('.'):</strong>
+　    <strong>mo = datePattern.search(amerFilename)</strong>
+　<strong>　</strong>
+　    <strong># Skip files without a date.</strong>
+❶     <strong>if mo == None:</strong>
+❷     <strong>continue</strong>
+<strong>　</strong>
+❸     <strong># Get the different parts of the filename.</strong>
+　    <strong>beforePart  = mo.group(1)</strong>
+　    <strong>monthPart   = mo.group(2)</strong>
+　    <strong>dayPart     = mo.group(4)</strong>
+　    <strong>yearPart     = mo.group(6)</strong>
+　    <strong>afterPart   = mo.group(8)</strong>
+　<strong>　</strong>
+　--<em>snip</em>
+--
+</code>
+</pre>
+<p class="zw">如果search()方法返回的Match对象是None❶，那么amerFilename中的文件名不匹配该正则表达式。continue语句❷将跳过循环剩下的部分，转向下一个文件名。</p>
+<p class="zw">否则，该正则表达式分组匹配的不同字符串，将保存在名为beforePart、monthPart、dayPart、yearPart和afterPar的变量中❸。这些变量中的字符串将在下一步中使用，用于构成欧洲风格的文件名。</p>
+<p class="zw">为了让分组编号直观，请尝试从头阅读该正则表达式，每遇到一个左括号就计数加一。不要考虑代码，只是写下该正则表达式的框架。这有助于使分组变得直观，例如：</p>
+<pre class="代码无行号"><code>datePattern = re.compile(r"""^(<strong>1</strong>
+)     # all text before the date
+    (<strong>2 </strong>
+(<strong>3</strong>
+) )-                         # one or two digits for the month
+    (<strong>4 </strong>
+(<strong>5</strong>
+) )-                         # one or two digits for the day
+    (<strong>6 </strong>
+(<strong>7</strong>
+) )                          # four digits for the year
+    (<strong>8</strong>
+)$                              # all text after the date
+    """, re.VERBOSE)
+</code>
+</pre>
+<p class="zw">这里，编号1至8代表了该正则表达式中的分组。写出该正则表达式的框架，其中只包含括号和分组编号。这让你更清楚地理解所写的正则表达式，然后再转向程序中剩下的部分。</p>
+<h3 id="nav_point_245">第3步：构成新文件名，并对文件改名</h3>
+<p class="zw">作为最后一步，连接前一步生成的变量中的字符串，得到欧洲风格的日期：日期在月份之前。用下面的代码代替程序中最后3个TODO：</p>
+<pre class="代码无行号"><code>　#! python3
+　# renameDates.py - Renames filenames with American MM-DD-YYYY date format
+　# to European DD-MM-YYYY.
+　--<em>snip</em>
+--
+　    <strong># Form the European-style filename.</strong>
+❶     <strong>euroFilename = beforePart + dayPart + '-' + monthPart + '-' + yearPart +</strong>
+　                   <strong>afterPart</strong>
+<strong>　</strong>
+　    <strong># Get the full, absolute file paths.</strong>
+　    <strong>absWorkingDir = os.path.abspath('.')</strong>
+　    <strong>amerFilename = os.path.join(absWorkingDir, amerFilename)</strong>
+　    <strong>euroFilename = os.path.join(absWorkingDir, euroFilename)</strong>
+<strong>　</strong>
+　    <strong># Rename the files.</strong>
+❷     <strong>print('Renaming "%s" to "%s"...' % (amerFilename, euroFilename))</strong>
+❸     <strong>#shutil.move(amerFilename, euroFilename) # uncomment after testing</strong>
+</code>
+</pre>
+<p class="zw">将连接的字符串保存在名为euroFilename的变量中❶。然后将amerFilename中原来的文件名和新的euroFilename变量传递给shutil.move()函数，将该文件改名❸。</p>
+<p class="zw">这个程序将shutil.move()调用注释掉，代之以打印出将被改名的文件名❷。先像这样运行程序，你可以确认文件改名是正确的。然后取消shutil.move()调用的注释，再次运行该程序，确实将这些文件改名。</p>
+<h3 id="nav_point_246">第4步：类似程序的想法</h3>
+<p class="zw">有很多其他的理由，导致你需要对大量的文件改名。</p>
+<ul>
+<li class="第1级无序列表">为文件名添加前缀，诸如添加spam_，将eggs.txt改名为spam_eggs.txt。</li>
+<li class="第1级无序列表">将欧洲风格日期的文件改名为美国风格日期。</li>
+<li class="第1级无序列表">删除文件名中的0，诸如spam0042.txt。</li>
+</ul>
+<h2 id="nav_point_247">9.5 项目：将一个文件夹备份到一个ZIP文件</h2>
+<p class="zw">假定你正在做一个项目，它的文件保存在C:\AlsPythonBook文件夹中。你担心工作会丢失，所以希望为整个文件夹创建一个ZIP文件，作为“快照”。你希望保存不同的版本，希望ZIP文件的文件名每次创建时都有所变化。例如AlsPythonBook_1.zip、AlsPythonBook_2.zip、AlsPythonBook_3.zip，等等。你可以手工完成，但这有点烦人，而且可能不小心弄错ZIP文件的编号。运行一个程序来完成这个烦人的任务会简单得多。</p>
+<p class="zw">针对这个项目，打开一个新的文件编辑器窗口，将它保存为backupToZip.py。</p>
+<h3 id="nav_point_248">第1步：弄清楚ZIP文件的名称</h3>
+<p class="zw">这个程序的代码将放在一个名为backupToZip()的函数中。这样就更容易将该函数复制粘贴到其他需要这个功能的Python程序中。在这个程序的末尾，会调用这个函数进行备份。让你的程序看起来像这样：</p>
+<pre class="代码无行号"><code>　#! python3
+　# backupToZip.py - Copies an entire folder and its contents into
+　# a ZIP file whose filename increments.
+❶ import zipfile, os
+　def backupToZip(folder):
+　    # Backup the entire contents of "folder" into a ZIP file.
+　    folder = os.path.abspath(folder) # make sure folder is absolute
+ 　   # Figure out the filename this code should use based on
+　    # what files already exist.
+❷     number = 1
+❸     while True:
+　        zipFilename = os.path.basename(folder) + '_' + str(number) + '.zip'
+　        if not os.path.exists(zipFilename):
+ 　           break
+　        number = number + 1
+❹     # TODO: Create the ZIP file.
+ 　   # TODO: Walk the entire folder tree and compress the files in each folder.
+　    print('Done.')
+　backupToZip('C:\\delicious')</code>
+</pre>
+<p class="zw">先完成基本任务：添加#!行，描述该程序做什么，并导入zipfile和os模块❶。</p>
+<p class="zw">定义backupToZip()函数，它只接收一个参数，即folder。这个参数是一个字符串路径，指向需要备份的文件夹。该函数将决定它创建的ZIP文件使用什么文件名，然后创建该文件，遍历folder文件夹，将每个子文件夹和文件添加到ZIP文件中。在源代码中为这些步骤写下TODO注释，提醒你稍后来完成❹。</p>
+<p class="zw">第一部分命名这个ZIP文件，使用folder的绝对路径的基本名称。如果要备份的文件夹是C:\delicious，ZIP文件的名称就应该是delicious_N.zip，第一次运行该程序时N=1，第二次运行时N=2，以此类推。</p>
+<p class="zw">通过检查delicious_1.zip是否存在，然后检查delicious_2.zip是否存在，继续下去，可以确定N应该是什么。用一个名为number的变量表示N❷，在一个循环内不断增加它，并调用os.path.exists()来检查该文件是否存在❸。第一个不存在的文件名将导致循环break，因此它就发现了新ZIP文件的文件名。</p>
+<h3 id="nav_point_249">第2步：创建新ZIP文件</h3>
+<p class="zw">接下来让我们创建ZIP文件。让你的程序看起来像这样：</p>
+<pre class="代码无行号"><code>　#! python3
+　# backupToZip.py - Copies an entire folder and its contents into
+　# a ZIP file whose filename increments.
+　--<em>snip</em>
+--
+　    while True:
+ 　       zipFilename = os.path.basename(folder) + '_' + str(number) + '.zip'
+　        if not os.path.exists(zipFilename):
+　            break
+　        number = number + 1
+　    <strong># Create the ZIP file.</strong>
+　    <strong>print('Creating %s...' % (zipFilename))</strong>
+❶     <strong>backupZip = zipfile.ZipFile(zipFilename, 'w')</strong>
+<strong>　</strong>
+　    # TODO: Walk the entire folder tree and compress the files in each folder.
+　    print('Done.')
+　backupToZip('C:\\delicious')
+</code>
+</pre>
+<p class="zw">既然新ZIP文件的文件名保存在zipFilename变量中，你就可以调用zipfile.ZipFile()，实际创建这个ZIP文件❶。确保传入'w'作为第二个参数，这样ZIP文件以写模式打开。</p>
+<h3 id="nav_point_250">第3步：遍历目录树并添加到ZIP文件</h3>
+<p class="zw">现在需要使用os.walk()函数，列出文件夹以及子文件夹中的每个文件。让你的程序看起来像这样：</p>
+<pre class="代码无行号"><code>　#! python3
+　# backupToZip.py - Copies an entire folder and its contents into
+　# a ZIP file whose filename increments.
+　--<em>snip</em>
+--
+　    <strong># Walk the entire folder tree and compress the files in each folder.</strong>
+❶     <strong>for foldername, subfolders, filenames in os.walk(folder):</strong>
+　       <strong>print('Adding files in %s...' % (foldername))</strong>
+ 　       <strong># Add the current folder to the ZIP file.</strong>
+❷         <strong>backupZip.write(foldername)</strong>
+　    <strong># Add all the files in this folder to the ZIP file.</strong>
+❸       <strong>for filename in filenames:</strong>
+　            <strong>newBase / os.path.basename(folder) + '_'</strong>
+　            <strong>if filename.startswith(newBase) and filename.endswith('.zip')</strong>
+　                <strong>continue # don't backup the backup ZIP files</strong>
+ 　           <strong>backupZip.write(os.path.join(foldername, filename))</strong>
+　    <strong>backupZip.close()</strong>
+　    print('Done.')
+　backupToZip('C:\\delicious')
+</code>
+</pre>
+<p class="zw">可以在for循环中使用os.walk()❶，在每次迭代中，它将返回这次迭代当前的文件夹名称、这个文件夹中的子文件夹，以及这个文件夹中的文件名。</p>
+<p class="zw">在这个for循环中，该文件夹被添加到ZIP文件❷。嵌套的for循环将遍历filenames列表中的每个文件❸。每个文件都被添加到ZIP文件中，以前生成的备份ZIP文件除外。</p>
+<p class="zw">如果运行该程序，它产生的输出看起来像这样：</p>
+<pre class="代码无行号"><code>Creating delicious_1.zip...
+Adding files in C:\delicious...
+Adding files in C:\delicious\cats...
+Adding files in C:\delicious\waffles...
+Adding files in C:\delicious\walnut...
+Adding files in C:\delicious\walnut\waffles...
+Done.</code>
+</pre>
+<p class="zw">第二次运行它时，它将C:\delicious中的所有文件放进一个ZIP文件，命名为delicious_2.zip，以此类推。</p>
+<h3 id="nav_point_251">第4步：类似程序的想法</h3>
+<p class="zw">你可以在其他程序中遍历一个目录树，将文件添加到压缩的ZIP归档文件中。例如，你可以编程做下面的事情：</p>
+<ul>
+<li class="第1级无序列表">遍历一个目录树，将特定扩展名的文件归档，诸如.txt或.py，并排除其他文件。</li>
+<li class="第1级无序列表">遍历一个目录树，将除.txt和.py文件以外的其他文件归档。</li>
+<li class="第1级无序列表">在一个目录树中查找文件夹，它包含的文件数最多，或者使用的磁盘空间最大。</li>
+</ul>
+<h2 id="nav_point_252">9.6 小结</h2>
+<p class="zw">即使你是一个有经验的计算机用户，可能也会用鼠标和键盘手工处理文件。现在的文件浏览器使得处理少量文件的工作很容易。但有时候，如果用计算机的浏览器，你需要完成的任务可能要花几个小时。</p>
+<p class="zw">os和shutil模块提供了一些函数，用于复制、移动、改名和删除文件。在删除文件时，你可能希望使用send2trash模块，将文件移动到回收站或垃圾箱，而不是永久地删除它们。在编程处理文件时，最好是先注释掉实际会复制/移动/改名/删除文件的代码，添加print()调用，这样你就可以运行该程序，验证它实际会做什么。</p>
+<p class="zw">通常，你不仅需要对一个文件夹中的文件执行这些操作，而是对所有下级子文件夹执行操作。os.walk()函数将处理这个艰苦工作，遍历文件夹，这样你就可以专注于程序需要对其中的文件做什么。</p>
+<p class="zw">zipfile模块提供了一种方法，用Python压缩和解压ZIP归档文件。和os和shutil模块中的文件处理函数一起使用，很容易将硬盘上任意位置的一些文件打包。和许多独立的文件相比，这些ZIP文件更容易上传到网站，或作为E-mail附件发送。</p>
+<p class="zw">本书前面几章提供了源代码让你拷贝。但如果你编写自己的程序，可能在第一次编写时不会完美无缺。下一章将聚焦于一些Python模块，它们帮助你分析和调试程序，这样就能让程序很快正确运行。</p>
+<h2 id="nav_point_253">9.7 习题</h2>
+<p class="zw">1．shutil.copy()和shutil.copytree()之间的区别是什么？</p>
+<p class="zw">2．什么函数用于文件改名？</p>
+<p class="zw">3．send2trash和shutil模块中的删除函数之间的区别是什么？</p>
+<p class="zw">4．ZipFile对象有一个close()方法，就像File对象的close()方法。ZipFile对象的什么方法等价于File对象的open()方法？</p>
+<h2 id="nav_point_254">9.8 实践项目</h2>
+<p class="zw">作为实践，编程完成下面的任务。</p>
+<h3 id="nav_point_255">9.8.1 选择性拷贝</h3>
+<p class="zw">编写一个程序，遍历一个目录树，查找特定扩展名的文件（诸如.pdf或.jpg）。不论这些文件的位置在哪里，将它们拷贝到一个新的文件夹中。</p>
+<h3 id="nav_point_256">9.8.2 删除不需要的文件</h3>
+<p class="zw">一些不需要的、巨大的文件或文件夹占据了硬盘的空间，这并不少见。如果你试图释放计算机上的空间，那么删除不想要的巨大文件效果最好。但首先你必须找到它们。</p>
+<p class="zw">编写一个程序，遍历一个目录树，查找特别大的文件或文件夹，比方说，超过100MB的文件（回忆一下，要获得文件的大小，可以使用 os 模块的os.path.getsize()）。将这些文件的绝对路径打印到屏幕上。</p>
+<h3 id="nav_point_257">9.8.3 消除缺失的编号</h3>
+<p class="zw">编写一个程序，在一个文件夹中，找到所有带指定前缀的文件，诸如spam001.txt, spam002.txt等，并定位缺失的编号（例如存在spam001.txt和spam003.txt，但不存在spam002.txt）。让该程序对所有后面的文件改名，消除缺失的编号。</p>
+<p class="zw">作为附加的挑战，编写另一个程序，在一些连续编号的文件中，空出一些编号，以便加入新的文件。</p>
+<p class="zw"><br style="page-break-after:always"/>
+</p>
+<div></div>
+]]></description>
+    <pubDate>Mon, 14 Sep 2026 04:00:59 +0000</pubDate>
+    <guid isPermaLink="false">33</guid>
+</item>
+<item>
       <title><![CDATA[WorkBuddyGuide-第 6 章 WorkBuddy的专家和专家团]]></title>
       <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%206%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%93%E5%AE%B6%E5%92%8C%E4%B8%93%E5%AE%B6%E5%9B%A2/</link>
       <description><![CDATA[学习时长：约2小时；学习内容：专家与Skill的区别[reference:12]、专家的定义与创建方法[reference:13][reference:14]、专家团的概念与协作机制[reference:15]；学习目的：理解专家和专家团的工作方式，学会召唤和创建专家，用专家团处理复杂项目]]></description>
@@ -4520,12 +4968,5 @@ print('spam')&lt;/code&gt;
     <pubDate>Fri, 14 Aug 2026 01:42:23 +0000</pubDate>
     <guid isPermaLink="false">26</guid>
 </item>
-<item>
-      <title>WorkBuddyGuide-蓝皮书总览</title>
-      <link>https://workbuddy.homes/bluebook/</link>
-      <description>学习时长：约0.5小时；学习内容：了解手册的整体结构、章节分布与学习路径；学习目的：建立全局视角，规划自己的学习路线，快速定位所需内容</description>
-      <guid isPermaLink="false">https://workbuddy.homes/bluebook/</guid>
-      <pubDate>Fri, 14 Aug 2026 01:32:57 +0000</pubDate>
-    </item>
 </channel>
 </rss>
