@@ -1,76 +1,84 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
 <channel>
-    <title>我的每日小说</title>
-    <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
-    <description>从 EPUB 自动生成的 RSS 订阅源</description>
-        <item>
+  <title>每日更新推送</title>
+  <link>https://github.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE</link>
+  <description>自动更新的 RSS 列表 (保留最近 15 条)</description>
+  <lastBuildDate>Mon, 21 Sep 2026 03:53:37 +0000</lastBuildDate>
+    <item>
+      <title><![CDATA[WorkBuddyGuide-第 7 章 WorkBuddy 使用连接器]]></title>
+      <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%207%20%E7%AB%A0%20WorkBuddy%20%E4%BD%BF%E7%94%A8%E8%BF%9E%E6%8E%A5%E5%99%A8/</link>
+      <description><![CDATA[学习时长：约2小时；学习内容：MCP协议的概念与价值[reference:16]、MCP的核心特点（统一标准、三大能力、C/S架构、本地优先）[reference:17]、内置连接器（腾讯会议/腾讯文档/TAPD等）的加载与使用[reference:18]；学习目的：理解MCP的工作原理，学会通过连接器让WorkBuddy接入外部工具和服务]]></description>
+      <guid isPermaLink="false">https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%207%20%E7%AB%A0%20WorkBuddy%20%E4%BD%BF%E7%94%A8%E8%BF%9E%E6%8E%A5%E5%99%A8/</guid>
+      <pubDate>Mon, 21 Sep 2026 03:53:37 +0000</pubDate>
+    </item>
+<item>
     <title>AutomaticApplicationPython - 033 - 第9章 组织文件.epub</title>
-    <description><![CDATA[<p style='color: #888;'>⏱ 预计阅读时间：64 分钟 (19059 字)</p><hr><h1 id="nav_point_231">第9章　组织文件</h1>
-<p class="zw">在上一章中，你学习了如何用Python创建并写入新文件。你的程序也可以组织硬盘上已经存在的文件。也许你曾经经历过查找一个文件夹，里面有几十个、几百个，甚至上千个文件，需要手工进行复制、改名、移动或压缩。或者考虑下面这样的任务：</p>
-<ul>
-<li class="第1级无序列表">在一个文件夹及其所有子文件夹中，复制所有的pdf文件（且只复制pdf文件）</li>
-<li class="第1级无序列表">针对一个文件夹中的所有文件，删除文件名中前导的零，该文件夹中有数百个文件，名为spam001.txt、spam002.txt、spam003.txt等。</li>
-<li class="第1级无序列表">将几个文件夹的内容压缩到一个ZIP文件中（这可能是一个简单的备份系统）</li>
-</ul>
-<p class="zw">所有这种无聊的任务，正是在请求用Python实现自动化。通过对电脑编程来完成这些任务，你就把它变成了一个快速工作的文件职员，而且从不犯错。</p>
-<p class="zw">在开始处理文件时你会发现，如果能够很快查看文件的扩展名（.txt、.pdf、.jpg等），是很有帮助的。在OS X和Linux上，文件浏览器很有可能自动显示扩展名。在Windows上，文件扩展名可能默认是隐藏的。要显示扩展名，请点开Start►Control Panel►Appearance和Personalization►Folder选项。在View选项卡中，Advanced Settings之下，取消Hide extensions for known file types复选框。</p>
-<h2 id="nav_point_232">9.1 shutil模块</h2>
-<p class="zw">shutil（或称为shell工具）模块中包含一些函数，让你在Python程序中复制、移动、改名和删除文件。要使用shutil的函数，首先需要import shutil。</p>
-<h3 id="nav_point_233">9.1.1 复制文件和文件夹</h3>
-<p class="zw">shutil模块提供了一些函数，用于复制文件和整个文件夹。</p>
-<p class="zw">调用shutil.copy(source, destination)，将路径source处的文件复制到路径destination处的文件夹（source和destination都是字符串）。如果destination是一个文件名，它将作为被复制文件的新名字。该函数返回一个字符串，表示被复制文件的路径。</p>
-<p class="zw">在交互式环境中输入以下代码，看看shutil.copy()的效果：</p>
-<pre class="代码无行号"><code>　&gt;&gt;&gt; <strong>import shutil, os</strong>
-　&gt;&gt;&gt; <strong>os.chdir('C:\\')</strong>
-❶ &gt;&gt;&gt; <strong>shutil.copy('C:\\spam.txt', 'C:\\delicious')</strong>
+    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：64 分钟 (19059 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_231"&gt;第9章　组织文件&lt;/h1&gt;
+&lt;p class="zw"&gt;在上一章中，你学习了如何用Python创建并写入新文件。你的程序也可以组织硬盘上已经存在的文件。也许你曾经经历过查找一个文件夹，里面有几十个、几百个，甚至上千个文件，需要手工进行复制、改名、移动或压缩。或者考虑下面这样的任务：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;在一个文件夹及其所有子文件夹中，复制所有的pdf文件（且只复制pdf文件）&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;针对一个文件夹中的所有文件，删除文件名中前导的零，该文件夹中有数百个文件，名为spam001.txt、spam002.txt、spam003.txt等。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;将几个文件夹的内容压缩到一个ZIP文件中（这可能是一个简单的备份系统）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;所有这种无聊的任务，正是在请求用Python实现自动化。通过对电脑编程来完成这些任务，你就把它变成了一个快速工作的文件职员，而且从不犯错。&lt;/p&gt;
+&lt;p class="zw"&gt;在开始处理文件时你会发现，如果能够很快查看文件的扩展名（.txt、.pdf、.jpg等），是很有帮助的。在OS X和Linux上，文件浏览器很有可能自动显示扩展名。在Windows上，文件扩展名可能默认是隐藏的。要显示扩展名，请点开Start►Control Panel►Appearance和Personalization►Folder选项。在View选项卡中，Advanced Settings之下，取消Hide extensions for known file types复选框。&lt;/p&gt;
+&lt;h2 id="nav_point_232"&gt;9.1 shutil模块&lt;/h2&gt;
+&lt;p class="zw"&gt;shutil（或称为shell工具）模块中包含一些函数，让你在Python程序中复制、移动、改名和删除文件。要使用shutil的函数，首先需要import shutil。&lt;/p&gt;
+&lt;h3 id="nav_point_233"&gt;9.1.1 复制文件和文件夹&lt;/h3&gt;
+&lt;p class="zw"&gt;shutil模块提供了一些函数，用于复制文件和整个文件夹。&lt;/p&gt;
+&lt;p class="zw"&gt;调用shutil.copy(source, destination)，将路径source处的文件复制到路径destination处的文件夹（source和destination都是字符串）。如果destination是一个文件名，它将作为被复制文件的新名字。该函数返回一个字符串，表示被复制文件的路径。&lt;/p&gt;
+&lt;p class="zw"&gt;在交互式环境中输入以下代码，看看shutil.copy()的效果：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;import shutil, os&lt;/strong&gt;
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;os.chdir('C:\\')&lt;/strong&gt;
+❶ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;shutil.copy('C:\\spam.txt', 'C:\\delicious')&lt;/strong&gt;
 　'C:\\delicious\\spam.txt'
-❷ &gt;&gt;&gt; <strong>shutil.copy('eggs.txt', 'C:\\delicious\\eggs2.txt')</strong>
+❷ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;shutil.copy('eggs.txt', 'C:\\delicious\\eggs2.txt')&lt;/strong&gt;
 　'C:\\delicious\\eggs2.txt'
-</code>
-</pre>
-<p class="zw">第一个shutil.copy()调用将文件C:\spam.txt复制到文件夹C:\delicious。返回值是刚刚被复制的文件的路径。请注意，因为指定了一个文件夹作为目的地❶，原来的文件名spam.txt就被用作新复制的文件名。第二个shutil.copy()调用❷也将文件C:\eggs.txt复制到文件夹C:\delicious，但为新文件提供了一个名字eggs2.txt。</p>
-<p class="zw">shutil.copy()将复制一个文件，shutil.copytree()将复制整个文件夹，以及它包含的文件夹和文件。调用shutil.copytree(source, destination)，将路径source处的文件夹，包括它的所有文件和子文件夹，复制到路径destination处的文件夹。source和destination参数都是字符串。该函数返回一个字符串，是新复制的文件夹的路径。</p>
-<p class="zw">在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>import shutil, os</strong>
-&gt;&gt;&gt; <strong>os.chdir('C:\\')</strong>
-&gt;&gt;&gt; <strong>shutil.copytree('C:\\bacon', 'C:\\bacon_backup')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;第一个shutil.copy()调用将文件C:\spam.txt复制到文件夹C:\delicious。返回值是刚刚被复制的文件的路径。请注意，因为指定了一个文件夹作为目的地❶，原来的文件名spam.txt就被用作新复制的文件名。第二个shutil.copy()调用❷也将文件C:\eggs.txt复制到文件夹C:\delicious，但为新文件提供了一个名字eggs2.txt。&lt;/p&gt;
+&lt;p class="zw"&gt;shutil.copy()将复制一个文件，shutil.copytree()将复制整个文件夹，以及它包含的文件夹和文件。调用shutil.copytree(source, destination)，将路径source处的文件夹，包括它的所有文件和子文件夹，复制到路径destination处的文件夹。source和destination参数都是字符串。该函数返回一个字符串，是新复制的文件夹的路径。&lt;/p&gt;
+&lt;p class="zw"&gt;在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;import shutil, os&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;os.chdir('C:\\')&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;shutil.copytree('C:\\bacon', 'C:\\bacon_backup')&lt;/strong&gt;
 'C:\\bacon_backup'
-</code>
-</pre>
-<p class="zw">shutil.copytree()调用创建了一个新文件夹，名为bacon_backup，其中的内容与原来的bacon文件夹一样。现在你已经备份了非常非常宝贵的“bacon”。</p>
-<h3 id="nav_point_234">9.1.2 文件和文件夹的移动与改名</h3>
-<p class="zw">调用shutil.move(source, destination)，将路径source处的文件夹移动到路径destination，并返回新位置的绝对路径的字符串。</p>
-<p class="zw">如果destination指向一个文件夹，source文件将移动到destination中，并保持原来的文件名。例如，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>import shutil</strong>
-&gt;&gt;&gt; <strong>shutil.move('C:\\bacon.txt', 'C:\\eggs')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;shutil.copytree()调用创建了一个新文件夹，名为bacon_backup，其中的内容与原来的bacon文件夹一样。现在你已经备份了非常非常宝贵的“bacon”。&lt;/p&gt;
+&lt;h3 id="nav_point_234"&gt;9.1.2 文件和文件夹的移动与改名&lt;/h3&gt;
+&lt;p class="zw"&gt;调用shutil.move(source, destination)，将路径source处的文件夹移动到路径destination，并返回新位置的绝对路径的字符串。&lt;/p&gt;
+&lt;p class="zw"&gt;如果destination指向一个文件夹，source文件将移动到destination中，并保持原来的文件名。例如，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;import shutil&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;shutil.move('C:\\bacon.txt', 'C:\\eggs')&lt;/strong&gt;
 'C:\\eggs\\bacon.txt'
-</code>
-</pre>
-<p class="zw">假定在C:\目录中已存在一个名为eggs的文件夹，这个shutil.move()调用就是说，“将C:\bacon.txt移动到文件夹C:\eggs中。</p>
-<p class="zw">如果在C:\eggs中原来已经存在一个文件bacon.txt，它就会被覆写。因为用这种方式很容易不小心覆写文件，所以在使用move()时应该注意。</p>
-<p class="zw">destination路径也可以指定一个文件名。在下面的例子中，source文件被移动并改名。</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>shutil.move('C:\\bacon.txt', 'C:\\eggs\\new_bacon.txt')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;假定在C:\目录中已存在一个名为eggs的文件夹，这个shutil.move()调用就是说，“将C:\bacon.txt移动到文件夹C:\eggs中。&lt;/p&gt;
+&lt;p class="zw"&gt;如果在C:\eggs中原来已经存在一个文件bacon.txt，它就会被覆写。因为用这种方式很容易不小心覆写文件，所以在使用move()时应该注意。&lt;/p&gt;
+&lt;p class="zw"&gt;destination路径也可以指定一个文件名。在下面的例子中，source文件被移动并改名。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;shutil.move('C:\\bacon.txt', 'C:\\eggs\\new_bacon.txt')&lt;/strong&gt;
 'C:\\eggs\\new_bacon.txt'
-</code>
-</pre>
-<p class="zw">这一行是说，“将C:\bacon.txt移动到文件夹C:\eggs，完成之后，将bacon.txt文件改名为new_bacon.txt。”</p>
-<p class="zw">前面两个例子都假设在C:\目录下有一个文件夹eggs。但是如果没有eggs文件夹，move()就会将bacon.txt改名，变成名为eggs的文件。</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>shutil.move('C:\\bacon.txt', 'C:\\eggs')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这一行是说，“将C:\bacon.txt移动到文件夹C:\eggs，完成之后，将bacon.txt文件改名为new_bacon.txt。”&lt;/p&gt;
+&lt;p class="zw"&gt;前面两个例子都假设在C:\目录下有一个文件夹eggs。但是如果没有eggs文件夹，move()就会将bacon.txt改名，变成名为eggs的文件。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;shutil.move('C:\\bacon.txt', 'C:\\eggs')&lt;/strong&gt;
 'C:\\eggs'
-</code>
-</pre>
-<p class="zw">这里，move()在C:\目录下找不到名为eggs的文件夹，所以假定destination指的是一个文件，而非文件夹。所以bacon.txt文本文件被改名为eggs（没有.txt文件扩展名的文本文件），但这可能不是你所希望的！这可能是程序中很难发现的缺陷，因为move()调用会很开心地做一些事情，但和你所期望的完全不同。这也是在使用move()时要小心的另一个理由。</p>
-<p class="zw">最后，构成目的地的文件夹必须已经存在，否则Python会抛出异常。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>shutil.move('spam.txt', 'c:\\does_not_exist\\eggs\\ham')</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这里，move()在C:\目录下找不到名为eggs的文件夹，所以假定destination指的是一个文件，而非文件夹。所以bacon.txt文本文件被改名为eggs（没有.txt文件扩展名的文本文件），但这可能不是你所希望的！这可能是程序中很难发现的缺陷，因为move()调用会很开心地做一些事情，但和你所期望的完全不同。这也是在使用move()时要小心的另一个理由。&lt;/p&gt;
+&lt;p class="zw"&gt;最后，构成目的地的文件夹必须已经存在，否则Python会抛出异常。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;shutil.move('spam.txt', 'c:\\does_not_exist\\eggs\\ham')&lt;/strong&gt;
 Traceback (most recent call last):
   File "C:\Python34\lib\shutil.py", line 521, in move
     os.rename(src, real_dst)
 FileNotFoundError: [WinError 3] The system cannot find the path specified:
-'spam.txt' -&gt; 'c:\\does_not_exist\\eggs\\ham'
+'spam.txt' -&amp;gt; 'c:\\does_not_exist\\eggs\\ham'
 During handling of the above exception, another exception occurred:
 Traceback (most recent call last):
-  File "&lt; pyshell#29&gt;", line 1, in &lt; module&gt;
+  File "&amp;lt; pyshell#29&amp;gt;", line 1, in &amp;lt; module&amp;gt;
     shutil.move('spam.txt', 'c:\\does_not_exist\\eggs\\ham')
   File "C:\Python34\lib\shutil.py", line 533, in move
     copy2(src, real_dst)
@@ -80,70 +88,70 @@ Traceback (most recent call last):
     with open(dst, 'wb') as fdst:
 FileNotFoundError: [Errno 2] No such file or directory: 'c:\\does_not_exist\\
 eggs\\ham'
-</code>
-</pre>
-<p class="zw">Python在does_not_exist目录中寻找eggs和ham。它没有找到不存在的目录，所以不能将spam.txt移动到指定的路径。</p>
-<h3 id="nav_point_235">9.1.3 永久删除文件和文件夹</h3>
-<p class="zw">利用os模块中的函数，可以删除一个文件或一个空文件夹。但利用shutil模块，可以删除一个文件夹及其所有的内容。</p>
-<ul>
-<li class="第1级无序列表">用os.unlink(path)将删除path处的文件。</li>
-<li class="第1级无序列表">调用os.rmdir(path)将删除path处的文件夹。该文件夹必须为空，其中没有任何文件和文件夹。</li>
-<li class="第1级无序列表">调用shutil.rmtree(path)将删除path处的文件夹，它包含的所有文件和文件夹都会被删除。</li>
-</ul>
-<p class="zw">在程序中使用这些函数时要小心！可以第一次运行程序时，注释掉这些调用，并且加上print()调用，显示会被删除的文件。这样做是一个好主意。下面有一个Python程序，本来打算删除具有.txt扩展名的文件，但有一处录入错误（用粗体突出显示），结果导致它删除了.rxt文件。</p>
-<pre class="代码无行号"><code>import os
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;Python在does_not_exist目录中寻找eggs和ham。它没有找到不存在的目录，所以不能将spam.txt移动到指定的路径。&lt;/p&gt;
+&lt;h3 id="nav_point_235"&gt;9.1.3 永久删除文件和文件夹&lt;/h3&gt;
+&lt;p class="zw"&gt;利用os模块中的函数，可以删除一个文件或一个空文件夹。但利用shutil模块，可以删除一个文件夹及其所有的内容。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;用os.unlink(path)将删除path处的文件。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;调用os.rmdir(path)将删除path处的文件夹。该文件夹必须为空，其中没有任何文件和文件夹。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;调用shutil.rmtree(path)将删除path处的文件夹，它包含的所有文件和文件夹都会被删除。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;在程序中使用这些函数时要小心！可以第一次运行程序时，注释掉这些调用，并且加上print()调用，显示会被删除的文件。这样做是一个好主意。下面有一个Python程序，本来打算删除具有.txt扩展名的文件，但有一处录入错误（用粗体突出显示），结果导致它删除了.rxt文件。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;import os
 for filename in os.listdir():
-    if filename.endswith('.<strong>r</strong>
+    if filename.endswith('.&lt;strong&gt;r&lt;/strong&gt;
 xt'):
         os.unlink(filename)
-</code>
-</pre>
-<p class="zw">如果你有某些重要的文件以.rxt结尾，它们就会被不小心永久地删除。作为替代，你应该先运行像这样的程序：</p>
-<pre class="代码无行号"><code>import os
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果你有某些重要的文件以.rxt结尾，它们就会被不小心永久地删除。作为替代，你应该先运行像这样的程序：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;import os
 for filename in os.listdir():
     if filename.endswith('.rxt'):
         #os.unlink(filename)
-        print(filename)</code>
-</pre>
-<p class="zw">现在os.unlink()调用被注释掉，所以Python会忽略它。作为替代，你会打印出将被删除的文件名。先运行这个版本的程序，你就会知道，你不小心告诉程序要删除.rxt文件，而不是.txt文件。</p>
-<p class="zw">在确定程序按照你的意图工作后，删除print(filename)代码行，取消os.unlink(filename)代码行的注释。然后再次运行该程序，实际删除这些文件。</p>
-<h3 id="nav_point_236">9.1.4 用send2trash模块安全地删除</h3>
-<p class="zw">因为Python内建的shutil.rmtree()函数不可恢复地删除文件和文件夹，所以用起来可能有危险。删除文件和文件夹的更好方法，是使用第三方的send2trash模块。你可以在终端窗口中运行pip install send2trash，安装该模块（参见附录A，其中更详细地解释了如何安装第三方模块）。</p>
-<p class="zw">利用send2trash，比Python常规的删除函数要安全得多，因为它会将文件夹和文件发送到计算机的垃圾箱或回收站，而不是永久删除它们。如果因程序缺陷而用send2trash删除了某些你不想删除的东西，稍后可以从垃圾箱恢复。</p>
-<p class="zw">安装send2trash后，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>import send2trash</strong>
-&gt;&gt;&gt; <strong>baconFile = open('bacon.txt', 'a') # creates the file</strong>
-&gt;&gt;&gt; <strong>baconFile.write('Bacon is not a vegetable.')</strong>
+        print(filename)&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;现在os.unlink()调用被注释掉，所以Python会忽略它。作为替代，你会打印出将被删除的文件名。先运行这个版本的程序，你就会知道，你不小心告诉程序要删除.rxt文件，而不是.txt文件。&lt;/p&gt;
+&lt;p class="zw"&gt;在确定程序按照你的意图工作后，删除print(filename)代码行，取消os.unlink(filename)代码行的注释。然后再次运行该程序，实际删除这些文件。&lt;/p&gt;
+&lt;h3 id="nav_point_236"&gt;9.1.4 用send2trash模块安全地删除&lt;/h3&gt;
+&lt;p class="zw"&gt;因为Python内建的shutil.rmtree()函数不可恢复地删除文件和文件夹，所以用起来可能有危险。删除文件和文件夹的更好方法，是使用第三方的send2trash模块。你可以在终端窗口中运行pip install send2trash，安装该模块（参见附录A，其中更详细地解释了如何安装第三方模块）。&lt;/p&gt;
+&lt;p class="zw"&gt;利用send2trash，比Python常规的删除函数要安全得多，因为它会将文件夹和文件发送到计算机的垃圾箱或回收站，而不是永久删除它们。如果因程序缺陷而用send2trash删除了某些你不想删除的东西，稍后可以从垃圾箱恢复。&lt;/p&gt;
+&lt;p class="zw"&gt;安装send2trash后，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;import send2trash&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;baconFile = open('bacon.txt', 'a') # creates the file&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;baconFile.write('Bacon is not a vegetable.')&lt;/strong&gt;
 25
-&gt;&gt;&gt; <strong>baconFile.close()</strong>
-&gt;&gt;&gt; <strong>send2trash.send2trash('bacon.txt')</strong>
-</code>
-</pre>
-<p class="zw">一般来说，总是应该使用send2trash.send2trash()函数来删除文件和文件夹。虽然它将文件发送到垃圾箱，让你稍后能够恢复它们，但是这不像永久删除文件，不会释放磁盘空间。如果你希望程序释放磁盘空间，就要用os和shutil来删除文件和文件夹。请注意，send2trash()函数只能将文件送到垃圾箱，不能从中恢复文件。</p>
-<h2 id="nav_point_237">9.2 遍历目录树</h2>
-<p class="zw">假定你希望对某个文件夹中的所有文件改名，包括该文件夹中所有子文件夹中的所有文件。也就是说，你希望遍历目录树，处理遇到的每个文件。写程序完成这件事，可能需要一些技巧。好在，Python提供了一个函数，替你处理这个过程。</p>
-<p class="zw">请看C:\delicious文件夹及其内容，如图9-1所示。</p>
-<p class="图"><img alt="0901" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/33_Image00100.jpg"/>
-</p>
-<p class="图题">图9-1 一个示例文件夹，包含3个文件夹和4个文件</p>
-<p class="zw">这里有一个例子程序，针对图9-1的目录树，使用了os.walk()函数：</p>
-<pre class="代码无行号"><code>import os
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;baconFile.close()&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;send2trash.send2trash('bacon.txt')&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;一般来说，总是应该使用send2trash.send2trash()函数来删除文件和文件夹。虽然它将文件发送到垃圾箱，让你稍后能够恢复它们，但是这不像永久删除文件，不会释放磁盘空间。如果你希望程序释放磁盘空间，就要用os和shutil来删除文件和文件夹。请注意，send2trash()函数只能将文件送到垃圾箱，不能从中恢复文件。&lt;/p&gt;
+&lt;h2 id="nav_point_237"&gt;9.2 遍历目录树&lt;/h2&gt;
+&lt;p class="zw"&gt;假定你希望对某个文件夹中的所有文件改名，包括该文件夹中所有子文件夹中的所有文件。也就是说，你希望遍历目录树，处理遇到的每个文件。写程序完成这件事，可能需要一些技巧。好在，Python提供了一个函数，替你处理这个过程。&lt;/p&gt;
+&lt;p class="zw"&gt;请看C:\delicious文件夹及其内容，如图9-1所示。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0901" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/33_Image00100.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图9-1 一个示例文件夹，包含3个文件夹和4个文件&lt;/p&gt;
+&lt;p class="zw"&gt;这里有一个例子程序，针对图9-1的目录树，使用了os.walk()函数：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;import os
 for folderName, subfolders, filenames in os.walk('C:\\delicious'):
     print('The current folder is ' + folderName)
     for subfolder in subfolders:
         print('SUBFOLDER OF ' + folderName + ': ' + subfolder)
     for filename in filenames:
         print('FILE INSIDE ' + folderName + ': '+ filename)
-    print('')</code>
-</pre>
-<p class="zw">os.walk()函数被传入一个字符串值，即一个文件夹的路径。你可以在一个for循环语句中使用os.walk()函数，遍历目录树，就像使用range()函数遍历一个范围的数字一样。不像range()，os.walk()在循环的每次迭代中，返回3个值：</p>
-<p class="zw">1．当前文件夹名称的字符串。</p>
-<p class="zw">2．当前文件夹中子文件夹的字符串的列表。</p>
-<p class="zw">3．当前文件夹中文件的字符串的列表。</p>
-<p class="zw">所谓当前文件夹，是指for循环当前迭代的文件夹。程序的当前工作目录，不会因为os.walk()而改变。</p>
-<p class="zw">就像你可以在代码for i in range(10):中选择变量名称i一样，你也可以选择前面列出来的3个字的变量名称。我通常使用foldername、subfolders和filenames。</p>
-<p class="zw">运行该程序，它的输出如下：</p>
-<pre class="代码无行号"><code>The current folder is C:\delicious
+    print('')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;os.walk()函数被传入一个字符串值，即一个文件夹的路径。你可以在一个for循环语句中使用os.walk()函数，遍历目录树，就像使用range()函数遍历一个范围的数字一样。不像range()，os.walk()在循环的每次迭代中，返回3个值：&lt;/p&gt;
+&lt;p class="zw"&gt;1．当前文件夹名称的字符串。&lt;/p&gt;
+&lt;p class="zw"&gt;2．当前文件夹中子文件夹的字符串的列表。&lt;/p&gt;
+&lt;p class="zw"&gt;3．当前文件夹中文件的字符串的列表。&lt;/p&gt;
+&lt;p class="zw"&gt;所谓当前文件夹，是指for循环当前迭代的文件夹。程序的当前工作目录，不会因为os.walk()而改变。&lt;/p&gt;
+&lt;p class="zw"&gt;就像你可以在代码for i in range(10):中选择变量名称i一样，你也可以选择前面列出来的3个字的变量名称。我通常使用foldername、subfolders和filenames。&lt;/p&gt;
+&lt;p class="zw"&gt;运行该程序，它的输出如下：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;The current folder is C:\delicious
 SUBFOLDER OF C:\delicious: cats
 SUBFOLDER OF C:\delicious: walnut
 FILE INSIDE C:\delicious: spam.txt
@@ -153,86 +161,86 @@ FILE INSIDE C:\delicious\cats: zophie.jpg
 The current folder is C:\delicious\walnut
 SUBFOLDER OF C:\delicious\walnut: waffles
 The current folder is C:\delicious\walnut\waffles
-FILE INSIDE C:\delicious\walnut\waffles: butter.txt.</code>
-</pre>
-<p class="zw">因为os.walk()返回字符串的列表，保存在subfolder和filename变量中，所以你可以在它们自己的for循环中使用这些列表。用你自己定制的代码，取代print()函数调用（或者如果不需要，就删除for循环）。</p>
-<h2 id="nav_point_238">9.3 用zipfile模块压缩文件</h2>
-<p class="zw">你可能熟悉ZIP文件（带有.zip文件扩展名），它可以包含许多其他文件的压缩内容。压缩一个文件会减少它的大小，这在因特网上传输时很有用。因为一个ZIP文件可以包含多个文件和子文件夹，所以它是一种很方便的方式，将多个文件打包成一个文件。这个文件叫做“归档文件”，然后可以用作电子邮件的附件，或其他用途。</p>
-<p class="zw">利用zipfile模块中的函数，Python程序可以创建和打开（或解压）ZIP文件。假定你有一个名为example.zip的zip文件，它的内容如图9-2所示。</p>
-<p class="图"><img alt="0902" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/33_Image00101.jpg"/>
-</p>
-<p class="图题">图9-2 example.zip的内容</p>
-<p class="zw">可以从<a href="http://nostarch.com/automatestuff/">http://nostarch.com/automatestuff/</a>
- 下载这个ZIP文件，或者利用计算机上已有的一个ZIP文件，接着完成下面的操作。</p>
-<h3 id="nav_point_239">9.3.1 读取ZIP文件</h3>
-<p class="zw">要读取ZIP文件的内容，首先必须创建一个ZipFile对象（请注意大写首字母Z和F）。ZipFile对象在概念上与File对象相似，你在第8章中曾经看到open()函数返回File对象：它们是一些值，程序通过它们与文件打交道。要创建一个ZipFile对象，就调用zipfile.ZipFile()函数，向它传入一个字符串，表示.zip文件的文件名。请注意，zipfile是Python模块的名称，ZipFile()是函数的名称。</p>
-<p class="zw">例如，在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>　&gt;&gt;&gt; <strong>import zipfile, os</strong>
-　&gt;&gt;&gt; <strong>os.chdir('C:\\') # move to the folder with example.zip</strong>
-　&gt;&gt;&gt; <strong>exampleZip = zipfile.ZipFile('example.zip')</strong>
-　&gt;&gt;&gt; <strong>exampleZip.namelist()</strong>
+FILE INSIDE C:\delicious\walnut\waffles: butter.txt.&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;因为os.walk()返回字符串的列表，保存在subfolder和filename变量中，所以你可以在它们自己的for循环中使用这些列表。用你自己定制的代码，取代print()函数调用（或者如果不需要，就删除for循环）。&lt;/p&gt;
+&lt;h2 id="nav_point_238"&gt;9.3 用zipfile模块压缩文件&lt;/h2&gt;
+&lt;p class="zw"&gt;你可能熟悉ZIP文件（带有.zip文件扩展名），它可以包含许多其他文件的压缩内容。压缩一个文件会减少它的大小，这在因特网上传输时很有用。因为一个ZIP文件可以包含多个文件和子文件夹，所以它是一种很方便的方式，将多个文件打包成一个文件。这个文件叫做“归档文件”，然后可以用作电子邮件的附件，或其他用途。&lt;/p&gt;
+&lt;p class="zw"&gt;利用zipfile模块中的函数，Python程序可以创建和打开（或解压）ZIP文件。假定你有一个名为example.zip的zip文件，它的内容如图9-2所示。&lt;/p&gt;
+&lt;p class="图"&gt;&lt;img alt="0902" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/33_Image00101.jpg"/&gt;
+&lt;/p&gt;
+&lt;p class="图题"&gt;图9-2 example.zip的内容&lt;/p&gt;
+&lt;p class="zw"&gt;可以从&lt;a href="http://nostarch.com/automatestuff/"&gt;http://nostarch.com/automatestuff/&lt;/a&gt;
+ 下载这个ZIP文件，或者利用计算机上已有的一个ZIP文件，接着完成下面的操作。&lt;/p&gt;
+&lt;h3 id="nav_point_239"&gt;9.3.1 读取ZIP文件&lt;/h3&gt;
+&lt;p class="zw"&gt;要读取ZIP文件的内容，首先必须创建一个ZipFile对象（请注意大写首字母Z和F）。ZipFile对象在概念上与File对象相似，你在第8章中曾经看到open()函数返回File对象：它们是一些值，程序通过它们与文件打交道。要创建一个ZipFile对象，就调用zipfile.ZipFile()函数，向它传入一个字符串，表示.zip文件的文件名。请注意，zipfile是Python模块的名称，ZipFile()是函数的名称。&lt;/p&gt;
+&lt;p class="zw"&gt;例如，在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;import zipfile, os&lt;/strong&gt;
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;os.chdir('C:\\') # move to the folder with example.zip&lt;/strong&gt;
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;exampleZip = zipfile.ZipFile('example.zip')&lt;/strong&gt;
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;exampleZip.namelist()&lt;/strong&gt;
 　['spam.txt', 'cats/', 'cats/catnames.txt', 'cats/zophie.jpg']
-　&gt;&gt;&gt; <strong>spamInfo = exampleZip.getinfo('spam.txt')</strong>
-　&gt;&gt;&gt; <strong>spamInfo.file_size</strong>
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spamInfo = exampleZip.getinfo('spam.txt')&lt;/strong&gt;
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spamInfo.file_size&lt;/strong&gt;
 　13908
-　&gt;&gt;&gt; <strong>spamInfo.compress_size</strong>
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spamInfo.compress_size&lt;/strong&gt;
 　3828
-❶ &gt;&gt;&gt; <strong>'Compressed file is %sx smaller!' % (round(spamInfo.file_size / spamInfo</strong>
-　<strong>.compress_size, 2))</strong>
+❶ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'Compressed file is %sx smaller!' % (round(spamInfo.file_size / spamInfo&lt;/strong&gt;
+　&lt;strong&gt;.compress_size, 2))&lt;/strong&gt;
 　'Compressed file is 3.63x smaller!'
-　&gt;&gt;&gt; <strong>exampleZip.close()</strong>
-</code>
-</pre>
-<p class="zw">ZipFile对象有一个namelist()方法，返回ZIP文件中包含的所有文件和文件夹的字符串的列表。这些字符串可以传递给ZipFile对象的getinfo()方法，返回一个关于特定文件的ZipInfo对象。ZipInfo对象有自己的属性，诸如表示字节数的file_size和compress_size，它们分别表示原来文件大小和压缩后文件大小。ZipFile对象表示整个归档文件，而ZipInfo对象则保存该归档文件中每个文件的有用信息。</p>
-<p class="zw">❶处的命令计算出example.zip压缩的效率，用压缩后文件的大小除以原来文件的大小，并以%s字符串格式打印出这一信息。</p>
-<h3 id="nav_point_240">9.3.2 从ZIP文件中解压缩</h3>
-<p class="zw">ZipFile对象的extractall()方法从ZIP文件中解压缩所有文件和文件夹，放到当前工作目录中。</p>
-<pre class="代码无行号"><code>　&gt;&gt;&gt; <strong>import zipfile, os</strong>
-　&gt;&gt;&gt; <strong>os.chdir('C:\\') # move to the folder with example.zip</strong>
-　&gt;&gt;&gt; <strong>exampleZip = zipfile.ZipFile('example.zip')</strong>
-❶ &gt;&gt;&gt; <strong>exampleZip.extractall()</strong>
-　&gt;&gt;&gt; <strong>exampleZip.close()</strong>
-</code>
-</pre>
-<p class="zw">运行这段代码后，example.zip的内容将被解压缩到C:\。或者，你可以向extractall()传递的一个文件夹名称，它将文件解压缩到那个文件夹，而不是当前工作目录。如果传递给extractall()方法的文件夹不存在，它会被创建。例如，如果你用exampleZip.extractall('C:\ delicious')取代❶处的调用，代码就会从example.zip中解压缩文件，放到新创建的C:\delicious文件夹中。</p>
-<p class="zw">ZipFile对象的extract()方法从ZIP文件中解压缩单个文件。继续交互式环境中的例子：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>exampleZip.extract('spam.txt')</strong>
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;exampleZip.close()&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;ZipFile对象有一个namelist()方法，返回ZIP文件中包含的所有文件和文件夹的字符串的列表。这些字符串可以传递给ZipFile对象的getinfo()方法，返回一个关于特定文件的ZipInfo对象。ZipInfo对象有自己的属性，诸如表示字节数的file_size和compress_size，它们分别表示原来文件大小和压缩后文件大小。ZipFile对象表示整个归档文件，而ZipInfo对象则保存该归档文件中每个文件的有用信息。&lt;/p&gt;
+&lt;p class="zw"&gt;❶处的命令计算出example.zip压缩的效率，用压缩后文件的大小除以原来文件的大小，并以%s字符串格式打印出这一信息。&lt;/p&gt;
+&lt;h3 id="nav_point_240"&gt;9.3.2 从ZIP文件中解压缩&lt;/h3&gt;
+&lt;p class="zw"&gt;ZipFile对象的extractall()方法从ZIP文件中解压缩所有文件和文件夹，放到当前工作目录中。&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;import zipfile, os&lt;/strong&gt;
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;os.chdir('C:\\') # move to the folder with example.zip&lt;/strong&gt;
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;exampleZip = zipfile.ZipFile('example.zip')&lt;/strong&gt;
+❶ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;exampleZip.extractall()&lt;/strong&gt;
+　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;exampleZip.close()&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;运行这段代码后，example.zip的内容将被解压缩到C:\。或者，你可以向extractall()传递的一个文件夹名称，它将文件解压缩到那个文件夹，而不是当前工作目录。如果传递给extractall()方法的文件夹不存在，它会被创建。例如，如果你用exampleZip.extractall('C:\ delicious')取代❶处的调用，代码就会从example.zip中解压缩文件，放到新创建的C:\delicious文件夹中。&lt;/p&gt;
+&lt;p class="zw"&gt;ZipFile对象的extract()方法从ZIP文件中解压缩单个文件。继续交互式环境中的例子：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;exampleZip.extract('spam.txt')&lt;/strong&gt;
 'C:\\spam.txt'
-&gt;&gt;&gt; <strong>exampleZip.extract('spam.txt', 'C:\\some\\new\\folders')</strong>
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;exampleZip.extract('spam.txt', 'C:\\some\\new\\folders')&lt;/strong&gt;
 'C:\\some\\new\\folders\\spam.txt'
-&gt;&gt;&gt; <strong>exampleZip.close()</strong>
-</code>
-</pre>
-<p class="zw">传递给extract()的字符串，必须匹配namelist()返回的字符串列表中的一个。或者，你可以向extract()传递第二个参数，将文件解压缩到指定的文件夹，而不是当前工作目录。如果第二个参数指定的文件夹不存在，Python就会创建它。extract()的返回值是被压缩后文件的绝对路径。</p>
-<h3 id="nav_point_241">9.3.3 创建和添加到ZIP文件</h3>
-<p class="zw">要创建你自己的压缩ZIP文件，必须以“写模式”打开ZipFile对象，即传入'w'作为第二个参数（这类似于向open()函数传入'w'，以写模式打开一个文本文件）。</p>
-<p class="zw">如果向ZipFile对象的write()方法传入一个路径，Python就会压缩该路径所指的文件，将它加到ZIP文件中。write()方法的第一个参数是一个字符串，代表要添加的文件名。第二个参数是“压缩类型”参数，它告诉计算机使用怎样的算法来压缩文件。可以总是将这个值设置为zipfile.ZIP_DEFLATED（这指定了deflate压缩算法，它对各种类型的数据都很有效）。在交互式环境中输入以下代码：</p>
-<pre class="代码无行号"><code>&gt;&gt;&gt; <strong>import zipfile</strong>
-&gt;&gt;&gt; <strong>newZip = zipfile.ZipFile('new.zip', 'w')</strong>
-&gt;&gt;&gt; <strong>newZip.write('spam.txt', compress_type=zipfile.ZIP_DEFLATED)</strong>
-&gt;&gt;&gt; <strong>newZip.close()</strong>
-</code>
-</pre>
-<p class="zw">这段代码将创建一个新的ZIP文件，名为new.zip，它包含spam.txt压缩后的内容。</p>
-<p class="zw">要记住，就像写入文件一样，写模式将擦除ZIP文件中所有原有的内容。如果只是希望将文件添加到原有的ZIP文件中，就要向zipfile.ZipFile()传入'a'作为第二个参数，以添加模式打开ZIP文件。</p>
-<h2 id="nav_point_242">9.4 项目：将带有美国风格日期的文件改名为欧洲风格日期</h2>
-<p class="zw">假定你的老板用电子邮件发给你上千个文件，文件名包含美国风格的日期（MM-DD-YYYY），需要将它们改名为欧洲风格的日期（DD-MM-YYYY）。手工完成这个无聊的任务可能需要几天时间！让我们写一个程序来完成它。</p>
-<p class="zw">下面是程序要做的事：</p>
-<ul>
-<li class="第1级无序列表">检查当前工作目录的所有文件名，寻找美国风格的日期。</li>
-<li class="第1级无序列表">如果找到，将该文件改名，交换月份和日期的位置，使之成为欧洲风格。</li>
-</ul>
-<p class="zw">这意味着代码需要做下面的事情：</p>
-<ul>
-<li class="第1级无序列表">创建一个正则表达式，可以识别美国风格日期的文本模式。</li>
-<li class="第1级无序列表">调用os.listdir()，找出工作目录中的所有文件。</li>
-<li class="第1级无序列表">循环遍历每个文件名，利用该正则表达式检查它是否包含日期。</li>
-<li class="第1级无序列表">如果它包含日期，用shutil.move()对该文件改名。</li>
-</ul>
-<p class="zw">对于这个项目，打开一个新的文件编辑器窗口，将代码保存为renameDates.py。</p>
-<h3 id="nav_point_243">第1步：为美国风格的日期创建一个正则表达式</h3>
-<p class="zw">程序的第一部分需要导入必要的模块，并创建一个正则表达式，它能识别MM-DD-YYYY格式的日期。TODO注释将提醒你，这个程序还要写什么。将它们作为TODO，就很容易利用IDLE的Ctrl-F查找功能找到它们。让你的代码看起来像这样：</p>
-<pre class="代码无行号"><code>　#! python3
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;exampleZip.close()&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;传递给extract()的字符串，必须匹配namelist()返回的字符串列表中的一个。或者，你可以向extract()传递第二个参数，将文件解压缩到指定的文件夹，而不是当前工作目录。如果第二个参数指定的文件夹不存在，Python就会创建它。extract()的返回值是被压缩后文件的绝对路径。&lt;/p&gt;
+&lt;h3 id="nav_point_241"&gt;9.3.3 创建和添加到ZIP文件&lt;/h3&gt;
+&lt;p class="zw"&gt;要创建你自己的压缩ZIP文件，必须以“写模式”打开ZipFile对象，即传入'w'作为第二个参数（这类似于向open()函数传入'w'，以写模式打开一个文本文件）。&lt;/p&gt;
+&lt;p class="zw"&gt;如果向ZipFile对象的write()方法传入一个路径，Python就会压缩该路径所指的文件，将它加到ZIP文件中。write()方法的第一个参数是一个字符串，代表要添加的文件名。第二个参数是“压缩类型”参数，它告诉计算机使用怎样的算法来压缩文件。可以总是将这个值设置为zipfile.ZIP_DEFLATED（这指定了deflate压缩算法，它对各种类型的数据都很有效）。在交互式环境中输入以下代码：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;import zipfile&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;newZip = zipfile.ZipFile('new.zip', 'w')&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;newZip.write('spam.txt', compress_type=zipfile.ZIP_DEFLATED)&lt;/strong&gt;
+&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;newZip.close()&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这段代码将创建一个新的ZIP文件，名为new.zip，它包含spam.txt压缩后的内容。&lt;/p&gt;
+&lt;p class="zw"&gt;要记住，就像写入文件一样，写模式将擦除ZIP文件中所有原有的内容。如果只是希望将文件添加到原有的ZIP文件中，就要向zipfile.ZipFile()传入'a'作为第二个参数，以添加模式打开ZIP文件。&lt;/p&gt;
+&lt;h2 id="nav_point_242"&gt;9.4 项目：将带有美国风格日期的文件改名为欧洲风格日期&lt;/h2&gt;
+&lt;p class="zw"&gt;假定你的老板用电子邮件发给你上千个文件，文件名包含美国风格的日期（MM-DD-YYYY），需要将它们改名为欧洲风格的日期（DD-MM-YYYY）。手工完成这个无聊的任务可能需要几天时间！让我们写一个程序来完成它。&lt;/p&gt;
+&lt;p class="zw"&gt;下面是程序要做的事：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;检查当前工作目录的所有文件名，寻找美国风格的日期。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;如果找到，将该文件改名，交换月份和日期的位置，使之成为欧洲风格。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;这意味着代码需要做下面的事情：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;创建一个正则表达式，可以识别美国风格日期的文本模式。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;调用os.listdir()，找出工作目录中的所有文件。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;循环遍历每个文件名，利用该正则表达式检查它是否包含日期。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;如果它包含日期，用shutil.move()对该文件改名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="zw"&gt;对于这个项目，打开一个新的文件编辑器窗口，将代码保存为renameDates.py。&lt;/p&gt;
+&lt;h3 id="nav_point_243"&gt;第1步：为美国风格的日期创建一个正则表达式&lt;/h3&gt;
+&lt;p class="zw"&gt;程序的第一部分需要导入必要的模块，并创建一个正则表达式，它能识别MM-DD-YYYY格式的日期。TODO注释将提醒你，这个程序还要写什么。将它们作为TODO，就很容易利用IDLE的Ctrl-F查找功能找到它们。让你的代码看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　#! python3
 　# renameDates.py - Renames filenames with American MM-DD-YYYY date format
 　# to European DD-MM-YYYY.
 ❶ import shutil, os, re
@@ -248,96 +256,96 @@ FILE INSIDE C:\delicious\walnut\waffles: butter.txt.</code>
 　# TODO: Get the different parts of the filename.
 　# TODO: Form the European-style filename.
 　# TODO: Get the full, absolute file paths.
-　# TODO: Rename the files.</code>
-</pre>
-<p class="zw">通过本章，你知道shutil.move()函数可以用于文件改名：它的参数是要改名的文件名，以及新的文件名。因为这个函数存在于shutil模块中，所以你必须导入该模块❶。</p>
-<p class="zw">在为这些文件改名之前，需要确定哪些文件要改名。文件名如果包含spam4-4-1984.txt和01-03-2014eggs.zip这样的日期，就应该改名，而文件名不包含日期的应该忽略，诸如littlebrother.epub。</p>
-<p class="zw">可以用正则表达式来识别该模式。在开始导入re模块后，调用re.compile()创建一个Regex对象❷。传入re.VERBOSE作为第二参数❸，这将在正则表达式字符串中允许空白字符和注释，让它更可读。</p>
-<p class="zw">正则表达式字符串以^(.*?)开始，匹配文件名开始处、日期出现之前的任何文本。((0|1)?\d)分组匹配月份。第一个数字可以是0或1，所以正则表达式匹配12，作为十二月份，也会匹配02，作为二月份。这个数字也是可选的，所以四月份可以是04或4。日期的分组是((0|1|2|3)?\d)，它遵循类似的逻辑。3、03和31是有效的日期数字（是的，这个正则表达式会接受一些无效的日期，诸如4-31-2014、2-29-2013和0-15-2014。日期有许多特例，很容易被遗漏。为了简单，这个程序中的正则表达式已经足够好了）。</p>
-<p class="zw">虽然1885是一个有效的年份，但你可能只在寻找20世纪和21世纪的年份。这防止了程序不小心匹配非日期的文件名，它们和日期格式类似，诸如10-10-1000.txt。</p>
-<p class="zw">正则表达式的(.*?)$部分，将匹配日期之后的任何文本。</p>
-<h3 id="nav_point_244">第2步：识别文件名中的日期部分</h3>
-<p class="zw">接下来，程序将循环遍历os.listdir()返回的文件名字符串列表，用这个正则表达式匹配它们。文件名不包含日期的文件将被忽略。如果文件名包含日期，匹配的文本将保存在几个变量中。用下面的代码代替程序中前3个TODO：</p>
-<pre class="代码无行号"><code>　#! python3
+　# TODO: Rename the files.&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;通过本章，你知道shutil.move()函数可以用于文件改名：它的参数是要改名的文件名，以及新的文件名。因为这个函数存在于shutil模块中，所以你必须导入该模块❶。&lt;/p&gt;
+&lt;p class="zw"&gt;在为这些文件改名之前，需要确定哪些文件要改名。文件名如果包含spam4-4-1984.txt和01-03-2014eggs.zip这样的日期，就应该改名，而文件名不包含日期的应该忽略，诸如littlebrother.epub。&lt;/p&gt;
+&lt;p class="zw"&gt;可以用正则表达式来识别该模式。在开始导入re模块后，调用re.compile()创建一个Regex对象❷。传入re.VERBOSE作为第二参数❸，这将在正则表达式字符串中允许空白字符和注释，让它更可读。&lt;/p&gt;
+&lt;p class="zw"&gt;正则表达式字符串以^(.*?)开始，匹配文件名开始处、日期出现之前的任何文本。((0|1)?\d)分组匹配月份。第一个数字可以是0或1，所以正则表达式匹配12，作为十二月份，也会匹配02，作为二月份。这个数字也是可选的，所以四月份可以是04或4。日期的分组是((0|1|2|3)?\d)，它遵循类似的逻辑。3、03和31是有效的日期数字（是的，这个正则表达式会接受一些无效的日期，诸如4-31-2014、2-29-2013和0-15-2014。日期有许多特例，很容易被遗漏。为了简单，这个程序中的正则表达式已经足够好了）。&lt;/p&gt;
+&lt;p class="zw"&gt;虽然1885是一个有效的年份，但你可能只在寻找20世纪和21世纪的年份。这防止了程序不小心匹配非日期的文件名，它们和日期格式类似，诸如10-10-1000.txt。&lt;/p&gt;
+&lt;p class="zw"&gt;正则表达式的(.*?)$部分，将匹配日期之后的任何文本。&lt;/p&gt;
+&lt;h3 id="nav_point_244"&gt;第2步：识别文件名中的日期部分&lt;/h3&gt;
+&lt;p class="zw"&gt;接下来，程序将循环遍历os.listdir()返回的文件名字符串列表，用这个正则表达式匹配它们。文件名不包含日期的文件将被忽略。如果文件名包含日期，匹配的文本将保存在几个变量中。用下面的代码代替程序中前3个TODO：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　#! python3
 　# renameDates.py - Renames filenames with American MM-DD-YYYY date format
 　# to European DD-MM-YYYY.
-　--<em>snip</em>
+　--&lt;em&gt;snip&lt;/em&gt;
 --
-　<strong># Loop over the files in the working directory.</strong>
-　<strong>for amerFilename in os.listdir('.'):</strong>
-　    <strong>mo = datePattern.search(amerFilename)</strong>
-　<strong>　</strong>
-　    <strong># Skip files without a date.</strong>
-❶     <strong>if mo == None:</strong>
-❷     <strong>continue</strong>
-<strong>　</strong>
-❸     <strong># Get the different parts of the filename.</strong>
-　    <strong>beforePart  = mo.group(1)</strong>
-　    <strong>monthPart   = mo.group(2)</strong>
-　    <strong>dayPart     = mo.group(4)</strong>
-　    <strong>yearPart     = mo.group(6)</strong>
-　    <strong>afterPart   = mo.group(8)</strong>
-　<strong>　</strong>
-　--<em>snip</em>
+　&lt;strong&gt;# Loop over the files in the working directory.&lt;/strong&gt;
+　&lt;strong&gt;for amerFilename in os.listdir('.'):&lt;/strong&gt;
+　    &lt;strong&gt;mo = datePattern.search(amerFilename)&lt;/strong&gt;
+　&lt;strong&gt;　&lt;/strong&gt;
+　    &lt;strong&gt;# Skip files without a date.&lt;/strong&gt;
+❶     &lt;strong&gt;if mo == None:&lt;/strong&gt;
+❷     &lt;strong&gt;continue&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
+❸     &lt;strong&gt;# Get the different parts of the filename.&lt;/strong&gt;
+　    &lt;strong&gt;beforePart  = mo.group(1)&lt;/strong&gt;
+　    &lt;strong&gt;monthPart   = mo.group(2)&lt;/strong&gt;
+　    &lt;strong&gt;dayPart     = mo.group(4)&lt;/strong&gt;
+　    &lt;strong&gt;yearPart     = mo.group(6)&lt;/strong&gt;
+　    &lt;strong&gt;afterPart   = mo.group(8)&lt;/strong&gt;
+　&lt;strong&gt;　&lt;/strong&gt;
+　--&lt;em&gt;snip&lt;/em&gt;
 --
-</code>
-</pre>
-<p class="zw">如果search()方法返回的Match对象是None❶，那么amerFilename中的文件名不匹配该正则表达式。continue语句❷将跳过循环剩下的部分，转向下一个文件名。</p>
-<p class="zw">否则，该正则表达式分组匹配的不同字符串，将保存在名为beforePart、monthPart、dayPart、yearPart和afterPar的变量中❸。这些变量中的字符串将在下一步中使用，用于构成欧洲风格的文件名。</p>
-<p class="zw">为了让分组编号直观，请尝试从头阅读该正则表达式，每遇到一个左括号就计数加一。不要考虑代码，只是写下该正则表达式的框架。这有助于使分组变得直观，例如：</p>
-<pre class="代码无行号"><code>datePattern = re.compile(r"""^(<strong>1</strong>
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;如果search()方法返回的Match对象是None❶，那么amerFilename中的文件名不匹配该正则表达式。continue语句❷将跳过循环剩下的部分，转向下一个文件名。&lt;/p&gt;
+&lt;p class="zw"&gt;否则，该正则表达式分组匹配的不同字符串，将保存在名为beforePart、monthPart、dayPart、yearPart和afterPar的变量中❸。这些变量中的字符串将在下一步中使用，用于构成欧洲风格的文件名。&lt;/p&gt;
+&lt;p class="zw"&gt;为了让分组编号直观，请尝试从头阅读该正则表达式，每遇到一个左括号就计数加一。不要考虑代码，只是写下该正则表达式的框架。这有助于使分组变得直观，例如：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;datePattern = re.compile(r"""^(&lt;strong&gt;1&lt;/strong&gt;
 )     # all text before the date
-    (<strong>2 </strong>
-(<strong>3</strong>
+    (&lt;strong&gt;2 &lt;/strong&gt;
+(&lt;strong&gt;3&lt;/strong&gt;
 ) )-                         # one or two digits for the month
-    (<strong>4 </strong>
-(<strong>5</strong>
+    (&lt;strong&gt;4 &lt;/strong&gt;
+(&lt;strong&gt;5&lt;/strong&gt;
 ) )-                         # one or two digits for the day
-    (<strong>6 </strong>
-(<strong>7</strong>
+    (&lt;strong&gt;6 &lt;/strong&gt;
+(&lt;strong&gt;7&lt;/strong&gt;
 ) )                          # four digits for the year
-    (<strong>8</strong>
+    (&lt;strong&gt;8&lt;/strong&gt;
 )$                              # all text after the date
     """, re.VERBOSE)
-</code>
-</pre>
-<p class="zw">这里，编号1至8代表了该正则表达式中的分组。写出该正则表达式的框架，其中只包含括号和分组编号。这让你更清楚地理解所写的正则表达式，然后再转向程序中剩下的部分。</p>
-<h3 id="nav_point_245">第3步：构成新文件名，并对文件改名</h3>
-<p class="zw">作为最后一步，连接前一步生成的变量中的字符串，得到欧洲风格的日期：日期在月份之前。用下面的代码代替程序中最后3个TODO：</p>
-<pre class="代码无行号"><code>　#! python3
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;这里，编号1至8代表了该正则表达式中的分组。写出该正则表达式的框架，其中只包含括号和分组编号。这让你更清楚地理解所写的正则表达式，然后再转向程序中剩下的部分。&lt;/p&gt;
+&lt;h3 id="nav_point_245"&gt;第3步：构成新文件名，并对文件改名&lt;/h3&gt;
+&lt;p class="zw"&gt;作为最后一步，连接前一步生成的变量中的字符串，得到欧洲风格的日期：日期在月份之前。用下面的代码代替程序中最后3个TODO：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　#! python3
 　# renameDates.py - Renames filenames with American MM-DD-YYYY date format
 　# to European DD-MM-YYYY.
-　--<em>snip</em>
+　--&lt;em&gt;snip&lt;/em&gt;
 --
-　    <strong># Form the European-style filename.</strong>
-❶     <strong>euroFilename = beforePart + dayPart + '-' + monthPart + '-' + yearPart +</strong>
-　                   <strong>afterPart</strong>
-<strong>　</strong>
-　    <strong># Get the full, absolute file paths.</strong>
-　    <strong>absWorkingDir = os.path.abspath('.')</strong>
-　    <strong>amerFilename = os.path.join(absWorkingDir, amerFilename)</strong>
-　    <strong>euroFilename = os.path.join(absWorkingDir, euroFilename)</strong>
-<strong>　</strong>
-　    <strong># Rename the files.</strong>
-❷     <strong>print('Renaming "%s" to "%s"...' % (amerFilename, euroFilename))</strong>
-❸     <strong>#shutil.move(amerFilename, euroFilename) # uncomment after testing</strong>
-</code>
-</pre>
-<p class="zw">将连接的字符串保存在名为euroFilename的变量中❶。然后将amerFilename中原来的文件名和新的euroFilename变量传递给shutil.move()函数，将该文件改名❸。</p>
-<p class="zw">这个程序将shutil.move()调用注释掉，代之以打印出将被改名的文件名❷。先像这样运行程序，你可以确认文件改名是正确的。然后取消shutil.move()调用的注释，再次运行该程序，确实将这些文件改名。</p>
-<h3 id="nav_point_246">第4步：类似程序的想法</h3>
-<p class="zw">有很多其他的理由，导致你需要对大量的文件改名。</p>
-<ul>
-<li class="第1级无序列表">为文件名添加前缀，诸如添加spam_，将eggs.txt改名为spam_eggs.txt。</li>
-<li class="第1级无序列表">将欧洲风格日期的文件改名为美国风格日期。</li>
-<li class="第1级无序列表">删除文件名中的0，诸如spam0042.txt。</li>
-</ul>
-<h2 id="nav_point_247">9.5 项目：将一个文件夹备份到一个ZIP文件</h2>
-<p class="zw">假定你正在做一个项目，它的文件保存在C:\AlsPythonBook文件夹中。你担心工作会丢失，所以希望为整个文件夹创建一个ZIP文件，作为“快照”。你希望保存不同的版本，希望ZIP文件的文件名每次创建时都有所变化。例如AlsPythonBook_1.zip、AlsPythonBook_2.zip、AlsPythonBook_3.zip，等等。你可以手工完成，但这有点烦人，而且可能不小心弄错ZIP文件的编号。运行一个程序来完成这个烦人的任务会简单得多。</p>
-<p class="zw">针对这个项目，打开一个新的文件编辑器窗口，将它保存为backupToZip.py。</p>
-<h3 id="nav_point_248">第1步：弄清楚ZIP文件的名称</h3>
-<p class="zw">这个程序的代码将放在一个名为backupToZip()的函数中。这样就更容易将该函数复制粘贴到其他需要这个功能的Python程序中。在这个程序的末尾，会调用这个函数进行备份。让你的程序看起来像这样：</p>
-<pre class="代码无行号"><code>　#! python3
+　    &lt;strong&gt;# Form the European-style filename.&lt;/strong&gt;
+❶     &lt;strong&gt;euroFilename = beforePart + dayPart + '-' + monthPart + '-' + yearPart +&lt;/strong&gt;
+　                   &lt;strong&gt;afterPart&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
+　    &lt;strong&gt;# Get the full, absolute file paths.&lt;/strong&gt;
+　    &lt;strong&gt;absWorkingDir = os.path.abspath('.')&lt;/strong&gt;
+　    &lt;strong&gt;amerFilename = os.path.join(absWorkingDir, amerFilename)&lt;/strong&gt;
+　    &lt;strong&gt;euroFilename = os.path.join(absWorkingDir, euroFilename)&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
+　    &lt;strong&gt;# Rename the files.&lt;/strong&gt;
+❷     &lt;strong&gt;print('Renaming "%s" to "%s"...' % (amerFilename, euroFilename))&lt;/strong&gt;
+❸     &lt;strong&gt;#shutil.move(amerFilename, euroFilename) # uncomment after testing&lt;/strong&gt;
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;将连接的字符串保存在名为euroFilename的变量中❶。然后将amerFilename中原来的文件名和新的euroFilename变量传递给shutil.move()函数，将该文件改名❸。&lt;/p&gt;
+&lt;p class="zw"&gt;这个程序将shutil.move()调用注释掉，代之以打印出将被改名的文件名❷。先像这样运行程序，你可以确认文件改名是正确的。然后取消shutil.move()调用的注释，再次运行该程序，确实将这些文件改名。&lt;/p&gt;
+&lt;h3 id="nav_point_246"&gt;第4步：类似程序的想法&lt;/h3&gt;
+&lt;p class="zw"&gt;有很多其他的理由，导致你需要对大量的文件改名。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;为文件名添加前缀，诸如添加spam_，将eggs.txt改名为spam_eggs.txt。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;将欧洲风格日期的文件改名为美国风格日期。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;删除文件名中的0，诸如spam0042.txt。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="nav_point_247"&gt;9.5 项目：将一个文件夹备份到一个ZIP文件&lt;/h2&gt;
+&lt;p class="zw"&gt;假定你正在做一个项目，它的文件保存在C:\AlsPythonBook文件夹中。你担心工作会丢失，所以希望为整个文件夹创建一个ZIP文件，作为“快照”。你希望保存不同的版本，希望ZIP文件的文件名每次创建时都有所变化。例如AlsPythonBook_1.zip、AlsPythonBook_2.zip、AlsPythonBook_3.zip，等等。你可以手工完成，但这有点烦人，而且可能不小心弄错ZIP文件的编号。运行一个程序来完成这个烦人的任务会简单得多。&lt;/p&gt;
+&lt;p class="zw"&gt;针对这个项目，打开一个新的文件编辑器窗口，将它保存为backupToZip.py。&lt;/p&gt;
+&lt;h3 id="nav_point_248"&gt;第1步：弄清楚ZIP文件的名称&lt;/h3&gt;
+&lt;p class="zw"&gt;这个程序的代码将放在一个名为backupToZip()的函数中。这样就更容易将该函数复制粘贴到其他需要这个功能的Python程序中。在这个程序的末尾，会调用这个函数进行备份。让你的程序看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　#! python3
 　# backupToZip.py - Copies an entire folder and its contents into
 　# a ZIP file whose filename increments.
 ❶ import zipfile, os
@@ -355,108 +363,108 @@ FILE INSIDE C:\delicious\walnut\waffles: butter.txt.</code>
 ❹     # TODO: Create the ZIP file.
  　   # TODO: Walk the entire folder tree and compress the files in each folder.
 　    print('Done.')
-　backupToZip('C:\\delicious')</code>
-</pre>
-<p class="zw">先完成基本任务：添加#!行，描述该程序做什么，并导入zipfile和os模块❶。</p>
-<p class="zw">定义backupToZip()函数，它只接收一个参数，即folder。这个参数是一个字符串路径，指向需要备份的文件夹。该函数将决定它创建的ZIP文件使用什么文件名，然后创建该文件，遍历folder文件夹，将每个子文件夹和文件添加到ZIP文件中。在源代码中为这些步骤写下TODO注释，提醒你稍后来完成❹。</p>
-<p class="zw">第一部分命名这个ZIP文件，使用folder的绝对路径的基本名称。如果要备份的文件夹是C:\delicious，ZIP文件的名称就应该是delicious_N.zip，第一次运行该程序时N=1，第二次运行时N=2，以此类推。</p>
-<p class="zw">通过检查delicious_1.zip是否存在，然后检查delicious_2.zip是否存在，继续下去，可以确定N应该是什么。用一个名为number的变量表示N❷，在一个循环内不断增加它，并调用os.path.exists()来检查该文件是否存在❸。第一个不存在的文件名将导致循环break，因此它就发现了新ZIP文件的文件名。</p>
-<h3 id="nav_point_249">第2步：创建新ZIP文件</h3>
-<p class="zw">接下来让我们创建ZIP文件。让你的程序看起来像这样：</p>
-<pre class="代码无行号"><code>　#! python3
+　backupToZip('C:\\delicious')&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;先完成基本任务：添加#!行，描述该程序做什么，并导入zipfile和os模块❶。&lt;/p&gt;
+&lt;p class="zw"&gt;定义backupToZip()函数，它只接收一个参数，即folder。这个参数是一个字符串路径，指向需要备份的文件夹。该函数将决定它创建的ZIP文件使用什么文件名，然后创建该文件，遍历folder文件夹，将每个子文件夹和文件添加到ZIP文件中。在源代码中为这些步骤写下TODO注释，提醒你稍后来完成❹。&lt;/p&gt;
+&lt;p class="zw"&gt;第一部分命名这个ZIP文件，使用folder的绝对路径的基本名称。如果要备份的文件夹是C:\delicious，ZIP文件的名称就应该是delicious_N.zip，第一次运行该程序时N=1，第二次运行时N=2，以此类推。&lt;/p&gt;
+&lt;p class="zw"&gt;通过检查delicious_1.zip是否存在，然后检查delicious_2.zip是否存在，继续下去，可以确定N应该是什么。用一个名为number的变量表示N❷，在一个循环内不断增加它，并调用os.path.exists()来检查该文件是否存在❸。第一个不存在的文件名将导致循环break，因此它就发现了新ZIP文件的文件名。&lt;/p&gt;
+&lt;h3 id="nav_point_249"&gt;第2步：创建新ZIP文件&lt;/h3&gt;
+&lt;p class="zw"&gt;接下来让我们创建ZIP文件。让你的程序看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　#! python3
 　# backupToZip.py - Copies an entire folder and its contents into
 　# a ZIP file whose filename increments.
-　--<em>snip</em>
+　--&lt;em&gt;snip&lt;/em&gt;
 --
 　    while True:
  　       zipFilename = os.path.basename(folder) + '_' + str(number) + '.zip'
 　        if not os.path.exists(zipFilename):
 　            break
 　        number = number + 1
-　    <strong># Create the ZIP file.</strong>
-　    <strong>print('Creating %s...' % (zipFilename))</strong>
-❶     <strong>backupZip = zipfile.ZipFile(zipFilename, 'w')</strong>
-<strong>　</strong>
+　    &lt;strong&gt;# Create the ZIP file.&lt;/strong&gt;
+　    &lt;strong&gt;print('Creating %s...' % (zipFilename))&lt;/strong&gt;
+❶     &lt;strong&gt;backupZip = zipfile.ZipFile(zipFilename, 'w')&lt;/strong&gt;
+&lt;strong&gt;　&lt;/strong&gt;
 　    # TODO: Walk the entire folder tree and compress the files in each folder.
 　    print('Done.')
 　backupToZip('C:\\delicious')
-</code>
-</pre>
-<p class="zw">既然新ZIP文件的文件名保存在zipFilename变量中，你就可以调用zipfile.ZipFile()，实际创建这个ZIP文件❶。确保传入'w'作为第二个参数，这样ZIP文件以写模式打开。</p>
-<h3 id="nav_point_250">第3步：遍历目录树并添加到ZIP文件</h3>
-<p class="zw">现在需要使用os.walk()函数，列出文件夹以及子文件夹中的每个文件。让你的程序看起来像这样：</p>
-<pre class="代码无行号"><code>　#! python3
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;既然新ZIP文件的文件名保存在zipFilename变量中，你就可以调用zipfile.ZipFile()，实际创建这个ZIP文件❶。确保传入'w'作为第二个参数，这样ZIP文件以写模式打开。&lt;/p&gt;
+&lt;h3 id="nav_point_250"&gt;第3步：遍历目录树并添加到ZIP文件&lt;/h3&gt;
+&lt;p class="zw"&gt;现在需要使用os.walk()函数，列出文件夹以及子文件夹中的每个文件。让你的程序看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;　#! python3
 　# backupToZip.py - Copies an entire folder and its contents into
 　# a ZIP file whose filename increments.
-　--<em>snip</em>
+　--&lt;em&gt;snip&lt;/em&gt;
 --
-　    <strong># Walk the entire folder tree and compress the files in each folder.</strong>
-❶     <strong>for foldername, subfolders, filenames in os.walk(folder):</strong>
-　       <strong>print('Adding files in %s...' % (foldername))</strong>
- 　       <strong># Add the current folder to the ZIP file.</strong>
-❷         <strong>backupZip.write(foldername)</strong>
-　    <strong># Add all the files in this folder to the ZIP file.</strong>
-❸       <strong>for filename in filenames:</strong>
-　            <strong>newBase / os.path.basename(folder) + '_'</strong>
-　            <strong>if filename.startswith(newBase) and filename.endswith('.zip')</strong>
-　                <strong>continue # don't backup the backup ZIP files</strong>
- 　           <strong>backupZip.write(os.path.join(foldername, filename))</strong>
-　    <strong>backupZip.close()</strong>
+　    &lt;strong&gt;# Walk the entire folder tree and compress the files in each folder.&lt;/strong&gt;
+❶     &lt;strong&gt;for foldername, subfolders, filenames in os.walk(folder):&lt;/strong&gt;
+　       &lt;strong&gt;print('Adding files in %s...' % (foldername))&lt;/strong&gt;
+ 　       &lt;strong&gt;# Add the current folder to the ZIP file.&lt;/strong&gt;
+❷         &lt;strong&gt;backupZip.write(foldername)&lt;/strong&gt;
+　    &lt;strong&gt;# Add all the files in this folder to the ZIP file.&lt;/strong&gt;
+❸       &lt;strong&gt;for filename in filenames:&lt;/strong&gt;
+　            &lt;strong&gt;newBase / os.path.basename(folder) + '_'&lt;/strong&gt;
+　            &lt;strong&gt;if filename.startswith(newBase) and filename.endswith('.zip')&lt;/strong&gt;
+　                &lt;strong&gt;continue # don't backup the backup ZIP files&lt;/strong&gt;
+ 　           &lt;strong&gt;backupZip.write(os.path.join(foldername, filename))&lt;/strong&gt;
+　    &lt;strong&gt;backupZip.close()&lt;/strong&gt;
 　    print('Done.')
 　backupToZip('C:\\delicious')
-</code>
-</pre>
-<p class="zw">可以在for循环中使用os.walk()❶，在每次迭代中，它将返回这次迭代当前的文件夹名称、这个文件夹中的子文件夹，以及这个文件夹中的文件名。</p>
-<p class="zw">在这个for循环中，该文件夹被添加到ZIP文件❷。嵌套的for循环将遍历filenames列表中的每个文件❸。每个文件都被添加到ZIP文件中，以前生成的备份ZIP文件除外。</p>
-<p class="zw">如果运行该程序，它产生的输出看起来像这样：</p>
-<pre class="代码无行号"><code>Creating delicious_1.zip...
+&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;可以在for循环中使用os.walk()❶，在每次迭代中，它将返回这次迭代当前的文件夹名称、这个文件夹中的子文件夹，以及这个文件夹中的文件名。&lt;/p&gt;
+&lt;p class="zw"&gt;在这个for循环中，该文件夹被添加到ZIP文件❷。嵌套的for循环将遍历filenames列表中的每个文件❸。每个文件都被添加到ZIP文件中，以前生成的备份ZIP文件除外。&lt;/p&gt;
+&lt;p class="zw"&gt;如果运行该程序，它产生的输出看起来像这样：&lt;/p&gt;
+&lt;pre class="代码无行号"&gt;&lt;code&gt;Creating delicious_1.zip...
 Adding files in C:\delicious...
 Adding files in C:\delicious\cats...
 Adding files in C:\delicious\waffles...
 Adding files in C:\delicious\walnut...
 Adding files in C:\delicious\walnut\waffles...
-Done.</code>
-</pre>
-<p class="zw">第二次运行它时，它将C:\delicious中的所有文件放进一个ZIP文件，命名为delicious_2.zip，以此类推。</p>
-<h3 id="nav_point_251">第4步：类似程序的想法</h3>
-<p class="zw">你可以在其他程序中遍历一个目录树，将文件添加到压缩的ZIP归档文件中。例如，你可以编程做下面的事情：</p>
-<ul>
-<li class="第1级无序列表">遍历一个目录树，将特定扩展名的文件归档，诸如.txt或.py，并排除其他文件。</li>
-<li class="第1级无序列表">遍历一个目录树，将除.txt和.py文件以外的其他文件归档。</li>
-<li class="第1级无序列表">在一个目录树中查找文件夹，它包含的文件数最多，或者使用的磁盘空间最大。</li>
-</ul>
-<h2 id="nav_point_252">9.6 小结</h2>
-<p class="zw">即使你是一个有经验的计算机用户，可能也会用鼠标和键盘手工处理文件。现在的文件浏览器使得处理少量文件的工作很容易。但有时候，如果用计算机的浏览器，你需要完成的任务可能要花几个小时。</p>
-<p class="zw">os和shutil模块提供了一些函数，用于复制、移动、改名和删除文件。在删除文件时，你可能希望使用send2trash模块，将文件移动到回收站或垃圾箱，而不是永久地删除它们。在编程处理文件时，最好是先注释掉实际会复制/移动/改名/删除文件的代码，添加print()调用，这样你就可以运行该程序，验证它实际会做什么。</p>
-<p class="zw">通常，你不仅需要对一个文件夹中的文件执行这些操作，而是对所有下级子文件夹执行操作。os.walk()函数将处理这个艰苦工作，遍历文件夹，这样你就可以专注于程序需要对其中的文件做什么。</p>
-<p class="zw">zipfile模块提供了一种方法，用Python压缩和解压ZIP归档文件。和os和shutil模块中的文件处理函数一起使用，很容易将硬盘上任意位置的一些文件打包。和许多独立的文件相比，这些ZIP文件更容易上传到网站，或作为E-mail附件发送。</p>
-<p class="zw">本书前面几章提供了源代码让你拷贝。但如果你编写自己的程序，可能在第一次编写时不会完美无缺。下一章将聚焦于一些Python模块，它们帮助你分析和调试程序，这样就能让程序很快正确运行。</p>
-<h2 id="nav_point_253">9.7 习题</h2>
-<p class="zw">1．shutil.copy()和shutil.copytree()之间的区别是什么？</p>
-<p class="zw">2．什么函数用于文件改名？</p>
-<p class="zw">3．send2trash和shutil模块中的删除函数之间的区别是什么？</p>
-<p class="zw">4．ZipFile对象有一个close()方法，就像File对象的close()方法。ZipFile对象的什么方法等价于File对象的open()方法？</p>
-<h2 id="nav_point_254">9.8 实践项目</h2>
-<p class="zw">作为实践，编程完成下面的任务。</p>
-<h3 id="nav_point_255">9.8.1 选择性拷贝</h3>
-<p class="zw">编写一个程序，遍历一个目录树，查找特定扩展名的文件（诸如.pdf或.jpg）。不论这些文件的位置在哪里，将它们拷贝到一个新的文件夹中。</p>
-<h3 id="nav_point_256">9.8.2 删除不需要的文件</h3>
-<p class="zw">一些不需要的、巨大的文件或文件夹占据了硬盘的空间，这并不少见。如果你试图释放计算机上的空间，那么删除不想要的巨大文件效果最好。但首先你必须找到它们。</p>
-<p class="zw">编写一个程序，遍历一个目录树，查找特别大的文件或文件夹，比方说，超过100MB的文件（回忆一下，要获得文件的大小，可以使用 os 模块的os.path.getsize()）。将这些文件的绝对路径打印到屏幕上。</p>
-<h3 id="nav_point_257">9.8.3 消除缺失的编号</h3>
-<p class="zw">编写一个程序，在一个文件夹中，找到所有带指定前缀的文件，诸如spam001.txt, spam002.txt等，并定位缺失的编号（例如存在spam001.txt和spam003.txt，但不存在spam002.txt）。让该程序对所有后面的文件改名，消除缺失的编号。</p>
-<p class="zw">作为附加的挑战，编写另一个程序，在一些连续编号的文件中，空出一些编号，以便加入新的文件。</p>
-<p class="zw"><br style="page-break-after:always"/>
-</p>
-<div></div>
-]]></description>
+Done.&lt;/code&gt;
+&lt;/pre&gt;
+&lt;p class="zw"&gt;第二次运行它时，它将C:\delicious中的所有文件放进一个ZIP文件，命名为delicious_2.zip，以此类推。&lt;/p&gt;
+&lt;h3 id="nav_point_251"&gt;第4步：类似程序的想法&lt;/h3&gt;
+&lt;p class="zw"&gt;你可以在其他程序中遍历一个目录树，将文件添加到压缩的ZIP归档文件中。例如，你可以编程做下面的事情：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li class="第1级无序列表"&gt;遍历一个目录树，将特定扩展名的文件归档，诸如.txt或.py，并排除其他文件。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;遍历一个目录树，将除.txt和.py文件以外的其他文件归档。&lt;/li&gt;
+&lt;li class="第1级无序列表"&gt;在一个目录树中查找文件夹，它包含的文件数最多，或者使用的磁盘空间最大。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="nav_point_252"&gt;9.6 小结&lt;/h2&gt;
+&lt;p class="zw"&gt;即使你是一个有经验的计算机用户，可能也会用鼠标和键盘手工处理文件。现在的文件浏览器使得处理少量文件的工作很容易。但有时候，如果用计算机的浏览器，你需要完成的任务可能要花几个小时。&lt;/p&gt;
+&lt;p class="zw"&gt;os和shutil模块提供了一些函数，用于复制、移动、改名和删除文件。在删除文件时，你可能希望使用send2trash模块，将文件移动到回收站或垃圾箱，而不是永久地删除它们。在编程处理文件时，最好是先注释掉实际会复制/移动/改名/删除文件的代码，添加print()调用，这样你就可以运行该程序，验证它实际会做什么。&lt;/p&gt;
+&lt;p class="zw"&gt;通常，你不仅需要对一个文件夹中的文件执行这些操作，而是对所有下级子文件夹执行操作。os.walk()函数将处理这个艰苦工作，遍历文件夹，这样你就可以专注于程序需要对其中的文件做什么。&lt;/p&gt;
+&lt;p class="zw"&gt;zipfile模块提供了一种方法，用Python压缩和解压ZIP归档文件。和os和shutil模块中的文件处理函数一起使用，很容易将硬盘上任意位置的一些文件打包。和许多独立的文件相比，这些ZIP文件更容易上传到网站，或作为E-mail附件发送。&lt;/p&gt;
+&lt;p class="zw"&gt;本书前面几章提供了源代码让你拷贝。但如果你编写自己的程序，可能在第一次编写时不会完美无缺。下一章将聚焦于一些Python模块，它们帮助你分析和调试程序，这样就能让程序很快正确运行。&lt;/p&gt;
+&lt;h2 id="nav_point_253"&gt;9.7 习题&lt;/h2&gt;
+&lt;p class="zw"&gt;1．shutil.copy()和shutil.copytree()之间的区别是什么？&lt;/p&gt;
+&lt;p class="zw"&gt;2．什么函数用于文件改名？&lt;/p&gt;
+&lt;p class="zw"&gt;3．send2trash和shutil模块中的删除函数之间的区别是什么？&lt;/p&gt;
+&lt;p class="zw"&gt;4．ZipFile对象有一个close()方法，就像File对象的close()方法。ZipFile对象的什么方法等价于File对象的open()方法？&lt;/p&gt;
+&lt;h2 id="nav_point_254"&gt;9.8 实践项目&lt;/h2&gt;
+&lt;p class="zw"&gt;作为实践，编程完成下面的任务。&lt;/p&gt;
+&lt;h3 id="nav_point_255"&gt;9.8.1 选择性拷贝&lt;/h3&gt;
+&lt;p class="zw"&gt;编写一个程序，遍历一个目录树，查找特定扩展名的文件（诸如.pdf或.jpg）。不论这些文件的位置在哪里，将它们拷贝到一个新的文件夹中。&lt;/p&gt;
+&lt;h3 id="nav_point_256"&gt;9.8.2 删除不需要的文件&lt;/h3&gt;
+&lt;p class="zw"&gt;一些不需要的、巨大的文件或文件夹占据了硬盘的空间，这并不少见。如果你试图释放计算机上的空间，那么删除不想要的巨大文件效果最好。但首先你必须找到它们。&lt;/p&gt;
+&lt;p class="zw"&gt;编写一个程序，遍历一个目录树，查找特别大的文件或文件夹，比方说，超过100MB的文件（回忆一下，要获得文件的大小，可以使用 os 模块的os.path.getsize()）。将这些文件的绝对路径打印到屏幕上。&lt;/p&gt;
+&lt;h3 id="nav_point_257"&gt;9.8.3 消除缺失的编号&lt;/h3&gt;
+&lt;p class="zw"&gt;编写一个程序，在一个文件夹中，找到所有带指定前缀的文件，诸如spam001.txt, spam002.txt等，并定位缺失的编号（例如存在spam001.txt和spam003.txt，但不存在spam002.txt）。让该程序对所有后面的文件改名，消除缺失的编号。&lt;/p&gt;
+&lt;p class="zw"&gt;作为附加的挑战，编写另一个程序，在一些连续编号的文件中，空出一些编号，以便加入新的文件。&lt;/p&gt;
+&lt;p class="zw"&gt;&lt;br style="page-break-after:always"/&gt;
+&lt;/p&gt;
+&lt;div&gt;&lt;/div&gt;
+</description>
     <pubDate>Mon, 14 Sep 2026 04:00:59 +0000</pubDate>
     <guid isPermaLink="false">33</guid>
 </item>
 <item>
-      <title><![CDATA[WorkBuddyGuide-第 6 章 WorkBuddy的专家和专家团]]></title>
+      <title>WorkBuddyGuide-第 6 章 WorkBuddy的专家和专家团</title>
       <link>https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%206%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%93%E5%AE%B6%E5%92%8C%E4%B8%93%E5%AE%B6%E5%9B%A2/</link>
-      <description><![CDATA[学习时长：约2小时；学习内容：专家与Skill的区别[reference:12]、专家的定义与创建方法[reference:13][reference:14]、专家团的概念与协作机制[reference:15]；学习目的：理解专家和专家团的工作方式，学会召唤和创建专家，用专家团处理复杂项目]]></description>
+      <description>学习时长：约2小时；学习内容：专家与Skill的区别[reference:12]、专家的定义与创建方法[reference:13][reference:14]、专家团的概念与协作机制[reference:15]；学习目的：理解专家和专家团的工作方式，学会召唤和创建专家，用专家团处理复杂项目</description>
       <guid isPermaLink="false">https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/%E7%AC%AC%206%20%E7%AB%A0%20WorkBuddy%E7%9A%84%E4%B8%93%E5%AE%B6%E5%92%8C%E4%B8%93%E5%AE%B6%E5%9B%A2/</guid>
       <pubDate>Mon, 14 Sep 2026 03:54:24 +0000</pubDate>
     </item>
@@ -4227,746 +4235,5 @@ else:
       <guid isPermaLink="false">https://workbuddy.homes/bluebook/%E7%AC%AC%E4%B8%80%E7%AF%87%20%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C%EF%BC%9A%E5%85%88%E6%8A%8A%20WorkBuddy%20%E7%94%A8%E8%B5%B7%E6%9D%A5/</guid>
       <pubDate>Mon, 17 Aug 2026 01:05:51 +0000</pubDate>
     </item>
-<item>
-    <title>AutomaticApplicationPython - 026 - 第2章 控制流.epub</title>
-    <description>&lt;p style='color: #888;'&gt;⏱ 预计阅读时间：55 分钟 (16206 字)&lt;/p&gt;&lt;hr&gt;&lt;h1 id="nav_point_38"&gt;第2章 控制流&lt;/h1&gt;
-&lt;p class="zw"&gt;你已经知道了单条指令的基本知识。程序就是一系列指令。但编程真正的力量不仅在于运行（或“执行”）一条接一条的指令，就像周末的任务清单那样。根据表达式求值的结果，程序可以决定跳过指令，重复指令，或从几条指令中选择一条运行。实际上，你几乎永远不希望程序从第一行代码开始，简单地执行每行代码，直到最后一行。“控制流语句”可以决定在什么条件下执行哪些Python语句。&lt;/p&gt;
-&lt;p class="zw"&gt;这些控制流语句直接对应于流程图中的符号，所以在本章中，我将提供示例代码的流程图。图2-1展示了一张流程图，内容是如果下雨怎么办。按照箭头构成的路径，从开始到结束。&lt;/p&gt;
-&lt;p class="zw"&gt;在流程图中，通常有不止一种方法从开始走到结束。计算机程序中的代码行也是这样。流程图用菱形表示这些分支节点，其他步骤用矩形表示。开始和结束步骤用带圆角的矩形表示。&lt;/p&gt;
-&lt;p class="zw"&gt;但在学习流程控制语句之前，首先要学习如何表示这些yes和no选项。同时你也需要理解，如何将这些分支节点写成Python代码。要做到这一点，让我们先看看布尔值、比较操作符和布尔操作符。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_01.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00069.jpg" style="width: 100%" width="100%"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图2-1 一张流程图，告诉你如果下雨要做什么&lt;/p&gt;
-&lt;h2 id="nav_point_39"&gt;2.1 布尔值&lt;/h2&gt;
-&lt;p class="zw"&gt;虽然整型、浮点型和字符串数据类型有无数种可能的值，但“布尔”数据类型只有两种值：True和False。Boolean（布尔）的首字母大写，因为这个数据类型是根据数学家George Boole命名的。在作为Python代码输入时，布尔值True和False不像字符串，两边没有引号，它们总是以大写字母T或F开头，后面的字母小写。在交互式环境中输入下面内容，其中有些指令是故意弄错的，它们将导致出错信息。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam = True&lt;/strong&gt;
-　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;spam&lt;/strong&gt;
-　True
-❷&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;true&lt;/strong&gt;
-　Traceback (most recent call last):
-　  File "&amp;lt;pyshell#2&amp;gt;", line 1, in &amp;lt;module&amp;gt;
-　    true
-　NameError: name 'true' is not defined
-❸ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;True = 2 + 2&lt;/strong&gt;
-　SyntaxError: assignment to keyword
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;像其他值一样，布尔值也用在表达式中，并且可以保存在变量中❶。如果大小写不正确❷，或者试图使用True和False作为变量名❸，Python就会给出错误信息。&lt;/p&gt;
-&lt;h2 id="nav_point_40"&gt;2.2 比较操作符&lt;/h2&gt;
-&lt;p class="zw"&gt;“比较操作符”比较两个值，求值为一个布尔值。表2-1列出了比较操作符。&lt;/p&gt;
-&lt;p class="表题"&gt;表2-1 比较操作符&lt;/p&gt;
-&lt;table border="1" width="90%"&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;操作符&lt;/p&gt;
-&lt;/th&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;含义&lt;/p&gt;
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;==&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;等于&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;!=&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;不等于&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;&amp;lt;&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;小于&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;&amp;gt;&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;大于&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;&amp;lt;=&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;小于等于&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;&amp;gt;=&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;大于等于&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p class="zw"&gt;这些操作符根据给它们提供的值，求值为True或False。现在让我们尝试一些操作符，从==和!=开始。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt;  &lt;strong&gt;42 == 42&lt;/strong&gt;
-True
-&amp;gt;&amp;gt;&amp;gt;  &lt;strong&gt;42 == 99&lt;/strong&gt;
-False
-&amp;gt;&amp;gt;&amp;gt;  &lt;strong&gt;2 != 3&lt;/strong&gt;
-True
-&amp;gt;&amp;gt;&amp;gt;  &lt;strong&gt;2 != 2&lt;/strong&gt;
-False
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;如果两边的值一样，==（等于）求值为True。如果两边的值不同，!=（不等于）求值为False。==和!=操作符实际上可以用于所有数据类型的值。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'hello' == 'hello'&lt;/strong&gt;
-　True
-　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'hello' == 'Hello'&lt;/strong&gt;
-　False
-　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;'dog' != 'cat'&lt;/strong&gt;
-　True
-　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;True == True&lt;/strong&gt;
-　True
-　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;True != False&lt;/strong&gt;
-　True
-　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;42 == 42.0&lt;/strong&gt;
-　True
-❶ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;42 == '42'&lt;/strong&gt;
-　False
- &lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;请注意，整型或浮点型的值永远不会与字符串相等。表达式42 == '42'❶求值为False是因为，Python认为整数42与字符串'42'不同。&lt;/p&gt;
-&lt;p class="zw"&gt;另一方面，&amp;lt;、&amp;gt;、&amp;lt;=和&amp;gt;=操作符仅用于整型和浮点型值。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;42 &amp;lt; 100&lt;/strong&gt;
-　True
-　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;42 &amp;gt; 100&lt;/strong&gt;
-　False
-　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;42 &amp;lt; 42&lt;/strong&gt;
-　False
-　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggCount = 42&lt;/strong&gt;
-❷&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;eggCount &amp;lt;= 42&lt;/strong&gt;
-　True
-　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;myAge = 29&lt;/strong&gt;
-❸ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;myAge &amp;gt;= 10&lt;/strong&gt;
-　True &lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="editing-tag 超强提示标签"&gt;操作符的区别&lt;/p&gt;
-&lt;blockquote class="超强提示 editing-block"&gt;
-&lt;p class="zw"&gt;&lt;br/&gt;
-&lt;/p&gt;
-&lt;p class="zw"&gt;你可能已经注意到，==操作符（等于）有两个等号，而=操作符（赋值）只有一个等号。这两个操作符很容易混淆。只要记住：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p class="zw"&gt;==操作符（等于）问两个值是否彼此相同。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p class="zw"&gt;=操作符（赋值）将右边的值放到左边的变量中。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p class="zw"&gt;为了记住谁是谁，请注意==操作符（等于）包含两个字符，就像!=操作符（不等于）包含两个字符一样。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="zw"&gt;你会经常用比较操作符比较一个变量和另外某个值。就像在例子eggCount &amp;lt;= 42❶和myAge &amp;gt;= 10❷中一样（毕竟，除了在代码中输入'dog' != 'cat'以外，你本来也可以直接输入True）。稍后，在学习控制流语句时，你会看到更多的例子。&lt;/p&gt;
-&lt;h2 id="nav_point_41"&gt;2.3 布尔操作符&lt;/h2&gt;
-&lt;p class="zw"&gt;3个布尔操作符（and、or和not）用于比较布尔值。像比较操作符一样，它们将这些表达式求值为一个布尔值。让我们仔细看看这些操作符，从and操作符开始。&lt;/p&gt;
-&lt;h3 id="nav_point_42"&gt;2.3.1 二元布尔操作符&lt;/h3&gt;
-&lt;p class="zw"&gt;and和or操作符总是接受两个布尔值（或表达式），所以它们被认为是“二元”操作符。如果两个布尔值都为True，and操作符就将表达式求值为True，否则求值为False。在交互式环境中输入某个使用and的表达式，看看效果。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;True and True&lt;/strong&gt;
-True
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;True and False&lt;/strong&gt;
-False
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;“真值表”显示了布尔操作符的所有可能结果。表2-2是操作符and的真值表。&lt;/p&gt;
-&lt;p class="表题"&gt;表2-2 and操作符的真值表&lt;/p&gt;
-&lt;table border="1" width="90%"&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;表达式&lt;/p&gt;
-&lt;/th&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;求值为&lt;/p&gt;
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;True and True&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;True&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;True and False&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;False&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;False and True&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;False&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;False and False&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;False&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p class="zw"&gt;另一方面，只要有一个布尔值为真，or操作符就将表达式求值为True。如果都是False，所求值为False。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;False or True&lt;/strong&gt;
-True
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;False or False&lt;/strong&gt;
-False
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;可以在or操作符的真值表中看到每一种可能的结果，如表2-3所示。&lt;/p&gt;
-&lt;p class="表题"&gt;表2-3 or操作符的真值表&lt;/p&gt;
-&lt;table border="1" width="90%"&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;表达式&lt;/p&gt;
-&lt;/th&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;求值为&lt;/p&gt;
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;True or True&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;True&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;True or False&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;True&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;False or True&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;True&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;False or False&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;False&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3 id="nav_point_43"&gt;2.3.2 not操作符&lt;/h3&gt;
-&lt;p class="zw"&gt;和and和or不同，not操作符只作用于一个布尔值（或表达式）。not操作符求值为相反的布尔值。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;　&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;not 　True&lt;/strong&gt;
-　False
-❶ &amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;not not not not True&lt;/strong&gt;
-　True
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;就像在说话和写作中使用双重否定，你可以嵌套not操作符❶，虽然在真正的程序中并不经常这样做。表2-4展示了not的真值表。&lt;/p&gt;
-&lt;p class="表题"&gt;表2-4 not操作符的真值表&lt;/p&gt;
-&lt;table border="1" width="90%"&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;表达式&lt;/p&gt;
-&lt;/th&gt;
-&lt;th&gt;
-&lt;p class="表头单元格"&gt;求值为&lt;/p&gt;
-&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;not True&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;False&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;not False&lt;/p&gt;
-&lt;/td&gt;
-&lt;td&gt;
-&lt;p class="表格单元格"&gt;True&lt;/p&gt;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h2 id="nav_point_44"&gt;2.4 混合布尔和比较操作符&lt;/h2&gt;
-&lt;p class="zw"&gt;既然比较操作符求值为布尔值，就可以和布尔操作符一起，在表达式中使用。&lt;/p&gt;
-&lt;p class="zw"&gt;回忆一下，and、or和not操作符称为布尔操作符是因为，它们总是操作于布尔值。虽然像4 &amp;lt; 5这样的表达式不是布尔值，但可以求值为布尔值。在交互式环境中，尝试输入一些使用比较操作符的布尔表达式。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;(4 &amp;lt; 5) and (5 &amp;lt; 6)&lt;/strong&gt;
-True
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;(4 &amp;lt; 5) and (9 &amp;lt; 6)&lt;/strong&gt;
-False
-&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;(1 == 2) or (2 == 2)&lt;/strong&gt;
-True
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;计算机将先求值左边的表达式，然后再求值右边的表达式。知道两个布尔值后，它又将整个表达式再求值为一个布尔值。你可以认为计算机求值(4 &amp;lt; 5)和(5 &amp;lt; 6)的过程，如图2-2所示。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="0202" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00070.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图2-2 (4 &amp;lt; 5)和 (5 &amp;lt; 6) 求值为True的过程&lt;/p&gt;
-&lt;p class="zw"&gt;也可以在一个表达式中使用多个布尔操作符，与比较操作符一起使用。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; &lt;strong&gt;2 + 2 == 4 and not 2 + 2 == 5 and 2 * 2 == 2 + 2&lt;/strong&gt;
-True
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;和算术操作符一样，布尔操作符也有操作顺序。在所有算术和比较操作符求值后，Python先求值not操作符，然后是and操作符，然后是or操作符。&lt;/p&gt;
-&lt;h2 id="nav_point_45"&gt;2.5 控制流的元素&lt;/h2&gt;
-&lt;p class="zw"&gt;控制流语句的开始部分通常是“条件”，接下来是一个代码块，称为“子句”。在开始学习具体的Python控制流语句之前，我将介绍条件和代码块。&lt;/p&gt;
-&lt;h3 id="nav_point_46"&gt;2.5.1 条件&lt;/h3&gt;
-&lt;p class="zw"&gt;你前面看到的布尔表达式可以看成是条件，它和表达式是一回事。“条件”只是在控制流语句的上下文中更具体的名称。条件总是求值为一个布尔值，True或False。控制流语句根据条件是True还是False，来决定做什么。几乎所有的控制流语句都使用条件。&lt;/p&gt;
-&lt;h3 id="nav_point_47"&gt;2.5.2 代码块&lt;/h3&gt;
-&lt;p class="zw"&gt;一些代码行可以作为一组，放在“代码块”中。可以根据代码行的缩进，知道代码块的开始和结束。代码块有3条规则。&lt;/p&gt;
-&lt;p class="zw"&gt;1．缩进增加时，代码块开始。&lt;/p&gt;
-&lt;p class="zw"&gt;2．代码块可以包含其他代码块。&lt;/p&gt;
-&lt;p class="zw"&gt;3．缩进减少为零，或减少为外面包围代码块的缩进，代码块就结束了。&lt;/p&gt;
-&lt;p class="zw"&gt;看一些有缩进的代码，更容易理解代码块。所以让我们在一小段游戏程序中，寻找代码块，如下所示：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;　if name == 'Mary':
-❶     print('Hello Mary')
-　if password == 'swordfish':
-❷    print('Access granted.')
-　else:
-❸     print('Wrong password.')
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;第一个代码块❶开始于代码行print('Hello Mary')，并且包含后面所有的行。在这个代码块中有另一个代码块❷，它只有一行代码：print('Access Granted.')。第三个代码块❸也只有一行：print('Wrong password.')。&lt;/p&gt;
-&lt;h2 id="nav_point_48"&gt;2.6 程序执行&lt;/h2&gt;
-&lt;p class="zw"&gt;在第1章的hello.py程序中，Python开始执行程序顶部的指令，然后一条接一条往下执行。“程序执行”（或简称“执行”）这一术语是指当前被执行的指令。如果将源代码打印在纸上，在它执行时用手指指着每一行代码，你可以认为手指就是程序执行。&lt;/p&gt;
-&lt;p class="zw"&gt;但是，并非所有的程序都是从上至下简单地执行。如果用手指追踪一个带有控制流语句的程序，可能会发现手指会根据条件跳过源代码，有可能跳过整个子句。&lt;/p&gt;
-&lt;h2 id="nav_point_49"&gt;2.7 控制流语句&lt;/h2&gt;
-&lt;p class="zw"&gt;现在，让我们来看最重要的控制流部分：语句本身。语句代表了在图2-1的流程图中看到的菱形，它们是程序将做出的实际决定。&lt;/p&gt;
-&lt;h3 id="nav_point_50"&gt;2.7.1 if语句&lt;/h3&gt;
-&lt;p class="zw"&gt;最常见的控制流语句是if语句。if语句的子句（也就是紧跟if语句的语句块），将在语句的条件为True时执行。如果条件为False，子句将跳过。&lt;/p&gt;
-&lt;p class="zw"&gt;在英文中，if语句念起来可能是：“如果条件为真，执行子句中的代码。”在Python中，if语句包含以下部分：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li class="第1级无序列表"&gt;if关键字；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;条件（即求值为True或False的表达式）；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;冒号；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;在下一行开始，缩进的代码块（称为if子句）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p class="zw"&gt;例如，假定有一些代码，检查某人的名字是否为Alice（假设此前曾为name赋值）。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;if name == 'Alice':
-    print('Hi, Alice.')&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;所有控制流语句都以冒号结尾，后面跟着一个新的代码块（子句）。语句的if子句是代码块，包含print('Hi, Alice.')。图2-3展示了这段代码的流程图。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_03.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00071.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图2-3 if语句的流程图&lt;/p&gt;
-&lt;h3 id="nav_point_51"&gt;2.7.2 else语句&lt;/h3&gt;
-&lt;p class="zw"&gt;if子句后面有时候也可以跟着else语句。只有if语句的条件为False时，else子句才会执行。在英语中，else语句读起来可能是：“如果条件为真，执行这段代码。否则，执行那段代码”。else语句不包含条件，在代码中，else语句中包含下面部分：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li class="第1级无序列表"&gt;else关键字；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;冒号；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;在下一行开始，缩进的代码块（称为else子句）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p class="zw"&gt;回到Alice的例子，我们来看看使用else语句的一些代码，在名字不是Alice时，提供不一样的问候。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;if name == 'Alice':
-    print('Hi, Alice.')
-else:
-    print('Hello, stranger.')&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;图2-4展示了这段代码的流程图。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_04.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00072.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图2-4 else语句的流程图&lt;/p&gt;
-&lt;h3 id="nav_point_52"&gt;2.7.3 elif语句&lt;/h3&gt;
-&lt;p class="zw"&gt;虽然只有if或else子句会被执行，但有时候可能你希望，“许多”可能的子句中有一个被执行。elif语句是“否则如果”，总是跟在if或另一条elif语句后面。它提供了另一个条件，仅在前面的条件为False时才检查该条件。在代码中，elif语句总是包含以下部分：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li class="第1级无序列表"&gt;elif关键字；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;条件（即求值为True或False的表达式）；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;冒号；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;在下一行开始，缩进的代码块（称为elif子句）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p class="zw"&gt;让我们在名字检查程序中添加elif，看看这个语句的效果。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;if name == 'Alice':
-    print('Hi, Alice.')
-elif age &amp;lt; 12:
-    print('You are not Alice, kiddo.')&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;这一次，检查此人的年龄。如果比 12 岁小，就告诉他一些不同的东西。可以在图2-5中看到这段代码的流程图。&lt;/p&gt;
-&lt;p class="zw"&gt;如果age &amp;lt; 12为True并且name == 'Alice'为False，elif子句就会执行。但是，如果两个条件都为False，那么两个子句都会跳过。“不能”保证至少有一个子句会被执行。如果有一系列的elif语句，仅有一条或零条子句会被执行。一旦一个语句的条件为True，剩下的elif子句会自动跳过。例如，打开一个新的文件编辑器窗口，输入以下代码，保存为vampire.py。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;if name == 'Alice':
-    print('Hi, Alice.')
-elif age &amp;lt; 12:
-    print('You are not Alice, kiddo.')
-elif age &amp;gt; 2000:
-    print('Unlike you, Alice is not an undead, immortal vampire.')
-elif age &amp;gt; 100:
-    print('You are not Alice, grannie.')&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_05.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00073.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图2-5 elif语句的流程图&lt;/p&gt;
-&lt;p class="zw"&gt;这里，我添加了另外两条elif语句，让名字检查程序根据age的不同答案而发出问候。图2-6展示了这段代码的流程图。&lt;/p&gt;
-&lt;p class="zw"&gt;但是，elif语句的次序确实重要。让我们重新排序，引入一个缺陷。回忆一下，一旦找到一个True条件，剩余的子句就会自动跳过。所以如果交换vampire.py中的一些子句，就会遇到问题。像下面这样改变代码，将它保存为vampire2.py。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;　if name == 'Alice':
-　    print('Hi, Alice.')
-　elif age &amp;lt; 12:
-　    print('You are not Alice, kiddo.')
-❶ elif age &amp;gt; 100:
-　    print('You are not Alice, grannie.')
-　elif age &amp;gt; 2000:
-　    print('Unlike you, Alice is not an undead, immortal vampire.')
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_06.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00074.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图2-6 vampire.py程序中多重elif语句的流程图&lt;/p&gt;
-&lt;p class="zw"&gt;假设在这段代码执行之前，age变量的值是3000。你可能预计代码会打印出字符串'Unlike you, Alice is not an undead, immortal vampire.'。但是，因为age &amp;gt; 100条件为真（毕竟3000大于100）❶，字符串'You are not Alice, grannie.'被打印出来，剩下的语句自动跳过。别忘了，最多只有一个子句会执行，对于elif语句，次序是很重要的。&lt;/p&gt;
-&lt;p class="zw"&gt;图2-7展示了前面代码的流程图。请注意，菱形age &amp;gt; 100和age &amp;gt; 2000交换了位置。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_07.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00075.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图2-7 vampire2.py程序的流程图。打叉的路径在逻辑上永远不会发生，&lt;br/&gt;
-因为如果age大于2000，它就已经大于100了&lt;/p&gt;
-&lt;p class="zw"&gt;你可以选择在最后的elif语句后面加上else语句。在这种情况下，保证至少一个子句（且只有一个）会执行。如果每个if和elif语句中的条件都为False，就执行else子句。例如，让我们使用if、elif和else子句重新编写Alicee程序。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;if name == 'Alice':
-    print('Hi, Alice.')
-elif age &amp;lt; 12:
-    print('You are not Alice, kiddo.')
-else:
-    print('You are neither Alice nor a little kid.')&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;图2-8展示了这段新代码的流程图，我们将它保存为littleKid.py。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_08.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00076.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图2-8 前面littleKid.py程序的流程图&lt;/p&gt;
-&lt;p class="zw"&gt;在英语中，这类控制流结构会使得：“如果第一个条件为真，做这个。否则，如果第二个条件为真，做那个。否则，做另外的事。”如果你同时使用这3个语句，要记住这些次序规则，避免图2-7中那样的缺陷。首先，总是只有一个if语句。所有需要的elif语句都应该跟在if语句之后。其次，如果希望确保至少一条子句被执行，在最后加上else语句。&lt;/p&gt;
-&lt;h3 id="nav_point_53"&gt;2.7.4 while循环语句&lt;/h3&gt;
-&lt;p class="zw"&gt;利用while语句，可以让一个代码块一遍又一遍的执行。只要while语句的条件为True，while子句中的代码就会执行。在代码中，while语句总是包含下面几部分：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li class="第1级无序列表"&gt;关键字；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;条件（求值为True或False的表达式）；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;冒号；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;从新行开始，缩进的代码块（称为while子句）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p class="zw"&gt;可以看到，while语句看起来和if语句类似。不同之处是它们的行为。if子句结束时，程序继续执行if语句之后的语句。但在while子句结束时，程序执行跳回到while语句开始处。while子句常被称为“while循环”，或就是“循环”。&lt;/p&gt;
-&lt;p class="zw"&gt;让我们来看一个if语句和一个while循环。它们使用同样的条件，并基于该条件做出同样的动作。下面是if语句的代码：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;spam = 0
-if spam &amp;lt; 5:
-    print('Hello, world.')
-    spam = spam + 1&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;下面是while语句的代码：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;spam = 0
-while spam &amp;lt; 5:
-    print('Hello, world.')
-    spam = spam + 1&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;这些语句类似，if和while都检查spam的值，如果它小于５，就打印一条消息。但如果运行这两段代码，它们各自的表现非常不同。对于if语句，输出就是"Hello, world."。但对于while语句，输出是"Hello, world."重复了5次！看一看这两段代码的流程图，图2-9和2-10，找一找原因。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_10.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00077.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图2-9 if语句代码的流程图&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_09.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00078.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图2-10 while语句代码的流程图&lt;/p&gt;
-&lt;p class="zw"&gt;带有if语句的代码检查条件，如果条件为True，就打印一次"Hello, world."。带有while循环的代码则不同，会打印5次。打印5次后停下来是因为，在每次循环迭代末尾，spam中的整数都增加1。这意味着循环将执行5次，然后spam &amp;lt; 5变为False。&lt;/p&gt;
-&lt;p class="zw"&gt;在while循环中，条件总是在每次“迭代”开始时检查（也就是每次循环执行时）。如果条件为True，子句就会执行，然后，再次检查条件。当条件第一次为False时，while子句就跳过。&lt;/p&gt;
-&lt;h3 id="nav_point_54"&gt;2.7.5 恼人的循环&lt;/h3&gt;
-&lt;p class="zw"&gt;这里有一个小例子，它不停地要求你输入“your name”（就是这个字符串，而不是你的名字）。选择FileNew Window，打开一个新的文件编辑器窗口，输入以下代码，将文件保存为yourName.py：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ name = ''
-❷while name != 'your name':
-　    print('Please type your name.')
-❸     name = input()
-❹ print('Thank you!')
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;首先，程序将变量name❶设置为一个空字符串。这样，条件name != 'your name'就会求值为True，程序就会进入while循环的子句❷。&lt;/p&gt;
-&lt;p class="zw"&gt;这个子句内的代码要求用户输入他们的名字，然后赋给name变量❸。因为这是语句块的最后一行，所以执行就回到while循环的开始，重新对条件求值。如果name中的值“不等于”字符串'your name'，那么条件就为True，执行将再次进入while子句。&lt;/p&gt;
-&lt;p class="zw"&gt;但如果用户输入your name，while循环的条件就变成'your name' != 'your name'，它求值为False。条件现在是False，程序就不会再次进入while循环子句，而是跳过它，继续执行程序后面的部分❹。图2-11展示了yourName.py程序的流程图。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_11.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00079.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图2-11 yourName.py程序的流程图&lt;/p&gt;
-&lt;p class="zw"&gt;现在，让我们来看看yourName.py程序的效果。按F5键运行它，输几次your name之外的东西，然后再提供程序想要的输入。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;Please type your name.
-&lt;strong&gt;Al&lt;/strong&gt;
-Please type your name.
-&lt;strong&gt;Albert&lt;/strong&gt;
-Please type your name.
-&lt;strong&gt;%#@#%*(^&amp;amp;!!!&lt;/strong&gt;
-Please type your name.
-&lt;strong&gt;your name&lt;/strong&gt;
-Thank you!
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;如果永不输入your name，那么循环的条件就永远不会为False，程序将永远问下去。这里，input()调用让用户输入正确的字符串，以便让程序继续。在其他程序，条件可能永远没有实际变化，这可能会出问题。让我们来看看如何跳出循环。&lt;/p&gt;
-&lt;h3 id="nav_point_55"&gt;2.7.6 break语句&lt;/h3&gt;
-&lt;p class="zw"&gt;有一个捷径，让执行提前跳出while循环子句。如果执行遇到break语句，就会马上退出while循环子句。在代码中，break语句仅包含break关键字。&lt;/p&gt;
-&lt;p class="zw"&gt;非常简单，对吗？这里有一个程序，和前面的程序做一样的事情，但使用了break语句来跳出循环。输入以下代码，将文件保存为yourName2.py：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ while True:
-　    print('Please type your name.')
-❷    name = input()
-❸     if name == 'your name':
-❹         break
-❺ print('Thank you!')&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;第一行❶创建了一个“无限循环”，它是一个条件总是为True的while循环。（表达式True总是求值为True。）程序执行将总是进入循环，只有遇到break语句执行时才会退出（“永远不”退出的无限循环是一个常见的编程缺陷）。&lt;/p&gt;
-&lt;p class="zw"&gt;像以前一样，程序要求用户输入your name❷。但是现在，虽然执行仍然在while循环内，但有一个if语句会被执行❸，检查name是否等于your name。如果条件为True，break语句就会运行❹，执行就会跳出循环，转到print('Thank you!') ❺。否则，包含break语句的if语句子句就会跳过，让执行到达while循环的末尾。此时，程序执行跳回到while语句的开始❶，重新检查条件。因为条件是True，所以执行进入循环，再次要求用户输入your name。这个程序的流程图参见图2-12。&lt;/p&gt;
-&lt;p class="zw"&gt;运行yourName2.py，输入你为yourName.py程序输入的同样文本。重写的程序应该和原来的程序反应相同。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="..\automate02_12.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00080.jpg" style="width: 100%" width="100%"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图2-12 带有无限循环的程序的流程图。注意打叉路径在逻辑上&lt;br/&gt;
-永远不会发生，因为循环条件总是为True&lt;/p&gt;
-&lt;h3 id="nav_point_56"&gt;2.7.7 continue语句&lt;/h3&gt;
-&lt;p class="zw"&gt;像break语句一样，continue语句用于循环内部。如果程序执行遇到continue语句，就会马上跳回到循环开始处，重新对循环条件求值（这也是执行到达循环末尾时发生的事情）。&lt;/p&gt;
-&lt;p class="zw"&gt;让我们用continue写一个程序，要求输入名字和口令。在一个新的文件编辑窗口中输入以下代码，将程序保存为swordfish.py。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;　while True:
-　    print('Who are you?')
-　    name = input()
-❶     if name != 'Joe':
-❷        continue
-　    print('Hello, Joe. What is the password? (It is a fish.)')
-❸     password = input()
-　    if password == 'swordfish':
-❹         break
-❺ print('Access granted.')&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;如果用户输入的名字不是Joe❶，continue语句❷将导致程序执行跳回到循环开始处。再次对条件求值时，执行总是进入循环，因为条件就是True。如果执行通过了if语句，用户就被要求输入口令❸。如果输入的口令是swordfish，break语句运行❹，执行跳出while循环，打印Access granted❺。否则，执行继续到while循环的末尾，又跳回到循环的开始。这个程序的流程图参见图2-13。&lt;/p&gt;
-&lt;p class="editing-tag 超强提示标签"&gt;陷在无限循环中？&lt;/p&gt;
-&lt;blockquote class="超强提示 editing-block"&gt;
-&lt;p class="zw"&gt;&lt;br/&gt;
-&lt;/p&gt;
-如果你运行一个有缺陷的程序，导致陷在一个无限循环中，那么请按Ctrl-C。这将向程序发送KeyboardInterrupt错误，导致它立即停止。试一下，在文件编辑器中创建一个简单的无限循环，将它保存为infiniteloop.py。&lt;pre class="代码无行号"&gt;&lt;code&gt;while True:
-   print('Hello world!')&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;如果运行这个程序，它将永远在屏幕上打印Hello world！因为while语句的条件总是True。在IDLE的交互式环境窗口中，只有两种办法停止这个程序：按下Ctrl-C或从菜单中选择ShellRestart Shell。如果你希望马上停止程序，即使它不是陷在一个无限循环中，Ctrl-C也是很方便的。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="zw"&gt;运行这个程序，提供一些输入。只有你声称是Joe，它才会要求输入口令。一旦输入了正确的口令，它就会退出。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;Who are you?
-&lt;strong&gt;I'm fine, thanks. Who are you?&lt;/strong&gt;
-Who are you?
-&lt;strong&gt;Joe&lt;/strong&gt;
-Hello, Joe. What is the password? (It is a fish.)
-&lt;strong&gt;Mary&lt;/strong&gt;
-Who are you?
-&lt;strong&gt;Joe&lt;/strong&gt;
-Hello, Joe. What is the password? (It is a fish.)
-&lt;strong&gt;swordfish&lt;/strong&gt;
-Access granted.
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_13.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00081.jpg" style="width: 100%" width="100%"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图2-13 swordfish.py的流程图。打叉的路径在逻辑上永远不会执行，因为循环条件总是True&lt;/p&gt;
-&lt;h3 id="nav_point_57"&gt;2.7.8 for循环和range()函数&lt;/h3&gt;
-&lt;p class="zw"&gt;在条件为True时，while循环就会继续循环（这是它的名称的由来）。但如果你想让一个代码块执行固定次数，该怎么办？可以通过for循环语句和range()函数来实现。&lt;/p&gt;
-&lt;p class="editing-tag 超强提示标签"&gt;“类真”和“类假”的值&lt;/p&gt;
-&lt;blockquote class="超强提示 editing-block"&gt;
-&lt;p class="zw"&gt;&lt;br/&gt;
-&lt;/p&gt;
-其他数据类型中的某些值，条件认为它们等价于True和False。在用于条件时，0、0.0和' '（空字符串）被认为是False，其他值被认为是True。例如，请看下面的程序：&lt;pre class="代码无行号"&gt;&lt;code&gt;name = ''
-while not name:❶
-    print('Enter your name:')
-    name = input()
-print('How many guests will you have?')
-numOfGuests = int(input())
-if numOfGuests:❷
-    print('Be sure to have enough room for all your guests.')❸
-print('Done')&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;如果用户输入一个空字符串给name，那么while语句的条件就会是True ❶，程序继续要求输入名字。如果numOfGuests不是0 ❷，那么条件就被认为是True，程序就会为用户打印一条提醒信息❸。&lt;/p&gt;
-&lt;p class="zw"&gt;可以用not name != ' '代替not name，用numOfGuests != 0代替numOfGuests，但使用类真和类假的值会让代码更容易阅读。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p class="zw"&gt;在代码中，for语句看起来像for i in range(5):这样，总是包含以下部分：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li class="第1级无序列表"&gt;for关键字；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;一个变量名；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;in关键字；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;调用range()方法，最多传入3个参数；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;冒号；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;从下一行开始，缩进的代码块（称为for子句）。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p class="zw"&gt;让我们创建一个新的程序，名为fiveTimes.py，看看for循环的效果。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;print('My name is')
-for i in range(5):
-    print('Jimmy Five Times (' + str(i) + ')')&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;for循环子句中的代码运行了5次。第一次运行时，变量i被设为0。子句中的print()调用将打印出Jimmy Five Times (0)。Python完成for循环子句内所有代码的一次迭代之后，执行将回到循环的顶部，for语句让i增加1。这就是为什么range(5)导致子句的5次迭代，i分别被设置为0、1、2、3、4。变量i将递增到（但不包括）传递给range()函数的整数。图2-14展示了fiveTimes.py程序的流程图。&lt;/p&gt;
-&lt;p class="图"&gt;&lt;img alt="..\16-0403 换字\16-0403\automate02_14.tif" src="https://raw.githubusercontent.com/ZHENHUA001A307/RSS_STORAGE_SOCIALSCIENCE/main/image/26_Image00082.jpg"/&gt;
-&lt;/p&gt;
-&lt;p class="图题"&gt;图2-14 fiveTimes.py的流程图&lt;/p&gt;
-&lt;p class="zw"&gt;运行这个程序时，它将打印5次Jimmy Five Times和i的值，然后离开for循环。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;My name is
-Jimmy Five Times (0)
-Jimmy Five Times (1)
-Jimmy Five Times (2)
-Jimmy Five Times (3)
-Jimmy Five Times (4)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;也可以在循环中使用continue语句。continue语句将让for循环变量继续下一个值，就像程序执行已经到达循环的末尾并返回开始一样。实际上，只能在while和for循环内部使用continue和break语句。如果试图在别处使用这些语句，Python将报错。&lt;/p&gt;
-&lt;p class="zw"&gt;作为for循环的另一个例子，请考虑数学家高斯的故事。当高斯还是一个小孩时，老师想给全班同学布置很多计算作业。老师让他们从0加到100。高斯想到了一个聪明办法，在几秒钟内算出了答案，但你可以用for循环写一个Python程序，替你完成计算。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;❶ total = 0
-❷for num in range(101):
-❸     total = total + num
-❹ print(total)
-&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;结果应该是5050。程序刚开始时，total变量被设为0。然后for循环执行100次total = total + num。当循环完成100次迭代时，0到100的每个整数都加给了total。这时，total被打印到屏幕上。即使在最慢的计算机上，这个程序也不用1秒钟就能完成计算。&lt;/p&gt;
-&lt;p class="zw"&gt;（小高斯想到，有50对数加起来是100：1 + 99, 2 + 98, 3 + 97……直到49 + 51。因为50 × 100 是5000，再加上中间的50，所以0到100的所有数之和是5050。聪明的孩子！）&lt;/p&gt;
-&lt;h3 id="nav_point_58"&gt;2.7.9 等价的while循环&lt;/h3&gt;
-&lt;p class="zw"&gt;实际上可以用while循环来做和for循环同样的事，for循环只是更简洁。让我们用与for循环等价的while循环，重写fiveTimes.py。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;print('My name is')
-i = 0
-while i &amp;lt; 5:
-    print('Jimmy Five Times (' + str(i) + ')')
-    i = i + 1&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;运行这个程序，输出应该和使用for循环的fiveTimes.py程序一样。&lt;/p&gt;
-&lt;h3 id="nav_point_59"&gt;2.7.10 range()的开始、停止和步长参数&lt;/h3&gt;
-&lt;p class="zw"&gt;某些函数可以用多个参数调用，参数之间用逗号分开，range()就是其中之一。这让你能够改变传递给range()的整数，实现各种整数序列，包括从0以外的值开始。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;for i in range(12, 16):
-    print(i)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;第一个参数是for循环变量开始的值，第二个参数是上限，但不包含它，也就是循环停止的数字。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;12
-13
-14
-15&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;range()函数也可以有第三个参数。前两个参数分别是起始值和终止值，第三个参数是“步长”。步长是每次迭代后循环变量增加的值。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;for i in range(0, 10, 2):
-    print(i)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;所以调用range(0, 10, 2)将从0数到8，间隔为2。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;0
-2
-4
-6
-8&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;在为for循环生成序列数据方面，range()函数很灵活。举例来说，甚至可以用负数作为步长参数，让循环计数逐渐减少，而不是增加。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;for i in range(5, -1, -1):
-    print(i)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;运行一个for循环，用range(5, -1, -1)来打印i，结果将从5降至0。&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;5
-4
-3
-2
-1
-0&lt;/code&gt;
-&lt;/pre&gt;
-&lt;h2 id="nav_point_60"&gt;2.8 导入模块&lt;/h2&gt;
-&lt;p class="zw"&gt;Python程序可以调用一组基本的函数，这称为“内建函数”，包括你见到过的print()、input()和len()函数。Python也包括一组模块，称为“标准库”。每个模块都是一个Python程序，包含一组相关的函数，可以嵌入你的程序之中。例如，math模块有数学运算相关的函数，random模块有随机数相关的函数，等等。&lt;/p&gt;
-&lt;p class="zw"&gt;在开始使用一个模块中的函数之前，必须用import语句导入该模块。在代码中，import语句包含以下部分：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li class="第1级无序列表"&gt;import关键字；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;模块的名称；&lt;/li&gt;
-&lt;li class="第1级无序列表"&gt;可选的更多模块名称，之间用逗号隔开。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p class="zw"&gt;在导入一个模块后，就可以使用该模块中所有很酷的函数。让我们试一试random模块，它让我们能使用random.randint()函数。&lt;/p&gt;
-&lt;p class="zw"&gt;在文件编辑器中输入以下代码，保存为printRandom.py：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;import random
-for i in range(5):
-    print(random.randint(1, 10))&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;如果运行这个程序，输出看起来可能像这样：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;4
-1
-8
-4
-1&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;random.randint()函数调用求值为传递给它的两个整数之间的一个随机整数。因为randint()属于random模块，必须在函数名称之前先加上random.，告诉python在random模块中寻找这个函数。&lt;/p&gt;
-&lt;p class="zw"&gt;下面是import语句的例子，它导入了4个不同的模块：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;import random, sys, os, math&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;现在我们可以使用这4个模块中的所有函数。本书后面我们将学习更多的相关内容。&lt;/p&gt;
-&lt;h3 id="nav_point_61"&gt;from import语句&lt;/h3&gt;
-&lt;p class="zw"&gt;import语句的另一种形式包括from关键字，之后是模块名称，import关键字和一个星号，例如from random import *。&lt;/p&gt;
-&lt;p class="zw"&gt;使用这种形式的import语句，调用random模块中的函数时不需要random.前缀。但是，使用完整的名称会让代码更可读，所以最好是使用普通形式的import语句。&lt;/p&gt;
-&lt;h2 id="nav_point_62"&gt;2.9 用sys.exit()提前结束程序&lt;/h2&gt;
-&lt;p class="zw"&gt;要介绍的最后一个控制流概念，是如何终止程序。当程序执行到指令的底部时，总是会终止。但是，通过调用sys.exit()函数，可以让程序终止或退出。因为这个函数在sys模块中，所以必须先导入sys，才能使用它。&lt;/p&gt;
-&lt;p class="zw"&gt;打开一个新的文件编辑器窗口，输入以下代码。保存为exitExample.py：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;import sys
-while True:
-    print('Type exit to exit.')
-    response = input()
-    if response == 'exit':
-        sys.exit()
-    print('You typed ' + response + '.')&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;在IDLE中运行这个程序。该程序有一个无限循环，里面没有break语句。结束该程序的唯一方式，就是用户输入exit，导致sys.exit()被调用。如果response等于exit，程序就会中止。因为response变量由input()函数赋值，所以用户必须输入exit，才能停止该程序。&lt;/p&gt;
-&lt;h2 id="nav_point_63"&gt;2.10 小结&lt;/h2&gt;
-&lt;p class="zw"&gt;通过使用求值为True或False的表达式（也称为条件），你可以编写程序来决定哪些代码执行，哪些代码跳过。可以在循环中一遍又一遍地执行代码，只要某个条件求值为True。如果需要跳出循环或回到开始处，break和continue语句很有用。&lt;/p&gt;
-&lt;p class="zw"&gt;这些控制流语句让你写出非常聪明的程序。还有另一种类型的控制流，你可以通过编写自己的函数来实现。这是下一章的主题。&lt;/p&gt;
-&lt;h2 id="nav_point_64"&gt;2.11 习题&lt;/h2&gt;
-&lt;p class="zw"&gt;1．布尔数据类型的两个值是什么？如何拼写？&lt;/p&gt;
-&lt;p class="zw"&gt;2．3个布尔操作符是什么？&lt;/p&gt;
-&lt;p class="zw"&gt;3．写出每个布尔操作符的真值表（也就是操作数的每种可能组合，以及操作的结果）。&lt;/p&gt;
-&lt;p class="zw"&gt;4．以下表达式求值的结果是什么？&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;(5 &amp;gt; 4) and (3 == 5)
-not (5 &amp;gt; 4)
-(5 &amp;gt; 4) or (3 == 5)
-not ((5 &amp;gt; 4) or (3 == 5))
-(True and True) and (True == False)
-(not False) or (not True)&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;5．6个比较操作符是什么？&lt;/p&gt;
-&lt;p class="zw"&gt;6．等于操作符和赋值操作符的区别是什么？&lt;/p&gt;
-&lt;p class="zw"&gt;7．解释什么是条件，可以在哪里使用条件。&lt;/p&gt;
-&lt;p class="zw"&gt;8．识别这段代码中的3个语句块：&lt;/p&gt;
-&lt;pre class="代码无行号"&gt;&lt;code&gt;spam = 0
-if spam == 10:
-    print('eggs')
-    if spam &amp;gt; 5:
-        print('bacon')
-    else:
-        print('ham')
-    print('spam')
-print('spam')&lt;/code&gt;
-&lt;/pre&gt;
-&lt;p class="zw"&gt;9．编写代码，如果变量spam中存放1，就打印Hello，如果变量中存放2，就打印Howdy，如果变量中存放其他值，就打印Greetings!&lt;/p&gt;
-&lt;p class="zw"&gt;10．如果程序陷在一个无限循环中，你可以按什么键？&lt;/p&gt;
-&lt;p class="zw"&gt;11．break和continue之间的区别是什么？&lt;/p&gt;
-&lt;p class="zw"&gt;12．在for循环中，range(10)、range(0, 10)和range(0, 10, 1)之间的区别是什么？&lt;/p&gt;
-&lt;p class="zw"&gt;13．编写一小段程序，利用for循环，打印出从1到10的数字。然后利用while循环，编写一个等价的程序，打印出从1到10的数字。&lt;/p&gt;
-&lt;p class="zw"&gt;14．如果在名为spam的模块中，有一个名为bacon()的函数，那么在导入spam模块后，如何调用它？&lt;/p&gt;
-&lt;p class="zw"&gt;附加题：在因特网上查找round()和abs()函数，弄清楚它们的作用。在交互式环境中尝试使用它们。&lt;/p&gt;
-&lt;p class="zw"&gt;&lt;br style="page-break-after:always"/&gt;
-&lt;/p&gt;
-&lt;div&gt;&lt;/div&gt;
-</description>
-    <pubDate>Fri, 14 Aug 2026 01:42:23 +0000</pubDate>
-    <guid isPermaLink="false">26</guid>
-</item>
 </channel>
 </rss>
