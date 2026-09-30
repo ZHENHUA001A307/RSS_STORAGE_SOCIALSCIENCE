@@ -1,0 +1,297 @@
+﻿[
+    {
+        "index":  1,
+        "file":  "AutomaticApplicationPython - 025 - 第一部分 Python编程基础.epub",
+        "title":  "AutomaticApplicationPython - 025 - 第一部分 Python编程基础.epub"
+    },
+    {
+        "index":  2,
+        "file":  "AutomaticApplicationPython - 026 - 第2章 控制流.epub",
+        "title":  "AutomaticApplicationPython - 026 - 第2章 控制流.epub"
+    },
+    {
+        "index":  3,
+        "file":  "AutomaticApplicationPython - 027 - 第3章 函数.epub",
+        "title":  "AutomaticApplicationPython - 027 - 第3章 函数.epub"
+    },
+    {
+        "index":  4,
+        "file":  "AutomaticApplicationPython - 028 - 第4章 列表.epub",
+        "title":  "AutomaticApplicationPython - 028 - 第4章 列表.epub"
+    },
+    {
+        "index":  5,
+        "file":  "AutomaticApplicationPython - 029 - 第5章 字典和结构化数据.epub",
+        "title":  "AutomaticApplicationPython - 029 - 第5章 字典和结构化数据.epub"
+    },
+    {
+        "index":  6,
+        "file":  "AutomaticApplicationPython - 030 - 第6章 字符串操作.epub",
+        "title":  "AutomaticApplicationPython - 030 - 第6章 字符串操作.epub"
+    },
+    {
+        "index":  7,
+        "file":  "AutomaticApplicationPython - 031 - 第7章 模式匹配与正则表达式.epub",
+        "title":  "AutomaticApplicationPython - 031 - 第7章 模式匹配与正则表达式.epub"
+    },
+    {
+        "index":  8,
+        "file":  "AutomaticApplicationPython - 032 - 第8章 读写文件.epub",
+        "title":  "AutomaticApplicationPython - 032 - 第8章 读写文件.epub"
+    },
+    {
+        "index":  9,
+        "file":  "AutomaticApplicationPython - 033 - 第9章 组织文件.epub",
+        "title":  "AutomaticApplicationPython - 033 - 第9章 组织文件.epub"
+    },
+    {
+        "index":  10,
+        "file":  "AutomaticApplicationPython - 034 - 第10章 调试.epub",
+        "title":  "AutomaticApplicationPython - 034 - 第10章 调试.epub"
+    },
+    {
+        "index":  11,
+        "file":  "AutomaticApplicationPython - 035 - 第11章 从Web抓取信息.epub",
+        "title":  "AutomaticApplicationPython - 035 - 第11章 从Web抓取信息.epub"
+    },
+    {
+        "index":  12,
+        "file":  "AutomaticApplicationPython - 036 - 第12章 处理Excel电子表格.epub",
+        "title":  "AutomaticApplicationPython - 036 - 第12章 处理Excel电子表格.epub"
+    },
+    {
+        "index":  13,
+        "file":  "AutomaticApplicationPython - 037 - 第13章 处理PDF和Word文档.epub",
+        "title":  "AutomaticApplicationPython - 037 - 第13章 处理PDF和Word文档.epub"
+    },
+    {
+        "index":  14,
+        "file":  "AutomaticApplicationPython - 038 - 第14章 处理CSV文件和JSON数据.epub",
+        "title":  "AutomaticApplicationPython - 038 - 第14章 处理CSV文件和JSON数据.epub"
+    },
+    {
+        "index":  15,
+        "file":  "AutomaticApplicationPython - 039 - 第15章 保持时间、计划任务和启动程序.epub",
+        "title":  "AutomaticApplicationPython - 039 - 第15章 保持时间、计划任务和启动程序.epub"
+    },
+    {
+        "index":  16,
+        "file":  "AutomaticApplicationPython - 040 - 第16章 发送电子邮件和短信.epub",
+        "title":  "AutomaticApplicationPython - 040 - 第16章 发送电子邮件和短信.epub"
+    },
+    {
+        "index":  17,
+        "file":  "AutomaticApplicationPython - 041 - 第17章 操作图像.epub",
+        "title":  "AutomaticApplicationPython - 041 - 第17章 操作图像.epub"
+    },
+    {
+        "index":  18,
+        "file":  "AutomaticApplicationPython - 042 - 第18章 用GUI自动化控制键盘和鼠标.epub",
+        "title":  "AutomaticApplicationPython - 042 - 第18章 用GUI自动化控制键盘和鼠标.epub"
+    },
+    {
+        "index":  19,
+        "file":  "Basic Python - 001 - 第一部分 基础知识.epub",
+        "title":  "Basic Python - 001 - 第一部分 基础知识.epub"
+    },
+    {
+        "index":  20,
+        "file":  "Basic Python - 002 - 第 2 章 变量和简单数据类型.epub",
+        "title":  "Basic Python - 002 - 第 2 章 变量和简单数据类型.epub"
+    },
+    {
+        "index":  21,
+        "file":  "Basic Python - 003 - 第 3 章 列表简介.epub",
+        "title":  "Basic Python - 003 - 第 3 章 列表简介.epub"
+    },
+    {
+        "index":  22,
+        "file":  "Basic Python - 004 - 第 4 章 操作列表.epub",
+        "title":  "Basic Python - 004 - 第 4 章 操作列表.epub"
+    },
+    {
+        "index":  23,
+        "file":  "Basic Python - 005 - 第 5 章 if语句.epub",
+        "title":  "Basic Python - 005 - 第 5 章 if语句.epub"
+    },
+    {
+        "index":  24,
+        "file":  "Basic Python - 006 - 第 6 章 字典.epub",
+        "title":  "Basic Python - 006 - 第 6 章 字典.epub"
+    },
+    {
+        "index":  25,
+        "file":  "Basic Python - 007 - 第 7 章 用户输入和while循环.epub",
+        "title":  "Basic Python - 007 - 第 7 章 用户输入和while循环.epub"
+    },
+    {
+        "index":  26,
+        "file":  "Basic Python - 008 - 第 8 章 函数.epub",
+        "title":  "Basic Python - 008 - 第 8 章 函数.epub"
+    },
+    {
+        "index":  27,
+        "file":  "Basic Python - 009 - 第 9 章 类.epub",
+        "title":  "Basic Python - 009 - 第 9 章 类.epub"
+    },
+    {
+        "index":  28,
+        "file":  "Basic Python - 010 - 第 10 章 文件和异常.epub",
+        "title":  "Basic Python - 010 - 第 10 章 文件和异常.epub"
+    },
+    {
+        "index":  29,
+        "file":  "Basic Python - 011 - 第 11 章 测试代码.epub",
+        "title":  "Basic Python - 011 - 第 11 章 测试代码.epub"
+    },
+    {
+        "index":  30,
+        "file":  "Basic Python - 012 - 第二部分 项目.epub",
+        "title":  "Basic Python - 012 - 第二部分 项目.epub"
+    },
+    {
+        "index":  31,
+        "file":  "Basic Python - 013 - 第 13 章 外星人来了.epub",
+        "title":  "Basic Python - 013 - 第 13 章 外星人来了.epub"
+    },
+    {
+        "index":  32,
+        "file":  "Basic Python - 014 - 第 14 章 记分.epub",
+        "title":  "Basic Python - 014 - 第 14 章 记分.epub"
+    },
+    {
+        "index":  33,
+        "file":  "Basic Python - 015 - 项目2 数据可视化.epub",
+        "title":  "Basic Python - 015 - 项目2 数据可视化.epub"
+    },
+    {
+        "index":  34,
+        "file":  "Basic Python - 016 - 第 16 章 下载数据.epub",
+        "title":  "Basic Python - 016 - 第 16 章 下载数据.epub"
+    },
+    {
+        "index":  35,
+        "file":  "Basic Python - 017 - 第 17 章 使用API.epub",
+        "title":  "Basic Python - 017 - 第 17 章 使用API.epub"
+    },
+    {
+        "index":  36,
+        "file":  "Basic Python - 018 - 项目3 Web应用程序.epub",
+        "title":  "Basic Python - 018 - 项目3 Web应用程序.epub"
+    },
+    {
+        "index":  37,
+        "file":  "Basic Python - 019 - 第 19 章 用户账户.epub",
+        "title":  "Basic Python - 019 - 第 19 章 用户账户.epub"
+    },
+    {
+        "index":  38,
+        "file":  "Basic Python - 020 - 第 20 章 设置应用程序的样式并部署.epub",
+        "title":  "Basic Python - 020 - 第 20 章 设置应用程序的样式并部署.epub"
+    },
+    {
+        "index":  39,
+        "file":  "Basic Python - 021 - 附录 A 安装与故障排除.epub",
+        "title":  "Basic Python - 021 - 附录 A 安装与故障排除.epub"
+    },
+    {
+        "index":  40,
+        "file":  "Basic Python - 022 - 附录 B 文本编辑器与IDE.epub",
+        "title":  "Basic Python - 022 - 附录 B 文本编辑器与IDE.epub"
+    },
+    {
+        "index":  41,
+        "file":  "Basic Python - 023 - 附录 C 寻求帮助.epub",
+        "title":  "Basic Python - 023 - 附录 C 寻求帮助.epub"
+    },
+    {
+        "index":  42,
+        "file":  "Basic Python - 024 - 附录 D 使用Git进行版本控制.epub",
+        "title":  "Basic Python - 024 - 附录 D 使用Git进行版本控制.epub"
+    },
+    {
+        "index":  43,
+        "file":  "PythonProject - 043 - 第1章 解析iTunes播放列表.epub",
+        "title":  "PythonProject - 043 - 第1章 解析iTunes播放列表.epub"
+    },
+    {
+        "index":  44,
+        "file":  "PythonProject - 044 - 第2章 万花尺.epub",
+        "title":  "PythonProject - 044 - 第2章 万花尺.epub"
+    },
+    {
+        "index":  45,
+        "file":  "PythonProject - 045 - 第3章 Conway生命游戏.epub",
+        "title":  "PythonProject - 045 - 第3章 Conway生命游戏.epub"
+    },
+    {
+        "index":  46,
+        "file":  "PythonProject - 046 - 第4章 用Karplus-Strong算法产生音乐泛音.epub",
+        "title":  "PythonProject - 046 - 第4章 用Karplus-Strong算法产生音乐泛音.epub"
+    },
+    {
+        "index":  47,
+        "file":  "PythonProject - 047 - 第5章 类鸟群：仿真鸟群.epub",
+        "title":  "PythonProject - 047 - 第5章 类鸟群：仿真鸟群.epub"
+    },
+    {
+        "index":  48,
+        "file":  "PythonProject - 048 - 第6章 ASCII文本图形.epub",
+        "title":  "PythonProject - 048 - 第6章 ASCII文本图形.epub"
+    },
+    {
+        "index":  49,
+        "file":  "PythonProject - 049 - 第7章 照片马赛克.epub",
+        "title":  "PythonProject - 049 - 第7章 照片马赛克.epub"
+    },
+    {
+        "index":  50,
+        "file":  "PythonProject - 050 - 第8章 三维立体画.epub",
+        "title":  "PythonProject - 050 - 第8章 三维立体画.epub"
+    },
+    {
+        "index":  51,
+        "file":  "PythonProject - 051 - 第9章 理解OpenGL.epub",
+        "title":  "PythonProject - 051 - 第9章 理解OpenGL.epub"
+    },
+    {
+        "index":  52,
+        "file":  "PythonProject - 052 - 第10章 粒子系统.epub",
+        "title":  "PythonProject - 052 - 第10章 粒子系统.epub"
+    },
+    {
+        "index":  53,
+        "file":  "PythonProject - 053 - 第11章 体渲染.epub",
+        "title":  "PythonProject - 053 - 第11章 体渲染.epub"
+    },
+    {
+        "index":  54,
+        "file":  "PythonProject - 054 - 第12章 Arduino简介.epub",
+        "title":  "PythonProject - 054 - 第12章 Arduino简介.epub"
+    },
+    {
+        "index":  55,
+        "file":  "PythonProject - 055 - 第13章 激光音乐秀.epub",
+        "title":  "PythonProject - 055 - 第13章 激光音乐秀.epub"
+    },
+    {
+        "index":  56,
+        "file":  "PythonProject - 056 - 第14章 基于树莓派的天气监控器.epub",
+        "title":  "PythonProject - 056 - 第14章 基于树莓派的天气监控器.epub"
+    },
+    {
+        "index":  57,
+        "file":  "PythonProject - 057 - 附录A 软件安装.epub",
+        "title":  "PythonProject - 057 - 附录A 软件安装.epub"
+    },
+    {
+        "index":  58,
+        "file":  "PythonProject - 058 - 附录B 基础实用电子学.epub",
+        "title":  "PythonProject - 058 - 附录B 基础实用电子学.epub"
+    },
+    {
+        "index":  59,
+        "file":  "PythonProject - 059 - 附录C 树莓派的建议和技巧.epub",
+        "title":  "PythonProject - 059 - 附录C 树莓派的建议和技巧.epub"
+    }
+]
